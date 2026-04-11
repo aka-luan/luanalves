@@ -186,7 +186,7 @@ M6 (Three.js) pode começar em paralelo com M5 (Barba) desde que M4 esteja aprov
 
 ---
 
-## MILESTONE 3 — Motion Layer 1 — Entradas e Microinterações `[ PENDENTE ]`
+## MILESTONE 3 — Motion Layer 1 — Entradas e Microinterações `[ CONCLUÍDO ]`
 
 **Objetivo:** primeira camada de motion com GSAP — hero entrance, reveals por seção, stagger e microinterações.
 
@@ -203,19 +203,21 @@ M6 (Three.js) pode começar em paralelo com M5 (Barba) desde que M4 esteja aprov
 
 ### Tasks
 
-- [ ] Instalar e configurar GSAP + ScrollTrigger
-- [ ] Criar `scripts/gsap/utils.js` com funções reutilizáveis de animação
-- [ ] Hero entrance em `scripts/gsap/hero.js`:
-  - [ ] headline por linha com stagger (delay: 0ms, 80ms, 160ms...)
-  - [ ] subheadline com entrada suave posterior
-  - [ ] CTA com entrada após subheadline
-- [ ] Reveals por seção em `scripts/gsap/reveals.js` via `data-reveal`
-- [ ] Stagger nos cards de serviços
-- [ ] Hover refinado em botões, links e cards clicáveis
-- [ ] Garantir fallback: página legível e navegável sem JS
-- [ ] Confirmar que todos os valores usam os motion tokens definidos no topo deste arquivo — zero valores hardcoded
+- [x] Instalar e configurar GSAP + ScrollTrigger
+- [x] Criar `scripts/gsap/utils.js` com funções reutilizáveis de animação
+- [x] Hero entrance em `scripts/gsap/hero.js`:
+  - [x] headline por linha com stagger (delay: 0ms, 80ms, 160ms...)
+  - [x] subheadline com entrada suave posterior
+  - [x] CTA com entrada após subheadline
+- [x] Reveals por seção em `scripts/gsap/reveals.js` via `data-reveal`
+- [x] Stagger nos cards de serviços
+- [x] Hover refinado em botões, links e cards clicáveis
+- [x] Garantir fallback: página legível e navegável sem JS
+- [x] Confirmar que todos os valores usam os motion tokens definidos no topo deste arquivo — zero valores hardcoded
 
-**Critério de conclusão:** `astro dev` exibe hero animado com stagger; reveals ativam no scroll; hovers responsivos; `astro build` sem erros; LCP não degradado. ✓ ou ✗
+**Critério de conclusão:** `astro dev` exibe hero animado com stagger; reveals ativam no scroll; hovers responsivos; `astro build` sem erros; LCP não degradado. ✓
+
+**Status atual:** concluído. GSAP instalado, hero entrance com stagger, scroll reveals em todas as seções, stagger nos cards de serviços e processo, hovers com motion tokens, fallback no-js e prefers-reduced-motion implementados. Build e visual verificados.
 
 **Rollback:** desativar imports GSAP. Home continua navegável como estática.
 
@@ -387,7 +389,7 @@ M6 (Three.js) pode começar em paralelo com M5 (Barba) desde que M4 esteja aprov
 | M0        | Fundação Astro                    | ✅ Concluído |
 | M1        | Integração da home estática       | ✅ Concluído |
 | M2        | Componentização + responsividade  | ✅ Concluído |
-| M3        | Motion Layer 1 — Entradas         | ⬜ Pendente  |
+| M3        | Motion Layer 1 — Entradas         | ✅ Concluído |
 | M4        | Motion Layer 2 — Scroll Narrative | ⬜ Pendente  |
 | M5        | Sistema de páginas + Barba.js     | ⬜ Pendente  |
 | M6        | Three.js — Assinatura visual      | ⬜ Pendente  |
