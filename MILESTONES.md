@@ -103,6 +103,21 @@ Cada milestone deve:
 
 ---
 
+# 1.1. Status de execução
+
+- [x] M1 — Foundation / Astro Base
+- [x] M2 — Static Home Integration
+- [x] M3 — Componentization + Responsive Stability
+- [ ] M4 — Motion Layer 1
+- [ ] M5 — Motion Layer 2 (Scroll Narrative)
+- [ ] M6 — Page System + Barba
+- [ ] M7 — Three.js Signature Layer
+- [ ] M8 — Polish / SEO / Performance / Accessibility
+
+> Atualizar esta lista somente quando a milestone estiver implementada e aceita.
+
+---
+
 # 2. Arquitetura alvo
 
 ## Estrutura de pastas
