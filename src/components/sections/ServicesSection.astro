@@ -1,0 +1,47 @@
+---
+import GridCard from "../ui/GridCard.astro";
+import SectionHeading from "../ui/SectionHeading.astro";
+
+const services = [
+  {
+    index: "01",
+    title: "Sistemas Web",
+    copy: "Aplicações sob medida para automatizar o seu negócio.",
+    wide: true
+  },
+  {
+    index: "02",
+    title: "APIs & Integrações",
+    copy: "Conexão entre sistemas e ferramentas que você já usa."
+  },
+  {
+    index: "03",
+    title: "Consultoria",
+    copy: "Orientação técnica clara, sem jargão, sem enrolação."
+  }
+];
+---
+
+<section class="services section-shell" id="services" aria-labelledby="services-title" data-section="services">
+  <div class="page-shell">
+    <SectionHeading
+      eyebrow="O que eu faço"
+      title="Soluções digitais que acompanham a realidade do seu negócio."
+      id="services-title"
+    />
+
+    <div class="services-grid">
+      {
+        services.map((service) => (
+          <GridCard
+            className={`service-card${service.wide ? " service-card--wide" : ""}`}
+            index={service.index}
+          >
+            <h3>{service.title}</h3>
+            <p>{service.copy}</p>
+          </GridCard>
+        ))
+      }
+    </div>
+  </div>
+</section>

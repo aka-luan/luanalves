@@ -1,0 +1,23 @@
+---
+import Eyebrow from "./Eyebrow.astro";
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  id: string;
+  meta?: string;
+  split?: boolean;
+}
+
+const { eyebrow, title, id, meta, split = false } = Astro.props;
+---
+
+<div class:list={["section-heading", split && "section-heading--split"]}>
+  <div>
+    <Eyebrow>{eyebrow}</Eyebrow>
+    <h2 id={id} class="section-title" data-animate="reveal" data-reveal="fade-up">
+      {title}
+    </h2>
+  </div>
+  {meta && <p class="section-heading__meta">{meta}</p>}
+</div>

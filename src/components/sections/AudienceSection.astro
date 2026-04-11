@@ -1,0 +1,40 @@
+---
+import Eyebrow from "../ui/Eyebrow.astro";
+
+const audience = [
+  {
+    title: "Pequenas empresas em operação",
+    copy: "Times que já vendem, atendem e entregam, mas ainda dependem de processos manuais demais."
+  },
+  {
+    title: "Gestores sem tempo para ruído técnico",
+    copy: "Quem precisa decidir com clareza, sem navegar por jargão, moda ou excesso de ferramenta."
+  },
+  {
+    title: "Projetos que precisam fazer sentido",
+    copy: "Negócios que preferem solução certa ao invés de software inchado ou infraestrutura desnecessária."
+  }
+];
+---
+
+<section class="audience section-shell" aria-labelledby="audience-title" data-section="audience">
+  <div class="page-shell audience__layout">
+    <div>
+      <Eyebrow>Para quem é</Eyebrow>
+      <h2 id="audience-title" class="section-title" data-animate="reveal" data-reveal="fade-up">
+        Para negócios que querem crescer sem transformar tecnologia em peso.
+      </h2>
+    </div>
+
+    <div class="audience__list">
+      {
+        audience.map((item) => (
+          <article data-animate="reveal" data-reveal="fade-up">
+            <h3>{item.title}</h3>
+            <p>{item.copy}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

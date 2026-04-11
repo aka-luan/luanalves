@@ -1,238 +1,50 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import "../styles/sections/home.css";
+import SiteFooter from "../components/layout/SiteFooter.astro";
+import SiteHeader from "../components/layout/SiteHeader.astro";
+import AudienceSection from "../components/sections/AudienceSection.astro";
+import DifferenceSection from "../components/sections/DifferenceSection.astro";
+import FinalCTASection from "../components/sections/FinalCTASection.astro";
+import HeroSection from "../components/sections/HeroSection.astro";
+import ManifestoSection from "../components/sections/ManifestoSection.astro";
+import NarrativeBreak from "../components/sections/NarrativeBreak.astro";
+import ProcessSection from "../components/sections/ProcessSection.astro";
+import ServicesSection from "../components/sections/ServicesSection.astro";
+import "../styles/sections/index.css";
 ---
 
 <BaseLayout
   title="Luan Alves | Tecnologia que cabe no seu negócio"
   description="Sistemas sob medida para pequenas empresas que querem crescer sem depender de planilha."
 >
-  <header class="site-header">
-    <div class="site-header__inner page-shell">
-      <a class="site-mark" href="/" aria-label="Página inicial de Luan Alves">
-        <span>&#123;LA</span><span class="site-mark__accent">;</span><span>&#125;</span>
-      </a>
-      <nav class="site-nav" aria-label="Principal">
-        <a href="#manifesto">Manifesto</a>
-        <a href="#services">Serviços</a>
-        <a href="#process">Processo</a>
-        <a href="#contact">Contato</a>
-      </nav>
-      <a class="button button--ghost" href="#contact">Falar comigo</a>
-    </div>
-  </header>
+  <SiteHeader />
 
   <main>
-    <section class="hero section-shell" id="hero" aria-labelledby="hero-title">
-      <div class="hero__glow" aria-hidden="true"></div>
-      <div class="page-shell hero__layout">
-        <div class="hero__content">
-          <p class="eyebrow">Tecnologia clara para pequenas empresas</p>
-          <h1 id="hero-title" class="hero__title">
-            Tecnologia que cabe no seu <span>negócio</span>
-          </h1>
-          <p class="hero__lead">
-            Sistemas sob medida para pequenas empresas que querem crescer sem depender de planilha.
-          </p>
-          <div class="hero__actions">
-            <a class="button button--primary" href="#services">Ver projetos</a>
-            <a class="button button--ghost" href="#contact">Falar comigo</a>
-          </div>
-        </div>
-
-        <aside class="hero__panel" aria-label="Princípios de trabalho">
-          <div class="hero__signal">
-            <span class="hero__signal-line"></span>
-            <strong>Código limpo</strong>
-            <p>Estrutura sustentável para não virar retrabalho depois.</p>
-          </div>
-          <div class="hero__signal">
-            <span class="hero__signal-line"></span>
-            <strong>Integração real</strong>
-            <p>Conecta o que você já usa antes de propor outra ferramenta.</p>
-          </div>
-          <div class="hero__signal">
-            <span class="hero__signal-line"></span>
-            <strong>Performance</strong>
-            <p>Soluções leves, compreensíveis e prontas para crescer.</p>
-          </div>
-          <div class="hero__signal">
-            <span class="hero__signal-line"></span>
-            <strong>Direção clara</strong>
-            <p>Técnico o bastante para resolver, humano o bastante para explicar.</p>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="narrative-break narrative-break--dense section-shell" aria-labelledby="narrative-one-title">
-      <div class="page-shell">
-        <p class="eyebrow">Transição narrativa</p>
-        <h2 id="narrative-one-title" class="narrative-break__title">
-          Sem excesso. Sem mistério. Sem complicação.
-        </h2>
-      </div>
-    </section>
-
-    <section class="manifesto section-shell" id="manifesto" aria-labelledby="manifesto-title">
-      <div class="page-shell manifesto__layout">
-        <div>
-          <p class="eyebrow">Manifesto</p>
-          <h2 id="manifesto-title" class="section-title">
-            Empresas não precisam de tecnologia difícil. Precisam de clareza.
-          </h2>
-        </div>
-        <div class="manifesto__copy">
-          <p>
-            Eu ajudo a transformar necessidades técnicas em projetos que façam sentido na prática, do site à automação.
-          </p>
-          <p>
-            Tecnologia boa não complica a rotina. Ela reduz atrito, organiza operação e cria espaço para o negócio crescer.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="services section-shell" id="services" aria-labelledby="services-title">
-      <div class="page-shell">
-        <div class="section-heading">
-          <p class="eyebrow">O que eu faço</p>
-          <h2 id="services-title" class="section-title">Soluções digitais que acompanham a realidade do seu negócio.</h2>
-        </div>
-
-        <div class="services-grid">
-          <article class="service-card service-card--wide">
-            <p class="service-card__index">01</p>
-            <h3>Sistemas Web</h3>
-            <p>Aplicações sob medida para automatizar o seu negócio.</p>
-          </article>
-          <article class="service-card">
-            <p class="service-card__index">02</p>
-            <h3>APIs &amp; Integrações</h3>
-            <p>Conexão entre sistemas e ferramentas que você já usa.</p>
-          </article>
-          <article class="service-card">
-            <p class="service-card__index">03</p>
-            <h3>Consultoria</h3>
-            <p>Orientação técnica clara, sem jargão, sem enrolação.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="narrative-break section-shell" aria-labelledby="narrative-two-title">
-      <div class="page-shell">
-        <p class="eyebrow">Transição narrativa</p>
-        <h2 id="narrative-two-title" class="narrative-break__title">
-          Cada projeto começa entendendo contexto, operação e limite real.
-        </h2>
-      </div>
-    </section>
-
-    <section class="audience section-shell" aria-labelledby="audience-title">
-      <div class="page-shell audience__layout">
-        <div>
-          <p class="eyebrow">Para quem é</p>
-          <h2 id="audience-title" class="section-title">Para negócios que querem crescer sem transformar tecnologia em peso.</h2>
-        </div>
-
-        <div class="audience__list">
-          <article>
-            <h3>Pequenas empresas em operação</h3>
-            <p>Times que já vendem, atendem e entregam, mas ainda dependem de processos manuais demais.</p>
-          </article>
-          <article>
-            <h3>Gestores sem tempo para ruído técnico</h3>
-            <p>Quem precisa decidir com clareza, sem navegar por jargão, moda ou excesso de ferramenta.</p>
-          </article>
-          <article>
-            <h3>Projetos que precisam fazer sentido</h3>
-            <p>Negócios que preferem solução certa ao invés de software inchado ou infraestrutura desnecessária.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="difference section-shell" aria-labelledby="difference-title">
-      <div class="page-shell difference__panel">
-        <p class="eyebrow">Diferencial</p>
-        <h2 id="difference-title" class="section-title">
-          Eu não vendo complexidade. Eu construo solução.
-        </h2>
-        <p class="difference__copy">
-          Cada projeto começa entendendo o contexto do seu negócio. Sem empurrar o que você não precisa.
-        </p>
-      </div>
-    </section>
-
-    <section class="process section-shell" id="process" aria-labelledby="process-title">
-      <div class="page-shell">
-        <div class="section-heading section-heading--split">
-          <div>
-            <p class="eyebrow">Processo</p>
-            <h2 id="process-title" class="section-title">O caminho da clareza.</h2>
-          </div>
-          <p class="section-heading__meta">Etapas do projeto</p>
-        </div>
-
-        <ol class="process-grid">
-          <li class="process-card">
-            <span class="process-card__number">01</span>
-            <h3>Entendimento</h3>
-            <p>Mergulho profundo nos desafios e objetivos reais do seu negócio.</p>
-          </li>
-          <li class="process-card">
-            <span class="process-card__number">02</span>
-            <h3>Direção</h3>
-            <p>Definição da arquitetura e das ferramentas ideais para o seu contexto.</p>
-          </li>
-          <li class="process-card">
-            <span class="process-card__number">03</span>
-            <h3>Construção</h3>
-            <p>Desenvolvimento com foco em usabilidade, performance e leitura clara do problema.</p>
-          </li>
-          <li class="process-card">
-            <span class="process-card__number">04</span>
-            <h3>Entrega</h3>
-            <p>Acompanhamento na entrada em operação e suporte para evolução contínua.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="narrative-break narrative-break--compact section-shell" aria-labelledby="narrative-three-title">
-      <div class="page-shell">
-        <p class="eyebrow">Transição narrativa</p>
-        <h2 id="narrative-three-title" class="narrative-break__title">
-          Tecnologia clara, moderna e acessível nos primeiros minutos da conversa.
-        </h2>
-      </div>
-    </section>
-
-    <section class="final-cta section-shell" id="contact" aria-labelledby="contact-title">
-      <div class="page-shell final-cta__panel">
-        <p class="eyebrow">CTA final</p>
-        <h2 id="contact-title" class="section-title">Vamos conversar?</h2>
-        <p class="final-cta__copy">
-          Se você quer organizar processos, construir um sistema ou integrar ferramentas sem complicar sua operação,
-          eu posso ajudar.
-        </p>
-        <a class="button button--primary button--large" href="mailto:contato@luanalves.com.br">Falar comigo</a>
-      </div>
-    </section>
+    <HeroSection />
+    <NarrativeBreak
+      id="narrative-one-title"
+      title="Sem excesso. Sem mistério. Sem complicação."
+      dense={true}
+      sticky={true}
+    />
+    <ManifestoSection />
+    <ServicesSection />
+    <NarrativeBreak
+      id="narrative-two-title"
+      title="Cada projeto começa entendendo contexto, operação e limite real."
+      sticky={true}
+    />
+    <AudienceSection />
+    <DifferenceSection />
+    <ProcessSection />
+    <NarrativeBreak
+      id="narrative-three-title"
+      title="Tecnologia clara, moderna e acessível nos primeiros minutos da conversa."
+      compact={true}
+      sticky={true}
+    />
+    <FinalCTASection />
   </main>
 
-  <footer class="site-footer">
-    <div class="site-footer__inner page-shell">
-      <a class="site-mark" href="/" aria-label="Página inicial de Luan Alves">
-        <span>&#123;LA</span><span class="site-mark__accent">;</span><span>&#125;</span>
-      </a>
-      <p>© 2026 Luan Alves · luanalves.com.br</p>
-      <div class="site-footer__links">
-        <a href="#services">Serviços</a>
-        <a href="#process">Processo</a>
-        <a href="mailto:contato@luanalves.com.br">E-mail</a>
-      </div>
-    </div>
-  </footer>
+  <SiteFooter />
 </BaseLayout>

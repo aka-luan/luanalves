@@ -1,0 +1,32 @@
+---
+import Eyebrow from "../ui/Eyebrow.astro";
+
+interface Props {
+  title: string;
+  id: string;
+  compact?: boolean;
+  dense?: boolean;
+  sticky?: boolean;
+}
+
+const { title, id, compact = false, dense = false, sticky = false } = Astro.props;
+---
+
+<section
+  class:list={[
+    "narrative-break",
+    "section-shell",
+    dense && "narrative-break--dense",
+    compact && "narrative-break--compact"
+  ]}
+  aria-labelledby={id}
+  data-section="narrative"
+  data-sticky={sticky ? "true" : undefined}
+>
+  <div class="page-shell">
+    <Eyebrow>Transição narrativa</Eyebrow>
+    <h2 id={id} class="narrative-break__title" data-animate="reveal" data-reveal="fade-up">
+      {title}
+    </h2>
+  </div>
+</section>

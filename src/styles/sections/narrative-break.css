@@ -1,0 +1,17 @@
+.narrative-break {
+  background: rgba(7, 14, 22, 0.58);
+}
+
+.narrative-break--dense {
+  background:
+    linear-gradient(180deg, rgba(4, 10, 18, 0.96), rgba(12, 26, 41, 0.96)),
+    rgba(7, 14, 22, 0.64);
+}
+
+.narrative-break--compact {
+  padding-block: var(--space-4xl);
+}
+
+.narrative-break__title {
+  max-width: 12ch;
+}
