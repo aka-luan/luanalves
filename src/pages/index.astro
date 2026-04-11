@@ -1,50 +1,26 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import SiteFooter from "../components/layout/SiteFooter.astro";
-import SiteHeader from "../components/layout/SiteHeader.astro";
-import AudienceSection from "../components/sections/AudienceSection.astro";
-import DifferenceSection from "../components/sections/DifferenceSection.astro";
-import FinalCTASection from "../components/sections/FinalCTASection.astro";
-import HeroSection from "../components/sections/HeroSection.astro";
-import ManifestoSection from "../components/sections/ManifestoSection.astro";
-import NarrativeBreak from "../components/sections/NarrativeBreak.astro";
-import ProcessSection from "../components/sections/ProcessSection.astro";
-import ServicesSection from "../components/sections/ServicesSection.astro";
-import "../styles/sections/index.css";
+import Layout from '../layouts/Layout.astro';
+import TopNavBar from '../components/TopNavBar.astro';
+import Hero from '../components/Hero.astro';
+import Manifesto from '../components/Manifesto.astro';
+import Introduction from '../components/Introduction.astro';
+import Services from '../components/Services.astro';
+import Differentiation from '../components/Differentiation.astro';
+import Process from '../components/Process.astro';
+import FinalCTA from '../components/FinalCTA.astro';
+import Footer from '../components/Footer.astro';
 ---
 
-<BaseLayout
-  title="Luan Alves | Tecnologia que cabe no seu negócio"
-  description="Sistemas sob medida para pequenas empresas que querem crescer sem depender de planilha."
->
-  <SiteHeader />
-
+<Layout>
+  <TopNavBar />
   <main>
-    <HeroSection />
-    <NarrativeBreak
-      id="narrative-one-title"
-      title="Sem excesso. Sem mistério. Sem complicação."
-      dense={true}
-      sticky={true}
-    />
-    <ManifestoSection />
-    <ServicesSection />
-    <NarrativeBreak
-      id="narrative-two-title"
-      title="Cada projeto começa entendendo contexto, operação e limite real."
-      sticky={true}
-    />
-    <AudienceSection />
-    <DifferenceSection />
-    <ProcessSection />
-    <NarrativeBreak
-      id="narrative-three-title"
-      title="Tecnologia clara, moderna e acessível nos primeiros minutos da conversa."
-      compact={true}
-      sticky={true}
-    />
-    <FinalCTASection />
+    <Hero />
+    <Manifesto />
+    <Introduction />
+    <Services />
+    <Differentiation />
+    <Process />
+    <FinalCTA />
   </main>
-
-  <SiteFooter />
-</BaseLayout>
+  <Footer />
+</Layout>
