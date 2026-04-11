@@ -76,13 +76,13 @@ Todas as outras milestones são estritamente sequenciais.
 
 ## Stack técnica
 
-| Camada               | Tecnologia                         |
-| -------------------- | ---------------------------------- |
-| Framework            | Astro                              |
-| Animações gerais     | GSAP + ScrollTrigger               |
-| Transições de página | Barba.js                           |
-| Camada 3D            | Three.js (pontual)                 |
-| HTML base            | gerado pelo Stitch (input externo) |
+| Camada               | Tecnologia                                        |
+| -------------------- | ------------------------------------------------- |
+| Framework            | Astro                                             |
+| Animações gerais     | GSAP + ScrollTrigger                              |
+| Transições de página | Barba.js                                          |
+| Camada 3D            | Three.js (pontual)                                |
+| HTML base            | gerado pelo Stitch (input externo em stitch.html) |
 
 ---
 

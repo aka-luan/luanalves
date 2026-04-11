@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-br">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Luan Alves | Tecnologia com Propósito</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@200;300;400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-container": "#744c00",
+            "tertiary-container": "#ffbd5b",
+            "secondary-fixed-dim": "#a4c9ff",
+            "tertiary-fixed-dim": "#fcba59",
+            "on-error": "#690005",
+            "primary-container": "#00e5a0",
+            "on-error-container": "#ffdad6",
+            "surface-container-highest": "#2b3643",
+            "primary-fixed": "#47ffb8",
+            "surface-dim": "#091420",
+            "surface": "#091420",
+            "surface-bright": "#2f3a47",
+            "primary": "#6effc0",
+            "on-primary": "#003824",
+            "on-primary-fixed": "#002114",
+            "on-tertiary": "#452b00",
+            "on-secondary": "#00315d",
+            "surface-container-low": "#121c29",
+            "surface-container": "#16202d",
+            "on-secondary-fixed": "#001c39",
+            "inverse-primary": "#006c49",
+            "on-primary-container": "#006141",
+            "secondary": "#a4c9ff",
+            "on-secondary-container": "#a3c8ff",
+            "on-surface-variant": "#bacbbf",
+            "on-primary-fixed-variant": "#005236",
+            "on-background": "#d8e3f5",
+            "secondary-fixed": "#d4e3ff",
+            "inverse-on-surface": "#27313e",
+            "error": "#ffb4ab",
+            "on-tertiary-fixed-variant": "#624000",
+            "tertiary": "#ffe1bb",
+            "surface-container-high": "#202b38",
+            "on-secondary-fixed-variant": "#004883",
+            "surface-variant": "#2b3643",
+            "surface-tint": "#00e29e",
+            "outline-variant": "#3b4a41",
+            "on-surface": "#d8e3f5",
+            "primary-fixed-dim": "#00e29e",
+            "secondary-container": "#005398",
+            "background": "#091420",
+            "inverse-surface": "#d8e3f5",
+            "on-tertiary-fixed": "#291800",
+            "tertiary-fixed": "#ffddb3",
+            "surface-container-lowest": "#040f1b",
+            "outline": "#84958a",
+            "error-container": "#93000a"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "fontFamily": {
+            "headline": ["Space Grotesk"],
+            "body": ["Manrope"],
+            "label": ["Inter"]
+          }
+        },
+      },
+    }
+  </script>
+  <style>
+    body {
+      background-color: #091420;
+      background-image: radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.03) 1px, transparent 0);
+      background-size: 40px 40px;
+    }
+
+    .text-glow {
+      text-shadow: 0 0 60px rgba(0, 229, 160, 0.3);
+    }
+
+    .glass-card {
+      backdrop-filter: blur(12px);
+      background: rgba(43, 54, 67, 0.2);
+    }
+
+    .hero-title {
+      line-height: 0.82;
+      letter-spacing: -0.06em;
+    }
+
+    .text-huge {
+      font-size: clamp(4rem, 15vw, 16rem);
+    }
+  </style>
+</head>
+
+<body class="font-body text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container">
+  <!-- TopNavBar -->
+  <nav
+    class="fixed top-0 w-full z-50 flex justify-between items-center px-8 py-10 max-w-[1440px] left-1/2 -translate-x-1/2 bg-[#091420]/60 backdrop-blur-md">
+    <div class="text-2xl font-bold text-slate-50 font-['Space_Grotesk'] tracking-tight">
+      {LA<span class="text-[#00E5A0]">;</span>}
+    </div>
+    <div class="hidden md:flex items-center gap-12">
+      <a class="text-[#00E5A0] font-bold font-['Space_Grotesk'] tracking-tight hover:opacity-80 transition-all"
+        href="#">Serviços</a>
+      <a class="text-slate-400 font-medium font-['Space_Grotesk'] tracking-tight hover:text-[#00E5A0] transition-colors duration-500 ease-in-out"
+        href="#">Manifesto</a>
+      <a class="text-slate-400 font-medium font-['Space_Grotesk'] tracking-tight hover:text-[#00E5A0] transition-colors duration-500 ease-in-out"
+        href="#">Processo</a>
+      <a class="text-slate-400 font-medium font-['Space_Grotesk'] tracking-tight hover:text-[#00E5A0] transition-colors duration-500 ease-in-out"
+        href="#">Contato</a>
+    </div>
+    <button
+      class="border border-outline-variant text-on-surface px-8 py-3 rounded-full font-bold text-sm hover:bg-surface-bright hover:border-primary transition-all duration-500">
+      Falar com o Luan
+    </button>
+  </nav>
+  <main>
+    <!-- Section 1: Hero (Big Ass Typography) -->
+    <section class="min-h-screen flex flex-col justify-center px-8 md:px-20 pt-48 pb-32 relative overflow-hidden">
+      <div
+        class="absolute top-[-10%] right-[-10%] w-[800px] h-[800px] bg-primary-container/5 blur-[160px] rounded-full -z-10">
+      </div>
+      <div class="max-w-[1440px] mx-auto w-full">
+        <h1 class="font-headline text-huge font-bold hero-title mb-24 uppercase">
+          Tecnologia <br />que cabe no <br />
+          <span class="text-glow italic text-primary-fixed">seu negócio</span>
+        </h1>
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-12 border-t border-white/10 pt-16">
+          <div class="flex flex-wrap gap-6">
+            <button
+              class="group relative px-12 py-5 rounded-full font-bold text-lg overflow-hidden transition-all duration-500">
+              <span class="relative z-10 text-on-primary">Começar projeto</span>
+              <div
+                class="absolute inset-0 bg-primary-container group-hover:scale-105 transition-transform duration-500">
+              </div>
+            </button>
+            <button
+              class="group px-12 py-5 rounded-full font-bold text-lg border border-outline-variant hover:border-primary transition-all duration-500">
+              <span class="text-on-surface-variant group-hover:text-primary">Ver soluções</span>
+            </button>
+          </div>
+          <!-- Redesigned Grid Section -->
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-x-12 gap-y-8">
+            <div class="flex flex-col gap-2 group cursor-default">
+              <div class="h-px w-8 bg-primary/40 group-hover:w-full transition-all duration-700"></div>
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary text-xl"
+                  style="font-variation-settings: 'wght' 200">terminal</span>
+                <span
+                  class="font-label text-[10px] uppercase tracking-[0.25em] text-on-surface-variant font-medium">Clean
+                  Code</span>
+              </div>
+            </div>
+            <div class="flex flex-col gap-2 group cursor-default">
+              <div class="h-px w-8 bg-primary/40 group-hover:w-full transition-all duration-700"></div>
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary text-xl"
+                  style="font-variation-settings: 'wght' 200">architecture</span>
+                <span
+                  class="font-label text-[10px] uppercase tracking-[0.25em] text-on-surface-variant font-medium">Editorial
+                  UI</span>
+              </div>
+            </div>
+            <div class="flex flex-col gap-2 group cursor-default">
+              <div class="h-px w-8 bg-primary/40 group-hover:w-full transition-all duration-700"></div>
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary text-xl"
+                  style="font-variation-settings: 'wght' 200">bolt</span>
+                <span
+                  class="font-label text-[10px] uppercase tracking-[0.25em] text-on-surface-variant font-medium">Performance</span>
+              </div>
+            </div>
+            <div class="flex flex-col gap-2 group cursor-default">
+              <div class="h-px w-8 bg-primary/40 group-hover:w-full transition-all duration-700"></div>
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary text-xl"
+                  style="font-variation-settings: 'wght' 200">strategy</span>
+                <span
+                  class="font-label text-[10px] uppercase tracking-[0.25em] text-on-surface-variant font-medium">Strategy</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Section 2: Manifesto -->
+    <section class="py-60 px-8 bg-surface-container-lowest">
+      <div class="max-w-[1440px] mx-auto text-center space-y-8">
+        <div class="overflow-hidden">
+          <h2
+            class="font-headline text-6xl md:text-[11rem] font-bold leading-none tracking-tighter text-surface-bright opacity-50">
+            SEM EXCESSO.
+          </h2>
+        </div>
+        <div class="overflow-hidden">
+          <h2 class="font-headline text-6xl md:text-[11rem] font-bold leading-none tracking-tighter text-primary">
+            SEM MISTÉRIO.
+          </h2>
+        </div>
+        <div class="overflow-hidden">
+          <h2
+            class="font-headline text-6xl md:text-[11rem] font-bold leading-none tracking-tighter text-surface-bright opacity-50">
+            SEM COMPLICAÇÃO.
+          </h2>
+        </div>
+      </div>
+    </section>
+    <!-- Section 3: Introduction -->
+    <section class="py-60 px-8">
+      <div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-24">
+        <div class="md:col-span-8">
+          <h3 class="font-headline text-5xl md:text-8xl font-bold leading-[1.1] tracking-tight">
+            Empresas não precisam de tecnologia difícil. Precisam de <span class="text-secondary italic">clareza.</span>
+          </h3>
+        </div>
+        <div class="md:col-span-4 flex flex-col justify-end">
+          <p class="font-body text-xl md:text-2xl text-on-surface-variant leading-relaxed mb-8">
+            Eu ajudo a transformar necessidades técnicas em projetos que façam sentido na prática — do site à automação.
+          </p>
+          <div class="h-px w-24 bg-primary opacity-50"></div>
+        </div>
+      </div>
+    </section>
+    <!-- Section 4: Services (Bento Grid Style) -->
+    <section class="py-20 px-8 max-w-[1440px] mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div
+          class="md:col-span-2 bg-surface-container-low p-16 rounded-xl group hover:bg-surface-container-high transition-all duration-500 border border-white/5">
+          <span class="material-symbols-outlined text-primary text-5xl mb-12"
+            style="font-variation-settings: 'FILL' 1;">language</span>
+          <h4 class="font-headline text-4xl font-bold mb-6">Sites profissionais</h4>
+          <p class="text-on-surface-variant text-xl max-w-md">Desenvolvimento de plataformas que não apenas existem, mas
+            convertem visitantes em clientes através de design editorial.</p>
+        </div>
+        <!-- Card 2 -->
+        <div
+          class="bg-surface-container-low p-16 rounded-xl group hover:bg-surface-container-high transition-all duration-500 border border-white/5">
+          <span class="material-symbols-outlined text-primary text-5xl mb-12"
+            style="font-variation-settings: 'FILL' 1;">developer_board</span>
+          <h4 class="font-headline text-4xl font-bold mb-6">Sistemas</h4>
+          <p class="text-on-surface-variant text-xl">Softwares internos desenhados especificamente para o fluxo da sua
+            equipe.</p>
+        </div>
+        <!-- Card 3 -->
+        <div
+          class="bg-surface-container-low p-16 rounded-xl group hover:bg-surface-container-high transition-all duration-500 border border-white/5">
+          <span class="material-symbols-outlined text-primary text-5xl mb-12"
+            style="font-variation-settings: 'FILL' 1;">psychology</span>
+          <h4 class="font-headline text-4xl font-bold mb-6">Consultoria</h4>
+          <p class="text-on-surface-variant text-xl">Direcionamento técnico para quem sabe onde quer chegar mas busca a
+            ferramenta ideal.</p>
+        </div>
+        <!-- Card 4 -->
+        <div
+          class="md:col-span-2 bg-primary-container p-16 rounded-xl group transition-all duration-500 border border-white/5 flex flex-col justify-between">
+          <div>
+            <span class="material-symbols-outlined text-on-primary text-5xl mb-12"
+              style="font-variation-settings: 'FILL' 1;">autorenew</span>
+            <h4 class="font-headline text-4xl font-bold text-on-primary mb-6">Automação de processos</h4>
+            <p class="text-on-primary-container text-xl max-w-md">Elimine tarefas repetitivas e deixe que a tecnologia
+              trabalhe por você enquanto foca no que realmente importa.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Section 5: Differentiation -->
+    <section class="py-60 px-8 relative overflow-hidden">
+      <div class="absolute -left-20 top-0 w-96 h-96 bg-secondary/10 blur-[120px] rounded-full"></div>
+      <div class="max-w-5xl mx-auto text-center">
+        <h3 class="font-headline text-6xl md:text-[7rem] font-bold mb-12 leading-[1] tracking-tighter">
+          Eu não vendo complexidade. <span
+            class="text-primary underline underline-offset-[16px] decoration-1 opacity-90">Eu construo solução.</span>
+        </h3>
+        <p class="font-body text-2xl md:text-3xl text-on-surface-variant leading-relaxed max-w-3xl mx-auto">
+          Cada projeto começa entendendo o contexto do seu negócio. Sem empurrar o que você não precisa.
+        </p>
+      </div>
+    </section>
+    <!-- Section 6: Process -->
+    <section class="py-40 px-8 bg-surface-container-low">
+      <div class="max-w-[1440px] mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+          <h3 class="font-headline text-6xl font-bold leading-tight">O caminho <br />da clareza.</h3>
+          <p class="font-label text-sm uppercase tracking-[0.4em] text-outline pb-2">Etapas do projeto</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-px bg-white/5">
+          <div class="bg-surface-container-low p-12 group hover:bg-surface-container-high transition-colors">
+            <span
+              class="font-headline text-8xl font-light text-primary/20 group-hover:text-primary transition-colors block mb-12">01</span>
+            <h5 class="font-headline text-2xl font-bold mb-4">Entendimento</h5>
+            <p class="text-on-surface-variant">Mergulho profundo nos desafios e objetivos reais do seu negócio.</p>
+          </div>
+          <div class="bg-surface-container-low p-12 group hover:bg-surface-container-high transition-colors">
+            <span
+              class="font-headline text-8xl font-light text-primary/20 group-hover:text-primary transition-colors block mb-12">02</span>
+            <h5 class="font-headline text-2xl font-bold mb-4">Direção</h5>
+            <p class="text-on-surface-variant">Definição da arquitetura e das ferramentas ideais para o seu contexto.
+            </p>
+          </div>
+          <div class="bg-surface-container-low p-12 group hover:bg-surface-container-high transition-colors">
+            <span
+              class="font-headline text-8xl font-light text-primary/20 group-hover:text-primary transition-colors block mb-12">03</span>
+            <h5 class="font-headline text-2xl font-bold mb-4">Construção</h5>
+            <p class="text-on-surface-variant">Desenvolvimento ágil com foco total em usabilidade e performance.</p>
+          </div>
+          <div class="bg-surface-container-low p-12 group hover:bg-surface-container-high transition-colors">
+            <span
+              class="font-headline text-8xl font-light text-primary/20 group-hover:text-primary transition-colors block mb-12">04</span>
+            <h5 class="font-headline text-2xl font-bold mb-4">Entrega</h5>
+            <p class="text-on-surface-variant">Acompanhamento no lançamento e suporte contínuo para evolução.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Section 7: Final CTA -->
+    <section class="py-80 px-8 relative">
+      <div class="max-w-5xl mx-auto text-center">
+        <h3 class="font-headline text-5xl md:text-8xl font-bold mb-12 leading-none tracking-tighter">
+          Pronto para a <br /><span class="text-primary italic">solução certa?</span>
+        </h3>
+        <p class="font-body text-xl md:text-2xl text-on-surface-variant mb-20 max-w-2xl mx-auto opacity-80">
+          Vamos conversar sobre como a tecnologia pode servir ao seu propósito, não o contrário.
+        </p>
+        <button
+          class="group relative px-16 py-8 rounded-full font-bold text-2xl overflow-hidden transition-all duration-500 inline-flex items-center gap-6">
+          <span class="relative z-10 text-on-primary">Falar com o Luan</span>
+          <span
+            class="material-symbols-outlined relative z-10 text-on-primary group-hover:translate-x-2 transition-transform">arrow_forward</span>
+          <div class="absolute inset-0 bg-primary-container group-hover:scale-105 transition-transform duration-500">
+          </div>
+        </button>
+      </div>
+    </section>
+  </main>
+  <!-- Footer -->
+  <footer
+    class="bg-[#091420] w-full flex flex-col md:flex-row justify-between items-center gap-12 border-t border-white/5 py-24 px-8">
+    <div class="text-3xl font-bold text-slate-50 font-['Space_Grotesk'] tracking-tight">
+      {LA<span class="text-[#00E5A0]">;</span>}
+    </div>
+    <div class="font-['Manrope'] text-sm tracking-widest uppercase text-slate-500">
+      © 2024 Luan Alves. Tecnologia com propósito.
+    </div>
+    <div class="flex gap-12">
+      <a class="font-['Manrope'] text-sm tracking-widest uppercase text-slate-500 hover:text-[#00E5A0] transition-all duration-300 opacity-80"
+        href="#">LinkedIn</a>
+      <a class="font-['Manrope'] text-sm tracking-widest uppercase text-slate-500 hover:text-[#00E5A0] transition-all duration-300 opacity-80"
+        href="#">GitHub</a>
+      <a class="font-['Manrope'] text-sm tracking-widest uppercase text-slate-500 hover:text-[#00E5A0] transition-all duration-300 opacity-80"
+        href="#">E-mail</a>
+    </div>
+  </footer>
+</body>
+
+</html>
