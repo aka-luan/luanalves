@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A static recreation of the WorldQuant Foundry landing page with custom canvas-driven motion and reused downloaded assets."
+    />
+    <title>WorldQuant Foundry Clone</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@400,500,600,700&display=swap"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header" id="top">
+      <div class="header-pill">
+        <a class="brand" href="#top" aria-label="WorldQuant Foundry Clone">
+          <span class="brand-mark" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+          <span class="brand-wordmark">
+            <span>WORLDQUANT</span>
+            <strong>FOUNDRY</strong>
+          </span>
+        </a>
+
+        <nav class="site-nav" aria-label="Primary">
+          <a href="#ethos">Why WQF</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#team">Team</a>
+          <a href="#focus">Insights</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero panel-dark">
+        <canvas class="scene-canvas" data-scene="hero" aria-hidden="true"></canvas>
+        <div class="shell hero-shell">
+          <div class="eyebrow" data-reveal>WorldQuant Foundry</div>
+
+          <div class="hero-grid">
+            <div class="hero-copy hero-copy-left">
+              <span class="hero-kicker" data-reveal>Forging</span>
+              <h1 class="hero-title" data-reveal>Companies That</h1>
+            </div>
+
+            <div class="hero-copy hero-copy-right">
+              <h1 class="hero-title hero-title-tight" data-reveal>
+                Pull The Future Forward
+              </h1>
+              <p class="hero-summary" data-reveal>
+                WorldQuant Foundry is a venture lab that empowers breakthrough
+                founders to pull the future forward. Capital. Connections.
+                Mentorship. Full-stack support. We deliver more than
+                resources. We create the infrastructure for scale.
+              </p>
+              <a class="corner-button" href="#contact" data-reveal>Contact us</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ethos panel-light" id="ethos">
+        <div class="shell">
+          <div class="section-split">
+            <div data-reveal>
+              <p class="section-label">Our ethos</p>
+              <h2 class="section-title">Vision matters. Velocity wins.</h2>
+            </div>
+            <div class="section-copy" data-reveal>
+              <p>
+                Our comprehensive founder platform shifts the odds. With
+                infrastructure that works. With experts who have been there.
+                With the right pressure, pushing you forward, not under. This
+                is not an accelerator. It is complete company building, at the
+                speed deep tech demands.
+              </p>
+              <a class="corner-button corner-button-dark" href="#team">Join us</a>
+            </div>
+          </div>
+
+          <div class="ethos-grid">
+            <article class="feature-card feature-card-dark" data-reveal>
+              <div class="feature-card__top">
+                <p class="feature-card__count">01 / 04</p>
+                <h3>Exponential foresight</h3>
+              </div>
+              <img
+                src="./assets/icons/exponential-foresight-icon.svg"
+                alt=""
+                class="feature-card__art"
+              />
+              <p>
+                We spot industry trends before they permeate the market and turn
+                them into companies that matter.
+              </p>
+            </article>
+
+            <article class="feature-card feature-card-teal" data-reveal>
+              <div class="feature-card__top">
+                <p class="feature-card__count">02 / 04</p>
+                <h3>Full-stack support</h3>
+              </div>
+              <img
+                src="./assets/icons/full-stack-support-icon.svg"
+                alt=""
+                class="feature-card__art"
+              />
+              <p>
+                Brand, marketing, performance, legal, ops, finance, funding and
+                development from day one.
+              </p>
+            </article>
+
+            <article class="feature-card feature-card-orange" data-reveal>
+              <div class="feature-card__top">
+                <p class="feature-card__count">03 / 04</p>
+                <h3>Financial stability</h3>
+              </div>
+              <img
+                src="./assets/icons/financial-support-icon.svg"
+                alt=""
+                class="feature-card__art"
+              />
+              <p>
+                Breakthrough thinking should not compete with rent. Builders get
+                runway and operational stability from the start.
+              </p>
+            </article>
+
+            <article class="feature-card feature-card-ivory" data-reveal>
+              <div class="feature-card__top">
+                <p class="feature-card__count">04 / 04</p>
+                <h3>Intelligent iteration</h3>
+              </div>
+              <img
+                src="./assets/icons/intelligent-iteration-icon.svg"
+                alt=""
+                class="feature-card__art"
+              />
+              <p>
+                No drawn-out curriculum. Just ruthless focus on product-market
+                fit, launch velocity and market entry.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="founders panel-dark">
+        <canvas
+          class="scene-canvas scene-canvas--contained"
+          data-scene="founders"
+          aria-hidden="true"
+        ></canvas>
+        <div class="shell founders-shell">
+          <div class="founders-stack">
+            <article class="stack-card stack-card-teal corner-frame" data-reveal>
+              <span class="stack-card__number">01</span>
+              <h3>Move at the speed of breakthrough.</h3>
+              <p>
+                Start building today with expert support, capital on demand and
+                market focus.
+              </p>
+            </article>
+
+            <article class="stack-card stack-card-orange corner-frame" data-reveal>
+              <span class="stack-card__number">02</span>
+              <h3>Full-stack infrastructure, ready from day one.</h3>
+              <p>
+                Launch-ready operations, lean teams and founder salaries paid
+                from the start.
+              </p>
+            </article>
+          </div>
+
+          <div class="founders-copy" data-reveal>
+            <p class="section-label">Founders</p>
+            <h2 class="section-title section-title-light">
+              Build fast, with zero friction and total focus.
+            </h2>
+            <p class="section-copy section-copy-light">
+              Skip the noise and build with a launch-ready team, deep
+              resources, and immediate market access from day one.
+            </p>
+            <a class="corner-button" href="#contact">Build with us</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="focus panel-light" id="focus">
+        <canvas
+          class="scene-canvas scene-canvas--soft"
+          data-scene="focus"
+          aria-hidden="true"
+        ></canvas>
+        <div class="shell focus-shell">
+          <div class="focus-intro" data-reveal>
+            <p class="section-label">Our focus</p>
+            <h2 class="section-title">Exponential technologies. Trillion-dollar markets.</h2>
+            <p class="section-copy">
+              AI, biotech, robotics, blockchain, NewSpace. These are
+              generational leaps that solve humanity's hardest challenges, and
+              they move faster than convention. So do we.
+            </p>
+          </div>
+
+          <div class="focus-stage">
+            <div class="focus-highlight corner-frame" data-reveal>
+              <p class="focus-highlight__eyebrow" id="focus-index">01 / 08</p>
+              <h3 id="focus-name">Advanced Mobility</h3>
+              <p id="focus-description">
+                Autonomous aviation, smart transit and sustainable transport
+                reshaping movement.
+              </p>
+            </div>
+
+            <div class="focus-list" data-reveal>
+              <button class="focus-item is-active" data-index="01 / 08" data-description="Autonomous aviation, smart transit and sustainable transport reshaping movement.">
+                Advanced Mobility
+              </button>
+              <button class="focus-item" data-index="02 / 08" data-description="Transforming industries through data, automation and intelligence at scale.">
+                Artificial Intelligence
+              </button>
+              <button class="focus-item" data-index="03 / 08" data-description="Engineering breakthrough treatments and extending human potential through genetic innovation.">
+                Biotechnology &amp; Genomics
+              </button>
+              <button class="focus-item" data-index="04 / 08" data-description="Building transparent, secure digital economies that move faster than convention.">
+                Blockchain &amp; DeFi
+              </button>
+              <button class="focus-item" data-index="05 / 08" data-description="Alternative investments to democratized financial intelligence for everyone.">
+                Next-Gen Finance
+              </button>
+              <button class="focus-item" data-index="06 / 08" data-description="Hyper-personalized technologies that enrich everyday lives.">
+                Next-Gen Consumer Tech
+              </button>
+              <button class="focus-item" data-index="07 / 08" data-description="New paradigms in computing power, asset analysis and fintech.">
+                Quantum Computing
+              </button>
+              <button class="focus-item" data-index="08 / 08" data-description="Augmenting human capability and automating the future of work.">
+                Robotics
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="portfolio panel-light" id="portfolio">
+        <div class="shell">
+          <div class="portfolio-intro" data-reveal>
+            <p class="section-label">Our portfolio</p>
+            <h2 class="section-title">
+              Our companies do not just enter markets. They define them.
+            </h2>
+            <a class="corner-button corner-button-dark" href="#contact">
+              Explore our portfolio
+            </a>
+          </div>
+
+          <div class="portfolio-carousel" data-reveal>
+            <div class="portfolio-track">
+              <article
+                class="portfolio-card is-active"
+                data-accent="#f6f6f2"
+                data-ink="#111111"
+              >
+                <span class="portfolio-card__name">Alpha Deal</span>
+                <img src="./assets/logos/home-1.svg" alt="" />
+                <p>Private asset analysis, reimagined.</p>
+                <a href="https://www.alphadeal.ai/" target="_blank" rel="noreferrer">
+                  Website
+                </a>
+              </article>
+
+              <article class="portfolio-card" data-accent="#5640ff" data-ink="#e7e7e7">
+                <span class="portfolio-card__name">Edda</span>
+                <img src="./assets/logos/home-2.svg" alt="" />
+                <p>A better, social-first, audio book streaming platform.</p>
+                <a href="https://joinedda.com/" target="_blank" rel="noreferrer">
+                  Website
+                </a>
+              </article>
+
+              <article class="portfolio-card" data-accent="#fffebe" data-ink="#111111">
+                <span class="portfolio-card__name">Novyra</span>
+                <img src="./assets/logos/home-3.svg" alt="" />
+                <p>Precision matching for clinical oncology trials.</p>
+                <a href="https://novyra.ai/" target="_blank" rel="noreferrer">
+                  Website
+                </a>
+              </article>
+
+              <article class="portfolio-card" data-accent="#0000f7" data-ink="#e7e7e7">
+                <span class="portfolio-card__name">Stratahub</span>
+                <img src="./assets/logos/home-4.svg" alt="" />
+                <p>AI-readiness for fragmented, enterprise data systems.</p>
+                <a href="https://stratahub.com/" target="_blank" rel="noreferrer">
+                  Website
+                </a>
+              </article>
+
+              <article class="portfolio-card" data-accent="#e5ff56" data-ink="#111111">
+                <span class="portfolio-card__name">Remix Labs</span>
+                <img src="./assets/logos/home-5.svg" alt="" />
+                <p>Advanced time series modeling for tomorrow's data flows.</p>
+                <a href="https://remixlabs.ai/" target="_blank" rel="noreferrer">
+                  Website
+                </a>
+              </article>
+
+              <article class="portfolio-card" data-accent="#090909" data-ink="#e7e7e7">
+                <span class="portfolio-card__name">US Autonomous Systems</span>
+                <img src="./assets/logos/home-6.svg" alt="" />
+                <p>American-made drone accessories for frontline rescue teams.</p>
+                <a href="#contact">Website</a>
+              </article>
+            </div>
+
+            <div class="portfolio-controls">
+              <button type="button" class="portfolio-button" data-direction="-1" aria-label="Previous portfolio card">
+                ←
+              </button>
+              <div class="portfolio-counter" aria-live="polite">
+                <span id="portfolio-current">01</span>
+                <span>/ 06</span>
+              </div>
+              <button type="button" class="portfolio-button" data-direction="1" aria-label="Next portfolio card">
+                →
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="leadership panel-dark" id="team">
+        <div class="shell">
+          <div class="leadership-intro" data-reveal>
+            <p class="section-label">Our leadership team</p>
+            <p class="leadership-overline">
+              A global network of advisors, operators and investors. The people
+              who built what is now, helping you build what is next.
+            </p>
+            <a class="corner-button" href="#contact">Meet the team</a>
+          </div>
+
+          <h2 class="leadership-statement" data-reveal>
+            We spot trends before they are trends.
+          </h2>
+
+          <div class="leadership-strip" data-reveal>
+            <img src="./assets/team/igor.jpg" alt="Igor Tulchinsky portrait" />
+            <img src="./assets/team/amir.jpg" alt="Amir Husain portrait" />
+            <img src="./assets/team/steven.jpg" alt="Steven Lau portrait" />
+          </div>
+
+          <h2 class="leadership-statement leadership-statement-bottom" data-reveal>
+            Transform them into companies that matter.
+          </h2>
+
+          <div class="leadership-grid">
+            <article class="leader-card" data-reveal>
+              <img src="./assets/team/igor.jpg" alt="Igor Tulchinsky portrait" />
+              <div>
+                <p class="leader-card__role">Founder</p>
+                <h3>Igor Tulchinsky</h3>
+                <p>
+                  Founder of WorldQuant and longtime quant investor building
+                  infrastructure for the next generation of frontier ventures.
+                </p>
+              </div>
+            </article>
+
+            <article class="leader-card" data-reveal>
+              <img src="./assets/team/amir.jpg" alt="Amir Husain portrait" />
+              <div>
+                <p class="leader-card__role">Chairman</p>
+                <h3>Amir Husain</h3>
+                <p>
+                  AI and defense pioneer with operational depth across advanced
+                  autonomy, machine intelligence and strategic systems.
+                </p>
+              </div>
+            </article>
+
+            <article class="leader-card" data-reveal>
+              <img src="./assets/team/steven.jpg" alt="Steven Lau portrait" />
+              <div>
+                <p class="leader-card__role">CEO</p>
+                <h3>Steven Lau</h3>
+                <p>
+                  Investor in frontier startups spanning fintech, biotech,
+                  robotics and applied AI across early market formation.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="partners panel-dark">
+        <div class="shell partners-shell">
+          <div class="partners-copy" data-reveal>
+            <p class="section-label">Partners</p>
+            <h2 class="section-title section-title-light">
+              Partner at the edge of what is possible.
+            </h2>
+            <p class="section-copy section-copy-light">
+              Join forces with the ventures that are creating new markets.
+              Partner early, transform fast, own the edge.
+            </p>
+            <a class="corner-button" href="#contact">Partner with us</a>
+          </div>
+
+          <div class="partners-art" data-reveal>
+            <canvas
+              class="scene-canvas scene-canvas--panel"
+              data-scene="partners"
+              aria-hidden="true"
+            ></canvas>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-split" id="contact">
+        <div class="cta-left panel-dark">
+          <canvas class="scene-canvas" data-scene="cta" aria-hidden="true"></canvas>
+          <div class="shell cta-left__content" data-reveal>
+            <p class="section-label">From worldquant</p>
+            <h2 class="section-title section-title-light">
+              Own what is next.
+            </h2>
+            <p class="section-copy section-copy-light">
+              Breakthrough founders. Pre-market investors. Transformative
+              partners. Reach out, and let us move.
+            </p>
+          </div>
+        </div>
+
+        <div class="cta-right panel-orange">
+          <div class="shell cta-right__content" data-reveal>
+            <div class="cta-mark" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <h2>Own what is next.</h2>
+            <p>
+              Breakthrough founders. Pre-market investors. Transformative
+              partners. Reach out, and let us move.
+            </p>
+            <a class="corner-button corner-button-dark" href="mailto:hello@worldquantfoundry.com">
+              Contact us
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer panel-dark">
+      <div class="shell footer-shell">
+        <div class="brand brand-footer">
+          <span class="brand-mark" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+          <span class="brand-wordmark">
+            <span>WORLDQUANT</span>
+            <strong>FOUNDRY</strong>
+          </span>
+        </div>
+
+        <div class="footer-links">
+          <a href="#ethos">Why WQF</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#team">Team</a>
+          <a href="#focus">Insights</a>
+        </div>
+
+        <p class="footer-copy">Static clone study built from the public homepage and local asset extraction.</p>
+      </div>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
