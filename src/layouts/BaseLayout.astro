@@ -20,6 +20,12 @@ const {
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="theme-color" content="#131313" />
+    <script is:inline>
+      document.documentElement.classList.add("js");
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        document.documentElement.classList.add("motion-enabled");
+      }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -31,7 +37,7 @@ const {
       rel="stylesheet"
     />
   </head>
-  <body>
+  <body data-page="home">
     <slot />
   </body>
 </html>

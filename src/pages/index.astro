@@ -1,4 +1,5 @@
 ---
+import LandingMotion from "../components/LandingMotion.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { navigation, trustItems, services, projects, reasons } from "../data/site";
 
@@ -7,7 +8,7 @@ const currentYear = new Date().getFullYear();
 ---
 
 <BaseLayout>
-  <nav class="site-nav">
+  <nav class="site-nav" data-motion-nav data-motion-hidden="nav">
     <a class="brand" href="#top" aria-label="Ir para o topo">
       Luan Alves
       <span class="brand-dot" aria-hidden="true"></span>
@@ -27,32 +28,48 @@ const currentYear = new Date().getFullYear();
   </nav>
 
   <main id="top">
-    <section class="hero section hero-grid">
-      <div class="hero-glow" aria-hidden="true"></div>
+    <section class="hero section hero-grid" data-motion="hero">
+      <div class="hero-glow" aria-hidden="true" data-motion-glow></div>
       <div class="container hero-content">
-        <span class="eyebrow">Desenvolvimento Web Profissional</span>
+        <span class="eyebrow" data-motion-hero-eyebrow data-motion-hidden="y-sm">
+          Desenvolvimento Web Profissional
+        </span>
         <h1 class="hero-title">
-          Seu negócio merece um <span>site que vende.</span>
+          <span data-motion-hero-title data-motion-hidden="y-lg">
+            Seu negócio merece um <span>site que vende.</span>
+          </span>
         </h1>
-        <p class="hero-copy">
+        <p class="hero-copy" data-motion-hero-copy data-motion-hidden="y-md">
           Crio sites, lojas virtuais e landing pages que transmitem credibilidade e convertem
           visitantes em clientes através de design estratégico e código impecável.
         </p>
 
-        <div class="hero-actions">
-          <a class="button button-solid" href={whatsappHref} target="_blank" rel="noreferrer">
+        <div class="hero-actions" data-motion-hero-actions>
+          <a
+            class="button button-solid"
+            href={whatsappHref}
+            target="_blank"
+            rel="noreferrer"
+            data-motion-hidden="y-sm"
+          >
             Solicitar orçamento
           </a>
-          <a class="button button-ghost" href="#portfolio">Ver portfólio</a>
+          <a class="button button-ghost" href="#portfolio" data-motion-hidden="y-sm">
+            Ver portfólio
+          </a>
         </div>
       </div>
     </section>
 
-    <section class="trust-bar">
+    <section class="trust-bar" data-motion-section="trust">
       <div class="container trust-grid">
         {
           trustItems.map((item, index) => (
-            <article class:list={["trust-item", index === 1 && "trust-item-bordered"]}>
+            <article
+              class:list={["trust-item", index === 1 && "trust-item-bordered"]}
+              data-motion-item="trust"
+              data-motion-hidden="y-sm"
+            >
               <div class="trust-icon">
                 <span class="material-symbols-outlined">{item.icon}</span>
               </div>
@@ -67,17 +84,17 @@ const currentYear = new Date().getFullYear();
       </div>
     </section>
 
-    <section class="section" id="servicos">
+    <section class="section" id="servicos" data-motion-section="services">
       <div class="container">
         <div class="section-heading">
-          <span class="eyebrow">Soluções</span>
-          <h2>O que eu entrego</h2>
+          <span class="eyebrow" data-motion-heading data-motion-hidden="y-sm">Soluções</span>
+          <h2 data-motion-heading data-motion-hidden="y-md">O que eu entrego</h2>
         </div>
 
         <div class="card-grid">
           {
             services.map((service) => (
-              <article class="service-card">
+              <article class="service-card" data-motion-item="service" data-motion-hidden="y-card">
                 <div class="service-icon">
                   <span class="material-symbols-outlined">{service.icon}</span>
                 </div>
@@ -94,21 +111,25 @@ const currentYear = new Date().getFullYear();
       </div>
     </section>
 
-    <section class="section section-surface" id="portfolio">
+    <section class="section section-surface" id="portfolio" data-motion-section="portfolio">
       <div class="container">
         <div class="section-heading section-heading-spread">
           <div>
-            <span class="eyebrow">Curadoria</span>
-            <h2>Projetos Realizados</h2>
+            <span class="eyebrow" data-motion-heading data-motion-hidden="y-sm">Curadoria</span>
+            <h2 data-motion-heading data-motion-hidden="y-md">Projetos Realizados</h2>
           </div>
         </div>
 
         <div class="project-grid">
           {
-            projects.map((project) => (
-              <article class="project-card">
+            projects.map((project, index) => (
+              <article
+                class="project-card"
+                data-motion-item="project"
+                data-motion-hidden={index % 2 === 0 ? "x-left" : "x-right"}
+              >
                 <div class="project-media">
-                  <img src={project.image} alt={project.alt} loading="lazy" />
+                  <img src={project.image} alt={project.alt} loading="lazy" data-motion-image />
                 </div>
                 <div class="project-meta">
                   <div>
@@ -126,13 +147,13 @@ const currentYear = new Date().getFullYear();
       </div>
     </section>
 
-    <section class="section why-section">
+    <section class="section why-section" data-motion-section="why">
       <div class="why-grid-accent hero-grid" aria-hidden="true"></div>
       <div class="container why-layout">
         <div>
-          <span class="eyebrow">Diferenciais</span>
-          <h2>Por que confiar seu projeto a mim?</h2>
-          <p class="why-copy">
+          <span class="eyebrow" data-motion-heading data-motion-hidden="y-sm">Diferenciais</span>
+          <h2 data-motion-heading data-motion-hidden="y-md">Por que confiar seu projeto a mim?</h2>
+          <p class="why-copy" data-motion-copy data-motion-hidden="y-md">
             Mais do que apenas um site, eu entrego uma ferramenta de negócios. Cada linha de código
             e cada pixel é pensado para que sua presença digital seja sua melhor vendedora.
           </p>
@@ -140,7 +161,7 @@ const currentYear = new Date().getFullYear();
           <div class="reason-grid">
             {
               reasons.map((reason) => (
-                <article class="reason-item">
+                <article class="reason-item" data-motion-item="reason" data-motion-hidden="y-sm">
                   <span class="material-symbols-outlined reason-check">check_circle</span>
                   <div>
                     <h3>{reason.title}</h3>
@@ -152,7 +173,7 @@ const currentYear = new Date().getFullYear();
           </div>
         </div>
 
-        <div class="experience-panel">
+        <div class="experience-panel" data-motion-experience data-motion-hidden="scale">
           <div class="experience-card">
             <span class="experience-number">05+</span>
             <span class="experience-label">Anos de experiência</span>
@@ -162,16 +183,23 @@ const currentYear = new Date().getFullYear();
       </div>
     </section>
 
-    <section class="section" id="contato">
+    <section class="section" id="contato" data-motion-section="cta">
       <div class="container">
-        <div class="cta-panel">
-          <div class="cta-accent" aria-hidden="true"></div>
-          <h2>Pronto para ter um site profissional?</h2>
-          <p>
+        <div class="cta-panel" data-motion-panel data-motion-hidden="y-lg">
+          <div class="cta-accent" aria-hidden="true" data-motion-accent data-motion-hidden="scale-x"></div>
+          <h2 data-motion-heading>Pronto para ter um site profissional?</h2>
+          <p data-motion-copy>
             Me conte sobre seu projeto e vamos elevar o nível da sua presença digital. Respondo em
             até 24 horas.
           </p>
-          <a class="button button-solid button-large" href={whatsappHref} target="_blank" rel="noreferrer">
+          <a
+            class="button button-solid button-large"
+            href={whatsappHref}
+            target="_blank"
+            rel="noreferrer"
+            data-motion-button
+            data-motion-hidden="y-sm"
+          >
             <span class="material-symbols-outlined">forum</span>
             Falar no WhatsApp
           </a>
@@ -180,14 +208,14 @@ const currentYear = new Date().getFullYear();
     </section>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer" data-motion-section="footer">
     <div class="container footer-layout">
-      <a class="brand brand-footer" href="#top">
+      <a class="brand brand-footer" href="#top" data-motion-item="footer" data-motion-hidden="y-sm">
         Luan Alves
         <span class="brand-dot" aria-hidden="true"></span>
       </a>
 
-      <div class="footer-links">
+      <div class="footer-links" data-motion-item="footer" data-motion-hidden="y-sm">
         {
           navigation.map((item) => (
             <a href={item.href}>{item.label}</a>
@@ -196,7 +224,11 @@ const currentYear = new Date().getFullYear();
         <a href={whatsappHref} target="_blank" rel="noreferrer">WhatsApp</a>
       </div>
 
-      <p class="footer-copy">Luan Alves © {currentYear}</p>
+      <p class="footer-copy" data-motion-item="footer" data-motion-hidden="y-sm">
+        Luan Alves © {currentYear}
+      </p>
     </div>
   </footer>
+
+  <LandingMotion />
 </BaseLayout>
