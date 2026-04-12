@@ -112,6 +112,151 @@ function markLoaderSeen() {
   }
 }
 
+function createHeaderController({
+  nav,
+  hero,
+  brandStack,
+  brandLabel,
+  enableAnimatedTopState,
+  reduceMotion
+}: {
+  nav: HTMLElement;
+  hero: HTMLElement | null;
+  brandStack: HTMLElement | null;
+  brandLabel: HTMLElement | null;
+  enableAnimatedTopState: boolean;
+  reduceMotion: boolean;
+}) {
+  const getTopVars = (): gsap.TweenVars => ({
+    "--nav-width": `${window.innerWidth}px`,
+    "--nav-max-width": "none",
+    "--nav-margin-top": "0rem",
+    "--nav-padding-block": "0.95rem",
+    "--nav-padding-inline": "1.15rem",
+    "--nav-bg": "rgba(19, 19, 19, 0)",
+    "--nav-border": "rgba(77, 70, 58, 0)",
+    "--nav-shadow": "0 0 0 rgba(0, 0, 0, 0)",
+    "--nav-radius-local": "0px",
+    "--nav-blur": "0px"
+  });
+  const getCompactVars = (): gsap.TweenVars => ({
+    "--nav-width": `${Math.min(window.innerWidth - 40, 1020)}px`,
+    "--nav-max-width": "none",
+    "--nav-margin-top": "0.55rem",
+    "--nav-padding-block": "0.58rem",
+    "--nav-padding-inline": "0.92rem",
+    "--nav-bg": "rgba(14, 14, 14, 0.94)",
+    "--nav-border": "rgba(77, 70, 58, 0.28)",
+    "--nav-shadow": "0 14px 28px rgba(0, 0, 0, 0.22)",
+    "--nav-radius-local": "0px",
+    "--nav-blur": "18px"
+  });
+
+  const fullBrandWidth = (brandLabel?.scrollWidth ?? brandStack?.scrollWidth ?? 0) + 6;
+  const brandText = brandLabel?.textContent?.trim() ?? "";
+  const shortBrandText = brandText.split(/\s+/)[0] ?? brandText;
+
+  const getShortBrandWidth = () => {
+    if (!brandLabel?.firstChild || brandLabel.firstChild.nodeType !== Node.TEXT_NODE) {
+      return fullBrandWidth;
+    }
+
+    const range = document.createRange();
+    range.setStart(brandLabel.firstChild, 0);
+    range.setEnd(brandLabel.firstChild, shortBrandText.length);
+    return (Math.ceil(range.getBoundingClientRect().width) || fullBrandWidth) + 3;
+  };
+
+  const shortBrandWidth = getShortBrandWidth();
+  let currentMode: "top" | "compact" = "top";
+
+  const setBrandState = (mode: "full" | "short", immediate = false) => {
+    if (!brandStack) {
+      return;
+    }
+
+    const targetWidth = mode === "full" ? fullBrandWidth : shortBrandWidth;
+
+    if (immediate || reduceMotion) {
+      gsap.set(brandStack, { width: targetWidth });
+      return;
+    }
+
+    gsap.to(brandStack, {
+      width: targetWidth,
+      duration: 0.42,
+      ease: "power2.out",
+      overwrite: "auto"
+    });
+  };
+
+  const applyState = (mode: "top" | "compact", immediate = false) => {
+    currentMode = mode;
+    const shouldUseTop = mode === "top" && enableAnimatedTopState;
+    const navVars = shouldUseTop ? getTopVars() : getCompactVars();
+
+    nav.classList.toggle("is-scrolled", !shouldUseTop);
+
+    if (immediate || reduceMotion) {
+      gsap.set(nav, navVars);
+      setBrandState(shouldUseTop ? "full" : "short", true);
+      return;
+    }
+
+    gsap.to(nav, {
+      ...navVars,
+      duration: 0.92,
+      ease: "power2.inOut",
+      overwrite: "auto"
+    });
+
+    setBrandState(shouldUseTop ? "full" : "short");
+  };
+
+  gsap.set(brandLabel, { autoAlpha: 1, y: 0 });
+  gsap.set(brandStack, { width: fullBrandWidth || "auto" });
+
+  if (!hero) {
+    applyState("compact", true);
+    return () => {
+      nav.classList.remove("is-scrolled");
+      gsap.set([brandStack, brandLabel].filter(Boolean), { clearProps: "all" });
+    };
+  }
+
+  const compactStart = Math.max(hero.offsetHeight * 0.26, 120);
+  const shouldStartCompact = window.scrollY > compactStart;
+  applyState(shouldStartCompact ? "compact" : "top", true);
+
+  if (!enableAnimatedTopState) {
+    const handleResize = () => applyState(currentMode, true);
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      nav.classList.remove("is-scrolled");
+      gsap.set([brandStack, brandLabel].filter(Boolean), { clearProps: "all" });
+    };
+  }
+
+  const handleResize = () => applyState(currentMode, true);
+  window.addEventListener("resize", handleResize);
+
+  const trigger = ScrollTrigger.create({
+    trigger: hero,
+    start: () => `top top-=${compactStart}`,
+    onEnter: () => applyState("compact"),
+    onLeaveBack: () => applyState("top")
+  });
+
+  return () => {
+    window.removeEventListener("resize", handleResize);
+    trigger.kill();
+    nav.classList.remove("is-scrolled");
+    gsap.set([brandStack, brandLabel].filter(Boolean), { clearProps: "all" });
+  };
+}
+
 export function cleanupLandingMotion() {
   window.__landingMotionCleanup__?.();
 }
@@ -132,6 +277,8 @@ export function initLandingMotion() {
   const body = document.body;
   const nav = root.querySelector<HTMLElement>("[data-motion-nav]");
   const hero = root.querySelector<HTMLElement>('[data-motion="hero"]');
+  const brandStack = root.querySelector<HTMLElement>("[data-brand-stack]");
+  const brandLabel = root.querySelector<HTMLElement>("[data-brand-label]");
   const loader = root.querySelector<HTMLElement>("[data-loader]");
   const loaderBrand = root.querySelector<HTMLElement>("[data-loader-brand]");
   const loaderLabel = root.querySelector<HTMLElement>("[data-loader-label]");
@@ -170,7 +317,16 @@ export function initLandingMotion() {
         if (reduceMotion) {
           loader?.setAttribute("hidden", "");
           revealNow(allHidden);
-          return undefined;
+          return nav
+            ? createHeaderController({
+              nav,
+              hero,
+              brandStack,
+              brandLabel,
+              enableAnimatedTopState: isDesktop,
+              reduceMotion: true
+            })
+            : undefined;
         }
 
         const shouldShowLoader = Boolean(loader) && getShouldShowLoader();
@@ -300,12 +456,16 @@ export function initLandingMotion() {
           intro.play(0);
         }
 
-        ScrollTrigger.create({
-          trigger: hero,
-          start: "bottom top+=90",
-          onEnter: () => nav?.classList.add("is-scrolled"),
-          onLeaveBack: () => nav?.classList.remove("is-scrolled")
-        });
+        const cleanupHeader =
+          nav &&
+          createHeaderController({
+            nav,
+            hero,
+            brandStack,
+            brandLabel,
+            enableAnimatedTopState: isDesktop,
+            reduceMotion: false
+          });
 
         if (hero && isDesktop) {
           gsap.to(hero, {
@@ -529,6 +689,7 @@ export function initLandingMotion() {
         ScrollTrigger.refresh();
 
         return () => {
+          cleanupHeader?.();
           nav?.classList.remove("is-scrolled");
           body.classList.remove("is-loader-active");
           loader?.setAttribute("aria-hidden", "true");

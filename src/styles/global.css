@@ -170,6 +170,16 @@ a {
 }
 
 .site-nav {
+  --nav-width: 100vw;
+  --nav-max-width: none;
+  --nav-margin-top: 0rem;
+  --nav-padding-block: 0.95rem;
+  --nav-padding-inline: 1.15rem;
+  --nav-bg: rgba(19, 19, 19, 0);
+  --nav-border: rgba(77, 70, 58, 0);
+  --nav-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  --nav-radius-local: 0px;
+  --nav-blur: 0px;
   position: fixed;
   inset: 0 0 auto;
   z-index: 20;
@@ -177,12 +187,15 @@ a {
   align-items: center;
   justify-content: space-between;
   gap: 1.25rem;
-  width: min(1280px, calc(100vw - 2rem));
-  margin: 1rem auto 0;
-  padding: 1.1rem 1.5rem;
-  background: rgba(19, 19, 19, 0.72);
-  border: 1px solid rgba(77, 70, 58, 0.18);
-  backdrop-filter: blur(18px);
+  width: var(--nav-width);
+  max-width: var(--nav-max-width);
+  margin: var(--nav-margin-top) auto 0;
+  padding: var(--nav-padding-block) var(--nav-padding-inline);
+  background: var(--nav-bg);
+  border: 1px solid var(--nav-border);
+  border-radius: var(--nav-radius-local);
+  box-shadow: var(--nav-shadow);
+  backdrop-filter: blur(var(--nav-blur));
   transition:
     background-color 220ms ease,
     border-color 220ms ease,
@@ -204,6 +217,18 @@ a {
   font-weight: 700;
   color: var(--primary);
   letter-spacing: -0.04em;
+}
+
+.brand-stack {
+  position: relative;
+  display: inline-block;
+  overflow: clip;
+  white-space: nowrap;
+}
+
+.brand-text {
+  display: inline-block;
+  white-space: nowrap;
 }
 
 .brand-dot {
@@ -830,6 +855,7 @@ a {
   .site-nav,
   .footer-layout {
     width: calc(100vw - 1.5rem);
+    max-width: none;
     justify-content: center;
   }
 
@@ -896,6 +922,8 @@ a {
   }
 
   .site-nav {
+    --nav-width: calc(100vw - 1.5rem);
+    --nav-radius-local: 0px;
     padding: 1rem;
   }
 
