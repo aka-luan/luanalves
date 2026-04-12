@@ -8,6 +8,21 @@ const currentYear = new Date().getFullYear();
 ---
 
 <BaseLayout>
+  <div class="page-loader" data-loader aria-hidden="true">
+    <div class="page-loader__backdrop hero-grid" aria-hidden="true"></div>
+    <div class="page-loader__inner">
+      <span class="page-loader__label" data-loader-label>Desenvolvimento Web Profissional</span>
+      <div class="page-loader__brand" data-loader-brand>
+        <span>Luan Alves</span>
+        <span class="brand-dot" aria-hidden="true"></span>
+      </div>
+      <div class="page-loader__track" data-loader-progress>
+        <span class="page-loader__line page-loader__line--base" aria-hidden="true"></span>
+        <span class="page-loader__line page-loader__line--fill" data-loader-progress-fill aria-hidden="true"></span>
+      </div>
+    </div>
+  </div>
+
   <nav class="site-nav" data-motion-nav data-motion-hidden="nav">
     <a class="brand" href="#top" aria-label="Ir para o topo">
       Luan Alves

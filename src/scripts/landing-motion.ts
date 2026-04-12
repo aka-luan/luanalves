@@ -10,6 +10,7 @@ declare global {
 gsap.registerPlugin(ScrollTrigger);
 
 const ROOT_SELECTOR = '[data-page="home"]';
+const LOADER_SESSION_KEY = "luan-loader-seen";
 
 function revealNow(elements: Iterable<Element>) {
   for (const element of elements) {
@@ -95,6 +96,22 @@ function createSectionReveal({
   setup(timeline);
 }
 
+function getShouldShowLoader() {
+  try {
+    return sessionStorage.getItem(LOADER_SESSION_KEY) !== "true";
+  } catch {
+    return true;
+  }
+}
+
+function markLoaderSeen() {
+  try {
+    sessionStorage.setItem(LOADER_SESSION_KEY, "true");
+  } catch {
+    return;
+  }
+}
+
 export function cleanupLandingMotion() {
   window.__landingMotionCleanup__?.();
 }
@@ -112,11 +129,20 @@ export function initLandingMotion() {
   }
 
   const html = document.documentElement;
+  const body = document.body;
   const nav = root.querySelector<HTMLElement>("[data-motion-nav]");
   const hero = root.querySelector<HTMLElement>('[data-motion="hero"]');
+  const loader = root.querySelector<HTMLElement>("[data-loader]");
+  const loaderBrand = root.querySelector<HTMLElement>("[data-loader-brand]");
+  const loaderLabel = root.querySelector<HTMLElement>("[data-loader-label]");
+  const loaderProgress = root.querySelector<HTMLElement>("[data-loader-progress]");
+  const loaderProgressFill = root.querySelector<HTMLElement>("[data-loader-progress-fill]");
   const allHidden = Array.from(root.querySelectorAll("[data-motion-hidden]"));
 
   if (!html.classList.contains("motion-enabled")) {
+    if (loader) {
+      loader.setAttribute("hidden", "");
+    }
     revealNow(allHidden);
     return;
   }
@@ -142,9 +168,12 @@ export function initLandingMotion() {
         };
 
         if (reduceMotion) {
+          loader?.setAttribute("hidden", "");
           revealNow(allHidden);
           return undefined;
         }
+
+        const shouldShowLoader = Boolean(loader) && getShouldShowLoader();
 
         primeHiddenState(allHidden, isMobile);
 
@@ -182,28 +211,94 @@ export function initLandingMotion() {
 
         const introTargets = [nav, heroEyebrow, heroTitle, heroCopy, ...heroActions].filter(Boolean);
 
-        const intro = gsap.timeline({
-          defaults: {
-            duration: 0.95,
-            ease: "power3.out"
-          }
-        });
+        const createHeroIntro = () => {
+          return gsap.timeline({
+            paused: true,
+            defaults: {
+              duration: 0.95,
+              ease: "power3.out"
+            }
+          })
+            .to(nav, { autoAlpha: 1, y: 0, clearProps: "transform,opacity,willChange" }, 0)
+            .to(heroEyebrow, { autoAlpha: 1, y: 0, clearProps: "transform,opacity,willChange" }, 0.16)
+            .to(heroTitle, { autoAlpha: 1, y: 0, clearProps: "transform,opacity,willChange" }, 0.3)
+            .to(heroCopy, { autoAlpha: 1, y: 0, clearProps: "transform,opacity,willChange" }, 0.46)
+            .to(
+              heroActions,
+              {
+                autoAlpha: 1,
+                y: 0,
+                stagger: 0.1,
+                clearProps: "transform,opacity,willChange"
+              },
+              0.58
+            );
+        };
 
-        intro
-          .to(nav, { autoAlpha: 1, y: 0, clearProps: "transform,opacity,willChange" }, 0)
-          .to(heroEyebrow, { autoAlpha: 1, y: 0, clearProps: "transform,opacity,willChange" }, 0.16)
-          .to(heroTitle, { autoAlpha: 1, y: 0, clearProps: "transform,opacity,willChange" }, 0.28)
-          .to(heroCopy, { autoAlpha: 1, y: 0, clearProps: "transform,opacity,willChange" }, 0.44)
-          .to(
-            heroActions,
-            {
-              autoAlpha: 1,
-              y: 0,
-              stagger: 0.1,
-              clearProps: "transform,opacity,willChange"
-            },
-            0.56
-          );
+        const intro = createHeroIntro();
+
+        if (loader) {
+          if (shouldShowLoader) {
+            body.classList.add("is-loader-active");
+            loader.removeAttribute("hidden");
+            loader.setAttribute("aria-hidden", "false");
+
+            gsap.set(loader, { autoAlpha: 1, y: 0 });
+            gsap.set([loaderBrand, loaderLabel], {
+              autoAlpha: 0,
+              y: 22,
+              willChange: "transform, opacity"
+            });
+            gsap.set(loaderProgress, {
+              autoAlpha: 0,
+              y: 18,
+              willChange: "transform, opacity"
+            });
+            gsap.set(loaderProgressFill, {
+              scaleX: 0,
+              transformOrigin: "left center",
+              willChange: "transform"
+            });
+
+            const loaderTimeline = gsap.timeline({
+              defaults: {
+                ease: "power3.out"
+              },
+              onComplete: () => {
+                loader.setAttribute("hidden", "");
+                loader.setAttribute("aria-hidden", "true");
+                body.classList.remove("is-loader-active");
+                markLoaderSeen();
+              }
+            });
+
+            loaderTimeline
+              .to(loaderLabel, { autoAlpha: 1, y: 0, duration: 0.5 }, 0.08)
+              .to(loaderBrand, { autoAlpha: 1, y: 0, duration: 0.72 }, 0.12)
+              .to(loaderProgress, { autoAlpha: 1, y: 0, duration: 0.46 }, 0.22)
+              .to(loaderProgressFill, { scaleX: 1, duration: 0.88, ease: "power2.inOut" }, 0.34)
+              .to(loaderLabel, { autoAlpha: 0, y: -12, duration: 0.34 }, 1.08)
+              .to(loaderProgress, { autoAlpha: 0, y: -12, duration: 0.34 }, 1.14)
+              .to(loaderBrand, { autoAlpha: 0, y: -24, duration: 0.5 }, 1.16)
+              .to(
+                loader,
+                {
+                  autoAlpha: 0,
+                  yPercent: -8,
+                  duration: 0.54
+                },
+                1.28
+              )
+              .add(() => intro.play(0), 1.08);
+          } else {
+            loader.setAttribute("hidden", "");
+            loader.setAttribute("aria-hidden", "true");
+            body.classList.remove("is-loader-active");
+            intro.play(0);
+          }
+        } else {
+          intro.play(0);
+        }
 
         ScrollTrigger.create({
           trigger: hero,
@@ -435,7 +530,9 @@ export function initLandingMotion() {
 
         return () => {
           nav?.classList.remove("is-scrolled");
-          gsap.set(introTargets, {
+          body.classList.remove("is-loader-active");
+          loader?.setAttribute("aria-hidden", "true");
+          gsap.set([...introTargets, loaderBrand, loaderLabel, loaderProgress, loaderProgressFill], {
             clearProps: "willChange"
           });
         };
@@ -447,6 +544,7 @@ export function initLandingMotion() {
     cleanupMatchMedia();
     context.revert();
     nav?.classList.remove("is-scrolled");
+    body.classList.remove("is-loader-active");
     delete window.__landingMotionCleanup__;
   };
 }

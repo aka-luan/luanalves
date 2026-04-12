@@ -32,10 +32,10 @@ export const services = [
   },
   {
     icon: "shopping_bag",
-    title: "Loja Virtual",
+    title: "Blog",
     description:
-      "Sistemas de e-commerce robustos com foco total na experiência de compra e conversão.",
-    bullets: ["Checkout fluido", "Gestão simples"]
+      "Estruturas editoriais profissionais para publicar conteúdo com autoridade, performance e boa experiência de leitura.",
+    bullets: ["SEO editorial", "Gestão simples"]
   },
   {
     icon: "ads_click",
@@ -56,12 +56,12 @@ export const projects = [
       "Mockup de site para clínica médica exibido em um tablet moderno, com áreas brancas limpas e tipografia profissional."
   },
   {
-    title: "E-commerce de Moda",
-    subtitle: "Plataforma Shopify",
+    title: "Blog de Moda",
+    subtitle: "Design & CMS",
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuB1dsYpdxfG5AGGbN4PyFV_omVFW5iBpLPxe3E5EqnQyNU5HP05ARWlse3ZUjVi3Dw_WxhJYPH8fgCPH2W5-T6vV-uM1FEGj6niqAW3up3DSQGDekmaRi1-clRsf6Mol-Dp7l54TVblxBWws5raft8DsHA_cTZHKy_V4j1koS7mID0PbrJJo4QXnPvgSWq_S1i54bQVqe3FuuwupDHspTmw-yAejQ35nOAh4sLzt-D1xBIy_wIr_O8sh9JPpFXbNZuJs06-7FocI7w",
     alt:
-      "Mockup de loja virtual de moda em uma tela mobile, com peças premium e interface escura elegante."
+      "Mockup de blog de moda em uma tela mobile, com editoriais visuais, tipografia elegante e interface escura sofisticada."
   },
   {
     title: "Escritório de Advocacia",
