@@ -31,17 +31,26 @@ const currentYear = new Date().getFullYear();
       <span class="brand-dot" aria-hidden="true"></span>
     </a>
 
-    <div class="nav-links">
-      {
-        navigation.map((item) => (
-          <a href={item.href}>{item.label}</a>
-        ))
-      }
-    </div>
+    <input class="nav-toggle" type="checkbox" id="site-nav-toggle" aria-label="Abrir menu" />
+    <label class="nav-toggle-button" for="site-nav-toggle" aria-label="Abrir menu de navegação">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
 
-    <a class="button button-outline button-compact" href={whatsappHref} target="_blank" rel="noreferrer">
-      Falar no WhatsApp
-    </a>
+    <div class="nav-menu">
+      <div class="nav-links">
+        {
+          navigation.map((item) => (
+            <a href={item.href}>{item.label}</a>
+          ))
+        }
+      </div>
+
+      <a class="button button-outline button-compact" href={whatsappHref} target="_blank" rel="noreferrer">
+        Falar no WhatsApp
+      </a>
+    </div>
   </nav>
 
   <main id="top">
@@ -249,3 +258,108 @@ const currentYear = new Date().getFullYear();
 
   <LandingMotion />
 </BaseLayout>
+
+<style>
+  .nav-toggle {
+    display: none;
+  }
+
+  .nav-toggle-button {
+    display: none;
+  }
+
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: inherit;
+  }
+
+  @media (max-width: 767px) {
+    .site-nav {
+      position: relative;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: clip;
+    }
+
+    .brand {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .nav-toggle-button {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.25rem;
+      width: 2.75rem;
+      height: 2.75rem;
+      padding: 0.5rem;
+      border: 1px solid currentColor;
+      border-radius: 999px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .nav-toggle-button span {
+      display: block;
+      width: 1.1rem;
+      height: 2px;
+      background: currentColor;
+      border-radius: 999px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .nav-menu {
+      display: none;
+      width: 100%;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.75rem;
+      padding-top: 0.5rem;
+    }
+
+    .nav-toggle:checked + .nav-toggle-button + .nav-menu {
+      display: flex;
+    }
+
+    .nav-toggle:checked + .nav-toggle-button span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .nav-toggle:checked + .nav-toggle-button span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-toggle:checked + .nav-toggle-button span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.5rem;
+      width: 100%;
+    }
+
+    .nav-links a,
+    .site-nav .button {
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    button,
+    a.button,
+    .button {
+      padding: 0.5rem 1rem;
+      font-size: 0.875rem;
+    }
+  }
+</style>

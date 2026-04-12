@@ -936,6 +936,25 @@ a {
     padding: 2rem 1.4rem;
   }
 
+  .experience-panel {
+    width: 100%;
+    max-width: 20rem;
+    margin: 0 auto;
+  }
+
+  .experience-card {
+    aspect-ratio: auto;
+    min-height: 16rem;
+    padding: 2.25rem 1.5rem;
+  }
+
+  .experience-corner {
+    width: 5.5rem;
+    height: 5.5rem;
+    bottom: -1rem;
+    left: -1rem;
+  }
+
   .trust-grid {
     gap: 0;
   }
