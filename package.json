@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node scripts/patch-build-assets.mjs",
     "preview": "astro preview"
   },
   "dependencies": {
