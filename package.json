@@ -1,15 +1,15 @@
 {
-  "name": "luanalves",
+  "name": "luan-alves-astro",
   "version": "0.0.1",
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "node scripts/patch-vite.mjs && astro dev",
-    "start": "node scripts/patch-vite.mjs && astro dev",
-    "build": "node scripts/patch-vite.mjs && astro build",
-    "preview": "node scripts/patch-vite.mjs && astro preview"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
   "dependencies": {
-    "astro": "^5.14.1"
+    "astro": "^5.0.0"
   }
 }

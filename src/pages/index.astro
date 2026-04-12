@@ -1,50 +1,202 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import SiteFooter from "../components/layout/SiteFooter.astro";
-import SiteHeader from "../components/layout/SiteHeader.astro";
-import AudienceSection from "../components/sections/AudienceSection.astro";
-import DifferenceSection from "../components/sections/DifferenceSection.astro";
-import FinalCTASection from "../components/sections/FinalCTASection.astro";
-import HeroSection from "../components/sections/HeroSection.astro";
-import ManifestoSection from "../components/sections/ManifestoSection.astro";
-import NarrativeBreak from "../components/sections/NarrativeBreak.astro";
-import ProcessSection from "../components/sections/ProcessSection.astro";
-import ServicesSection from "../components/sections/ServicesSection.astro";
-import "../styles/sections/index.css";
+import { navigation, trustItems, services, projects, reasons } from "../data/site";
+
+const whatsappHref = "https://wa.me/5511999999999";
+const currentYear = new Date().getFullYear();
 ---
 
-<BaseLayout
-  title="Luan Alves | Tecnologia que cabe no seu negócio"
-  description="Sistemas sob medida para pequenas empresas que querem crescer sem depender de planilha."
->
-  <SiteHeader />
+<BaseLayout>
+  <nav class="site-nav">
+    <a class="brand" href="#top" aria-label="Ir para o topo">
+      Luan Alves
+      <span class="brand-dot" aria-hidden="true"></span>
+    </a>
 
-  <main>
-    <HeroSection />
-    <NarrativeBreak
-      id="narrative-one-title"
-      title="Sem excesso. Sem mistério. Sem complicação."
-      dense={true}
-      sticky={true}
-    />
-    <ManifestoSection />
-    <ServicesSection />
-    <NarrativeBreak
-      id="narrative-two-title"
-      title="Cada projeto começa entendendo contexto, operação e limite real."
-      sticky={true}
-    />
-    <AudienceSection />
-    <DifferenceSection />
-    <ProcessSection />
-    <NarrativeBreak
-      id="narrative-three-title"
-      title="Tecnologia clara, moderna e acessível nos primeiros minutos da conversa."
-      compact={true}
-      sticky={true}
-    />
-    <FinalCTASection />
+    <div class="nav-links">
+      {
+        navigation.map((item) => (
+          <a href={item.href}>{item.label}</a>
+        ))
+      }
+    </div>
+
+    <a class="button button-outline button-compact" href={whatsappHref} target="_blank" rel="noreferrer">
+      Falar no WhatsApp
+    </a>
+  </nav>
+
+  <main id="top">
+    <section class="hero section hero-grid">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="container hero-content">
+        <span class="eyebrow">Desenvolvimento Web Profissional</span>
+        <h1 class="hero-title">
+          Seu negócio merece um <span>site que vende.</span>
+        </h1>
+        <p class="hero-copy">
+          Crio sites, lojas virtuais e landing pages que transmitem credibilidade e convertem
+          visitantes em clientes através de design estratégico e código impecável.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-solid" href={whatsappHref} target="_blank" rel="noreferrer">
+            Solicitar orçamento
+          </a>
+          <a class="button button-ghost" href="#portfolio">Ver portfólio</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-bar">
+      <div class="container trust-grid">
+        {
+          trustItems.map((item, index) => (
+            <article class:list={["trust-item", index === 1 && "trust-item-bordered"]}>
+              <div class="trust-icon">
+                <span class="material-symbols-outlined">{item.icon}</span>
+              </div>
+              <p>
+                {item.title}
+                <br />
+                {item.subtitle}
+              </p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="section" id="servicos">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Soluções</span>
+          <h2>O que eu entrego</h2>
+        </div>
+
+        <div class="card-grid">
+          {
+            services.map((service) => (
+              <article class="service-card">
+                <div class="service-icon">
+                  <span class="material-symbols-outlined">{service.icon}</span>
+                </div>
+                <h3>{service.title}</h3>
+                <p>{service.description}</p>
+                <div class="card-rule"></div>
+                <ul class="service-list">
+                  {service.bullets.map((item) => <li>{item}</li>)}
+                </ul>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-surface" id="portfolio">
+      <div class="container">
+        <div class="section-heading section-heading-spread">
+          <div>
+            <span class="eyebrow">Curadoria</span>
+            <h2>Projetos Realizados</h2>
+          </div>
+        </div>
+
+        <div class="project-grid">
+          {
+            projects.map((project) => (
+              <article class="project-card">
+                <div class="project-media">
+                  <img src={project.image} alt={project.alt} loading="lazy" />
+                </div>
+                <div class="project-meta">
+                  <div>
+                    <h3>{project.title}</h3>
+                    <p>{project.subtitle}</p>
+                  </div>
+                  <a href="#contato" aria-label={`Abrir contato para ${project.title}`}>
+                    <span class="material-symbols-outlined">north_east</span>
+                  </a>
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="section why-section">
+      <div class="why-grid-accent hero-grid" aria-hidden="true"></div>
+      <div class="container why-layout">
+        <div>
+          <span class="eyebrow">Diferenciais</span>
+          <h2>Por que confiar seu projeto a mim?</h2>
+          <p class="why-copy">
+            Mais do que apenas um site, eu entrego uma ferramenta de negócios. Cada linha de código
+            e cada pixel é pensado para que sua presença digital seja sua melhor vendedora.
+          </p>
+
+          <div class="reason-grid">
+            {
+              reasons.map((reason) => (
+                <article class="reason-item">
+                  <span class="material-symbols-outlined reason-check">check_circle</span>
+                  <div>
+                    <h3>{reason.title}</h3>
+                    <p>{reason.subtitle}</p>
+                  </div>
+                </article>
+              ))
+            }
+          </div>
+        </div>
+
+        <div class="experience-panel">
+          <div class="experience-card">
+            <span class="experience-number">05+</span>
+            <span class="experience-label">Anos de experiência</span>
+          </div>
+          <div class="experience-corner" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contato">
+      <div class="container">
+        <div class="cta-panel">
+          <div class="cta-accent" aria-hidden="true"></div>
+          <h2>Pronto para ter um site profissional?</h2>
+          <p>
+            Me conte sobre seu projeto e vamos elevar o nível da sua presença digital. Respondo em
+            até 24 horas.
+          </p>
+          <a class="button button-solid button-large" href={whatsappHref} target="_blank" rel="noreferrer">
+            <span class="material-symbols-outlined">forum</span>
+            Falar no WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <SiteFooter />
+  <footer class="site-footer">
+    <div class="container footer-layout">
+      <a class="brand brand-footer" href="#top">
+        Luan Alves
+        <span class="brand-dot" aria-hidden="true"></span>
+      </a>
+
+      <div class="footer-links">
+        {
+          navigation.map((item) => (
+            <a href={item.href}>{item.label}</a>
+          ))
+        }
+        <a href={whatsappHref} target="_blank" rel="noreferrer">WhatsApp</a>
+      </div>
+
+      <p class="footer-copy">Luan Alves © {currentYear}</p>
+    </div>
+  </footer>
 </BaseLayout>
