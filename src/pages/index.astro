@@ -35,11 +35,22 @@ const currentYear = new Date().getFullYear();
       </a>
 
       <label class="nav-toggle-button" for="site-nav-toggle" aria-label="Abrir menu de navegação">
-        <span class="nav-toggle-label">Menu</span>
-        <span class="nav-toggle-icon" aria-hidden="true">
-          <span></span>
-          <span></span>
-        </span>
+        <svg
+          class="nav-toggle-icon"
+          aria-hidden="true"
+          viewBox="0 0 32 32"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path
+            class="nav-toggle-icon__curve"
+            d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"
+          />
+          <path class="nav-toggle-icon__line" d="M7 16 27 16" />
+        </svg>
       </label>
     </div>
 
@@ -64,7 +75,6 @@ const currentYear = new Date().getFullYear();
                 <span class="mobile-menu-index">{String(index + 1).padStart(2, "0")}</span>
                 <span class="mobile-menu-copy">
                   <span>{item.label}</span>
-                  {item.href === "#contato" && <span class="mobile-menu-dot" aria-hidden="true"></span>}
                 </span>
               </a>
             ))
@@ -351,18 +361,15 @@ const currentYear = new Date().getFullYear();
     .nav-toggle-button {
       display: inline-flex;
       align-items: center;
-      gap: 0.75rem;
-      min-width: 8.25rem;
-      padding: 0.8rem 1rem;
+      justify-content: center;
+      width: 2.9rem;
+      height: 2.9rem;
+      padding: 0.45rem;
       border: 1px solid rgba(153, 143, 129, 0.24);
       border-radius: 999px;
       background: rgba(14, 14, 14, 0.72);
       color: var(--text);
       cursor: pointer;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      font-size: 0.66rem;
-      font-weight: 700;
       backdrop-filter: blur(16px);
       transition:
         border-color 180ms ease,
@@ -380,35 +387,22 @@ const currentYear = new Date().getFullYear();
       transform: scale(0.98);
     }
 
-    .nav-toggle-label {
-      line-height: 1;
-    }
-
     .nav-toggle-icon {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 1.1rem;
-      height: 0.9rem;
+      width: 1.3rem;
+      height: 1.3rem;
+      overflow: visible;
+      transition: transform 0.5s ease-in-out;
     }
 
-    .nav-toggle-icon span {
-      position: absolute;
-      left: 0;
-      width: 1.1rem;
-      height: 2px;
-      background: currentColor;
-      border-radius: 999px;
-      transition: transform 0.25s ease, opacity 0.25s ease;
+    .nav-toggle-icon__curve,
+    .nav-toggle-icon__line {
+      transition:
+        stroke-dasharray 0.5s ease-in-out,
+        stroke-dashoffset 0.5s ease-in-out;
     }
 
-    .nav-toggle-icon span:first-child {
-      top: 0.1rem;
-    }
-
-    .nav-toggle-icon span:last-child {
-      bottom: 0.1rem;
+    .nav-toggle-icon__curve {
+      stroke-dasharray: 12 63;
     }
 
     .nav-menu {
@@ -554,38 +548,39 @@ const currentYear = new Date().getFullYear();
       background: rgba(14, 14, 14, 0.9);
     }
 
-    .site-nav.is-menu-open .nav-toggle-icon span:first-child {
-      transform: translateY(0.28rem) rotate(45deg);
+    .site-nav.is-menu-open .nav-toggle-icon {
+      transform: rotate(-45deg);
     }
 
-    .site-nav.is-menu-open .nav-toggle-icon span:last-child {
-      transform: translateY(-0.28rem) rotate(-45deg);
+    .site-nav.is-menu-open .nav-toggle-icon__curve {
+      stroke-dasharray: 20 300;
+      stroke-dashoffset: -32.42px;
     }
 
-    .site-nav.is-menu-open .nav-menu {
+    .site-nav.is-menu-active .nav-menu {
       display: flex;
     }
 
-    .site-nav.is-menu-open .mobile-menu-content {
+    .site-nav.is-menu-active .mobile-menu-content {
       display: flex;
       flex-direction: column;
     }
 
-    .site-nav.is-menu-open .nav-menu,
-    .site-nav.is-menu-open .nav-mobile-bar {
+    .site-nav.is-menu-active .nav-menu,
+    .site-nav.is-menu-active .nav-mobile-bar {
       width: 100%;
     }
 
-    .site-nav.is-menu-open .nav-menu,
-    .site-nav.is-menu-open .nav-menu .mobile-menu-content {
+    .site-nav.is-menu-active .nav-menu,
+    .site-nav.is-menu-active .nav-menu .mobile-menu-content {
       min-height: 0;
     }
 
-    .site-nav.is-menu-open .nav-menu .mobile-menu-content {
+    .site-nav.is-menu-active .nav-menu .mobile-menu-content {
       overflow-y: auto;
     }
 
-    .site-nav.is-menu-open {
+    .site-nav.is-menu-active {
       background: rgba(14, 14, 14, 0.96);
       border-color: rgba(77, 70, 58, 0.34);
       box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28);
@@ -598,7 +593,7 @@ const currentYear = new Date().getFullYear();
   }
 
   @media (max-width: 420px) {
-    .site-nav.is-menu-open {
+    .site-nav.is-menu-active {
       padding-inline: 1rem;
     }
 
@@ -643,6 +638,12 @@ const currentYear = new Date().getFullYear();
     }
   };
 
+  const setMenuActiveClass = (active) => {
+    if (mobileNav instanceof HTMLElement) {
+      mobileNav.classList.toggle("is-menu-active", active);
+    }
+  };
+
   const resetDesktopMenuState = () => {
     if (!(mobileNav instanceof HTMLElement) || !(mobileNavMenu instanceof HTMLElement) || !(mobileMenuContent instanceof HTMLElement)) {
       return;
@@ -650,6 +651,7 @@ const currentYear = new Date().getFullYear();
 
     clearMenuTween();
     syncToggle(false);
+    setMenuActiveClass(false);
     setMenuOpenClass(false);
     setScrollLock(false);
     gsap.set([mobileNav, mobileNavMenu, mobileMenuContent], { clearProps: "all" });
@@ -675,6 +677,7 @@ const currentYear = new Date().getFullYear();
 
     if (reduceMotion.matches || immediate) {
       syncToggle(open);
+      setMenuActiveClass(open);
       setMenuOpenClass(open);
       setScrollLock(open);
 
@@ -710,6 +713,7 @@ const currentYear = new Date().getFullYear();
 
     if (open) {
       syncToggle(true);
+      setMenuActiveClass(true);
       setMenuOpenClass(true);
       setScrollLock(true);
       menuOpenHeight = getOpenMenuHeight();
@@ -747,12 +751,13 @@ const currentYear = new Date().getFullYear();
     }
 
     syncToggle(false);
+    setMenuOpenClass(false);
     gsap.set(mobileNavMenu, { height: mobileNavMenu.offsetHeight });
 
     menuTween = gsap.timeline({
       defaults: { ease: "power3.inOut" },
       onComplete: () => {
-        setMenuOpenClass(false);
+        setMenuActiveClass(false);
         setScrollLock(false);
         gsap.set(mobileMenuContent, { clearProps: "all" });
         gsap.set(mobileNavMenu, { clearProps: "all" });
@@ -788,7 +793,7 @@ const currentYear = new Date().getFullYear();
     });
 
     document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && mobileNav instanceof HTMLElement && mobileNav.classList.contains("is-menu-open")) {
+      if (event.key === "Escape" && mobileNav instanceof HTMLElement && mobileNav.classList.contains("is-menu-active")) {
         animateMenu(false);
       }
     });
@@ -799,7 +804,7 @@ const currentYear = new Date().getFullYear();
         return;
       }
 
-      if (mobileNav instanceof HTMLElement && mobileNav.classList.contains("is-menu-open")) {
+      if (mobileNav instanceof HTMLElement && mobileNav.classList.contains("is-menu-active")) {
         menuOpenHeight = Math.max(
           Math.min(
             mobileMenuContent instanceof HTMLElement ? mobileMenuContent.scrollHeight : 0,
@@ -816,6 +821,7 @@ const currentYear = new Date().getFullYear();
 
     document.addEventListener("astro:before-swap", () => {
       syncToggle(false);
+      setMenuActiveClass(false);
       setMenuOpenClass(false);
       setScrollLock(false);
       clearMenuTween();
