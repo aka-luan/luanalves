@@ -175,6 +175,7 @@ function createHeaderController({
 
   const shortBrandWidth = getShortBrandWidth();
   let currentMode: 'top' | 'compact' = 'top';
+  const isMenuOpen = () => nav.classList.contains('is-menu-open');
 
   const setBrandState = (mode: 'full' | 'short', immediate = false) => {
     if (!brandStack) {
@@ -198,6 +199,11 @@ function createHeaderController({
 
   const applyState = (mode: 'top' | 'compact', immediate = false) => {
     currentMode = mode;
+
+    if (isMenuOpen()) {
+      return;
+    }
+
     const shouldUseTop = mode === 'top' && enableAnimatedTopState;
     const navVars = shouldUseTop ? getTopVars() : getCompactVars();
 

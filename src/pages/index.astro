@@ -23,24 +23,27 @@ const currentYear = new Date().getFullYear();
     </div>
   </div>
 
-  <nav class="site-nav" data-motion-nav data-motion-hidden="nav" data-header-nav>
-    <a class="brand" href="#top" aria-label="Ir para o topo" data-header-brand>
-      <span class="brand-stack" data-brand-stack aria-hidden="true">
-        <span class="brand-text" data-brand-label>Luan Alves</span>
-      </span>
-      <span class="brand-dot" aria-hidden="true"></span>
-    </a>
-
+  <nav class="site-nav" data-motion-nav data-motion-hidden="nav" data-header-nav data-mobile-nav>
     <input class="nav-toggle" type="checkbox" id="site-nav-toggle" aria-label="Abrir menu" />
-    <label class="nav-toggle-button" for="site-nav-toggle" aria-label="Abrir menu de navegação">
-      <span class="nav-toggle-label">Menu</span>
-      <span class="nav-toggle-icon" aria-hidden="true">
-        <span></span>
-        <span></span>
-      </span>
-    </label>
 
-    <div class="nav-menu">
+    <div class="nav-mobile-bar" data-mobile-nav-bar>
+      <a class="brand" href="#top" aria-label="Ir para o topo" data-header-brand>
+        <span class="brand-stack" data-brand-stack aria-hidden="true">
+          <span class="brand-text" data-brand-label>Luan Alves</span>
+        </span>
+        <span class="brand-dot" aria-hidden="true"></span>
+      </a>
+
+      <label class="nav-toggle-button" for="site-nav-toggle" aria-label="Abrir menu de navegação">
+        <span class="nav-toggle-label">Menu</span>
+        <span class="nav-toggle-icon" aria-hidden="true">
+          <span></span>
+          <span></span>
+        </span>
+      </label>
+    </div>
+
+    <div class="nav-menu" data-mobile-nav-menu>
       <div class="nav-links">
         {
           navigation.map((item) => (
@@ -52,18 +55,8 @@ const currentYear = new Date().getFullYear();
       <a class="button button-outline button-compact" href={whatsappHref} target="_blank" rel="noreferrer">
         Falar no WhatsApp
       </a>
-    </div>
 
-    <div class="mobile-menu-shell" aria-hidden="true">
-      <div class="mobile-menu-backdrop"></div>
-      <div class="mobile-menu-panel hero-grid">
-        <header class="mobile-menu-header">
-          <span class="mobile-menu-brand">LUAN ALVES</span>
-          <label class="mobile-menu-close" for="site-nav-toggle" aria-label="Fechar menu">
-            <span class="material-symbols-outlined">close</span>
-          </label>
-        </header>
-
+      <div class="mobile-menu-content" data-mobile-menu-content>
         <nav class="mobile-menu-nav" aria-label="Menu mobile">
           {
             navigation.map((item, index) => (
@@ -110,7 +103,7 @@ const currentYear = new Date().getFullYear();
           </span>
         </h1>
         <p class="hero-copy" data-motion-hero-copy data-motion-hidden="y-md">
-          Crio sites, lojas virtuais e landing pages que transmitem credibilidade e convertem
+          Crio sites, blogs e landing pages que transmitem credibilidade e convertem
           visitantes em clientes através de design estratégico e código impecável.
         </p>
 
@@ -314,23 +307,40 @@ const currentYear = new Date().getFullYear();
     display: none;
   }
 
+  .nav-mobile-bar,
   .nav-menu {
     display: flex;
     align-items: center;
     gap: inherit;
   }
 
-  .mobile-menu-shell {
+  .nav-mobile-bar {
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .mobile-menu-content {
     display: none;
   }
 
   @media (max-width: 767px) {
     .site-nav {
       position: fixed;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: flex-start;
+      gap: 1rem;
+      overflow: hidden;
+      min-height: 0;
+    }
+
+    .nav-mobile-bar {
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
-      overflow: visible;
+      width: 100%;
+      flex: 0 0 auto;
     }
 
     .brand {
@@ -403,75 +413,32 @@ const currentYear = new Date().getFullYear();
 
     .nav-menu {
       display: none;
-    }
-
-    .mobile-menu-shell {
-      position: fixed;
-      inset: 0;
-      z-index: 35;
-      display: block;
-      pointer-events: none;
-    }
-
-    .mobile-menu-backdrop {
-      position: absolute;
-      inset: 0;
-      background: rgba(14, 14, 14, 0.7);
-      opacity: 0;
-      transition: opacity 320ms ease;
-    }
-
-    .mobile-menu-panel {
-      position: absolute;
-      inset: 0;
-      display: flex;
       flex-direction: column;
-      min-height: 100dvh;
-      padding: 2rem 1.5rem 1.5rem;
-      background:
-        radial-gradient(circle at bottom right, rgba(200, 169, 110, 0.16), transparent 28%),
-        rgba(14, 14, 14, 0.98);
-      transform: translateY(-100%);
-      opacity: 0;
-      transition:
-        transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
-        opacity 320ms ease;
+      align-items: stretch;
+      gap: 0;
+      width: 100%;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .mobile-menu-content {
+      display: none;
+      flex: 1 1 auto;
+      min-height: 0;
+      padding-top: 1.35rem;
       overflow-y: auto;
+      overflow-x: hidden;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
     }
 
-    .mobile-menu-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-bottom: 2.75rem;
+    .mobile-menu-content::-webkit-scrollbar {
+      display: none;
     }
 
-    .mobile-menu-brand {
-      font-family: "Newsreader", serif;
-      font-size: 1.1rem;
-      font-weight: 300;
-      letter-spacing: 0.22em;
-      color: var(--text);
-    }
-
-    .mobile-menu-close {
-      display: grid;
-      place-items: center;
-      width: 3.2rem;
-      height: 3.2rem;
-      border: 1px solid rgba(200, 169, 110, 0.32);
-      border-radius: 999px;
-      color: var(--primary);
-      cursor: pointer;
-      transition:
-        transform 180ms ease,
-        background-color 180ms ease,
-        border-color 180ms ease;
-    }
-
-    .mobile-menu-close:active {
-      transform: scale(0.96);
+    .nav-links,
+    .nav-menu > .button {
+      display: none;
     }
 
     .mobile-menu-nav {
@@ -581,31 +548,48 @@ const currentYear = new Date().getFullYear();
       color: rgba(153, 143, 129, 0.5);
     }
 
-    .nav-toggle:checked + .nav-toggle-button {
+    .site-nav.is-menu-open .nav-toggle-button {
       color: var(--primary);
       border-color: rgba(229, 196, 135, 0.48);
       background: rgba(14, 14, 14, 0.9);
     }
 
-    .nav-toggle:checked + .nav-toggle-button .nav-toggle-icon span:first-child {
+    .site-nav.is-menu-open .nav-toggle-icon span:first-child {
       transform: translateY(0.28rem) rotate(45deg);
     }
 
-    .nav-toggle:checked + .nav-toggle-button .nav-toggle-icon span:last-child {
+    .site-nav.is-menu-open .nav-toggle-icon span:last-child {
       transform: translateY(-0.28rem) rotate(-45deg);
     }
 
-    .nav-toggle:checked ~ .mobile-menu-shell {
-      pointer-events: auto;
+    .site-nav.is-menu-open .nav-menu {
+      display: flex;
     }
 
-    .nav-toggle:checked ~ .mobile-menu-shell .mobile-menu-backdrop {
-      opacity: 1;
+    .site-nav.is-menu-open .mobile-menu-content {
+      display: flex;
+      flex-direction: column;
     }
 
-    .nav-toggle:checked ~ .mobile-menu-shell .mobile-menu-panel {
-      transform: translateY(0);
-      opacity: 1;
+    .site-nav.is-menu-open .nav-menu,
+    .site-nav.is-menu-open .nav-mobile-bar {
+      width: 100%;
+    }
+
+    .site-nav.is-menu-open .nav-menu,
+    .site-nav.is-menu-open .nav-menu .mobile-menu-content {
+      min-height: 0;
+    }
+
+    .site-nav.is-menu-open .nav-menu .mobile-menu-content {
+      overflow-y: auto;
+    }
+
+    .site-nav.is-menu-open {
+      background: rgba(14, 14, 14, 0.96);
+      border-color: rgba(77, 70, 58, 0.34);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28);
+      backdrop-filter: blur(18px);
     }
 
     :global(body.menu-open) {
@@ -614,7 +598,7 @@ const currentYear = new Date().getFullYear();
   }
 
   @media (max-width: 420px) {
-    .mobile-menu-panel {
+    .site-nav.is-menu-open {
       padding-inline: 1rem;
     }
 
@@ -624,35 +608,219 @@ const currentYear = new Date().getFullYear();
   }
 </style>
 
-<script is:inline>
-  const menuToggle = document.querySelector("#site-nav-toggle");
-  const mobileLinks = document.querySelectorAll("[data-mobile-menu-link]");
+<script>
+  import gsap from "gsap";
 
-  const syncMenuState = () => {
-    if (!menuToggle) return;
-    document.body.classList.toggle("menu-open", menuToggle.checked);
+  const menuToggle = document.querySelector("#site-nav-toggle");
+  const mobileNav = document.querySelector("[data-mobile-nav]");
+  const mobileNavBar = document.querySelector("[data-mobile-nav-bar]");
+  const mobileNavMenu = document.querySelector("[data-mobile-nav-menu]");
+  const mobileMenuContent = document.querySelector("[data-mobile-menu-content]");
+  const mobileLinks = document.querySelectorAll("[data-mobile-menu-link]");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let menuTween;
+  let menuOpenHeight = 0;
+
+  const isMobileViewport = () => window.innerWidth <= 767;
+  const setScrollLock = (locked) => {
+    document.body.classList.toggle("menu-open", locked);
+  };
+
+  const clearMenuTween = () => {
+    menuTween?.kill();
+    menuTween = undefined;
+  };
+
+  const syncToggle = (open) => {
+    if (menuToggle instanceof HTMLInputElement) {
+      menuToggle.checked = open;
+    }
+  };
+
+  const setMenuOpenClass = (open) => {
+    if (mobileNav instanceof HTMLElement) {
+      mobileNav.classList.toggle("is-menu-open", open);
+    }
+  };
+
+  const resetDesktopMenuState = () => {
+    if (!(mobileNav instanceof HTMLElement) || !(mobileNavMenu instanceof HTMLElement) || !(mobileMenuContent instanceof HTMLElement)) {
+      return;
+    }
+
+    clearMenuTween();
+    syncToggle(false);
+    setMenuOpenClass(false);
+    setScrollLock(false);
+    gsap.set([mobileNav, mobileNavMenu, mobileMenuContent], { clearProps: "all" });
+  };
+
+  const animateMenu = (open, immediate = false) => {
+    if (
+      !(menuToggle instanceof HTMLInputElement) ||
+      !(mobileNav instanceof HTMLElement) ||
+      !(mobileNavBar instanceof HTMLElement) ||
+      !(mobileNavMenu instanceof HTMLElement) ||
+      !(mobileMenuContent instanceof HTMLElement)
+    ) {
+      return;
+    }
+
+    if (!isMobileViewport()) {
+      resetDesktopMenuState();
+      return;
+    }
+
+    clearMenuTween();
+
+    if (reduceMotion.matches || immediate) {
+      syncToggle(open);
+      setMenuOpenClass(open);
+      setScrollLock(open);
+
+      if (open) {
+        gsap.set(mobileNavMenu, { display: "flex" });
+        gsap.set(mobileNavMenu, { height: "auto" });
+        gsap.set(mobileMenuContent, { display: "flex", autoAlpha: 1, y: 0 });
+      } else {
+        gsap.set(mobileMenuContent, { autoAlpha: 0 });
+        gsap.set(mobileMenuContent, { clearProps: "all" });
+        gsap.set(mobileNavMenu, { clearProps: "all" });
+      }
+
+      return;
+    }
+
+    const getOpenMenuHeight = () => {
+      gsap.set(mobileNavMenu, { display: "flex", height: "auto" });
+      gsap.set(mobileMenuContent, {
+        display: "flex",
+        clearProps: "all",
+        maxHeight: "none",
+      });
+
+      const navTop = mobileNav.getBoundingClientRect().top;
+      const availableHeight = Math.max(window.innerHeight - navTop - mobileNavBar.offsetHeight - 24, 160);
+      const contentHeight = mobileMenuContent.scrollHeight;
+      const targetHeight = Math.max(Math.min(contentHeight, availableHeight), 160);
+
+      gsap.set(mobileMenuContent, { maxHeight: targetHeight });
+      return targetHeight;
+    };
+
+    if (open) {
+      syncToggle(true);
+      setMenuOpenClass(true);
+      setScrollLock(true);
+      menuOpenHeight = getOpenMenuHeight();
+
+      gsap.set(mobileNavMenu, { display: "flex", height: 0 });
+      gsap.set(mobileMenuContent, {
+        display: "flex",
+        autoAlpha: 0,
+        y: 24,
+        maxHeight: menuOpenHeight,
+      });
+
+      menuTween = gsap.timeline({
+        defaults: { ease: "power3.inOut" },
+      });
+
+      menuTween
+        .to(mobileNavMenu, {
+          height: menuOpenHeight,
+          duration: 0.42,
+        })
+        .to(
+          mobileMenuContent,
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.26,
+            ease: "power2.out",
+            clearProps: "y",
+          },
+          0.1,
+        );
+
+      return;
+    }
+
+    syncToggle(false);
+    gsap.set(mobileNavMenu, { height: mobileNavMenu.offsetHeight });
+
+    menuTween = gsap.timeline({
+      defaults: { ease: "power3.inOut" },
+      onComplete: () => {
+        setMenuOpenClass(false);
+        setScrollLock(false);
+        gsap.set(mobileMenuContent, { clearProps: "all" });
+        gsap.set(mobileNavMenu, { clearProps: "all" });
+      },
+    });
+
+    menuTween
+      .to(mobileMenuContent, {
+        autoAlpha: 0,
+        y: 18,
+        duration: 0.16,
+        ease: "power2.in",
+      })
+      .to(
+        mobileNavMenu,
+        {
+          height: 0,
+          duration: 0.34,
+        },
+        0,
+      );
   };
 
   if (menuToggle instanceof HTMLInputElement) {
-    menuToggle.addEventListener("change", syncMenuState);
+    menuToggle.addEventListener("change", () => {
+      animateMenu(menuToggle.checked);
+    });
 
     mobileLinks.forEach((link) => {
       link.addEventListener("click", () => {
-        menuToggle.checked = false;
-        syncMenuState();
+        animateMenu(false);
       });
     });
 
     document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && menuToggle.checked) {
-        menuToggle.checked = false;
-        syncMenuState();
+      if (event.key === "Escape" && mobileNav instanceof HTMLElement && mobileNav.classList.contains("is-menu-open")) {
+        animateMenu(false);
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      if (!isMobileViewport()) {
+        resetDesktopMenuState();
+        return;
+      }
+
+      if (mobileNav instanceof HTMLElement && mobileNav.classList.contains("is-menu-open")) {
+        menuOpenHeight = Math.max(
+          Math.min(
+            mobileMenuContent instanceof HTMLElement ? mobileMenuContent.scrollHeight : 0,
+            Math.max(window.innerHeight - mobileNav.getBoundingClientRect().top - mobileNavBar.offsetHeight - 24, 160),
+          ),
+          160,
+        );
+        gsap.set(mobileNavMenu, { height: menuOpenHeight });
+        if (mobileMenuContent instanceof HTMLElement) {
+          gsap.set(mobileMenuContent, { maxHeight: menuOpenHeight });
+        }
       }
     });
 
     document.addEventListener("astro:before-swap", () => {
-      menuToggle.checked = false;
-      document.body.classList.remove("menu-open");
+      syncToggle(false);
+      setMenuOpenClass(false);
+      setScrollLock(false);
+      clearMenuTween();
     });
+
+    animateMenu(menuToggle.checked, true);
   }
 </script>
