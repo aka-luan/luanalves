@@ -58,22 +58,22 @@ export const projects = [
     url: 'https://tresorincorporacoes.com.br',
     niche: 'Incorporadora de Luxo',
     caseVideo: {
-      src: '/assets/placeholders/tresor-showcase.mp4',
-      poster: '/assets/placeholders/tresor-video-poster.svg',
+      src: '/assets/placeholders/tresor-video-modal.mp4',
+      poster: '/assets/placeholders/tresor-mobile-modal.jpeg',
       title: 'Showcase em vídeo do projeto Trésor Incorporações',
     },
     gallery: [
       {
-        src: '/assets/placeholders/tresor-gallery-01.svg',
-        alt: 'Placeholder da galeria do projeto Trésor Incorporações 1',
+        src: '/assets/placeholders/tresor-idv-modal.jpeg',
+        alt: 'Variação visual da identidade do projeto Trésor Incorporações',
       },
       {
-        src: '/assets/placeholders/tresor-gallery-02.svg',
-        alt: 'Placeholder da galeria do projeto Trésor Incorporações 2',
+        src: '/assets/placeholders/tresor-idv2-modal.jpeg',
+        alt: 'Segunda variação visual do projeto Trésor Incorporações',
       },
       {
-        src: '/assets/placeholders/tresor-gallery-03.svg',
-        alt: 'Placeholder da galeria do projeto Trésor Incorporações 3',
+        src: '/assets/placeholders/tresor-mobile-modal.jpeg',
+        alt: 'Versão mobile do projeto Trésor Incorporações',
       },
     ],
   },

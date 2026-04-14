@@ -316,8 +316,22 @@ const projectModalData = JSON.stringify(projects);
 
       <div class="project-modal-layout">
         <div class="project-modal-primary">
-          <div class="project-modal-hero" data-project-modal-hero>
-            <img data-project-modal-hero-image src="" alt="" />
+          <div class="project-modal--card">
+
+            <div class="project-modal-video-frame">
+              <video
+                data-project-modal-video
+                playsinline
+                muted
+                loop
+                controls
+                preload="none"
+                poster=""
+              >
+                <source data-project-modal-video-source src="" type="video/mp4" />
+              </video>
+              <span class="project-modal-video-badge">Autoplay</span>
+            </div>
           </div>
 
           <div class="project-modal-copy">
@@ -334,42 +348,69 @@ const projectModalData = JSON.stringify(projects);
         </div>
 
         <aside class="project-modal-secondary">
-          <div class="project-modal-video-card">
-            <div class="project-modal-video-header">
-              <span>Mini showcase</span>
-              <span>Placeholder</span>
-            </div>
-
-            <div class="project-modal-video-frame">
-              <video
-                data-project-modal-video
-                playsinline
-                muted
-                loop
-                controls
-                preload="none"
-                poster=""
-              >
-                <source data-project-modal-video-source src="" type="video/mp4" />
-              </video>
-              <span class="project-modal-video-badge">Vídeo placeholder</span>
-            </div>
+          <div class="project-modal-hero" data-project-modal-hero>
+            <img data-project-modal-hero-image src="" alt="" />
           </div>
 
           <div class="project-modal-gallery">
             <div class="project-modal-gallery-heading">
               <span>Galeria</span>
-              <span>3 frames</span>
+              <span data-project-modal-gallery-count>1 / 3</span>
             </div>
 
-            <div class="project-modal-gallery-grid">
-              <img data-project-modal-gallery-image src="" alt="" loading="lazy" />
-              <img data-project-modal-gallery-image src="" alt="" loading="lazy" />
-              <img data-project-modal-gallery-image src="" alt="" loading="lazy" />
+            <div class="project-modal-gallery-stage">
+              <button
+                class="project-modal-gallery-view"
+                type="button"
+                data-project-modal-gallery-open
+                aria-label="Abrir imagem da galeria"
+              >
+                <span class="project-modal-gallery-overlay"></span>
+                <img data-project-modal-gallery-image src="" alt="" loading="lazy" />
+                <span class="project-modal-gallery-zoom">Abrir</span>
+              </button>
+
+              <button
+                class="project-modal-gallery-nav"
+                type="button"
+                data-project-modal-gallery-next
+                aria-label="Próxima imagem da galeria"
+              >
+                <span class="material-symbols-outlined">east</span>
+              </button>
+
+              <button
+                class="project-modal-gallery-nav project-modal-gallery-nav--left"
+                type="button"
+                data-project-modal-gallery-prev
+                aria-label="Imagem anterior da galeria"
+              >
+                <span class="material-symbols-outlined">west</span>
+              </button>
             </div>
           </div>
         </aside>
       </div>
+    </div>
+  </div>
+
+  <div class="project-lightbox" data-project-lightbox aria-hidden="true" hidden>
+    <button
+      class="project-lightbox-backdrop"
+      type="button"
+      data-project-lightbox-backdrop
+      aria-label="Fechar imagem ampliada"
+    ></button>
+    <div class="project-lightbox-shell">
+      <button
+        class="project-lightbox-close"
+        type="button"
+        data-project-lightbox-close
+        aria-label="Fechar imagem ampliada"
+      >
+        <span class="material-symbols-outlined">close</span>
+      </button>
+      <img data-project-lightbox-image src="" alt="" />
     </div>
   </div>
 

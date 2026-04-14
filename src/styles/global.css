@@ -769,6 +769,7 @@ a {
   justify-content: space-between;
   gap: 1rem;
   padding: 1.25rem 1.25rem 0;
+  margin-bottom: 1rem;
 }
 
 .project-modal-kicker,
@@ -816,15 +817,17 @@ a {
 
 .project-modal-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+  grid-template-columns: minmax(0, 1.28fr) minmax(320px, 0.72fr);
   gap: 1.5rem;
   padding: 0 1.25rem 1.25rem;
+  align-items: start;
 }
 
 .project-modal-primary,
 .project-modal-secondary {
   display: grid;
   gap: 1.25rem;
+  align-content: start;
 }
 
 .project-modal-hero,
@@ -834,7 +837,7 @@ a {
 }
 
 .project-modal-hero {
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 4 / 5;
   overflow: hidden;
 }
 
@@ -849,7 +852,7 @@ a {
 .project-modal-copy {
   display: grid;
   gap: 1rem;
-  padding: 1.5rem;
+  padding: 1.35rem 1.5rem 1.5rem;
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(77, 70, 58, 0.18);
 }
@@ -902,8 +905,12 @@ a {
 
 .project-modal-video-frame {
   position: relative;
-  aspect-ratio: 16 / 10;
+  min-height: 100%;
   overflow: hidden;
+}
+
+.project-modal-video-card {
+  grid-template-rows: auto 1fr;
 }
 
 .project-modal-video-frame::after {
@@ -929,14 +936,144 @@ a {
   text-transform: uppercase;
 }
 
-.project-modal-gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.75rem;
+.project-modal-gallery-stage {
+  position: relative;
 }
 
-.project-modal-gallery-grid img {
+.project-modal-gallery-nav {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.85rem;
+  height: 2.85rem;
+  border: 1px solid rgba(153, 143, 129, 0.24);
+  background: rgba(12, 12, 12, 0.54);
+  backdrop-filter: blur(10px);
+  color: var(--text);
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition:
+    color 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.project-modal-gallery-nav--left {
+  left: 0.85rem;
+}
+
+.project-modal-gallery-nav:not(.project-modal-gallery-nav--left) {
+  right: 0.85rem;
+}
+
+.project-modal-gallery-view {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+  overflow: hidden;
+}
+
+.project-modal-gallery-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.28));
+  pointer-events: none;
+}
+
+.project-modal-gallery-nav:hover,
+.project-modal-gallery-nav:focus-visible,
+.project-modal-gallery-view:hover,
+.project-modal-gallery-view:focus-visible {
+  color: var(--primary);
+}
+
+.project-modal-gallery-nav:focus-visible,
+.project-modal-gallery-view:focus-visible {
+  outline: 1px solid rgba(229, 196, 135, 0.42);
+  outline-offset: 0.2rem;
+}
+
+.project-modal-gallery-nav:active {
+  transform: translateY(-50%) scale(0.98);
+}
+
+.project-modal-gallery-view img {
+  width: 100%;
   aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.project-modal-gallery-zoom {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 1;
+  padding: 0.4rem 0.58rem;
+  background: rgba(12, 12, 12, 0.54);
+  border: 1px solid rgba(153, 143, 129, 0.24);
+  color: var(--text);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.project-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+}
+
+.project-lightbox[hidden] {
+  display: none;
+}
+
+.project-lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: rgba(6, 6, 6, 0.9);
+}
+
+.project-lightbox-shell {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 0.85rem;
+  width: min(1120px, calc(100vw - 3rem));
+}
+
+.project-lightbox-close {
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid rgba(153, 143, 129, 0.24);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.project-lightbox-shell img {
+  width: 100%;
+  max-height: calc(100svh - 7rem);
+  object-fit: contain;
+  background: rgba(16, 16, 16, 0.98);
 }
 
 .project-modal-clone {
@@ -944,6 +1081,13 @@ a {
   object-fit: cover;
   pointer-events: none;
   box-shadow: 0 24px 54px rgba(0, 0, 0, 0.28);
+}
+
+.project-lightbox-clone {
+  z-index: 71;
+  object-fit: cover;
+  pointer-events: none;
+  box-shadow: 0 28px 72px rgba(0, 0, 0, 0.34);
 }
 
 .why-section {
@@ -1280,8 +1424,8 @@ a {
     width: auto;
   }
 
-  .project-modal-gallery-grid {
-    grid-template-columns: 1fr;
+  .project-lightbox {
+    padding: 0.75rem;
   }
 }
 
