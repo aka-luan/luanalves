@@ -175,7 +175,6 @@ export function initProjectModal({ projects, reduceMotion = false }: InitProject
     if (reduceMotion || !elements.hero || !elements.panel) {
       elements.modal.hidden = true;
       elements.modal.setAttribute("aria-hidden", "true");
-      document.body.classList.remove("project-modal-open");
       activeState.trigger.classList.remove("is-project-active");
       activeState.trigger.focus();
       activeState = null;
@@ -208,7 +207,6 @@ export function initProjectModal({ projects, reduceMotion = false }: InitProject
       onComplete: () => {
         elements.modal.hidden = true;
         elements.modal.setAttribute("aria-hidden", "true");
-        document.body.classList.remove("project-modal-open");
         activeState?.trigger.classList.remove("is-project-active");
         activeState?.trigger.focus();
         stopActiveAnimation();
@@ -242,8 +240,6 @@ export function initProjectModal({ projects, reduceMotion = false }: InitProject
     fillModal(elements, project);
     elements.modal.hidden = false;
     elements.modal.setAttribute("aria-hidden", "false");
-    document.body.classList.add("project-modal-open");
-
     if (reduceMotion || !elements.hero || !elements.panel) {
       gsap.set([elements.backdrop, elements.panel], { clearProps: "all" });
       trigger.blur();
@@ -329,7 +325,6 @@ export function initProjectModal({ projects, reduceMotion = false }: InitProject
     stopActiveAnimation();
     activeState?.trigger.classList.remove("is-project-active");
     activeState = null;
-    document.body.classList.remove("project-modal-open");
     elements.modal.hidden = true;
     elements.modal.setAttribute("aria-hidden", "true");
     cleanupCallbacks.forEach((callback) => callback());

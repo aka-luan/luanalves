@@ -286,7 +286,6 @@ export function initLandingMotion() {
   }
 
   const html = document.documentElement;
-  const body = document.body;
   const nav = root.querySelector<HTMLElement>('[data-motion-nav]');
   const hero = root.querySelector<HTMLElement>('[data-motion="hero"]');
   const brandStack = root.querySelector<HTMLElement>('[data-brand-stack]');
@@ -496,7 +495,6 @@ export function initLandingMotion() {
 
         if (loader) {
           if (shouldShowLoader) {
-            body.classList.add('is-loader-active');
             loader.removeAttribute('hidden');
             loader.setAttribute('aria-hidden', 'false');
 
@@ -524,7 +522,6 @@ export function initLandingMotion() {
               onComplete: () => {
                 loader.setAttribute('hidden', '');
                 loader.setAttribute('aria-hidden', 'true');
-                body.classList.remove('is-loader-active');
                 markLoaderSeen();
               },
             });
@@ -558,7 +555,6 @@ export function initLandingMotion() {
           } else {
             loader.setAttribute('hidden', '');
             loader.setAttribute('aria-hidden', 'true');
-            body.classList.remove('is-loader-active');
             intro.play(0);
           }
         } else {
@@ -811,7 +807,6 @@ export function initLandingMotion() {
         return () => {
           cleanupHeader?.();
           nav?.classList.remove('is-scrolled');
-          body.classList.remove('is-loader-active');
           loader?.setAttribute('aria-hidden', 'true');
           gsap.set(
             [
@@ -834,7 +829,6 @@ export function initLandingMotion() {
     cleanupMatchMedia();
     context.revert();
     nav?.classList.remove('is-scrolled');
-    body.classList.remove('is-loader-active');
     delete window.__landingMotionCleanup__;
   };
 }

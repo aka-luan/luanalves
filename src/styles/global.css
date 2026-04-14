@@ -37,14 +37,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-body.is-loader-active {
-  overflow: hidden;
-}
-
-body.project-modal-open {
-  overflow: hidden;
-}
-
 img {
   display: block;
   max-width: 100%;

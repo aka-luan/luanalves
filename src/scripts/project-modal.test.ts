@@ -107,7 +107,7 @@ describe("initProjectModal", () => {
 
     expect(modal?.hidden).toBe(false);
     expect(modal?.getAttribute("aria-hidden")).toBe("false");
-    expect(document.body.classList.contains("project-modal-open")).toBe(true);
+    expect(document.body.classList.contains("project-modal-open")).toBe(false);
     expect(title?.textContent).toBe(project.title);
     expect(description?.textContent).toBe(project.description);
     expect(link?.href).toBe(project.url);
