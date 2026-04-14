@@ -144,6 +144,26 @@ function createFloatingImage(origin: HTMLElement, project: ProjectModalProject) 
   return { clone, rect };
 }
 
+function measureHeroRect(elements: ModalElements) {
+  if (!elements.panel || !elements.hero) {
+    return null;
+  }
+
+  gsap.set(elements.panel, {
+    autoAlpha: 1,
+    y: 0,
+    visibility: "hidden",
+  });
+
+  const rect = elements.hero.getBoundingClientRect();
+
+  gsap.set(elements.panel, {
+    clearProps: "visibility",
+  });
+
+  return rect;
+}
+
 export function initProjectModal({ projects, reduceMotion = false }: InitProjectModalOptions) {
   const root = document.querySelector(ROOT_SELECTOR) ?? document;
   const elements = getElements(root);
@@ -248,7 +268,7 @@ export function initProjectModal({ projects, reduceMotion = false }: InitProject
 
     const origin = getOriginMedia(trigger);
     const { clone } = createFloatingImage(origin, project);
-    const heroRect = elements.hero.getBoundingClientRect();
+    const heroRect = measureHeroRect(elements) ?? elements.hero.getBoundingClientRect();
     floatingImage = clone;
 
     gsap.set(elements.backdrop, { autoAlpha: 0 });
