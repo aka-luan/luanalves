@@ -228,6 +228,7 @@ export function initProjectModal({ projects, reduceMotion = false }: InitProject
   let galleryTween: gsap.core.Timeline | null = null;
   let lightboxTween: gsap.core.Timeline | null = null;
   let lightboxClone: HTMLImageElement | null = null;
+  const isMobileLayout = () => window.innerWidth <= 960;
 
   const stopActiveAnimation = () => {
     activeTimeline?.kill();
@@ -475,6 +476,28 @@ export function initProjectModal({ projects, reduceMotion = false }: InitProject
       return;
     }
 
+    if (isMobileLayout()) {
+      activeTimeline = gsap.timeline({
+        defaults: {
+          ease: "power3.inOut",
+        },
+        onComplete: () => {
+          stopVideo(elements);
+          elements.modal.hidden = true;
+          elements.modal.setAttribute("aria-hidden", "true");
+          activeState?.trigger.classList.remove("is-project-active");
+          activeState?.trigger.focus();
+          activeState = null;
+        },
+      });
+
+      activeTimeline
+        .to(elements.panel, { autoAlpha: 0, y: 20, duration: 0.24 }, 0)
+        .to(elements.backdrop, { autoAlpha: 0, duration: 0.22 }, 0);
+
+      return;
+    }
+
     const origin = getOriginMedia(activeState.trigger);
     const originRect = origin.getBoundingClientRect();
     const heroRect = elements.hero.getBoundingClientRect();
@@ -540,6 +563,48 @@ export function initProjectModal({ projects, reduceMotion = false }: InitProject
       gsap.set([elements.backdrop, elements.panel], { clearProps: "all" });
       startVideo(elements);
       queueGalleryAutoplay();
+      trigger.blur();
+      return;
+    }
+
+    if (isMobileLayout()) {
+      gsap.set(elements.backdrop, { autoAlpha: 0 });
+      gsap.set(elements.panel, { autoAlpha: 0, y: 24 });
+      gsap.set(elements.heroImage, { autoAlpha: 1, clearProps: "opacity" });
+
+      activeTimeline = gsap.timeline({
+        defaults: {
+          ease: "power3.out",
+        },
+        onComplete: () => {
+          startVideo(elements);
+        },
+      });
+
+      activeTimeline
+        .to(elements.backdrop, { autoAlpha: 1, duration: 0.24 }, 0)
+        .to(
+          trigger,
+          {
+            autoAlpha: 0.55,
+            scale: 0.985,
+            duration: 0.22,
+          },
+          0,
+        )
+        .to(
+          elements.panel,
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.34,
+          },
+          0.08,
+        )
+        .add(() => {
+          gsap.set(trigger, { clearProps: "opacity,transform" });
+        });
+
       trigger.blur();
       return;
     }
