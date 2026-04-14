@@ -23,6 +23,8 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-color: rgba(153, 143, 129, 0.42) var(--surface-lowest);
+  scrollbar-width: thin;
 }
 
 body {
@@ -35,6 +37,29 @@ body {
   font-family: "Manrope", sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+}
+
+html::-webkit-scrollbar {
+  width: 0.78rem;
+  height: 0.78rem;
+}
+
+html::-webkit-scrollbar-track {
+  background: var(--surface-lowest);
+}
+
+html::-webkit-scrollbar-thumb {
+  background: rgba(153, 143, 129, 0.42);
+  border: 3px solid var(--surface-lowest);
+  border-radius: 999px;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: rgba(229, 196, 135, 0.45);
+}
+
+html::-webkit-scrollbar-corner {
+  background: var(--surface-lowest);
 }
 
 img {
