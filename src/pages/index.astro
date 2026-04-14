@@ -5,6 +5,7 @@ import { navigation, trustItems, services, projects, reasons } from "../data/sit
 
 const whatsappHref = "https://wa.me/5511999999999";
 const currentYear = new Date().getFullYear();
+const projectModalData = JSON.stringify(projects);
 ---
 
 <BaseLayout>
@@ -196,12 +197,17 @@ const currentYear = new Date().getFullYear();
         <div class="project-grid">
           {
             projects.map((project, index) => (
-              <article
+              <button
+                type="button"
                 class="project-card"
+                data-project-trigger
+                data-project-id={project.id}
                 data-motion-item="project"
                 data-motion-hidden={index % 2 === 0 ? "x-left" : "x-right"}
+                aria-haspopup="dialog"
+                aria-label={`Abrir modal do projeto ${project.title}`}
               >
-                <div class="project-media">
+                <div class="project-media" data-project-origin>
                   <img src={project.image} alt={project.alt} loading="lazy" data-motion-image />
                 </div>
                 <div class="project-meta">
@@ -209,11 +215,11 @@ const currentYear = new Date().getFullYear();
                     <h3>{project.title}</h3>
                     <p>{project.subtitle}</p>
                   </div>
-                  <a href="#contato" aria-label={`Abrir contato para ${project.title}`}>
+                  <span class="project-meta-action" aria-hidden="true">
                     <span class="material-symbols-outlined">north_east</span>
-                  </a>
+                  </span>
                 </div>
-              </article>
+              </button>
             ))
           }
         </div>
@@ -281,6 +287,92 @@ const currentYear = new Date().getFullYear();
     </section>
   </main>
 
+  <div class="project-modal" data-project-modal aria-hidden="true" hidden>
+    <button
+      class="project-modal-backdrop"
+      type="button"
+      data-project-modal-backdrop
+      aria-label="Fechar modal do projeto"
+    ></button>
+
+    <div
+      class="project-modal-shell"
+      data-project-modal-panel
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="project-modal-title"
+    >
+      <div class="project-modal-head">
+        <p class="project-modal-kicker" data-project-modal-kicker></p>
+        <button
+          class="project-modal-close"
+          type="button"
+          data-project-modal-close
+          aria-label="Fechar modal do projeto"
+        >
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+
+      <div class="project-modal-layout">
+        <div class="project-modal-primary">
+          <div class="project-modal-hero" data-project-modal-hero>
+            <img data-project-modal-hero-image src="" alt="" />
+          </div>
+
+          <div class="project-modal-copy">
+            <h3 id="project-modal-title" data-project-modal-title></h3>
+            <p data-project-modal-description></p>
+
+            <div class="project-modal-actions">
+              <a class="button button-solid button-compact" data-project-modal-link href="">
+                Visitar projeto
+              </a>
+              <span class="project-modal-note">Case expandido com placeholders prontos para substituir.</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="project-modal-secondary">
+          <div class="project-modal-video-card">
+            <div class="project-modal-video-header">
+              <span>Mini showcase</span>
+              <span>Placeholder</span>
+            </div>
+
+            <div class="project-modal-video-frame">
+              <video
+                data-project-modal-video
+                playsinline
+                muted
+                loop
+                controls
+                preload="none"
+                poster=""
+              >
+                <source data-project-modal-video-source src="" type="video/mp4" />
+              </video>
+              <span class="project-modal-video-badge">Vídeo placeholder</span>
+            </div>
+          </div>
+
+          <div class="project-modal-gallery">
+            <div class="project-modal-gallery-heading">
+              <span>Galeria</span>
+              <span>3 frames</span>
+            </div>
+
+            <div class="project-modal-gallery-grid">
+              <img data-project-modal-gallery-image src="" alt="" loading="lazy" />
+              <img data-project-modal-gallery-image src="" alt="" loading="lazy" />
+              <img data-project-modal-gallery-image src="" alt="" loading="lazy" />
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
   <footer class="site-footer" data-motion-section="footer">
     <div class="container footer-layout">
       <a class="brand brand-footer" href="#top" data-motion-item="footer" data-motion-hidden="y-sm">
@@ -304,6 +396,7 @@ const currentYear = new Date().getFullYear();
   </footer>
 
   <LandingMotion />
+  <script type="application/json" data-project-modal-data set:html={projectModalData}></script>
 </BaseLayout>
 
 <style>

@@ -7,10 +7,15 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build && node scripts/patch-build-assets.mjs",
+    "test": "vitest run",
     "preview": "astro preview"
   },
   "dependencies": {
     "astro": "^5.0.0",
     "gsap": "^3.13.0"
+  },
+  "devDependencies": {
+    "jsdom": "^29.0.2",
+    "vitest": "^4.1.4"
   }
 }

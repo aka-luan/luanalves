@@ -1,9 +1,20 @@
 <script>
   import { cleanupLandingMotion, initLandingMotion } from "../scripts/landing-motion";
+  import { initProjectModalFromDom } from "../scripts/project-modal";
 
-  const boot = () => initLandingMotion();
+  let cleanupProjectModal = () => {};
+
+  const boot = () => {
+    initLandingMotion();
+    cleanupProjectModal();
+    cleanupProjectModal = initProjectModalFromDom();
+  };
 
   boot();
   document.addEventListener("astro:page-load", boot);
-  document.addEventListener("astro:before-swap", cleanupLandingMotion);
+  document.addEventListener("astro:before-swap", () => {
+    cleanupLandingMotion();
+    cleanupProjectModal();
+    cleanupProjectModal = () => {};
+  });
 </script>

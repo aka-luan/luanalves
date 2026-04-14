@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000">
+  <rect width="1600" height="1000" fill="#171614"/>
+  <rect x="70" y="70" width="1460" height="860" fill="#211f1c" stroke="#e5c487" stroke-opacity=".28"/>
+  <text x="120" y="170" fill="#e5c487" font-size="44" font-family="Georgia, serif">Trésor Incorporações</text>
+  <text x="120" y="235" fill="#998f81" font-size="22" font-family="Arial, sans-serif" letter-spacing="6">VIDEO PLACEHOLDER</text>
+  <circle cx="800" cy="500" r="96" fill="#e5c487" fill-opacity=".14" stroke="#e5c487" stroke-opacity=".5"/>
+  <polygon points="770,438 770,562 872,500" fill="#e5c487"/>
+</svg>
