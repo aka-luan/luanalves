@@ -789,7 +789,7 @@ export function initLandingMotion() {
         createSectionReveal({
           section: root.querySelector('[data-motion-section="footer"]'),
           targets: footerItems,
-          start: 'top 90%',
+          start: 'top 95%',
           setup: (timeline) => {
             timeline.to(footerItems, {
               autoAlpha: 1,
