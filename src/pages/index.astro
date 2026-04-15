@@ -3,7 +3,7 @@ import LandingMotion from "../components/LandingMotion.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { navigation, trustItems, services, projects, reasons } from "../data/site";
 
-const whatsappHref = "https://wa.me/5591982890565";
+const whatsappHref = "https://wa.me/5511999999999";
 const currentYear = new Date().getFullYear();
 const projectModalData = JSON.stringify(projects);
 ---
@@ -105,16 +105,16 @@ const projectModalData = JSON.stringify(projects);
     <section class="hero section hero-grid" data-motion="hero">
       <div class="hero-glow" aria-hidden="true" data-motion-glow></div>
       <div class="container hero-content">
-        <h2 class="eyebrow" data-motion-hero-eyebrow data-motion-hidden="y-sm">
+        <span class="eyebrow" data-motion-hero-eyebrow data-motion-hidden="y-sm">
           Desenvolvimento Web Profissional
-        </h2>
+        </span>
         <h1 class="hero-title">
           <span data-motion-hero-title data-motion-hidden="y-lg">
             Seu negócio merece um <span>site que vende.</span>
           </span>
         </h1>
         <p class="hero-copy" data-motion-hero-copy data-motion-hidden="y-md">
-          Como desenvolvedor web freelancer, crio sites institucionais, blogs e landing pages que transmitem credibilidade e convertem
+          Crio sites, blogs e landing pages que transmitem credibilidade e convertem
           visitantes em clientes através de design estratégico e código impecável.
         </p>
 
@@ -342,6 +342,7 @@ const projectModalData = JSON.stringify(projects);
               <a class="button button-solid button-compact" data-project-modal-link href="">
                 Visitar projeto
               </a>
+              <span class="project-modal-note">Case expandido com placeholders prontos para substituir.</span>
             </div>
           </div>
         </div>
