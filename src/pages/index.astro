@@ -1,80 +1,115 @@
 ---
-import LandingMotion from "../components/LandingMotion.astro";
-import BaseLayout from "../layouts/BaseLayout.astro";
-import { navigation, trustItems, services, projects, reasons } from "../data/site";
+import LandingMotion from '../components/LandingMotion.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import {
+  navigation,
+  trustItems,
+  services,
+  projects,
+  reasons,
+} from '../data/site';
 
-const whatsappHref = "https://wa.me/5511999999999";
+const whatsappHref =
+  'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Estou%20interessado%20em%20criar%20um%20site%20profissional%20para%20meu%20neg%C3%B3cio.%20Podemos%20conversar%3F';
 const currentYear = new Date().getFullYear();
 const projectModalData = JSON.stringify(projects);
 ---
 
 <BaseLayout>
-  <div class="page-loader" data-loader aria-hidden="true">
-    <div class="page-loader__backdrop hero-grid" aria-hidden="true"></div>
-    <div class="page-loader__inner">
-      <span class="page-loader__label" data-loader-label>Desenvolvimento Web Profissional</span>
-      <div class="page-loader__brand" data-loader-brand>
+  <div class='page-loader' data-loader aria-hidden='true'>
+    <div class='page-loader__backdrop hero-grid' aria-hidden='true'></div>
+    <div class='page-loader__inner'>
+      <span class='page-loader__label' data-loader-label
+        >Desenvolvimento Web Profissional</span
+      >
+      <div class='page-loader__brand' data-loader-brand>
         <span>Luan Alves</span>
-        <span class="brand-dot" aria-hidden="true"></span>
+        <span class='brand-dot' aria-hidden='true'></span>
       </div>
-      <div class="page-loader__track" data-loader-progress>
-        <span class="page-loader__line page-loader__line--base" aria-hidden="true"></span>
-        <span class="page-loader__line page-loader__line--fill" data-loader-progress-fill aria-hidden="true"></span>
+      <div class='page-loader__track' data-loader-progress>
+        <span
+          class='page-loader__line page-loader__line--base'
+          aria-hidden='true'></span>
+        <span
+          class='page-loader__line page-loader__line--fill'
+          data-loader-progress-fill
+          aria-hidden='true'></span>
       </div>
     </div>
   </div>
 
-  <nav class="site-nav" data-motion-nav data-motion-hidden="nav" data-header-nav data-mobile-nav>
-    <input class="nav-toggle" type="checkbox" id="site-nav-toggle" aria-label="Abrir menu" />
+  <nav
+    class='site-nav'
+    data-motion-nav
+    data-motion-hidden='nav'
+    data-header-nav
+    data-mobile-nav>
+    <input
+      class='nav-toggle'
+      type='checkbox'
+      id='site-nav-toggle'
+      aria-label='Abrir menu'
+    />
 
-    <div class="nav-mobile-bar" data-mobile-nav-bar>
-      <a class="brand" href="#top" aria-label="Ir para o topo" data-header-brand>
-        <span class="brand-stack" data-brand-stack aria-hidden="true">
-          <span class="brand-text" data-brand-label>Luan Alves</span>
+    <div class='nav-mobile-bar' data-mobile-nav-bar>
+      <a
+        class='brand'
+        href='#top'
+        aria-label='Ir para o topo'
+        data-header-brand>
+        <span class='brand-stack' data-brand-stack aria-hidden='true'>
+          <span class='brand-text' data-brand-label>Luan Alves</span>
         </span>
-        <span class="brand-dot" aria-hidden="true"></span>
+        <span class='brand-dot' aria-hidden='true'></span>
       </a>
 
-      <label class="nav-toggle-button" for="site-nav-toggle" aria-label="Abrir menu de navegação">
+      <label
+        class='nav-toggle-button'
+        for='site-nav-toggle'
+        aria-label='Abrir menu de navegação'>
         <svg
-          class="nav-toggle-icon"
-          aria-hidden="true"
-          viewBox="0 0 32 32"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
+          class='nav-toggle-icon'
+          aria-hidden='true'
+          viewBox='0 0 32 32'
+          fill='none'
+          stroke='currentColor'
+          stroke-width='2.5'
+          stroke-linecap='round'
+          stroke-linejoin='round'>
           <path
-            class="nav-toggle-icon__curve"
-            d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"
-          />
-          <path class="nav-toggle-icon__line" d="M7 16 27 16" />
+            class='nav-toggle-icon__curve'
+            d='M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22'
+          ></path>
+          <path class='nav-toggle-icon__line' d='M7 16 27 16'></path>
         </svg>
       </label>
     </div>
 
-    <div class="nav-menu" data-mobile-nav-menu>
-      <div class="nav-links">
-        {
-          navigation.map((item) => (
-            <a href={item.href}>{item.label}</a>
-          ))
-        }
+    <div class='nav-menu' data-mobile-nav-menu>
+      <div class='nav-links'>
+        {navigation.map((item) => <a href={item.href}>{item.label}</a>)}
       </div>
 
-      <a class="button button-outline button-compact" href={whatsappHref} target="_blank" rel="noreferrer">
+      <a
+        class='button button-outline button-compact'
+        href={whatsappHref}
+        target='_blank'
+        rel='noreferrer'>
         Falar no WhatsApp
       </a>
 
-      <div class="mobile-menu-content" data-mobile-menu-content>
-        <nav class="mobile-menu-nav" aria-label="Menu mobile">
+      <div class='mobile-menu-content' data-mobile-menu-content>
+        <nav class='mobile-menu-nav' aria-label='Menu mobile'>
           {
             navigation.map((item, index) => (
-              <a class="mobile-menu-link" href={item.href} data-mobile-menu-link>
-                <span class="mobile-menu-index">{String(index + 1).padStart(2, "0")}</span>
-                <span class="mobile-menu-copy">
+              <a
+                class='mobile-menu-link'
+                href={item.href}
+                data-mobile-menu-link>
+                <span class='mobile-menu-index'>
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <span class='mobile-menu-copy'>
                   <span>{item.label}</span>
                 </span>
               </a>
@@ -82,17 +117,23 @@ const projectModalData = JSON.stringify(projects);
           }
         </nav>
 
-        <div class="mobile-menu-footer">
-          <a class="mobile-menu-cta" href={whatsappHref} target="_blank" rel="noreferrer">
+        <div class='mobile-menu-footer'>
+          <a
+            class='mobile-menu-cta'
+            href={whatsappHref}
+            target='_blank'
+            rel='noreferrer'>
             <span>Falar no WhatsApp</span>
-            <span class="material-symbols-outlined">arrow_right_alt</span>
+            <span class='material-symbols-outlined'>arrow_right_alt</span>
           </a>
 
-          <div class="mobile-menu-meta">
-            <div class="mobile-menu-secondary-links">
-              <a href={whatsappHref} target="_blank" rel="noreferrer">WhatsApp</a>
-              <a href="#portfolio" data-mobile-menu-link>Portfólio</a>
-              <a href="#contato" data-mobile-menu-link>Contato</a>
+          <div class='mobile-menu-meta'>
+            <div class='mobile-menu-secondary-links'>
+              <a href={whatsappHref} target='_blank' rel='noreferrer'
+                >WhatsApp</a
+              >
+              <a href='#portfolio' data-mobile-menu-link>Portfólio</a>
+              <a href='#contato' data-mobile-menu-link>Contato</a>
             </div>
             <p>© {currentYear} Luan Alves. Web editorial.</p>
           </div>
@@ -101,51 +142,53 @@ const projectModalData = JSON.stringify(projects);
     </div>
   </nav>
 
-  <main id="top">
-    <section class="hero section hero-grid" data-motion="hero">
-      <div class="hero-glow" aria-hidden="true" data-motion-glow></div>
-      <div class="container hero-content">
-        <span class="eyebrow" data-motion-hero-eyebrow data-motion-hidden="y-sm">
-          Desenvolvimento Web Profissional
-        </span>
-        <h1 class="hero-title">
-          <span data-motion-hero-title data-motion-hidden="y-lg">
+  <main id='top'>
+    <section class='hero section hero-grid' data-motion='hero'>
+      <div class='hero-glow' aria-hidden='true' data-motion-glow></div>
+      <div class='container hero-content'>
+        <h2 class='eyebrow' data-motion-hero-eyebrow data-motion-hidden='y-sm'>
+          Desenvolvedor Web Profissional
+        </h2>
+        <h1 class='hero-title'>
+          <span data-motion-hero-title data-motion-hidden='y-lg'>
             Seu negócio merece um <span>site que vende.</span>
           </span>
         </h1>
-        <p class="hero-copy" data-motion-hero-copy data-motion-hidden="y-md">
-          Crio sites, blogs e landing pages que transmitem credibilidade e convertem
-          visitantes em clientes através de design estratégico e código impecável.
+        <p class='hero-copy' data-motion-hero-copy data-motion-hidden='y-md'>
+          Crio sites institucionais, blogs e landing pages profissionais para
+          pequenas e médias empresas em todo o Brasil. Design estratégico,
+          código limpo e SEO desde o primeiro dia.
         </p>
 
-        <div class="hero-actions" data-motion-hero-actions>
+        <div class='hero-actions' data-motion-hero-actions>
           <a
-            class="button button-solid"
+            class='button button-solid'
             href={whatsappHref}
-            target="_blank"
-            rel="noreferrer"
-            data-motion-hidden="y-sm"
-          >
+            target='_blank'
+            rel='noreferrer'
+            data-motion-hidden='y-sm'>
             Solicitar orçamento
           </a>
-          <a class="button button-ghost" href="#portfolio" data-motion-hidden="y-sm">
+          <a
+            class='button button-ghost'
+            href='#portfolio'
+            data-motion-hidden='y-sm'>
             Ver portfólio
           </a>
         </div>
       </div>
     </section>
 
-    <section class="trust-bar" data-motion-section="trust">
-      <div class="container trust-grid">
+    <section class='trust-bar' data-motion-section='trust'>
+      <div class='container trust-grid'>
         {
           trustItems.map((item, index) => (
             <article
-              class:list={["trust-item", index === 1 && "trust-item-bordered"]}
-              data-motion-item="trust"
-              data-motion-hidden="y-sm"
-            >
-              <div class="trust-icon">
-                <span class="material-symbols-outlined">{item.icon}</span>
+              class:list={['trust-item', index === 1 && 'trust-item-bordered']}
+              data-motion-item='trust'
+              data-motion-hidden='y-sm'>
+              <div class='trust-icon'>
+                <span class='material-symbols-outlined'>{item.icon}</span>
               </div>
               <p>
                 {item.title}
@@ -158,25 +201,34 @@ const projectModalData = JSON.stringify(projects);
       </div>
     </section>
 
-    <section class="section" id="servicos" data-motion-section="services">
-      <div class="container">
-        <div class="section-heading">
-          <span class="eyebrow" data-motion-heading data-motion-hidden="y-sm">Soluções</span>
-          <h2 data-motion-heading data-motion-hidden="y-md">O que eu entrego</h2>
+    <section class='section' id='servicos' data-motion-section='services'>
+      <div class='container'>
+        <div class='section-heading'>
+          <span class='eyebrow' data-motion-heading data-motion-hidden='y-sm'
+            >Soluções</span
+          >
+          <h2 data-motion-heading data-motion-hidden='y-md'>
+            Criação de sites profissionais para empresas
+          </h2>
         </div>
 
-        <div class="card-grid">
+        <div class='card-grid'>
           {
             services.map((service) => (
-              <article class="service-card" data-motion-item="service" data-motion-hidden="y-card">
-                <div class="service-icon">
-                  <span class="material-symbols-outlined">{service.icon}</span>
+              <article
+                class='service-card'
+                data-motion-item='service'
+                data-motion-hidden='y-card'>
+                <div class='service-icon'>
+                  <span class='material-symbols-outlined'>{service.icon}</span>
                 </div>
                 <h3>{service.title}</h3>
                 <p>{service.description}</p>
-                <div class="card-rule"></div>
-                <ul class="service-list">
-                  {service.bullets.map((item) => <li>{item}</li>)}
+                <div class='card-rule' />
+                <ul class='service-list'>
+                  {service.bullets.map((item) => (
+                    <li>{item}</li>
+                  ))}
                 </ul>
               </article>
             ))
@@ -185,38 +237,49 @@ const projectModalData = JSON.stringify(projects);
       </div>
     </section>
 
-    <section class="section section-surface" id="portfolio" data-motion-section="portfolio">
-      <div class="container">
-        <div class="section-heading section-heading-spread">
+    <section
+      class='section section-surface'
+      id='portfolio'
+      data-motion-section='portfolio'>
+      <div class='container'>
+        <div class='section-heading section-heading-spread'>
           <div>
-            <span class="eyebrow" data-motion-heading data-motion-hidden="y-sm">Curadoria</span>
-            <h2 data-motion-heading data-motion-hidden="y-md">Projetos Realizados</h2>
+            <span class='eyebrow' data-motion-heading data-motion-hidden='y-sm'
+              >Curadoria</span
+            >
+            <h2 data-motion-heading data-motion-hidden='y-md'>
+              Projetos entregues para empresas reais
+            </h2>
           </div>
         </div>
 
-        <div class="project-grid">
+        <div class='project-grid'>
           {
             projects.map((project, index) => (
               <button
-                type="button"
-                class="project-card"
+                type='button'
+                class='project-card'
                 data-project-trigger
                 data-project-id={project.id}
-                data-motion-item="project"
-                data-motion-hidden={index % 2 === 0 ? "x-left" : "x-right"}
-                aria-haspopup="dialog"
-                aria-label={`Abrir modal do projeto ${project.title}`}
-              >
-                <div class="project-media" data-project-origin>
-                  <img src={project.image} alt={project.alt} loading="lazy" data-motion-image />
+                data-motion-item='project'
+                data-motion-hidden={index % 2 === 0 ? 'x-left' : 'x-right'}
+                aria-haspopup='dialog'
+                aria-label={`Abrir modal do projeto ${project.title}`}>
+                <div class='project-media' data-project-origin>
+                  <img
+                    src={project.image}
+                    alt={project.alt}
+                    loading='lazy'
+                    data-motion-image
+                  />
                 </div>
-                <div class="project-meta">
+                <div class='project-meta'>
                   <div>
                     <h3>{project.title}</h3>
                     <p>{project.subtitle}</p>
                   </div>
-                  <span class="project-meta-action" aria-hidden="true">
-                    <span class="material-symbols-outlined">north_east</span>
+                  <span class='project-meta-action' aria-hidden='true'>
+                    <span class='material-symbols-outlined'>north_east</span>
                   </span>
                 </div>
               </button>
@@ -226,22 +289,32 @@ const projectModalData = JSON.stringify(projects);
       </div>
     </section>
 
-    <section class="section why-section" data-motion-section="why">
-      <div class="why-grid-accent hero-grid" aria-hidden="true"></div>
-      <div class="container why-layout">
+    <section class='section why-section' data-motion-section='why'>
+      <div class='why-grid-accent hero-grid' aria-hidden='true'></div>
+      <div class='container why-layout'>
         <div>
-          <span class="eyebrow" data-motion-heading data-motion-hidden="y-sm">Diferenciais</span>
-          <h2 data-motion-heading data-motion-hidden="y-md">Por que confiar seu projeto a mim?</h2>
-          <p class="why-copy" data-motion-copy data-motion-hidden="y-md">
-            Mais do que apenas um site, eu entrego uma ferramenta de negócios. Cada linha de código
-            e cada pixel é pensado para que sua presença digital seja sua melhor vendedora.
+          <span class='eyebrow' data-motion-heading data-motion-hidden='y-sm'
+            >Diferenciais</span
+          >
+          <h2 data-motion-heading data-motion-hidden='y-md'>
+            Por que contratar um desenvolvedor web freelancer?
+          </h2>
+          <p class='why-copy' data-motion-copy data-motion-hidden='y-md'>
+            Ao contratar diretamente, você tem acesso ao profissional que vai
+            criar o seu site — sem camadas de agência, sem ruído na comunicação
+            e sem custo inflado.
           </p>
 
-          <div class="reason-grid">
+          <div class='reason-grid'>
             {
               reasons.map((reason) => (
-                <article class="reason-item" data-motion-item="reason" data-motion-hidden="y-sm">
-                  <span class="material-symbols-outlined reason-check">check_circle</span>
+                <article
+                  class='reason-item'
+                  data-motion-item='reason'
+                  data-motion-hidden='y-sm'>
+                  <span class='material-symbols-outlined reason-check'>
+                    check_circle
+                  </span>
                   <div>
                     <h3>{reason.title}</h3>
                     <p>{reason.subtitle}</p>
@@ -252,34 +325,44 @@ const projectModalData = JSON.stringify(projects);
           </div>
         </div>
 
-        <div class="experience-panel" data-motion-experience data-motion-hidden="scale">
-          <div class="experience-card">
-            <span class="experience-number">05+</span>
-            <span class="experience-label">Anos de experiência</span>
+        <div
+          class='experience-panel'
+          data-motion-experience
+          data-motion-hidden='scale'>
+          <div class='experience-card'>
+            <span class='experience-number'>05+</span>
+            <span class='experience-label'>Anos de experiência</span>
           </div>
-          <div class="experience-corner" aria-hidden="true"></div>
+          <div class='experience-corner' aria-hidden='true'></div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="contato" data-motion-section="cta">
-      <div class="container">
-        <div class="cta-panel" data-motion-panel data-motion-hidden="y-lg">
-          <div class="cta-accent" aria-hidden="true" data-motion-accent data-motion-hidden="scale-x"></div>
-          <h2 data-motion-heading>Pronto para ter um site profissional?</h2>
+    <section class='section' id='contato' data-motion-section='cta'>
+      <div class='container'>
+        <div class='cta-panel' data-motion-panel data-motion-hidden='y-lg'>
+          <div
+            class='cta-accent'
+            aria-hidden='true'
+            data-motion-accent
+            data-motion-hidden='scale-x'>
+          </div>
+          <h2 data-motion-heading>
+            Pronto para ter um site profissional que aparece no Google?
+          </h2>
           <p data-motion-copy>
-            Me conte sobre seu projeto e vamos elevar o nível da sua presença digital. Respondo em
-            até 24 horas.
+            Me conte sobre o seu projeto. Atendo empresas em Belém e em todo o
+            Brasil de forma 100% remota — com a agilidade de um freelancer e a
+            qualidade de uma agência. Respondo em até 24 horas.
           </p>
           <a
-            class="button button-solid button-large"
+            class='button button-solid button-large'
             href={whatsappHref}
-            target="_blank"
-            rel="noreferrer"
+            target='_blank'
+            rel='noreferrer'
             data-motion-button
-            data-motion-hidden="y-sm"
-          >
-            <span class="material-symbols-outlined">forum</span>
+            data-motion-hidden='y-sm'>
+            <span class='material-symbols-outlined'>forum</span>
             Falar no WhatsApp
           </a>
         </div>
@@ -287,104 +370,108 @@ const projectModalData = JSON.stringify(projects);
     </section>
   </main>
 
-  <div class="project-modal" data-project-modal aria-hidden="true" hidden>
+  <div class='project-modal' data-project-modal aria-hidden='true' hidden>
     <button
-      class="project-modal-backdrop"
-      type="button"
+      class='project-modal-backdrop'
+      type='button'
       data-project-modal-backdrop
-      aria-label="Fechar modal do projeto"
-    ></button>
+      aria-label='Fechar modal do projeto'></button>
 
     <div
-      class="project-modal-shell"
+      class='project-modal-shell'
       data-project-modal-panel
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="project-modal-title"
-    >
-      <div class="project-modal-head">
-        <p class="project-modal-kicker" data-project-modal-kicker></p>
+      role='dialog'
+      aria-modal='true'
+      aria-labelledby='project-modal-title'>
+      <div class='project-modal-head'>
+        <p class='project-modal-kicker' data-project-modal-kicker></p>
         <button
-          class="project-modal-close"
-          type="button"
+          class='project-modal-close'
+          type='button'
           data-project-modal-close
-          aria-label="Fechar modal do projeto"
-        >
-          <span class="material-symbols-outlined">close</span>
+          aria-label='Fechar modal do projeto'>
+          <span class='material-symbols-outlined'>close</span>
         </button>
       </div>
 
-      <div class="project-modal-layout">
-        <div class="project-modal-primary">
-          <div class="project-modal--card">
-
-            <div class="project-modal-video-frame">
+      <div class='project-modal-layout'>
+        <div class='project-modal-primary'>
+          <div class='project-modal--card'>
+            <div class='project-modal-video-frame'>
               <video
                 data-project-modal-video
                 playsinline
                 muted
                 loop
                 controls
-                preload="none"
-                poster=""
-              >
-                <source data-project-modal-video-source src="" type="video/mp4" />
+                preload='none'
+                poster=''>
+                <source
+                  data-project-modal-video-source
+                  src=''
+                  type='video/mp4'
+                />
               </video>
-              <span class="project-modal-video-badge">Autoplay</span>
+              <span class='project-modal-video-badge'>Autoplay</span>
             </div>
           </div>
 
-          <div class="project-modal-copy">
-            <h3 id="project-modal-title" data-project-modal-title></h3>
+          <div class='project-modal-copy'>
+            <h3 id='project-modal-title' data-project-modal-title></h3>
             <p data-project-modal-description></p>
 
-            <div class="project-modal-actions">
-              <a class="button button-solid button-compact" data-project-modal-link href="">
+            <div class='project-modal-actions'>
+              <a
+                class='button button-solid button-compact'
+                data-project-modal-link
+                href=''>
                 Visitar projeto
               </a>
             </div>
           </div>
         </div>
 
-        <aside class="project-modal-secondary">
-          <div class="project-modal-hero" data-project-modal-hero>
-            <img data-project-modal-hero-image src="" alt="" />
+        <aside class='project-modal-secondary'>
+          <div class='project-modal-hero' data-project-modal-hero>
+            <img data-project-modal-hero-image src='' alt='' />
           </div>
 
-          <div class="project-modal-gallery">
-            <div class="project-modal-gallery-heading">
+          <div class='project-modal-gallery'>
+            <div class='project-modal-gallery-heading'>
               <span>Galeria</span>
               <span data-project-modal-gallery-count>1 / 3</span>
             </div>
 
-            <div class="project-modal-gallery-stage">
+            <div class='project-modal-gallery-stage'>
               <button
-                class="project-modal-gallery-view"
-                type="button"
+                class='project-modal-gallery-view'
+                type='button'
                 data-project-modal-gallery-open
-                aria-label="Abrir imagem da galeria"
-              >
-                <span class="project-modal-gallery-overlay"></span>
-                <img data-project-modal-gallery-image src="" alt="" loading="lazy" />
-                <span class="project-modal-gallery-zoom">Abrir</span>
+                aria-label='Abrir imagem da galeria'>
+                <span class='project-modal-gallery-overlay'></span>
+                <img
+                  data-project-modal-gallery-image
+                  src=''
+                  alt=''
+                  loading='lazy'
+                />
+                <span class='project-modal-gallery-zoom'>Abrir</span>
               </button>
 
               <button
-                class="project-modal-gallery-nav"
-                type="button"
+                class='project-modal-gallery-nav'
+                type='button'
                 data-project-modal-gallery-next
-                aria-label="Próxima imagem da galeria"
-              >
-                <span class="material-symbols-outlined">east</span>
+                aria-label='Próxima imagem da galeria'>
+                <span class='material-symbols-outlined'>east</span>
               </button>
 
               <button
-                class="project-modal-gallery-nav project-modal-gallery-nav--left"
-                type="button"
+                class='project-modal-gallery-nav project-modal-gallery-nav--left'
+                type='button'
                 data-project-modal-gallery-prev
-                aria-label="Imagem anterior da galeria"
-              >
-                <span class="material-symbols-outlined">west</span>
+                aria-label='Imagem anterior da galeria'>
+                <span class='material-symbols-outlined'>west</span>
               </button>
             </div>
           </div>
@@ -393,31 +480,33 @@ const projectModalData = JSON.stringify(projects);
     </div>
   </div>
 
-  <div class="project-lightbox" data-project-lightbox aria-hidden="true" hidden>
+  <div class='project-lightbox' data-project-lightbox aria-hidden='true' hidden>
     <button
-      class="project-lightbox-backdrop"
-      type="button"
+      class='project-lightbox-backdrop'
+      type='button'
       data-project-lightbox-backdrop
-      aria-label="Fechar imagem ampliada"
-    ></button>
-    <div class="project-lightbox-shell">
+      aria-label='Fechar imagem ampliada'></button>
+    <div class='project-lightbox-shell'>
       <button
-        class="project-lightbox-close"
-        type="button"
+        class='project-lightbox-close'
+        type='button'
         data-project-lightbox-close
-        aria-label="Fechar imagem ampliada"
-      >
-        <span class="material-symbols-outlined">close</span>
+        aria-label='Fechar imagem ampliada'>
+        <span class='material-symbols-outlined'>close</span>
       </button>
-      <img data-project-lightbox-image src="" alt="" />
+      <img data-project-lightbox-image src='' alt='' />
     </div>
   </div>
 
-  <footer class="site-footer" data-motion-section="footer">
-    <div class="container footer-layout">
-      <a class="brand brand-footer" href="#top" data-motion-item="footer" data-motion-hidden="y-sm">
+  <footer class='site-footer' data-motion-section='footer'>
+    <div class='container footer-layout'>
+      <a
+        class='brand brand-footer'
+        href='#top'
+        data-motion-item='footer'
+        data-motion-hidden='y-sm'>
         Luan Alves
-        <span class="brand-dot" aria-hidden="true"></span>
+        <span class='brand-dot' aria-hidden='true'></span>
       </a>
 
       <div class="footer-links" data-motion-item="footer" data-motion-hidden="y-sm">
@@ -448,16 +537,29 @@ const projectModalData = JSON.stringify(projects);
             <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
           </svg>
         </a>
+      <div
+        class='footer-links'
+        data-motion-item='footer'
+        data-motion-hidden='y-sm'>
+        {navigation.map((item) => <a href={item.href}>{item.label}</a>)}
+        <a href={whatsappHref} target='_blank' rel='noreferrer'>WhatsApp</a>
       </div>
 
-      <p class="footer-copy" data-motion-item="footer" data-motion-hidden="y-sm">
+      <p
+        class='footer-copy'
+        data-motion-item='footer'
+        data-motion-hidden='y-sm'>
         Luan Alves © {currentYear}
       </p>
     </div>
   </footer>
 
   <LandingMotion />
-  <script type="application/json" data-project-modal-data set:html={projectModalData}></script>
+  <script
+    type='application/json'
+    data-project-modal-data
+    set:html={projectModalData}
+  />
 </BaseLayout>
 
 <style>
@@ -616,12 +718,14 @@ const projectModalData = JSON.stringify(projects);
       display: inline-flex;
       align-items: center;
       gap: 0.75rem;
-      font-family: "Newsreader", serif;
+      font-family: 'Newsreader', serif;
       font-size: clamp(2.8rem, 12vw, 4.4rem);
       font-style: italic;
       line-height: 0.95;
       color: var(--muted);
-      transition: color 220ms ease, transform 220ms ease;
+      transition:
+        color 220ms ease,
+        transform 220ms ease;
     }
 
     .mobile-menu-dot {
@@ -758,21 +862,23 @@ const projectModalData = JSON.stringify(projects);
 </style>
 
 <script>
-  import gsap from "gsap";
+  import gsap from 'gsap';
 
-  const menuToggle = document.querySelector("#site-nav-toggle");
-  const mobileNav = document.querySelector("[data-mobile-nav]");
-  const mobileNavBar = document.querySelector("[data-mobile-nav-bar]");
-  const mobileNavMenu = document.querySelector("[data-mobile-nav-menu]");
-  const mobileMenuContent = document.querySelector("[data-mobile-menu-content]");
-  const mobileLinks = document.querySelectorAll("[data-mobile-menu-link]");
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const menuToggle = document.querySelector('#site-nav-toggle');
+  const mobileNav = document.querySelector('[data-mobile-nav]');
+  const mobileNavBar = document.querySelector('[data-mobile-nav-bar]');
+  const mobileNavMenu = document.querySelector('[data-mobile-nav-menu]');
+  const mobileMenuContent = document.querySelector(
+    '[data-mobile-menu-content]',
+  );
+  const mobileLinks = document.querySelectorAll('[data-mobile-menu-link]');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let menuTween;
   let menuOpenHeight = 0;
 
   const isMobileViewport = () => window.innerWidth <= 767;
   const setScrollLock = (locked) => {
-    document.body.classList.toggle("menu-open", locked);
+    document.body.classList.toggle('menu-open', locked);
   };
 
   const clearMenuTween = () => {
@@ -788,18 +894,22 @@ const projectModalData = JSON.stringify(projects);
 
   const setMenuOpenClass = (open) => {
     if (mobileNav instanceof HTMLElement) {
-      mobileNav.classList.toggle("is-menu-open", open);
+      mobileNav.classList.toggle('is-menu-open', open);
     }
   };
 
   const setMenuActiveClass = (active) => {
     if (mobileNav instanceof HTMLElement) {
-      mobileNav.classList.toggle("is-menu-active", active);
+      mobileNav.classList.toggle('is-menu-active', active);
     }
   };
 
   const resetDesktopMenuState = () => {
-    if (!(mobileNav instanceof HTMLElement) || !(mobileNavMenu instanceof HTMLElement) || !(mobileMenuContent instanceof HTMLElement)) {
+    if (
+      !(mobileNav instanceof HTMLElement) ||
+      !(mobileNavMenu instanceof HTMLElement) ||
+      !(mobileMenuContent instanceof HTMLElement)
+    ) {
       return;
     }
 
@@ -808,7 +918,9 @@ const projectModalData = JSON.stringify(projects);
     setMenuActiveClass(false);
     setMenuOpenClass(false);
     setScrollLock(false);
-    gsap.set([mobileNav, mobileNavMenu, mobileMenuContent], { clearProps: "all" });
+    gsap.set([mobileNav, mobileNavMenu, mobileMenuContent], {
+      clearProps: 'all',
+    });
   };
 
   const animateMenu = (open, immediate = false) => {
@@ -836,30 +948,36 @@ const projectModalData = JSON.stringify(projects);
       setScrollLock(open);
 
       if (open) {
-        gsap.set(mobileNavMenu, { display: "flex" });
-        gsap.set(mobileNavMenu, { height: "auto" });
-        gsap.set(mobileMenuContent, { display: "flex", autoAlpha: 1, y: 0 });
+        gsap.set(mobileNavMenu, { display: 'flex' });
+        gsap.set(mobileNavMenu, { height: 'auto' });
+        gsap.set(mobileMenuContent, { display: 'flex', autoAlpha: 1, y: 0 });
       } else {
         gsap.set(mobileMenuContent, { autoAlpha: 0 });
-        gsap.set(mobileMenuContent, { clearProps: "all" });
-        gsap.set(mobileNavMenu, { clearProps: "all" });
+        gsap.set(mobileMenuContent, { clearProps: 'all' });
+        gsap.set(mobileNavMenu, { clearProps: 'all' });
       }
 
       return;
     }
 
     const getOpenMenuHeight = () => {
-      gsap.set(mobileNavMenu, { display: "flex", height: "auto" });
+      gsap.set(mobileNavMenu, { display: 'flex', height: 'auto' });
       gsap.set(mobileMenuContent, {
-        display: "flex",
-        clearProps: "all",
-        maxHeight: "none",
+        display: 'flex',
+        clearProps: 'all',
+        maxHeight: 'none',
       });
 
       const navTop = mobileNav.getBoundingClientRect().top;
-      const availableHeight = Math.max(window.innerHeight - navTop - mobileNavBar.offsetHeight - 24, 160);
+      const availableHeight = Math.max(
+        window.innerHeight - navTop - mobileNavBar.offsetHeight - 24,
+        160,
+      );
       const contentHeight = mobileMenuContent.scrollHeight;
-      const targetHeight = Math.max(Math.min(contentHeight, availableHeight), 160);
+      const targetHeight = Math.max(
+        Math.min(contentHeight, availableHeight),
+        160,
+      );
 
       gsap.set(mobileMenuContent, { maxHeight: targetHeight });
       return targetHeight;
@@ -872,16 +990,16 @@ const projectModalData = JSON.stringify(projects);
       setScrollLock(true);
       menuOpenHeight = getOpenMenuHeight();
 
-      gsap.set(mobileNavMenu, { display: "flex", height: 0 });
+      gsap.set(mobileNavMenu, { display: 'flex', height: 0 });
       gsap.set(mobileMenuContent, {
-        display: "flex",
+        display: 'flex',
         autoAlpha: 0,
         y: 24,
         maxHeight: menuOpenHeight,
       });
 
       menuTween = gsap.timeline({
-        defaults: { ease: "power3.inOut" },
+        defaults: { ease: 'power3.inOut' },
       });
 
       menuTween
@@ -895,8 +1013,8 @@ const projectModalData = JSON.stringify(projects);
             autoAlpha: 1,
             y: 0,
             duration: 0.26,
-            ease: "power2.out",
-            clearProps: "y",
+            ease: 'power2.out',
+            clearProps: 'y',
           },
           0.1,
         );
@@ -909,12 +1027,12 @@ const projectModalData = JSON.stringify(projects);
     gsap.set(mobileNavMenu, { height: mobileNavMenu.offsetHeight });
 
     menuTween = gsap.timeline({
-      defaults: { ease: "power3.inOut" },
+      defaults: { ease: 'power3.inOut' },
       onComplete: () => {
         setMenuActiveClass(false);
         setScrollLock(false);
-        gsap.set(mobileMenuContent, { clearProps: "all" });
-        gsap.set(mobileNavMenu, { clearProps: "all" });
+        gsap.set(mobileMenuContent, { clearProps: 'all' });
+        gsap.set(mobileNavMenu, { clearProps: 'all' });
       },
     });
 
@@ -923,7 +1041,7 @@ const projectModalData = JSON.stringify(projects);
         autoAlpha: 0,
         y: 18,
         duration: 0.16,
-        ease: "power2.in",
+        ease: 'power2.in',
       })
       .to(
         mobileNavMenu,
@@ -936,33 +1054,48 @@ const projectModalData = JSON.stringify(projects);
   };
 
   if (menuToggle instanceof HTMLInputElement) {
-    menuToggle.addEventListener("change", () => {
+    menuToggle.addEventListener('change', () => {
       animateMenu(menuToggle.checked);
     });
 
     mobileLinks.forEach((link) => {
-      link.addEventListener("click", () => {
+      link.addEventListener('click', () => {
         animateMenu(false);
       });
     });
 
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && mobileNav instanceof HTMLElement && mobileNav.classList.contains("is-menu-active")) {
+    document.addEventListener('keydown', (event) => {
+      if (
+        event.key === 'Escape' &&
+        mobileNav instanceof HTMLElement &&
+        mobileNav.classList.contains('is-menu-active')
+      ) {
         animateMenu(false);
       }
     });
 
-    window.addEventListener("resize", () => {
+    window.addEventListener('resize', () => {
       if (!isMobileViewport()) {
         resetDesktopMenuState();
         return;
       }
 
-      if (mobileNav instanceof HTMLElement && mobileNav.classList.contains("is-menu-active")) {
+      if (
+        mobileNav instanceof HTMLElement &&
+        mobileNav.classList.contains('is-menu-active')
+      ) {
         menuOpenHeight = Math.max(
           Math.min(
-            mobileMenuContent instanceof HTMLElement ? mobileMenuContent.scrollHeight : 0,
-            Math.max(window.innerHeight - mobileNav.getBoundingClientRect().top - mobileNavBar.offsetHeight - 24, 160),
+            mobileMenuContent instanceof HTMLElement
+              ? mobileMenuContent.scrollHeight
+              : 0,
+            Math.max(
+              window.innerHeight -
+                mobileNav.getBoundingClientRect().top -
+                mobileNavBar.offsetHeight -
+                24,
+              160,
+            ),
           ),
           160,
         );
@@ -973,7 +1106,7 @@ const projectModalData = JSON.stringify(projects);
       }
     });
 
-    document.addEventListener("astro:before-swap", () => {
+    document.addEventListener('astro:before-swap', () => {
       syncToggle(false);
       setMenuActiveClass(false);
       setMenuOpenClass(false);

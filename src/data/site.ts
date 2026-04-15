@@ -7,18 +7,18 @@ export const navigation = [
 export const trustItems = [
   {
     icon: 'rocket_launch',
-    title: 'Atendimento ágil',
-    subtitle: 'e direto',
+    title: 'Atendimento direto,',
+    subtitle: 'sem agências',
   },
   {
     icon: 'verified',
-    title: 'Sites entregues com',
-    subtitle: 'prazo e qualidade',
+    title: 'Entrega no prazo',
+    subtitle: 'com qualidade garantida',
   },
   {
     icon: 'support_agent',
-    title: 'Suporte humanizado',
-    subtitle: 'após a entrega',
+    title: 'Suporte real',
+    subtitle: 'após o lançamento',
   },
 ];
 
@@ -27,22 +27,22 @@ export const services = [
     icon: 'corporate_fare',
     title: 'Site Institucional',
     description:
-      'Posicionamento digital premium para sua empresa, focado em autoridade e clareza de marca.',
-    bullets: ['SEO otimizado', 'Mobile first'],
+      'Presença digital premium para a sua empresa. Desenvolvido com foco em autoridade de marca, SEO técnico e experiência do usuário — para que clientes te encontrem no Google e confiem no que veem.',
+    bullets: ['SEO otimizado', 'Mobile first', 'Código limpo'],
   },
   {
-    icon: 'shopping_bag',
-    title: 'Blog',
+    icon: 'article',
+    title: 'Blog Profissional',
     description:
-      'Estruturas editoriais profissionais para publicar conteúdo com autoridade, performance e boa experiência de leitura.',
-    bullets: ['SEO editorial', 'Gestão simples'],
+      'Estrutura editorial feita para ranquear no Google. Publique conteúdo com autoridade, performance e uma experiência de leitura que retém visitantes e gera oportunidades de negócio.',
+    bullets: ['SEO editorial', 'Gestão simples', 'Alta performance'],
   },
   {
     icon: 'ads_click',
     title: 'Landing Page',
     description:
-      'Páginas de alta performance desenhadas para campanhas específicas e máxima conversão.',
-    bullets: ['Foco em lead', 'Velocidade máxima'],
+      'Páginas desenvolvidas para campanhas e anúncios que precisam converter. Velocidade máxima, copy focada em lead e estrutura testada para maximizar o retorno do seu investimento em tráfego pago.',
+    bullets: ['Foco em conversão', 'Velocidade máxima', 'Para tráfego pago'],
   },
 ];
 
@@ -142,18 +142,18 @@ export const projects = [
 export const reasons = [
   {
     title: 'Comunicação direta',
-    subtitle: 'Sem intermediários ou agências',
+    subtitle: 'Você fala com o desenvolvedor',
   },
   {
     title: 'Código limpo',
-    subtitle: 'Performance e facilidade técnica',
+    subtitle: 'Sites rápidos e bem construídos',
   },
   {
     title: 'Design para conversão',
-    subtitle: 'Foco total no ROI do cliente',
+    subtitle: 'Design pensado para vender',
   },
   {
     title: 'Suporte pós-entrega',
-    subtitle: 'Acompanhamento contínuo',
+    subtitle: 'Suporte após o lançamento',
   },
 ];
