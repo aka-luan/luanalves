@@ -25,7 +25,7 @@ export const trustItems = [
 export const services = [
   {
     icon: 'corporate_fare',
-    title: 'Site Institucional Profissional',
+    title: 'Site Institucional',
     description:
       'Presença digital premium para a sua empresa. Desenvolvido com foco em autoridade de marca, SEO técnico e experiência do usuário — para que clientes te encontrem no Google e confiem no que veem.',
     bullets: ['SEO otimizado', 'Mobile first', 'Código limpo'],
@@ -39,9 +39,9 @@ export const services = [
   },
   {
     icon: 'ads_click',
-    title: 'Landing Page de Alta Conversão',
+    title: 'Landing Page',
     description:
-      'Páginas de alta performance desenhadas para campanhas específicas e máxima conversão.',
+      'Páginas desenvolvidas para campanhas e anúncios que precisam converter. Velocidade máxima, copy focada em lead e estrutura testada para maximizar o retorno do seu investimento em tráfego pago.',
     bullets: ['Foco em conversão', 'Velocidade máxima', 'Para tráfego pago'],
   },
 ];
