@@ -1,4 +1,5 @@
 ---
+import Analytics from '@vercel/analytics/astro';
 import '../styles/fonts.css';
 import '../styles/global.css';
 
@@ -164,5 +165,6 @@ const { title = 'Luan Alves | Desenvolvimento Web Profissional' } = Astro.props;
   </head>
   <body data-page='home'>
     <slot />
+    <Analytics />
   </body>
 </html>
