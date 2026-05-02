@@ -8,7 +8,10 @@ interface Props {
   description?: string;
 }
 
-const { title = 'Luan Alves | Desenvolvimento Web Profissional' } = Astro.props;
+const {
+  title = 'Luan Alves | Desenvolvimento Web Profissional',
+  description = 'Desenvolvedor web freelancer especializado em sites, blogs e landing pages que convertem. Atendimento direto, entrega no prazo. Solicite seu orçamento.',
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -18,22 +21,13 @@ const { title = 'Luan Alves | Desenvolvimento Web Profissional' } = Astro.props;
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <title>{title}</title>
     <!-- ✦ SEO Meta Description -->
-    <meta
-      name='description'
-      content='Desenvolvedor web freelancer especializado em sites, blogs e landing pages que convertem. Atendimento direto, entrega no prazo. Solicite seu orçamento.'
-    />
+    <meta name='description' content={description} />
 
     <!-- ✦ Open Graph (Facebook, WhatsApp, LinkedIn) -->
     <meta property='og:type' content='website' />
     <meta property='og:url' content='https://luanalves.com.br/' />
-    <meta
-      property='og:title'
-      content='Luan Alves — Desenvolvimento Web Profissional'
-    />
-    <meta
-      property='og:description'
-      content='Sites, blogs e landing pages que transmitem credibilidade e convertem visitantes em clientes. Design estratégico, código limpo e suporte real.'
-    />
+    <meta property='og:title' content={title} />
+    <meta property='og:description' content={description} />
     <meta
       property='og:image'
       content='https://luanalves.com.br/assets/og-cover.png'
@@ -45,14 +39,8 @@ const { title = 'Luan Alves | Desenvolvimento Web Profissional' } = Astro.props;
 
     <!-- ✦ Twitter Card -->
     <meta name='twitter:card' content='summary_large_image' />
-    <meta
-      name='twitter:title'
-      content='Luan Alves — Desenvolvimento Web Profissional'
-    />
-    <meta
-      name='twitter:description'
-      content='Sites, blogs e landing pages que convertem. Atendimento direto, entrega no prazo e suporte pós-entrega.'
-    />
+    <meta name='twitter:title' content={title} />
+    <meta name='twitter:description' content={description} />
     <meta
       name='twitter:image'
       content='https://luanalves.com.br/assets/og-cover.jpg'
