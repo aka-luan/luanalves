@@ -1,5 +1,7 @@
 {
-  "name": "green-galaxy",
+  "name": "luan-alves-astro",
+  "version": "0.0.1",
+  "private": true,
   "type": "module",
   "version": "0.0.1",
   "engines": {
@@ -7,14 +9,18 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "start": "astro dev",
+    "build": "astro build && node scripts/patch-build-assets.mjs",
+    "test": "vitest run",
+    "preview": "astro preview"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.2.2",
-    "astro": "^6.1.5",
-    "gsap": "^3.14.2",
-    "tailwindcss": "^4.2.2"
+    "@vercel/analytics": "^2.0.1",
+    "astro": "^5.0.0",
+    "gsap": "^3.13.0"
+  },
+  "devDependencies": {
+    "jsdom": "^29.0.2",
+    "vitest": "^4.1.4"
   }
 }

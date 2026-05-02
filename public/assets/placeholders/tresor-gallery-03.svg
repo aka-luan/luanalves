@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000">
+  <rect width="800" height="1000" fill="#131312"/>
+  <rect x="54" y="54" width="692" height="892" fill="#1b1a18" stroke="#e5c487" stroke-opacity=".24"/>
+  <text x="88" y="130" fill="#e5c487" font-size="34" font-family="Georgia, serif">Trésor</text>
+  <text x="88" y="184" fill="#998f81" font-size="18" font-family="Arial, sans-serif" letter-spacing="4">GALERIA 03</text>
+</svg>

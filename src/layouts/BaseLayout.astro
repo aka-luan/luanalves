@@ -1,0 +1,170 @@
+---
+import Analytics from '@vercel/analytics/astro';
+import '../styles/fonts.css';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = 'Luan Alves | Desenvolvimento Web Profissional' } = Astro.props;
+---
+
+<!doctype html>
+<html lang='pt-BR' class='dark'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>{title}</title>
+    <!-- ✦ SEO Meta Description -->
+    <meta
+      name='description'
+      content='Desenvolvedor web freelancer especializado em sites, blogs e landing pages que convertem. Atendimento direto, entrega no prazo. Solicite seu orçamento.'
+    />
+
+    <!-- ✦ Open Graph (Facebook, WhatsApp, LinkedIn) -->
+    <meta property='og:type' content='website' />
+    <meta property='og:url' content='https://luanalves.com.br/' />
+    <meta
+      property='og:title'
+      content='Luan Alves — Desenvolvimento Web Profissional'
+    />
+    <meta
+      property='og:description'
+      content='Sites, blogs e landing pages que transmitem credibilidade e convertem visitantes em clientes. Design estratégico, código limpo e suporte real.'
+    />
+    <meta
+      property='og:image'
+      content='https://luanalves.com.br/assets/og-cover.png'
+    />
+    <meta property='og:image:width' content='1200' />
+    <meta property='og:image:height' content='630' />
+    <meta property='og:locale' content='pt_BR' />
+    <meta property='og:site_name' content='Luan Alves' />
+
+    <!-- ✦ Twitter Card -->
+    <meta name='twitter:card' content='summary_large_image' />
+    <meta
+      name='twitter:title'
+      content='Luan Alves — Desenvolvimento Web Profissional'
+    />
+    <meta
+      name='twitter:description'
+      content='Sites, blogs e landing pages que convertem. Atendimento direto, entrega no prazo e suporte pós-entrega.'
+    />
+    <meta
+      name='twitter:image'
+      content='https://luanalves.com.br/assets/og-cover.jpg'
+    />
+    <meta name='theme-color' content='#131313' />
+
+    <!-- ✦ Schema Markup JSON-LD -->
+    <script type='application/ld+json'>
+      [
+        {
+          "@context": "https://schema.org",
+          "@type": "Person",
+          "@id": "https://luanalves.com.br/#person",
+          "name": "Luan Alves",
+          "jobTitle": "Desenvolvedor Web Freelancer",
+          "description": "Desenvolvedor web especializado em sites institucionais, blogs e landing pages para pequenas e médias empresas em todo o Brasil.",
+          "url": "https://luanalves.com.br",
+          "image": "https://luanalves.com.br/assets/og-cover.jpg",
+          "sameAs": [
+            "https://linkedin.com/in/luanalves",
+            "https://github.com/luanalves"
+          ],
+          "knowsAbout": [
+            "Desenvolvimento Web",
+            "SEO",
+            "Landing Pages",
+            "Design para Conversão"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "Atendimento ao Cliente",
+            "availableLanguage": "Portuguese",
+            "contactOption": "TollFree",
+            "url": "https://wa.me/5591982890565"
+          }
+        },
+
+        {
+          "@context": "https://schema.org",
+          "@type": "ProfessionalService",
+          "@id": "https://luanalves.com.br/#business",
+          "name": "Luan Alves — Desenvolvimento Web",
+          "description": "Criação de sites institucionais, blogs e landing pages profissionais para empresas em todo o Brasil. Atendimento remoto, entrega no prazo e suporte pós-lançamento.",
+          "url": "https://luanalves.com.br",
+          "image": "https://luanalves.com.br/assets/og-cover.jpg",
+          "founder": { "@id": "https://luanalves.com.br/#person" },
+          "areaServed": {
+            "@type": "Country",
+            "name": "Brasil"
+          },
+          "availableChannel": {
+            "@type": "ServiceChannel",
+            "serviceUrl": "https://wa.me/5591982890565",
+            "serviceType": "WhatsApp"
+          },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Serviços de Desenvolvimento Web",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "name": "Site Institucional",
+                "description": "Site profissional para empresas com foco em autoridade de marca, SEO e experiência do usuário.",
+                "url": "https://luanalves.com.br/#servicos",
+                "seller": { "@id": "https://luanalves.com.br/#business" }
+              },
+              {
+                "@type": "Offer",
+                "name": "Blog Profissional",
+                "description": "Estrutura editorial otimizada para SEO com gestão simplificada de conteúdo.",
+                "url": "https://luanalves.com.br/#servicos",
+                "seller": { "@id": "https://luanalves.com.br/#business" }
+              },
+              {
+                "@type": "Offer",
+                "name": "Landing Page",
+                "description": "Página de alta conversão para campanhas digitais, focada em geração de leads e velocidade.",
+                "url": "https://luanalves.com.br/#servicos",
+                "seller": { "@id": "https://luanalves.com.br/#business" }
+              }
+            ]
+          }
+        },
+
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "@id": "https://luanalves.com.br/#website",
+          "name": "Luan Alves",
+          "url": "https://luanalves.com.br",
+          "description": "Site profissional de Luan Alves, desenvolvedor web freelancer especializado em sites, blogs e landing pages.",
+          "publisher": { "@id": "https://luanalves.com.br/#person" },
+          "inLanguage": "pt-BR",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://luanalves.com.br/?s={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        }
+      ]
+    </script>
+
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <script is:inline>
+      document.documentElement.classList.add('js');
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('motion-enabled');
+      }
+    </script>
+  </head>
+  <body data-page='home'>
+    <slot />
+    <Analytics />
+  </body>
+</html>

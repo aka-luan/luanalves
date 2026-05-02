@@ -2,6 +2,4 @@ The role of this file is to describe common mistakes and confusion points that a
 
 Proceed with implementing any necessary changes, optimizations, or refactoring to the codebase without constraints related to existing user data or production concerns. Focus on improving code quality, architecture, performance, and developer experience. Ensure all modifications are properly documented, include comprehensive error handling, and maintain backward compatibility where feasible. Create migration strategies or data seeding mechanisms as needed for future deployment scenarios.
 
-## Common gotchas found while working
-
-In sandboxed Codex runs, `pnpm` may fail with `EPERM` while resolving `C:\Users\Akalu` or with store mismatches. Set `HOME`, `USERPROFILE`, `TEMP` and `TMP` to a writable workspace path and reuse the existing store at `A:\.pnpm-store\v10`.
+Surprise noted: PT-BR copy may appear as mojibake in PowerShell reads (for example, `ServiÃ§os` instead of `Serviços`) even when the intended file content is UTF-8. When editing text, preserve correct Portuguese accentuation in source files and verify encoding-sensitive copy changes carefully.
