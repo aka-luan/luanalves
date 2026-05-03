@@ -15,6 +15,48 @@ const featureItems = [
   { icon: 'phone_iphone', label: 'Mobile first' },
   { icon: 'code', label: 'Código limpo' },
 ];
+
+const resultCards = [
+  {
+    number: '01',
+    icon: 'workspace_premium',
+    title: 'Autoridade',
+    copy: 'Design profissional que transmite confiança desde o primeiro acesso.',
+  },
+  {
+    number: '02',
+    icon: 'search',
+    title: 'SEO técnico',
+    copy: 'Estrutura preparada para indexação e boas práticas de busca.',
+  },
+  {
+    number: '03',
+    icon: 'speed',
+    title: 'Performance',
+    copy: 'Carregamento rápido em desktop e mobile.',
+  },
+  {
+    number: '04',
+    icon: 'chat_bubble',
+    title: 'Conversão',
+    copy: 'Páginas pensadas para gerar contatos, pedidos e orçamentos.',
+  },
+];
+
+const resultStats = [
+  {
+    icon: 'trending_up',
+    label: 'Mais visibilidade no Google',
+  },
+  {
+    icon: 'person',
+    label: 'Mais confiança do seu cliente',
+  },
+  {
+    icon: 'monetization_on',
+    label: 'Mais resultados para o seu negócio',
+  },
+];
 ---
 
 <BaseLayout
@@ -105,6 +147,72 @@ const featureItems = [
         </div>
       </div>
     </section>
+
+    <section class='results-section' id='resultados' aria-labelledby='results-title'>
+      <div class='results-section__glow' aria-hidden='true'></div>
+
+      <div class='results-section__inner'>
+        <div class='results-copy'>
+          <p class='creation-eyebrow results-eyebrow'>Resultados</p>
+
+          <h2 id='results-title'>
+            <span>Um bom site</span>
+            <span>precisa <em>trabalhar</em></span>
+            <em>por você.</em>
+          </h2>
+
+          <p class='results-lead'>
+            Mais do que presença digital, o seu site deve transmitir confiança,
+            aparecer no Google, carregar rápido e facilitar o contato com a sua
+            empresa.
+          </p>
+        </div>
+
+        <div class='results-media' aria-hidden='true'>
+          <img
+            src='/assets/resultados-img.png'
+            alt=''
+            width='1448'
+            height='1086'
+            loading='lazy'
+            decoding='async'
+          />
+        </div>
+
+        <div class='results-card-grid'>
+          {
+            resultCards.map((item) => (
+              <article class='results-card'>
+                <div class='results-card__head'>
+                  <span class='results-card__number'>{item.number}</span>
+                  <span class='results-card__rule' aria-hidden='true'></span>
+                </div>
+
+                <span class='results-card__icon' aria-hidden='true'>
+                  <span class='material-symbols-outlined'>{item.icon}</span>
+                </span>
+
+                <h3>{item.title}</h3>
+                <p>{item.copy}</p>
+              </article>
+            ))
+          }
+        </div>
+
+        <div class='results-benefits' aria-label='Benefícios esperados'>
+          {
+            resultStats.map((item) => (
+              <article class='results-benefit'>
+                <span class='results-benefit__icon' aria-hidden='true'>
+                  <span class='material-symbols-outlined'>{item.icon}</span>
+                </span>
+                <p>{item.label}</p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
   </main>
 </BaseLayout>
 
@@ -115,7 +223,7 @@ const featureItems = [
 
   .site-creation-page {
     min-height: 100svh;
-    overflow: hidden;
+    overflow-x: hidden;
     background:
       radial-gradient(
         circle at 73% 42%,
@@ -469,6 +577,304 @@ const featureItems = [
       drop-shadow(0 0 2.6rem rgba(202, 159, 86, 0.12));
   }
 
+  .results-section {
+    position: relative;
+    padding: clamp(7.5rem, 9vw, 9.2rem) clamp(1.5rem, 6.25vw, 5.85rem)
+      clamp(5.8rem, 7vw, 7rem);
+    isolation: isolate;
+  }
+
+  .results-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -4;
+    background:
+      radial-gradient(
+        circle at 30% 57%,
+        rgba(223, 189, 121, 0.17),
+        transparent 22rem
+      ),
+      radial-gradient(
+        circle at 79% 46%,
+        rgba(223, 189, 121, 0.08),
+        transparent 28rem
+      ),
+      linear-gradient(115deg, #101111 0%, #181817 48%, #0d0e0e 100%);
+  }
+
+  .results-section::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+    background:
+      linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.019) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.014) 1px,
+        transparent 1px
+      );
+    background-size: 4rem 4rem;
+    mask-image: linear-gradient(90deg, transparent, black 22%, black 82%, transparent);
+    opacity: 0.24;
+  }
+
+  .results-section__glow {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(9, 9, 9, 0.36),
+        transparent 16rem,
+        rgba(7, 7, 7, 0.35)
+      ),
+      radial-gradient(
+        ellipse at 25% 70%,
+        rgba(218, 176, 101, 0.18),
+        transparent 31rem
+      );
+  }
+
+  .results-section__inner {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(24rem, 0.83fr) minmax(38rem, 1.17fr);
+    grid-template-areas:
+      'copy cards'
+      'media cards'
+      'media benefits';
+    gap: 1.65rem clamp(3rem, 5.7vw, 5.4rem);
+    width: min(100%, 84.8rem);
+    margin: 0 auto;
+  }
+
+  .results-copy {
+    grid-area: copy;
+    align-self: end;
+    padding-top: clamp(0rem, 0.6vw, 0.5rem);
+  }
+
+  .results-eyebrow {
+    margin-bottom: 1.75rem;
+  }
+
+  .results-copy h2 {
+    max-width: 12.8ch;
+    margin: 0;
+    color: #f5f2ef;
+    font-family: 'Newsreader', serif;
+    font-size: clamp(3.49rem, 4.42vw, 4.46rem);
+    font-weight: 600;
+    letter-spacing: -0.058em;
+    line-height: 0.94;
+    text-wrap: balance;
+  }
+
+  .results-copy h2 > span,
+  .results-copy h2 > em {
+    display: block;
+  }
+
+  .results-copy h2 > span {
+    white-space: nowrap;
+  }
+
+  .results-copy h2 em {
+    color: #dfbd79;
+    font-style: italic;
+    font-weight: 600;
+  }
+
+  .results-lead {
+    max-width: 32.2rem;
+    margin: 1.45rem 0 0;
+    color: rgba(226, 218, 208, 0.82);
+    font-size: clamp(1.02rem, 1.18vw, 1.1rem);
+    font-weight: 300;
+    line-height: 1.68;
+    text-wrap: pretty;
+  }
+
+  .results-media {
+    grid-area: media;
+    align-self: end;
+    min-width: 0;
+    margin-top: 0.35rem;
+    margin-left: clamp(-1.6rem, -1.7vw, -0.7rem);
+  }
+
+  .results-media img {
+    width: min(46.8rem, 48vw);
+    max-width: none;
+    height: auto;
+    filter: drop-shadow(0 2.5rem 4.2rem rgba(0, 0, 0, 0.42));
+  }
+
+  .results-card-grid {
+    grid-area: cards;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.45rem;
+    align-self: start;
+  }
+
+  .results-card {
+    position: relative;
+    min-height: clamp(17.7rem, 22vw, 20.35rem);
+    padding: clamp(1.9rem, 2.45vw, 2.25rem) clamp(1.85rem, 2.7vw, 2.45rem)
+      clamp(1.75rem, 2.4vw, 2.15rem);
+    overflow: hidden;
+    border: 1px solid rgba(229, 218, 207, 0.13);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent 34%),
+      rgba(16, 17, 16, 0.72);
+    box-shadow:
+      inset 0 -2px 0 rgba(221, 178, 100, 0.54),
+      inset 0 -18px 30px rgba(221, 178, 100, 0.08),
+      0 24px 48px rgba(0, 0, 0, 0.18);
+  }
+
+  .results-card::after {
+    content: '';
+    position: absolute;
+    inset: auto 1.6rem 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(237, 207, 139, 0.95),
+      transparent
+    );
+    filter: blur(0.5px);
+  }
+
+  .results-card__head {
+    display: flex;
+    align-items: center;
+    gap: 1.65rem;
+    margin-bottom: 1.95rem;
+  }
+
+  .results-card__number {
+    color: #dfbd79;
+    font-family: 'Newsreader', serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    letter-spacing: -0.045em;
+    line-height: 1;
+  }
+
+  .results-card__rule {
+    width: 3.4rem;
+    height: 1px;
+    background: rgba(229, 218, 207, 0.13);
+  }
+
+  .results-card__icon {
+    display: grid;
+    place-items: center;
+    width: 4.2rem;
+    height: 4.2rem;
+    margin-bottom: 1.6rem;
+    border: 1px solid rgba(229, 196, 135, 0.5);
+    border-radius: 999px;
+    color: #d9ae5f;
+    background: rgba(14, 14, 14, 0.22);
+    box-shadow:
+      inset 0 0 20px rgba(229, 196, 135, 0.035),
+      0 0 0 1px rgba(229, 196, 135, 0.03);
+  }
+
+  .results-card__icon .material-symbols-outlined {
+    font-size: 1.8rem;
+    font-variation-settings:
+      'FILL' 0,
+      'wght' 240,
+      'GRAD' 0,
+      'opsz' 24;
+  }
+
+  .results-card h3 {
+    margin: 0;
+    color: #f5f2ef;
+    font-family: 'Newsreader', serif;
+    font-size: clamp(1.9rem, 2.65vw, 2.24rem);
+    font-weight: 600;
+    letter-spacing: -0.055em;
+    line-height: 1.04;
+  }
+
+  .results-card p {
+    max-width: 15.6rem;
+    margin: 1.3rem 0 0;
+    color: rgba(226, 218, 208, 0.76);
+    font-size: clamp(0.98rem, 1.25vw, 1.1rem);
+    font-weight: 300;
+    line-height: 1.55;
+  }
+
+  .results-benefits {
+    grid-area: benefits;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-self: end;
+    min-height: 6.2rem;
+    margin-top: 1.7rem;
+    border: 1px solid rgba(229, 218, 207, 0.13);
+    background: rgba(14, 14, 14, 0.38);
+    box-shadow:
+      inset 0 0 36px rgba(255, 255, 255, 0.012),
+      0 20px 44px rgba(0, 0, 0, 0.18);
+  }
+
+  .results-benefit {
+    display: grid;
+    grid-template-columns: 3.6rem 1fr;
+    align-items: center;
+    gap: 1.05rem;
+    min-width: 0;
+    padding: 1.15rem clamp(1.05rem, 2vw, 1.85rem);
+  }
+
+  .results-benefit + .results-benefit {
+    border-left: 1px solid rgba(229, 218, 207, 0.1);
+  }
+
+  .results-benefit__icon {
+    display: grid;
+    place-items: center;
+    width: 3.15rem;
+    height: 3.15rem;
+    color: #d9ae5f;
+  }
+
+  .results-benefit__icon .material-symbols-outlined {
+    font-size: 2.05rem;
+    font-variation-settings:
+      'FILL' 0,
+      'wght' 220,
+      'GRAD' 0,
+      'opsz' 24;
+  }
+
+  .results-benefit p {
+    max-width: 11rem;
+    margin: 0;
+    color: rgba(226, 218, 208, 0.86);
+    font-size: 0.86rem;
+    font-weight: 600;
+    line-height: 1.45;
+    text-wrap: balance;
+  }
+
   @media (max-width: 1180px) {
     .creation-hero__inner {
       grid-template-columns: minmax(24rem, 0.9fr) minmax(30rem, 1.1fr);
@@ -480,6 +886,23 @@ const featureItems = [
 
     .creation-hero__media img {
       width: min(64vw, 50rem);
+    }
+
+    .results-section__inner {
+      grid-template-columns: minmax(21rem, 0.76fr) minmax(33rem, 1.24fr);
+      gap: 1.45rem 2.5rem;
+    }
+
+    .results-copy h2 {
+      font-size: clamp(3.06rem, 4.93vw, 4.25rem);
+    }
+
+    .results-media img {
+      width: min(42rem, 48vw);
+    }
+
+    .results-card {
+      min-height: 17.4rem;
     }
   }
 
@@ -561,6 +984,58 @@ const featureItems = [
       left: 19%;
       width: 54%;
     }
+
+    .results-section {
+      padding: 6.5rem 1.15rem 4.5rem;
+    }
+
+    .results-section__inner {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        'copy'
+        'media'
+        'cards'
+        'benefits';
+      gap: 2rem;
+    }
+
+    .results-copy {
+      justify-self: center;
+      max-width: 40rem;
+      text-align: center;
+    }
+
+    .results-copy h2 {
+      max-width: 12.8ch;
+      margin-inline: auto;
+      font-size: clamp(2.98rem, 9.35vw, 4.59rem);
+    }
+
+    .results-lead {
+      margin-inline: auto;
+    }
+
+    .results-media {
+      justify-self: center;
+      width: min(100%, 43rem);
+      margin: -0.6rem auto -0.5rem;
+    }
+
+    .results-media img {
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .results-card-grid {
+      width: min(100%, 44rem);
+      justify-self: center;
+    }
+
+    .results-benefits {
+      width: min(100%, 44rem);
+      justify-self: center;
+      margin-top: 0;
+    }
   }
 
   @media (max-width: 560px) {
@@ -630,6 +1105,80 @@ const featureItems = [
       padding-top: 1.15rem;
       border-top: 1px solid rgba(229, 218, 207, 0.11);
       border-left: 0;
+    }
+
+    .results-section {
+      padding-inline: 0.9rem;
+    }
+
+    .results-eyebrow {
+      margin-bottom: 1.35rem;
+      font-size: 0.64rem;
+      letter-spacing: 0.2em;
+    }
+
+    .results-copy h2 {
+      font-size: clamp(2.59rem, 12.75vw, 3.61rem);
+      letter-spacing: -0.055em;
+    }
+
+    .results-lead {
+      font-size: 1rem;
+      line-height: 1.68;
+    }
+
+    .results-media {
+      margin-top: -0.4rem;
+    }
+
+    .results-card-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .results-card {
+      min-height: 0;
+      padding: 1.65rem 1.45rem 1.75rem;
+    }
+
+    .results-card__head {
+      margin-bottom: 1.35rem;
+    }
+
+    .results-card__icon {
+      width: 3.6rem;
+      height: 3.6rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .results-card h3 {
+      font-size: 1.86rem;
+    }
+
+    .results-card p {
+      max-width: 19rem;
+      margin-top: 0.9rem;
+      font-size: 1rem;
+    }
+
+    .results-benefits {
+      grid-template-columns: 1fr;
+    }
+
+    .results-benefit {
+      grid-template-columns: 3.15rem 1fr;
+      min-height: 5.15rem;
+      padding: 1rem 1.25rem;
+    }
+
+    .results-benefit + .results-benefit {
+      border-top: 1px solid rgba(229, 218, 207, 0.1);
+      border-left: 0;
+    }
+
+    .results-benefit p {
+      max-width: 100%;
+      text-wrap: pretty;
     }
   }
 </style>
