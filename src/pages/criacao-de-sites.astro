@@ -57,6 +57,29 @@ const resultStats = [
     label: 'Mais resultados para o seu negócio',
   },
 ];
+
+const processSteps = [
+  {
+    number: '01',
+    title: 'Diagnóstico',
+    copy: 'Entendo o seu negócio, objetivos e referências.',
+  },
+  {
+    number: '02',
+    title: 'Arquitetura',
+    copy: 'Organizo a estrutura, páginas e prioridades do projeto.',
+  },
+  {
+    number: '03',
+    title: 'Design & desenvolvimento',
+    copy: 'Crio o layout e implemento com foco em performance.',
+  },
+  {
+    number: '04',
+    title: 'Revisão & lançamento',
+    copy: 'Ajustes finais, publicação e orientação de uso.',
+  },
+];
 ---
 
 <BaseLayout
@@ -211,6 +234,55 @@ const resultStats = [
             ))
           }
         </div>
+      </div>
+    </section>
+
+    <section class='process-section' id='processo' aria-labelledby='process-title'>
+      <div class='process-section__glow' aria-hidden='true'></div>
+
+      <div class='process-section__inner'>
+        <div class='process-copy'>
+          <p class='creation-eyebrow process-eyebrow'>Processo</p>
+
+          <h2 id='process-title'>
+            <span>Como funciona</span>
+            <span><em>a criação</em> do seu site</span>
+          </h2>
+
+          <p class='process-lead'>
+            Um processo claro reduz retrabalho, acelera a entrega e garante que
+            cada etapa faça sentido para o seu negócio.
+          </p>
+        </div>
+
+        <div class='process-timeline' aria-label='Etapas do processo'>
+          {
+            processSteps.map((item) => (
+              <article class='process-step'>
+                <span class='process-step__number'>{item.number}</span>
+                <span class='process-step__marker' aria-hidden='true'>
+                  <span></span>
+                </span>
+                <div class='process-step__copy'>
+                  <h3>{item.title}</h3>
+                  <p>{item.copy}</p>
+                </div>
+              </article>
+            ))
+          }
+        </div>
+
+        <div class='process-media' aria-hidden='true'>
+          <img
+            src='/assets/processo-img.png'
+            alt=''
+            width='1448'
+            height='1086'
+            loading='lazy'
+            decoding='async'
+          />
+        </div>
+
       </div>
     </section>
   </main>
@@ -875,6 +947,237 @@ const resultStats = [
     text-wrap: balance;
   }
 
+  .process-section {
+    position: relative;
+    min-height: 100svh;
+    padding: clamp(7.1rem, 8.2vw, 8.2rem) clamp(1.5rem, 6.25vw, 5.85rem)
+      clamp(3rem, 4.4vw, 4.2rem);
+    isolation: isolate;
+  }
+
+  .process-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -4;
+    background:
+      radial-gradient(
+        ellipse at 75% 46%,
+        rgba(222, 184, 112, 0.19),
+        transparent 28rem
+      ),
+      radial-gradient(
+        circle at 17% 47%,
+        rgba(229, 196, 135, 0.06),
+        transparent 24rem
+      ),
+      linear-gradient(115deg, #0d0e0e 0%, #171716 54%, #0b0c0c 100%);
+  }
+
+  .process-section::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+    background:
+      linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.018) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.012) 1px,
+        transparent 1px
+      );
+    background-size: 4rem 4rem;
+    mask-image: radial-gradient(circle at 54% 50%, black, transparent 69%);
+    opacity: 0.19;
+  }
+
+  .process-section__glow {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(8, 8, 8, 0.7),
+        rgba(8, 8, 8, 0.18) 55%,
+        rgba(8, 8, 8, 0.42)
+      ),
+      radial-gradient(
+        ellipse at 64% 42%,
+        rgba(229, 196, 135, 0.15),
+        transparent 31rem
+      );
+  }
+
+  .process-section__inner {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(26.2rem, 0.72fr) minmax(40rem, 1.28fr);
+    grid-template-areas:
+      'copy media'
+      'timeline media';
+    align-items: center;
+    column-gap: clamp(2rem, 4.8vw, 4.55rem);
+    width: min(100%, 84.8rem);
+    min-height: calc(100svh - 11.6rem);
+    margin: 0 auto;
+  }
+
+  .process-copy {
+    grid-area: copy;
+    align-self: end;
+    padding-top: 1.35rem;
+  }
+
+  .process-eyebrow {
+    margin-bottom: 1.55rem;
+  }
+
+  .process-copy h2 {
+    max-width: 15.8ch;
+    margin: 0;
+    color: #f5f2ef;
+    font-family: 'Newsreader', serif;
+    font-size: clamp(3.55rem, 4.75vw, 4.8rem);
+    font-weight: 600;
+    letter-spacing: -0.058em;
+    line-height: 0.95;
+    text-wrap: balance;
+  }
+
+  .process-copy h2 > span {
+    display: block;
+    white-space: nowrap;
+  }
+
+  .process-copy h2 em {
+    color: #dfbd79;
+    font-style: italic;
+    font-weight: 600;
+  }
+
+  .process-lead {
+    max-width: 33.2rem;
+    margin: 1.75rem 0 0;
+    color: rgba(226, 218, 208, 0.8);
+    font-size: clamp(1rem, 1.15vw, 1.06rem);
+    font-weight: 300;
+    line-height: 1.65;
+    text-wrap: pretty;
+  }
+
+  .process-timeline {
+    grid-area: timeline;
+    position: relative;
+    display: grid;
+    gap: 1.5rem;
+    width: min(100%, 31.8rem);
+    margin-top: 2.65rem;
+    padding-left: 1.05rem;
+  }
+
+  .process-timeline::before {
+    content: '';
+    position: absolute;
+    top: 1rem;
+    bottom: 4.8rem;
+    left: 6.72rem;
+    width: 1px;
+    background: linear-gradient(
+      180deg,
+      rgba(225, 191, 122, 0.95),
+      rgba(225, 191, 122, 0.84)
+    );
+    box-shadow: 0 0 16px rgba(225, 191, 122, 0.22);
+  }
+
+  .process-step {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 3.45rem 3.05rem 1fr;
+    align-items: start;
+    gap: 1.05rem;
+  }
+
+  .process-step__number {
+    color: #dfbd79;
+    font-family: 'Newsreader', serif;
+    font-size: 1.92rem;
+    font-weight: 600;
+    letter-spacing: -0.045em;
+    line-height: 1.08;
+  }
+
+  .process-step__marker {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    margin-top: -0.08rem;
+    border: 1px solid rgba(225, 191, 122, 0.55);
+    border-radius: 999px;
+    background: rgba(19, 19, 18, 0.82);
+    box-shadow:
+      inset 0 0 18px rgba(225, 191, 122, 0.08),
+      0 0 22px rgba(225, 191, 122, 0.1);
+  }
+
+  .process-step__marker span {
+    width: 0.62rem;
+    height: 0.62rem;
+    border-radius: 999px;
+    background: #dfbd79;
+    box-shadow: 0 0 18px rgba(225, 191, 122, 0.7);
+  }
+
+  .process-step__copy {
+    min-width: 0;
+    padding-bottom: 0.4rem;
+  }
+
+  .process-step__copy h3 {
+    margin: 0;
+    color: #f5f2ef;
+    font-family: 'Newsreader', serif;
+    font-size: clamp(1.32rem, 1.75vw, 1.55rem);
+    font-weight: 600;
+    letter-spacing: -0.05em;
+    line-height: 1.1;
+  }
+
+  .process-step__copy p {
+    max-width: 15.4rem;
+    margin: 0.62rem 0 0;
+    color: rgba(226, 218, 208, 0.72);
+    font-size: clamp(0.96rem, 1.15vw, 1.04rem);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  .process-media {
+    grid-area: media;
+    position: relative;
+    align-self: center;
+    min-width: 0;
+    margin-right: clamp(-5.8rem, -5.9vw, -2.8rem);
+    transform: translate(0.9rem, 0.15rem);
+  }
+
+  .process-media img {
+    width: min(65vw, 66rem);
+    max-width: none;
+    height: auto;
+    filter: drop-shadow(0 2.6rem 5rem rgba(0, 0, 0, 0.44))
+      drop-shadow(0 0 3.4rem rgba(218, 176, 101, 0.14));
+  }
+
   @media (max-width: 1180px) {
     .creation-hero__inner {
       grid-template-columns: minmax(24rem, 0.9fr) minmax(30rem, 1.1fr);
@@ -904,6 +1207,20 @@ const resultStats = [
     .results-card {
       min-height: 17.4rem;
     }
+
+    .process-section__inner {
+      grid-template-columns: minmax(23rem, 0.78fr) minmax(33rem, 1.22fr);
+      column-gap: 2rem;
+    }
+
+    .process-copy h2 {
+      font-size: clamp(3.1rem, 5.4vw, 4.45rem);
+    }
+
+    .process-media img {
+      width: min(61vw, 54rem);
+    }
+
   }
 
   @media (max-width: 900px) {
@@ -1036,6 +1353,62 @@ const resultStats = [
       justify-self: center;
       margin-top: 0;
     }
+
+    .process-section {
+      min-height: auto;
+      padding: 6.5rem 1.15rem 4.5rem;
+    }
+
+    .process-section__inner {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        'copy'
+        'media'
+        'timeline';
+      min-height: auto;
+      gap: 2rem;
+    }
+
+    .process-copy {
+      justify-self: center;
+      max-width: 40rem;
+      padding-top: 0;
+      text-align: center;
+    }
+
+    .process-copy h2 {
+      max-width: 15.8ch;
+      margin-inline: auto;
+      font-size: clamp(3.15rem, 10.8vw, 5rem);
+    }
+
+    .process-lead {
+      margin-inline: auto;
+    }
+
+    .process-media {
+      justify-self: center;
+      width: min(100%, 45rem);
+      margin: -0.45rem auto -0.35rem;
+      transform: none;
+    }
+
+    .process-media img {
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .process-timeline {
+      justify-self: center;
+      width: min(100%, 34rem);
+      margin-top: 0.35rem;
+      padding-left: 0;
+    }
+
+    .process-timeline::before {
+      left: 5.62rem;
+    }
+
   }
 
   @media (max-width: 560px) {
@@ -1180,5 +1553,60 @@ const resultStats = [
       max-width: 100%;
       text-wrap: pretty;
     }
+
+    .process-section {
+      padding-inline: 0.9rem;
+    }
+
+    .process-eyebrow {
+      margin-bottom: 1.35rem;
+      font-size: 0.64rem;
+      letter-spacing: 0.2em;
+    }
+
+    .process-copy h2 {
+      font-size: clamp(2.45rem, 11.4vw, 3.45rem);
+      letter-spacing: -0.055em;
+    }
+
+    .process-lead {
+      font-size: 1rem;
+      line-height: 1.68;
+    }
+
+    .process-timeline {
+      gap: 1.3rem;
+      width: 100%;
+    }
+
+    .process-timeline::before {
+      top: 0.8rem;
+      bottom: 4.1rem;
+      left: 4.54rem;
+    }
+
+    .process-step {
+      grid-template-columns: 2.65rem 2.6rem 1fr;
+      gap: 0.7rem;
+    }
+
+    .process-step__number {
+      font-size: 1.62rem;
+    }
+
+    .process-step__marker {
+      width: 2rem;
+      height: 2rem;
+    }
+
+    .process-step__copy h3 {
+      font-size: 1.28rem;
+    }
+
+    .process-step__copy p {
+      max-width: 100%;
+      font-size: 0.95rem;
+    }
+
   }
 </style>
