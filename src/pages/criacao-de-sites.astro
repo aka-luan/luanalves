@@ -5,6 +5,7 @@ const whatsappHref =
   'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Quero%20solicitar%20um%20or%C3%A7amento%20para%20cria%C3%A7%C3%A3o%20de%20site.';
 
 const navItems = [
+  { href: '#solucoes', label: 'Soluções' },
   { href: '#resultados', label: 'Resultados' },
   { href: '#portfolio', label: 'Portfólio' },
   { href: '#contato', label: 'Contato' },
@@ -14,6 +15,30 @@ const featureItems = [
   { icon: 'trending_up', label: 'SEO desde o início' },
   { icon: 'phone_iphone', label: 'Mobile first' },
   { icon: 'code', label: 'Código limpo' },
+];
+
+const solutionItems = [
+  {
+    icon: 'corporate_fare',
+    title: 'Site Institucional',
+    copy: 'Ideal para empresas que precisam apresentar serviços, diferenciais e autoridade.',
+    image: '/assets/tresor-home.webp',
+    tags: ['SEO', 'Credibilidade', 'Mobile first'],
+  },
+  {
+    icon: 'ads_click',
+    title: 'Landing Page',
+    copy: 'Perfeita para campanhas, tráfego pago e captação de leads com foco total em conversão.',
+    image: '/assets/skyrocket-home.webp',
+    tags: ['Lead', 'Velocidade', 'Conversão'],
+  },
+  {
+    icon: 'article',
+    title: 'Blog Profissional',
+    copy: 'Estrutura editorial preparada para conteúdo, ranqueamento e gestão simples.',
+    image: '/assets/poliana-bentes-home.webp',
+    tags: ['Editorial', 'CMS', 'Performance'],
+  },
 ];
 
 const resultCards = [
@@ -286,6 +311,74 @@ const faqItems = [
             fetchpriority='high'
           />
         </div>
+      </div>
+    </section>
+
+    <section class='solutions-section' id='solucoes' aria-labelledby='solutions-title'>
+      <div class='solutions-section__glow' aria-hidden='true'></div>
+
+      <div class='solutions-section__inner'>
+        <div class='solutions-copy'>
+          <p class='creation-eyebrow solutions-eyebrow'>Soluções</p>
+
+          <h2 id='solutions-title'>
+            <span>O formato certo para</span>
+            <em>cada objetivo.</em>
+          </h2>
+
+          <p>
+            Cada projeto é desenhado de acordo com a meta do negócio, o estágio
+            da empresa e a forma como você precisa gerar oportunidades.
+          </p>
+        </div>
+
+        <div class='solutions-grid' aria-label='Formatos de site'>
+          {
+            solutionItems.map((item) => (
+              <article class='solution-card'>
+                <div class='solution-card__browser' aria-hidden='true'>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+
+                <div class='solution-card__media'>
+                  <img
+                    src={item.image}
+                    alt=''
+                    width='900'
+                    height='650'
+                    loading='lazy'
+                    decoding='async'
+                  />
+                </div>
+
+                <div class='solution-card__body'>
+                  <div class='solution-card__title'>
+                    <span class='solution-card__icon' aria-hidden='true'>
+                      <span class='material-symbols-outlined'>{item.icon}</span>
+                    </span>
+                    <h3>{item.title}</h3>
+                  </div>
+
+                  <p>{item.copy}</p>
+
+                  <div class='solution-card__tags'>
+                    {item.tags.map((tag) => <span>{tag}</span>)}
+                  </div>
+                </div>
+              </article>
+            ))
+          }
+        </div>
+
+        <p class='solutions-note'>
+          <span class='material-symbols-outlined' aria-hidden='true'>
+            check_circle
+          </span>
+          Todos os formatos são desenvolvidos com foco em performance, SEO
+          técnico, experiência do usuário e resultados reais.
+        </p>
       </div>
     </section>
 
@@ -759,7 +852,7 @@ const faqItems = [
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: clamp(1.6rem, 2.6vw, 2.55rem);
+    gap: clamp(1.2rem, 2vw, 2rem);
   }
 
   .creation-nav-links a,
@@ -780,6 +873,12 @@ const faqItems = [
     transition:
       color 180ms ease,
       transform 180ms ease;
+  }
+
+  .creation-nav-links a,
+  .creation-nav-cta {
+    font-size: 0.7rem;
+    letter-spacing: 0.24em;
   }
 
   .creation-nav-links a:hover,
@@ -1056,6 +1155,286 @@ const faqItems = [
     margin-left: auto;
     filter: drop-shadow(0 3rem 5rem rgba(0, 0, 0, 0.36))
       drop-shadow(0 0 2.6rem rgba(202, 159, 86, 0.12));
+  }
+
+  .solutions-section {
+    position: relative;
+    padding: clamp(7rem, 8.5vw, 8.8rem) clamp(1.5rem, 6.25vw, 5.85rem)
+      clamp(4.6rem, 5.6vw, 5.8rem);
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .solutions-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -4;
+    background:
+      radial-gradient(
+        circle at 50% 18%,
+        rgba(218, 176, 101, 0.16),
+        transparent 31rem
+      ),
+      radial-gradient(
+        ellipse at 50% 82%,
+        rgba(229, 196, 135, 0.09),
+        transparent 32rem
+      ),
+      linear-gradient(115deg, #0a0b0b 0%, #151514 54%, #090a0a 100%);
+  }
+
+  .solutions-section::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+    background:
+      linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.014) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.011) 1px,
+        transparent 1px
+      );
+    background-size: 4rem 4rem;
+    mask-image: radial-gradient(circle at 50% 50%, black, transparent 72%);
+    opacity: 0.16;
+  }
+
+  .solutions-section__glow {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(7, 7, 7, 0.55),
+        rgba(7, 7, 7, 0.08) 50%,
+        rgba(7, 7, 7, 0.55)
+      ),
+      radial-gradient(
+        ellipse at 50% 24%,
+        rgba(229, 196, 135, 0.14),
+        transparent 34rem
+      );
+  }
+
+  .solutions-section__inner {
+    width: min(100%, 84.8rem);
+    margin: 0 auto;
+  }
+
+  .solutions-copy {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .solutions-eyebrow {
+    margin-bottom: 1.2rem;
+  }
+
+  .solutions-copy h2 {
+    max-width: 14ch;
+    margin: 0;
+    color: #f5f2ef;
+    font-family: 'Newsreader', serif;
+    font-size: clamp(3.55rem, 6.7vw, 6.35rem);
+    font-weight: 600;
+    letter-spacing: -0.058em;
+    line-height: 0.95;
+    text-wrap: balance;
+  }
+
+  .solutions-copy h2 span,
+  .solutions-copy h2 em {
+    display: block;
+  }
+
+  .solutions-copy h2 em {
+    color: #dfbd79;
+    font-style: italic;
+    font-weight: 600;
+  }
+
+  .solutions-copy p {
+    max-width: 42rem;
+    margin: 1.45rem 0 0;
+    color: rgba(226, 218, 208, 0.82);
+    font-size: clamp(1rem, 1.14vw, 1.08rem);
+    font-weight: 300;
+    line-height: 1.62;
+    text-wrap: pretty;
+  }
+
+  .solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(1.25rem, 2vw, 1.6rem);
+    margin-top: clamp(3rem, 4.5vw, 4rem);
+  }
+
+  .solution-card {
+    overflow: hidden;
+    border: 1px solid rgba(229, 218, 207, 0.14);
+    border-radius: 0.45rem;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 32%),
+      rgba(16, 16, 15, 0.76);
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.014),
+      0 2.4rem 4.4rem rgba(0, 0, 0, 0.18);
+  }
+
+  .solution-card__browser {
+    display: flex;
+    align-items: center;
+    gap: 0.36rem;
+    height: 1.45rem;
+    padding: 0 0.78rem;
+    border-bottom: 1px solid rgba(229, 218, 207, 0.12);
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .solution-card__browser span {
+    width: 0.42rem;
+    height: 0.42rem;
+    border-radius: 999px;
+    background: #d9ae5f;
+  }
+
+  .solution-card__browser span:nth-child(2) {
+    background: #d97f5f;
+  }
+
+  .solution-card__browser span:nth-child(3) {
+    background: #8eb36a;
+  }
+
+  .solution-card__media {
+    position: relative;
+    aspect-ratio: 1.55 / 1;
+    overflow: hidden;
+    background: #0b0c0c;
+  }
+
+  .solution-card__media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.52)),
+      radial-gradient(circle at 72% 32%, transparent, rgba(0, 0, 0, 0.34));
+  }
+
+  .solution-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.72;
+    filter: saturate(0.82) contrast(1.04);
+  }
+
+  .solution-card__body {
+    min-height: 14.2rem;
+    padding: clamp(1.65rem, 2.2vw, 2rem);
+    border-top: 1px solid rgba(229, 218, 207, 0.1);
+  }
+
+  .solution-card__title {
+    display: grid;
+    grid-template-columns: 3.8rem 1fr;
+    align-items: center;
+    gap: 1.1rem;
+  }
+
+  .solution-card__icon {
+    display: grid;
+    place-items: center;
+    width: 3.8rem;
+    height: 3.8rem;
+    color: #d9ae5f;
+    border: 1px solid rgba(211, 169, 98, 0.42);
+    border-radius: 999px;
+  }
+
+  .solution-card__icon .material-symbols-outlined {
+    font-size: 1.85rem;
+    font-variation-settings:
+      'FILL' 0,
+      'wght' 220,
+      'GRAD' 0,
+      'opsz' 24;
+  }
+
+  .solution-card h3 {
+    margin: 0;
+    color: #f5f2ef;
+    font-family: 'Newsreader', serif;
+    font-size: clamp(1.95rem, 2.6vw, 2.45rem);
+    font-weight: 600;
+    letter-spacing: -0.055em;
+    line-height: 1.02;
+    text-wrap: balance;
+  }
+
+  .solution-card p {
+    max-width: 23rem;
+    margin: 1.35rem 0 0 4.9rem;
+    color: rgba(226, 218, 208, 0.76);
+    font-size: clamp(0.96rem, 1.05vw, 1.02rem);
+    font-weight: 300;
+    line-height: 1.58;
+    text-wrap: pretty;
+  }
+
+  .solution-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 2rem 0 0;
+  }
+
+  .solution-card__tags span {
+    display: inline-grid;
+    place-items: center;
+    min-height: 2.05rem;
+    padding: 0.1rem 1.05rem 0;
+    color: #dfbd79;
+    border: 1px solid rgba(211, 169, 98, 0.42);
+    font-size: 0.63rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  .solutions-note {
+    display: grid;
+    grid-template-columns: 1.6rem minmax(0, 36rem);
+    justify-content: center;
+    align-items: start;
+    gap: 1rem;
+    max-width: 42rem;
+    margin: clamp(2.8rem, 4.2vw, 3.6rem) auto 0;
+    color: rgba(226, 218, 208, 0.82);
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.55;
+  }
+
+  .solutions-note .material-symbols-outlined {
+    color: #dfbd79;
+    font-size: 1.65rem;
+    font-variation-settings:
+      'FILL' 0,
+      'wght' 230,
+      'GRAD' 0,
+      'opsz' 24;
   }
 
   .results-section {
@@ -2851,6 +3230,26 @@ const faqItems = [
       width: min(64vw, 50rem);
     }
 
+    .solutions-grid {
+      gap: 1rem;
+    }
+
+    .solution-card__body {
+      padding-inline: 1.35rem;
+    }
+
+    .solution-card h3 {
+      font-size: clamp(1.72rem, 2.4vw, 2.05rem);
+    }
+
+    .solution-card p {
+      margin-left: 0;
+    }
+
+    .solution-card__tags span {
+      padding-inline: 0.85rem;
+    }
+
     .results-section__inner {
       grid-template-columns: minmax(21rem, 0.76fr) minmax(33rem, 1.24fr);
       gap: 1.45rem 2.5rem;
@@ -3036,6 +3435,38 @@ const faqItems = [
       top: 0;
       left: 19%;
       width: 54%;
+    }
+
+    .solutions-section {
+      padding: 6.5rem 1.15rem 4.5rem;
+    }
+
+    .solutions-copy h2 {
+      font-size: clamp(3.05rem, 10.6vw, 5rem);
+    }
+
+    .solutions-grid {
+      grid-template-columns: 1fr;
+      width: min(100%, 44rem);
+      margin-inline: auto;
+      margin-top: 2.6rem;
+    }
+
+    .solution-card__media {
+      aspect-ratio: 1.55 / 0.82;
+    }
+
+    .solution-card__body {
+      min-height: 0;
+    }
+
+    .solution-card p {
+      max-width: 30rem;
+      margin-left: 4.9rem;
+    }
+
+    .solutions-note {
+      width: min(100%, 40rem);
     }
 
     .results-section {
@@ -3455,6 +3886,73 @@ const faqItems = [
       padding-top: 1.15rem;
       border-top: 1px solid rgba(229, 218, 207, 0.11);
       border-left: 0;
+    }
+
+    .solutions-section {
+      padding-inline: 0.9rem;
+    }
+
+    .solutions-eyebrow {
+      margin-bottom: 1.35rem;
+      font-size: 0.64rem;
+      letter-spacing: 0.2em;
+    }
+
+    .solutions-copy h2 {
+      font-size: clamp(2.55rem, 12vw, 3.7rem);
+      letter-spacing: -0.055em;
+    }
+
+    .solutions-copy p,
+    .solutions-note {
+      font-size: 1rem;
+      line-height: 1.68;
+    }
+
+    .solution-card__media {
+      aspect-ratio: 1.22 / 0.82;
+    }
+
+    .solution-card__body {
+      padding: 1.45rem 1.3rem;
+    }
+
+    .solution-card__title {
+      grid-template-columns: 3.2rem 1fr;
+      gap: 1rem;
+    }
+
+    .solution-card__icon {
+      width: 3.2rem;
+      height: 3.2rem;
+    }
+
+    .solution-card h3 {
+      font-size: 1.82rem;
+    }
+
+    .solution-card p {
+      max-width: 100%;
+      margin: 0.85rem 0 0;
+      font-size: 0.98rem;
+    }
+
+    .solution-card__tags {
+      gap: 0.55rem;
+      margin-top: 1.45rem;
+    }
+
+    .solution-card__tags span {
+      min-height: 1.95rem;
+      padding-inline: 0.75rem;
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+    }
+
+    .solutions-note {
+      grid-template-columns: 1.55rem 1fr;
+      gap: 0.8rem;
+      margin-top: 2.2rem;
     }
 
     .results-section {
