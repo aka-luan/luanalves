@@ -162,11 +162,22 @@ const differentialItems = [
   },
 ];
 
-const audienceItems = [
-  'Empresas que precisam parecer mais profissionais no digital',
-  'Negócios locais que querem gerar pedidos pelo WhatsApp',
-  'Prestadores de serviço que dependem de confiança e autoridade',
-  'Marcas que precisam de landing page para campanha ou tráfego pago',
+const contactHighlights = [
+  {
+    icon: 'groups',
+    title: 'Atendimento direto',
+    copy: 'Fale com quem executa seu projeto do início ao fim.',
+  },
+  {
+    icon: 'description',
+    title: 'Processo claro',
+    copy: 'Etapas bem definidas e transparência em tudo.',
+  },
+  {
+    icon: 'support_agent',
+    title: 'Suporte após a entrega',
+    copy: 'Acompanhamento e suporte para garantir seu sucesso.',
+  },
 ];
 
 const portfolioItems = [
@@ -666,30 +677,6 @@ const faqItems = [
       </div>
     </section>
 
-    <section class='audience-section' id='para-quem' aria-labelledby='audience-title'>
-      <div class='audience-section__inner'>
-        <div class='audience-copy'>
-          <p class='creation-eyebrow audience-eyebrow'>Para quem é</p>
-
-          <h2 id='audience-title'>
-            <span>Feito para negócios</span>
-            <em>que dependem de confiança.</em>
-          </h2>
-        </div>
-
-        <div class='audience-list' aria-label='Perfis atendidos'>
-          {
-            audienceItems.map((item, index) => (
-              <article class='audience-item'>
-                <span>{String(index + 1).padStart(2, '0')}</span>
-                <p>{item}</p>
-              </article>
-            ))
-          }
-        </div>
-      </div>
-    </section>
-
     <section class='faq-section' id='perguntas' aria-labelledby='faq-title'>
       <div class='faq-section__inner'>
         <div class='faq-copy'>
@@ -754,28 +741,54 @@ const faqItems = [
 
       <div class='creation-contact__inner'>
         <div class='creation-contact__copy'>
-          <p class='creation-eyebrow contact-eyebrow'>Próximo passo</p>
+          <p class='creation-eyebrow contact-eyebrow'>Pronto para começar?</p>
 
           <h2 id='contact-title'>
-            <span>Vamos transformar</span>
-            <em>sua presença digital.</em>
+            <span>Vamos criar</span>
+            <span>um site <em>à altura</em></span>
+            <span>do <em>seu negócio.</em></span>
           </h2>
 
           <p>
-            Me chama no WhatsApp, conte o tipo de site que você precisa e eu
-            retorno com os próximos passos para orçamento.
+            Me conte o que a sua empresa precisa. Atendo projetos em todo o
+            Brasil, com processo 100% remoto, comunicação direta e resposta em
+            até 24 horas.
           </p>
 
-          <a
-            class='creation-button creation-button--solid contact-button'
-            href={whatsappHref}
-            target='_blank'
-            rel='noreferrer'>
-            Solicitar orçamento
-          </a>
+          <div class='contact-actions'>
+            <a
+              class='creation-button creation-button--solid contact-button'
+              href={whatsappHref}
+              target='_blank'
+              rel='noreferrer'>
+              Solicitar orçamento
+            </a>
+            <a
+              class='creation-button creation-button--outline contact-button'
+              href={whatsappHref}
+              target='_blank'
+              rel='noreferrer'>
+              Falar no WhatsApp
+            </a>
+          </div>
+
+          <div class='contact-highlights' aria-label='Diferenciais do atendimento'>
+            {
+              contactHighlights.map((item) => (
+                <article class='contact-highlight'>
+                  <span class='contact-highlight__icon' aria-hidden='true'>
+                    <span class='material-symbols-outlined'>{item.icon}</span>
+                  </span>
+                  <h3>{item.title}</h3>
+                  <p>{item.copy}</p>
+                </article>
+              ))
+            }
+          </div>
         </div>
 
         <div class='creation-contact__media' aria-hidden='true'>
+          <span class='contact-orbit'></span>
           <img
             src='/assets/contact-img.png'
             alt=''
@@ -784,6 +797,19 @@ const faqItems = [
             loading='lazy'
             decoding='async'
           />
+          <div class='contact-form-card'>
+            <h3>Vamos conversar</h3>
+            <p>Preencha os dados abaixo e vou te responder em breve.</p>
+            <span>Nome completo</span>
+            <span>E-mail</span>
+            <span>WhatsApp</span>
+            <span class='contact-form-card__message'>Como posso ajudar?</span>
+            <strong>Enviar mensagem</strong>
+            <small>
+              <span class='material-symbols-outlined'>lock</span>
+              Seus dados estão seguros.
+            </small>
+          </div>
         </div>
       </div>
     </section>
@@ -811,6 +837,10 @@ const faqItems = [
       ),
       linear-gradient(115deg, rgba(7, 8, 8, 0.99) 0%, #151514 52%, #0d0e0e 100%);
     color: #f4f1ee;
+  }
+
+  .site-creation-page > section {
+    scroll-margin-top: 5.7rem;
   }
 
   .creation-nav {
@@ -1244,7 +1274,7 @@ const faqItems = [
     margin: 0;
     color: #f5f2ef;
     font-family: 'Newsreader', serif;
-    font-size: clamp(3.55rem, 6.7vw, 6.35rem);
+    font-size: clamp(3.45rem, 5.05vw, 5rem);
     font-weight: 600;
     letter-spacing: -0.058em;
     line-height: 0.95;
@@ -2205,7 +2235,6 @@ const faqItems = [
 
   .differentials-section,
   .portfolio-section,
-  .audience-section,
   .faq-section,
   .creation-contact {
     position: relative;
@@ -2240,7 +2269,6 @@ const faqItems = [
 
   .differentials-section::after,
   .portfolio-section::after,
-  .audience-section::after,
   .faq-section::after,
   .creation-contact::after {
     content: '';
@@ -2354,20 +2382,18 @@ const faqItems = [
   }
 
   .differentials-eyebrow,
-  .audience-eyebrow,
   .faq-eyebrow,
   .contact-eyebrow {
     margin-bottom: 1.55rem;
   }
 
   .differentials-copy h2,
-  .audience-copy h2,
   .faq-copy h2,
   .creation-contact__copy h2 {
     margin: 0;
     color: #f5f2ef;
     font-family: 'Newsreader', serif;
-    font-size: clamp(3.45rem, 4.65vw, 5.08rem);
+    font-size: clamp(3.45rem, 4.65vw, 5rem);
     font-weight: 600;
     letter-spacing: -0.058em;
     line-height: 0.96;
@@ -2376,8 +2402,6 @@ const faqItems = [
 
   .differentials-copy h2 span,
   .differentials-copy h2 em,
-  .audience-copy h2 span,
-  .audience-copy h2 em,
   .faq-copy h2 span,
   .faq-copy h2 em,
   .creation-contact__copy h2 span,
@@ -2386,7 +2410,6 @@ const faqItems = [
   }
 
   .differentials-copy h2 em,
-  .audience-copy h2 em,
   .faq-copy h2 em,
   .creation-contact__copy h2 em {
     color: #dfbd79;
@@ -2503,27 +2526,11 @@ const faqItems = [
     transform: translateY(-50%);
   }
 
-  .audience-section,
   .faq-section {
     padding: clamp(6.8rem, 8vw, 8.2rem) clamp(1.5rem, 6.25vw, 5.85rem);
     overflow: hidden;
   }
 
-  .audience-section::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -4;
-    background:
-      radial-gradient(
-        ellipse at 75% 42%,
-        rgba(218, 176, 101, 0.14),
-        transparent 28rem
-      ),
-      linear-gradient(115deg, #0c0d0d 0%, #151514 54%, #0a0b0b 100%);
-  }
-
-  .audience-section__inner,
   .faq-section__inner {
     display: grid;
     grid-template-columns: minmax(28rem, 0.85fr) minmax(38rem, 1.15fr);
@@ -2533,43 +2540,8 @@ const faqItems = [
     margin: 0 auto;
   }
 
-  .audience-copy h2,
   .faq-copy h2 {
     max-width: 13.2ch;
-  }
-
-  .audience-list {
-    display: grid;
-    gap: 0;
-    border-top: 1px solid rgba(229, 218, 207, 0.12);
-  }
-
-  .audience-item {
-    display: grid;
-    grid-template-columns: 4rem 1fr;
-    gap: 1.35rem;
-    align-items: start;
-    padding: 1.55rem 0;
-    border-bottom: 1px solid rgba(229, 218, 207, 0.12);
-  }
-
-  .audience-item span {
-    color: #dfbd79;
-    font-family: 'Newsreader', serif;
-    font-size: 1.6rem;
-    font-weight: 600;
-    letter-spacing: -0.04em;
-    line-height: 1;
-  }
-
-  .audience-item p {
-    max-width: 31rem;
-    margin: 0;
-    color: rgba(245, 242, 239, 0.9);
-    font-size: clamp(1.28rem, 1.7vw, 1.55rem);
-    font-weight: 300;
-    line-height: 1.35;
-    text-wrap: pretty;
   }
 
   .faq-section {
@@ -2632,7 +2604,7 @@ const faqItems = [
   .faq-copy h2 {
     grid-area: title;
     max-width: 13.8ch;
-    font-size: clamp(4.1rem, 5.8vw, 6.25rem);
+    font-size: clamp(3.55rem, 4.95vw, 5rem);
   }
 
   .faq-copy h2 span,
@@ -2955,7 +2927,7 @@ const faqItems = [
     margin: 0;
     color: #f5f2ef;
     font-family: 'Newsreader', serif;
-    font-size: clamp(4.1rem, 5.55vw, 6.05rem);
+    font-size: clamp(3.55rem, 4.9vw, 5rem);
     font-weight: 600;
     letter-spacing: -0.058em;
     line-height: 0.96;
@@ -3182,7 +3154,7 @@ const faqItems = [
 
   .creation-contact__inner {
     display: grid;
-    grid-template-columns: minmax(31rem, 0.86fr) minmax(38rem, 1.14fr);
+    grid-template-columns: minmax(32rem, 0.92fr) minmax(30rem, 1.08fr);
     align-items: center;
     gap: clamp(2rem, 4vw, 3.8rem);
     width: min(100%, 84.8rem);
@@ -3196,25 +3168,198 @@ const faqItems = [
   }
 
   .creation-contact__copy h2 {
-    max-width: 13.4ch;
+    max-width: 11.6ch;
+    font-size: clamp(3.55rem, 5vw, 5rem);
+  }
+
+  .creation-contact__copy h2 span em {
+    display: inline;
+  }
+
+  .creation-contact__copy > p {
+    max-width: 38rem;
+    margin-top: 1.45rem;
+    font-size: clamp(1.02rem, 1.18vw, 1.1rem);
+    line-height: 1.62;
+  }
+
+  .contact-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.15rem;
+    margin-top: 2.1rem;
   }
 
   .contact-button {
-    margin-top: 2.35rem;
+    min-width: 14.8rem;
   }
 
   .creation-contact__media {
+    position: relative;
     min-width: 0;
-    margin-right: clamp(-10rem, -9vw, -5rem);
-    transform: translate(0.5rem, 0.55rem);
+    margin-right: clamp(-3.5rem, -3.2vw, -1.6rem);
+    transform: translate(0.15rem, 0.45rem);
   }
 
   .creation-contact__media img {
-    width: min(66vw, 67rem);
+    position: relative;
+    z-index: 1;
+    width: min(52vw, 60rem);
     max-width: none;
     height: auto;
     filter: drop-shadow(0 3rem 5.2rem rgba(0, 0, 0, 0.5))
       drop-shadow(0 0 3.4rem rgba(218, 176, 101, 0.15));
+  }
+
+  .contact-orbit {
+    position: absolute;
+    top: 1.5%;
+    left: 18%;
+    z-index: 0;
+    width: 61%;
+    aspect-ratio: 1;
+    border: 1px solid rgba(211, 169, 98, 0.28);
+    border-radius: 999px;
+    box-shadow:
+      inset 0 0 44px rgba(211, 169, 98, 0.035),
+      0 0 34px rgba(211, 169, 98, 0.08);
+  }
+
+  .contact-form-card {
+    position: absolute;
+    right: 0.35rem;
+    bottom: 21%;
+    z-index: 2;
+    width: clamp(13.6rem, 16.5vw, 17.2rem);
+    padding: 1.55rem 1.35rem 1.25rem;
+    border: 1px solid rgba(229, 218, 207, 0.16);
+    border-radius: 0.65rem;
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, 0.055), transparent 42%),
+      rgba(18, 18, 17, 0.82);
+    box-shadow:
+      0 2rem 4.5rem rgba(0, 0, 0, 0.42),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.018);
+    backdrop-filter: blur(18px);
+  }
+
+  .contact-form-card h3 {
+    margin: 0;
+    color: #f5f2ef;
+    font-family: 'Newsreader', serif;
+    font-size: clamp(1.35rem, 1.65vw, 1.7rem);
+    font-weight: 600;
+    letter-spacing: -0.045em;
+    line-height: 1.05;
+  }
+
+  .contact-form-card p {
+    margin: 0.75rem 0 1.1rem;
+    color: rgba(226, 218, 208, 0.74);
+    font-size: 0.72rem;
+    font-weight: 300;
+    line-height: 1.45;
+  }
+
+  .contact-form-card > span {
+    display: flex;
+    align-items: center;
+    min-height: 2.2rem;
+    margin-top: 0.48rem;
+    padding: 0.15rem 0.72rem 0;
+    color: rgba(226, 218, 208, 0.64);
+    border: 1px solid rgba(229, 218, 207, 0.12);
+    border-radius: 0.18rem;
+    font-size: 0.68rem;
+  }
+
+  .contact-form-card__message {
+    min-height: 4.65rem;
+    align-items: flex-start;
+    padding-top: 0.65rem;
+  }
+
+  .contact-form-card strong {
+    display: grid;
+    place-items: center;
+    min-height: 2.55rem;
+    margin-top: 0.8rem;
+    color: #442e03;
+    background: linear-gradient(135deg, #f0cd86, #d8aa55);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .contact-form-card small {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.75rem;
+    color: rgba(226, 218, 208, 0.54);
+    font-size: 0.66rem;
+  }
+
+  .contact-form-card small .material-symbols-outlined {
+    color: #dfbd79;
+    font-size: 0.9rem;
+  }
+
+  .contact-highlights {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    width: min(100%, 39.5rem);
+    margin-top: clamp(2.5rem, 3.5vw, 3.6rem);
+  }
+
+  .contact-highlight {
+    padding: 0 1.35rem;
+  }
+
+  .contact-highlight:first-child {
+    padding-left: 0;
+  }
+
+  .contact-highlight + .contact-highlight {
+    border-left: 1px solid rgba(229, 218, 207, 0.13);
+  }
+
+  .contact-highlight__icon {
+    display: grid;
+    place-items: center;
+    width: 3.2rem;
+    height: 3.2rem;
+    margin-bottom: 1.05rem;
+    color: #d9ae5f;
+    border: 1px solid rgba(211, 169, 98, 0.42);
+    border-radius: 999px;
+  }
+
+  .contact-highlight__icon .material-symbols-outlined {
+    font-size: 1.65rem;
+    font-variation-settings:
+      'FILL' 0,
+      'wght' 220,
+      'GRAD' 0,
+      'opsz' 24;
+  }
+
+  .contact-highlight h3 {
+    margin: 0;
+    color: #f5f2ef;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.25;
+  }
+
+  .contact-highlight p {
+    margin: 0.55rem 0 0;
+    color: rgba(226, 218, 208, 0.68);
+    font-size: 0.88rem;
+    font-weight: 300;
+    line-height: 1.42;
   }
 
   @media (max-width: 1180px) {
@@ -3308,7 +3453,6 @@ const faqItems = [
     }
 
     .differentials-copy h2,
-    .audience-copy h2,
     .faq-copy h2,
     .creation-contact__copy h2 {
       font-size: clamp(3.05rem, 5.25vw, 4.35rem);
@@ -3329,7 +3473,7 @@ const faqItems = [
     }
 
     .portfolio-copy h2 {
-      font-size: clamp(3.65rem, 6.4vw, 5.4rem);
+      font-size: clamp(3.05rem, 5.25vw, 4.35rem);
     }
 
     .portfolio-card__meta {
@@ -3345,15 +3489,25 @@ const faqItems = [
       letter-spacing: 0.2em;
     }
 
-    .audience-section__inner,
     .faq-section__inner {
       grid-template-columns: minmax(24rem, 0.82fr) minmax(33rem, 1.18fr);
       gap: 2.4rem;
     }
 
     .creation-contact__inner {
-      grid-template-columns: minmax(27rem, 0.86fr) minmax(32rem, 1.14fr);
+      grid-template-columns: minmax(29rem, 0.9fr) minmax(31rem, 1.1fr);
       gap: 1.7rem;
+    }
+
+    .creation-contact__copy h2 {
+      font-size: clamp(3.05rem, 5.25vw, 4.35rem);
+    }
+
+    .contact-form-card {
+      right: 0.3rem;
+      bottom: 23%;
+      width: clamp(12.8rem, 18vw, 15rem);
+      padding: 1.25rem 1.05rem 1rem;
     }
 
   }
@@ -3442,7 +3596,7 @@ const faqItems = [
     }
 
     .solutions-copy h2 {
-      font-size: clamp(3.05rem, 10.6vw, 5rem);
+      font-size: clamp(3.05rem, 9.6vw, 4.45rem);
     }
 
     .solutions-grid {
@@ -3719,12 +3873,10 @@ const faqItems = [
       min-height: 6.9rem;
     }
 
-    .audience-section,
     .faq-section {
       padding: 6.5rem 1.15rem 4.5rem;
     }
 
-    .audience-section__inner,
     .faq-section__inner {
       grid-template-columns: 1fr;
       grid-template-areas:
@@ -3734,7 +3886,6 @@ const faqItems = [
       gap: 2.25rem;
     }
 
-    .audience-copy,
     .faq-copy {
       justify-self: center;
       max-width: 40rem;
@@ -3757,7 +3908,6 @@ const faqItems = [
       text-align: center;
     }
 
-    .audience-copy h2,
     .faq-copy h2 {
       margin-inline: auto;
       font-size: clamp(3rem, 10.4vw, 4.75rem);
@@ -3767,7 +3917,6 @@ const faqItems = [
       margin-inline: auto;
     }
 
-    .audience-list,
     .faq-list,
     .faq-aside {
       width: min(100%, 44rem);
@@ -3796,25 +3945,43 @@ const faqItems = [
     }
 
     .creation-contact__copy h2 {
+      max-width: 11.6ch;
       margin-inline: auto;
       font-size: clamp(3.05rem, 10.8vw, 5rem);
     }
 
-    .creation-contact__copy p {
+    .creation-contact__copy > p {
       margin-inline: auto;
     }
 
+    .contact-actions {
+      justify-content: center;
+      width: min(100%, 34rem);
+      margin-inline: auto;
+    }
+
+    .contact-highlights {
+      width: min(100%, 44rem);
+      margin-inline: auto;
+      margin-top: 3rem;
+    }
+
     .creation-contact__media {
-      order: -1;
       justify-self: center;
-      width: min(100%, 45rem);
-      margin: -0.7rem auto -0.35rem;
+      width: min(100%, 46rem);
+      margin: 0 auto -0.35rem;
       transform: none;
     }
 
     .creation-contact__media img {
       width: 100%;
       margin: 0 auto;
+    }
+
+    .contact-form-card {
+      right: 2%;
+      bottom: 18%;
+      width: min(16rem, 38vw);
     }
 
   }
@@ -4138,7 +4305,6 @@ const faqItems = [
 
     .differentials-section,
     .portfolio-section,
-    .audience-section,
     .faq-section,
     .creation-contact {
       padding-inline: 0.9rem;
@@ -4146,7 +4312,6 @@ const faqItems = [
 
     .differentials-eyebrow,
     .portfolio-eyebrow,
-    .audience-eyebrow,
     .faq-eyebrow,
     .contact-eyebrow {
       margin-bottom: 1.35rem;
@@ -4156,7 +4321,6 @@ const faqItems = [
 
     .differentials-copy h2,
     .portfolio-copy h2,
-    .audience-copy h2,
     .faq-copy h2,
     .creation-contact__copy h2 {
       font-size: clamp(2.55rem, 12vw, 3.7rem);
@@ -4256,21 +4420,6 @@ const faqItems = [
       font-size: 0.98rem;
     }
 
-    .audience-item {
-      grid-template-columns: 3.1rem 1fr;
-      gap: 0.9rem;
-      padding: 1.25rem 0;
-    }
-
-    .audience-item span {
-      font-size: 1.36rem;
-    }
-
-    .audience-item p {
-      font-size: 1.08rem;
-      line-height: 1.42;
-    }
-
     .faq-item summary {
       grid-template-columns: 2.3rem 1fr 1.1rem;
       gap: 0.85rem;
@@ -4310,6 +4459,66 @@ const faqItems = [
 
     .contact-button {
       width: 100%;
+    }
+
+    .contact-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.9rem;
+    }
+
+    .contact-highlights {
+      grid-template-columns: 1fr;
+      gap: 1.15rem;
+      text-align: left;
+    }
+
+    .contact-highlight,
+    .contact-highlight:first-child {
+      display: grid;
+      grid-template-columns: 3.2rem 1fr;
+      column-gap: 1rem;
+      padding: 0;
+    }
+
+    .contact-highlight + .contact-highlight {
+      padding-top: 1.15rem;
+      border-top: 1px solid rgba(229, 218, 207, 0.13);
+      border-left: 0;
+    }
+
+    .contact-highlight__icon {
+      grid-row: span 2;
+      margin-bottom: 0;
+    }
+
+    .contact-highlight p {
+      margin-top: 0.45rem;
+    }
+
+    .contact-form-card {
+      right: 0;
+      bottom: 10%;
+      width: min(13.5rem, 46vw);
+      padding: 1rem 0.85rem 0.85rem;
+    }
+
+    .contact-form-card h3 {
+      font-size: 1.18rem;
+    }
+
+    .contact-form-card p,
+    .contact-form-card small {
+      font-size: 0.58rem;
+    }
+
+    .contact-form-card > span {
+      min-height: 1.85rem;
+      font-size: 0.58rem;
+    }
+
+    .contact-form-card__message {
+      min-height: 3.6rem;
     }
 
   }
