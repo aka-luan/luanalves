@@ -1,0 +1,287 @@
+---
+import type { ServiceCard } from '../../data/servicePages';
+
+interface Props {
+  id: string;
+  eyebrow: string;
+  title: string;
+  accent: string;
+  copy: string;
+  items: ServiceCard[];
+  motionName?: string;
+}
+
+const {
+  id,
+  eyebrow,
+  title,
+  accent,
+  copy,
+  items,
+  motionName = id,
+} = Astro.props;
+const titleParts = title.split(accent);
+const titleDensity = title.length > 64 ? 'long' : 'default';
+---
+
+<section
+  class='service-cards'
+  id={id}
+  aria-labelledby={`${id}-title`}
+  data-motion-section={motionName}
+  data-title-density={titleDensity}>
+  <div class='service-cards__glow' aria-hidden='true'></div>
+  <div class='service-cards__inner'>
+    <div class='service-cards__copy'>
+      <p class='service-eyebrow' data-motion-heading data-motion-hidden='y-sm'>{eyebrow}</p>
+      <h2 id={`${id}-title`} data-motion-heading data-motion-hidden='y-md'>
+        {titleParts[0]}<em>{accent}</em>{titleParts[1]}
+      </h2>
+      <p data-motion-copy data-motion-hidden='y-md'>{copy}</p>
+    </div>
+
+    <div class='service-cards__grid'>
+      {
+        items.map((item, index) => (
+          <article class='service-card' data-motion-item={motionName} data-motion-hidden='y-card'>
+            <span class='service-card__number'>{String(index + 1).padStart(2, '0')}</span>
+            <span class='service-card__icon' aria-hidden='true'>
+              <span class='material-symbols-outlined'>{item.icon}</span>
+            </span>
+            <h3>{item.title}</h3>
+            <p>{item.copy}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .service-cards {
+    position: relative;
+    padding: clamp(6.4rem, 7.4vw, 7.65rem) clamp(1.5rem, 6.25vw, 5.85rem)
+      clamp(5rem, 6.2vw, 6.2rem);
+    overflow: hidden;
+    scroll-margin-top: 5.7rem;
+  }
+
+  .service-cards::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -4;
+    background:
+      radial-gradient(circle at 50% 20%, rgba(218, 176, 101, 0.13), transparent 28rem),
+      linear-gradient(115deg, #101111 0%, #171716 50%, #0c0d0d 100%);
+  }
+
+  .service-cards__glow {
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+    background:
+      linear-gradient(180deg, rgba(7, 7, 7, 0.44), rgba(7, 7, 7, 0.12) 42%, rgba(7, 7, 7, 0.42)),
+      radial-gradient(ellipse at 82% 64%, rgba(229, 196, 135, 0.09), transparent 30rem);
+    pointer-events: none;
+  }
+
+  .service-cards__inner {
+    display: grid;
+    gap: clamp(2.4rem, 4vw, 3.5rem);
+    width: min(100%, 84.8rem);
+    margin: 0 auto;
+  }
+
+  .service-cards__copy {
+    display: grid;
+    justify-items: center;
+    max-width: 64rem;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .service-eyebrow {
+    margin: 0 0 1.45rem;
+    color: #d9ae5f;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+  }
+
+  .service-cards__copy h2 {
+    max-width: 15.5ch;
+    margin: 0;
+    color: #f5f2ef;
+    font-family: 'Newsreader', serif;
+    font-size: clamp(2.95rem, 4.35vw, 4.35rem);
+    font-weight: 600;
+    letter-spacing: -0.048em;
+    line-height: 1.01;
+    text-wrap: balance;
+  }
+
+  .service-cards[data-title-density='long'] .service-cards__copy h2 {
+    max-width: 18ch;
+    font-size: clamp(2.65rem, 3.75vw, 3.8rem);
+    line-height: 1.04;
+  }
+
+  .service-cards__copy h2 em {
+    color: #dfbd79;
+    font-style: italic;
+    font-weight: 600;
+  }
+
+  .service-cards__copy > p {
+    max-width: 34rem;
+    margin: 1.45rem 0 0;
+    color: rgba(226, 218, 208, 0.78);
+    font-size: clamp(1rem, 1.12vw, 1.08rem);
+    font-weight: 300;
+    line-height: 1.62;
+    text-wrap: pretty;
+  }
+
+  .service-cards__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .service-card {
+    position: relative;
+    display: grid;
+    align-content: start;
+    min-height: 20rem;
+    padding: 1.55rem;
+    overflow: hidden;
+    border: 1px solid rgba(229, 218, 207, 0.14);
+    border-radius: 0.35rem;
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, 0.03), transparent 46%),
+      rgba(16, 17, 16, 0.72);
+    box-shadow: 0 24px 58px rgba(0, 0, 0, 0.16);
+    transition:
+      transform 180ms ease,
+      border-color 180ms ease,
+      background-color 180ms ease,
+      box-shadow 180ms ease;
+  }
+
+  .service-card:hover,
+  .service-card:focus-within {
+    transform: translateY(-3px);
+    border-color: rgba(229, 196, 135, 0.28);
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, 0.042), transparent 46%),
+      rgba(20, 21, 20, 0.82);
+    box-shadow: 0 28px 64px rgba(0, 0, 0, 0.22);
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(229, 196, 135, 0.46), transparent);
+    opacity: 0.5;
+  }
+
+  .service-card__number {
+    color: rgba(223, 189, 121, 0.66);
+    font-family: 'Newsreader', serif;
+    font-size: 1.28rem;
+    font-style: italic;
+    font-weight: 600;
+  }
+
+  .service-card__icon {
+    display: grid;
+    place-items: center;
+    width: 3.25rem;
+    height: 3.25rem;
+    margin-top: 2rem;
+    border: 1px solid rgba(229, 196, 135, 0.38);
+    border-radius: 999px;
+    color: #dfbd79;
+    background: rgba(229, 196, 135, 0.045);
+  }
+
+  .service-card h3 {
+    margin: 1.25rem 0 0;
+    color: #f5f2ef;
+    font-family: 'Newsreader', serif;
+    font-size: clamp(1.55rem, 1.75vw, 1.9rem);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1.06;
+    text-wrap: balance;
+  }
+
+  .service-card p {
+    margin: 1rem 0 0;
+    color: rgba(226, 218, 208, 0.74);
+    font-size: 0.98rem;
+    font-weight: 300;
+    line-height: 1.62;
+    text-wrap: pretty;
+  }
+
+  @media (max-width: 1100px) {
+    .service-cards__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 900px) {
+    .service-cards {
+      padding: 6.5rem 1.15rem 4.5rem;
+    }
+
+    .service-cards__copy h2 {
+      font-size: clamp(2.72rem, 8.8vw, 4rem);
+    }
+
+    .service-cards[data-title-density='long'] .service-cards__copy h2 {
+      font-size: clamp(2.45rem, 7.8vw, 3.45rem);
+    }
+  }
+
+  @media (max-width: 560px) {
+    .service-cards {
+      padding-inline: 0.9rem;
+    }
+
+    .service-eyebrow {
+      margin-bottom: 1.35rem;
+      font-size: 0.64rem;
+      letter-spacing: 0.2em;
+    }
+
+    .service-cards__copy h2 {
+      font-size: clamp(2.2rem, 9.6vw, 3.05rem);
+      letter-spacing: -0.045em;
+    }
+
+    .service-cards[data-title-density='long'] .service-cards__copy h2 {
+      font-size: clamp(1.98rem, 8.1vw, 2.56rem);
+      line-height: 1.06;
+    }
+
+    .service-cards__copy > p {
+      font-size: 1rem;
+      line-height: 1.68;
+    }
+
+    .service-cards__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .service-card {
+      min-height: 0;
+      padding: 1.45rem 1.3rem;
+    }
+  }
+</style>

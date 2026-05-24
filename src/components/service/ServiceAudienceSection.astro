@@ -1,0 +1,237 @@
+---
+import type { ServiceCard } from '../../data/servicePages';
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  accent: string;
+  copy: string;
+  items: ServiceCard[];
+}
+
+const { eyebrow, title, accent, copy, items } = Astro.props;
+const titleParts = title.split(accent);
+const titleDensity = title.length > 64 ? 'long' : 'default';
+---
+
+<section
+  class='service-audience'
+  id='para-quem'
+  aria-labelledby='audience-title'
+  data-motion-section='audience'
+  data-title-density={titleDensity}>
+  <div class='service-audience__inner'>
+    <div class='service-audience__copy'>
+      <p class='service-eyebrow' data-motion-heading data-motion-hidden='y-sm'>{eyebrow}</p>
+      <h2 id='audience-title' data-motion-heading data-motion-hidden='y-md'>
+        {titleParts[0]}<em>{accent}</em>{titleParts[1]}
+      </h2>
+      <p data-motion-copy data-motion-hidden='y-md'>{copy}</p>
+    </div>
+
+    <div class='service-audience__grid'>
+      {
+        items.map((item) => (
+          <article class='service-audience-card' data-motion-item='audience' data-motion-hidden='x-left'>
+            <span class='service-audience-card__icon' aria-hidden='true'>
+              <span class='material-symbols-outlined'>{item.icon}</span>
+            </span>
+            <h3>{item.title}</h3>
+            <p>{item.copy}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .service-audience {
+    position: relative;
+    padding: clamp(6.4rem, 7vw, 7.4rem) clamp(1.5rem, 6.25vw, 5.85rem);
+    overflow: hidden;
+    scroll-margin-top: 5.7rem;
+  }
+
+  .service-audience::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background:
+      radial-gradient(ellipse at 16% 68%, rgba(229, 196, 135, 0.1), transparent 32rem),
+      linear-gradient(115deg, #0d0e0e 0%, #151514 52%, #101111 100%);
+  }
+
+  .service-audience__inner {
+    display: grid;
+    grid-template-columns: minmax(18rem, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: start;
+    width: min(100%, 84.8rem);
+    margin: 0 auto;
+  }
+
+  .service-audience__copy {
+    display: grid;
+    align-content: start;
+  }
+
+  .service-eyebrow {
+    margin: 0 0 1.45rem;
+    color: #d9ae5f;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+  }
+
+  .service-audience h2 {
+    max-width: 14.5ch;
+    margin: 0;
+    color: #f5f2ef;
+    font-family: 'Newsreader', serif;
+    font-size: clamp(2.9rem, 4.2vw, 4.25rem);
+    font-weight: 600;
+    letter-spacing: -0.048em;
+    line-height: 1.01;
+    text-wrap: balance;
+  }
+
+  .service-audience[data-title-density='long'] h2 {
+    max-width: 17ch;
+    font-size: clamp(2.6rem, 3.6vw, 3.65rem);
+    line-height: 1.04;
+  }
+
+  .service-audience h2 em {
+    color: #dfbd79;
+    font-style: italic;
+    font-weight: 600;
+  }
+
+  .service-audience__copy > p {
+    max-width: 29rem;
+    margin: 1.45rem 0 0;
+    color: rgba(226, 218, 208, 0.78);
+    font-size: clamp(1rem, 1.12vw, 1.08rem);
+    font-weight: 300;
+    line-height: 1.62;
+    text-wrap: pretty;
+  }
+
+  .service-audience__grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .service-audience-card {
+    display: grid;
+    grid-template-columns: 3.4rem minmax(0, 1fr);
+    column-gap: 1.1rem;
+    padding: 1.35rem;
+    border: 1px solid rgba(229, 218, 207, 0.14);
+    border-radius: 0.35rem;
+    background: rgba(16, 17, 16, 0.74);
+    transition:
+      transform 180ms ease,
+      border-color 180ms ease,
+      background-color 180ms ease,
+      box-shadow 180ms ease;
+  }
+
+  .service-audience-card:hover,
+  .service-audience-card:focus-within {
+    transform: translateX(0.18rem);
+    border-color: rgba(229, 196, 135, 0.28);
+    background: rgba(20, 21, 20, 0.84);
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.16);
+  }
+
+  .service-audience-card__icon {
+    grid-row: span 2;
+    display: grid;
+    place-items: center;
+    width: 3.4rem;
+    height: 3.4rem;
+    border: 1px solid rgba(229, 196, 135, 0.4);
+    border-radius: 999px;
+    color: #dfbd79;
+    background: rgba(229, 196, 135, 0.045);
+  }
+
+  .service-audience-card h3 {
+    margin: 0;
+    color: #f5f2ef;
+    font-family: 'Newsreader', serif;
+    font-size: 1.62rem;
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1.06;
+    text-wrap: balance;
+  }
+
+  .service-audience-card p {
+    margin: 0.7rem 0 0;
+    color: rgba(226, 218, 208, 0.74);
+    font-size: 0.98rem;
+    font-weight: 300;
+    line-height: 1.62;
+  }
+
+  @media (max-width: 900px) {
+    .service-audience {
+      padding: 6.5rem 1.15rem 4.5rem;
+    }
+
+    .service-audience__inner {
+      grid-template-columns: 1fr;
+    }
+
+    .service-audience__copy {
+      justify-items: center;
+      text-align: center;
+    }
+
+    .service-audience h2 {
+      margin-inline: auto;
+      font-size: clamp(2.72rem, 8.8vw, 4rem);
+    }
+
+    .service-audience[data-title-density='long'] h2 {
+      font-size: clamp(2.45rem, 7.8vw, 3.45rem);
+    }
+  }
+
+  @media (max-width: 560px) {
+    .service-audience {
+      padding-inline: 0.9rem;
+    }
+
+    .service-eyebrow {
+      margin-bottom: 1.35rem;
+      font-size: 0.64rem;
+      letter-spacing: 0.2em;
+    }
+
+    .service-audience h2 {
+      font-size: clamp(2.2rem, 9.6vw, 3.05rem);
+      letter-spacing: -0.045em;
+    }
+
+    .service-audience[data-title-density='long'] h2 {
+      font-size: clamp(1.98rem, 8.1vw, 2.56rem);
+      line-height: 1.06;
+    }
+
+    .service-audience-card {
+      grid-template-columns: 3.2rem 1fr;
+      padding: 1.25rem;
+    }
+
+    .service-audience-card__icon {
+      width: 3.2rem;
+      height: 3.2rem;
+    }
+  }
+</style>

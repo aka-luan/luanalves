@@ -1,0 +1,452 @@
+---
+import type { ServicePageContent } from '../../data/servicePages';
+
+interface Props {
+  page: ServicePageContent;
+}
+
+const { page } = Astro.props;
+const { hero } = page;
+const titleParts = hero.title.split(hero.accent);
+const titleDensity = hero.title.length > 64 ? 'long' : 'default';
+---
+
+<section
+  class='service-hero'
+  id='solucao'
+  aria-labelledby='service-hero-title'
+  data-motion='hero'
+  data-title-density={titleDensity}>
+  <div class='service-hero__glow' aria-hidden='true' data-motion-glow></div>
+  <div class='service-hero__grain' aria-hidden='true'></div>
+
+  <div class='service-hero__inner'>
+    <div class='service-hero__copy'>
+      <p
+        class='service-eyebrow'
+        data-motion-hero-eyebrow
+        data-motion-hidden='y-sm'>
+        {hero.eyebrow}
+      </p>
+
+      <h1
+        id='service-hero-title'
+        data-motion-hero-title
+        data-motion-hidden='y-lg'>
+        {titleParts[0]}<em>{hero.accent}</em>{titleParts[1]}
+      </h1>
+
+      <p class='service-lead' data-motion-hero-copy data-motion-hidden='y-md'>
+        {hero.copy}
+      </p>
+
+      <div class='service-actions' data-motion-hero-actions>
+        <a
+          class='service-button service-button--solid'
+          href={page.whatsappHref}
+          target='_blank'
+          rel='noreferrer'
+          data-motion-hidden='y-sm'>
+          {hero.ctaLabel}
+        </a>
+        <a
+          class='service-button service-button--outline'
+          href={hero.secondaryHref}
+          data-motion-hidden='y-sm'>
+          {hero.secondaryLabel}
+        </a>
+      </div>
+
+      <div class='service-features' aria-label='Diferenciais'>
+        {
+          hero.features.map((item) => (
+            <article
+              class='service-feature'
+              data-motion-item='hero-feature'
+              data-motion-hidden='y-sm'>
+              <span class='service-feature__icon' aria-hidden='true'>
+                <span class='material-symbols-outlined'>{item.icon}</span>
+              </span>
+              <strong>{item.title}</strong>
+              <p>{item.copy}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+
+    <div
+      class='service-hero__media'
+      aria-hidden='true'
+      data-motion-item='hero-media'
+      data-motion-hidden='scale'>
+      <div class='service-orbit'></div>
+      <img
+        src={hero.image}
+        alt=''
+        width='1448'
+        height='1086'
+        decoding='async'
+        fetchpriority='high'
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .service-hero {
+    position: relative;
+    min-height: 100svh;
+    padding: clamp(7.2rem, 9.7vw, 9.1rem) clamp(1.5rem, 6.25vw, 5.85rem) 3.2rem;
+    isolation: isolate;
+    overflow: hidden;
+  }
+
+  .service-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+    background:
+      linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.025) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.018) 1px,
+        transparent 1px
+      );
+    background-size: 4rem 4rem;
+    mask-image: radial-gradient(circle at 62% 42%, black, transparent 68%);
+    opacity: 0.11;
+  }
+
+  .service-hero__glow {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(8, 8, 8, 0.9),
+        rgba(8, 8, 8, 0.22) 56%,
+        rgba(8, 8, 8, 0.54)
+      ),
+      radial-gradient(
+        circle at 64% 53%,
+        rgba(235, 194, 116, 0.2),
+        transparent 32rem
+      );
+    pointer-events: none;
+  }
+
+  .service-hero__grain {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.34;
+    pointer-events: none;
+    background-image:
+      linear-gradient(125deg, rgba(255, 255, 255, 0.035), transparent 22%),
+      radial-gradient(
+        circle at 20% 20%,
+        rgba(255, 255, 255, 0.025) 0 1px,
+        transparent 1px
+      );
+    background-size:
+      auto,
+      3px 3px;
+    mix-blend-mode: overlay;
+  }
+
+  .service-hero__inner {
+    display: grid;
+    grid-template-columns: minmax(27rem, 0.78fr) minmax(32rem, 1.22fr);
+    align-items: center;
+    gap: clamp(1rem, 3vw, 3rem);
+    width: min(100%, 84.8rem);
+    min-height: calc(100svh - 12.3rem);
+    margin: 0 auto;
+  }
+
+  .service-hero__copy {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    min-width: 0;
+    justify-items: start;
+    align-content: center;
+  }
+
+  .service-eyebrow {
+    margin: 0 0 1.55rem;
+    color: #d9ae5f;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+  }
+
+  .service-hero h1 {
+    max-width: 12.8ch;
+    margin: 0;
+    color: #f5f2ef;
+    font-family: 'Newsreader', serif;
+    font-size: clamp(3.55rem, 4.7vw, 5.05rem);
+    font-weight: 600;
+    letter-spacing: -0.05em;
+    line-height: 0.98;
+    text-wrap: balance;
+  }
+
+  .service-hero[data-title-density='long'] h1 {
+    max-width: 15.2ch;
+    font-size: clamp(3.15rem, 4.15vw, 4.45rem);
+    line-height: 1.01;
+  }
+
+  .service-hero h1 em {
+    display: block;
+    color: #dfbd79;
+    font-style: italic;
+    font-weight: 600;
+  }
+
+  .service-lead {
+    max-width: 33.5rem;
+    margin: 1.2rem 0 0;
+    color: rgba(226, 218, 208, 0.82);
+    font-size: clamp(1.02rem, 1.18vw, 1.1rem);
+    font-weight: 300;
+    line-height: 1.68;
+    text-wrap: pretty;
+  }
+
+  .service-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2.35rem;
+  }
+
+  .service-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3.45rem;
+    padding: 1rem 1.45rem;
+    border: 1px solid rgba(230, 222, 211, 0.2);
+    color: #f5f2ef;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.22em;
+    line-height: 1.35;
+    text-align: center;
+    text-transform: uppercase;
+    transition:
+      transform 180ms ease,
+      border-color 180ms ease,
+      color 180ms ease,
+      background-color 180ms ease,
+      box-shadow 180ms ease;
+  }
+
+  .service-button:hover,
+  .service-button:focus-visible {
+    transform: translateY(-2px);
+  }
+
+  .service-button:active {
+    transform: scale(0.96);
+  }
+
+  .service-button--solid {
+    max-width: 25rem;
+    border-color: #d9b66d;
+    background: linear-gradient(180deg, #edcf8b, #cfa967);
+    color: #382600;
+    box-shadow: 0 20px 42px rgba(207, 169, 103, 0.16);
+  }
+
+  .service-button--outline:hover,
+  .service-button--outline:focus-visible {
+    border-color: rgba(229, 196, 135, 0.55);
+    background: rgba(229, 196, 135, 0.055);
+    color: #e5c487;
+  }
+
+  .service-features {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    width: min(100%, 40rem);
+    margin-top: clamp(3rem, 5vw, 4.5rem);
+    border: 1px solid rgba(229, 218, 207, 0.11);
+    background: rgba(229, 218, 207, 0.08);
+  }
+
+  .service-feature {
+    display: grid;
+    gap: 0.7rem;
+    min-width: 0;
+    padding: 1.1rem;
+    background: rgba(13, 14, 14, 0.76);
+  }
+
+  .service-feature__icon {
+    display: grid;
+    place-items: center;
+    width: 2.85rem;
+    height: 2.85rem;
+    border: 1px solid rgba(229, 196, 135, 0.5);
+    border-radius: 999px;
+    color: #d9ae5f;
+    background: rgba(12, 12, 12, 0.24);
+  }
+
+  .service-feature strong {
+    color: #f5f2ef;
+    font-family: 'Newsreader', serif;
+    font-size: 1.25rem;
+    letter-spacing: -0.032em;
+    line-height: 1.05;
+    text-wrap: balance;
+  }
+
+  .service-feature p {
+    margin: 0;
+    color: rgba(226, 218, 208, 0.76);
+    font-size: 0.9rem;
+    font-weight: 300;
+    line-height: 1.45;
+  }
+
+  .service-hero__media {
+    position: relative;
+    z-index: 1;
+    min-width: 0;
+  }
+
+  .service-orbit {
+    position: absolute;
+    top: 6%;
+    left: 12%;
+    z-index: -1;
+    width: 56%;
+    aspect-ratio: 1;
+    border: 1px solid rgba(211, 169, 98, 0.28);
+    border-radius: 999px;
+    box-shadow: 0 0 90px rgba(211, 169, 98, 0.14);
+  }
+
+  .service-hero__media img {
+    width: min(100%, 48rem);
+    height: auto;
+    margin-inline: auto;
+    filter: drop-shadow(0 34px 70px rgba(0, 0, 0, 0.28));
+  }
+
+  @media (max-width: 900px) {
+    .service-hero {
+      padding: 7rem 1.15rem 3rem;
+    }
+
+    .service-hero__inner {
+      grid-template-columns: 1fr;
+      min-height: auto;
+      gap: 2.5rem;
+    }
+
+    .service-hero__copy {
+      justify-items: center;
+      text-align: center;
+    }
+
+    .service-hero h1 {
+      max-width: 13ch;
+      font-size: clamp(3rem, 9.4vw, 4.5rem);
+    }
+
+    .service-hero[data-title-density='long'] h1 {
+      max-width: 16ch;
+      font-size: clamp(2.75rem, 8.4vw, 3.9rem);
+    }
+
+    .service-lead {
+      max-width: 38rem;
+    }
+
+    .service-actions {
+      justify-content: center;
+      width: min(100%, 36rem);
+    }
+
+    .service-button {
+      flex: 1 1 14rem;
+      min-width: 0;
+    }
+
+    .service-features {
+      width: min(100%, 38rem);
+    }
+  }
+
+  @media (max-width: 560px) {
+    .service-hero {
+      padding-inline: 0.9rem;
+    }
+
+    .service-eyebrow {
+      margin-bottom: 1.25rem;
+      font-size: 0.64rem;
+      letter-spacing: 0.2em;
+    }
+
+    .service-hero h1 {
+      max-width: min(12.6ch, 100%);
+      font-size: clamp(2.42rem, 10.4vw, 3.25rem);
+      letter-spacing: -0.045em;
+      line-height: 1;
+    }
+
+    .service-hero[data-title-density='long'] h1 {
+      max-width: min(15.8ch, 100%);
+      font-size: clamp(2.14rem, 8.8vw, 2.86rem);
+      line-height: 1.04;
+    }
+
+    .service-lead {
+      font-size: 1rem;
+      line-height: 1.68;
+    }
+
+    .service-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .service-button {
+      width: 100%;
+      padding-inline: 1rem;
+      font-size: 0.64rem;
+      letter-spacing: 0.17em;
+      white-space: normal;
+    }
+
+    .service-features {
+      grid-template-columns: 1fr;
+    }
+
+    .service-feature {
+      grid-template-columns: 2.85rem 1fr;
+      column-gap: 0.9rem;
+      text-align: left;
+    }
+
+    .service-feature__icon {
+      grid-row: span 2;
+    }
+  }
+</style>

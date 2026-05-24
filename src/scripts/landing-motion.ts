@@ -443,6 +443,30 @@ export function initLandingMotion() {
         const resultsVisualItems = Array.from(
           resultsSection?.querySelectorAll('[data-motion-item="visual"]') ?? [],
         );
+        const benefitsSection = root.querySelector(
+          '[data-motion-section="benefits"]',
+        );
+        const benefitsHeadings = Array.from(
+          benefitsSection?.querySelectorAll('[data-motion-heading]') ?? [],
+        );
+        const benefitsCopy = Array.from(
+          benefitsSection?.querySelectorAll('[data-motion-copy]') ?? [],
+        );
+        const benefitItems = Array.from(
+          root.querySelectorAll('[data-motion-item="benefits"]'),
+        );
+        const audienceSection = root.querySelector(
+          '[data-motion-section="audience"]',
+        );
+        const audienceHeadings = Array.from(
+          audienceSection?.querySelectorAll('[data-motion-heading]') ?? [],
+        );
+        const audienceCopy = Array.from(
+          audienceSection?.querySelectorAll('[data-motion-copy]') ?? [],
+        );
+        const audienceItems = Array.from(
+          root.querySelectorAll('[data-motion-item="audience"]'),
+        );
         const processSection = root.querySelector(
           '[data-motion-section="process"]',
         );
@@ -483,7 +507,9 @@ export function initLandingMotion() {
           differentialsSection?.querySelectorAll('[data-motion-copy]') ?? [],
         );
         const differentialItems = Array.from(
-          root.querySelectorAll('[data-motion-item="differential"]'),
+          root.querySelectorAll(
+            '[data-motion-item="differential"], [data-motion-item="differentials"]',
+          ),
         );
         const differentialsVisualItems = Array.from(
           differentialsSection?.querySelectorAll('[data-motion-item="visual"]') ??
@@ -832,6 +858,66 @@ export function initLandingMotion() {
                   clearProps: 'transform,opacity,willChange',
                 },
                 0.2,
+              );
+          },
+        });
+
+        createSectionReveal({
+          section: benefitsSection,
+          targets: [...benefitsHeadings, ...benefitsCopy, ...benefitItems],
+          start: 'top 74%',
+          setup: (timeline) => {
+            timeline
+              .to([...benefitsHeadings, ...benefitsCopy], {
+                autoAlpha: 1,
+                y: 0,
+                duration: 0.86,
+                stagger: 0.1,
+                ease: 'power3.out',
+                clearProps: 'transform,opacity,willChange',
+              })
+              .to(
+                benefitItems,
+                {
+                  autoAlpha: 1,
+                  y: 0,
+                  rotationX: 0,
+                  duration: 0.9,
+                  stagger: 0.08,
+                  ease: 'power3.out',
+                  clearProps: 'transform,opacity,willChange',
+                },
+                0.14,
+              );
+          },
+        });
+
+        createSectionReveal({
+          section: audienceSection,
+          targets: [...audienceHeadings, ...audienceCopy, ...audienceItems],
+          start: 'top 74%',
+          setup: (timeline) => {
+            timeline
+              .to([...audienceHeadings, ...audienceCopy], {
+                autoAlpha: 1,
+                y: 0,
+                duration: 0.86,
+                stagger: 0.1,
+                ease: 'power3.out',
+                clearProps: 'transform,opacity,willChange',
+              })
+              .to(
+                audienceItems,
+                {
+                  autoAlpha: 1,
+                  x: 0,
+                  y: 0,
+                  duration: 0.88,
+                  stagger: 0.1,
+                  ease: 'power3.out',
+                  clearProps: 'transform,opacity,willChange',
+                },
+                0.16,
               );
           },
         });

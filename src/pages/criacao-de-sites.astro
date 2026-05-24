@@ -10,13 +10,6 @@ import { projects } from '../data/site';
 const whatsappHref =
   'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Quero%20solicitar%20um%20or%C3%A7amento%20para%20cria%C3%A7%C3%A3o%20de%20site.';
 
-const navItems = [
-  { href: '#solucoes', label: 'Soluções' },
-  { href: '#resultados', label: 'Resultados' },
-  { href: '#portfolio', label: 'Portfólio' },
-  { href: '#contato', label: 'Contato' },
-];
-
 const featureItems = [
   { icon: 'trending_up', label: 'SEO desde o início' },
   { icon: 'phone_iphone', label: 'Mobile first' },
@@ -204,7 +197,6 @@ const faqItems = [
   description='Criação de sites institucionais, blogs e landing pages para empresas que precisam vender mais com presença digital profissional.'>
   <main class='site-creation-page'>
     <SiteNav
-      items={navItems}
       whatsappHref={whatsappHref}
       brandHref='/'
       brandAriaLabel='Luan Alves, página inicial'
@@ -628,7 +620,7 @@ const faqItems = [
     <HomeCta whatsappHref={whatsappHref} />
   </main>
 
-  <SiteFooter links={navItems} brandHref='/' />
+  <SiteFooter brandHref='/' />
 
 </BaseLayout>
 

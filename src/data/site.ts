@@ -1,8 +1,17 @@
 export const navigation = [
-  { href: '#servicos', label: 'Serviços' },
-  { href: '/criacao-de-sites/', label: 'Criação de Sites' },
-  { href: '#portfolio', label: 'Portfólio' },
-  { href: '#contato', label: 'Contato' },
+  { href: '/', label: 'Início' },
+  {
+    href: '/criacao-de-sites/',
+    label: 'Criação de Sites',
+    children: [
+      { href: '/site-institucional/', label: 'Site Institucional' },
+      { href: '/landing-page/', label: 'Landing Page' },
+      { href: '/blog-profissional/', label: 'Blog Profissional' },
+      { href: '/criacao-de-sites-belem/', label: 'Criação de Sites em Belém' },
+    ],
+  },
+  { href: '/#portfolio', label: 'Portfólio' },
+  { href: '/#contato', label: 'Contato' },
 ];
 
 export const trustItems = [

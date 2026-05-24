@@ -4,6 +4,7 @@ import { navigation as defaultNavigation } from '../data/site';
 interface FooterLink {
   href: string;
   label: string;
+  children?: FooterLink[];
 }
 
 interface Props {

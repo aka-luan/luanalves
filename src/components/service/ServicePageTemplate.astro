@@ -1,0 +1,124 @@
+---
+import FaqSection from '../FaqSection.astro';
+import HomeCta from '../HomeCta.astro';
+import PortfolioShowcase from '../PortfolioShowcase.astro';
+import SiteFooter from '../SiteFooter.astro';
+import SiteNav from '../SiteNav.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { projects } from '../../data/site';
+import {
+  getServicePageSchema,
+  type ServicePageContent,
+} from '../../data/servicePages';
+import ServiceAudienceSection from './ServiceAudienceSection.astro';
+import ServiceCardsSection from './ServiceCardsSection.astro';
+import ServiceHero from './ServiceHero.astro';
+import ServiceProcessSection from './ServiceProcessSection.astro';
+
+interface Props {
+  page: ServicePageContent;
+}
+
+const { page } = Astro.props;
+---
+
+<BaseLayout
+  namespace={page.namespace}
+  title={page.title}
+  description={page.description}
+  canonicalPath={page.canonicalPath}
+  schema={getServicePageSchema(page)}>
+  <main class='service-page'>
+    <SiteNav
+      whatsappHref={page.whatsappHref}
+      brandHref='/'
+      brandAriaLabel='Luan Alves, página inicial'
+    />
+
+    <ServiceHero page={page} />
+
+    <ServiceCardsSection
+      id='beneficios'
+      eyebrow={page.benefits.eyebrow}
+      title={page.benefits.title}
+      accent={page.benefits.accent}
+      copy={page.benefits.copy}
+      items={page.benefits.items}
+      motionName='benefits'
+    />
+
+    <ServiceAudienceSection
+      eyebrow={page.audience.eyebrow}
+      title={page.audience.title}
+      accent={page.audience.accent}
+      copy={page.audience.copy}
+      items={page.audience.items}
+    />
+
+    <ServiceProcessSection
+      eyebrow={page.process.eyebrow}
+      title={page.process.title}
+      accent={page.process.accent}
+      copy={page.process.copy}
+      items={page.process.items}
+    />
+
+    <ServiceCardsSection
+      id='incluso'
+      eyebrow={page.included.eyebrow}
+      title={page.included.title}
+      accent={page.included.accent}
+      copy={page.included.copy}
+      items={page.included.items}
+      motionName='included'
+    />
+
+    <ServiceCardsSection
+      id='diferenciais'
+      eyebrow={page.differentials.eyebrow}
+      title={page.differentials.title}
+      accent={page.differentials.accent}
+      copy={page.differentials.copy}
+      items={page.differentials.items}
+      motionName='differentials'
+    />
+
+    <PortfolioShowcase
+      projects={projects}
+      copy='Projetos reais usados como referência de acabamento, performance e presença digital profissional.'
+      moreHref='/#portfolio'
+    />
+
+    <FaqSection items={page.faq} />
+
+    <HomeCta
+      whatsappHref={page.whatsappHref}
+      title={page.cta.title}
+      copy={page.cta.copy}
+      buttonLabel={page.cta.buttonLabel}
+    />
+  </main>
+
+  <SiteFooter brandHref='/' />
+</BaseLayout>
+
+<style>
+  :global(body) {
+    background: #0f1010;
+  }
+
+  :global(html),
+  :global(body) {
+    overflow-x: clip;
+  }
+
+  .service-page {
+    min-height: 100svh;
+    overflow-x: hidden;
+    background:
+      radial-gradient(circle at 73% 42%, rgba(218, 176, 101, 0.18), transparent 27rem),
+      radial-gradient(circle at 43% 103%, rgba(229, 196, 135, 0.09), transparent 28rem),
+      linear-gradient(115deg, rgba(7, 8, 8, 0.99) 0%, #151514 52%, #0d0e0e 100%);
+    color: #f4f1ee;
+  }
+</style>
