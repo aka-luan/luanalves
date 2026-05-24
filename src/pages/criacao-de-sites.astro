@@ -1,5 +1,11 @@
 ---
+import FaqSection from '../components/FaqSection.astro';
+import HomeCta from '../components/HomeCta.astro';
+import PortfolioShowcase from '../components/PortfolioShowcase.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteNav from '../components/SiteNav.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { projects } from '../data/site';
 
 const whatsappHref =
   'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Quero%20solicitar%20um%20or%C3%A7amento%20para%20cria%C3%A7%C3%A3o%20de%20site.';
@@ -162,50 +168,6 @@ const differentialItems = [
   },
 ];
 
-const contactHighlights = [
-  {
-    icon: 'groups',
-    title: 'Atendimento direto',
-    copy: 'Fale com quem executa seu projeto do início ao fim.',
-  },
-  {
-    icon: 'description',
-    title: 'Processo claro',
-    copy: 'Etapas bem definidas e transparência em tudo.',
-  },
-  {
-    icon: 'support_agent',
-    title: 'Suporte após a entrega',
-    copy: 'Acompanhamento e suporte para garantir seu sucesso.',
-  },
-];
-
-const portfolioItems = [
-  {
-    title: 'Trésor Incorporações',
-    subtitle: 'Desenvolvimento & Motion',
-    image: '/assets/tresor-home.webp',
-    alt: 'Página inicial do projeto Trésor Incorporações',
-    href: 'https://tresorincorporacoes.com.br',
-    position: 'center 44%',
-  },
-  {
-    title: 'Skyrocket',
-    subtitle: 'Desenvolvimento & Otimização',
-    image: '/assets/skyrocket-home.webp',
-    alt: 'Página inicial do projeto Skyrocket',
-    href: 'https://agenciaskyrocket.com.br',
-    position: 'center 50%',
-  },
-  {
-    title: 'Poliana Bentes',
-    subtitle: 'Desenvolvimento & CMS',
-    image: '/assets/poliana-bentes-home.webp',
-    alt: 'Página inicial do projeto Poliana Bentes',
-    href: 'https://polianabentes.com.br',
-    position: 'center 47%',
-  },
-];
 
 const faqItems = [
   {
@@ -240,27 +202,13 @@ const faqItems = [
   title='Criação de Sites | Luan Alves'
   description='Criação de sites institucionais, blogs e landing pages para empresas que precisam vender mais com presença digital profissional.'>
   <main class='site-creation-page'>
-    <header class='creation-nav' aria-label='Navegação principal'>
-      <a
-        class='creation-brand'
-        href='/'
-        aria-label='Luan Alves, página inicial'>
-        Luan Alves
-        <span aria-hidden='true'></span>
-      </a>
-
-      <nav class='creation-nav-links' aria-label='Seções do site'>
-        {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
-      </nav>
-
-      <a
-        class='creation-nav-cta'
-        href={whatsappHref}
-        target='_blank'
-        rel='noreferrer'>
-        Falar no WhatsApp
-      </a>
-    </header>
+    <SiteNav
+      items={navItems}
+      whatsappHref={whatsappHref}
+      brandHref='/'
+      brandAriaLabel='Luan Alves, página inicial'
+      motion={false}
+    />
 
     <section class='creation-hero' aria-labelledby='creation-hero-title'>
       <div class='creation-hero__glow' aria-hidden='true'></div>
@@ -608,208 +556,14 @@ const faqItems = [
       </div>
     </section>
 
-    <section
-      class='portfolio-section'
-      id='portfolio'
-      aria-labelledby='portfolio-title'>
-      <div class='portfolio-section__glow' aria-hidden='true'></div>
+    <PortfolioShowcase projects={projects} />
 
-      <div class='portfolio-section__inner'>
-        <div class='portfolio-copy'>
-          <p class='creation-eyebrow portfolio-eyebrow'>Portfólio</p>
+    <FaqSection items={faqItems} />
 
-          <h2 id='portfolio-title'>
-            <span>Projetos</span>
-            <em>selecionados.</em>
-          </h2>
-
-          <p>
-            Alguns sites já desenvolvidos para empresas reais, com diferentes
-            objetivos e estilos.
-          </p>
-        </div>
-
-        <div class='portfolio-grid' aria-label='Projetos selecionados'>
-          {
-            portfolioItems.map((item) => (
-              <a
-                class='portfolio-card'
-                href={item.href}
-                target='_blank'
-                rel='noreferrer'>
-                <span class='portfolio-card__media'>
-                  <img
-                    src={item.image}
-                    alt={item.alt}
-                    width='900'
-                    height='650'
-                    style={`object-position: ${item.position};`}
-                    loading='lazy'
-                    decoding='async'
-                  />
-                </span>
-
-                <span class='portfolio-card__meta'>
-                  <span>
-                    <strong>{item.title}</strong>
-                    <small>{item.subtitle}</small>
-                  </span>
-
-                  <span class='portfolio-card__arrow' aria-hidden='true'>
-                    north_east
-                  </span>
-                </span>
-              </a>
-            ))
-          }
-        </div>
-
-        <a class='portfolio-more' href='/#portfolio'>
-          Ver portfólio completo
-          <span class='material-symbols-outlined' aria-hidden='true'>
-            north_east
-          </span>
-        </a>
-      </div>
-    </section>
-
-    <section class='faq-section' id='perguntas' aria-labelledby='faq-title'>
-      <div class='faq-section__inner'>
-        <div class='faq-copy'>
-          <div class='faq-kicker' aria-hidden='true'>
-            <span>8 / 9</span>
-            <span>FAQ</span>
-          </div>
-
-          <h2 id='faq-title'>
-            <span>Perguntas frequentes</span>
-            <em>antes de começar.</em>
-          </h2>
-
-          <p>
-            As dúvidas mais comuns sobre prazo, escopo e funcionamento do
-            projeto.
-          </p>
-        </div>
-
-        <div class='faq-list'>
-          {
-            faqItems.map((item, index) => (
-              <details class='faq-item' open={index === 0}>
-                <summary>
-                  <span class='faq-item__number'>
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
-                  <span class='faq-item__question'>{item.question}</span>
-                  <span class='faq-item__toggle' aria-hidden='true'>
-                    {index === 0 ? '−' : '+'}
-                  </span>
-                </summary>
-                <p>{item.answer}</p>
-              </details>
-            ))
-          }
-        </div>
-
-        <aside class='faq-aside' aria-label='Atendimento remoto'>
-          <div class='faq-aside__icon' aria-hidden='true'>
-            <span class='material-symbols-outlined'>language</span>
-          </div>
-
-          <h3>Projeto 100% remoto</h3>
-
-          <span class='faq-aside__rule' aria-hidden='true'></span>
-
-          <p>
-            Atendimento para Belém
-            <span>e todo o Brasil.</span>
-          </p>
-
-          <div class='faq-aside__skyline' aria-hidden='true'>
-            <span></span>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section class='creation-contact' id='contato' aria-labelledby='contact-title'>
-      <div class='creation-contact__glow' aria-hidden='true'></div>
-
-      <div class='creation-contact__inner'>
-        <div class='creation-contact__copy'>
-          <p class='creation-eyebrow contact-eyebrow'>Pronto para começar?</p>
-
-          <h2 id='contact-title'>
-            <span>Vamos criar</span>
-            <span>um site <em>à altura</em></span>
-            <span>do <em>seu negócio.</em></span>
-          </h2>
-
-          <p>
-            Me conte o que a sua empresa precisa. Atendo projetos em todo o
-            Brasil, com processo 100% remoto, comunicação direta e resposta em
-            até 24 horas.
-          </p>
-
-          <div class='contact-actions'>
-            <a
-              class='creation-button creation-button--solid contact-button'
-              href={whatsappHref}
-              target='_blank'
-              rel='noreferrer'>
-              Solicitar orçamento
-            </a>
-            <a
-              class='creation-button creation-button--outline contact-button'
-              href={whatsappHref}
-              target='_blank'
-              rel='noreferrer'>
-              Falar no WhatsApp
-            </a>
-          </div>
-
-          <div class='contact-highlights' aria-label='Diferenciais do atendimento'>
-            {
-              contactHighlights.map((item) => (
-                <article class='contact-highlight'>
-                  <span class='contact-highlight__icon' aria-hidden='true'>
-                    <span class='material-symbols-outlined'>{item.icon}</span>
-                  </span>
-                  <h3>{item.title}</h3>
-                  <p>{item.copy}</p>
-                </article>
-              ))
-            }
-          </div>
-        </div>
-
-        <div class='creation-contact__media' aria-hidden='true'>
-          <span class='contact-orbit'></span>
-          <img
-            src='/assets/contact-img.png'
-            alt=''
-            width='1448'
-            height='1086'
-            loading='lazy'
-            decoding='async'
-          />
-          <div class='contact-form-card'>
-            <h3>Vamos conversar</h3>
-            <p>Preencha os dados abaixo e vou te responder em breve.</p>
-            <span>Nome completo</span>
-            <span>E-mail</span>
-            <span>WhatsApp</span>
-            <span class='contact-form-card__message'>Como posso ajudar?</span>
-            <strong>Enviar mensagem</strong>
-            <small>
-              <span class='material-symbols-outlined'>lock</span>
-              Seus dados estão seguros.
-            </small>
-          </div>
-        </div>
-      </div>
-    </section>
+    <HomeCta whatsappHref={whatsappHref} motion={false} />
   </main>
+
+  <SiteFooter links={navItems} motion={false} brandHref='/' />
 </BaseLayout>
 
 <style>

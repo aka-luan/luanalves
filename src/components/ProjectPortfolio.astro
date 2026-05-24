@@ -1,0 +1,118 @@
+---
+import { projects as defaultProjects } from '../data/site';
+
+interface ProjectItem {
+  id?: string;
+  title: string;
+  subtitle: string;
+  image: string;
+  alt: string;
+  url?: string;
+  href?: string;
+}
+
+interface Props {
+  projects?: ProjectItem[];
+  id?: string;
+  eyebrow?: string;
+  title?: string;
+  mode?: 'modal' | 'link';
+  surface?: boolean;
+  motion?: boolean;
+}
+
+const {
+  projects = defaultProjects,
+  id = 'portfolio',
+  eyebrow = 'Curadoria',
+  title = 'Projetos entregues para empresas reais',
+  mode = 'modal',
+  surface = true,
+  motion = true,
+} = Astro.props;
+
+const sectionMotionAttrs = motion ? { 'data-motion-section': 'portfolio' } : {};
+const headingMotionAttrs = motion
+  ? { 'data-motion-heading': '', 'data-motion-hidden': 'y-sm' }
+  : {};
+const titleMotionAttrs = motion
+  ? { 'data-motion-heading': '', 'data-motion-hidden': 'y-md' }
+  : {};
+---
+
+<section
+  class:list={['section', surface && 'section-surface']}
+  id={id}
+  {...sectionMotionAttrs}>
+  <div class='container'>
+    <div class='section-heading section-heading-spread'>
+      <div>
+        <span class='eyebrow' {...headingMotionAttrs}>{eyebrow}</span>
+        <h2 {...titleMotionAttrs}>{title}</h2>
+      </div>
+    </div>
+
+    <div class='project-grid'>
+      {
+        projects.map((project, index) => {
+          const motionAttrs = motion
+            ? {
+                'data-motion-item': 'project',
+                'data-motion-hidden': index % 2 === 0 ? 'x-left' : 'x-right',
+              }
+            : {};
+
+          return mode === 'modal' ? (
+            <button
+              type='button'
+              class='project-card'
+              data-project-trigger
+              data-project-id={project.id}
+              aria-haspopup='dialog'
+              aria-label={`Abrir modal do projeto ${project.title}`}
+              {...motionAttrs}>
+              <div class='project-media' data-project-origin>
+                <img
+                  src={project.image}
+                  alt={project.alt}
+                  loading='lazy'
+                  data-motion-image={motion ? '' : undefined}
+                />
+              </div>
+              <div class='project-meta'>
+                <div>
+                  <h3>{project.title}</h3>
+                  <p>{project.subtitle}</p>
+                </div>
+                <span class='project-meta-action' aria-hidden='true'>
+                  <span class='material-symbols-outlined'>north_east</span>
+                </span>
+              </div>
+            </button>
+          ) : (
+            <a
+              class='project-card'
+              href={project.url ?? project.href}
+              target='_blank'
+              rel='noreferrer'
+              aria-label={`Abrir projeto ${project.title}`}
+              {...motionAttrs}>
+              <div class='project-media'>
+                <img src={project.image} alt={project.alt} loading='lazy' />
+              </div>
+              <div class='project-meta'>
+                <div>
+                  <h3>{project.title}</h3>
+                  <p>{project.subtitle}</p>
+                </div>
+                <span class='project-meta-action' aria-hidden='true'>
+                  <span class='material-symbols-outlined'>north_east</span>
+                </span>
+              </div>
+            </a>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>

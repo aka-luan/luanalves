@@ -1,0 +1,685 @@
+---
+import { navigation as defaultNavigation } from '../data/site';
+
+interface NavItem {
+  href: string;
+  label: string;
+}
+
+interface Props {
+  items?: NavItem[];
+  whatsappHref: string;
+  brandHref?: string;
+  brandLabel?: string;
+  brandAriaLabel?: string;
+  motion?: boolean;
+}
+
+const {
+  items = defaultNavigation,
+  whatsappHref,
+  brandHref = '#top',
+  brandLabel = 'Luan Alves',
+  brandAriaLabel = 'Ir para o topo',
+  motion = true,
+} = Astro.props;
+
+const currentYear = new Date().getFullYear();
+const navMotionAttrs = motion
+  ? {
+      'data-motion-nav': '',
+      'data-motion-hidden': 'nav',
+    }
+  : {};
+---
+
+<nav
+  class='site-nav'
+  data-header-nav
+  data-mobile-nav
+  {...navMotionAttrs}>
+  <input
+    class='nav-toggle'
+    type='checkbox'
+    id='site-nav-toggle'
+    aria-label='Abrir menu'
+  />
+
+  <div class='nav-mobile-bar' data-mobile-nav-bar>
+    <a
+      class='brand'
+      href={brandHref}
+      aria-label={brandAriaLabel}
+      data-header-brand>
+      <span class='brand-stack' data-brand-stack aria-hidden='true'>
+        <span class='brand-text' data-brand-label>{brandLabel}</span>
+      </span>
+      <span class='brand-dot' aria-hidden='true'></span>
+    </a>
+
+    <label
+      class='nav-toggle-button'
+      for='site-nav-toggle'
+      aria-label='Abrir menu de navegação'>
+      <svg
+        class='nav-toggle-icon'
+        aria-hidden='true'
+        viewBox='0 0 32 32'
+        fill='none'
+        stroke='currentColor'
+        stroke-width='2.5'
+        stroke-linecap='round'
+        stroke-linejoin='round'>
+        <path
+          class='nav-toggle-icon__curve'
+          d='M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22'
+        ></path>
+        <path class='nav-toggle-icon__line' d='M7 16 27 16'></path>
+      </svg>
+    </label>
+  </div>
+
+  <div class='nav-menu' data-mobile-nav-menu>
+    <div class='nav-links'>
+      {items.map((item) => <a href={item.href}>{item.label}</a>)}
+    </div>
+
+    <a
+      class='button button-outline button-compact'
+      href={whatsappHref}
+      target='_blank'
+      rel='noreferrer'>
+      Falar no WhatsApp
+    </a>
+
+    <div class='mobile-menu-content' data-mobile-menu-content>
+      <nav class='mobile-menu-nav' aria-label='Menu mobile'>
+        {
+          items.map((item, index) => (
+            <a class='mobile-menu-link' href={item.href} data-mobile-menu-link>
+              <span class='mobile-menu-index'>
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <span class='mobile-menu-copy'>
+                <span>{item.label}</span>
+              </span>
+            </a>
+          ))
+        }
+      </nav>
+
+      <div class='mobile-menu-footer'>
+        <a
+          class='mobile-menu-cta'
+          href={whatsappHref}
+          target='_blank'
+          rel='noreferrer'>
+          <span>Falar no WhatsApp</span>
+          <span class='material-symbols-outlined'>arrow_right_alt</span>
+        </a>
+
+        <div class='mobile-menu-meta'>
+          <div class='mobile-menu-secondary-links'>
+            <a href={whatsappHref} target='_blank' rel='noreferrer'>WhatsApp</a>
+            {
+              items.slice(-2).map((item) => (
+                <a href={item.href} data-mobile-menu-link>
+                  {item.label}
+                </a>
+              ))
+            }
+          </div>
+          <p>© {currentYear} Luan Alves. Web editorial.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .nav-toggle {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .nav-toggle-button {
+    display: none;
+  }
+
+  .nav-mobile-bar,
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: inherit;
+  }
+
+  .nav-mobile-bar {
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .mobile-menu-content {
+    display: none;
+  }
+
+  @media (max-width: 767px) {
+    .site-nav {
+      position: fixed;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: flex-start;
+      gap: 1rem;
+      overflow: hidden;
+      min-height: 0;
+    }
+
+    .nav-mobile-bar {
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      width: 100%;
+      flex: 0 0 auto;
+    }
+
+    .brand {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .nav-toggle-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.9rem;
+      height: 2.9rem;
+      padding: 0.45rem;
+      border: 1px solid rgba(153, 143, 129, 0.24);
+      border-radius: 999px;
+      background: rgba(14, 14, 14, 0.72);
+      color: var(--text);
+      cursor: pointer;
+      backdrop-filter: blur(16px);
+      transition:
+        border-color 180ms ease,
+        color 180ms ease,
+        transform 180ms ease,
+        background-color 180ms ease;
+    }
+
+    .nav-toggle-button:hover {
+      color: var(--primary);
+      border-color: rgba(229, 196, 135, 0.4);
+    }
+
+    .nav-toggle-button:active {
+      transform: scale(0.96);
+    }
+
+    .nav-toggle-icon {
+      width: 1.3rem;
+      height: 1.3rem;
+      overflow: visible;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .nav-toggle-icon__curve,
+    .nav-toggle-icon__line {
+      transition:
+        stroke-dasharray 0.5s ease-in-out,
+        stroke-dashoffset 0.5s ease-in-out;
+    }
+
+    .nav-toggle-icon__curve {
+      stroke-dasharray: 12 63;
+    }
+
+    .nav-menu {
+      display: none;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      width: 100%;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .mobile-menu-content {
+      display: none;
+      flex: 1 1 auto;
+      min-height: 0;
+      padding-top: 1.35rem;
+      overflow-y: auto;
+      overflow-x: hidden;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .mobile-menu-content::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-links,
+    .nav-menu > .button {
+      display: none;
+    }
+
+    .mobile-menu-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+      margin: auto 0;
+      padding: 1.25rem 0 2rem;
+    }
+
+    .mobile-menu-link {
+      display: grid;
+      gap: 0.35rem;
+      padding-bottom: 0.85rem;
+      border-bottom: 1px solid rgba(77, 70, 58, 0.18);
+    }
+
+    .mobile-menu-index {
+      color: var(--subtle);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+    }
+
+    .mobile-menu-copy {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: 'Newsreader', serif;
+      font-size: clamp(2.8rem, 12vw, 4.4rem);
+      font-style: italic;
+      line-height: 0.95;
+      color: var(--muted);
+      transition:
+        color 220ms ease,
+        transform 220ms ease;
+    }
+
+    .mobile-menu-link:hover .mobile-menu-copy,
+    .mobile-menu-link:focus-visible .mobile-menu-copy {
+      color: var(--primary);
+      transform: translateX(0.35rem);
+    }
+
+    .mobile-menu-footer {
+      display: grid;
+      gap: 1.5rem;
+      padding-top: 1.75rem;
+    }
+
+    .mobile-menu-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      width: 100%;
+      padding: 1.15rem 1.25rem;
+      border: 1px solid rgba(200, 169, 110, 0.8);
+      color: var(--primary);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      transition:
+        background-color 220ms ease,
+        color 220ms ease,
+        border-color 220ms ease;
+    }
+
+    .mobile-menu-cta:hover {
+      background: var(--primary-strong);
+      border-color: var(--primary-strong);
+      color: var(--primary-ink);
+    }
+
+    .mobile-menu-meta {
+      display: grid;
+      gap: 1rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(77, 70, 58, 0.14);
+    }
+
+    .mobile-menu-secondary-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 1.5rem;
+    }
+
+    .mobile-menu-secondary-links a,
+    .mobile-menu-meta p {
+      color: var(--subtle);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .mobile-menu-meta p {
+      margin: 0;
+      color: rgba(153, 143, 129, 0.5);
+    }
+
+    .site-nav.is-menu-open .nav-toggle-button {
+      color: var(--primary);
+      border-color: rgba(229, 196, 135, 0.48);
+      background: rgba(14, 14, 14, 0.9);
+    }
+
+    .site-nav.is-menu-open .nav-toggle-icon {
+      transform: rotate(-45deg);
+    }
+
+    .site-nav.is-menu-open .nav-toggle-icon__curve {
+      stroke-dasharray: 20 300;
+      stroke-dashoffset: -32.42px;
+    }
+
+    .site-nav.is-menu-active .nav-menu {
+      display: flex;
+    }
+
+    .site-nav.is-menu-active .mobile-menu-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .site-nav.is-menu-active .nav-menu,
+    .site-nav.is-menu-active .nav-mobile-bar {
+      width: 100%;
+    }
+
+    .site-nav.is-menu-active .nav-menu,
+    .site-nav.is-menu-active .nav-menu .mobile-menu-content {
+      min-height: 0;
+    }
+
+    .site-nav.is-menu-active .nav-menu .mobile-menu-content {
+      overflow-y: auto;
+    }
+
+    .site-nav.is-menu-active {
+      background: rgba(14, 14, 14, 0.96);
+      border-color: rgba(77, 70, 58, 0.34);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28);
+      backdrop-filter: blur(18px);
+    }
+
+    :global(body.menu-open) {
+      overflow: hidden;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .site-nav.is-menu-active {
+      padding-inline: 1rem;
+    }
+
+    .mobile-menu-copy {
+      font-size: clamp(2.35rem, 13vw, 3.2rem);
+    }
+  }
+</style>
+
+<script>
+  import gsap from 'gsap';
+
+  const menuToggle = document.querySelector('#site-nav-toggle');
+  const mobileNav = document.querySelector('[data-mobile-nav]');
+  const mobileNavBar = document.querySelector('[data-mobile-nav-bar]');
+  const mobileNavMenu = document.querySelector('[data-mobile-nav-menu]');
+  const mobileMenuContent = document.querySelector(
+    '[data-mobile-menu-content]',
+  );
+  const mobileLinks = document.querySelectorAll('[data-mobile-menu-link]');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let menuTween;
+  let menuOpenHeight = 0;
+
+  const isMobileViewport = () => window.innerWidth <= 767;
+  const setScrollLock = (locked) => {
+    document.body.classList.toggle('menu-open', locked);
+  };
+
+  const clearMenuTween = () => {
+    menuTween?.kill();
+    menuTween = undefined;
+  };
+
+  const syncToggle = (open) => {
+    if (menuToggle instanceof HTMLInputElement) {
+      menuToggle.checked = open;
+    }
+  };
+
+  const setMenuOpenClass = (open) => {
+    if (mobileNav instanceof HTMLElement) {
+      mobileNav.classList.toggle('is-menu-open', open);
+    }
+  };
+
+  const setMenuActiveClass = (active) => {
+    if (mobileNav instanceof HTMLElement) {
+      mobileNav.classList.toggle('is-menu-active', active);
+    }
+  };
+
+  const resetDesktopMenuState = () => {
+    if (
+      !(mobileNav instanceof HTMLElement) ||
+      !(mobileNavMenu instanceof HTMLElement) ||
+      !(mobileMenuContent instanceof HTMLElement)
+    ) {
+      return;
+    }
+
+    clearMenuTween();
+    syncToggle(false);
+    setMenuActiveClass(false);
+    setMenuOpenClass(false);
+    setScrollLock(false);
+    gsap.set([mobileNav, mobileNavMenu, mobileMenuContent], {
+      clearProps: 'all',
+    });
+  };
+
+  const animateMenu = (open, immediate = false) => {
+    if (
+      !(menuToggle instanceof HTMLInputElement) ||
+      !(mobileNav instanceof HTMLElement) ||
+      !(mobileNavBar instanceof HTMLElement) ||
+      !(mobileNavMenu instanceof HTMLElement) ||
+      !(mobileMenuContent instanceof HTMLElement)
+    ) {
+      return;
+    }
+
+    if (!isMobileViewport()) {
+      resetDesktopMenuState();
+      return;
+    }
+
+    clearMenuTween();
+
+    if (reduceMotion.matches || immediate) {
+      syncToggle(open);
+      setMenuActiveClass(open);
+      setMenuOpenClass(open);
+      setScrollLock(open);
+
+      if (open) {
+        gsap.set(mobileNavMenu, { display: 'flex' });
+        gsap.set(mobileNavMenu, { height: 'auto' });
+        gsap.set(mobileMenuContent, { display: 'flex', autoAlpha: 1, y: 0 });
+      } else {
+        gsap.set(mobileMenuContent, { autoAlpha: 0 });
+        gsap.set(mobileMenuContent, { clearProps: 'all' });
+        gsap.set(mobileNavMenu, { clearProps: 'all' });
+      }
+
+      return;
+    }
+
+    const getOpenMenuHeight = () => {
+      gsap.set(mobileNavMenu, { display: 'flex', height: 'auto' });
+      gsap.set(mobileMenuContent, {
+        display: 'flex',
+        clearProps: 'all',
+        maxHeight: 'none',
+      });
+
+      const navTop = mobileNav.getBoundingClientRect().top;
+      const availableHeight = Math.max(
+        window.innerHeight - navTop - mobileNavBar.offsetHeight - 24,
+        160,
+      );
+      const contentHeight = mobileMenuContent.scrollHeight;
+      const targetHeight = Math.max(
+        Math.min(contentHeight, availableHeight),
+        160,
+      );
+
+      gsap.set(mobileMenuContent, { maxHeight: targetHeight });
+      return targetHeight;
+    };
+
+    if (open) {
+      syncToggle(true);
+      setMenuActiveClass(true);
+      setMenuOpenClass(true);
+      setScrollLock(true);
+      menuOpenHeight = getOpenMenuHeight();
+
+      gsap.set(mobileNavMenu, { display: 'flex', height: 0 });
+      gsap.set(mobileMenuContent, {
+        display: 'flex',
+        autoAlpha: 0,
+        y: 24,
+        maxHeight: menuOpenHeight,
+      });
+
+      menuTween = gsap.timeline({
+        defaults: { ease: 'power3.inOut' },
+      });
+
+      menuTween
+        .to(mobileNavMenu, {
+          height: menuOpenHeight,
+          duration: 0.42,
+        })
+        .to(
+          mobileMenuContent,
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.26,
+            ease: 'power2.out',
+            clearProps: 'y',
+          },
+          0.1,
+        );
+
+      return;
+    }
+
+    syncToggle(false);
+    setMenuOpenClass(false);
+    gsap.set(mobileNavMenu, { height: mobileNavMenu.offsetHeight });
+
+    menuTween = gsap.timeline({
+      defaults: { ease: 'power3.inOut' },
+      onComplete: () => {
+        setMenuActiveClass(false);
+        setScrollLock(false);
+        gsap.set(mobileMenuContent, { clearProps: 'all' });
+        gsap.set(mobileNavMenu, { clearProps: 'all' });
+      },
+    });
+
+    menuTween
+      .to(mobileMenuContent, {
+        autoAlpha: 0,
+        y: 18,
+        duration: 0.16,
+        ease: 'power2.in',
+      })
+      .to(
+        mobileNavMenu,
+        {
+          height: 0,
+          duration: 0.34,
+        },
+        0,
+      );
+  };
+
+  if (menuToggle instanceof HTMLInputElement) {
+    menuToggle.addEventListener('change', () => {
+      animateMenu(menuToggle.checked);
+    });
+
+    mobileLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        animateMenu(false);
+      });
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (
+        event.key === 'Escape' &&
+        mobileNav instanceof HTMLElement &&
+        mobileNav.classList.contains('is-menu-active')
+      ) {
+        animateMenu(false);
+      }
+    });
+
+    window.addEventListener('resize', () => {
+      if (!isMobileViewport()) {
+        resetDesktopMenuState();
+        return;
+      }
+
+      if (
+        mobileNav instanceof HTMLElement &&
+        mobileNav.classList.contains('is-menu-active')
+      ) {
+        menuOpenHeight = Math.max(
+          Math.min(
+            mobileMenuContent instanceof HTMLElement
+              ? mobileMenuContent.scrollHeight
+              : 0,
+            Math.max(
+              window.innerHeight -
+                mobileNav.getBoundingClientRect().top -
+                mobileNavBar.offsetHeight -
+                24,
+              160,
+            ),
+          ),
+          160,
+        );
+        gsap.set(mobileNavMenu, { height: menuOpenHeight });
+        if (mobileMenuContent instanceof HTMLElement) {
+          gsap.set(mobileMenuContent, { maxHeight: menuOpenHeight });
+        }
+      }
+    });
+
+    document.addEventListener('astro:before-swap', () => {
+      syncToggle(false);
+      setMenuActiveClass(false);
+      setMenuOpenClass(false);
+      setScrollLock(false);
+      clearMenuTween();
+    });
+
+    animateMenu(menuToggle.checked, true);
+  }
+</script>

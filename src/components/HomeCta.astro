@@ -1,0 +1,51 @@
+---
+interface Props {
+  whatsappHref: string;
+  id?: string;
+  title?: string;
+  copy?: string;
+  buttonLabel?: string;
+  motion?: boolean;
+}
+
+const {
+  whatsappHref,
+  id = 'contato',
+  title = 'Pronto para ter um site profissional que aparece no Google?',
+  copy = 'Me conte sobre o seu projeto. Atendo empresas em Belém e em todo o Brasil de forma 100% remota — com a agilidade de um freelancer e a qualidade de uma agência. Respondo em até 24 horas.',
+  buttonLabel = 'Falar no WhatsApp',
+  motion = true,
+} = Astro.props;
+
+const sectionMotionAttrs = motion ? { 'data-motion-section': 'cta' } : {};
+const panelMotionAttrs = motion
+  ? { 'data-motion-panel': '', 'data-motion-hidden': 'y-lg' }
+  : {};
+const accentMotionAttrs = motion
+  ? { 'data-motion-accent': '', 'data-motion-hidden': 'scale-x' }
+  : {};
+const headingMotionAttrs = motion ? { 'data-motion-heading': '' } : {};
+const copyMotionAttrs = motion ? { 'data-motion-copy': '' } : {};
+const buttonMotionAttrs = motion
+  ? { 'data-motion-button': '', 'data-motion-hidden': 'y-sm' }
+  : {};
+---
+
+<section class='section' id={id} {...sectionMotionAttrs}>
+  <div class='container'>
+    <div class='cta-panel' {...panelMotionAttrs}>
+      <div class='cta-accent' aria-hidden='true' {...accentMotionAttrs}></div>
+      <h2 {...headingMotionAttrs}>{title}</h2>
+      <p {...copyMotionAttrs}>{copy}</p>
+      <a
+        class='button button-solid button-large'
+        href={whatsappHref}
+        target='_blank'
+        rel='noreferrer'
+        {...buttonMotionAttrs}>
+        <span class='material-symbols-outlined'>forum</span>
+        {buttonLabel}
+      </a>
+    </div>
+  </div>
+</section>
