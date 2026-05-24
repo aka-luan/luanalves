@@ -26,13 +26,13 @@ Posicionar Luan Alves como desenvolvedor web freelancer especializado em sites r
 
 ### Pilares de palavras-chave
 
-| Pilar | Intenção | Exemplos |
-| --- | --- | --- |
-| Criação de sites | Transacional | criação de sites profissionais, desenvolvedor de sites, site institucional para empresa |
-| Local | Transacional/local | criação de sites em Belém, desenvolvedor web em Belém, freelancer web Belém |
-| Landing pages | Transacional | criação de landing page, landing page para tráfego pago, página de vendas profissional |
-| Blog/SEO | Comercial | blog profissional para empresa, site otimizado para SEO, estrutura de blog para ranquear |
-| Educação | Informacional | quanto custa criar um site, o que um site profissional precisa ter, site institucional vale a pena |
+| Pilar            | Intenção           | Exemplos                                                                                           |
+| ---------------- | ------------------ | -------------------------------------------------------------------------------------------------- |
+| Criação de sites | Transacional       | criação de sites profissionais, desenvolvedor de sites, site institucional para empresa            |
+| Local            | Transacional/local | criação de sites em Belém, desenvolvedor web em Belém, freelancer web Belém                        |
+| Landing pages    | Transacional       | criação de landing page, landing page para tráfego pago, página de vendas profissional             |
+| Blog/SEO         | Comercial          | blog profissional para empresa, site otimizado para SEO, estrutura de blog para ranquear           |
+| Educação         | Informacional      | quanto custa criar um site, o que um site profissional precisa ter, site institucional vale a pena |
 
 ## Arquitetura recomendada
 
@@ -63,7 +63,7 @@ Criar páginas indexáveis por serviço, localidade, prova e conteúdo editorial
 ### Prioridade alta
 
 - Separar metadados por página: `title`, `description`, `canonical`, `og:url`, `og:image`, `twitter:image`.
-- Corrigir inconsistência atual: Open Graph usa `og-cover.png`, Twitter/schema usam `og-cover.jpg`.
+- Corrigir inconsistência atual: Open Graph usa `og-cover.webp`, Twitter/schema usam `og-cover.jpg`.
 - Remover `SearchAction` do schema enquanto não existir busca no site.
 - Gerar `sitemap.xml` e `robots.txt`.
 - Adicionar canonical por rota.
@@ -183,14 +183,14 @@ Entrega esperada: site mais legível para Google AI Overviews, ChatGPT, Perplexi
 
 ## KPIs
 
-| Métrica | Baseline | 3 meses | 6 meses | 12 meses |
-| --- | --- | --- | --- | --- |
-| Páginas indexáveis | 2 | 8-10 | 14-18 | 24+ |
-| Impressões orgânicas | A medir no GSC | +50% | +150% | +300% |
-| Cliques orgânicos | A medir no GSC | +25% | +100% | +250% |
-| Leads orgânicos via WhatsApp | A medir | 3-5/mês | 8-12/mês | 15+/mês |
-| Páginas com schema válido | Parcial | 100% comerciais | 100% cases/blog | Mantido |
-| Core Web Vitals | A medir | Bom | Bom | Bom |
+| Métrica                      | Baseline       | 3 meses         | 6 meses         | 12 meses |
+| ---------------------------- | -------------- | --------------- | --------------- | -------- |
+| Páginas indexáveis           | 2              | 8-10            | 14-18           | 24+      |
+| Impressões orgânicas         | A medir no GSC | +50%            | +150%           | +300%    |
+| Cliques orgânicos            | A medir no GSC | +25%            | +100%           | +250%    |
+| Leads orgânicos via WhatsApp | A medir        | 3-5/mês         | 8-12/mês        | 15+/mês  |
+| Páginas com schema válido    | Parcial        | 100% comerciais | 100% cases/blog | Mantido  |
+| Core Web Vitals              | A medir        | Bom             | Bom             | Bom      |
 
 ## Backlog recomendado
 

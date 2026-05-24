@@ -68,21 +68,21 @@ export const projects = [
     url: 'https://tresorincorporacoes.com.br',
     niche: 'Incorporadora de Luxo',
     caseVideo: {
-      src: '/assets/placeholders/tresor-video-modal.mp4',
-      poster: '/assets/placeholders/tresor-mobile-modal.jpeg',
+      src: '/assets/placeholders/tresor-video-modal.webm',
+      poster: '/assets/placeholders/tresor-mobile-modal.webp',
       title: 'Showcase em vídeo do projeto Trésor Incorporações',
     },
     gallery: [
       {
-        src: '/assets/placeholders/tresor-idv-modal.jpeg',
+        src: '/assets/placeholders/tresor-idv-modal.webp',
         alt: 'Variação visual da identidade do projeto Trésor Incorporações',
       },
       {
-        src: '/assets/placeholders/tresor-idv2-modal.jpeg',
+        src: '/assets/placeholders/tresor-idv2-modal.webp',
         alt: 'Segunda variação visual do projeto Trésor Incorporações',
       },
       {
-        src: '/assets/placeholders/tresor-mobile-modal.jpeg',
+        src: '/assets/placeholders/tresor-mobile-modal.webp',
         alt: 'Versão mobile do projeto Trésor Incorporações',
       },
     ],
@@ -98,7 +98,7 @@ export const projects = [
     url: 'https://agenciaskyrocket.com.br',
     niche: 'Marketing Digital',
     caseVideo: {
-      src: '/assets/placeholders/skyrocket-showcase.mp4',
+      src: '/assets/placeholders/skyrocket-showcase.webm',
       poster: '/assets/placeholders/skyrocket-video-poster.svg',
       title: 'Showcase em vídeo do projeto Skyrocket',
     },
@@ -128,7 +128,7 @@ export const projects = [
     url: 'https://polianabentes.com.br',
     niche: 'Consultoria Empresarial',
     caseVideo: {
-      src: '/assets/placeholders/poliana-showcase.mp4',
+      src: '/assets/placeholders/poliana-showcase.webm',
       poster: '/assets/placeholders/poliana-video-poster.svg',
       title: 'Showcase em vídeo do projeto Poliana Bentes',
     },

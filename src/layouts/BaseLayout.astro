@@ -8,7 +8,10 @@ interface Props {
   description?: string;
   namespace?: string;
   canonicalPath?: string;
-  schema?: unknown;
+  ogType?: 'website' | 'article' | 'profile';
+  socialImage?: string;
+  socialImageAlt?: string;
+  schema?: unknown | unknown[];
 }
 
 const {
@@ -16,11 +19,17 @@ const {
   description = 'Desenvolvedor web freelancer especializado em sites, blogs e landing pages que convertem. Atendimento direto, entrega no prazo. Solicite seu orçamento.',
   namespace = 'home',
   canonicalPath = '/',
+  ogType = 'website',
+  socialImage = '/assets/og-cover.webp',
+  socialImageAlt = 'Luan Alves - Desenvolvimento Web Profissional',
   schema,
 } = Astro.props;
 
 const siteUrl = 'https://luanalves.com.br';
-const canonicalUrl = `${siteUrl}${canonicalPath}`;
+const toAbsoluteUrl = (path: string) =>
+  path.startsWith('http') ? path : new URL(path, siteUrl).toString();
+const canonicalUrl = toAbsoluteUrl(canonicalPath);
+const socialImageUrl = toAbsoluteUrl(socialImage);
 const baseSchema = [
   {
     '@context': 'https://schema.org',
@@ -31,8 +40,11 @@ const baseSchema = [
     description:
       'Desenvolvedor web especializado em sites institucionais, blogs e landing pages para pequenas e médias empresas em todo o Brasil.',
     url: siteUrl,
-    image: `${siteUrl}/assets/og-cover.png`,
-    sameAs: ['https://linkedin.com/in/luanalves', 'https://github.com/luanalves'],
+    image: socialImageUrl,
+    sameAs: [
+      'https://linkedin.com/in/luanalves',
+      'https://github.com/luanalves',
+    ],
     knowsAbout: [
       'Desenvolvimento Web',
       'SEO',
@@ -55,7 +67,7 @@ const baseSchema = [
     description:
       'Criação de sites institucionais, blogs e landing pages profissionais para empresas em todo o Brasil. Atendimento remoto, entrega no prazo e suporte pós-lançamento.',
     url: siteUrl,
-    image: `${siteUrl}/assets/og-cover.png`,
+    image: socialImageUrl,
     founder: { '@id': `${siteUrl}/#person` },
     areaServed: {
       '@type': 'Country',
@@ -110,7 +122,11 @@ const baseSchema = [
   },
 ];
 
-const schemaGraph = schema ? [...baseSchema, schema] : baseSchema;
+const pageSchema = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
+const schemaGraph = {
+  '@context': 'https://schema.org',
+  '@graph': [...baseSchema, ...pageSchema],
+};
 ---
 
 <!doctype html>
@@ -122,14 +138,12 @@ const schemaGraph = schema ? [...baseSchema, schema] : baseSchema;
     <meta name='description' content={description} />
     <link rel='canonical' href={canonicalUrl} />
 
-    <meta property='og:type' content='website' />
+    <meta property='og:type' content={ogType} />
     <meta property='og:url' content={canonicalUrl} />
     <meta property='og:title' content={title} />
     <meta property='og:description' content={description} />
-    <meta
-      property='og:image'
-      content='https://luanalves.com.br/assets/og-cover.png'
-    />
+    <meta property='og:image' content={socialImageUrl} />
+    <meta property='og:image:alt' content={socialImageAlt} />
     <meta property='og:image:width' content='1200' />
     <meta property='og:image:height' content='630' />
     <meta property='og:locale' content='pt_BR' />
@@ -138,10 +152,8 @@ const schemaGraph = schema ? [...baseSchema, schema] : baseSchema;
     <meta name='twitter:card' content='summary_large_image' />
     <meta name='twitter:title' content={title} />
     <meta name='twitter:description' content={description} />
-    <meta
-      name='twitter:image'
-      content='https://luanalves.com.br/assets/og-cover.png'
-    />
+    <meta name='twitter:image' content={socialImageUrl} />
+    <meta name='twitter:image:alt' content={socialImageAlt} />
     <meta name='theme-color' content='#131313' />
 
     <script type='application/ld+json' set:html={JSON.stringify(schemaGraph)} />

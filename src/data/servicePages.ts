@@ -162,7 +162,7 @@ export const servicePages: Record<string, ServicePageContent> = {
       ctaLabel: 'Quero um site institucional profissional',
       secondaryLabel: 'Ver portfólio',
       secondaryHref: '#portfolio',
-      image: '/assets/site-institucional-hero.png',
+      image: '/assets/site-institucional-hero.webp',
       features: [
         {
           icon: 'workspace_premium',
@@ -310,7 +310,7 @@ export const servicePages: Record<string, ServicePageContent> = {
       ctaLabel: 'Quero uma landing page para minha campanha',
       secondaryLabel: 'Ver cases',
       secondaryHref: '#portfolio',
-      image: '/assets/landing-hero.png',
+      image: '/assets/landing-hero.webp',
       features: [
         {
           icon: 'ads_click',
@@ -457,7 +457,7 @@ export const servicePages: Record<string, ServicePageContent> = {
       ctaLabel: 'Quero criar um blog profissional',
       secondaryLabel: 'Ver projetos',
       secondaryHref: '#portfolio',
-      image: '/assets/blog-hero.png',
+      image: '/assets/blog-hero.webp',
       features: [
         {
           icon: 'article',
@@ -604,7 +604,7 @@ export const servicePages: Record<string, ServicePageContent> = {
       ctaLabel: 'Quero criar meu site em Belém',
       secondaryLabel: 'Ver portfólio',
       secondaryHref: '#portfolio',
-      image: '/assets/criacao-sites-belem-hero.png',
+      image: '/assets/criacao-sites-belem-hero.webp',
       features: [
         {
           icon: 'location_on',

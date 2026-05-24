@@ -17,6 +17,7 @@
     "gsap": "^3.13.0"
   },
   "devDependencies": {
+    "@astrojs/sitemap": "^3.7.2",
     "jsdom": "^29.0.2",
     "vitest": "^4.1.4"
   }

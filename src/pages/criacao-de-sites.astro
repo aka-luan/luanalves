@@ -161,7 +161,6 @@ const differentialItems = [
   },
 ];
 
-
 const faqItems = [
   {
     question: 'Em quanto tempo o site fica pronto?',
@@ -194,7 +193,8 @@ const faqItems = [
 <BaseLayout
   namespace='criacao-de-sites'
   title='Criação de Sites | Luan Alves'
-  description='Criação de sites institucionais, blogs e landing pages para empresas que precisam vender mais com presença digital profissional.'>
+  description='Criação de sites institucionais, blogs e landing pages para empresas que precisam vender mais com presença digital profissional.'
+  canonicalPath='/criacao-de-sites/'>
   <main class='site-creation-page'>
     <SiteNav
       whatsappHref={whatsappHref}
@@ -206,7 +206,8 @@ const faqItems = [
       class='creation-hero'
       aria-labelledby='creation-hero-title'
       data-motion='hero'>
-      <div class='creation-hero__glow' aria-hidden='true' data-motion-glow></div>
+      <div class='creation-hero__glow' aria-hidden='true' data-motion-glow>
+      </div>
       <div class='creation-hero__grain' aria-hidden='true'></div>
 
       <div class='creation-hero__inner'>
@@ -277,7 +278,7 @@ const faqItems = [
           data-motion-hidden='scale'>
           <div class='creation-orbit'></div>
           <img
-            src='/assets/hero-img.png'
+            src='/assets/hero-img.webp'
             alt=''
             width='1448'
             height='1086'
@@ -304,7 +305,10 @@ const faqItems = [
             Soluções
           </p>
 
-          <h2 id='solutions-title' data-motion-heading data-motion-hidden='y-md'>
+          <h2
+            id='solutions-title'
+            data-motion-heading
+            data-motion-hidden='y-md'>
             <span>O formato certo para</span>
             <em>cada objetivo.</em>
           </h2>
@@ -318,11 +322,14 @@ const faqItems = [
         <div class='solutions-grid' aria-label='Formatos de site'>
           {
             solutionItems.map((item) => (
-              <article class='solution-card' data-motion-item='service' data-motion-hidden='y-card'>
+              <article
+                class='solution-card'
+                data-motion-item='service'
+                data-motion-hidden='y-card'>
                 <div class='solution-card__browser' aria-hidden='true'>
-                  <span></span>
-                  <span></span>
-                  <span></span>
+                  <span />
+                  <span />
+                  <span />
                 </div>
 
                 <div class='solution-card__media'>
@@ -347,7 +354,9 @@ const faqItems = [
                   <p>{item.copy}</p>
 
                   <div class='solution-card__tags'>
-                    {item.tags.map((tag) => <span>{tag}</span>)}
+                    {item.tags.map((tag) => (
+                      <span>{tag}</span>
+                    ))}
                   </div>
                 </div>
               </article>
@@ -355,12 +364,15 @@ const faqItems = [
           }
         </div>
 
-        <p class='solutions-note' data-motion-item='service' data-motion-hidden='y-sm'>
+        <p
+          class='solutions-note'
+          data-motion-item='service'
+          data-motion-hidden='y-sm'>
           <span class='material-symbols-outlined' aria-hidden='true'>
             check_circle
           </span>
-          Todos os formatos são desenvolvidos com foco em performance, SEO
-          técnico, experiência do usuário e resultados reais.
+          Todos os formatos são desenvolvidos com foco em performance, SEO técnico,
+          experiência do usuário e resultados reais.
         </p>
       </div>
     </section>
@@ -394,9 +406,13 @@ const faqItems = [
           </p>
         </div>
 
-        <div class='results-media' aria-hidden='true' data-motion-item='visual' data-motion-hidden='scale'>
+        <div
+          class='results-media'
+          aria-hidden='true'
+          data-motion-item='visual'
+          data-motion-hidden='scale'>
           <img
-            src='/assets/resultados-img.png'
+            src='/assets/resultados-img.webp'
             alt=''
             width='1448'
             height='1086'
@@ -408,10 +424,13 @@ const faqItems = [
         <div class='results-card-grid'>
           {
             resultCards.map((item) => (
-              <article class='results-card' data-motion-item='result' data-motion-hidden='y-card'>
+              <article
+                class='results-card'
+                data-motion-item='result'
+                data-motion-hidden='y-card'>
                 <div class='results-card__head'>
                   <span class='results-card__number'>{item.number}</span>
-                  <span class='results-card__rule' aria-hidden='true'></span>
+                  <span class='results-card__rule' aria-hidden='true' />
                 </div>
 
                 <span class='results-card__icon' aria-hidden='true'>
@@ -428,7 +447,10 @@ const faqItems = [
         <div class='results-benefits' aria-label='Benefícios esperados'>
           {
             resultStats.map((item) => (
-              <article class='results-benefit' data-motion-item='result' data-motion-hidden='y-sm'>
+              <article
+                class='results-benefit'
+                data-motion-item='result'
+                data-motion-hidden='y-sm'>
                 <span class='results-benefit__icon' aria-hidden='true'>
                   <span class='material-symbols-outlined'>{item.icon}</span>
                 </span>
@@ -470,10 +492,13 @@ const faqItems = [
         <div class='process-timeline' aria-label='Etapas do processo'>
           {
             processSteps.map((item) => (
-              <article class='process-step' data-motion-item='process' data-motion-hidden='x-left'>
+              <article
+                class='process-step'
+                data-motion-item='process'
+                data-motion-hidden='x-left'>
                 <span class='process-step__number'>{item.number}</span>
                 <span class='process-step__marker' aria-hidden='true'>
-                  <span></span>
+                  <span />
                 </span>
                 <div class='process-step__copy'>
                   <h3>{item.title}</h3>
@@ -484,9 +509,13 @@ const faqItems = [
           }
         </div>
 
-        <div class='process-media' aria-hidden='true' data-motion-item='visual' data-motion-hidden='scale'>
+        <div
+          class='process-media'
+          aria-hidden='true'
+          data-motion-item='visual'
+          data-motion-hidden='scale'>
           <img
-            src='/assets/processo-img.png'
+            src='/assets/processo-img.webp'
             alt=''
             width='1448'
             height='1086'
@@ -494,7 +523,6 @@ const faqItems = [
             decoding='async'
           />
         </div>
-
       </div>
     </section>
 
@@ -520,15 +548,18 @@ const faqItems = [
           </h2>
 
           <p class='included-lead' data-motion-copy data-motion-hidden='y-md'>
-            Cada entrega combina estratégia, design e desenvolvimento para que
-            o site já nasça pronto para performar.
+            Cada entrega combina estratégia, design e desenvolvimento para que o
+            site já nasça pronto para performar.
           </p>
         </div>
 
         <div class='included-grid' aria-label='Itens inclusos no projeto'>
           {
             includedItems.map((item) => (
-              <article class='included-card' data-motion-item='included' data-motion-hidden='y-card'>
+              <article
+                class='included-card'
+                data-motion-item='included'
+                data-motion-hidden='y-card'>
                 <span class='included-card__icon' aria-hidden='true'>
                   <span class='material-symbols-outlined'>{item.icon}</span>
                 </span>
@@ -540,10 +571,14 @@ const faqItems = [
           }
         </div>
 
-        <div class='included-media' aria-hidden='true' data-motion-item='visual' data-motion-hidden='scale'>
+        <div
+          class='included-media'
+          aria-hidden='true'
+          data-motion-item='visual'
+          data-motion-hidden='scale'>
           <div class='included-orbit'></div>
           <img
-            src='/assets/incluso-img.png'
+            src='/assets/incluso-img.webp'
             alt=''
             width='1448'
             height='1086'
@@ -571,12 +606,18 @@ const faqItems = [
               Diferenciais
             </p>
 
-            <h2 id='differentials-title' data-motion-heading data-motion-hidden='y-md'>
+            <h2
+              id='differentials-title'
+              data-motion-heading
+              data-motion-hidden='y-md'>
               <span>Por que trabalhar</span>
               <span><em>diretamente</em> comigo.</span>
             </h2>
 
-            <p class='differentials-lead' data-motion-copy data-motion-hidden='y-md'>
+            <p
+              class='differentials-lead'
+              data-motion-copy
+              data-motion-hidden='y-md'>
               Você fala com quem planeja, desenha e desenvolve o site, sem
               intermediários, com mais clareza e mais agilidade.
             </p>
@@ -585,7 +626,10 @@ const faqItems = [
           <div class='differentials-grid' aria-label='Diferenciais da entrega'>
             {
               differentialItems.map((item) => (
-                <article class='differential-card' data-motion-item='differential' data-motion-hidden='y-card'>
+                <article
+                  class='differential-card'
+                  data-motion-item='differential'
+                  data-motion-hidden='y-card'>
                   <span class='differential-card__icon' aria-hidden='true'>
                     <span class='material-symbols-outlined'>{item.icon}</span>
                   </span>
@@ -598,10 +642,14 @@ const faqItems = [
           </div>
         </div>
 
-        <div class='differentials-media' aria-hidden='true' data-motion-item='visual' data-motion-hidden='scale'>
+        <div
+          class='differentials-media'
+          aria-hidden='true'
+          data-motion-item='visual'
+          data-motion-hidden='scale'>
           <span class='differentials-orbit'></span>
           <img
-            src='/assets/diferenciais-img.png'
+            src='/assets/diferenciais-img.webp'
             alt=''
             width='1448'
             height='1086'
@@ -609,7 +657,6 @@ const faqItems = [
             decoding='async'
           />
         </div>
-
       </div>
     </section>
 
@@ -621,7 +668,6 @@ const faqItems = [
   </main>
 
   <SiteFooter brandHref='/' />
-
 </BaseLayout>
 
 <style>
@@ -1330,7 +1376,13 @@ const faqItems = [
         transparent 1px
       );
     background-size: 4rem 4rem;
-    mask-image: linear-gradient(90deg, transparent, black 22%, black 82%, transparent);
+    mask-image: linear-gradient(
+      90deg,
+      transparent,
+      black 22%,
+      black 82%,
+      transparent
+    );
     opacity: 0.24;
   }
 
@@ -2518,7 +2570,11 @@ const faqItems = [
     border: 1px solid rgba(229, 218, 207, 0.18);
     border-radius: 0.55rem;
     background:
-      radial-gradient(circle at 50% 20%, rgba(229, 196, 135, 0.12), transparent 10rem),
+      radial-gradient(
+        circle at 50% 20%,
+        rgba(229, 196, 135, 0.12),
+        transparent 10rem
+      ),
       rgba(15, 16, 15, 0.48);
     box-shadow:
       inset 0 0 0 1px rgba(255, 255, 255, 0.012),
@@ -2596,10 +2652,30 @@ const faqItems = [
     width: 7.8rem;
     height: 5.75rem;
     background:
-      linear-gradient(115deg, transparent 49%, currentColor 50%, transparent 51%),
-      linear-gradient(70deg, transparent 49%, currentColor 50%, transparent 51%),
-      linear-gradient(90deg, transparent 49%, currentColor 50%, transparent 51%),
-      linear-gradient(100deg, transparent 49%, currentColor 50%, transparent 51%),
+      linear-gradient(
+        115deg,
+        transparent 49%,
+        currentColor 50%,
+        transparent 51%
+      ),
+      linear-gradient(
+        70deg,
+        transparent 49%,
+        currentColor 50%,
+        transparent 51%
+      ),
+      linear-gradient(
+        90deg,
+        transparent 49%,
+        currentColor 50%,
+        transparent 51%
+      ),
+      linear-gradient(
+        100deg,
+        transparent 49%,
+        currentColor 50%,
+        transparent 51%
+      ),
       linear-gradient(80deg, transparent 49%, currentColor 50%, transparent 51%);
     background-size:
       6rem 5.2rem,
@@ -2627,12 +2703,22 @@ const faqItems = [
     opacity: 0.72;
     background:
       linear-gradient(currentColor, currentColor) 0 3.15rem / 0.9rem 1.65rem,
-      linear-gradient(currentColor, currentColor) 1.25rem 2.55rem / 1.15rem 2.25rem,
-      linear-gradient(currentColor, currentColor) 2.8rem 3.55rem / 0.85rem 1.25rem,
-      linear-gradient(currentColor, currentColor) 4.05rem 2.2rem / 1.25rem 2.6rem,
+      linear-gradient(currentColor, currentColor) 1.25rem 2.55rem / 1.15rem
+        2.25rem,
+      linear-gradient(currentColor, currentColor) 2.8rem 3.55rem / 0.85rem
+        1.25rem,
+      linear-gradient(currentColor, currentColor) 4.05rem 2.2rem / 1.25rem
+        2.6rem,
       linear-gradient(currentColor, currentColor) 5.75rem 3rem / 1.05rem 1.8rem,
-      linear-gradient(currentColor, currentColor) 7.25rem 2.25rem / 1.3rem 2.55rem,
-      linear-gradient(120deg, transparent 46%, currentColor 47% 53%, transparent 54%) 3.9rem 0.15rem / 1.2rem 4.7rem;
+      linear-gradient(currentColor, currentColor) 7.25rem 2.25rem / 1.3rem
+        2.55rem,
+      linear-gradient(
+          120deg,
+          transparent 46%,
+          currentColor 47% 53%,
+          transparent 54%
+        )
+        3.9rem 0.15rem / 1.2rem 4.7rem;
     background-repeat: no-repeat;
     border-bottom: 1px solid currentColor;
   }
@@ -2792,7 +2878,11 @@ const faqItems = [
     inset: 0;
     background:
       linear-gradient(180deg, transparent 62%, rgba(0, 0, 0, 0.18)),
-      radial-gradient(circle at 50% 100%, rgba(223, 189, 121, 0.08), transparent 50%);
+      radial-gradient(
+        circle at 50% 100%,
+        rgba(223, 189, 121, 0.08),
+        transparent 50%
+      );
     opacity: 0.42;
     pointer-events: none;
   }
@@ -3361,7 +3451,6 @@ const faqItems = [
       width: clamp(12.8rem, 18vw, 15rem);
       padding: 1.25rem 1.05rem 1rem;
     }
-
   }
 
   @media (max-width: 900px) {
@@ -3831,7 +3920,6 @@ const faqItems = [
       bottom: 18%;
       width: min(16rem, 38vw);
     }
-
   }
 
   @media (max-width: 560px) {
@@ -4381,6 +4469,5 @@ const faqItems = [
     .contact-form-card__message {
       min-height: 3.6rem;
     }
-
   }
 </style>
