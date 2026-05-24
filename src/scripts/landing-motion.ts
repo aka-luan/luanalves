@@ -360,6 +360,12 @@ export function initLandingMotion() {
         const heroActions = Array.from(
           root.querySelectorAll('[data-motion-hero-actions] > *'),
         );
+        const heroFeatureItems = Array.from(
+          root.querySelectorAll('[data-motion-item="hero-feature"]'),
+        );
+        const heroMedia = Array.from(
+          root.querySelectorAll('[data-motion-item="hero-media"]'),
+        );
         const heroGlow = root.querySelector<HTMLElement>('[data-motion-glow]');
         const trustItems = Array.from(
           root.querySelectorAll('[data-motion-item="trust"]'),
@@ -370,6 +376,9 @@ export function initLandingMotion() {
         const servicesHeadings = Array.from(
           servicesSection?.querySelectorAll('[data-motion-heading]') ?? [],
         );
+        const servicesCopy = Array.from(
+          servicesSection?.querySelectorAll('[data-motion-copy]') ?? [],
+        );
         const serviceCards = Array.from(
           root.querySelectorAll('[data-motion-item="service"]'),
         );
@@ -378,6 +387,9 @@ export function initLandingMotion() {
         );
         const portfolioHeadings = Array.from(
           portfolioSection?.querySelectorAll('[data-motion-heading]') ?? [],
+        );
+        const portfolioCopy = Array.from(
+          portfolioSection?.querySelectorAll('[data-motion-copy]') ?? [],
         );
         const projectCards = Array.from(
           root.querySelectorAll('[data-motion-item="project"]'),
@@ -416,6 +428,77 @@ export function initLandingMotion() {
         const ctaButton = Array.from(
           root.querySelectorAll('[data-motion-button]'),
         );
+        const resultsSection = root.querySelector(
+          '[data-motion-section="results"]',
+        );
+        const resultsHeadings = Array.from(
+          resultsSection?.querySelectorAll('[data-motion-heading]') ?? [],
+        );
+        const resultsCopy = Array.from(
+          resultsSection?.querySelectorAll('[data-motion-copy]') ?? [],
+        );
+        const resultItems = Array.from(
+          root.querySelectorAll('[data-motion-item="result"]'),
+        );
+        const resultsVisualItems = Array.from(
+          resultsSection?.querySelectorAll('[data-motion-item="visual"]') ?? [],
+        );
+        const processSection = root.querySelector(
+          '[data-motion-section="process"]',
+        );
+        const processHeadings = Array.from(
+          processSection?.querySelectorAll('[data-motion-heading]') ?? [],
+        );
+        const processCopy = Array.from(
+          processSection?.querySelectorAll('[data-motion-copy]') ?? [],
+        );
+        const processItems = Array.from(
+          root.querySelectorAll('[data-motion-item="process"]'),
+        );
+        const processVisualItems = Array.from(
+          processSection?.querySelectorAll('[data-motion-item="visual"]') ?? [],
+        );
+        const includedSection = root.querySelector(
+          '[data-motion-section="included"]',
+        );
+        const includedHeadings = Array.from(
+          includedSection?.querySelectorAll('[data-motion-heading]') ?? [],
+        );
+        const includedCopy = Array.from(
+          includedSection?.querySelectorAll('[data-motion-copy]') ?? [],
+        );
+        const includedItems = Array.from(
+          root.querySelectorAll('[data-motion-item="included"]'),
+        );
+        const includedVisualItems = Array.from(
+          includedSection?.querySelectorAll('[data-motion-item="visual"]') ?? [],
+        );
+        const differentialsSection = root.querySelector(
+          '[data-motion-section="differentials"]',
+        );
+        const differentialsHeadings = Array.from(
+          differentialsSection?.querySelectorAll('[data-motion-heading]') ?? [],
+        );
+        const differentialsCopy = Array.from(
+          differentialsSection?.querySelectorAll('[data-motion-copy]') ?? [],
+        );
+        const differentialItems = Array.from(
+          root.querySelectorAll('[data-motion-item="differential"]'),
+        );
+        const differentialsVisualItems = Array.from(
+          differentialsSection?.querySelectorAll('[data-motion-item="visual"]') ??
+            [],
+        );
+        const faqSection = root.querySelector('[data-motion-section="faq"]');
+        const faqHeadings = Array.from(
+          faqSection?.querySelectorAll('[data-motion-heading]') ?? [],
+        );
+        const faqCopy = Array.from(
+          faqSection?.querySelectorAll('[data-motion-copy]') ?? [],
+        );
+        const faqItems = Array.from(
+          root.querySelectorAll('[data-motion-item="faq"]'),
+        );
         const footerItems = Array.from(
           root.querySelectorAll('[data-motion-item="footer"]'),
         );
@@ -432,6 +515,8 @@ export function initLandingMotion() {
           heroTitle,
           heroCopy,
           ...heroActions,
+          ...heroFeatureItems,
+          ...heroMedia,
         ].filter(Boolean);
 
         const createHeroIntro = () => {
@@ -488,6 +573,25 @@ export function initLandingMotion() {
                 clearProps: 'transform,opacity,willChange',
               },
               0.58,
+            )
+            .to(
+              heroFeatureItems,
+              {
+                autoAlpha: 1,
+                y: 0,
+                stagger: 0.08,
+                clearProps: 'transform,opacity,willChange',
+              },
+              0.74,
+            )
+            .to(
+              heroMedia,
+              {
+                autoAlpha: 1,
+                scale: 1,
+                clearProps: 'transform,opacity,willChange',
+              },
+              0.3,
             );
         };
 
@@ -616,11 +720,11 @@ export function initLandingMotion() {
 
         createSectionReveal({
           section: servicesSection,
-          targets: [...servicesHeadings, ...serviceCards],
+          targets: [...servicesHeadings, ...servicesCopy, ...serviceCards],
           start: 'top 74%',
           setup: (timeline) => {
             timeline
-              .to(servicesHeadings, {
+              .to([...servicesHeadings, ...servicesCopy], {
                 autoAlpha: 1,
                 y: 0,
                 duration: 0.86,
@@ -646,11 +750,11 @@ export function initLandingMotion() {
 
         createSectionReveal({
           section: portfolioSection,
-          targets: [...portfolioHeadings, ...projectCards],
+          targets: [...portfolioHeadings, ...portfolioCopy, ...projectCards],
           start: 'top 76%',
           setup: (timeline) => {
             timeline
-              .to(portfolioHeadings, {
+              .to([...portfolioHeadings, ...portfolioCopy], {
                 autoAlpha: 1,
                 y: 0,
                 duration: 0.86,
@@ -682,6 +786,220 @@ export function initLandingMotion() {
                   clearProps: 'transform,opacity,willChange',
                 },
                 0.16,
+              );
+          },
+        });
+
+        createSectionReveal({
+          section: resultsSection,
+          targets: [
+            ...resultsHeadings,
+            ...resultsCopy,
+            ...resultItems,
+            ...resultsVisualItems,
+          ],
+          start: 'top 74%',
+          setup: (timeline) => {
+            timeline
+              .to([...resultsHeadings, ...resultsCopy], {
+                autoAlpha: 1,
+                y: 0,
+                duration: 0.86,
+                stagger: 0.1,
+                ease: 'power3.out',
+                clearProps: 'transform,opacity,willChange',
+              })
+              .to(
+                resultItems,
+                {
+                  autoAlpha: 1,
+                  y: 0,
+                  rotationX: 0,
+                  duration: 0.9,
+                  stagger: 0.08,
+                  ease: 'power3.out',
+                  clearProps: 'transform,opacity,willChange',
+                },
+                0.14,
+              )
+              .to(
+                resultsVisualItems,
+                {
+                  autoAlpha: 1,
+                  scale: 1,
+                  duration: 1,
+                  ease: 'power3.out',
+                  clearProps: 'transform,opacity,willChange',
+                },
+                0.2,
+              );
+          },
+        });
+
+        createSectionReveal({
+          section: processSection,
+          targets: [
+            ...processHeadings,
+            ...processCopy,
+            ...processItems,
+            ...processVisualItems,
+          ],
+          start: 'top 74%',
+          setup: (timeline) => {
+            timeline
+              .to([...processHeadings, ...processCopy], {
+                autoAlpha: 1,
+                y: 0,
+                duration: 0.86,
+                stagger: 0.1,
+                ease: 'power3.out',
+                clearProps: 'transform,opacity,willChange',
+              })
+              .to(
+                processItems,
+                {
+                  autoAlpha: 1,
+                  x: 0,
+                  y: 0,
+                  duration: 0.88,
+                  stagger: 0.1,
+                  ease: 'power3.out',
+                  clearProps: 'transform,opacity,willChange',
+                },
+                0.16,
+              )
+              .to(
+                processVisualItems,
+                {
+                  autoAlpha: 1,
+                  scale: 1,
+                  duration: 1,
+                  ease: 'power3.out',
+                  clearProps: 'transform,opacity,willChange',
+                },
+                0.2,
+              );
+          },
+        });
+
+        createSectionReveal({
+          section: includedSection,
+          targets: [
+            ...includedHeadings,
+            ...includedCopy,
+            ...includedItems,
+            ...includedVisualItems,
+          ],
+          start: 'top 74%',
+          setup: (timeline) => {
+            timeline
+              .to([...includedHeadings, ...includedCopy], {
+                autoAlpha: 1,
+                y: 0,
+                duration: 0.86,
+                stagger: 0.1,
+                ease: 'power3.out',
+                clearProps: 'transform,opacity,willChange',
+              })
+              .to(
+                includedItems,
+                {
+                  autoAlpha: 1,
+                  y: 0,
+                  rotationX: 0,
+                  duration: 0.9,
+                  stagger: 0.08,
+                  ease: 'power3.out',
+                  clearProps: 'transform,opacity,willChange',
+                },
+                0.14,
+              )
+              .to(
+                includedVisualItems,
+                {
+                  autoAlpha: 1,
+                  scale: 1,
+                  duration: 1,
+                  ease: 'power3.out',
+                  clearProps: 'transform,opacity,willChange',
+                },
+                0.2,
+              );
+          },
+        });
+
+        createSectionReveal({
+          section: differentialsSection,
+          targets: [
+            ...differentialsHeadings,
+            ...differentialsCopy,
+            ...differentialItems,
+            ...differentialsVisualItems,
+          ],
+          start: 'top 74%',
+          setup: (timeline) => {
+            timeline
+              .to([...differentialsHeadings, ...differentialsCopy], {
+                autoAlpha: 1,
+                y: 0,
+                duration: 0.86,
+                stagger: 0.1,
+                ease: 'power3.out',
+                clearProps: 'transform,opacity,willChange',
+              })
+              .to(
+                differentialItems,
+                {
+                  autoAlpha: 1,
+                  y: 0,
+                  rotationX: 0,
+                  duration: 0.9,
+                  stagger: 0.08,
+                  ease: 'power3.out',
+                  clearProps: 'transform,opacity,willChange',
+                },
+                0.14,
+              )
+              .to(
+                differentialsVisualItems,
+                {
+                  autoAlpha: 1,
+                  scale: 1,
+                  duration: 1,
+                  ease: 'power3.out',
+                  clearProps: 'transform,opacity,willChange',
+                },
+                0.2,
+              );
+          },
+        });
+
+        createSectionReveal({
+          section: faqSection,
+          targets: [...faqHeadings, ...faqCopy, ...faqItems],
+          start: 'top 76%',
+          setup: (timeline) => {
+            timeline
+              .to([...faqHeadings, ...faqCopy], {
+                autoAlpha: 1,
+                y: 0,
+                duration: 0.86,
+                stagger: 0.1,
+                ease: 'power3.out',
+                clearProps: 'transform,opacity,willChange',
+              })
+              .to(
+                faqItems,
+                {
+                  autoAlpha: 1,
+                  y: 0,
+                  rotationX: 0,
+                  duration: 0.86,
+                  stagger: 0.08,
+                  ease: 'power3.out',
+                  clearProps: 'transform,opacity,willChange',
+                },
+                0.12,
               );
           },
         });

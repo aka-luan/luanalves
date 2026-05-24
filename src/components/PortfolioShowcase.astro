@@ -19,6 +19,7 @@ interface Props {
   copy?: string;
   moreHref?: string;
   moreLabel?: string;
+  motion?: boolean;
 }
 
 const {
@@ -29,19 +30,37 @@ const {
   copy = 'Alguns sites já desenvolvidos para empresas reais, com diferentes objetivos e estilos.',
   moreHref = '/#portfolio',
   moreLabel = 'Ver portfólio completo',
+  motion = true,
 } = Astro.props;
 
 const defaultPositions = ['center 44%', 'center 50%', 'center 47%'];
+const sectionMotionAttrs = motion ? { 'data-motion-section': 'portfolio' } : {};
+const eyebrowMotionAttrs = motion
+  ? { 'data-motion-heading': '', 'data-motion-hidden': 'y-sm' }
+  : {};
+const titleMotionAttrs = motion
+  ? { 'data-motion-heading': '', 'data-motion-hidden': 'y-md' }
+  : {};
+const copyMotionAttrs = motion
+  ? { 'data-motion-copy': '', 'data-motion-hidden': 'y-md' }
+  : {};
+const moreMotionAttrs = motion
+  ? { 'data-motion-item': 'project', 'data-motion-hidden': 'y-sm' }
+  : {};
 ---
 
-<section class='portfolio-showcase' id={id} aria-labelledby={`${id}-title`}>
+<section
+  class='portfolio-showcase'
+  id={id}
+  aria-labelledby={`${id}-title`}
+  {...sectionMotionAttrs}>
   <div class='portfolio-showcase__glow' aria-hidden='true'></div>
 
   <div class='portfolio-showcase__inner'>
     <div class='portfolio-showcase__copy'>
-      <p class='creation-eyebrow portfolio-showcase__eyebrow'>{eyebrow}</p>
+      <p class='creation-eyebrow portfolio-showcase__eyebrow' {...eyebrowMotionAttrs}>{eyebrow}</p>
 
-      <h2 id={`${id}-title`}>
+      <h2 id={`${id}-title`} {...titleMotionAttrs}>
         {
           title === 'Projetos selecionados.' ? (
             <>
@@ -54,47 +73,58 @@ const defaultPositions = ['center 44%', 'center 50%', 'center 47%'];
         }
       </h2>
 
-      <p>{copy}</p>
+      <p {...copyMotionAttrs}>{copy}</p>
     </div>
 
     <div class='portfolio-showcase__grid' aria-label='Projetos selecionados'>
       {
-        projects.map((item, index) => (
-          <a
-            class='portfolio-showcase__card'
-            href={item.url ?? item.href}
-            target='_blank'
-            rel='noreferrer'>
-            <span class='portfolio-showcase__media'>
-              <img
-                src={item.image}
-                alt={item.alt}
-                width='900'
-                height='650'
-                style={`object-position: ${
-                  item.position ?? defaultPositions[index] ?? 'center'
-                };`}
-                loading='lazy'
-                decoding='async'
-              />
-            </span>
+        projects.map((item, index) => {
+          const cardMotionAttrs = motion
+            ? {
+                'data-motion-item': 'project',
+                'data-motion-hidden': index % 2 === 0 ? 'x-left' : 'x-right',
+              }
+            : {};
 
-            <span class='portfolio-showcase__meta'>
-              <span>
-                <strong>{item.title}</strong>
-                <small>{item.subtitle}</small>
+          return (
+            <a
+              class='portfolio-showcase__card'
+              href={item.url ?? item.href}
+              target='_blank'
+              rel='noreferrer'
+              {...cardMotionAttrs}>
+              <span class='portfolio-showcase__media'>
+                <img
+                  src={item.image}
+                  alt={item.alt}
+                  width='900'
+                  height='650'
+                  style={`object-position: ${
+                    item.position ?? defaultPositions[index] ?? 'center'
+                  };`}
+                  loading='lazy'
+                  decoding='async'
+                  data-motion-image={motion ? '' : undefined}
+                />
               </span>
 
-              <span class='portfolio-showcase__arrow' aria-hidden='true'>
-                north_east
+              <span class='portfolio-showcase__meta'>
+                <span>
+                  <strong>{item.title}</strong>
+                  <small>{item.subtitle}</small>
+                </span>
+
+                <span class='portfolio-showcase__arrow' aria-hidden='true'>
+                  north_east
+                </span>
               </span>
-            </span>
-          </a>
-        ))
+            </a>
+          );
+        })
       }
     </div>
 
-    <a class='portfolio-showcase__more' href={moreHref}>
+    <a class='portfolio-showcase__more' href={moreHref} {...moreMotionAttrs}>
       {moreLabel}
       <span class='material-symbols-outlined' aria-hidden='true'>
         north_east

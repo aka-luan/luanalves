@@ -10,6 +10,7 @@ interface Props {
   eyebrow?: string;
   title?: string;
   copy?: string;
+  motion?: boolean;
 }
 
 const {
@@ -18,18 +19,34 @@ const {
   eyebrow = 'FAQ',
   title = 'Perguntas frequentes antes de começar.',
   copy = 'As dúvidas mais comuns sobre prazo, escopo e funcionamento do projeto.',
+  motion = true,
 } = Astro.props;
+
+const sectionMotionAttrs = motion ? { 'data-motion-section': 'faq' } : {};
+const eyebrowMotionAttrs = motion
+  ? { 'data-motion-heading': '', 'data-motion-hidden': 'y-sm' }
+  : {};
+const titleMotionAttrs = motion
+  ? { 'data-motion-heading': '', 'data-motion-hidden': 'y-md' }
+  : {};
+const copyMotionAttrs = motion
+  ? { 'data-motion-copy': '', 'data-motion-hidden': 'y-md' }
+  : {};
 ---
 
-<section class='shared-faq' id={id} aria-labelledby={`${id}-title`}>
+<section
+  class='shared-faq'
+  id={id}
+  aria-labelledby={`${id}-title`}
+  {...sectionMotionAttrs}>
   <div class='shared-faq__inner'>
     <div class='shared-faq__copy'>
-      <div class='shared-faq__kicker' aria-hidden='true'>
+      <div class='shared-faq__kicker' aria-hidden='true' {...eyebrowMotionAttrs}>
         <span>8 / 9</span>
         <span>{eyebrow}</span>
       </div>
 
-      <h2 id={`${id}-title`}>
+      <h2 id={`${id}-title`} {...titleMotionAttrs}>
         {
           title === 'Perguntas frequentes antes de começar.' ? (
             <>
@@ -42,13 +59,17 @@ const {
         }
       </h2>
 
-      <p>{copy}</p>
+      <p {...copyMotionAttrs}>{copy}</p>
     </div>
 
     <div class='shared-faq__list'>
       {
         items.map((item, index) => (
-          <details class='shared-faq__item' open={index === 0}>
+          <details
+            class='shared-faq__item'
+            open={index === 0}
+            data-motion-item={motion ? 'faq' : undefined}
+            data-motion-hidden={motion ? 'y-card' : undefined}>
             <summary>
               <span class='shared-faq__item-number'>
                 {String(index + 1).padStart(2, '0')}
