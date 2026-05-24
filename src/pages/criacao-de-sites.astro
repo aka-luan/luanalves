@@ -605,10 +605,6 @@ const faqItems = [
           />
         </div>
 
-        <div class='differentials-progress' aria-hidden='true'>
-          <span><strong>06</strong> / 09</span>
-          <i></i>
-        </div>
       </div>
     </section>
 
@@ -821,6 +817,11 @@ const faqItems = [
     background: #0f1010;
   }
 
+  :global(html),
+  :global(body) {
+    overflow-x: clip;
+  }
+
   .site-creation-page {
     min-height: 100svh;
     overflow-x: hidden;
@@ -853,6 +854,7 @@ const faqItems = [
     align-items: center;
     gap: clamp(1.75rem, 2vw, 1.95rem);
     width: 100%;
+    min-width: 0;
     padding: clamp(1.35rem, 2vw, 1.7rem) clamp(1.75rem, 1.9vw, 1.95rem)
       clamp(1.35rem, 2vw, 1.7rem) clamp(2rem, 2.65vw, 2.5rem);
   }
@@ -919,6 +921,7 @@ const faqItems = [
 
   .creation-nav-cta {
     justify-self: end;
+    min-width: 0;
     min-height: 3.1rem;
     padding: 1rem 1.1rem;
     border: 1px solid rgba(229, 218, 207, 0.2);
@@ -1018,6 +1021,7 @@ const faqItems = [
     position: relative;
     z-index: 2;
     display: grid;
+    min-width: 0;
     justify-items: start;
     align-content: center;
     padding-top: clamp(0rem, 0.5vw, 0.35rem);
@@ -1085,6 +1089,10 @@ const faqItems = [
   .creation-button:hover,
   .creation-button:focus-visible {
     transform: translateY(-2px);
+  }
+
+  .creation-button:active {
+    transform: scale(0.96);
   }
 
   .creation-button--solid {
@@ -2318,9 +2326,7 @@ const faqItems = [
   .differentials-section__inner {
     display: grid;
     grid-template-columns: minmax(31rem, 0.86fr) minmax(36rem, 1.14fr);
-    grid-template-areas:
-      'content media'
-      'progress progress';
+    grid-template-areas: 'content media';
     align-items: center;
     gap: clamp(2.1rem, 4.7vw, 4.65rem) clamp(2rem, 4.4vw, 4.2rem);
     width: min(100%, 84.8rem);
@@ -2488,42 +2494,6 @@ const faqItems = [
     font-weight: 300;
     line-height: 1.52;
     text-wrap: pretty;
-  }
-
-  .differentials-progress {
-    grid-area: progress;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1.95rem;
-    margin-top: -0.4rem;
-    color: rgba(245, 242, 239, 0.82);
-    font-size: 1.02rem;
-    letter-spacing: 0.1em;
-  }
-
-  .differentials-progress strong {
-    color: #dfbd79;
-    font-weight: 700;
-  }
-
-  .differentials-progress i {
-    position: relative;
-    display: block;
-    width: min(25rem, 29vw);
-    height: 1px;
-    background: rgba(229, 218, 207, 0.17);
-  }
-
-  .differentials-progress i::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 33%;
-    width: 5rem;
-    height: 2px;
-    background: #dfbd79;
-    transform: translateY(-50%);
   }
 
   .faq-section {
@@ -2992,6 +2962,10 @@ const faqItems = [
       0 34px 72px rgba(0, 0, 0, 0.24);
   }
 
+  .portfolio-card:active {
+    transform: translateY(-0.15rem) scale(0.96);
+  }
+
   .portfolio-card__media {
     position: relative;
     display: block;
@@ -3362,6 +3336,72 @@ const faqItems = [
     line-height: 1.42;
   }
 
+  .solutions-section::before,
+  .results-section::before,
+  .process-section::before,
+  .included-section::before,
+  .differentials-section::before,
+  .portfolio-section::before,
+  .creation-contact::before {
+    background:
+      radial-gradient(
+        circle at 73% 42%,
+        rgba(218, 176, 101, 0.18),
+        transparent 31rem
+      ),
+      radial-gradient(
+        ellipse at 24% 74%,
+        rgba(229, 196, 135, 0.08),
+        transparent 31rem
+      ),
+      linear-gradient(115deg, #0a0b0b 0%, #151514 54%, #090a0a 100%);
+  }
+
+  .solutions-section::after,
+  .results-section::after,
+  .process-section::after,
+  .included-section::after,
+  .differentials-section::after,
+  .portfolio-section::after,
+  .faq-section::after,
+  .creation-contact::after {
+    background:
+      linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.015) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.011) 1px,
+        transparent 1px
+      );
+    background-size: 4rem 4rem;
+    mask-image: radial-gradient(circle at 50% 50%, black, transparent 70%);
+    opacity: 0.17;
+  }
+
+  .solutions-section__glow,
+  .results-section__glow,
+  .process-section__glow,
+  .included-section__glow,
+  .differentials-section__glow,
+  .portfolio-section__glow,
+  .creation-contact__glow {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(7, 7, 7, 0.78),
+        rgba(7, 7, 7, 0.12) 54%,
+        rgba(7, 7, 7, 0.48)
+      ),
+      radial-gradient(
+        ellipse at 72% 48%,
+        rgba(229, 196, 135, 0.14),
+        transparent 34rem
+      );
+  }
+
   @media (max-width: 1180px) {
     .creation-hero__inner {
       grid-template-columns: minmax(24rem, 0.9fr) minmax(30rem, 1.1fr);
@@ -3542,6 +3582,7 @@ const faqItems = [
     }
 
     .creation-hero__copy {
+      order: 1;
       justify-items: center;
       text-align: center;
     }
@@ -3574,7 +3615,7 @@ const faqItems = [
     }
 
     .creation-hero__media {
-      order: -1;
+      order: 2;
       width: min(100%, 42rem);
       margin: 0 auto -1rem;
       transform: none;
@@ -3795,8 +3836,7 @@ const faqItems = [
       grid-template-columns: 1fr;
       grid-template-areas:
         'content'
-        'media'
-        'progress';
+        'media';
       min-height: auto;
       gap: 2rem;
     }
@@ -3839,10 +3879,6 @@ const faqItems = [
       justify-self: center;
       width: min(100%, 44rem);
       margin-top: 2rem;
-    }
-
-    .differentials-progress {
-      margin-top: -0.65rem;
     }
 
     .portfolio-section {
@@ -3989,6 +4025,9 @@ const faqItems = [
   @media (max-width: 560px) {
     .creation-nav {
       gap: 0.75rem;
+      display: flex;
+      justify-content: space-between;
+      padding-inline: 0.9rem;
     }
 
     .creation-brand {
@@ -3996,13 +4035,26 @@ const faqItems = [
     }
 
     .creation-nav-cta {
-      max-width: 10rem;
+      flex: 0 0 min(6.9rem, 34vw);
+      max-width: min(6.9rem, 34vw);
+      padding: 0.68rem 0.45rem;
+      font-size: 0.5rem;
+      letter-spacing: 0.08em;
       text-align: center;
       line-height: 1.35;
+      overflow-wrap: anywhere;
+      white-space: normal;
     }
 
     .creation-hero {
       padding-inline: 0.9rem;
+    }
+
+    .creation-hero__inner,
+    .creation-hero__copy {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
     }
 
     .creation-eyebrow {
@@ -4012,11 +4064,18 @@ const faqItems = [
     }
 
     .creation-hero h1 {
-      font-size: clamp(3.1rem, 16vw, 4.25rem);
-      letter-spacing: -0.055em;
+      max-width: min(7.8ch, 100%);
+      font-size: clamp(2.65rem, 13.4vw, 3.42rem);
+      letter-spacing: -0.05em;
+    }
+
+    .creation-hero h1 em {
+      max-width: 6.4ch;
+      margin-inline: auto;
     }
 
     .creation-lead {
+      max-width: 100%;
       font-size: 1rem;
       line-height: 1.68;
     }
@@ -4375,16 +4434,6 @@ const faqItems = [
     .differentials-media,
     .creation-contact__media {
       width: min(100%, 35rem);
-    }
-
-    .differentials-progress {
-      gap: 1.15rem;
-      width: 100%;
-      font-size: 0.92rem;
-    }
-
-    .differentials-progress i {
-      width: min(13rem, 42vw);
     }
 
     .differentials-grid {
