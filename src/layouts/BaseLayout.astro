@@ -6,11 +6,13 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  namespace?: string;
 }
 
 const {
   title = 'Luan Alves | Desenvolvimento Web Profissional',
   description = 'Desenvolvedor web freelancer especializado em sites, blogs e landing pages que convertem. Atendimento direto, entrega no prazo. Solicite seu orçamento.',
+  namespace = 'home',
 } = Astro.props;
 ---
 
@@ -151,8 +153,13 @@ const {
       }
     </script>
   </head>
-  <body data-page='home'>
-    <slot />
+  <body data-page='home' data-barba='wrapper'>
+    <div data-barba='container' data-barba-namespace={namespace}>
+      <slot />
+    </div>
     <Analytics />
+    <script>
+      import '../scripts/page-transitions';
+    </script>
   </body>
 </html>

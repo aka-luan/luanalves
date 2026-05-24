@@ -40,6 +40,19 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+[data-barba="container"] {
+  min-height: 100svh;
+}
+
+.is-transitioning,
+.is-transitioning body {
+  cursor: progress;
+}
+
+.is-transitioning [data-barba="container"] {
+  pointer-events: none;
+}
+
 html::-webkit-scrollbar {
   width: 0.78rem;
   height: 0.78rem;
