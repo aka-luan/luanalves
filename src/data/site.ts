@@ -10,7 +10,7 @@ export const navigation = [
       { href: '/criacao-de-sites-belem/', label: 'Criação de Sites em Belém' },
     ],
   },
-  { href: '/#portfolio', label: 'Portfólio' },
+  { href: '/portfolio/', label: 'Portfólio' },
   { href: '/#contato', label: 'Contato' },
 ];
 
@@ -63,6 +63,12 @@ export const projects = [
     subtitle: 'Desenvolvimento & Motion',
     description:
       'Uma vitrine digital de alto padrão pensada para transmitir exclusividade, arquitetura autoral e sofisticação comercial desde a primeira dobra.',
+    serviceType: 'Site Institucional',
+    summary:
+      'Site institucional premium para incorporadora de luxo, com narrativa visual, motion e foco em autoridade comercial.',
+    tags: ['SEO técnico', 'Motion', 'Performance'],
+    themeColor: '#4a1f0b',
+    externalUrl: 'https://tresorincorporacoes.com.br',
     image: '/assets/tresor-home.webp',
     alt: 'Site institucional da Trésor Incorporações — incorporadora de luxo com empreendimentos em Niterói, RJ. Design sofisticado com foco em exclusividade e valorização de imóveis.',
     url: 'https://tresorincorporacoes.com.br',
@@ -93,6 +99,12 @@ export const projects = [
     subtitle: 'Desenvolvimento & Otimização',
     description:
       'Uma presença digital mais afiada para uma agência orientada a performance, com ritmo visual forte e leitura clara para apresentar serviços, autoridade e cases.',
+    serviceType: 'Landing Page',
+    summary:
+      'Experiência digital para agência de marketing, com leitura rápida de serviços, cases e proposta de valor.',
+    tags: ['Conversão', 'Animação', 'SEO'],
+    themeColor: '#123f7a',
+    externalUrl: 'https://agenciaskyrocket.com.br',
     image: '/assets/skyrocket-home.webp',
     alt: 'Site da Agência Skyrocket — agência de marketing digital com identidade visual galáctica, portfólio de cases e soluções para marcas que querem crescer no digital.',
     url: 'https://agenciaskyrocket.com.br',
@@ -123,6 +135,12 @@ export const projects = [
     subtitle: 'Desenvolvimento & CMS',
     description:
       'Um site com linguagem institucional refinada para posicionar consultoria, credibilidade e clareza de mensagem sem abrir mão de flexibilidade editorial.',
+    serviceType: 'Blog Profissional',
+    summary:
+      'Site com base institucional e estrutura editorial para consultoria, combinando credibilidade, conteúdo e gestão simples.',
+    tags: ['CMS', 'Editorial', 'Mobile'],
+    themeColor: '#173b28',
+    externalUrl: 'https://polianabentes.com.br',
     image: '/assets/poliana-bentes-home.webp',
     alt: 'Site da BNTS Consultoria — empresa de relações institucionais e governamentais sediada em Belém, PA. Layout clean e profissional voltado para o setor industrial.',
     url: 'https://polianabentes.com.br',
