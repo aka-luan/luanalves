@@ -194,6 +194,24 @@ interface PortfolioCaseDetail {
 
 const basePortfolioProjects = [
   {
+    id: 'tresor-incorporacoes',
+    title: 'Trésor',
+    categories: ['Site Institucional'],
+    lead:
+      'Uma presença digital sofisticada para uma incorporadora que transforma endereços em experiências exclusivas.',
+    description:
+      'Página de portfólio do site institucional da Trésor Incorporações, marca focada em empreendimentos de alto padrão, arquitetura autoral e valorização do estilo de vida.',
+    tags: [
+      'Site institucional',
+      'Incorporadora',
+      'Alto padrão',
+      'Experiência premium',
+    ],
+    image: '/assets/tresor-portfolio.webp',
+    alt: 'Página de portfólio do site institucional da Trésor Incorporações, marca focada em empreendimentos de alto padrão.',
+    externalUrl: 'https://tresorincorporacoes.com.br/',
+  },
+  {
     id: 'urbem',
     title: 'Urbem',
     categories: ['Site Institucional', 'Blog Profissional'],
@@ -284,6 +302,65 @@ const basePortfolioProjects = [
 ];
 
 const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
+  'tresor-incorporacoes': {
+    slug: 'tresor-incorporacoes',
+    year: '2025',
+    client: 'Trésor Incorporações',
+    segment: 'Incorporadora · Alto padrão',
+    deliveredAt: '2025',
+    siteLabel: 'tresorincorporacoes.com.br',
+    challenge:
+      'A Trésor precisava de uma presença digital que transmitisse sofisticação, exclusividade e confiança desde o primeiro acesso, sem perder clareza na apresentação da marca e dos empreendimentos.',
+    solution:
+      'O site foi estruturado para valorizar a experiência visual da marca, apresentar seus diferenciais com elegância e conduzir o visitante por uma jornada institucional objetiva, premium e responsiva.',
+    deliverables: [
+      {
+        title: 'Site institucional',
+        description:
+          'Apresentação da marca, posicionamento, empreendimentos e canais de contato em uma estrutura clara e refinada.',
+      },
+      {
+        title: 'Narrativa premium',
+        description:
+          'Conteúdo focado em exclusividade, conforto, arquitetura autoral e valorização do estilo de vida.',
+      },
+      {
+        title: 'Experiência responsiva',
+        description:
+          'Layout adaptado para transmitir a mesma percepção de sofisticação em desktop e dispositivos móveis.',
+      },
+      {
+        title: 'Apresentação comercial',
+        description:
+          'Estrutura pensada para destacar empreendimentos, benefícios e pontos de conversão para potenciais compradores.',
+      },
+    ],
+    gallery: [
+      {
+        src: '/assets/tresor-portfolio.webp',
+        alt: 'Página de portfólio do site institucional da Trésor Incorporações.',
+        caption: 'Visão institucional',
+      },
+    ],
+    results: [
+      {
+        value: 'Sofisticação',
+        label: 'Presença digital alinhada ao posicionamento de alto padrão da marca.',
+      },
+      {
+        value: 'Clareza',
+        label: 'Empreendimentos, diferenciais e proposta de valor apresentados de forma objetiva.',
+      },
+      {
+        value: 'Mobile',
+        label: 'Experiência consistente para navegação e leitura em diferentes telas.',
+      },
+      {
+        value: 'Conversão',
+        label: 'Caminhos diretos para contato, apresentação dos empreendimentos e relacionamento com interessados.',
+      },
+    ],
+  },
   urbem: {
     slug: 'urbem',
     year: '2024',
