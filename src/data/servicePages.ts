@@ -4,6 +4,11 @@ const siteUrl = 'https://luanalves.com.br';
 const buildWhatsappHref = (text: string) =>
   `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
 
+export interface BreadcrumbSchemaItem {
+  name: string;
+  path: string;
+}
+
 export interface ServiceCard {
   icon: string;
   title: string;
@@ -733,29 +738,50 @@ export const servicePages: Record<string, ServicePageContent> = {
   },
 };
 
-export const getServicePageSchema = (page: ServicePageContent) => ({
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  '@id': `${siteUrl}${page.canonicalPath}#service`,
-  name: page.serviceName,
-  description: page.description,
-  url: `${siteUrl}${page.canonicalPath}`,
-  provider: {
-    '@id': `${siteUrl}/#business`,
-  },
-  areaServed:
-    page.slug === 'criacao-de-sites-belem'
-      ? [
-          { '@type': 'City', name: 'Belém' },
-          {
-            '@type': 'AdministrativeArea',
-            name: 'Região Metropolitana de Belém',
-          },
-        ]
-      : { '@type': 'Country', name: 'Brasil' },
-  offers: {
-    '@type': 'Offer',
-    availability: 'https://schema.org/InStock',
-    url: `${siteUrl}${page.canonicalPath}#contato`,
-  },
+export const getBreadcrumbSchema = (items: BreadcrumbSchemaItem[]) => ({
+  '@type': 'BreadcrumbList',
+  itemListElement: items.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.name,
+    item: `${siteUrl}${item.path}`,
+  })),
 });
+
+const serviceHubBreadcrumb = [
+  { name: 'Início', path: '/' },
+  { name: 'Criação de Sites', path: '/criacao-de-sites/' },
+];
+
+export const getServicePageSchema = (page: ServicePageContent) => [
+  getBreadcrumbSchema([
+    ...serviceHubBreadcrumb,
+    { name: page.serviceName, path: page.canonicalPath },
+  ]),
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': `${siteUrl}${page.canonicalPath}#service`,
+    name: page.serviceName,
+    description: page.description,
+    url: `${siteUrl}${page.canonicalPath}`,
+    provider: {
+      '@id': `${siteUrl}/#business`,
+    },
+    areaServed:
+      page.slug === 'criacao-de-sites-belem'
+        ? [
+            { '@type': 'City', name: 'Belém' },
+            {
+              '@type': 'AdministrativeArea',
+              name: 'Região Metropolitana de Belém',
+            },
+          ]
+        : { '@type': 'Country', name: 'Brasil' },
+    offers: {
+      '@type': 'Offer',
+      availability: 'https://schema.org/InStock',
+      url: `${siteUrl}${page.canonicalPath}#contato`,
+    },
+  },
+];

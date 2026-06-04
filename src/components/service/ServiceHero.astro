@@ -1,4 +1,5 @@
 ---
+import Breadcrumbs from '../Breadcrumbs.astro';
 import type { ServicePageContent } from '../../data/servicePages';
 
 interface Props {
@@ -9,6 +10,11 @@ const { page } = Astro.props;
 const { hero } = page;
 const titleParts = hero.title.split(hero.accent);
 const titleDensity = hero.title.length > 64 ? 'long' : 'default';
+const breadcrumbItems = [
+  { label: 'Início', href: '/' },
+  { label: 'Criação de Sites', href: '/criacao-de-sites/' },
+  { label: page.serviceName },
+];
 ---
 
 <section
@@ -22,6 +28,8 @@ const titleDensity = hero.title.length > 64 ? 'long' : 'default';
 
   <div class='service-hero__inner'>
     <div class='service-hero__copy'>
+      <Breadcrumbs items={breadcrumbItems} />
+
       <p
         class='service-eyebrow'
         data-motion-hero-eyebrow

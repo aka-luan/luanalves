@@ -1,4 +1,5 @@
 ---
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 import FaqSection from '../components/FaqSection.astro';
 import HomeCta from '../components/HomeCta.astro';
 import PortfolioShowcase from '../components/PortfolioShowcase.astro';
@@ -6,9 +7,20 @@ import SiteFooter from '../components/SiteFooter.astro';
 import SiteNav from '../components/SiteNav.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { projects } from '../data/site';
+import { getBreadcrumbSchema } from '../data/servicePages';
 
 const whatsappHref =
   'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Quero%20solicitar%20um%20or%C3%A7amento%20para%20cria%C3%A7%C3%A3o%20de%20site.';
+
+const breadcrumbItems = [
+  { label: 'Início', href: '/' },
+  { label: 'Criação de Sites' },
+];
+
+const creationPageSchema = getBreadcrumbSchema([
+  { name: 'Início', path: '/' },
+  { name: 'Criação de Sites', path: '/criacao-de-sites/' },
+]);
 
 const featureItems = [
   { icon: 'trending_up', label: 'SEO desde o início' },
@@ -194,7 +206,8 @@ const faqItems = [
   namespace='criacao-de-sites'
   title='Criação de Sites | Luan Alves'
   description='Criação de sites institucionais, blogs e landing pages para empresas que precisam vender mais com presença digital profissional.'
-  canonicalPath='/criacao-de-sites/'>
+  canonicalPath='/criacao-de-sites/'
+  schema={creationPageSchema}>
   <main class='site-creation-page'>
     <SiteNav
       whatsappHref={whatsappHref}
@@ -212,6 +225,8 @@ const faqItems = [
 
       <div class='creation-hero__inner'>
         <div class='creation-hero__copy'>
+          <Breadcrumbs items={breadcrumbItems} />
+
           <p
             class='creation-eyebrow'
             data-motion-hero-eyebrow
