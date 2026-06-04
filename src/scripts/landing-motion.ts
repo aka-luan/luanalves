@@ -287,6 +287,7 @@ export function initLandingMotion() {
 
   const html = document.documentElement;
   const nav = root.querySelector<HTMLElement>('[data-motion-nav]');
+  const caseNav = root.querySelector<HTMLElement>('[data-case-motion-nav]');
   const hero = root.querySelector<HTMLElement>('[data-motion="hero"]');
   const brandStack = root.querySelector<HTMLElement>('[data-brand-stack]');
   const brandLabel = root.querySelector<HTMLElement>('[data-brand-label]');
@@ -528,6 +529,48 @@ export function initLandingMotion() {
         const footerItems = Array.from(
           root.querySelectorAll('[data-motion-item="footer"]'),
         );
+        const caseOverviewSection = root.querySelector(
+          '[data-motion-section="case-overview"]',
+        );
+        const caseOverviewItems = Array.from(
+          root.querySelectorAll('[data-motion-item="case-overview"]'),
+        );
+        const caseBodySection = root.querySelector(
+          '[data-motion-section="case-body"]',
+        );
+        const caseStory = Array.from(
+          root.querySelectorAll('[data-motion-item="case-story"]'),
+        );
+        const caseDeliverablesPanel = Array.from(
+          root.querySelectorAll('[data-motion-item="case-deliverables"]'),
+        );
+        const caseDeliverables = Array.from(
+          root.querySelectorAll('[data-motion-item="case-deliverable"]'),
+        );
+        const caseGallerySection = root.querySelector(
+          '[data-motion-section="case-gallery"]',
+        );
+        const caseGalleryHeadings = Array.from(
+          caseGallerySection?.querySelectorAll('[data-motion-heading]') ?? [],
+        );
+        const caseGalleryItems = Array.from(
+          root.querySelectorAll('[data-motion-item="case-gallery"]'),
+        );
+        const caseResultsSection = root.querySelector(
+          '[data-motion-section="case-results"]',
+        );
+        const caseResultsHeadings = Array.from(
+          caseResultsSection?.querySelectorAll('[data-motion-heading]') ?? [],
+        );
+        const caseResultsItems = Array.from(
+          root.querySelectorAll('[data-motion-item="case-result"]'),
+        );
+        const caseNextSection = root.querySelector(
+          '[data-motion-section="case-next"]',
+        );
+        const caseNextItems = Array.from(
+          root.querySelectorAll('[data-motion-item="case-next"]'),
+        );
 
         gsap.set(projectImages, {
           scale: 1.14,
@@ -535,8 +578,15 @@ export function initLandingMotion() {
           willChange: 'transform, opacity',
         });
 
+        gsap.set(caseNav, {
+          autoAlpha: 0,
+          y: -18,
+          willChange: 'transform, opacity',
+        });
+
         const introTargets = [
           nav,
+          caseNav,
           heroEyebrow,
           heroTitle,
           heroCopy,
@@ -555,7 +605,7 @@ export function initLandingMotion() {
               },
             })
             .to(
-              nav,
+              [nav, caseNav].filter(Boolean),
               {
                 autoAlpha: 1,
                 y: 0,
@@ -727,6 +777,127 @@ export function initLandingMotion() {
             },
           });
         }
+
+        createSectionReveal({
+          section: caseOverviewSection,
+          targets: caseOverviewItems,
+          start: 'top 86%',
+          setup: (timeline) => {
+            timeline.to(caseOverviewItems, {
+              autoAlpha: 1,
+              y: 0,
+              duration: 0.72,
+              stagger: 0.08,
+              ease: 'power3.out',
+              clearProps: 'transform,opacity,willChange',
+            });
+          },
+        });
+
+        createSectionReveal({
+          section: caseBodySection,
+          targets: [...caseStory, ...caseDeliverablesPanel, ...caseDeliverables],
+          start: 'top 78%',
+          setup: (timeline) => {
+            timeline
+              .to([...caseStory, ...caseDeliverablesPanel], {
+                autoAlpha: 1,
+                x: 0,
+                y: 0,
+                duration: 0.88,
+                stagger: 0.1,
+                ease: 'power3.out',
+                clearProps: 'transform,opacity,willChange',
+              })
+              .to(
+                caseDeliverables,
+                {
+                  autoAlpha: 1,
+                  y: 0,
+                  duration: 0.62,
+                  stagger: 0.06,
+                  ease: 'power3.out',
+                  clearProps: 'transform,opacity,willChange',
+                },
+                0.18,
+              );
+          },
+        });
+
+        createSectionReveal({
+          section: caseGallerySection,
+          targets: [...caseGalleryHeadings, ...caseGalleryItems],
+          start: 'top 78%',
+          setup: (timeline) => {
+            timeline
+              .to(caseGalleryHeadings, {
+                autoAlpha: 1,
+                y: 0,
+                duration: 0.8,
+                stagger: 0.08,
+                ease: 'power3.out',
+                clearProps: 'transform,opacity,willChange',
+              })
+              .to(
+                caseGalleryItems,
+                {
+                  autoAlpha: 1,
+                  y: 0,
+                  rotationX: 0,
+                  duration: 0.86,
+                  stagger: 0.1,
+                  ease: 'power3.out',
+                  clearProps: 'transform,opacity,willChange',
+                },
+                0.12,
+              );
+          },
+        });
+
+        createSectionReveal({
+          section: caseResultsSection,
+          targets: [...caseResultsHeadings, ...caseResultsItems],
+          start: 'top 78%',
+          setup: (timeline) => {
+            timeline
+              .to(caseResultsHeadings, {
+                autoAlpha: 1,
+                y: 0,
+                duration: 0.8,
+                stagger: 0.08,
+                ease: 'power3.out',
+                clearProps: 'transform,opacity,willChange',
+              })
+              .to(
+                caseResultsItems,
+                {
+                  autoAlpha: 1,
+                  y: 0,
+                  rotationX: 0,
+                  duration: 0.86,
+                  stagger: 0.09,
+                  ease: 'power3.out',
+                  clearProps: 'transform,opacity,willChange',
+                },
+                0.12,
+              );
+          },
+        });
+
+        createSectionReveal({
+          section: caseNextSection,
+          targets: caseNextItems,
+          start: 'top 88%',
+          setup: (timeline) => {
+            timeline.to(caseNextItems, {
+              autoAlpha: 1,
+              y: 0,
+              duration: 0.76,
+              ease: 'power3.out',
+              clearProps: 'transform,opacity,willChange',
+            });
+          },
+        });
 
         createSectionReveal({
           section: root.querySelector('[data-motion-section="trust"]'),

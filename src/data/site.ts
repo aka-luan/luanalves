@@ -167,7 +167,32 @@ export const projects = [
   },
 ];
 
-export const portfolioProjects = [
+interface PortfolioCaseDetail {
+  slug: string;
+  year: string;
+  client: string;
+  segment: string;
+  deliveredAt: string;
+  siteLabel: string;
+  challenge: string;
+  solution: string;
+  deliverables: {
+    title: string;
+    description: string;
+  }[];
+  gallery: {
+    src: string;
+    alt: string;
+    caption: string;
+  }[];
+  results: {
+    value: string;
+    label: string;
+  }[];
+  mobileImage?: string;
+}
+
+const basePortfolioProjects = [
   {
     id: 'urbem',
     title: 'Urbem',
@@ -257,6 +282,356 @@ export const portfolioProjects = [
     externalUrl: 'https://polianabentes.com.br/',
   },
 ];
+
+const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
+  urbem: {
+    slug: 'urbem',
+    year: '2024',
+    client: 'Urbem',
+    segment: 'Indústria · Madeira engenheirada',
+    deliveredAt: '2024',
+    siteLabel: 'urbembr.com',
+    challenge:
+      'A Urbem precisava apresentar uma operação técnica e sustentável para arquitetos, construtoras e decisores que avaliam especificações antes de iniciar uma conversa comercial.',
+    solution:
+      'O projeto organizou produtos, projetos, biblioteca, blog e canais comerciais em uma experiência institucional clara, com base preparada para SEO técnico, leitura editorial e autoridade no segmento de madeira engenheirada.',
+    deliverables: [
+      {
+        title: 'Site institucional',
+        description:
+          'Estrutura de navegação para apresentar marca, produtos, projetos e canais comerciais.',
+      },
+      {
+        title: 'Blog profissional',
+        description:
+          'Base editorial para publicar conteúdo técnico e apoiar descoberta orgânica.',
+      },
+      {
+        title: 'Organização de conteúdo',
+        description:
+          'Arquitetura de páginas pensada para leitura técnica sem perder clareza comercial.',
+      },
+      {
+        title: 'SEO técnico',
+        description:
+          'Fundação de metadados, URLs e conteúdo estruturado para melhorar indexação.',
+      },
+    ],
+    gallery: [
+      {
+        src: '/assets/urbem-portfolio.webp',
+        alt: 'Página de portfólio do site institucional da Urbem.',
+        caption: 'Página inicial',
+      },
+    ],
+    results: [
+      {
+        value: 'PT-BR',
+        label: 'Conteúdo institucional preparado para o público brasileiro.',
+      },
+      {
+        value: 'SEO',
+        label: 'Estrutura criada para indexação e crescimento orgânico.',
+      },
+      {
+        value: 'B2B',
+        label: 'Mensagem orientada para arquitetos, construtoras e decisores.',
+      },
+    ],
+  },
+  tymber: {
+    slug: 'tymber',
+    year: '2025',
+    client: 'Tymber',
+    segment: 'Incorporadora · Mass timber',
+    deliveredAt: '2025',
+    siteLabel: 'tymber.com.br',
+    challenge:
+      'A Tymber precisava traduzir inovação sustentável em uma presença digital elegante, sem deixar a proposta técnica confusa ou distante do mercado imobiliário.',
+    solution:
+      'A página organiza manifesto, diferenciais e benefícios da madeira engenheirada em uma narrativa institucional objetiva, visualmente premium e fácil de percorrer.',
+    deliverables: [
+      {
+        title: 'Site institucional',
+        description:
+          'Apresentação da marca, manifesto e proposta de valor em uma estrutura enxuta.',
+      },
+      {
+        title: 'Narrativa de sustentabilidade',
+        description:
+          'Conteúdo focado em inovação, responsabilidade ambiental e tecnologia construtiva.',
+      },
+      {
+        title: 'Experiência responsiva',
+        description:
+          'Layout adaptado para leitura consistente em desktop e dispositivos móveis.',
+      },
+      {
+        title: 'Base editorial',
+        description:
+          'Estrutura preparada para expansão com conteúdo técnico e institucional.',
+      },
+    ],
+    gallery: [
+      {
+        src: '/assets/tymber-portfolio.webp',
+        alt: 'Página de portfólio do site institucional da Tymber.',
+        caption: 'Visão institucional',
+      },
+    ],
+    results: [
+      {
+        value: 'Clareza',
+        label: 'Proposta sustentável explicada com linguagem comercial direta.',
+      },
+      {
+        value: 'Mobile',
+        label: 'Experiência planejada para leitura em diferentes telas.',
+      },
+      {
+        value: 'Marca',
+        label: 'Presença digital alinhada ao posicionamento inovador.',
+      },
+    ],
+  },
+  'conviva-engenharia': {
+    slug: 'conviva-engenharia',
+    year: '2025',
+    client: 'Conviva Engenharia',
+    segment: 'Engenharia · Imobiliário',
+    deliveredAt: '2025',
+    siteLabel: 'convivaengenharia.com.br',
+    challenge:
+      'A Conviva precisava apresentar empreendimentos e diferenciais de moradia com uma experiência que gerasse confiança sem parecer genérica.',
+    solution:
+      'O site estrutura a comunicação de marca, localizações, benefícios e jornada comercial em uma experiência contemporânea, aspiracional e orientada à conversão.',
+    deliverables: [
+      {
+        title: 'Site institucional',
+        description:
+          'Estrutura para apresentar marca, empreendimentos e diferenciais comerciais.',
+      },
+      {
+        title: 'Conteúdo de autoridade',
+        description:
+          'Texto organizado para explicar qualidade de vida, localização e confiança.',
+      },
+      {
+        title: 'Navegação comercial',
+        description:
+          'Caminhos claros para visitantes avançarem até contato e avaliação.',
+      },
+      {
+        title: 'Performance visual',
+        description:
+          'Imagens e seções planejadas para impacto sem perder velocidade.',
+      },
+    ],
+    gallery: [
+      {
+        src: '/assets/conviva-portfolio.webp',
+        alt: 'Página de portfólio do site institucional da Conviva Engenharia.',
+        caption: 'Experiência principal',
+      },
+    ],
+    results: [
+      {
+        value: 'Imóveis',
+        label: 'Apresentação mais clara de empreendimentos e diferenciais.',
+      },
+      {
+        value: 'Confiança',
+        label: 'Conteúdo desenhado para reduzir atrito na decisão.',
+      },
+      {
+        value: 'Contato',
+        label: 'Fluxo visual direcionado para conversas comerciais.',
+      },
+    ],
+  },
+  'agencia-skyrocket': {
+    slug: 'agencia-skyrocket',
+    year: '2023',
+    client: 'Agência Skyrocket',
+    segment: 'Agência · Marketing digital',
+    deliveredAt: '2023',
+    siteLabel: 'agenciaskyrocket.com.br',
+    challenge:
+      'A agência precisava comunicar criatividade, serviços e capacidade de performance em uma experiência rápida, memorável e fácil de entender.',
+    solution:
+      'A solução combinou identidade visual forte, ritmo de leitura e seções objetivas para apresentar branding, estratégia, conteúdo, mídia online e performance.',
+    deliverables: [
+      {
+        title: 'Site criativo',
+        description:
+          'Experiência visual com linguagem espacial alinhada à marca Skyrocket.',
+      },
+      {
+        title: 'Página de serviços',
+        description:
+          'Organização clara das frentes de branding, estratégia e performance.',
+      },
+      {
+        title: 'Otimização de leitura',
+        description:
+          'Hierarquia de conteúdo para visitantes entenderem valor rapidamente.',
+      },
+      {
+        title: 'SEO de base',
+        description:
+          'Metadados e estrutura preparados para presença institucional no Google.',
+      },
+    ],
+    gallery: [
+      {
+        src: '/assets/skyrocket-portfolio.webp',
+        alt: 'Página de portfólio do site institucional da Agência Skyrocket.',
+        caption: 'Página de apresentação',
+      },
+      {
+        src: '/assets/skyrocket-home.webp',
+        alt: 'Página inicial do site da Agência Skyrocket.',
+        caption: 'Página inicial',
+      },
+    ],
+    results: [
+      {
+        value: 'Branding',
+        label: 'Identidade digital mais forte para apresentação da agência.',
+      },
+      {
+        value: 'Serviços',
+        label: 'Oferta organizada para leitura rápida e comercial.',
+      },
+      {
+        value: 'SEO',
+        label: 'Base institucional preparada para descoberta orgânica.',
+      },
+    ],
+    mobileImage: '/assets/skyrocket-home.webp',
+  },
+  'clinica-cdv': {
+    slug: 'clinica-cdv',
+    year: '2024',
+    client: 'Clínica CDV',
+    segment: 'Saúde · Clínica médica',
+    deliveredAt: '2024',
+    siteLabel: 'clinicacdv.com.br',
+    challenge:
+      'A clínica precisava organizar especialidades, exames e canais de agendamento em um site confiável, acessível e adequado a um contexto de saúde.',
+    solution:
+      'A presença digital foi estruturada para destacar trajetória, cuidado humanizado, especialidades e agendamento, com leitura leve e foco em confiança.',
+    deliverables: [
+      {
+        title: 'Site institucional',
+        description:
+          'Apresentação de história, especialidades, exames e informações da clínica.',
+      },
+      {
+        title: 'Fluxo de agendamento',
+        description:
+          'Caminhos claros para visitantes encontrarem contato e iniciarem atendimento.',
+      },
+      {
+        title: 'Conteúdo de serviços',
+        description:
+          'Organização das especialidades com linguagem objetiva e segura.',
+      },
+      {
+        title: 'Experiência responsiva',
+        description:
+          'Layout adaptado para pacientes pesquisando pelo celular.',
+      },
+    ],
+    gallery: [
+      {
+        src: '/assets/cdv-portfolio.webp',
+        alt: 'Página de portfólio do site institucional da Clínica CDV.',
+        caption: 'Página institucional',
+      },
+    ],
+    results: [
+      {
+        value: 'Saúde',
+        label: 'Informação médica apresentada com clareza e sobriedade.',
+      },
+      {
+        value: 'Agenda',
+        label: 'Contato e agendamento mais fáceis de encontrar.',
+      },
+      {
+        value: 'Mobile',
+        label: 'Navegação adequada para busca rápida em celulares.',
+      },
+    ],
+  },
+  'poliana-bentes': {
+    slug: 'poliana-bentes',
+    year: '2023',
+    client: 'Poliana Bentes',
+    segment: 'Consultoria · Relações institucionais',
+    deliveredAt: '2023',
+    siteLabel: 'polianabentes.com.br',
+    challenge:
+      'A consultoria precisava transmitir credibilidade, atuação estratégica e conhecimento do território amazônico sem depender de uma comunicação carregada.',
+    solution:
+      'O projeto criou uma base institucional e editorial com linguagem refinada, destacando processos, assessoria empresarial e relações institucionais no Pará.',
+    deliverables: [
+      {
+        title: 'Site institucional',
+        description:
+          'Estrutura para apresentar serviços, posicionamento e credibilidade.',
+      },
+      {
+        title: 'Blog profissional',
+        description:
+          'Base para publicação de conteúdo e atualização institucional.',
+      },
+      {
+        title: 'CMS organizado',
+        description:
+          'Gestão simplificada para páginas e conteúdos recorrentes.',
+      },
+      {
+        title: 'Mensagem estratégica',
+        description:
+          'Copy voltada para transparência, solidez e construção de relações.',
+      },
+    ],
+    gallery: [
+      {
+        src: '/assets/poliana-portfolio.webp',
+        alt: 'Página de portfólio do site institucional da Poliana Bentes.',
+        caption: 'Página institucional',
+      },
+      {
+        src: '/assets/poliana-bentes-home.webp',
+        alt: 'Página inicial do site da Poliana Bentes.',
+        caption: 'Página inicial',
+      },
+    ],
+    results: [
+      {
+        value: 'CMS',
+        label: 'Estrutura preparada para gestão simples de conteúdo.',
+      },
+      {
+        value: 'Editorial',
+        label: 'Base de blog para fortalecer autoridade institucional.',
+      },
+      {
+        value: 'Credibilidade',
+        label: 'Mensagem mais clara para empresas e instituições.',
+      },
+    ],
+    mobileImage: '/assets/poliana-bentes-home.webp',
+  },
+};
+
+export const portfolioProjects = basePortfolioProjects.map((project) => ({
+  ...project,
+  ...portfolioCaseDetails[project.id],
+}));
 
 export const reasons = [
   {

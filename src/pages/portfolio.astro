@@ -83,7 +83,8 @@ const portfolioSchema = [
         '@type': 'CreativeWork',
         name: project.title,
         description: project.lead,
-        url: project.externalUrl,
+        url: `${siteUrl}/portfolio/${project.slug}/`,
+        sameAs: project.externalUrl,
         creator: { '@id': `${siteUrl}/#person` },
         about: project.categories,
       },
@@ -214,9 +215,7 @@ const portfolioSchema = [
                 <a
                   class='portfolio-card'
                   id={project.id}
-                  href={project.externalUrl}
-                  target='_blank'
-                  rel='noreferrer'
+                  href={`/portfolio/${project.slug}/`}
                   data-motion-item='project'
                   data-motion-hidden={index % 2 === 0 ? 'x-left' : 'x-right'}
                   data-portfolio-card
@@ -250,7 +249,7 @@ const portfolioSchema = [
                       {niches.map((tag) => <span>{tag}</span>)}
                     </div>
                     <span class='portfolio-card__cta'>
-                      Ver projeto
+                      Ver case
                       <span class='material-symbols-outlined' aria-hidden='true'>
                         north_east
                       </span>
