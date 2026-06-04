@@ -72,8 +72,14 @@ const caseSchema = [
     creator: { '@id': `${siteUrl}/#person` },
     about: project.categories,
     datePublished: `${project.year}-01-01`,
+    dateModified: `${project.year}-01-01`,
     inLanguage: 'pt-BR',
     sameAs: externalUrl,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': projectUrl,
+    },
+    provider: { '@id': `${siteUrl}/#business` },
   },
 ];
 ---

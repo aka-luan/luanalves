@@ -79,6 +79,8 @@ const moreMotionAttrs = motion
     <div class='portfolio-showcase__grid' aria-label='Projetos selecionados'>
       {
         projects.map((item, index) => {
+          const href = item.href ?? item.url;
+          const isExternal = href?.startsWith('http') ?? false;
           const cardMotionAttrs = motion
             ? {
                 'data-motion-item': 'project',
@@ -89,9 +91,9 @@ const moreMotionAttrs = motion
           return (
             <a
               class='portfolio-showcase__card'
-              href={item.url ?? item.href}
-              target='_blank'
-              rel='noreferrer'
+              href={href}
+              target={isExternal ? '_blank' : undefined}
+              rel={isExternal ? 'noreferrer' : undefined}
               {...cardMotionAttrs}>
               <span class='portfolio-showcase__media'>
                 <img

@@ -35,6 +35,7 @@ export const trustItems = [
 export const services = [
   {
     icon: 'corporate_fare',
+    href: '/site-institucional/',
     title: 'Site Institucional',
     description:
       'Presença digital premium para a sua empresa. Desenvolvido com foco em autoridade de marca, SEO técnico e experiência do usuário — para que clientes te encontrem no Google e confiem no que veem.',
@@ -42,6 +43,7 @@ export const services = [
   },
   {
     icon: 'article',
+    href: '/blog-profissional/',
     title: 'Blog Profissional',
     description:
       'Estrutura editorial feita para ranquear no Google. Publique conteúdo com autoridade, performance e uma experiência de leitura que retém visitantes e gera oportunidades de negócio.',
@@ -49,6 +51,7 @@ export const services = [
   },
   {
     icon: 'ads_click',
+    href: '/landing-page/',
     title: 'Landing Page',
     description:
       'Páginas desenvolvidas para campanhas e anúncios que precisam converter. Velocidade máxima, copy focada em lead e estrutura testada para maximizar o retorno do seu investimento em tráfego pago.',
@@ -709,6 +712,21 @@ export const portfolioProjects = basePortfolioProjects.map((project) => ({
   ...project,
   ...portfolioCaseDetails[project.id],
 }));
+
+const featuredPortfolioCaseIds = [
+  'tresor-incorporacoes',
+  'agencia-skyrocket',
+  'poliana-bentes',
+];
+
+export const featuredPortfolioProjects = featuredPortfolioCaseIds
+  .map((id) => portfolioProjects.find((project) => project.id === id))
+  .filter((project): project is (typeof portfolioProjects)[number] => Boolean(project))
+  .map((project) => ({
+    ...project,
+    subtitle: project.categories.join(' / '),
+    href: `/portfolio/${project.slug}/`,
+  }));
 
 export const reasons = [
   {

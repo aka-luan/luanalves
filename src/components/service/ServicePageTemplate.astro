@@ -5,7 +5,7 @@ import PortfolioShowcase from '../PortfolioShowcase.astro';
 import SiteFooter from '../SiteFooter.astro';
 import SiteNav from '../SiteNav.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { projects } from '../../data/site';
+import { featuredPortfolioProjects } from '../../data/site';
 import {
   getServicePageSchema,
   type ServicePageContent,
@@ -84,7 +84,7 @@ const { page } = Astro.props;
     />
 
     <PortfolioShowcase
-      projects={projects}
+      projects={featuredPortfolioProjects}
       copy='Projetos reais usados como referência de acabamento, performance e presença digital profissional.'
       moreHref='/portfolio/'
     />

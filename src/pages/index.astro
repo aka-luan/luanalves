@@ -8,13 +8,12 @@ import {
   navigation,
   trustItems,
   services,
-  projects,
+  featuredPortfolioProjects,
   reasons,
 } from '../data/site';
 
 const whatsappHref =
   'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Estou%20interessado%20em%20criar%20um%20site%20profissional%20para%20meu%20neg%C3%B3cio.%20Podemos%20conversar%3F';
-const projectModalData = JSON.stringify(projects);
 ---
 
 <BaseLayout>
@@ -115,7 +114,8 @@ const projectModalData = JSON.stringify(projects);
         <div class='card-grid'>
           {
             services.map((service) => (
-              <article
+              <a
+                href={service.href}
                 class='service-card'
                 data-motion-item='service'
                 data-motion-hidden='y-card'>
@@ -130,7 +130,7 @@ const projectModalData = JSON.stringify(projects);
                     <li>{item}</li>
                   ))}
                 </ul>
-              </article>
+              </a>
             ))
           }
         </div>
@@ -147,7 +147,7 @@ const projectModalData = JSON.stringify(projects);
       </div>
     </section>
 
-    <ProjectPortfolio projects={projects} mode='modal' />
+    <ProjectPortfolio projects={featuredPortfolioProjects} mode='link' />
 
     <section class='section why-section' data-motion-section='why'>
       <div class='why-grid-accent hero-grid' aria-hidden='true'></div>
@@ -201,140 +201,6 @@ const projectModalData = JSON.stringify(projects);
     <HomeCta whatsappHref={whatsappHref} />
   </main>
 
-  <div class='project-modal' data-project-modal aria-hidden='true' hidden>
-    <button
-      class='project-modal-backdrop'
-      type='button'
-      data-project-modal-backdrop
-      aria-label='Fechar modal do projeto'></button>
-
-    <div
-      class='project-modal-shell'
-      data-project-modal-panel
-      role='dialog'
-      aria-modal='true'
-      aria-labelledby='project-modal-title'>
-      <div class='project-modal-head'>
-        <p class='project-modal-kicker' data-project-modal-kicker></p>
-        <button
-          class='project-modal-close'
-          type='button'
-          data-project-modal-close
-          aria-label='Fechar modal do projeto'>
-          <span class='material-symbols-outlined'>close</span>
-        </button>
-      </div>
-
-      <div class='project-modal-layout'>
-        <div class='project-modal-primary'>
-          <div class='project-modal-video-card'>
-            <div class='project-modal-video-frame'>
-              <video
-                data-project-modal-video
-                playsinline
-                muted
-                loop
-                controls
-                preload='none'
-                poster=''>
-                <source
-                  data-project-modal-video-source
-                  src=''
-                  type='video/mp4'
-                />
-              </video>
-              <span class='project-modal-video-badge'>Autoplay</span>
-            </div>
-          </div>
-
-          <div class='project-modal-copy'>
-            <h3 id='project-modal-title' data-project-modal-title></h3>
-            <p data-project-modal-description></p>
-
-            <div class='project-modal-actions'>
-              <a
-                class='button button-solid button-compact'
-                data-project-modal-link
-                href=''>
-                Visitar projeto
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <aside class='project-modal-secondary'>
-          <div class='project-modal-hero' data-project-modal-hero>
-            <img data-project-modal-hero-image src='' alt='' />
-          </div>
-
-          <div class='project-modal-gallery'>
-            <div class='project-modal-gallery-heading'>
-              <span>Galeria</span>
-              <span data-project-modal-gallery-count>1 / 3</span>
-            </div>
-
-            <div class='project-modal-gallery-stage'>
-              <button
-                class='project-modal-gallery-view'
-                type='button'
-                data-project-modal-gallery-open
-                aria-label='Abrir imagem da galeria'>
-                <span class='project-modal-gallery-overlay'></span>
-                <img
-                  data-project-modal-gallery-image
-                  src=''
-                  alt=''
-                  loading='lazy'
-                />
-                <span class='project-modal-gallery-zoom'>Abrir</span>
-              </button>
-
-              <button
-                class='project-modal-gallery-nav'
-                type='button'
-                data-project-modal-gallery-next
-                aria-label='Próxima imagem da galeria'>
-                <span class='material-symbols-outlined'>east</span>
-              </button>
-
-              <button
-                class='project-modal-gallery-nav project-modal-gallery-nav--left'
-                type='button'
-                data-project-modal-gallery-prev
-                aria-label='Imagem anterior da galeria'>
-                <span class='material-symbols-outlined'>west</span>
-              </button>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </div>
-  </div>
-
-  <div class='project-lightbox' data-project-lightbox aria-hidden='true' hidden>
-    <button
-      class='project-lightbox-backdrop'
-      type='button'
-      data-project-lightbox-backdrop
-      aria-label='Fechar imagem ampliada'></button>
-    <div class='project-lightbox-shell'>
-      <button
-        class='project-lightbox-close'
-        type='button'
-        data-project-lightbox-close
-        aria-label='Fechar imagem ampliada'>
-        <span class='material-symbols-outlined'>close</span>
-      </button>
-      <img data-project-lightbox-image src='' alt='' />
-    </div>
-  </div>
-
   <SiteFooter links={navigation} />
-
-  <script
-    type='application/json'
-    data-project-modal-data
-    set:html={projectModalData}
-  />
 </BaseLayout>
 

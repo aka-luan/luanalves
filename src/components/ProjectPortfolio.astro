@@ -55,6 +55,8 @@ const titleMotionAttrs = motion
     <div class='project-grid'>
       {
         projects.map((project, index) => {
+          const href = project.href ?? project.url;
+          const isExternal = href?.startsWith('http') ?? false;
           const motionAttrs = motion
             ? {
                 'data-motion-item': 'project',
@@ -92,10 +94,10 @@ const titleMotionAttrs = motion
           ) : (
             <a
               class='project-card'
-              href={project.url ?? project.href}
-              target='_blank'
-              rel='noreferrer'
-              aria-label={`Abrir projeto ${project.title}`}
+              href={href}
+              target={isExternal ? '_blank' : undefined}
+              rel={isExternal ? 'noreferrer' : undefined}
+              aria-label={`Ver case ${project.title}`}
               {...motionAttrs}>
               <div class='project-media'>
                 <img src={project.image} alt={project.alt} loading='lazy' />
