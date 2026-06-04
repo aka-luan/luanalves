@@ -9,9 +9,10 @@ const whatsappHref =
   'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20solicitar%20um%20or%C3%A7amento%20para%20um%20site.';
 
 const filters = [
-  { label: 'Todos', href: '#portfolio-grid', current: true },
-  { label: 'Site Institucional', href: '#site-institucional' },
-  { label: 'Blog Profissional', href: '#blog-profissional' },
+  { label: 'Todos', value: 'all', current: true },
+  { label: 'Site Institucional', value: 'site-institucional' },
+  { label: 'Blog Profissional', value: 'blog-profissional' },
+  { label: 'Landing Page', value: 'landing-page' },
 ];
 
 const metrics = [
@@ -19,6 +20,19 @@ const metrics = [
   { value: '05+', label: 'Anos' },
   { value: '100%', label: 'Entregues' },
 ];
+
+const featuredProject = portfolioProjects[0];
+
+const projectYears: Record<string, string> = {
+  urbem: '2024',
+  tymber: '2025',
+  'conviva-engenharia': '2025',
+  'agencia-skyrocket': '2023',
+  'clinica-cdv': '2024',
+  'poliana-bentes': '2023',
+};
+
+const formatCategory = (value: string) => value.replace(/^Site\s+/i, '');
 
 const slugify = (value: string) =>
   value
@@ -90,108 +104,174 @@ const portfolioSchema = [
       whatsappHref={whatsappHref}
       brandHref='/'
       brandAriaLabel='Luan Alves, página inicial'
-      motion={false}
     />
 
-    <section class='portfolio-hero' aria-labelledby='portfolio-title'>
-      <div class='portfolio-hero__grid hero-grid' aria-hidden='true'></div>
+    <section class='portfolio-hero' aria-labelledby='portfolio-title' data-motion='hero'>
+      <div
+        class='portfolio-hero__grid hero-grid'
+        aria-hidden='true'
+        data-motion-glow>
+      </div>
       <div class='portfolio-hero__inner'>
-        <nav class='portfolio-breadcrumb' aria-label='Breadcrumb'>
+        <nav
+          class='portfolio-breadcrumb'
+          aria-label='Breadcrumb'
+          data-motion-hero-eyebrow
+          data-motion-hidden='y-sm'>
           <a href='/'>Início</a>
           <span aria-hidden='true'>/</span>
           <span>Portfólio</span>
         </nav>
 
-        <div class='portfolio-hero__copy'>
-          <h1 id='portfolio-title'>Projetos entregues para empresas reais.</h1>
-          <p>
-            Sites institucionais e blogs profissionais desenvolvidos com código
-            limpo, SEO técnico e foco em conversão.
-          </p>
-        </div>
+        <div class='portfolio-hero__content'>
+          <div>
+            <div class='portfolio-hero__copy'>
+              <h1 id='portfolio-title'>
+                <span data-motion-hero-title data-motion-hidden='y-lg'>
+                  Projetos entregues para <span class='portfolio-title-accent'>empresas reais.</span>
+                </span>
+              </h1>
+              <p data-motion-hero-copy data-motion-hidden='y-md'>
+                Sites institucionais e blogs profissionais desenvolvidos com código
+                limpo, SEO técnico e foco em conversão.
+              </p>
+            </div>
 
-        <dl class='portfolio-metrics' aria-label='Números do portfólio'>
-          {
-            metrics.map((metric) => (
-              <div>
-                <dt>{metric.value}</dt>
-                <dd>{metric.label}</dd>
-              </div>
-            ))
-          }
-        </dl>
+            <dl class='portfolio-metrics' aria-label='Números do portfólio'>
+              {
+                metrics.map((metric) => (
+                  <div data-motion-item='hero-feature' data-motion-hidden='y-sm'>
+                    <dt>{metric.value}</dt>
+                    <dd>{metric.label}</dd>
+                  </div>
+                ))
+              }
+            </dl>
+          </div>
+
+          <a
+            class='portfolio-featured'
+            href={`#${featuredProject.id}`}
+            data-motion-item='hero-media'
+            data-motion-hidden='scale'
+            aria-label={`Ver projeto em destaque: ${featuredProject.title}`}>
+            <span class='portfolio-featured__eyebrow'>Projeto em destaque</span>
+            <span class='portfolio-featured__media'>
+              <img
+                src={featuredProject.image}
+                alt={featuredProject.alt}
+                width='900'
+                height='620'
+                loading='eager'
+                decoding='async'
+              />
+            </span>
+            <span class='portfolio-featured__body'>
+              <span>
+                <strong>{featuredProject.title}</strong>
+                <small>{featuredProject.categories.join(' / ')}</small>
+              </span>
+              <span class='material-symbols-outlined' aria-hidden='true'>
+                arrow_downward
+              </span>
+            </span>
+          </a>
+        </div>
       </div>
     </section>
 
     <section
       class='portfolio-work'
-      aria-labelledby='portfolio-work-title'>
+      data-motion-section='portfolio'
+      aria-label='Projetos do portfólio'>
       <div class='portfolio-work__inner'>
-        <h2 id='portfolio-work-title' class='sr-only'>Projetos do portfólio</h2>
-
-        <nav class='portfolio-filters' aria-label='Filtrar projetos por serviço'>
+        <nav
+          class='portfolio-filters'
+          aria-label='Filtrar projetos por tipo'
+          data-motion-heading
+          data-motion-hidden='y-sm'>
           {
             filters.map((filter) => (
-              <a
-                href={filter.href}
+              <button
+                type='button'
+                data-portfolio-filter={filter.value}
                 aria-current={filter.current ? 'true' : undefined}>
                 {filter.label}
-              </a>
+              </button>
             ))
           }
         </nav>
 
-        <span id='site-institucional' class='sr-only'>Site Institucional</span>
-        <span id='blog-profissional' class='sr-only'>Blog Profissional</span>
-
         <div class='portfolio-grid' id='portfolio-grid'>
           {
-            portfolioProjects.map((project) => {
-              const primaryCategory = project.categories[0];
-              const secondaryCategories = project.categories.slice(1);
+            portfolioProjects.map((project, index) => {
+              const year = projectYears[project.id] ?? '2024';
+              const categories = project.categories.map(formatCategory);
+              const niches = project.tags.slice(1, 4);
+              const categorySlugs = project.categories.map(slugify).join(' ');
 
               return (
-                <article
+                <a
                   class='portfolio-card'
                   id={project.id}
-                  data-categories={project.categories.map(slugify).join(' ')}>
+                  href={project.externalUrl}
+                  target='_blank'
+                  rel='noreferrer'
+                  data-motion-item='project'
+                  data-motion-hidden={index % 2 === 0 ? 'x-left' : 'x-right'}
+                  data-portfolio-card
+                  data-portfolio-categories={categorySlugs}
+                  aria-label={`Ver projeto: ${project.title}`}>
                   <div class='portfolio-card__media'>
                     <img
                       src={project.image}
                       alt={project.alt}
                       width='900'
                       height='620'
-                      loading='eager'
+                      loading={index < 2 ? 'eager' : 'lazy'}
                       decoding='async'
+                      data-motion-image
                     />
                   </div>
 
                   <div class='portfolio-card__body'>
-                    <div class='portfolio-card__categories' aria-label='Categorias'>
-                      <span>{primaryCategory}</span>
-                      {secondaryCategories.map((category) => <span>{category}</span>)}
+                    <div class='portfolio-card__meta'>
+                      <div class='portfolio-card__categories' aria-label='Categorias'>
+                        {categories.map((category) => <span>{category}</span>)}
+                      </div>
+                      <span class='portfolio-card__year'>{year}</span>
                     </div>
                     <h3>{project.title}</h3>
                     <p class='portfolio-card__lead'>{project.lead}</p>
+                  </div>
 
-                    <ul class='portfolio-card__tags' aria-label='Tags técnicas'>
-                      {project.tags.map((tag) => <li>{tag}</li>)}
-                    </ul>
-
-                    <a href={project.externalUrl} target='_blank' rel='noreferrer'>
+                  <div class='portfolio-card__footer'>
+                    <div class='portfolio-card__niches' aria-label='Nichos e tecnologias'>
+                      {niches.map((tag) => <span>{tag}</span>)}
+                    </div>
+                    <span class='portfolio-card__cta'>
+                      Ver projeto
                       <span class='material-symbols-outlined' aria-hidden='true'>
                         north_east
                       </span>
-                      Ver projeto
-                    </a>
+                    </span>
                   </div>
-                </article>
+                </a>
               );
             })
           }
         </div>
 
-        <aside class='portfolio-cta' aria-labelledby='portfolio-cta-title'>
+        <p class='portfolio-empty' data-portfolio-empty hidden>
+          Nenhum projeto dessa categoria está publicado no portfólio ainda.
+        </p>
+
+        <aside
+          class='portfolio-cta'
+          aria-labelledby='portfolio-cta-title'
+          data-motion-section='cta'
+          data-motion-panel
+          data-motion-hidden='y-lg'>
           <div>
             <h2 id='portfolio-cta-title'>Tem um projeto em mente?</h2>
             <p>
@@ -210,7 +290,7 @@ const portfolioSchema = [
     </section>
   </main>
 
-  <SiteFooter links={navigation} brandHref='/' motion={false} />
+  <SiteFooter links={navigation} brandHref='/' />
 </BaseLayout>
 
 <style>
@@ -223,7 +303,7 @@ const portfolioSchema = [
     min-height: 100svh;
     background:
       radial-gradient(circle at 50% 0%, rgba(229, 196, 135, 0.08), transparent 30rem),
-      linear-gradient(180deg, #101010 0%, #141414 44%, #101010 100%);
+      linear-gradient(180deg, var(--surface-lowest) 0%, var(--background) 44%, var(--surface-lowest) 100%);
     color: var(--text);
   }
 
@@ -277,6 +357,13 @@ const portfolioSchema = [
     color: var(--primary);
   }
 
+  .portfolio-hero__content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(20rem, 28rem);
+    gap: clamp(2rem, 6vw, 5rem);
+    align-items: center;
+  }
+
   .portfolio-hero__copy {
     max-width: 44rem;
   }
@@ -284,7 +371,7 @@ const portfolioSchema = [
   .portfolio-hero h1 {
     max-width: 12ch;
     margin: 0;
-    color: #f5f2ef;
+    color: var(--text);
     font-family: 'Newsreader', serif;
     font-size: clamp(3.2rem, 7.2vw, 5.6rem);
     font-weight: 600;
@@ -293,10 +380,19 @@ const portfolioSchema = [
     text-wrap: balance;
   }
 
+  .portfolio-hero h1 span {
+    display: inline-block;
+  }
+
+  .portfolio-title-accent {
+    color: var(--primary);
+    font-style: italic;
+  }
+
   .portfolio-hero__copy p {
     max-width: 40rem;
     margin: 1.35rem 0 0;
-    color: rgba(226, 218, 208, 0.72);
+    color: var(--muted);
     font-size: clamp(1rem, 1.45vw, 1.15rem);
     font-weight: 300;
     line-height: 1.68;
@@ -315,7 +411,7 @@ const portfolioSchema = [
   }
 
   .portfolio-metrics dt {
-    color: #f5f2ef;
+    color: var(--text);
     font-size: clamp(1.45rem, 3vw, 1.9rem);
     font-weight: 800;
     line-height: 1;
@@ -330,6 +426,126 @@ const portfolioSchema = [
     text-transform: uppercase;
   }
 
+  .portfolio-featured {
+    position: relative;
+    display: grid;
+    overflow: hidden;
+    border: 1px solid rgba(229, 196, 135, 0.26);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent 42%),
+      var(--surface);
+    box-shadow:
+      0 1.4rem 4.5rem rgba(0, 0, 0, 0.34),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    transition:
+      border-color 220ms ease,
+      transform 220ms ease,
+      box-shadow 220ms ease;
+  }
+
+  .portfolio-featured:hover,
+  .portfolio-featured:focus-visible {
+    border-color: rgba(229, 196, 135, 0.54);
+    transform: translateY(-0.3rem);
+    box-shadow:
+      0 2rem 5.5rem rgba(0, 0, 0, 0.42),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  .portfolio-featured__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.8rem;
+    padding: 0 1rem;
+    border-bottom: 1px solid rgba(229, 196, 135, 0.2);
+    color: var(--primary);
+    font-size: 0.62rem;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .portfolio-featured__media {
+    position: relative;
+    display: block;
+    aspect-ratio: 1.52 / 1;
+    overflow: hidden;
+    background: var(--surface-lowest);
+  }
+
+  .portfolio-featured__media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.2)),
+      radial-gradient(circle at 50% 100%, rgba(229, 196, 135, 0.12), transparent 62%);
+    pointer-events: none;
+  }
+
+  .portfolio-featured__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: saturate(1.03) contrast(1.04) brightness(0.95);
+    transform: scale(1.01);
+    transition:
+      filter 260ms ease,
+      transform 700ms ease;
+  }
+
+  .portfolio-featured:hover .portfolio-featured__media img,
+  .portfolio-featured:focus-visible .portfolio-featured__media img {
+    filter: saturate(1.07) contrast(1.06) brightness(1);
+    transform: scale(1.045);
+  }
+
+  .portfolio-featured__body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.05rem 1.05rem;
+    border-top: 1px solid rgba(229, 218, 207, 0.12);
+  }
+
+  .portfolio-featured__body span:first-child {
+    display: grid;
+    gap: 0.28rem;
+    min-width: 0;
+  }
+
+  .portfolio-featured__body strong {
+    color: var(--text);
+    font-size: 1rem;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 1.12;
+  }
+
+  .portfolio-featured__body small {
+    overflow-wrap: anywhere;
+    color: var(--subtle);
+    font-size: 0.66rem;
+    font-weight: 900;
+    letter-spacing: 0.13em;
+    line-height: 1.35;
+    text-transform: uppercase;
+  }
+
+  .portfolio-featured__body .material-symbols-outlined {
+    flex: 0 0 auto;
+    color: var(--primary);
+    font-size: 1.1rem;
+    transition: transform 180ms ease;
+  }
+
+  .portfolio-featured:hover .portfolio-featured__body .material-symbols-outlined,
+  .portfolio-featured:focus-visible .portfolio-featured__body .material-symbols-outlined {
+    transform: translateY(0.16rem);
+  }
+
   .portfolio-work {
     padding: 0 0 clamp(3.8rem, 7vw, 5.6rem);
   }
@@ -338,38 +554,47 @@ const portfolioSchema = [
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
-    padding: clamp(1.25rem, 2.4vw, 1.65rem) 0;
+    padding: clamp(1.6rem, 3.2vw, 2.4rem) 0;
     border-bottom: 1px solid rgba(77, 70, 58, 0.32);
   }
 
-  .portfolio-filters a {
+  .portfolio-filters button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     min-height: 2.8rem;
     padding: 0.65rem 1.1rem;
-    border: 1px solid rgba(229, 218, 207, 0.24);
-    color: #f2ede7;
-    font-size: 0.88rem;
+    border: 1px solid rgba(153, 143, 129, 0.26);
+    border-radius: var(--radius);
+    background: transparent;
+    color: var(--muted);
+    font-size: 0.78rem;
     font-weight: 800;
+    letter-spacing: 0.16em;
     line-height: 1.2;
+    text-transform: uppercase;
     transition:
       border-color 180ms ease,
       background-color 180ms ease,
       color 180ms ease,
       transform 180ms ease;
+    cursor: pointer;
   }
 
-  .portfolio-filters a[aria-current='true'],
-  .portfolio-filters a:hover,
-  .portfolio-filters a:focus-visible {
+  .portfolio-filters button[aria-current='true'],
+  .portfolio-filters button:hover,
+  .portfolio-filters button:focus-visible {
     border-color: rgba(229, 196, 135, 0.58);
     background: rgba(229, 196, 135, 0.08);
     color: var(--primary);
   }
 
-  .portfolio-filters a:hover {
+  .portfolio-filters button:hover {
     transform: translateY(-2px);
+  }
+
+  .portfolio-filters button:active {
+    transform: translateY(0);
   }
 
   .portfolio-grid {
@@ -379,33 +604,48 @@ const portfolioSchema = [
     padding-top: clamp(2rem, 4.6vw, 3rem);
   }
 
+  .portfolio-empty {
+    margin: clamp(2rem, 4vw, 3rem) 0 0;
+    padding: 1.4rem 1.6rem;
+    border: 1px solid rgba(229, 196, 135, 0.2);
+    background: var(--surface-soft);
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
   .portfolio-card {
-    display: grid;
-    grid-template-rows: auto 1fr;
+    display: flex;
+    flex-direction: column;
     min-width: 0;
     overflow: hidden;
-    border: 1px solid rgba(229, 218, 207, 0.16);
-    background: rgba(28, 27, 27, 0.88);
+    border: 1px solid rgba(229, 218, 207, 0.14);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.018), transparent 38%),
+      var(--surface-soft);
+    text-decoration: none;
     box-shadow: var(--shadow-soft);
     transition:
-      border-color 220ms ease,
-      transform 220ms ease,
-      box-shadow 220ms ease;
+      border-color 200ms ease,
+      transform 200ms ease;
+  }
+
+  .portfolio-card[hidden] {
+    display: none;
   }
 
   .portfolio-card:hover,
-  .portfolio-card:focus-within {
+  .portfolio-card:focus-visible {
     border-color: rgba(229, 196, 135, 0.42);
     transform: translateY(-0.3rem);
-    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.28);
   }
 
   .portfolio-card__media {
     position: relative;
     display: block;
-    aspect-ratio: 1.32 / 1;
+    aspect-ratio: 1.3 / 1;
     overflow: hidden;
-    background: #101010;
+    background: var(--surface-lowest);
   }
 
   .portfolio-card__media::after {
@@ -414,8 +654,8 @@ const portfolioSchema = [
     inset: 0;
     background:
       linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.24)),
-      radial-gradient(circle at 50% 100%, rgba(229, 196, 135, 0.1), transparent 60%);
-    opacity: 0.7;
+      radial-gradient(circle at 50% 100%, rgba(229, 196, 135, 0.1), transparent 58%);
+    opacity: 0.72;
     pointer-events: none;
   }
 
@@ -424,15 +664,13 @@ const portfolioSchema = [
     height: 100%;
     object-fit: cover;
     object-position: center top;
+    display: block;
     filter: saturate(1.02) contrast(1.03) brightness(0.96);
-    transform: scale(1.01);
-    transition:
-      filter 260ms ease,
-      transform 700ms ease;
+    transition: transform 400ms ease;
   }
 
   .portfolio-card:hover .portfolio-card__media img,
-  .portfolio-card:focus-within .portfolio-card__media img {
+  .portfolio-card:focus-visible .portfolio-card__media img {
     filter: saturate(1.06) contrast(1.05) brightness(1);
     transform: scale(1.045);
   }
@@ -440,101 +678,109 @@ const portfolioSchema = [
   .portfolio-card__body {
     display: grid;
     align-content: start;
-    padding: 1.35rem;
+    flex: 1;
+    padding: 1.2rem 1.2rem 0;
+  }
+
+  .portfolio-card__meta {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.85rem;
+    margin-bottom: 0.7rem;
   }
 
   .portfolio-card__categories {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.42rem;
+    gap: 0.32rem;
   }
 
   .portfolio-card__categories span {
     display: inline-flex;
     align-items: center;
-    min-height: 1.55rem;
-    padding: 0.24rem 0.5rem;
+    min-height: 1.35rem;
+    padding: 0.2rem 0.55rem;
     border: 1px solid rgba(229, 196, 135, 0.22);
+    background: rgba(229, 196, 135, 0.045);
     color: var(--primary);
-    font-size: 0.62rem;
-    font-weight: 900;
-    letter-spacing: 0.14em;
+    font-size: 0.56rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
   }
 
-  .portfolio-card__categories span + span {
-    border-color: rgba(229, 218, 207, 0.14);
-    color: rgba(226, 218, 208, 0.66);
+  .portfolio-card__year {
+    flex: 0 0 auto;
+    color: var(--subtle);
+    font-size: 0.69rem;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.02em;
+    line-height: 1.4;
   }
 
   .portfolio-card__lead {
-    margin: 0;
-    color: rgba(245, 242, 239, 0.86);
-    font-size: 0.95rem;
-    font-weight: 750;
-    line-height: 1.48;
+    margin: 0 0 0.9rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.55;
     text-wrap: pretty;
   }
 
   .portfolio-card h3 {
-    margin: 0.8rem 0 0;
-    color: #f5f2ef;
-    font-size: 1.24rem;
-    font-weight: 850;
-    letter-spacing: -0.02em;
-    line-height: 1.16;
+    margin: 0 0 0.38rem;
+    color: var(--text);
+    font-family: 'Newsreader', serif;
+    font-size: clamp(1.65rem, 2.2vw, 2.05rem);
+    font-weight: 600;
+    letter-spacing: -0.045em;
+    line-height: 1.05;
   }
 
-  .portfolio-card__tags {
+  .portfolio-card__footer {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.85rem 1.2rem 1.05rem;
+    border-top: 1px solid rgba(77, 70, 58, 0.22);
+  }
+
+  .portfolio-card__niches {
+    display: flex;
+    align-items: center;
     flex-wrap: wrap;
-    gap: 0.42rem;
-    margin: 1rem 0 0;
-    padding: 0;
-    list-style: none;
+    min-width: 0;
+    color: var(--subtle);
+    font-size: 0.69rem;
+    line-height: 1.4;
   }
 
-  .portfolio-card__tags li {
+  .portfolio-card__niches span:not(:last-child)::after {
+    content: '·';
+    margin: 0 0.38rem;
+    color: rgba(153, 143, 129, 0.42);
+  }
+
+  .portfolio-card__cta {
     display: inline-flex;
     align-items: center;
-    min-height: 1.45rem;
-    padding: 0.22rem 0.48rem;
-    border: 1px solid rgba(229, 218, 207, 0.16);
-    background: rgba(255, 255, 255, 0.05);
-    color: rgba(226, 218, 208, 0.72);
-    font-size: 0.64rem;
-    font-weight: 800;
+    flex: 0 0 auto;
+    gap: 0.2rem;
+    color: var(--muted);
+    font-size: 0.69rem;
+    transition: color 200ms ease;
+    white-space: nowrap;
   }
 
-  .portfolio-card__body > a {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.42rem;
-    width: fit-content;
-    margin-top: 1.15rem;
-    color: #f5f2ef;
-    font-size: 0.78rem;
-    font-weight: 900;
-    transition:
-      color 180ms ease,
-      transform 180ms ease;
-  }
-
-  .portfolio-card__body > a .material-symbols-outlined {
-    font-size: 1rem;
+  .portfolio-card:hover .portfolio-card__cta,
+  .portfolio-card:focus-visible .portfolio-card__cta {
     color: var(--primary);
-    transition: transform 180ms ease;
   }
 
-  .portfolio-card__body > a:hover,
-  .portfolio-card__body > a:focus-visible {
-    color: var(--primary);
-    transform: translateY(-1px);
-  }
-
-  .portfolio-card__body > a:hover .material-symbols-outlined,
-  .portfolio-card__body > a:focus-visible .material-symbols-outlined {
-    transform: translate(0.12rem, -0.12rem);
+  .portfolio-card__cta .material-symbols-outlined {
+    font-size: 0.85rem;
   }
 
   .portfolio-cta {
@@ -544,23 +790,28 @@ const portfolioSchema = [
     align-items: center;
     margin-top: clamp(2rem, 4vw, 3rem);
     padding: clamp(1.6rem, 3vw, 2.25rem);
-    border: 1px solid rgba(229, 218, 207, 0.16);
-    background: rgba(32, 31, 31, 0.92);
+    border: 1px solid rgba(229, 196, 135, 0.2);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.018), transparent 40%),
+      var(--surface-elevated);
     box-shadow: var(--shadow-soft);
   }
 
   .portfolio-cta h2 {
     margin: 0;
-    color: #f5f2ef;
-    font-size: clamp(1.35rem, 2.5vw, 1.85rem);
-    letter-spacing: -0.03em;
+    color: var(--text);
+    font-family: 'Newsreader', serif;
+    font-size: clamp(2rem, 4vw, 3.1rem);
+    font-weight: 600;
+    letter-spacing: -0.045em;
+    line-height: 1.04;
   }
 
   .portfolio-cta p {
     max-width: 42rem;
     margin: 0.45rem 0 0;
-    color: rgba(226, 218, 208, 0.68);
-    line-height: 1.55;
+    color: var(--muted);
+    line-height: 1.7;
   }
 
   .portfolio-cta > a {
@@ -570,10 +821,12 @@ const portfolioSchema = [
     gap: 0.35rem;
     min-height: 3.25rem;
     padding: 0.85rem 1.45rem;
-    background: #ebe4dc;
-    color: #1b1a18;
-    font-size: 0.9rem;
+    background: var(--primary-strong);
+    color: var(--primary-ink);
+    font-size: 0.78rem;
     font-weight: 900;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
     white-space: nowrap;
     transition:
       background-color 180ms ease,
@@ -602,6 +855,15 @@ const portfolioSchema = [
   }
 
   @media (max-width: 900px) {
+    .portfolio-hero__content {
+      grid-template-columns: 1fr;
+      align-items: start;
+    }
+
+    .portfolio-featured {
+      width: min(100%, 34rem);
+    }
+
     .portfolio-grid {
       grid-template-columns: 1fr;
       width: min(100%, 36rem);
@@ -642,6 +904,20 @@ const portfolioSchema = [
       line-height: 1.62;
     }
 
+    .portfolio-hero__content {
+      gap: 1.8rem;
+    }
+
+    .portfolio-featured__eyebrow {
+      min-height: 2.55rem;
+      font-size: 0.56rem;
+      letter-spacing: 0.11em;
+    }
+
+    .portfolio-featured__body {
+      padding: 0.9rem;
+    }
+
     .portfolio-metrics {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -663,7 +939,7 @@ const portfolioSchema = [
       gap: 0.6rem;
     }
 
-    .portfolio-filters a {
+    .portfolio-filters button {
       min-height: 2.75rem;
       padding-inline: 0.65rem;
       font-size: 0.76rem;
@@ -689,3 +965,55 @@ const portfolioSchema = [
     }
   }
 </style>
+
+<script>
+  const portfolioFilters = document.querySelectorAll('[data-portfolio-filter]');
+  const portfolioCards = document.querySelectorAll('[data-portfolio-card]');
+  const portfolioEmpty = document.querySelector('[data-portfolio-empty]');
+
+  const setActiveFilter = (activeFilter) => {
+    portfolioFilters.forEach((filter) => {
+      if (filter === activeFilter) {
+        filter.setAttribute('aria-current', 'true');
+        return;
+      }
+
+      filter.removeAttribute('aria-current');
+    });
+  };
+
+  const filterPortfolio = (filterValue) => {
+    let visibleCount = 0;
+
+    portfolioCards.forEach((card) => {
+      const categories = card.getAttribute('data-portfolio-categories') ?? '';
+      const shouldShow =
+        filterValue === 'all' || categories.split(' ').includes(filterValue);
+
+      if (card instanceof HTMLElement) {
+        card.hidden = !shouldShow;
+      }
+
+      if (shouldShow) {
+        visibleCount += 1;
+      }
+    });
+
+    if (portfolioEmpty instanceof HTMLElement) {
+      portfolioEmpty.hidden = visibleCount > 0;
+    }
+  };
+
+  portfolioFilters.forEach((filter) => {
+    filter.addEventListener('click', () => {
+      const filterValue = filter.getAttribute('data-portfolio-filter');
+
+      if (!filterValue) {
+        return;
+      }
+
+      setActiveFilter(filter);
+      filterPortfolio(filterValue);
+    });
+  });
+</script>

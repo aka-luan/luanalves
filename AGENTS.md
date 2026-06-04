@@ -33,12 +33,14 @@ Before finishing code changes, run the narrowest useful check. For UI/page chang
 - `src/styles/global.css` - main design system and component styles.
 - `src/styles/fonts.css` - local font-face declarations.
 - `public/assets/` - production images and social assets.
+- `design.md` - design source of truth for new pages, layouts, visual direction, and UI verification.
 - `docs/SEO-ROADMAP.md` - SEO strategy and planned content architecture.
 - `scripts/patch-build-assets.mjs` - post-build asset patching.
 
 ## Editing Rules
 
 - Preserve correct `pt-BR` spelling and accents in all visible copy. Examples: `Serviços`, `Criação`, `Portfólio`, `orçamento`, `conversão`, `lançamento`.
+- Before creating or changing any page or layout, read `design.md` and follow its visual, copy, accessibility, motion, SEO, and verification checklist.
 - Do not trust mojibake shown by PowerShell alone. If text appears like `ServiÃ§os`, verify the actual file encoding before changing copy.
 - Keep content data centralized in `src/data/site.ts` when it is reused by multiple components.
 - Avoid duplicating SEO metadata. Prefer improving `BaseLayout.astro` or a shared SEO abstraction when metadata grows.
@@ -49,6 +51,7 @@ Before finishing code changes, run the narrowest useful check. For UI/page chang
 
 ## UI And Design Notes
 
+- Treat `design.md` as the source of truth for visual direction, page composition, page/layout guardrails, and design QA.
 - Match the existing premium/dark visual direction instead of introducing a new palette.
 - Use the existing CSS custom properties in `src/styles/global.css` before adding new colors.
 - Current UI intentionally uses sharp corners: `--radius: 0px`.
