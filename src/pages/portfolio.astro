@@ -594,7 +594,7 @@ const portfolioSchema = [
   }
 
   .portfolio-filters button:active {
-    transform: translateY(0);
+    transform: scale(0.96);
   }
 
   .portfolio-grid {
@@ -615,6 +615,7 @@ const portfolioSchema = [
   }
 
   .portfolio-card {
+    position: relative;
     display: flex;
     flex-direction: column;
     min-width: 0;
@@ -624,10 +625,25 @@ const portfolioSchema = [
       linear-gradient(180deg, rgba(255, 255, 255, 0.018), transparent 38%),
       var(--surface-soft);
     text-decoration: none;
-    box-shadow: var(--shadow-soft);
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.014),
+      0 1.2rem 2.6rem rgba(0, 0, 0, 0.14),
+      0 2.6rem 5rem rgba(0, 0, 0, 0.1);
     transition:
       border-color 200ms ease,
-      transform 200ms ease;
+      transform 200ms ease,
+      box-shadow 200ms ease,
+      background-color 200ms ease;
+  }
+
+  .portfolio-card::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(229, 196, 135, 0.4), transparent);
+    opacity: 0.42;
+    pointer-events: none;
   }
 
   .portfolio-card[hidden] {
@@ -638,6 +654,14 @@ const portfolioSchema = [
   .portfolio-card:focus-visible {
     border-color: rgba(229, 196, 135, 0.42);
     transform: translateY(-0.3rem);
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.018),
+      0 1.8rem 3.2rem rgba(0, 0, 0, 0.16),
+      0 3rem 5.8rem rgba(0, 0, 0, 0.14);
+  }
+
+  .portfolio-card:active {
+    transform: scale(0.96);
   }
 
   .portfolio-card__media {
@@ -646,6 +670,7 @@ const portfolioSchema = [
     aspect-ratio: 1.3 / 1;
     overflow: hidden;
     background: var(--surface-lowest);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
   }
 
   .portfolio-card__media::after {
@@ -666,7 +691,9 @@ const portfolioSchema = [
     object-position: center top;
     display: block;
     filter: saturate(1.02) contrast(1.03) brightness(0.96);
-    transition: transform 400ms ease;
+    transition:
+      transform 400ms ease,
+      filter 220ms ease;
   }
 
   .portfolio-card:hover .portfolio-card__media img,
@@ -736,6 +763,7 @@ const portfolioSchema = [
     font-weight: 600;
     letter-spacing: -0.045em;
     line-height: 1.05;
+    text-wrap: balance;
   }
 
   .portfolio-card__footer {
@@ -770,7 +798,9 @@ const portfolioSchema = [
     gap: 0.2rem;
     color: var(--muted);
     font-size: 0.69rem;
-    transition: color 200ms ease;
+    transition:
+      color 200ms ease,
+      transform 180ms ease;
     white-space: nowrap;
   }
 
@@ -781,6 +811,14 @@ const portfolioSchema = [
 
   .portfolio-card__cta .material-symbols-outlined {
     font-size: 0.85rem;
+    transition:
+      transform 180ms ease,
+      opacity 180ms ease;
+  }
+
+  .portfolio-card:hover .portfolio-card__cta .material-symbols-outlined,
+  .portfolio-card:focus-visible .portfolio-card__cta .material-symbols-outlined {
+    transform: translate(1px, -1px);
   }
 
   .portfolio-cta {
