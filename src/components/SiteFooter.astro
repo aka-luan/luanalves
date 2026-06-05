@@ -17,6 +17,16 @@ const { links = defaultNavigation, motion = true, brandHref = '#top' } =
   Astro.props;
 
 const currentYear = new Date().getFullYear();
+const whatsappHref = 'https://wa.me/5591982890565';
+const serviceLinkGroup =
+  links.find((item) => item.href === '/criacao-de-sites/') ??
+  links.find((item) => item.children?.length);
+const serviceLinks = serviceLinkGroup
+  ? [serviceLinkGroup, ...(serviceLinkGroup.children ?? [])]
+  : [];
+const navigationLinks = links.filter(
+  (item) => item.href !== serviceLinkGroup?.href,
+);
 const sectionMotionAttrs = motion ? { 'data-motion-section': 'footer' } : {};
 const itemMotionAttrs = motion
   ? { 'data-motion-item': 'footer', 'data-motion-hidden': 'y-sm' }
@@ -24,86 +34,154 @@ const itemMotionAttrs = motion
 ---
 
 <footer class='site-footer' {...sectionMotionAttrs}>
-  <div class='container footer-layout'>
-    <a class='brand brand-footer' href={brandHref} {...itemMotionAttrs}>
-      Luan Alves
-      <span class='brand-dot' aria-hidden='true'></span>
-    </a>
+  <div class='container footer-shell'>
+    <div class='footer-grid'>
+      <div class='footer-column footer-column--brand' {...itemMotionAttrs}>
+        <a class='brand footer-brand' href={brandHref} aria-label='Luan Alves, página inicial'>
+          <span class='brand-stack' aria-hidden='true'>
+            <span class='brand-text'>Luan Alves</span>
+          </span>
+          <span class='brand-dot' aria-hidden='true'></span>
+        </a>
 
-    <div class='footer-links' {...itemMotionAttrs}>
-      {links.map((item) => <a href={item.href}>{item.label}</a>)}
+        <p class='footer-tagline'>
+          Sites que aparecem no Google e convertem visitas em clientes.
+        </p>
+
+        <p class='footer-location'>
+          <span class='material-symbols-outlined' aria-hidden='true'>
+            location_on
+          </span>
+          <span>Belém, PA — Brasil</span>
+        </p>
+
+        <div class='footer-social'>
+          <a
+            class='footer-social-link'
+            href='https://instagram.com/luan.webdev'
+            target='_blank'
+            rel='noreferrer'
+            aria-label='Instagram'>
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              width='18'
+              height='18'
+              viewBox='0 0 24 24'
+              fill='none'
+              stroke='currentColor'
+              stroke-width='1.5'
+              stroke-linecap='round'
+              stroke-linejoin='round'>
+              <rect x='2' y='2' width='20' height='20' rx='5' ry='5'></rect>
+              <circle cx='12' cy='12' r='4'></circle>
+              <circle
+                cx='17.5'
+                cy='6.5'
+                r='1'
+                fill='currentColor'
+                stroke='none'></circle>
+            </svg>
+          </a>
+          <a
+            class='footer-social-link'
+            href='https://linkedin.com/in/aka-luan'
+            target='_blank'
+            rel='noreferrer'
+            aria-label='LinkedIn'>
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              width='18'
+              height='18'
+              viewBox='0 0 24 24'
+              fill='none'
+              stroke='currentColor'
+              stroke-width='1.5'
+              stroke-linecap='round'
+              stroke-linejoin='round'>
+              <path
+                d='M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z'>
+              </path>
+              <rect x='2' y='9' width='4' height='12'></rect>
+              <circle cx='4' cy='4' r='2'></circle>
+            </svg>
+          </a>
+          <a
+            class='footer-social-link'
+            href={whatsappHref}
+            target='_blank'
+            rel='noreferrer'
+            aria-label='WhatsApp'>
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              width='18'
+              height='18'
+              viewBox='0 0 24 24'
+              fill='none'
+              stroke='currentColor'
+              stroke-width='1.5'
+              stroke-linecap='round'
+              stroke-linejoin='round'>
+              <path
+                d='M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z'>
+              </path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class='footer-column' {...itemMotionAttrs}>
+        <p class='footer-heading'>Serviços</p>
+        <div class='footer-link-list'>
+          {serviceLinks.map((item) => (
+            <a href={item.href}>{item.label}</a>
+          ))}
+        </div>
+      </div>
+
+      <div class='footer-column' {...itemMotionAttrs}>
+        <p class='footer-heading'>Navegação</p>
+        <div class='footer-link-list'>
+          {navigationLinks.map((item) => (
+            <a href={item.href}>{item.label}</a>
+          ))}
+        </div>
+      </div>
+
+      <div class='footer-column footer-column--contact' {...itemMotionAttrs}>
+        <p class='footer-heading'>Contato</p>
+        <a
+          class='footer-whatsapp-button'
+          href={whatsappHref}
+          target='_blank'
+          rel='noreferrer'>
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            width='18'
+            height='18'
+            viewBox='0 0 24 24'
+            fill='none'
+            stroke='currentColor'
+            stroke-width='1.7'
+            stroke-linecap='round'
+            stroke-linejoin='round'
+            aria-hidden='true'>
+            <path
+              d='M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z'>
+            </path>
+          </svg>
+          <span>Falar no WhatsApp</span>
+        </a>
+
+        <p class='footer-contact-note'>
+          Atendo empresas em Belém e em todo o Brasil de forma remota.
+          Respondo em até 24h.
+        </p>
+      </div>
     </div>
 
-    <div class='footer-social' {...itemMotionAttrs}>
-      <a
-        href='https://instagram.com/luan.webdev'
-        target='_blank'
-        rel='noreferrer'
-        aria-label='Instagram'>
-        <svg
-          xmlns='http://www.w3.org/2000/svg'
-          width='18'
-          height='18'
-          viewBox='0 0 24 24'
-          fill='none'
-          stroke='currentColor'
-          stroke-width='1.5'
-          stroke-linecap='round'
-          stroke-linejoin='round'>
-          <rect x='2' y='2' width='20' height='20' rx='5' ry='5'></rect>
-          <circle cx='12' cy='12' r='4'></circle>
-          <circle
-            cx='17.5'
-            cy='6.5'
-            r='1'
-            fill='currentColor'
-            stroke='none'></circle>
-        </svg>
-      </a>
-      <a
-        href='https://linkedin.com/in/aka-luan'
-        target='_blank'
-        rel='noreferrer'
-        aria-label='LinkedIn'>
-        <svg
-          xmlns='http://www.w3.org/2000/svg'
-          width='18'
-          height='18'
-          viewBox='0 0 24 24'
-          fill='none'
-          stroke='currentColor'
-          stroke-width='1.5'
-          stroke-linecap='round'
-          stroke-linejoin='round'>
-          <path
-            d='M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z'>
-          </path>
-          <rect x='2' y='9' width='4' height='12'></rect>
-          <circle cx='4' cy='4' r='2'></circle>
-        </svg>
-      </a>
-      <a
-        href='https://wa.me/5591982890565'
-        target='_blank'
-        rel='noreferrer'
-        aria-label='WhatsApp'>
-        <svg
-          xmlns='http://www.w3.org/2000/svg'
-          width='18'
-          height='18'
-          viewBox='0 0 24 24'
-          fill='none'
-          stroke='currentColor'
-          stroke-width='1.5'
-          stroke-linecap='round'
-          stroke-linejoin='round'>
-          <path
-            d='M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z'>
-          </path>
-        </svg>
-      </a>
+    <div class='footer-bottom' {...itemMotionAttrs}>
+      <p class='footer-bottom-copy'>Luan Alves © {currentYear}</p>
+      <p class='footer-bottom-copy'>Desenvolvido em Belém, PA</p>
     </div>
-
-    <p class='footer-copy' {...itemMotionAttrs}>Luan Alves © {currentYear}</p>
   </div>
 </footer>
