@@ -24,12 +24,20 @@ const siteUrl = 'https://luanalves.com.br';
 const canonicalPath = getInsightPath(post);
 const canonicalUrl = `${siteUrl}${canonicalPath}`;
 const whatsappHref =
-  'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Li%20o%20artigo%20sobre%20autoridade%20org%C3%A2nica%20e%20quero%20fortalecer%20o%20SEO%20do%20meu%20site.';
+  'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Li%20o%20artigo%20sobre%20quanto%20custa%20um%20site%20e%20quero%20entender%20qual%20estrutura%20faz%20sentido%20para%20meu%20projeto.';
 const toc = getInsightToc(post);
 const relatedPosts = insights
   .filter((item) => item.slug !== post.slug)
   .filter((item) => item.categorySlug === post.categorySlug || item.featured)
   .slice(0, 3);
+const faqItems = post.content
+  .filter(
+    (
+      block,
+    ): block is Extract<InsightArticleBlock, { type: 'faq' }> =>
+      block.type === 'faq',
+  )
+  .flatMap((block) => block.items);
 
 const articleSchema = [
   {
@@ -73,6 +81,22 @@ const articleSchema = [
     articleSection: post.category,
     keywords: post.tags.join(', '),
   },
+  ...(faqItems.length > 0
+    ? [
+        {
+          '@type': 'FAQPage',
+          '@id': `${canonicalUrl}#faq`,
+          mainEntity: faqItems.map((item) => ({
+            '@type': 'Question',
+            name: item.question,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: item.answer,
+            },
+          })),
+        },
+      ]
+    : []),
 ];
 
 const renderInlineLinks = (text: string) => text;
@@ -208,6 +232,47 @@ const renderInlineLinks = (text: string) => text;
                 );
               }
 
+              if (block.type === 'table') {
+                return (
+                  <figure class='post-table'>
+                    {block.caption && <figcaption>{block.caption}</figcaption>}
+                    <div class='post-table__scroll'>
+                      <table>
+                        <thead>
+                          <tr>
+                            {block.columns.map((column) => (
+                              <th scope='col'>{column}</th>
+                            ))}
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {block.rows.map((row) => (
+                            <tr>
+                              {row.map((cell) => (
+                                <td>{cell}</td>
+                              ))}
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </figure>
+                );
+              }
+
+              if (block.type === 'faq') {
+                return (
+                  <div class='post-faq' id='faq'>
+                    {block.items.map((item) => (
+                      <section class='post-faq__item'>
+                        <h3>{item.question}</h3>
+                        <p>{item.answer}</p>
+                      </section>
+                    ))}
+                  </div>
+                );
+              }
+
               if (block.type === 'links') {
                 return (
                   <div class='post-links'>
@@ -270,7 +335,7 @@ const renderInlineLinks = (text: string) => text;
             href={whatsappHref}
             target='_blank'
             rel='noreferrer'>
-            Fortalecer SEO do meu site
+            Pedir orientação de orçamento
             <span class='material-symbols-outlined' aria-hidden='true'
               >arrow_forward</span
             >
@@ -592,12 +657,15 @@ const renderInlineLinks = (text: string) => text;
   }
 
   .post-code,
-  .post-image {
+  .post-image,
+  .post-table,
+  .post-faq {
     margin: 2rem 0;
   }
 
   .post-code figcaption,
-  .post-image figcaption {
+  .post-image figcaption,
+  .post-table figcaption {
     margin-bottom: 0.65rem;
     color: var(--subtle);
     font-size: 0.72rem;
@@ -626,6 +694,76 @@ const renderInlineLinks = (text: string) => text;
     background:
       linear-gradient(135deg, rgba(229, 196, 135, 0.12), transparent 42%),
       var(--surface);
+  }
+
+  .post-table__scroll {
+    overflow-x: auto;
+    border: 1px solid rgba(229, 196, 135, 0.16);
+    background: rgba(14, 14, 14, 0.52);
+  }
+
+  .post-table table {
+    width: 100%;
+    min-width: 38rem;
+    border-collapse: collapse;
+  }
+
+  .post-table th,
+  .post-table td {
+    padding: 0.9rem 1rem;
+    border-bottom: 1px solid rgba(77, 70, 58, 0.34);
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .post-table th {
+    color: var(--primary);
+    font-size: 0.68rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .post-table td {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .post-table tr:last-child td {
+    border-bottom: 0;
+  }
+
+  .post-table td:last-child {
+    color: var(--text);
+    font-weight: 700;
+  }
+
+  .post-faq {
+    display: grid;
+    gap: 0.85rem;
+  }
+
+  .post-faq__item {
+    padding: 1rem;
+    border: 1px solid rgba(229, 218, 207, 0.13);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 40%),
+      var(--surface-soft);
+  }
+
+  .post-faq__item h3 {
+    margin: 0;
+    color: var(--text);
+    font-family: 'Newsreader', serif;
+    font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    line-height: 1.12;
+  }
+
+  .post-faq__item p {
+    margin-top: 0.7rem;
   }
 
   .post-links {
@@ -885,6 +1023,15 @@ const renderInlineLinks = (text: string) => text;
 
     .post-code pre {
       font-size: 0.78rem;
+    }
+
+    .post-table table {
+      min-width: 34rem;
+    }
+
+    .post-table th,
+    .post-table td {
+      padding: 0.78rem 0.85rem;
     }
   }
 </style>

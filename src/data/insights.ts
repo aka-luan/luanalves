@@ -62,6 +62,19 @@ export type InsightArticleBlock =
       caption?: string;
     }
   | {
+      type: 'table';
+      caption?: string;
+      columns: string[];
+      rows: string[][];
+    }
+  | {
+      type: 'faq';
+      items: {
+        question: string;
+        answer: string;
+      }[];
+    }
+  | {
       type: 'links';
       items: {
         href: string;
@@ -94,23 +107,23 @@ export const insightFilters: InsightFilter[] = [
 export const insights: InsightPost[] = [
   {
     title:
-      'Como um site novo pode ganhar autoridade orgânica sem comprar backlinks',
+      'Quanto custa um site profissional em 2026? Veja preços por tipo de projeto',
     excerpt:
-      'Um caminho prático para fortalecer SEO com conteúdo, cases reais, links naturais e sinais de confiança.',
+      'Faixas realistas de preço para landing page, site institucional, blog, loja virtual e projetos sob medida.',
     description:
-      'Veja como um site novo pode construir autoridade orgânica com cluster de conteúdo, portfólio, backlinks naturais e estratégia SEO de 90 dias.',
+      'Veja quanto custa criar um site profissional em 2026, com preços para landing page, site institucional, blog, loja virtual, manutenção, domínio e hospedagem.',
     category: 'SEO',
     categorySlug: 'seo',
     date: '05 jun. 2026',
     isoDate: '2026-06-05',
-    readTime: '9 min',
-    slug: 'como-ganhar-autoridade-organica-sem-comprar-backlinks',
-    tags: ['SEO', 'Backlinks', 'Autoridade orgânica', 'Conteúdo'],
+    readTime: '12 min',
+    slug: 'quanto-custa-um-site-profissional',
+    tags: ['SEO', 'Preço de site', 'Criação de sites', 'Site profissional'],
     featured: true,
     published: true,
-    heroImage: '/assets/blog-hero.webp',
+    heroImage: '/assets/insights/quanto-custa-post.webp',
     heroImageAlt:
-      'Mesa de trabalho com notebook representando planejamento de conteúdo e SEO.',
+      'Mesa de trabalho com notebook representando planejamento de preço e estrutura de site profissional.',
     author: {
       name: 'Luan Alves',
       role: 'Desenvolvedor web freelancer',
@@ -119,153 +132,321 @@ export const insights: InsightPost[] = [
     content: [
       {
         type: 'paragraph',
-        text: 'Quando um site está no começo da vida orgânica, o desafio raramente é só publicar mais páginas. O Google ainda tem poucos sinais para entender se aquele domínio é confiável, se fala do assunto com frequência e se outras pessoas reconhecem aquela marca como referência.',
+        text: 'Um site profissional pode custar de menos de R$1.000 a mais de R$30.000, dependendo do tipo de projeto, nível de personalização, funcionalidades, tecnologia, SEO e manutenção.',
       },
       {
         type: 'paragraph',
-        text: 'Para um profissional ou empresa que vende criação de sites, blogs e landing pages, a estratégia mais segura não é comprar pacotes de backlinks. É construir autoridade temática, reforçar sinais de confiança e conquistar alguns links bons, naturais e coerentes com o mercado.',
+        text: 'A resposta curta é: em 2026, uma landing page simples costuma ficar entre R$800 e R$2.500, enquanto um site institucional profissional costuma variar de R$2.000 a R$8.000. Projetos com blog, CMS, loja virtual ou funcionalidades sob medida exigem mais investimento.',
+      },
+      {
+        type: 'table',
+        caption:
+          'Faixas médias de preço para criação de site profissional no Brasil em 2026.',
+        columns: ['Tipo de site', 'Faixa média de preço'],
+        rows: [
+          ['Landing page simples', 'R$800 a R$2.500'],
+          ['Site one page', 'R$1.000 a R$3.000'],
+          ['Site institucional', 'R$2.000 a R$8.000'],
+          ['Blog profissional', 'R$2.500 a R$10.000'],
+          ['Site com CMS', 'R$3.000 a R$12.000'],
+          ['Loja virtual', 'R$5.000 a R$30.000+'],
+          ['Projeto sob medida', 'R$10.000 a R$100.000+'],
+        ],
       },
       {
         type: 'heading',
-        id: 'autoridade-organica-nao-nasce-de-um-link-isolado',
+        id: 'quanto-custa-criar-um-site',
         level: 2,
-        text: 'Autoridade orgânica não nasce de um link isolado',
+        text: 'Quanto custa criar um site?',
       },
       {
         type: 'paragraph',
-        text: 'Backlinks ajudam, mas eles não compensam uma base fraca. Se o site tem poucas páginas, pouco conteúdo útil, nenhum case detalhado e poucos sinais de autoria, um link novo vira só um atalho frágil. A autoridade real aparece quando conteúdo, prova, reputação e experiência caminham juntos.',
+        text: 'O preço de um site varia porque a palavra "site" pode significar coisas muito diferentes. Uma página simples para validar presença digital não tem o mesmo escopo de um site institucional com várias páginas, blog, SEO técnico, integração com ferramentas e manutenção recorrente.',
+      },
+      {
+        type: 'paragraph',
+        text: 'Por isso, comparar apenas o preço final pode confundir. O mais importante é entender o que está incluso: estratégia, estrutura das páginas, design, desenvolvimento, performance, SEO, suporte, domínio, hospedagem e evolução depois do lançamento.',
+      },
+      {
+        type: 'heading',
+        id: 'o-que-influencia-no-preco',
+        level: 2,
+        text: 'O que mais influencia no preço de um site?',
+      },
+      {
+        type: 'heading',
+        id: 'tipo-de-site',
+        level: 3,
+        text: 'Tipo de site',
+      },
+      {
+        type: 'paragraph',
+        text: 'Landing page, site institucional, blog, loja virtual e projeto sob medida têm objetivos diferentes. Quanto mais páginas, regras, integrações e necessidades de gestão, maior tende a ser o valor.',
+      },
+      {
+        type: 'heading',
+        id: 'numero-de-paginas',
+        level: 3,
+        text: 'Número de páginas',
+      },
+      {
+        type: 'paragraph',
+        text: 'Uma página única custa menos que um site com home, sobre, serviços, portfólio, blog, contato e páginas específicas para cada oferta. Cada nova página exige estrutura, copy, layout, revisão e otimização.',
+      },
+      {
+        type: 'heading',
+        id: 'design-personalizado',
+        level: 3,
+        text: 'Design personalizado',
+      },
+      {
+        type: 'paragraph',
+        text: 'Template adaptado é uma coisa. Layout exclusivo, pensado para posicionamento, confiança e conversão, é outra. Quanto maior o nível de personalização visual e estratégica, maior o investimento.',
+      },
+      {
+        type: 'heading',
+        id: 'funcionalidades',
+        level: 3,
+        text: 'Funcionalidades',
+      },
+      {
+        type: 'paragraph',
+        text: 'Formulário, WhatsApp, blog, CMS, área administrativa, integrações, pagamentos, automações e filtros mudam bastante o escopo. Funcionalidade simples pode ser rápida; funcionalidade crítica exige teste, segurança e manutenção.',
+      },
+      {
+        type: 'heading',
+        id: 'seo-e-performance',
+        level: 3,
+        text: 'SEO e performance',
+      },
+      {
+        type: 'paragraph',
+        text: 'SEO inicial inclui title, description, headings, estrutura semântica, URLs, sitemap, schema quando fizer sentido, performance e indexação. Performance envolve carregamento rápido, imagens otimizadas, responsividade e atenção a Core Web Vitals.',
+      },
+      {
+        type: 'heading',
+        id: 'manutencao',
+        level: 3,
+        text: 'Manutenção',
+      },
+      {
+        type: 'paragraph',
+        text: 'Domínio, hospedagem, atualizações, segurança, ajustes de conteúdo, correções e evolução entram na conta depois do lançamento. Um site barato que ninguém mantém pode sair caro quando começa a travar, ficar lento ou perder conversão.',
+      },
+      {
+        type: 'heading',
+        id: 'quanto-custa-cada-tipo-de-site',
+        level: 2,
+        text: 'Quanto custa cada tipo de site?',
+      },
+      {
+        type: 'heading',
+        id: 'quanto-custa-uma-landing-page',
+        level: 3,
+        text: 'Quanto custa uma landing page?',
+      },
+      {
+        type: 'paragraph',
+        text: 'Uma landing page profissional costuma custar entre R$800 e R$2.500 quando o objetivo é apresentar uma oferta, captar leads ou apoiar uma campanha de tráfego pago. Projetos com copy mais estratégica, seções personalizadas, testes e integrações podem passar disso.',
+      },
+      {
+        type: 'heading',
+        id: 'quanto-custa-um-site-institucional',
+        level: 3,
+        text: 'Quanto custa um site institucional?',
+      },
+      {
+        type: 'paragraph',
+        text: 'Um site institucional costuma variar de R$2.000 a R$8.000. Ele é indicado para empresas que precisam apresentar serviços, construir autoridade, mostrar portfólio, responder dúvidas e gerar contatos com mais confiança.',
+      },
+      {
+        type: 'heading',
+        id: 'quanto-custa-um-blog-profissional',
+        level: 3,
+        text: 'Quanto custa um blog profissional?',
+      },
+      {
+        type: 'paragraph',
+        text: 'Um blog profissional pode ficar entre R$2.500 e R$10.000. O custo sobe porque blog não é só publicar texto: precisa de estrutura editorial, páginas de artigo, categorias, SEO, performance, gestão de conteúdo e bom fluxo de publicação.',
+      },
+      {
+        type: 'heading',
+        id: 'quanto-custa-uma-loja-virtual',
+        level: 3,
+        text: 'Quanto custa uma loja virtual?',
+      },
+      {
+        type: 'paragraph',
+        text: 'Uma loja virtual costuma começar perto de R$5.000 e pode passar de R$30.000. Catálogo, estoque, frete, pagamento, segurança, recuperação de carrinho, emissão fiscal e integrações tornam o projeto mais sensível.',
+      },
+      {
+        type: 'heading',
+        id: 'quanto-custa-um-site-sob-medida',
+        level: 3,
+        text: 'Quanto custa um site sob medida?',
+      },
+      {
+        type: 'paragraph',
+        text: 'Um site sob medida pode custar de R$10.000 a R$100.000 ou mais quando envolve funcionalidades específicas, sistemas internos, integrações complexas, múltiplos perfis de usuário ou uma experiência digital muito personalizada.',
+      },
+      {
+        type: 'heading',
+        id: 'wordpress-wix-freelancer-ou-agencia',
+        level: 2,
+        text: 'WordPress, Wix, freelancer ou agência: qual opção vale mais a pena?',
+      },
+      {
+        type: 'paragraph',
+        text: 'A melhor opção depende do objetivo, orçamento e nível de exigência técnica. Criadores de site ajudam a começar rápido, WordPress funciona bem para muitos blogs, freelancer tende a equilibrar personalização e custo, e agência faz sentido quando o projeto precisa de um time maior.',
+      },
+      {
+        type: 'table',
+        caption:
+          'Comparação prática entre opções comuns para criar um site profissional.',
+        columns: ['Opção', 'Melhor para', 'Limitação'],
+        rows: [
+          [
+            'Criador de sites',
+            'Começar barato e rápido',
+            'Menos controle técnico e personalização',
+          ],
+          [
+            'WordPress',
+            'Blogs e sites com CMS',
+            'Exige manutenção, plugins e cuidado técnico',
+          ],
+          [
+            'Desenvolvedor freelancer',
+            'Site profissional sob medida',
+            'Custa mais que builder',
+          ],
+          ['Agência', 'Projetos maiores e times completos', 'Custo maior'],
+        ],
+      },
+      {
+        type: 'heading',
+        id: 'por-que-o-mesmo-site-pode-ter-precos-diferentes',
+        level: 2,
+        text: 'Por que o mesmo site pode custar R$1.500 ou R$8.000?',
+      },
+      {
+        type: 'paragraph',
+        text: 'Dois orçamentos podem parecer parecidos na descrição e serem completamente diferentes na entrega. Um pode usar template pronto, não incluir SEO técnico, ter pouca revisão e não oferecer suporte. Outro pode nascer com design exclusivo, estrutura de busca, performance, responsividade, orientação de conteúdo e ajustes pós-lançamento.',
       },
       {
         type: 'blockquote',
-        text: 'Para site novo, cinco backlinks bons e relevantes costumam valer mais que cem links sem contexto.',
+        text: 'Preço baixo não é problema por si só. O problema é quando o preço baixo esconde ausência de estratégia, suporte, performance e base técnica.',
       },
       {
         type: 'heading',
-        id: 'crie-um-cluster-de-conteudo-especifico',
+        id: 'quanto-custa-manter-um-site',
         level: 2,
-        text: 'Crie um cluster de conteúdo específico',
+        text: 'Quanto custa manter um site?',
       },
       {
         type: 'paragraph',
-        text: 'O primeiro passo é mostrar consistência temática. Um site que vende desenvolvimento web precisa ter páginas e artigos que respondam dúvidas reais de quem está avaliando contratar um site profissional.',
+        text: 'Além da criação, existe o custo de manter o site funcionando. Em projetos simples, domínio e hospedagem podem ser suficientes. Em projetos profissionais, também entram manutenção técnica, melhorias de conteúdo, ajustes de SEO e evolução de páginas.',
       },
       {
         type: 'list',
         items: [
-          'Quanto custa criar um site profissional?',
-          'Quanto custa uma landing page?',
-          'Quanto custa manter um site por mês?',
-          'Site barato vale a pena?',
-          'Site institucional ou landing page: qual escolher?',
-          'Como escolher um desenvolvedor web freelancer?',
-          'O que está incluso na criação de um site profissional?',
-          'Por que minha empresa precisa de um site profissional?',
+          'Domínio: pagamento anual pelo endereço do site.',
+          'Hospedagem: servidor onde o site fica publicado.',
+          'Certificado SSL: normalmente incluso em boas hospedagens, mas precisa estar ativo.',
+          'Manutenção técnica: correções, atualizações e monitoramento.',
+          'Atualizações de conteúdo: novas páginas, textos, imagens e artigos.',
+          'Ajustes de SEO: melhorias de títulos, descrições, links internos e conteúdo.',
+          'Ferramentas externas: e-mail, automação, analytics, CRM ou plugins pagos.',
         ],
       },
       {
         type: 'heading',
-        id: 'use-seus-projetos-como-prova-de-experiencia',
+        id: 'vale-a-pena-criar-um-site-sozinho',
         level: 2,
-        text: 'Use seus projetos como prova de experiência',
+        text: 'Vale a pena criar um site sozinho?',
       },
       {
         type: 'paragraph',
-        text: 'Portfólio não serve apenas para mostrar visual. Cada projeto real pode virar um case com contexto, desafio, estratégia, tecnologia, decisões de SEO, decisões de performance e resultado percebido pelo cliente.',
-      },
-      {
-        type: 'paragraph',
-        text: 'Esse tipo de página cria conteúdo único, difícil de copiar, e fortalece sinais de experiência. Também aumenta a chance de receber links naturais dos próprios clientes, parceiros e fornecedores envolvidos no projeto.',
+        text: 'Vale a pena criar sozinho quando o orçamento é muito limitado, o projeto é simples e você aceita abrir mão de personalização, performance e estratégia. Mas, se o site precisa transmitir confiança, aparecer no Google e gerar contatos, contratar um profissional tende a ser uma escolha mais segura.',
       },
       {
         type: 'heading',
-        id: 'conquiste-backlinks-por-relacionamento',
+        id: 'qual-site-minha-empresa-precisa',
         level: 2,
-        text: 'Conquiste backlinks por relacionamento',
+        text: 'Como saber qual site minha empresa precisa?',
       },
       {
-        type: 'list',
-        items: [
-          'Peça links em sites de clientes quando fizer sentido, usando variações naturais como "Desenvolvido por Luan Alves" ou "Criação do site: Luan Alves".',
-          'Busque parceiros locais em Belém e no Brasil: designers, fotógrafos, consultores, agências, profissionais de tráfego pago e fornecedores dos seus clientes.',
-          'Participe de diretórios sérios, associações comerciais, eventos e comunidades de tecnologia ou empreendedorismo.',
-          'Evite repetir a mesma âncora exata em todos os links. Naturalidade importa mais que controle excessivo.',
-        ],
-      },
-      {
-        type: 'image',
-        src: '/assets/blog-hero.webp',
-        alt: 'Planejamento editorial para fortalecer autoridade orgânica de um site novo.',
+        type: 'table',
         caption:
-          'Autoridade orgânica cresce quando conteúdo, prova real e reputação externa apontam para a mesma direção.',
-      },
-      {
-        type: 'heading',
-        id: 'publique-fora-do-seu-site-com-criterio',
-        level: 2,
-        text: 'Publique fora do seu site com critério',
-      },
-      {
-        type: 'paragraph',
-        text: 'Guest posts e citações editoriais funcionam melhor quando o assunto combina com o seu serviço. Para desenvolvimento web, bons temas envolvem presença digital, sites para pequenos negócios, SEO técnico, performance, conversão e landing pages.',
-      },
-      {
-        type: 'list',
-        items: [
-          'Como um site profissional ajuda pequenas empresas a venderem mais.',
-          'Erros comuns em sites de prestadores de serviço.',
-          'Diferença entre landing page e site institucional.',
-          'Checklist para lançar um site profissional.',
-          'O que avaliar antes de contratar um desenvolvedor web freelancer.',
+          'Matriz simples para escolher o tipo de site conforme o objetivo do negócio.',
+        columns: ['Objetivo', 'Melhor opção'],
+        rows: [
+          ['Captar leads de campanha', 'Landing page'],
+          ['Apresentar empresa e serviços', 'Site institucional'],
+          ['Atrair tráfego orgânico', 'Blog profissional'],
+          ['Vender produtos online', 'Loja virtual'],
+          ['Validar presença digital rápida', 'One page'],
         ],
       },
       {
         type: 'heading',
-        id: 'crie-conteudo-linkavel',
+        id: 'perguntas-frequentes',
         level: 2,
-        text: 'Crie conteúdo linkável',
+        text: 'Perguntas frequentes sobre preço de site',
       },
       {
-        type: 'paragraph',
-        text: 'Algumas páginas recebem links porque resolvem uma dúvida recorrente ou oferecem uma ferramenta útil. Esse conteúdo precisa ser mais específico que um post genérico e fácil de compartilhar em conversas, propostas e comunidades.',
-      },
-      {
-        type: 'list',
+        type: 'faq',
         items: [
-          'Calculadora de preço de site.',
-          'Checklist gratuito de criação de site profissional.',
-          'Tabela de custos de domínio, hospedagem e manutenção.',
-          'Modelo de briefing para criação de site.',
-          'Comparativo entre Wix, WordPress e site sob medida.',
-          'Checklist de SEO técnico para sites institucionais.',
-        ],
-      },
-      {
-        type: 'heading',
-        id: 'o-que-evitar',
-        level: 2,
-        text: 'O que evitar',
-      },
-      {
-        type: 'paragraph',
-        text: 'Pacotes de backlinks, comentários automáticos, PBNs, diretórios genéricos e guest posts em massa costumam trazer mais risco que valor. Link bom tem contexto, relevância, tráfego real ou pelo menos coerência editorial.',
-      },
-      {
-        type: 'paragraph',
-        text: 'Também vale evitar obsessão por DA ou DR. Essas métricas ajudam a comparar sites em ferramentas de SEO, mas não são métricas oficiais do Google. O que importa é a qualidade do contexto, a relação com o seu nicho e a naturalidade do link.',
-      },
-      {
-        type: 'heading',
-        id: 'plano-simples-de-90-dias',
-        level: 2,
-        text: 'Plano simples de 90 dias',
-      },
-      {
-        type: 'list',
-        ordered: true,
-        items: [
-          'Mês 1: publique um post pilar sobre preço de site, crie dois ou três artigos de apoio e melhore links internos para páginas de serviço.',
-          'Mês 2: transforme três projetos reais em cases detalhados e peça backlinks para clientes ou parceiros quando houver contexto.',
-          'Mês 3: publique dois guest posts, busque diretórios locais bons e lance um material linkável, como checklist ou calculadora.',
+          {
+            question: 'Quanto custa um site simples?',
+            answer:
+              'Um site simples pode custar de R$800 a R$3.000, dependendo do número de seções, design, conteúdo, formulário, WhatsApp e nível de acabamento.',
+          },
+          {
+            question: 'Quanto custa um site profissional?',
+            answer:
+              'Um site profissional costuma variar de R$2.000 a R$8.000 em projetos institucionais, podendo passar disso quando inclui CMS, blog, integrações ou funcionalidades sob medida.',
+          },
+          {
+            question: 'Quanto custa uma landing page?',
+            answer:
+              'Uma landing page profissional costuma ficar entre R$800 e R$2.500, mas pode custar mais quando envolve copy estratégica, design exclusivo, integrações e testes.',
+          },
+          {
+            question: 'Quanto custa um site institucional?',
+            answer:
+              'Um site institucional normalmente fica entre R$2.000 e R$8.000, conforme quantidade de páginas, complexidade visual, SEO, conteúdo e suporte incluso.',
+          },
+          {
+            question: 'Quanto custa manter um site por mês?',
+            answer:
+              'A manutenção pode variar de poucas dezenas de reais por mês, em custos básicos de domínio e hospedagem, até planos recorrentes maiores com suporte, conteúdo, SEO e evolução técnica.',
+          },
+          {
+            question: 'O domínio está incluso no preço do site?',
+            answer:
+              'Depende da proposta. Alguns profissionais incluem orientação ou configuração, mas o domínio geralmente é um custo anual separado e deve ficar no nome do cliente.',
+          },
+          {
+            question: 'Hospedagem está inclusa?',
+            answer:
+              'Pode estar inclusa ou ser contratada separadamente. O importante é saber quem administra a hospedagem, qual suporte existe e se ela atende performance e segurança.',
+          },
+          {
+            question: 'Quanto tempo demora para criar um site?',
+            answer:
+              'Uma landing page pode levar poucos dias ou semanas. Um site institucional costuma levar algumas semanas, dependendo de conteúdo, revisões, páginas e disponibilidade para aprovação.',
+          },
+          {
+            question: 'Site barato vale a pena?',
+            answer:
+              'Vale quando o objetivo é simples e o orçamento é limitado. Não vale quando o site precisa gerar confiança, ranquear no Google, carregar rápido e apoiar vendas de forma profissional.',
+          },
+          {
+            question: 'É melhor Wix, WordPress ou site sob medida?',
+            answer:
+              'Wix pode servir para começar rápido, WordPress é forte para CMS e blogs, e site sob medida dá mais controle técnico, performance e personalização. A melhor escolha depende do objetivo e do orçamento.',
+          },
         ],
       },
       {
@@ -276,30 +457,35 @@ export const insights: InsightPost[] = [
       },
       {
         type: 'paragraph',
-        text: 'A meta inicial não precisa ser gigante. Para um site novo, dez a vinte backlinks bons e relevantes nos primeiros meses, junto com conteúdo consistente e cases bem estruturados, já podem começar a mover o ponteiro.',
+        text: 'Antes de investir, defina o objetivo principal do site: captar leads, apresentar serviços, publicar conteúdo, vender produtos ou validar presença digital. A partir disso, fica muito mais fácil escolher uma estrutura proporcional ao momento da empresa.',
       },
       {
         type: 'links',
         items: [
           {
             href: '/criacao-de-sites/',
-            label: 'Ver serviço',
-            text: 'Criação de sites profissionais com base técnica preparada para SEO.',
+            label: 'Criação de sites',
+            text: 'Veja uma estrutura profissional para empresas que precisam vender, não só existir.',
           },
           {
-            href: '/portfolio/',
-            label: 'Ver portfólio',
-            text: 'Projetos reais que ajudam a construir prova, confiança e autoridade.',
+            href: '/site-institucional/',
+            label: 'Site institucional',
+            text: 'Conheça a solução para apresentar serviços com mais autoridade e confiança.',
+          },
+          {
+            href: '/landing-page/',
+            label: 'Landing page',
+            text: 'Entenda o formato ideal para campanhas, tráfego pago e geração de leads.',
           },
           {
             href: '/blog-profissional/',
-            label: 'Ver estrutura editorial',
-            text: 'Blog profissional para empresas que querem publicar conteúdo indexável.',
+            label: 'Blog profissional',
+            text: 'Veja como estruturar conteúdo indexável para fortalecer autoridade orgânica.',
           },
           {
-            href: 'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Li%20o%20artigo%20sobre%20autoridade%20org%C3%A2nica%20e%20quero%20fortalecer%20o%20SEO%20do%20meu%20site.',
+            href: 'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Li%20o%20artigo%20sobre%20quanto%20custa%20um%20site%20e%20quero%20entender%20qual%20estrutura%20faz%20sentido%20para%20meu%20projeto.',
             label: 'Falar no WhatsApp',
-            text: 'Me chame para planejar conteúdo, cases e uma base de SEO mais forte.',
+            text: 'Me conte sobre seu projeto e eu te digo qual estrutura faz mais sentido antes de você investir.',
           },
         ],
       },
@@ -317,9 +503,7 @@ export const getInsightPath = (post: Pick<InsightPost, 'slug'>) =>
 export const getInsightToc = (post: InsightPublishedPost) =>
   post.content
     .filter(
-      (
-        block,
-      ): block is Extract<InsightArticleBlock, { type: 'heading' }> =>
+      (block): block is Extract<InsightArticleBlock, { type: 'heading' }> =>
         block.type === 'heading',
     )
     .map((heading) => ({
