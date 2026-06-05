@@ -23,8 +23,10 @@ const { post } = Astro.props as { post: InsightPublishedPost };
 const siteUrl = 'https://luanalves.com.br';
 const canonicalPath = getInsightPath(post);
 const canonicalUrl = `${siteUrl}${canonicalPath}`;
-const whatsappHref =
-  'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Li%20o%20artigo%20sobre%20quanto%20custa%20um%20site%20e%20quero%20entender%20qual%20estrutura%20faz%20sentido%20para%20meu%20projeto.';
+const whatsappMessage = encodeURIComponent(
+  `Olá, Luan! Li o artigo "${post.title}" e quero entender qual estrutura faz sentido para o meu projeto.`,
+);
+const whatsappHref = `https://wa.me/5591982890565?text=${whatsappMessage}`;
 const toc = getInsightToc(post);
 const relatedPosts = insights
   .filter((item) => item.slug !== post.slug)

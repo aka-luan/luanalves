@@ -104,7 +104,399 @@ export const insightFilters: InsightFilter[] = [
   { label: 'Ferramentas', value: 'ferramentas' },
 ];
 
+const checklistInsight: InsightPost = {
+    title:
+      'Checklist para lançamento de site empresarial: o que revisar antes de publicar',
+    excerpt:
+      'Um guia prático para revisar conteúdo, SEO, performance, formulários, segurança e conversão antes de colocar um site no ar.',
+    description:
+      'Veja o checklist para lançamento de site empresarial e revise conteúdo, mobile, SEO, velocidade, formulários, SSL, analytics e pós-lançamento antes de publicar.',
+    category: 'SEO',
+    categorySlug: 'seo',
+    date: '05 jun. 2026',
+    isoDate: '2026-06-05',
+    readTime: '14 min',
+    slug: 'checklist-lancamento-site-empresarial',
+    tags: [
+      'SEO',
+      'Lançamento de site',
+      'Checklist de site',
+      'Site empresarial',
+    ],
+    heroImage: '/assets/insights/checklist-lancamento-post.webp',
+    heroImageAlt:
+      'Mesa de trabalho escura com notebook em revisão final de site empresarial antes do lançamento.',
+    published: true,
+    author: {
+      name: 'Luan Alves',
+      role: 'Desenvolvedor web freelancer',
+      bio: 'Desenvolvo sites, blogs e landing pages com foco em performance, SEO técnico e conversão via WhatsApp.',
+    },
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Antes de publicar um site empresarial, revise pelo menos estes pontos: conteúdo, versão mobile, links, formulários, SEO básico, velocidade, domínio, SSL, analytics e segurança. Lançar um site sem essa revisão aumenta o risco de perder credibilidade, visitas e contatos logo no início.',
+      },
+      {
+        type: 'paragraph',
+        text: 'Na prática, o lançamento não é momento de descobrir erro de texto, botão quebrado ou página lenta. Site empresarial precisa entrar no ar com aparência confiável, estrutura indexável e caminho claro para conversão.',
+      },
+      {
+        type: 'table',
+        caption:
+          'Tabela-resumo do que revisar antes de publicar um site empresarial.',
+        columns: ['Área', 'O que revisar antes do lançamento'],
+        rows: [
+          ['Conteúdo', 'Textos, dados de contato, clareza da oferta e CTAs'],
+          ['Design e mobile', 'Responsividade, leitura, contraste e navegação'],
+          ['Links e botões', 'Menu, logo, botões, redes sociais e 404'],
+          ['Conversão', 'Formulários, WhatsApp, telefone e e-mail clicáveis'],
+          ['SEO básico', 'Title, description, H1, headings, URLs, sitemap e robots'],
+          ['Performance', 'Imagens, scripts, fontes, cache e Core Web Vitals'],
+          ['Infraestrutura', 'Domínio, SSL, redirects, DNS e versão final'],
+          ['Métricas', 'Analytics, Search Console e eventos principais'],
+          ['Segurança', 'Backup, acessos, spam e atualizações'],
+          ['Pós-lançamento', 'Indexação, testes finais e monitoramento inicial'],
+        ],
+      },
+      {
+        type: 'heading',
+        id: 'por-que-usar-um-checklist-antes-de-publicar',
+        level: 2,
+        text: 'Por que usar um checklist antes de publicar um site?',
+      },
+      {
+        type: 'paragraph',
+        text: 'Porque erro pequeno em lançamento costuma virar problema grande depois. Um formulário que não envia, um WhatsApp sem mensagem pronta, uma página com title duplicado ou uma versão mobile mal resolvida já bastam para reduzir confiança e derrubar conversão.',
+      },
+      {
+        type: 'blockquote',
+        text: 'Site pronto não é site apenas bonito. Site pronto é site revisado, testado e preparado para receber visita, indexar bem e gerar contato.',
+      },
+      {
+        type: 'heading',
+        id: 'revise-o-conteudo-de-todas-as-paginas',
+        level: 2,
+        text: '1. Revise o conteúdo de todas as páginas',
+      },
+      {
+        type: 'paragraph',
+        text: 'O primeiro filtro é simples: o visitante entende o que a empresa faz, para quem ela trabalha e qual é o próximo passo? Antes de publicar, releia home, serviços, sobre, contato e qualquer landing page com olhar comercial, não só visual.',
+      },
+      {
+        type: 'list',
+        items: [
+          'Corrija erros de português, acentuação e consistência de tom.',
+          'Atualize telefone, e-mail, endereço, links de redes sociais e horários.',
+          'Confirme se cada página tem título claro e proposta de valor objetiva.',
+          'Revise chamadas para ação, principalmente nos pontos de contato.',
+          'Remova textos genéricos, placeholder e promessas vagas.',
+          'Cheque se serviços, diferenciais e prova social estão fáceis de encontrar.',
+        ],
+      },
+      {
+        type: 'heading',
+        id: 'confira-se-o-site-funciona-bem-no-celular',
+        level: 2,
+        text: '2. Confira se o site funciona bem no celular',
+      },
+      {
+        type: 'paragraph',
+        text: 'Boa parte do tráfego empresarial chega pelo celular. Se o visitante precisa dar zoom para ler, tocar duas vezes para abrir menu ou lutar com formulário, o site já entra devendo. Revisão mobile não é detalhe. É parte do lançamento.',
+      },
+      {
+        type: 'list',
+        items: [
+          'Menu mobile abre e fecha sem travar.',
+          'Botões têm tamanho confortável para toque.',
+          'Títulos longos não quebram de forma estranha.',
+          'Imagens não cortam informação importante.',
+          'Formulários são simples de preencher no teclado do celular.',
+          'WhatsApp, telefone e e-mail podem ser acionados com um toque.',
+          'Leitura segue clara em 4G, sem atraso exagerado no carregamento.',
+        ],
+      },
+      {
+        type: 'heading',
+        id: 'teste-todos-os-links-e-botoes',
+        level: 2,
+        text: '3. Teste todos os links e botões',
+      },
+      {
+        type: 'paragraph',
+        text: 'Muita empresa revisa layout e esquece fluxo. Link quebrado em lançamento passa uma sensação imediata de descuido. O teste precisa incluir navegação principal, rodapé, botões de CTA, logo e rotas secundárias.',
+      },
+      {
+        type: 'list',
+        items: [
+          'Itens do menu levam para a página ou seção certa.',
+          'Logo volta para a home.',
+          'Botões de orçamento e contato funcionam.',
+          'Links internos ajudam a continuar a navegação.',
+          'Links externos abrem corretamente.',
+          'Redes sociais apontam para perfis reais.',
+          'Página 404 existe e orienta o visitante.',
+        ],
+      },
+      {
+        type: 'heading',
+        id: 'teste-formularios-whatsapp-e-canais-de-contato',
+        level: 2,
+        text: '4. Teste formulários, WhatsApp e canais de contato',
+      },
+      {
+        type: 'paragraph',
+        text: 'Esse é um dos pontos mais importantes do checklist. Se a empresa depende de orçamento, lead ou agendamento, o contato precisa funcionar sem ambiguidade. Não basta o formulário aparecer. Ele precisa enviar, confirmar e direcionar a conversa do jeito certo.',
+      },
+      {
+        type: 'heading',
+        id: 'o-que-validar-nos-canais-de-contato',
+        level: 3,
+        text: 'O que validar nos canais de contato',
+      },
+      {
+        type: 'list',
+        items: [
+          'Formulário envia para o e-mail correto.',
+          'Campos obrigatórios e mensagens de erro funcionam.',
+          'Mensagem de sucesso aparece com clareza.',
+          'Proteção contra spam está ativa.',
+          'Link do WhatsApp abre com mensagem inicial pronta.',
+          'Telefone e e-mail estão clicáveis.',
+          'Se houver mapa ou endereço, a informação está correta.',
+        ],
+      },
+      {
+        type: 'heading',
+        id: 'revise-o-seo-basico-antes-de-indexar',
+        level: 2,
+        text: '5. Revise o SEO básico antes de indexar',
+      },
+      {
+        type: 'paragraph',
+        text: 'Publicar sem SEO básico significa abrir mão de entendimento técnico logo na primeira leitura do Google e de mecanismos com IA. O objetivo aqui não é fazer otimização profunda no dia do lançamento, mas garantir uma base limpa, coerente e rastreável.',
+      },
+      {
+        type: 'list',
+        items: [
+          'Cada página tem title tag específica.',
+          'Meta description resume a proposta com clareza.',
+          'Existe um H1 por página.',
+          'H2 e H3 seguem hierarquia lógica.',
+          'URLs são amigáveis e sem versões provisórias.',
+          'Imagens importantes têm alt text descritivo.',
+          'Canonical está correto quando necessário.',
+          'Sitemap XML e robots.txt estão acessíveis.',
+          'Search Console pode receber a versão final do site.',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: 'Frase simples para guardar: site empresarial deve entrar no ar com sinais claros de estrutura. Título, headings, URLs e indexação não são acabamento. São fundação.',
+      },
+      {
+        type: 'heading',
+        id: 'verifique-velocidade-e-performance',
+        level: 2,
+        text: '6. Verifique velocidade e performance',
+      },
+      {
+        type: 'paragraph',
+        text: 'Página lenta piora experiência, reduz conversão e costuma prejudicar a primeira impressão da marca. O visitante talvez não saiba explicar Core Web Vitals, mas percebe quando o site demora, treme ou trava.',
+      },
+      {
+        type: 'list',
+        items: [
+          'Imagens estão em formato otimizado, como WebP quando fizer sentido.',
+          'Arquivos pesados foram comprimidos.',
+          'Lazy loading está configurado para imagens fora da dobra.',
+          'CSS e JS não carregam mais do que o necessário.',
+          'Fontes não bloqueiam leitura inicial.',
+          'Cache e hospedagem estão coerentes com o projeto.',
+          'Pelo menos uma checagem no PageSpeed Insights foi feita antes de publicar.',
+        ],
+      },
+      {
+        type: 'heading',
+        id: 'confira-dominio-hospedagem-e-ssl',
+        level: 2,
+        text: '7. Confira domínio, hospedagem e SSL',
+      },
+      {
+        type: 'paragraph',
+        text: 'Parte técnica invisível também afeta lançamento. Um site pode estar bonito e ainda assim abrir sem HTTPS, resolver DNS errado ou manter versão antiga em subdomínio de testes. Tudo isso precisa ser validado antes da divulgação.',
+      },
+      {
+        type: 'list',
+        items: [
+          'Domínio aponta para o ambiente certo.',
+          'Certificado SSL está ativo.',
+          'HTTP redireciona para HTTPS.',
+          'Versões com e sem www seguem uma regra consistente.',
+          'Ambiente de teste, staging ou versão temporária não está exposto indevidamente.',
+          'DNS e e-mails do domínio estão funcionando como esperado.',
+        ],
+      },
+      {
+        type: 'heading',
+        id: 'configure-analytics-search-console-e-eventos',
+        level: 2,
+        text: '8. Configure Analytics, Search Console e eventos',
+      },
+      {
+        type: 'paragraph',
+        text: 'Lançar sem medição transforma decisão em chute. Desde o primeiro dia, a empresa precisa saber se o site está recebendo visitas, quais páginas são mais vistas e quais cliques indicam intenção comercial.',
+      },
+      {
+        type: 'list',
+        items: [
+          'Google Analytics ou ferramenta equivalente instalada.',
+          'Google Search Console preparado para a propriedade final.',
+          'Eventos importantes configurados, como clique em WhatsApp e envio de formulário.',
+          'Tag Manager, se usado, publicado na versão correta.',
+          'Metas ou conversões principais mapeadas desde o início.',
+        ],
+      },
+      {
+        type: 'heading',
+        id: 'revise-seguranca-e-backups',
+        level: 2,
+        text: '9. Revise segurança e backups',
+      },
+      {
+        type: 'paragraph',
+        text: 'Segurança não é tema para depois do lançamento. O ideal é entrar no ar já com acesso controlado, backup recente e superfície desnecessária removida. Isso vale ainda mais para sites com CMS, plugins ou integrações de terceiros.',
+      },
+      {
+        type: 'list',
+        items: [
+          'Existe backup antes da publicação final.',
+          'Senhas fortes e acessos revisados.',
+          'Usuários temporários foram removidos.',
+          'Plugins, extensões ou scripts desnecessários foram eliminados.',
+          'Atualizações essenciais já foram aplicadas.',
+          'Medidas anti-spam foram ativadas em formulários.',
+        ],
+      },
+      {
+        type: 'heading',
+        id: 'faca-uma-revisao-final-de-experiencia',
+        level: 2,
+        text: '10. Faça uma revisão final de experiência',
+      },
+      {
+        type: 'paragraph',
+        text: 'Aqui entra o olhar de quem visita o site pela primeira vez. Em poucos segundos, o usuário precisa entender o que a empresa faz, por que ela parece confiável e como pode iniciar contato. Se isso não estiver claro, ainda não é hora de publicar.',
+      },
+      {
+        type: 'list',
+        items: [
+          'A proposta da empresa aparece logo na primeira dobra.',
+          'Os serviços são fáceis de localizar.',
+          'Existe CTA claro em páginas importantes.',
+          'A navegação está simples e previsível.',
+          'O site transmite confiança visual e textual.',
+          'Portfólio, depoimentos ou diferenciais reforçam credibilidade.',
+          'A página de contato está acessível sem fricção.',
+        ],
+      },
+      {
+        type: 'heading',
+        id: 'o-que-fazer-depois-que-o-site-entra-no-ar',
+        level: 2,
+        text: '11. O que fazer depois que o site entra no ar?',
+      },
+      {
+        type: 'paragraph',
+        text: 'Publicar não encerra o trabalho. Os primeiros dias servem para confirmar se a versão final está respondendo bem em produção, se a medição está correta e se o site está pronto para começar a ganhar tração orgânica e comercial.',
+      },
+      {
+        type: 'list',
+        items: [
+          'Teste novamente formulários e WhatsApp no domínio final.',
+          'Envie sitemap para o Google Search Console.',
+          'Confira indexação e possíveis bloqueios.',
+          'Monitore velocidade e erros técnicos.',
+          'Acompanhe cliques, leads e comportamento das principais páginas.',
+          'Revise o site após 7, 15 e 30 dias para ajustes finos.',
+        ],
+      },
+      {
+        type: 'heading',
+        id: 'perguntas-frequentes',
+        level: 2,
+        text: 'Perguntas frequentes sobre lançamento de site empresarial',
+      },
+      {
+        type: 'faq',
+        items: [
+          {
+            question: 'O que revisar antes de lançar um site?',
+            answer:
+              'Antes do lançamento, revise conteúdo, mobile, links, formulários, SEO básico, velocidade, domínio, SSL, analytics e segurança. Esses pontos reduzem risco de erro técnico e melhoram a percepção de profissionalismo.',
+          },
+          {
+            question: 'Preciso configurar SEO antes de publicar o site?',
+            answer:
+              'Sim. O ideal é publicar com a base de SEO pronta: title, meta description, H1, headings, URLs amigáveis, sitemap, robots.txt e indexação preparada para Search Console.',
+          },
+          {
+            question: 'Quanto tempo leva para revisar um site antes do lançamento?',
+            answer:
+              'Depende do tamanho do projeto. Uma revisão básica pode levar algumas horas. Sites empresariais maiores, com mais páginas, integrações e aprovações, podem exigir alguns dias.',
+          },
+          {
+            question: 'O site deve ser indexado antes ou depois da revisão final?',
+            answer:
+              'Depois da revisão final. Assim você evita que páginas incompletas, links temporários ou conteúdo provisório sejam rastreados cedo demais.',
+          },
+          {
+            question: 'O que fazer logo depois de publicar um site?',
+            answer:
+              'Teste tudo no domínio final, envie sitemap, acompanhe Search Console e analytics, monitore formulários e observe conversões nos primeiros dias.',
+          },
+        ],
+      },
+      {
+        type: 'heading',
+        id: 'proximo-passo',
+        level: 2,
+        text: 'Próximo passo',
+      },
+      {
+        type: 'paragraph',
+        text: 'Se sua empresa está perto de publicar, a melhor decisão é revisar estrutura, conversão e base técnica antes de divulgar o link. Corrigir isso no pré-lançamento custa menos do que recuperar confiança e lead perdido depois.',
+      },
+      {
+        type: 'links',
+        items: [
+          {
+            href: '/criacao-de-sites/',
+            label: 'Criação de sites',
+            text: 'Veja como estruturo sites profissionais com base técnica, clareza comercial e revisão antes do lançamento.',
+          },
+          {
+            href: '/site-institucional/',
+            label: 'Site institucional',
+            text: 'Entenda o formato ideal para empresas que precisam apresentar serviços com mais autoridade e confiança.',
+          },
+          {
+            href: '/blog-profissional/',
+            label: 'Blog profissional',
+            text: 'Conheça a estrutura para publicar conteúdo indexável e conectar SEO com geração de contatos.',
+          },
+          {
+            href: 'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Li%20o%20artigo%20sobre%20checklist%20de%20lan%C3%A7amento%20de%20site%20e%20quero%20revisar%20meu%20projeto%20antes%20de%20publicar.',
+            label: 'Falar no WhatsApp',
+            text: 'Se quiser revisar seu site antes de publicar, me chama e eu te ajudo a validar estrutura, SEO básico e conversão.',
+          },
+        ],
+      },
+    ],
+  };
+
 export const insights: InsightPost[] = [
+  checklistInsight,
   {
     title:
       'Quanto custa um site profissional em 2026? Veja preços por tipo de projeto',
