@@ -94,37 +94,23 @@ export const insightFilters: InsightFilter[] = [
 export const insights: InsightPost[] = [
   {
     title:
-      'Como uso IA no meu fluxo de trabalho para entregar sites 3x mais rápido',
+      'Como um site novo pode ganhar autoridade orgânica sem comprar backlinks',
     excerpt:
-      'Do Codex ao Cursor: o que realmente funciona no dia a dia de um desenvolvedor freelancer e o que é só hype.',
+      'Um caminho prático para fortalecer SEO com conteúdo, cases reais, links naturais e sinais de confiança.',
     description:
-      'Um recorte prático de como IA entra no fluxo de criação, desenvolvimento e revisão de sites profissionais.',
-    category: 'IA & Dev',
-    categorySlug: 'ia',
-    date: '28 mai. 2025',
-    isoDate: '2025-05-28',
-    readTime: '8 min',
-    slug: 'como-uso-ia-no-fluxo-de-trabalho',
-    tags: ['IA', 'Workflow', 'Desenvolvimento web'],
-    featured: true,
-  },
-  {
-    title: 'Schema JSON-LD: o que é e por que seu site precisa disso ontem',
-    excerpt:
-      'Entenda como dados estruturados ajudam o Google a interpretar páginas, serviços e negócios locais.',
-    description:
-      'Guia prático sobre Schema JSON-LD para sites profissionais: o que é, por que importa para SEO e quais tipos usar primeiro.',
+      'Veja como um site novo pode construir autoridade orgânica com cluster de conteúdo, portfólio, backlinks naturais e estratégia SEO de 90 dias.',
     category: 'SEO',
     categorySlug: 'seo',
-    date: '14 mai. 2025',
-    isoDate: '2025-05-14',
-    readTime: '6 min',
-    slug: 'schema-json-ld-por-que-seu-site-precisa',
-    tags: ['Schema', 'JSON-LD', 'SEO técnico', 'Dados estruturados'],
+    date: '05 jun. 2026',
+    isoDate: '2026-06-05',
+    readTime: '9 min',
+    slug: 'como-ganhar-autoridade-organica-sem-comprar-backlinks',
+    tags: ['SEO', 'Backlinks', 'Autoridade orgânica', 'Conteúdo'],
+    featured: true,
     published: true,
     heroImage: '/assets/blog-hero.webp',
     heroImageAlt:
-      'Mesa de trabalho com notebook exibindo estrutura visual de conteúdo técnico para SEO.',
+      'Mesa de trabalho com notebook representando planejamento de conteúdo e SEO.',
     author: {
       name: 'Luan Alves',
       role: 'Desenvolvedor web freelancer',
@@ -133,149 +119,154 @@ export const insights: InsightPost[] = [
     content: [
       {
         type: 'paragraph',
-        text: 'Quando alguém fala em SEO, é comum pensar primeiro em palavras-chave, títulos e velocidade. Tudo isso importa. Mas existe uma camada menos visível que ajuda o Google a entender o que a página representa: os dados estruturados.',
+        text: 'Quando um site está no começo da vida orgânica, o desafio raramente é só publicar mais páginas. O Google ainda tem poucos sinais para entender se aquele domínio é confiável, se fala do assunto com frequência e se outras pessoas reconhecem aquela marca como referência.',
       },
       {
         type: 'paragraph',
-        text: 'Schema JSON-LD é uma forma de explicar, em linguagem de máquina, que uma página é um artigo, um serviço, uma empresa local, uma pergunta frequente ou um produto. Para o usuário, nada muda na tela. Para mecanismos de busca, o contexto fica mais claro.',
+        text: 'Para um profissional ou empresa que vende criação de sites, blogs e landing pages, a estratégia mais segura não é comprar pacotes de backlinks. É construir autoridade temática, reforçar sinais de confiança e conquistar alguns links bons, naturais e coerentes com o mercado.',
       },
       {
         type: 'heading',
-        id: 'o-que-e-schema-json-ld',
+        id: 'autoridade-organica-nao-nasce-de-um-link-isolado',
         level: 2,
-        text: 'O que é Schema JSON-LD?',
+        text: 'Autoridade orgânica não nasce de um link isolado',
       },
       {
         type: 'paragraph',
-        text: 'Schema é um vocabulário criado para descrever entidades e relações. JSON-LD é o formato mais usado para inserir essa descrição no HTML sem misturar marcação semântica com o conteúdo visual da página.',
+        text: 'Backlinks ajudam, mas eles não compensam uma base fraca. Se o site tem poucas páginas, pouco conteúdo útil, nenhum case detalhado e poucos sinais de autoria, um link novo vira só um atalho frágil. A autoridade real aparece quando conteúdo, prova, reputação e experiência caminham juntos.',
       },
       {
         type: 'blockquote',
-        text: 'Pense no Schema como uma ficha técnica invisível: ela não substitui bom conteúdo, mas reduz ambiguidade para quem precisa interpretar a página.',
-      },
-      {
-        type: 'code',
-        language: 'json',
-        caption: 'Exemplo simplificado de BlogPosting em JSON-LD.',
-        code: `{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Schema JSON-LD: o que é e por que seu site precisa",
-  "author": {
-    "@type": "Person",
-    "name": "Luan Alves"
-  },
-  "inLanguage": "pt-BR"
-}`,
+        text: 'Para site novo, cinco backlinks bons e relevantes costumam valer mais que cem links sem contexto.',
       },
       {
         type: 'heading',
-        id: 'por-que-isso-importa-para-seo',
+        id: 'crie-um-cluster-de-conteudo-especifico',
         level: 2,
-        text: 'Por que isso importa para SEO?',
+        text: 'Crie um cluster de conteúdo específico',
       },
       {
         type: 'paragraph',
-        text: 'Dados estruturados ajudam mecanismos de busca a classificar melhor o conteúdo. Isso pode reforçar sinais de autoria, tipo de página, assunto, negócio, serviço, localização e relação com outras URLs do site.',
+        text: 'O primeiro passo é mostrar consistência temática. Um site que vende desenvolvimento web precisa ter páginas e artigos que respondam dúvidas reais de quem está avaliando contratar um site profissional.',
       },
       {
         type: 'list',
         items: [
-          'Melhor interpretação do conteúdo por Google, Bing e buscadores com IA.',
-          'Maior chance de qualificar a página para resultados enriquecidos quando o tipo de schema permite.',
-          'Consistência entre conteúdo visível, metadados, breadcrumbs e entidade da marca.',
-          'Base mais clara para páginas de serviço, artigos, portfólio e perguntas frequentes.',
+          'Quanto custa criar um site profissional?',
+          'Quanto custa uma landing page?',
+          'Quanto custa manter um site por mês?',
+          'Site barato vale a pena?',
+          'Site institucional ou landing page: qual escolher?',
+          'Como escolher um desenvolvedor web freelancer?',
+          'O que está incluso na criação de um site profissional?',
+          'Por que minha empresa precisa de um site profissional?',
         ],
       },
       {
         type: 'heading',
-        id: 'schema-nao-e-atalho',
+        id: 'use-seus-projetos-como-prova-de-experiencia',
         level: 2,
-        text: 'Schema não é atalho para ranquear',
+        text: 'Use seus projetos como prova de experiência',
       },
       {
         type: 'paragraph',
-        text: 'Um erro comum é tratar JSON-LD como truque técnico. Ele não transforma conteúdo fraco em página forte. Se o texto não responde à intenção de busca, se a página é lenta ou se a oferta não está clara, o Schema apenas descreve melhor uma experiência ruim.',
+        text: 'Portfólio não serve apenas para mostrar visual. Cada projeto real pode virar um case com contexto, desafio, estratégia, tecnologia, decisões de SEO, decisões de performance e resultado percebido pelo cliente.',
       },
       {
         type: 'paragraph',
-        text: 'O ganho real aparece quando dados estruturados acompanham uma arquitetura coerente: uma página de serviço com proposta clara, links internos, FAQ útil, dados de contato e conteúdo alinhado ao que a pessoa procura.',
+        text: 'Esse tipo de página cria conteúdo único, difícil de copiar, e fortalece sinais de experiência. Também aumenta a chance de receber links naturais dos próprios clientes, parceiros e fornecedores envolvidos no projeto.',
       },
       {
         type: 'heading',
-        id: 'tipos-mais-uteis',
+        id: 'conquiste-backlinks-por-relacionamento',
         level: 2,
-        text: 'Tipos de Schema mais úteis para sites profissionais',
+        text: 'Conquiste backlinks por relacionamento',
       },
       {
         type: 'list',
-        ordered: true,
         items: [
-          'Organization ou ProfessionalService para representar a marca e a atuação.',
-          'WebSite para descrever o site principal e o publisher.',
-          'BreadcrumbList para reforçar a hierarquia das páginas internas.',
-          'Service para páginas comerciais como criação de sites, landing pages e blog profissional.',
-          'BlogPosting para artigos editoriais e conteúdos de autoridade.',
-          'FAQPage quando existe uma seção real de perguntas e respostas na página.',
+          'Peça links em sites de clientes quando fizer sentido, usando variações naturais como "Desenvolvido por Luan Alves" ou "Criação do site: Luan Alves".',
+          'Busque parceiros locais em Belém e no Brasil: designers, fotógrafos, consultores, agências, profissionais de tráfego pago e fornecedores dos seus clientes.',
+          'Participe de diretórios sérios, associações comerciais, eventos e comunidades de tecnologia ou empreendedorismo.',
+          'Evite repetir a mesma âncora exata em todos os links. Naturalidade importa mais que controle excessivo.',
         ],
       },
       {
         type: 'image',
         src: '/assets/blog-hero.webp',
-        alt: 'Visual editorial usado para representar estrutura técnica de blog e SEO.',
+        alt: 'Planejamento editorial para fortalecer autoridade orgânica de um site novo.',
         caption:
-          'Schema funciona melhor quando acompanha conteúdo claro, hierarquia lógica e metadados consistentes.',
+          'Autoridade orgânica cresce quando conteúdo, prova real e reputação externa apontam para a mesma direção.',
       },
       {
         type: 'heading',
-        id: 'como-implementar-sem-bagunca',
+        id: 'publique-fora-do-seu-site-com-criterio',
         level: 2,
-        text: 'Como implementar sem bagunça',
+        text: 'Publique fora do seu site com critério',
       },
       {
         type: 'paragraph',
-        text: 'Em sites Astro, Next.js ou WordPress bem configurados, a melhor abordagem é centralizar a geração de Schema em dados confiáveis. O ideal é evitar JSON-LD duplicado, desatualizado ou contraditório com o conteúdo visível.',
+        text: 'Guest posts e citações editoriais funcionam melhor quando o assunto combina com o seu serviço. Para desenvolvimento web, bons temas envolvem presença digital, sites para pequenos negócios, SEO técnico, performance, conversão e landing pages.',
       },
       {
         type: 'list',
         items: [
-          'Defina uma fonte única para título, descrição, URL canônica e imagem social.',
-          'Gere BreadcrumbList com base na rota real da página.',
-          'Use BlogPosting apenas em artigos completos, não em cards de listagem.',
-          'Valide o resultado depois do build, não só durante o desenvolvimento.',
+          'Como um site profissional ajuda pequenas empresas a venderem mais.',
+          'Erros comuns em sites de prestadores de serviço.',
+          'Diferença entre landing page e site institucional.',
+          'Checklist para lançar um site profissional.',
+          'O que avaliar antes de contratar um desenvolvedor web freelancer.',
         ],
       },
       {
         type: 'heading',
-        id: 'erros-comuns',
+        id: 'crie-conteudo-linkavel',
         level: 2,
-        text: 'Erros comuns que vale evitar',
+        text: 'Crie conteúdo linkável',
       },
       {
         type: 'paragraph',
-        text: 'O problema mais frequente não é ausência de Schema. É excesso mal cuidado: múltiplas entidades dizendo coisas diferentes, URLs sem barra final em um lugar e com barra em outro, imagens inexistentes ou FAQPage sem perguntas visíveis.',
+        text: 'Algumas páginas recebem links porque resolvem uma dúvida recorrente ou oferecem uma ferramenta útil. Esse conteúdo precisa ser mais específico que um post genérico e fácil de compartilhar em conversas, propostas e comunidades.',
       },
       {
-        type: 'code',
-        language: 'json',
-        caption: 'Exemplo de BreadcrumbList coerente com a URL final.',
-        code: `{
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Início",
-      "item": "https://luanalves.com.br/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Insights",
-      "item": "https://luanalves.com.br/insights/"
-    }
-  ]
-}`,
+        type: 'list',
+        items: [
+          'Calculadora de preço de site.',
+          'Checklist gratuito de criação de site profissional.',
+          'Tabela de custos de domínio, hospedagem e manutenção.',
+          'Modelo de briefing para criação de site.',
+          'Comparativo entre Wix, WordPress e site sob medida.',
+          'Checklist de SEO técnico para sites institucionais.',
+        ],
+      },
+      {
+        type: 'heading',
+        id: 'o-que-evitar',
+        level: 2,
+        text: 'O que evitar',
+      },
+      {
+        type: 'paragraph',
+        text: 'Pacotes de backlinks, comentários automáticos, PBNs, diretórios genéricos e guest posts em massa costumam trazer mais risco que valor. Link bom tem contexto, relevância, tráfego real ou pelo menos coerência editorial.',
+      },
+      {
+        type: 'paragraph',
+        text: 'Também vale evitar obsessão por DA ou DR. Essas métricas ajudam a comparar sites em ferramentas de SEO, mas não são métricas oficiais do Google. O que importa é a qualidade do contexto, a relação com o seu nicho e a naturalidade do link.',
+      },
+      {
+        type: 'heading',
+        id: 'plano-simples-de-90-dias',
+        level: 2,
+        text: 'Plano simples de 90 dias',
+      },
+      {
+        type: 'list',
+        ordered: true,
+        items: [
+          'Mês 1: publique um post pilar sobre preço de site, crie dois ou três artigos de apoio e melhore links internos para páginas de serviço.',
+          'Mês 2: transforme três projetos reais em cases detalhados e peça backlinks para clientes ou parceiros quando houver contexto.',
+          'Mês 3: publique dois guest posts, busque diretórios locais bons e lance um material linkável, como checklist ou calculadora.',
+        ],
       },
       {
         type: 'heading',
@@ -285,7 +276,7 @@ export const insights: InsightPost[] = [
       },
       {
         type: 'paragraph',
-        text: 'Se seu site já tem páginas comerciais, blog ou portfólio, vale revisar se os dados estruturados refletem a estrutura real. A ordem mais pragmática é começar por página inicial, serviços, breadcrumbs e artigos completos.',
+        text: 'A meta inicial não precisa ser gigante. Para um site novo, dez a vinte backlinks bons e relevantes nos primeiros meses, junto com conteúdo consistente e cases bem estruturados, já podem começar a mover o ponteiro.',
       },
       {
         type: 'links',
@@ -296,112 +287,23 @@ export const insights: InsightPost[] = [
             text: 'Criação de sites profissionais com base técnica preparada para SEO.',
           },
           {
+            href: '/portfolio/',
+            label: 'Ver portfólio',
+            text: 'Projetos reais que ajudam a construir prova, confiança e autoridade.',
+          },
+          {
             href: '/blog-profissional/',
             label: 'Ver estrutura editorial',
             text: 'Blog profissional para empresas que querem publicar conteúdo indexável.',
           },
+          {
+            href: 'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Li%20o%20artigo%20sobre%20autoridade%20org%C3%A2nica%20e%20quero%20fortalecer%20o%20SEO%20do%20meu%20site.',
+            label: 'Falar no WhatsApp',
+            text: 'Me chame para planejar conteúdo, cases e uma base de SEO mais forte.',
+          },
         ],
       },
     ],
-  },
-  {
-    title:
-      'Como precificar um site profissional sem depender de tabela de preços',
-    excerpt:
-      'Escopo, risco e valor percebido: as três variáveis que pesam mais na proposta de um projeto web.',
-    description:
-      'Como pensar preço de site profissional considerando escopo, risco, valor percebido e contexto do projeto.',
-    category: 'Freelance',
-    categorySlug: 'freelance',
-    date: '02 mai. 2025',
-    isoDate: '2025-05-02',
-    readTime: '7 min',
-    slug: 'como-precificar-um-site-profissional',
-    tags: ['Freelance', 'Proposta', 'Precificação'],
-  },
-  {
-    title: 'WordPress vs site personalizado: quando cada um faz sentido',
-    excerpt:
-      'A resposta honesta antes de contratar: não é só sobre tecnologia, é sobre contexto, gestão e objetivo.',
-    description:
-      'Comparativo prático entre WordPress e site personalizado para decisões de presença digital.',
-    category: 'Desenvolvimento',
-    categorySlug: 'desenvolvimento',
-    date: '18 abr. 2025',
-    isoDate: '2025-04-18',
-    readTime: '5 min',
-    slug: 'wordpress-vs-site-personalizado',
-    tags: ['WordPress', 'Site personalizado', 'Decisão técnica'],
-  },
-  {
-    title: '5 erros de SEO técnico que afastam clientes do seu site',
-    excerpt:
-      'De sitemap invisível a performance ruim: problemas silenciosos que atrapalham indexação e conversão.',
-    description:
-      'Erros comuns de SEO técnico que prejudicam indexação, leitura e conversão em sites profissionais.',
-    category: 'SEO',
-    categorySlug: 'seo',
-    date: '07 abr. 2025',
-    isoDate: '2025-04-07',
-    readTime: '6 min',
-    slug: 'erros-de-seo-tecnico-que-afastam-clientes',
-    tags: ['SEO técnico', 'Performance', 'Indexação'],
-  },
-  {
-    title: 'Rank Math vs Yoast em 2025: qual plugin de SEO vale a pena?',
-    excerpt:
-      'O que observar além da lista de recursos: performance, Schema, controle técnico e rotina editorial.',
-    description:
-      'Critérios para comparar plugins de SEO no WordPress além da lista de recursos.',
-    category: 'Ferramentas',
-    categorySlug: 'ferramentas',
-    date: '22 mar. 2025',
-    isoDate: '2025-03-22',
-    readTime: '5 min',
-    slug: 'rank-math-vs-yoast-em-2025',
-    tags: ['WordPress', 'Plugins', 'SEO'],
-  },
-  {
-    title: 'O que mudou no meu trabalho depois de adotar um workflow com IA',
-    excerpt:
-      'Não é sobre substituição. É sobre onde sua atenção vai quando partes repetitivas saem do caminho.',
-    description:
-      'Reflexões práticas sobre rotina de desenvolvimento com IA e revisão humana.',
-    category: 'IA',
-    categorySlug: 'ia',
-    date: '10 mar. 2025',
-    isoDate: '2025-03-10',
-    readTime: '9 min',
-    slug: 'o-que-mudou-com-workflow-com-ia',
-    tags: ['IA', 'Rotina', 'Produtividade'],
-  },
-  {
-    title: 'Contrato de desenvolvimento: as cláusulas que evitaram problemas',
-    excerpt:
-      'Revisões infinitas, escopo crescente e cliente que some: como tratar isso antes do projeto começar.',
-    description:
-      'Pontos importantes em contratos de desenvolvimento web para reduzir conflito de escopo.',
-    category: 'Freelance',
-    categorySlug: 'freelance',
-    date: '25 fev. 2025',
-    isoDate: '2025-02-25',
-    readTime: '8 min',
-    slug: 'contrato-de-desenvolvimento-clausulas',
-    tags: ['Contrato', 'Escopo', 'Freelance'],
-  },
-  {
-    title: 'Core Web Vitals na prática: o que realmente afeta o LCP',
-    excerpt:
-      'Imagens, fontes e render-blocking: a triagem que faço antes de entregar um site ao cliente.',
-    description:
-      'Como diagnosticar LCP em sites profissionais considerando imagem hero, fontes e bloqueios de renderização.',
-    category: 'Desenvolvimento',
-    categorySlug: 'desenvolvimento',
-    date: '11 fev. 2025',
-    isoDate: '2025-02-11',
-    readTime: '7 min',
-    slug: 'core-web-vitals-na-pratica-lcp',
-    tags: ['Core Web Vitals', 'LCP', 'Performance'],
   },
 ];
 

@@ -24,7 +24,7 @@ const siteUrl = 'https://luanalves.com.br';
 const canonicalPath = getInsightPath(post);
 const canonicalUrl = `${siteUrl}${canonicalPath}`;
 const whatsappHref =
-  'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Li%20o%20artigo%20sobre%20Schema%20JSON-LD%20e%20quero%20revisar%20o%20SEO%20do%20meu%20site.';
+  'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Li%20o%20artigo%20sobre%20autoridade%20org%C3%A2nica%20e%20quero%20fortalecer%20o%20SEO%20do%20meu%20site.';
 const toc = getInsightToc(post);
 const relatedPosts = insights
   .filter((item) => item.slug !== post.slug)
@@ -270,7 +270,7 @@ const renderInlineLinks = (text: string) => text;
             href={whatsappHref}
             target='_blank'
             rel='noreferrer'>
-            Revisar SEO do meu site
+            Fortalecer SEO do meu site
             <span class='material-symbols-outlined' aria-hidden='true'
               >arrow_forward</span
             >
@@ -288,25 +288,27 @@ const renderInlineLinks = (text: string) => text;
       </section>
     </article>
 
-    <section class='related-section' aria-labelledby='related-title'>
-      <div class='post-shell'>
-        <div class='related-section__header'>
-          <p class='post-eyebrow'>Continuar lendo</p>
-          <h2 id='related-title'>Insights relacionados</h2>
-        </div>
-        <div class='related-grid'>
-          {
-            relatedPosts.map((item) => (
-              <a class='related-card' href={getInsightPath(item)}>
-                <span>{item.category}</span>
-                <h3>{item.title}</h3>
-                <p>{item.excerpt}</p>
-              </a>
-            ))
-          }
-        </div>
-      </div>
-    </section>
+    {
+      relatedPosts.length > 0 && (
+        <section class='related-section' aria-labelledby='related-title'>
+          <div class='post-shell'>
+            <div class='related-section__header'>
+              <p class='post-eyebrow'>Continuar lendo</p>
+              <h2 id='related-title'>Insights relacionados</h2>
+            </div>
+            <div class='related-grid'>
+              {relatedPosts.map((item) => (
+                <a class='related-card' href={getInsightPath(item)}>
+                  <span>{item.category}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.excerpt}</p>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+      )
+    }
   </main>
 
   <SiteFooter links={navigation} brandHref='/' />
@@ -372,6 +374,7 @@ const renderInlineLinks = (text: string) => text;
 
   .post-share button,
   .post-whatsapp {
+    box-sizing: border-box;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -873,6 +876,7 @@ const renderInlineLinks = (text: string) => text;
     .post-share button,
     .post-whatsapp {
       width: 100%;
+      white-space: normal;
     }
 
     .post-content h2 {
