@@ -1,0 +1,1194 @@
+---
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteNav from '../components/SiteNav.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { navigation } from '../data/site';
+
+interface InsightPost {
+  title: string;
+  excerpt: string;
+  category: string;
+  categorySlug: string;
+  date: string;
+  readTime: string;
+  slug: string;
+  featured?: boolean;
+}
+
+const siteUrl = 'https://luanalves.com.br';
+const whatsappHref =
+  'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Vi%20a%20p%C3%A1gina%20Insights%20e%20quero%20conversar%20sobre%20estrat%C3%A9gia%20digital.';
+
+const filters = [
+  { label: 'Todos', value: 'all', current: true },
+  { label: 'Desenvolvimento', value: 'desenvolvimento' },
+  { label: 'SEO', value: 'seo' },
+  { label: 'Freelance', value: 'freelance' },
+  { label: 'IA', value: 'ia' },
+  { label: 'Ferramentas', value: 'ferramentas' },
+];
+
+const posts: InsightPost[] = [
+  {
+    title:
+      'Como uso IA no meu fluxo de trabalho para entregar sites 3x mais rápido',
+    excerpt:
+      'Do Codex ao Cursor: o que realmente funciona no dia a dia de um desenvolvedor freelancer e o que é só hype.',
+    category: 'IA & Dev',
+    categorySlug: 'ia',
+    date: '28 mai. 2025',
+    readTime: '8 min',
+    slug: 'como-uso-ia-no-fluxo-de-trabalho',
+    featured: true,
+  },
+  {
+    title: 'Schema JSON-LD: o que é e por que seu site precisa disso ontem',
+    excerpt:
+      'Entenda como dados estruturados ajudam o Google a interpretar páginas, serviços e negócios locais.',
+    category: 'SEO',
+    categorySlug: 'seo',
+    date: '14 mai. 2025',
+    readTime: '6 min',
+    slug: 'schema-json-ld-por-que-seu-site-precisa',
+  },
+  {
+    title:
+      'Como precificar um site profissional sem depender de tabela de preços',
+    excerpt:
+      'Escopo, risco e valor percebido: as três variáveis que pesam mais na proposta de um projeto web.',
+    category: 'Freelance',
+    categorySlug: 'freelance',
+    date: '02 mai. 2025',
+    readTime: '7 min',
+    slug: 'como-precificar-um-site-profissional',
+  },
+  {
+    title: 'WordPress vs site personalizado: quando cada um faz sentido',
+    excerpt:
+      'A resposta honesta antes de contratar: não é só sobre tecnologia, é sobre contexto, gestão e objetivo.',
+    category: 'Desenvolvimento',
+    categorySlug: 'desenvolvimento',
+    date: '18 abr. 2025',
+    readTime: '5 min',
+    slug: 'wordpress-vs-site-personalizado',
+  },
+  {
+    title: '5 erros de SEO técnico que afastam clientes do seu site',
+    excerpt:
+      'De sitemap invisível a performance ruim: problemas silenciosos que atrapalham indexação e conversão.',
+    category: 'SEO',
+    categorySlug: 'seo',
+    date: '07 abr. 2025',
+    readTime: '6 min',
+    slug: 'erros-de-seo-tecnico-que-afastam-clientes',
+  },
+  {
+    title: 'Rank Math vs Yoast em 2025: qual plugin de SEO vale a pena?',
+    excerpt:
+      'O que observar além da lista de recursos: performance, Schema, controle técnico e rotina editorial.',
+    category: 'Ferramentas',
+    categorySlug: 'ferramentas',
+    date: '22 mar. 2025',
+    readTime: '5 min',
+    slug: 'rank-math-vs-yoast-em-2025',
+  },
+  {
+    title: 'O que mudou no meu trabalho depois de adotar um workflow com IA',
+    excerpt:
+      'Não é sobre substituição. É sobre onde sua atenção vai quando partes repetitivas saem do caminho.',
+    category: 'IA',
+    categorySlug: 'ia',
+    date: '10 mar. 2025',
+    readTime: '9 min',
+    slug: 'o-que-mudou-com-workflow-com-ia',
+  },
+  {
+    title: 'Contrato de desenvolvimento: as cláusulas que evitaram problemas',
+    excerpt:
+      'Revisões infinitas, escopo crescente e cliente que some: como tratar isso antes do projeto começar.',
+    category: 'Freelance',
+    categorySlug: 'freelance',
+    date: '25 fev. 2025',
+    readTime: '8 min',
+    slug: 'contrato-de-desenvolvimento-clausulas',
+  },
+  {
+    title: 'Core Web Vitals na prática: o que realmente afeta o LCP',
+    excerpt:
+      'Imagens, fontes e render-blocking: a triagem que faço antes de entregar um site ao cliente.',
+    category: 'Desenvolvimento',
+    categorySlug: 'desenvolvimento',
+    date: '11 fev. 2025',
+    readTime: '7 min',
+    slug: 'core-web-vitals-na-pratica-lcp',
+  },
+];
+
+const featuredPost = posts.find((post) => post.featured) ?? posts[0];
+const listedPosts = posts.filter((post) => post !== featuredPost);
+const postUrl = (post: InsightPost) => `/insights/${post.slug}/`;
+
+const insightsSchema = [
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Início',
+        item: siteUrl,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Insights',
+        item: `${siteUrl}/insights/`,
+      },
+    ],
+  },
+  {
+    '@type': 'CollectionPage',
+    '@id': `${siteUrl}/insights/#collection`,
+    name: 'Insights',
+    description:
+      'Artigos sobre desenvolvimento web, SEO técnico, IA e rotina freelancer para empresas que querem melhorar sua presença digital.',
+    url: `${siteUrl}/insights/`,
+    inLanguage: 'pt-BR',
+    mainEntity: {
+      '@id': `${siteUrl}/insights/#posts`,
+    },
+  },
+  {
+    '@type': 'ItemList',
+    '@id': `${siteUrl}/insights/#posts`,
+    name: 'Artigos do Insights',
+    itemListElement: posts.map((post, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'Article',
+        headline: post.title,
+        description: post.excerpt,
+        url: `${siteUrl}${postUrl(post)}`,
+        author: { '@id': `${siteUrl}/#person` },
+        inLanguage: 'pt-BR',
+        about: post.category,
+      },
+    })),
+  },
+];
+---
+
+<BaseLayout
+  namespace='insights'
+  title='Insights sobre Desenvolvimento Web e SEO | Luan Alves'
+  description='Artigos sobre desenvolvimento web, SEO técnico, IA e rotina freelancer para empresas que querem melhorar presença digital e gerar mais contatos.'
+  canonicalPath='/insights/'
+  ogType='website'
+  schema={insightsSchema}>
+  <main class='insights-page' id='top'>
+    <SiteNav
+      items={navigation}
+      whatsappHref={whatsappHref}
+      brandHref='/'
+      brandAriaLabel='Luan Alves, página inicial'
+    />
+
+    <section
+      class='insights-hero'
+      aria-labelledby='insights-title'
+      data-motion='hero'>
+      <div
+        class='insights-hero__grid hero-grid'
+        aria-hidden='true'
+        data-motion-glow>
+      </div>
+      <div class='insights-shell'>
+        <nav
+          class='insights-breadcrumb'
+          aria-label='Breadcrumb'
+          data-motion-hero-eyebrow
+          data-motion-hidden='y-sm'>
+          <a href='/'>Início</a>
+          <span aria-hidden='true'>/</span>
+          <span>Insights</span>
+        </nav>
+
+        <div class='insights-hero__layout'>
+          <div class='insights-hero__copy'>
+            <p class='insights-eyebrow'>Editorial técnico</p>
+            <h1
+              id='insights-title'
+              data-motion-hero-title
+              data-motion-hidden='y-lg'>
+              Insights
+            </h1>
+            <p data-motion-hero-copy data-motion-hidden='y-md'>
+              Desenvolvimento web, SEO técnico e bastidores reais do trabalho
+              freelancer, escrito por quem projeta, desenvolve e entrega.
+            </p>
+          </div>
+
+          <dl class='insights-stats' aria-label='Números do Insights'>
+            <div data-motion-item='hero-feature' data-motion-hidden='y-sm'>
+              <dt>{String(posts.length).padStart(2, '0')}</dt>
+              <dd>Artigos</dd>
+            </div>
+            <div data-motion-item='hero-feature' data-motion-hidden='y-sm'>
+              <dt>{filters.length - 1}</dt>
+              <dd>Categorias</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class='insights-featured'
+      aria-labelledby='featured-title'
+      data-motion-section='portfolio'>
+      <div class='insights-shell'>
+        <a
+          class='featured-article'
+          href={postUrl(featuredPost)}
+          data-motion-item='project'
+          data-motion-hidden='y-card'
+          aria-label={`Ler artigo em destaque: ${featuredPost.title}`}>
+          <span class='featured-article__visual' aria-hidden='true'>
+            <span class='featured-article__screen'>
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </span>
+
+          <span class='featured-article__body'>
+            <span class='insight-badge'>{featuredPost.category}</span>
+            <span>
+              <span class='featured-article__label'>Artigo em destaque</span>
+              <h2 id='featured-title'>{featuredPost.title}</h2>
+              <p>{featuredPost.excerpt}</p>
+            </span>
+            <span class='featured-article__meta'>
+              <span>{featuredPost.date} / {featuredPost.readTime}</span>
+              <span class='featured-article__cta'>
+                Ler artigo
+                <span class='material-symbols-outlined' aria-hidden='true'>
+                  arrow_forward
+                </span>
+              </span>
+            </span>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <section
+      class='insights-list'
+      aria-labelledby='insights-list-title'>
+      <div class='insights-shell'>
+        <div data-motion-section='services'>
+          <div class='insights-list__header'>
+            <div data-motion-heading data-motion-hidden='y-sm'>
+              <p class='insights-eyebrow'>Arquivo</p>
+              <h2 id='insights-list-title'>Leituras para decidir melhor.</h2>
+            </div>
+
+            <nav
+              class='insights-filters'
+              aria-label='Filtrar artigos por categoria'
+              data-motion-copy
+              data-motion-hidden='y-sm'>
+              {
+                filters.map((filter) => (
+                  <button
+                    type='button'
+                    data-insights-filter={filter.value}
+                    aria-current={filter.current ? 'true' : undefined}>
+                    {filter.label}
+                  </button>
+                ))
+              }
+            </nav>
+          </div>
+
+          <div class='insights-grid' id='insights-grid'>
+            {
+              listedPosts.map((post) => (
+                <a
+                  class='insight-card'
+                  href={postUrl(post)}
+                  data-insight-card
+                  data-insight-category={post.categorySlug}
+                  data-motion-item='service'
+                  data-motion-hidden='y-card'
+                  aria-label={`Ler artigo: ${post.title}`}>
+                  <span class:list={['insight-card__visual', `is-${post.categorySlug}`]}>
+                    <span class='insight-card__mark' aria-hidden='true'></span>
+                    <span class='insight-badge'>{post.category}</span>
+                  </span>
+
+                  <span class='insight-card__body'>
+                    <span>
+                      <h3>{post.title}</h3>
+                      <p>{post.excerpt}</p>
+                    </span>
+
+                    <span class='insight-card__footer'>
+                      <span>{post.date}</span>
+                      <span>{post.readTime}</span>
+                      <span class='material-symbols-outlined' aria-hidden='true'>
+                        north_east
+                      </span>
+                    </span>
+                  </span>
+                </a>
+              ))
+            }
+          </div>
+
+          <p class='insights-empty' data-insights-empty hidden>
+            Nenhum artigo dessa categoria está publicado ainda.
+          </p>
+        </div>
+
+        <aside
+          class='insights-cta'
+          aria-labelledby='insights-cta-title'
+          data-motion-section='cta'
+          data-motion-panel
+          data-motion-hidden='y-lg'>
+          <div data-motion-heading data-motion-hidden='y-sm'>
+            <p class='insights-eyebrow'>Próximo passo</p>
+            <h2 id='insights-cta-title'>Quer transformar conteúdo em contato?</h2>
+            <p>
+              Me chama no WhatsApp para planejar uma base editorial rápida,
+              indexável e conectada às páginas comerciais do seu site.
+            </p>
+          </div>
+
+          <a
+            href={whatsappHref}
+            target='_blank'
+            rel='noreferrer'
+            data-motion-button
+            data-motion-hidden='y-sm'>
+            Falar no WhatsApp
+            <span class='material-symbols-outlined' aria-hidden='true'>
+              arrow_forward
+            </span>
+          </a>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter links={navigation} brandHref='/' />
+</BaseLayout>
+
+<style>
+  :global(html),
+  :global(body) {
+    overflow-x: clip;
+  }
+
+  .insights-page {
+    min-height: 100svh;
+    overflow-x: hidden;
+    background:
+      radial-gradient(circle at 18% 10%, rgba(229, 196, 135, 0.1), transparent 24rem),
+      radial-gradient(circle at 88% 36%, rgba(153, 143, 129, 0.12), transparent 25rem),
+      linear-gradient(180deg, var(--surface-lowest) 0%, var(--background) 48%, var(--surface-lowest) 100%);
+    color: var(--text);
+  }
+
+  .insights-page :global(.site-nav) {
+    --nav-bg: rgba(14, 14, 14, 0.88);
+    --nav-border: rgba(77, 70, 58, 0.34);
+    --nav-blur: 16px;
+  }
+
+  .insights-shell {
+    position: relative;
+    z-index: 1;
+    width: min(1120px, calc(100vw - 3rem));
+    margin: 0 auto;
+  }
+
+  .insights-hero {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(8rem, 11vw, 10rem) 0 clamp(3.2rem, 6vw, 5rem);
+    border-bottom: 1px solid rgba(77, 70, 58, 0.32);
+  }
+
+  .insights-hero__grid {
+    position: absolute;
+    inset: 0;
+    opacity: 0.38;
+    pointer-events: none;
+  }
+
+  .insights-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-bottom: clamp(2.2rem, 4.5vw, 3.4rem);
+    color: var(--subtle);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .insights-breadcrumb a {
+    color: var(--muted);
+    transition:
+      color 180ms ease,
+      transform 180ms ease;
+  }
+
+  .insights-breadcrumb a:hover,
+  .insights-breadcrumb a:focus-visible {
+    color: var(--primary);
+    transform: translateX(0.12rem);
+  }
+
+  .insights-hero__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: clamp(2rem, 8vw, 6rem);
+    align-items: end;
+  }
+
+  .insights-hero__copy {
+    max-width: 50rem;
+  }
+
+  .insights-eyebrow {
+    margin: 0 0 1rem;
+    color: var(--primary);
+    font-size: 0.68rem;
+    font-weight: 900;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  .insights-hero h1,
+  .featured-article h2,
+  .insights-list__header h2,
+  .insights-cta h2 {
+    margin: 0;
+    color: var(--text);
+    font-family: 'Newsreader', serif;
+    font-weight: 600;
+    letter-spacing: -0.05em;
+    line-height: 1.02;
+    text-wrap: balance;
+  }
+
+  .insights-hero h1 {
+    font-size: clamp(4rem, 10vw, 7.2rem);
+  }
+
+  .insights-hero__copy > p:last-child {
+    max-width: 42rem;
+    margin: 1.25rem 0 0;
+    color: var(--muted);
+    font-size: clamp(1rem, 1.5vw, 1.18rem);
+    font-weight: 300;
+    line-height: 1.75;
+    text-wrap: pretty;
+  }
+
+  .insights-stats {
+    display: grid;
+    gap: 1.1rem;
+    min-width: 9rem;
+    margin: 0;
+    text-align: right;
+  }
+
+  .insights-stats div {
+    padding-top: 1rem;
+    border-top: 1px solid rgba(229, 196, 135, 0.2);
+  }
+
+  .insights-stats dt {
+    color: var(--text);
+    font-size: clamp(1.9rem, 4vw, 2.5rem);
+    font-weight: 900;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .insights-stats dd {
+    margin: 0.42rem 0 0;
+    color: var(--subtle);
+    font-size: 0.66rem;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .insights-featured {
+    padding: clamp(2rem, 4vw, 3rem) 0 0;
+  }
+
+  .featured-article {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(22rem, 0.88fr);
+    overflow: hidden;
+    border: 1px solid rgba(229, 196, 135, 0.22);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.024), transparent 48%),
+      var(--surface);
+    box-shadow: var(--shadow-soft);
+    transition:
+      border-color 220ms ease,
+      box-shadow 220ms ease,
+      transform 220ms ease;
+  }
+
+  .featured-article:hover,
+  .featured-article:focus-visible {
+    border-color: rgba(229, 196, 135, 0.5);
+    box-shadow: var(--shadow);
+    transform: translateY(-0.28rem);
+  }
+
+  .featured-article:active,
+  .insight-card:active,
+  .insights-cta > a:active,
+  .insights-filters button:active {
+    transform: scale(0.96);
+  }
+
+  .featured-article__visual {
+    position: relative;
+    display: grid;
+    min-height: 21rem;
+    overflow: hidden;
+    place-items: center;
+    background:
+      linear-gradient(135deg, rgba(11, 18, 28, 0.98), rgba(24, 30, 38, 0.92)),
+      var(--surface-lowest);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  }
+
+  .featured-article__visual::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to right, rgba(229, 196, 135, 0.08) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(229, 196, 135, 0.08) 1px, transparent 1px);
+    background-size: 34px 34px;
+    mask-image: radial-gradient(circle at center, black, transparent 72%);
+  }
+
+  .featured-article__screen {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 0.65rem;
+    width: min(19rem, 66%);
+    padding: 1.2rem;
+    background: rgba(14, 14, 14, 0.68);
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.1),
+      0 28px 72px rgba(0, 0, 0, 0.34);
+    transition: transform 500ms ease;
+  }
+
+  .featured-article:hover .featured-article__screen,
+  .featured-article:focus-visible .featured-article__screen {
+    transform: translateY(-0.35rem) scale(1.025);
+  }
+
+  .featured-article__screen span {
+    display: block;
+    height: 0.55rem;
+    background: rgba(229, 196, 135, 0.18);
+  }
+
+  .featured-article__screen span:first-child {
+    width: 42%;
+    background: var(--primary);
+  }
+
+  .featured-article__screen span:nth-child(2) {
+    width: 86%;
+  }
+
+  .featured-article__screen span:last-child {
+    width: 64%;
+  }
+
+  .featured-article__body {
+    display: grid;
+    align-content: space-between;
+    gap: 2rem;
+    padding: clamp(1.6rem, 3vw, 2.25rem);
+  }
+
+  .insight-badge,
+  .featured-article__label {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    min-height: 1.7rem;
+    padding: 0.28rem 0.62rem;
+    border: 1px solid rgba(229, 196, 135, 0.24);
+    background: rgba(229, 196, 135, 0.06);
+    color: var(--primary);
+    font-size: 0.58rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .featured-article__label {
+    margin-bottom: 0.8rem;
+    border-color: rgba(153, 143, 129, 0.24);
+    background: rgba(255, 255, 255, 0.025);
+    color: var(--subtle);
+  }
+
+  .featured-article h2 {
+    font-size: clamp(2rem, 4.2vw, 3.3rem);
+  }
+
+  .featured-article p {
+    margin: 1rem 0 0;
+    color: var(--muted);
+    line-height: 1.7;
+    text-wrap: pretty;
+  }
+
+  .featured-article__meta,
+  .insight-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    color: var(--subtle);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+  }
+
+  .featured-article__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--muted);
+    white-space: nowrap;
+    transition: color 180ms ease;
+  }
+
+  .featured-article:hover .featured-article__cta,
+  .featured-article:focus-visible .featured-article__cta,
+  .insight-card:hover .insight-card__footer .material-symbols-outlined,
+  .insight-card:focus-visible .insight-card__footer .material-symbols-outlined {
+    color: var(--primary);
+  }
+
+  .featured-article__cta .material-symbols-outlined {
+    font-size: 1rem;
+    transition: transform 180ms ease;
+  }
+
+  .featured-article:hover .featured-article__cta .material-symbols-outlined,
+  .featured-article:focus-visible .featured-article__cta .material-symbols-outlined {
+    transform: translateX(0.16rem);
+  }
+
+  .insights-list {
+    padding: clamp(3rem, 7vw, 5.8rem) 0 clamp(4rem, 8vw, 6rem);
+  }
+
+  .insights-list__header {
+    display: grid;
+    grid-template-columns: minmax(0, 0.86fr) minmax(22rem, 1fr);
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: end;
+    padding-bottom: clamp(1.5rem, 3vw, 2.2rem);
+    border-bottom: 1px solid rgba(77, 70, 58, 0.32);
+  }
+
+  .insights-list__header h2 {
+    max-width: 11ch;
+    font-size: clamp(2.4rem, 5.5vw, 4.35rem);
+  }
+
+  .insights-filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.72rem;
+  }
+
+  .insights-filters button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.8rem;
+    padding: 0.65rem 1rem;
+    border: 1px solid rgba(153, 143, 129, 0.26);
+    border-radius: var(--radius);
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    line-height: 1.2;
+    text-transform: uppercase;
+    transition:
+      border-color 180ms ease,
+      background-color 180ms ease,
+      color 180ms ease,
+      transform 180ms ease;
+  }
+
+  .insights-filters button[aria-current='true'],
+  .insights-filters button:hover,
+  .insights-filters button:focus-visible {
+    border-color: rgba(229, 196, 135, 0.58);
+    background: rgba(229, 196, 135, 0.08);
+    color: var(--primary);
+  }
+
+  .insights-filters button:hover {
+    transform: translateY(-2px);
+  }
+
+  .insights-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+    padding-top: clamp(1.6rem, 4vw, 2.8rem);
+  }
+
+  .insight-card {
+    display: flex;
+    min-width: 0;
+    overflow: hidden;
+    flex-direction: column;
+    border: 1px solid rgba(229, 218, 207, 0.13);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.018), transparent 36%),
+      var(--surface-soft);
+    box-shadow: var(--shadow-soft);
+    transition:
+      border-color 200ms ease,
+      transform 200ms ease,
+      box-shadow 200ms ease;
+  }
+
+  .insight-card:nth-child(1),
+  .insight-card:nth-child(4) {
+    grid-column: span 2;
+  }
+
+  .insight-card[hidden] {
+    display: none;
+  }
+
+  .insight-card:hover,
+  .insight-card:focus-visible {
+    border-color: rgba(229, 196, 135, 0.42);
+    box-shadow: var(--shadow);
+    transform: translateY(-0.28rem);
+  }
+
+  .insight-card__visual {
+    position: relative;
+    display: block;
+    min-height: 8.8rem;
+    overflow: hidden;
+    background: var(--surface-strong);
+  }
+
+  .insight-card__visual::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.82;
+    background:
+      linear-gradient(135deg, rgba(229, 196, 135, 0.14), transparent 42%),
+      var(--surface-strong);
+  }
+
+  .insight-card__visual.is-desenvolvimento::before {
+    background:
+      linear-gradient(135deg, rgba(229, 196, 135, 0.16), transparent 42%),
+      linear-gradient(135deg, #151814, #24231d);
+  }
+
+  .insight-card__visual.is-seo::before {
+    background:
+      linear-gradient(135deg, rgba(186, 206, 154, 0.16), transparent 42%),
+      linear-gradient(135deg, #11170f, #1e2619);
+  }
+
+  .insight-card__visual.is-freelance::before {
+    background:
+      linear-gradient(135deg, rgba(229, 196, 135, 0.18), transparent 42%),
+      linear-gradient(135deg, #18130f, #2b2118);
+  }
+
+  .insight-card__visual.is-ia::before {
+    background:
+      linear-gradient(135deg, rgba(153, 143, 129, 0.2), transparent 42%),
+      linear-gradient(135deg, #111419, #202329);
+  }
+
+  .insight-card__visual.is-ferramentas::before {
+    background:
+      linear-gradient(135deg, rgba(205, 215, 214, 0.14), transparent 42%),
+      linear-gradient(135deg, #101516, #1d2727);
+  }
+
+  .insight-card__mark {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    width: 4.5rem;
+    height: 4.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: inset 0 0 0 0.7rem rgba(255, 255, 255, 0.025);
+    transform: rotate(12deg);
+    transition: transform 400ms ease;
+  }
+
+  .insight-card:hover .insight-card__mark,
+  .insight-card:focus-visible .insight-card__mark {
+    transform: rotate(0deg) scale(1.06);
+  }
+
+  .insight-card__visual .insight-badge {
+    position: absolute;
+    top: 0.9rem;
+    left: 0.9rem;
+    z-index: 1;
+  }
+
+  .insight-card__body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.3rem;
+    padding: 1.05rem;
+  }
+
+  .insight-card h3 {
+    margin: 0;
+    color: var(--text);
+    font-family: 'Newsreader', serif;
+    font-size: clamp(1.45rem, 2vw, 1.8rem);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1.08;
+    text-wrap: balance;
+  }
+
+  .insight-card p {
+    margin: 0.72rem 0 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.62;
+    text-wrap: pretty;
+  }
+
+  .insight-card__footer {
+    padding-top: 0.85rem;
+    border-top: 1px solid rgba(77, 70, 58, 0.24);
+    font-size: 0.68rem;
+    letter-spacing: 0.04em;
+  }
+
+  .insight-card__footer .material-symbols-outlined {
+    color: var(--muted);
+    font-size: 0.95rem;
+    transition:
+      color 180ms ease,
+      transform 180ms ease;
+  }
+
+  .insight-card:hover .insight-card__footer .material-symbols-outlined,
+  .insight-card:focus-visible .insight-card__footer .material-symbols-outlined {
+    transform: translate(0.12rem, -0.12rem);
+  }
+
+  .insights-empty {
+    margin: 1.6rem 0 0;
+    padding: 1.3rem 1.5rem;
+    border: 1px solid rgba(229, 196, 135, 0.2);
+    background: var(--surface-soft);
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .insights-cta {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: center;
+    margin-top: clamp(2rem, 5vw, 3.4rem);
+    padding: clamp(1.6rem, 4vw, 2.6rem);
+    border: 1px solid rgba(229, 196, 135, 0.22);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 42%),
+      var(--surface-elevated);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .insights-cta h2 {
+    max-width: 13ch;
+    font-size: clamp(2.2rem, 4.8vw, 3.8rem);
+  }
+
+  .insights-cta p:last-child {
+    max-width: 42rem;
+    margin: 1rem 0 0;
+    color: var(--muted);
+    line-height: 1.74;
+    text-wrap: pretty;
+  }
+
+  .insights-cta > a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    min-height: 3.35rem;
+    padding: 0.9rem 1.45rem;
+    background: var(--primary-strong);
+    color: var(--primary-ink);
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition:
+      background-color 180ms ease,
+      transform 180ms ease;
+  }
+
+  .insights-cta > a:hover,
+  .insights-cta > a:focus-visible {
+    background: var(--primary);
+    transform: translateY(-2px);
+  }
+
+  .insights-cta .material-symbols-outlined {
+    font-size: 1.05rem;
+  }
+
+  @media (max-width: 980px) {
+    .insights-hero__layout,
+    .featured-article,
+    .insights-list__header,
+    .insights-cta {
+      grid-template-columns: 1fr;
+    }
+
+    .insights-stats {
+      display: flex;
+      flex-wrap: wrap;
+      min-width: 0;
+      text-align: left;
+    }
+
+    .insights-stats div {
+      min-width: 7rem;
+    }
+
+    .featured-article {
+      width: min(100%, 42rem);
+    }
+
+    .insights-filters {
+      justify-content: flex-start;
+    }
+
+    .insights-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .insight-card:nth-child(1),
+    .insight-card:nth-child(4) {
+      grid-column: span 1;
+    }
+
+    .insights-cta > a {
+      width: fit-content;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .insights-shell {
+      width: calc(100vw - 1.5rem);
+    }
+
+    .insights-hero {
+      padding-top: 7.2rem;
+    }
+
+    .insights-breadcrumb {
+      gap: 0.45rem;
+      margin-bottom: 2rem;
+      font-size: 0.6rem;
+      letter-spacing: 0.14em;
+    }
+
+    .insights-eyebrow {
+      font-size: 0.62rem;
+      letter-spacing: 0.16em;
+    }
+
+    .insights-hero h1 {
+      font-size: clamp(3.4rem, 19vw, 4.6rem);
+    }
+
+    .insights-stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    .featured-article__visual {
+      min-height: 14rem;
+    }
+
+    .featured-article__screen {
+      width: min(16rem, 76%);
+    }
+
+    .featured-article__body,
+    .insights-cta {
+      padding: 1.15rem;
+    }
+
+    .featured-article__meta,
+    .insight-card__footer {
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .insights-list__header h2,
+    .insights-cta h2 {
+      max-width: 12ch;
+      font-size: clamp(2.35rem, 12vw, 3.1rem);
+    }
+
+    .insights-filters,
+    .insights-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .insights-filters {
+      gap: 0.58rem;
+    }
+
+    .insights-filters button,
+    .insights-cta > a {
+      width: 100%;
+      white-space: normal;
+    }
+
+    .insight-card__visual {
+      min-height: 7.8rem;
+    }
+  }
+</style>
+
+<script>
+  import gsap from 'gsap';
+
+  const insightFilters = document.querySelectorAll('[data-insights-filter]');
+  const insightCards = document.querySelectorAll('[data-insight-card]');
+  const insightEmpty = document.querySelector('[data-insights-empty]');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  const setActiveInsightFilter = (activeFilter) => {
+    insightFilters.forEach((filter) => {
+      if (filter === activeFilter) {
+        filter.setAttribute('aria-current', 'true');
+        return;
+      }
+
+      filter.removeAttribute('aria-current');
+    });
+  };
+
+  const filterInsights = (filterValue) => {
+    let visibleCount = 0;
+    const visibleCards = [];
+    const hiddenCards = [];
+
+    insightCards.forEach((card) => {
+      const category = card.getAttribute('data-insight-category');
+      const shouldShow = filterValue === 'all' || category === filterValue;
+
+      if (card instanceof HTMLElement) {
+        card.hidden = !shouldShow;
+
+        if (shouldShow) {
+          visibleCards.push(card);
+        } else {
+          hiddenCards.push(card);
+        }
+      }
+
+      if (shouldShow) {
+        visibleCount += 1;
+      }
+    });
+
+    if (insightEmpty instanceof HTMLElement) {
+      insightEmpty.hidden = visibleCount > 0;
+    }
+
+    if (reduceMotion.matches) {
+      gsap.set([...visibleCards, ...hiddenCards], { clearProps: 'all' });
+      return;
+    }
+
+    gsap.killTweensOf([...visibleCards, ...hiddenCards]);
+    gsap.set(visibleCards, {
+      autoAlpha: 0,
+      y: 18,
+      scale: 0.98,
+      willChange: 'transform, opacity',
+    });
+    gsap.to(visibleCards, {
+      autoAlpha: 1,
+      y: 0,
+      scale: 1,
+      duration: 0.46,
+      stagger: 0.055,
+      ease: 'power3.out',
+      clearProps: 'transform,opacity,visibility,willChange',
+    });
+  };
+
+  insightFilters.forEach((filter) => {
+    filter.addEventListener('click', () => {
+      const filterValue = filter.getAttribute('data-insights-filter');
+
+      if (!filterValue) {
+        return;
+      }
+
+      setActiveInsightFilter(filter);
+      filterInsights(filterValue);
+    });
+  });
+</script>
