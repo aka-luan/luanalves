@@ -1,6 +1,7 @@
 import barba from '@barba/core';
 import gsap from 'gsap';
 import { cleanupLandingMotion, initLandingMotion } from './landing-motion';
+import { initInsightPost } from './insight-post';
 import { initProjectModalFromDom } from './project-modal';
 import { cleanupMobileNav, initMobileNav } from './mobile-nav';
 
@@ -13,6 +14,7 @@ declare global {
 }
 
 let cleanupProjectModal: Cleanup = () => {};
+let cleanupInsightPost: Cleanup = () => {};
 let pendingHash = '';
 
 const reduceMotion = () =>
@@ -38,7 +40,9 @@ function bootPageScripts({ includeMobileNav = true } = {}) {
 
   initLandingMotion();
   cleanupProjectModal();
+  cleanupInsightPost();
   cleanupProjectModal = initProjectModalFromDom();
+  cleanupInsightPost = initInsightPost(root);
 
   if (includeMobileNav) {
     initMobileNav(root);
@@ -48,7 +52,9 @@ function bootPageScripts({ includeMobileNav = true } = {}) {
 function cleanupPageScripts() {
   cleanupLandingMotion();
   cleanupProjectModal();
+  cleanupInsightPost();
   cleanupProjectModal = () => {};
+  cleanupInsightPost = () => {};
   cleanupMobileNav();
   document.body.classList.remove('menu-open');
 }

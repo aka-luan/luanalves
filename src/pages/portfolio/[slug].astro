@@ -1,5 +1,6 @@
 ---
 import SiteFooter from '../../components/SiteFooter.astro';
+import SiteNav from '../../components/SiteNav.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { navigation, portfolioProjects } from '../../data/site';
 
@@ -94,18 +95,12 @@ const caseSchema = [
   socialImageAlt={project.alt}
   schema={caseSchema}>
   <main class='case-page' id='top'>
-    <nav class='case-nav' aria-label='Navegação do case' data-case-motion-nav>
-      <a class='case-nav__back' href='/portfolio/'>
-        <span class='material-symbols-outlined' aria-hidden='true'>arrow_back</span>
-        Portfólio
-      </a>
-      <a class='case-nav__brand' href='/' aria-label='Luan Alves, página inicial'>
-        Luan Alves
-      </a>
-      <a class='case-nav__cta' href={whatsappHref} target='_blank' rel='noreferrer'>
-        WhatsApp
-      </a>
-    </nav>
+    <SiteNav
+      items={navigation}
+      whatsappHref={whatsappHref}
+      brandHref='/'
+      brandAriaLabel='Luan Alves, página inicial'
+    />
 
     <section class='case-hero' aria-labelledby='case-title' data-motion='hero'>
       <div class='case-wrap'>
@@ -295,61 +290,10 @@ const caseSchema = [
     color: var(--text);
   }
 
-  .case-nav {
-    position: sticky;
-    top: 0;
-    z-index: 30;
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    gap: 1rem;
-    padding: 0.95rem clamp(1rem, 4vw, 2rem);
-    border-bottom: 1px solid rgba(77, 70, 58, 0.36);
-    background: rgba(14, 14, 14, 0.9);
-    backdrop-filter: blur(16px);
-  }
-
-  .case-nav__back,
-  .case-nav__cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    min-height: 2.35rem;
-    color: var(--subtle);
-    font-size: 0.72rem;
-    font-weight: 800;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    transition:
-      color 180ms ease,
-      border-color 180ms ease,
-      background-color 180ms ease;
-  }
-
-  .case-nav__back:hover,
-  .case-nav__back:focus-visible,
-  .case-nav__cta:hover,
-  .case-nav__cta:focus-visible {
-    color: var(--primary);
-  }
-
-  .case-nav__back .material-symbols-outlined {
-    font-size: 1rem;
-  }
-
-  .case-nav__brand {
-    justify-self: center;
-    color: var(--primary);
-    font-family: 'Newsreader', serif;
-    font-size: 1.24rem;
-    font-weight: 700;
-    letter-spacing: -0.04em;
-  }
-
-  .case-nav__cta {
-    justify-self: end;
-    padding: 0 0.9rem;
-    border: 1px solid rgba(153, 143, 129, 0.28);
+  .case-page :global(.site-nav) {
+    --nav-bg: rgba(14, 14, 14, 0.88);
+    --nav-border: rgba(77, 70, 58, 0.34);
+    --nav-blur: 16px;
   }
 
   .case-wrap,
@@ -364,7 +308,7 @@ const caseSchema = [
   }
 
   .case-hero {
-    padding: clamp(3.2rem, 7vw, 5.2rem) 0 2.25rem;
+    padding: clamp(8rem, 12vw, 9.6rem) 0 2.25rem;
   }
 
   .case-breadcrumb {
@@ -857,49 +801,8 @@ const caseSchema = [
   }
 
   @media (max-width: 560px) {
-    .case-nav {
-      grid-template-columns: auto 1fr auto;
-      gap: 0.65rem;
-      padding-inline: 0.75rem;
-    }
-
-    .case-nav__back,
-    .case-nav__cta {
-      font-size: 0.62rem;
-      letter-spacing: 0.1em;
-    }
-
-    .case-nav__back {
-      width: 2.4rem;
-      justify-content: center;
-      overflow: hidden;
-      color: var(--subtle);
-      font-size: 0;
-      letter-spacing: 0;
-      white-space: nowrap;
-    }
-
-    .case-nav__back .material-symbols-outlined {
-      color: var(--subtle);
-      font-size: 1.05rem;
-    }
-
-    .case-nav__back:hover .material-symbols-outlined,
-    .case-nav__back:focus-visible .material-symbols-outlined {
-      color: var(--primary);
-    }
-
-    .case-nav__brand {
-      justify-self: center;
-      font-size: 1.08rem;
-    }
-
-    .case-nav__cta {
-      padding-inline: 0.7rem;
-    }
-
     .case-hero {
-      padding-top: 2.7rem;
+      padding-top: 7.6rem;
     }
 
     .case-breadcrumb {

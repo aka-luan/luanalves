@@ -1,0 +1,886 @@
+---
+import SiteFooter from '../../components/SiteFooter.astro';
+import SiteNav from '../../components/SiteNav.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { navigation } from '../../data/site';
+import {
+  getInsightPath,
+  getInsightToc,
+  insights,
+  publishedInsights,
+  type InsightArticleBlock,
+  type InsightPublishedPost,
+} from '../../data/insights';
+
+export function getStaticPaths() {
+  return publishedInsights.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props as { post: InsightPublishedPost };
+const siteUrl = 'https://luanalves.com.br';
+const canonicalPath = getInsightPath(post);
+const canonicalUrl = `${siteUrl}${canonicalPath}`;
+const whatsappHref =
+  'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Li%20o%20artigo%20sobre%20Schema%20JSON-LD%20e%20quero%20revisar%20o%20SEO%20do%20meu%20site.';
+const toc = getInsightToc(post);
+const relatedPosts = insights
+  .filter((item) => item.slug !== post.slug)
+  .filter((item) => item.categorySlug === post.categorySlug || item.featured)
+  .slice(0, 3);
+
+const articleSchema = [
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Início',
+        item: siteUrl,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Insights',
+        item: `${siteUrl}/insights/`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: post.title,
+        item: canonicalUrl,
+      },
+    ],
+  },
+  {
+    '@type': 'BlogPosting',
+    '@id': `${canonicalUrl}#article`,
+    headline: post.title,
+    description: post.description,
+    image: post.heroImage
+      ? `${siteUrl}${post.heroImage}`
+      : `${siteUrl}/assets/og-cover.webp`,
+    datePublished: post.isoDate,
+    dateModified: post.isoDate,
+    author: { '@id': `${siteUrl}/#person` },
+    publisher: { '@id': `${siteUrl}/#business` },
+    mainEntityOfPage: canonicalUrl,
+    url: canonicalUrl,
+    inLanguage: 'pt-BR',
+    articleSection: post.category,
+    keywords: post.tags.join(', '),
+  },
+];
+
+const renderInlineLinks = (text: string) => text;
+---
+
+<BaseLayout
+  namespace='insight-post'
+  title={`${post.title} | Luan Alves`}
+  description={post.description}
+  canonicalPath={canonicalPath}
+  ogType='article'
+  socialImage={post.heroImage ?? '/assets/og-cover.webp'}
+  socialImageAlt={post.heroImageAlt ?? post.title}
+  schema={articleSchema}>
+  <main
+    class='insight-post-page'
+    id='top'
+    data-insight-post
+    data-url={canonicalUrl}>
+    <div class='reading-progress' aria-hidden='true'>
+      <span data-reading-progress></span>
+    </div>
+
+    <SiteNav
+      items={navigation}
+      whatsappHref={whatsappHref}
+      brandHref='/'
+      brandAriaLabel='Luan Alves, página inicial'
+    />
+
+    <article class='post-shell'>
+      <nav class='post-breadcrumb' aria-label='Breadcrumb'>
+        <a href='/'>Início</a>
+        <span aria-hidden='true'>/</span>
+        <a href='/insights/'>Insights</a>
+        <span aria-hidden='true'>/</span>
+        <span>{post.category}</span>
+      </nav>
+
+      <header class='post-hero'>
+        <div class='post-hero__copy'>
+          <p class='post-eyebrow'>{post.category}</p>
+          <h1>{post.title}</h1>
+          <p>{post.description}</p>
+          <div class='post-meta' aria-label='Metadados do artigo'>
+            <span>{post.date}</span>
+            <span>{post.readTime}</span>
+            <span>{post.tags.slice(0, 2).join(' / ')}</span>
+          </div>
+        </div>
+
+        <figure class='post-hero__visual'>
+          {
+            post.heroImage ? (
+              <img
+                src={post.heroImage}
+                alt={post.heroImageAlt}
+                width='1200'
+                height='800'
+                loading='eager'
+                decoding='async'
+              />
+            ) : (
+              <div class='post-hero__placeholder' aria-hidden='true' />
+            )
+          }
+        </figure>
+      </header>
+
+      <div class='post-layout'>
+        <div class='post-content' data-post-content>
+          {
+            post.content.map((block: InsightArticleBlock) => {
+              if (block.type === 'heading') {
+                const HeadingTag = `h${block.level}` as 'h2' | 'h3';
+                return <HeadingTag id={block.id}>{block.text}</HeadingTag>;
+              }
+
+              if (block.type === 'paragraph') {
+                return <p set:html={renderInlineLinks(block.text)} />;
+              }
+
+              if (block.type === 'list') {
+                const ListTag = block.ordered ? 'ol' : 'ul';
+                return (
+                  <ListTag>
+                    {block.items.map((item) => (
+                      <li>{item}</li>
+                    ))}
+                  </ListTag>
+                );
+              }
+
+              if (block.type === 'blockquote') {
+                return (
+                  <blockquote>
+                    <p>{block.text}</p>
+                    {block.cite && <cite>{block.cite}</cite>}
+                  </blockquote>
+                );
+              }
+
+              if (block.type === 'code') {
+                return (
+                  <figure class='post-code'>
+                    {block.caption && <figcaption>{block.caption}</figcaption>}
+                    <pre>
+                      <code class={`language-${block.language}`}>
+                        {block.code}
+                      </code>
+                    </pre>
+                  </figure>
+                );
+              }
+
+              if (block.type === 'image') {
+                return (
+                  <figure class='post-image'>
+                    {block.src ? (
+                      <img
+                        src={block.src}
+                        alt={block.alt}
+                        width='1200'
+                        height='760'
+                        loading='lazy'
+                        decoding='async'
+                      />
+                    ) : (
+                      <div aria-label={block.alt} />
+                    )}
+                    {block.caption && <figcaption>{block.caption}</figcaption>}
+                  </figure>
+                );
+              }
+
+              if (block.type === 'links') {
+                return (
+                  <div class='post-links'>
+                    {block.items.map((item) => (
+                      <a href={item.href}>
+                        <span>{item.label}</span>
+                        <strong>{item.text}</strong>
+                      </a>
+                    ))}
+                  </div>
+                );
+              }
+            })
+          }
+        </div>
+
+        <aside class='post-sidebar' aria-label='Navegação lateral do artigo'>
+          <div class='post-sidebar__panel'>
+            <p class='post-sidebar__title'>Neste artigo</p>
+            <nav class='post-toc' aria-label='Sumário'>
+              {
+                toc.map((item) => (
+                  <a
+                    class:list={[{ 'is-nested': item.level === 3 }]}
+                    href={`#${item.id}`}
+                    data-insight-toc-link>
+                    {item.text}
+                  </a>
+                ))
+              }
+            </nav>
+          </div>
+
+          <div class='post-sidebar__panel'>
+            <p class='post-sidebar__title'>Compartilhar</p>
+            <div class='post-share'>
+              <button type='button' data-share-action='linkedin'>
+                <span class='material-symbols-outlined' aria-hidden='true'
+                  >work</span
+                >
+                LinkedIn
+              </button>
+              <button type='button' data-share-action='twitter'>
+                <span class='material-symbols-outlined' aria-hidden='true'
+                  >alternate_email</span
+                >
+                X
+              </button>
+              <button type='button' data-share-action='copy'>
+                <span class='material-symbols-outlined' aria-hidden='true'
+                  >content_copy</span
+                >
+                <span data-copy-label>Copiar</span>
+              </button>
+            </div>
+          </div>
+
+          <a
+            class='post-whatsapp'
+            href={whatsappHref}
+            target='_blank'
+            rel='noreferrer'>
+            Revisar SEO do meu site
+            <span class='material-symbols-outlined' aria-hidden='true'
+              >arrow_forward</span
+            >
+          </a>
+        </aside>
+      </div>
+
+      <section class='author-card' aria-labelledby='author-title'>
+        <div>
+          <p class='post-eyebrow'>Autor</p>
+          <h2 id='author-title'>{post.author.name}</h2>
+          <p>{post.author.role}</p>
+        </div>
+        <p>{post.author.bio}</p>
+      </section>
+    </article>
+
+    <section class='related-section' aria-labelledby='related-title'>
+      <div class='post-shell'>
+        <div class='related-section__header'>
+          <p class='post-eyebrow'>Continuar lendo</p>
+          <h2 id='related-title'>Insights relacionados</h2>
+        </div>
+        <div class='related-grid'>
+          {
+            relatedPosts.map((item) => (
+              <a class='related-card' href={getInsightPath(item)}>
+                <span>{item.category}</span>
+                <h3>{item.title}</h3>
+                <p>{item.excerpt}</p>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter links={navigation} brandHref='/' />
+</BaseLayout>
+
+<style>
+  :global(html) {
+    scroll-padding-top: 7rem;
+  }
+
+  :global(html),
+  :global(body) {
+    overflow-x: clip;
+  }
+
+  .insight-post-page {
+    min-height: 100svh;
+    overflow-x: hidden;
+    background:
+      radial-gradient(
+        circle at 12% 4%,
+        rgba(229, 196, 135, 0.12),
+        transparent 24rem
+      ),
+      radial-gradient(
+        circle at 88% 18%,
+        rgba(153, 143, 129, 0.12),
+        transparent 28rem
+      ),
+      linear-gradient(
+        180deg,
+        var(--surface-lowest),
+        var(--background) 46%,
+        var(--surface-lowest)
+      );
+    color: var(--text);
+  }
+
+  .insight-post-page :global(.site-nav) {
+    --nav-bg: rgba(14, 14, 14, 0.88);
+    --nav-border: rgba(77, 70, 58, 0.34);
+    --nav-blur: 16px;
+  }
+
+  .reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 80;
+    width: 100%;
+    height: 3px;
+    background: rgba(77, 70, 58, 0.32);
+  }
+
+  .reading-progress span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: var(--primary);
+    transform: scaleX(0);
+    transform-origin: left center;
+  }
+
+  .post-share button,
+  .post-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    min-height: 2.6rem;
+    border: 1px solid rgba(153, 143, 129, 0.26);
+    background: transparent;
+    color: var(--muted);
+    font: inherit;
+    font-size: 0.68rem;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    transition:
+      border-color 180ms ease,
+      background-color 180ms ease,
+      color 180ms ease,
+      transform 180ms ease;
+  }
+
+  .post-share button:hover,
+  .post-share button:focus-visible {
+    border-color: rgba(229, 196, 135, 0.48);
+    background: rgba(229, 196, 135, 0.08);
+    color: var(--primary);
+  }
+
+  .post-shell {
+    width: min(1120px, calc(100vw - 3rem));
+    margin: 0 auto;
+  }
+
+  .post-breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    padding-top: clamp(8.5rem, 12vw, 10rem);
+    color: var(--subtle);
+    font-size: 0.66rem;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .post-breadcrumb a {
+    color: var(--muted);
+  }
+
+  .post-hero {
+    display: grid;
+    gap: clamp(1.5rem, 4vw, 2.7rem);
+    padding: clamp(2rem, 5vw, 3.4rem) 0 clamp(2.2rem, 5vw, 3.6rem);
+  }
+
+  .post-eyebrow {
+    margin: 0 0 1rem;
+    color: var(--primary);
+    font-size: 0.66rem;
+    font-weight: 900;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  .post-hero h1,
+  .author-card h2,
+  .related-section h2,
+  .related-card h3 {
+    margin: 0;
+    color: var(--text);
+    font-family: 'Newsreader', serif;
+    font-weight: 600;
+    letter-spacing: -0.05em;
+    line-height: 1.02;
+    text-wrap: balance;
+  }
+
+  .post-hero h1 {
+    font-size: clamp(2.9rem, 5.2vw, 4.45rem);
+  }
+
+  .post-hero__copy > p:not(.post-eyebrow) {
+    max-width: 42rem;
+    margin: 1.25rem 0 0;
+    color: var(--muted);
+    font-size: clamp(1rem, 1.45vw, 1.16rem);
+    font-weight: 300;
+    line-height: 1.78;
+    text-wrap: pretty;
+  }
+
+  .post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1.45rem;
+  }
+
+  .post-meta span,
+  .related-card span {
+    display: inline-flex;
+    width: fit-content;
+    min-height: 1.7rem;
+    align-items: center;
+    padding: 0.28rem 0.62rem;
+    border: 1px solid rgba(229, 196, 135, 0.22);
+    background: rgba(229, 196, 135, 0.06);
+    color: var(--primary);
+    font-size: 0.58rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .post-hero__visual {
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+    aspect-ratio: 16 / 7;
+    border: 1px solid rgba(229, 196, 135, 0.18);
+    background: var(--surface);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .post-hero__visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: saturate(0.86) contrast(1.05);
+  }
+
+  .post-hero__visual::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      transparent 48%,
+      rgba(14, 14, 14, 0.42)
+    );
+    pointer-events: none;
+  }
+
+  .post-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 46rem) 18rem;
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: start;
+    padding: clamp(1.2rem, 3vw, 2rem) 0 clamp(2.4rem, 6vw, 4.2rem);
+  }
+
+  .post-content {
+    min-width: 0;
+    max-width: 46rem;
+  }
+
+  .post-content h2,
+  .post-content h3 {
+    color: var(--text);
+    font-family: 'Newsreader', serif;
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    line-height: 1.08;
+    text-wrap: balance;
+  }
+
+  .post-content h2 {
+    margin: 3.3rem 0 1rem;
+    font-size: clamp(2.1rem, 4.2vw, 3.25rem);
+  }
+
+  .post-content h3 {
+    margin: 2.4rem 0 0.85rem;
+    font-size: clamp(1.55rem, 3vw, 2.15rem);
+  }
+
+  .post-content p,
+  .post-content li {
+    color: var(--muted);
+    font-size: clamp(1rem, 1.25vw, 1.08rem);
+    line-height: 1.86;
+  }
+
+  .post-content p {
+    margin: 1.05rem 0 0;
+  }
+
+  .post-content ul,
+  .post-content ol {
+    display: grid;
+    gap: 0.72rem;
+    margin: 1.3rem 0 0;
+    padding-left: 1.35rem;
+  }
+
+  .post-content li::marker {
+    color: var(--primary);
+    font-weight: 900;
+  }
+
+  .post-content blockquote {
+    margin: 2rem 0;
+    padding: 1.35rem 1.5rem;
+    border-left: 3px solid var(--primary);
+    background: var(--surface-soft);
+    color: var(--text);
+  }
+
+  .post-content blockquote p {
+    margin: 0;
+    color: var(--text);
+    font-family: 'Newsreader', serif;
+    font-size: clamp(1.45rem, 3vw, 2rem);
+    line-height: 1.22;
+  }
+
+  .post-code,
+  .post-image {
+    margin: 2rem 0;
+  }
+
+  .post-code figcaption,
+  .post-image figcaption {
+    margin-bottom: 0.65rem;
+    color: var(--subtle);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+  }
+
+  .post-code pre {
+    overflow-x: auto;
+    margin: 0;
+    padding: 1.2rem;
+    border: 1px solid rgba(229, 196, 135, 0.16);
+    background: #0b0d0e;
+    color: #e9dac7;
+    font-size: 0.9rem;
+    line-height: 1.72;
+  }
+
+  .post-image img,
+  .post-image div {
+    display: block;
+    width: 100%;
+    min-height: 18rem;
+    border: 1px solid rgba(229, 196, 135, 0.16);
+    object-fit: cover;
+    background:
+      linear-gradient(135deg, rgba(229, 196, 135, 0.12), transparent 42%),
+      var(--surface);
+  }
+
+  .post-links {
+    display: grid;
+    gap: 0.85rem;
+    margin: 2rem 0;
+  }
+
+  .post-links a,
+  .author-card,
+  .related-card,
+  .post-sidebar__panel {
+    border: 1px solid rgba(229, 218, 207, 0.13);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 40%),
+      var(--surface-soft);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .post-links a {
+    display: grid;
+    gap: 0.4rem;
+    padding: 1rem;
+    transition:
+      border-color 180ms ease,
+      transform 180ms ease;
+  }
+
+  .post-links a:hover,
+  .post-links a:focus-visible,
+  .related-card:hover,
+  .related-card:focus-visible {
+    border-color: rgba(229, 196, 135, 0.42);
+    transform: translateY(-0.18rem);
+  }
+
+  .post-links span {
+    color: var(--primary);
+    font-size: 0.62rem;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .post-links strong {
+    color: var(--text);
+    font-weight: 700;
+    line-height: 1.5;
+  }
+
+  .author-card {
+    display: grid;
+    grid-template-columns: minmax(12rem, 0.35fr) minmax(0, 1fr);
+    gap: clamp(1.4rem, 4vw, 3rem);
+    align-items: center;
+    margin: 0 0 clamp(3.2rem, 7vw, 5.4rem);
+    padding: clamp(1.1rem, 2.6vw, 1.65rem);
+    border-color: rgba(229, 218, 207, 0.1);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.016), transparent 48%),
+      rgba(22, 22, 22, 0.72);
+  }
+
+  .author-card h2 {
+    font-size: clamp(1.8rem, 3vw, 2.45rem);
+  }
+
+  .author-card p {
+    margin: 0.6rem 0 0;
+  }
+
+  .author-card > p {
+    max-width: 42rem;
+    color: var(--muted);
+    font-size: clamp(0.98rem, 1.25vw, 1.08rem);
+    line-height: 1.75;
+  }
+
+  .post-sidebar {
+    position: sticky;
+    top: 6rem;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .post-sidebar__panel {
+    padding: 1rem;
+  }
+
+  .post-sidebar__title {
+    margin: 0 0 0.8rem;
+    color: var(--text);
+    font-size: 0.68rem;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .post-toc {
+    display: grid;
+    gap: 0.3rem;
+  }
+
+  .post-toc a {
+    padding: 0.55rem 0;
+    border-bottom: 1px solid rgba(77, 70, 58, 0.2);
+    color: var(--muted);
+    font-size: 0.82rem;
+    line-height: 1.35;
+  }
+
+  .post-toc a.is-nested {
+    padding-left: 0.85rem;
+    color: var(--subtle);
+  }
+
+  .post-toc a[aria-current='true'],
+  .post-toc a:hover,
+  .post-toc a:focus-visible {
+    color: var(--primary);
+  }
+
+  .post-share {
+    display: grid;
+    gap: 0.55rem;
+  }
+
+  .post-share button {
+    width: 100%;
+    cursor: pointer;
+  }
+
+  .post-share button[data-copied='true'] [data-copy-label] {
+    font-size: 0;
+  }
+
+  .post-share button[data-copied='true'] [data-copy-label]::after {
+    content: 'Copiado';
+    font-size: 0.68rem;
+  }
+
+  .post-whatsapp {
+    min-height: 3.2rem;
+    padding: 0.9rem 1rem;
+    border-color: transparent;
+    background: var(--primary-strong);
+    color: var(--primary-ink);
+    text-align: center;
+  }
+
+  .post-whatsapp:hover,
+  .post-whatsapp:focus-visible {
+    background: var(--primary);
+    color: var(--primary-ink);
+    transform: translateY(-2px);
+  }
+
+  .related-section {
+    padding: clamp(2.8rem, 6vw, 4.7rem) 0;
+    border-top: 1px solid rgba(77, 70, 58, 0.32);
+  }
+
+  .related-section__header {
+    margin-bottom: 1.5rem;
+  }
+
+  .related-section h2 {
+    font-size: clamp(2.35rem, 5vw, 4rem);
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+    gap: 1rem;
+  }
+
+  .related-card {
+    display: grid;
+    align-content: start;
+    gap: 0.85rem;
+    min-height: 13rem;
+    padding: 1rem;
+    transition:
+      border-color 180ms ease,
+      transform 180ms ease;
+  }
+
+  .related-card h3 {
+    font-size: clamp(1.35rem, 1.9vw, 1.7rem);
+    line-height: 1.08;
+  }
+
+  .related-card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+
+  @media (max-width: 980px) {
+    .post-hero,
+    .post-layout,
+    .author-card {
+      grid-template-columns: 1fr;
+    }
+
+    .post-content {
+      max-width: none;
+    }
+
+    .post-sidebar {
+      position: static;
+      order: -1;
+    }
+
+    .related-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .post-shell {
+      width: calc(100vw - 1.5rem);
+    }
+
+    .post-hero {
+      padding-top: 2.1rem;
+    }
+
+    .post-hero h1 {
+      font-size: clamp(2.75rem, 13vw, 3.85rem);
+    }
+
+    .post-hero__visual {
+      aspect-ratio: 4 / 3;
+    }
+
+    .post-hero__visual,
+    .post-hero__visual img {
+      min-height: 15rem;
+    }
+
+    .post-meta,
+    .post-share {
+      grid-template-columns: 1fr;
+    }
+
+    .post-share button,
+    .post-whatsapp {
+      width: 100%;
+    }
+
+    .post-content h2 {
+      margin-top: 2.7rem;
+    }
+
+    .post-code pre {
+      font-size: 0.78rem;
+    }
+  }
+</style>
