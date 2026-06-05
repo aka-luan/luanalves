@@ -11,6 +11,7 @@ interface Props {
   title?: string;
   copy?: string;
   motion?: boolean;
+  showSectionIndex?: boolean;
 }
 
 const {
@@ -20,6 +21,7 @@ const {
   title = 'Perguntas frequentes antes de começar.',
   copy = 'As dúvidas mais comuns sobre prazo, escopo e funcionamento do projeto.',
   motion = true,
+  showSectionIndex = true,
 } = Astro.props;
 
 const sectionMotionAttrs = motion ? { 'data-motion-section': 'faq' } : {};
@@ -42,7 +44,7 @@ const copyMotionAttrs = motion
   <div class='shared-faq__inner'>
     <div class='shared-faq__copy'>
       <div class='shared-faq__kicker' aria-hidden='true' {...eyebrowMotionAttrs}>
-        <span>8 / 9</span>
+        {showSectionIndex && <span>8 / 9</span>}
         <span>{eyebrow}</span>
       </div>
 

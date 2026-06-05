@@ -35,6 +35,7 @@ const solutionItems = [
     copy: 'Ideal para empresas que precisam apresentar serviços, diferenciais e autoridade.',
     image: '/assets/tresor-home.webp',
     tags: ['SEO', 'Credibilidade', 'Mobile first'],
+    href: '/site-institucional/',
   },
   {
     icon: 'ads_click',
@@ -42,6 +43,7 @@ const solutionItems = [
     copy: 'Perfeita para campanhas, tráfego pago e captação de leads com foco total em conversão.',
     image: '/assets/skyrocket-home.webp',
     tags: ['Lead', 'Velocidade', 'Conversão'],
+    href: '/landing-page/',
   },
   {
     icon: 'article',
@@ -49,8 +51,20 @@ const solutionItems = [
     copy: 'Estrutura editorial preparada para conteúdo, ranqueamento e gestão simples.',
     image: '/assets/poliana-bentes-home.webp',
     tags: ['Editorial', 'CMS', 'Performance'],
+    href: '/blog-profissional/',
   },
 ];
+
+const portfolioProjectHrefs: Record<string, string> = {
+  'tresor-incorporacoes': '/portfolio/tresor-incorporacoes/',
+  'agencia-skyrocket': '/portfolio/agencia-skyrocket/',
+  'poliana-bentes': '/portfolio/poliana-bentes/',
+};
+
+const creationPageProjects = projects.map((project) => ({
+  ...project,
+  href: portfolioProjectHrefs[project.id] ?? project.href ?? project.url,
+}));
 
 const resultCards = [
   {
@@ -373,6 +387,10 @@ const faqItems = [
                       <span>{tag}</span>
                     ))}
                   </div>
+
+                  <a class='button button-outline button-compact' href={item.href}>
+                    Ver detalhes →
+                  </a>
                 </div>
               </article>
             ))
@@ -675,9 +693,9 @@ const faqItems = [
       </div>
     </section>
 
-    <PortfolioShowcase projects={projects} />
+    <PortfolioShowcase projects={creationPageProjects} />
 
-    <FaqSection items={faqItems} />
+    <FaqSection items={faqItems} showSectionIndex={false} />
 
     <HomeCta whatsappHref={whatsappHref} />
   </main>
