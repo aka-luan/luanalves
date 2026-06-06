@@ -3,6 +3,7 @@ import SiteFooter from '../../components/SiteFooter.astro';
 import SiteNav from '../../components/SiteNav.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { navigation, portfolioProjects } from '../../data/site';
+import { getInsightPath, publishedInsights } from '../../data/insights';
 
 const siteUrl = 'https://luanalves.com.br';
 const whatsappHref =
@@ -37,6 +38,17 @@ const gallery = project.gallery.length
     ];
 const phoneImage = project.mobileImage ?? project.image;
 const externalUrl = project.externalUrl ?? project.url;
+const primaryServiceHref = project.categories.includes('Landing Page')
+  ? '/landing-page/'
+  : project.categories.includes('Blog Profissional')
+    ? '/blog-profissional/'
+    : '/site-institucional/';
+const primaryServiceLabel = project.categories.includes('Landing Page')
+  ? 'Landing Page'
+  : project.categories.includes('Blog Profissional')
+    ? 'Blog Profissional'
+    : 'Site Institucional';
+const relatedInsights = publishedInsights.slice(0, 2);
 
 const caseSchema = [
   {
@@ -257,6 +269,34 @@ const caseSchema = [
       </div>
     </section>
 
+    <section class='case-links' aria-labelledby='case-links-title' data-motion-section='case-links'>
+      <p class='case-section-label' data-motion-heading data-motion-hidden='y-sm'>Próximos passos</p>
+      <h2 id='case-links-title' data-motion-heading data-motion-hidden='y-md'>
+        Continue por páginas com intenção comercial.
+      </h2>
+
+      <div class='case-links__grid'>
+        <a class='case-links__card' href={primaryServiceHref}>
+          <small>Serviço relacionado</small>
+          <strong>{primaryServiceLabel}</strong>
+          <p>
+            Veja como estruturo projetos desse tipo com foco em performance,
+            clareza e conversão.
+          </p>
+        </a>
+
+        {
+          relatedInsights.map((post) => (
+            <a class='case-links__card' href={getInsightPath(post)}>
+              <small>{post.category}</small>
+              <strong>{post.title}</strong>
+              <p>{post.excerpt}</p>
+            </a>
+          ))
+        }
+      </div>
+    </section>
+
     <section class='case-next' aria-label='Próximo projeto' data-motion-section='case-next'>
       <a
         class='case-next__card'
@@ -302,6 +342,7 @@ const caseSchema = [
   .case-body,
   .case-gallery,
   .case-results,
+  .case-links,
   .case-next {
     width: min(960px, calc(100vw - 4rem));
     margin: 0 auto;
@@ -654,12 +695,84 @@ const caseSchema = [
     border-top: 0;
   }
 
+  .case-links {
+    padding: clamp(2.1rem, 4vw, 2.7rem);
+    border: 1px solid rgba(229, 218, 207, 0.14);
+    border-top: 0;
+  }
+
   .case-gallery__grid,
   .case-results__grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0.85rem;
     margin-top: 1.45rem;
+  }
+
+  .case-links__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.85rem;
+    margin-top: 1.45rem;
+  }
+
+  .case-links__card {
+    display: grid;
+    align-content: start;
+    gap: 0.7rem;
+    min-width: 0;
+    min-height: 11rem;
+    padding: 1.2rem;
+    border: 1px solid rgba(229, 196, 135, 0.18);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.018), transparent 42%),
+      var(--surface);
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.014),
+      0 1rem 2.2rem rgba(0, 0, 0, 0.12),
+      0 2rem 3.8rem rgba(0, 0, 0, 0.08);
+    transition:
+      transform 180ms ease,
+      border-color 180ms ease,
+      box-shadow 180ms ease;
+  }
+
+  .case-links__card:hover,
+  .case-links__card:focus-visible {
+    border-color: rgba(229, 196, 135, 0.32);
+    transform: translateY(-3px);
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.018),
+      0 1.4rem 2.8rem rgba(0, 0, 0, 0.14),
+      0 2.6rem 4.8rem rgba(0, 0, 0, 0.1);
+  }
+
+  .case-links__card small {
+    color: var(--primary);
+    font-size: 0.58rem;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+    line-height: 1.45;
+    text-transform: uppercase;
+  }
+
+  .case-links__card strong {
+    color: var(--text);
+    font-family: 'Newsreader', serif;
+    font-size: clamp(1.42rem, 2.5vw, 1.9rem);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1.08;
+    text-wrap: balance;
+  }
+
+  .case-links__card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.88rem;
+    font-weight: 300;
+    line-height: 1.72;
+    text-wrap: pretty;
   }
 
   .case-gallery__item {
@@ -890,7 +1003,8 @@ const caseSchema = [
     }
 
     .case-gallery__grid,
-    .case-results__grid {
+    .case-results__grid,
+    .case-links__grid {
       grid-template-columns: 1fr;
     }
   }
@@ -933,7 +1047,8 @@ const caseSchema = [
     .case-body__story,
     .case-body__deliverables,
     .case-gallery,
-    .case-results {
+    .case-results,
+    .case-links {
       padding: 1.35rem;
     }
 

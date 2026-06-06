@@ -7,7 +7,7 @@ import SiteFooter from '../components/SiteFooter.astro';
 import SiteNav from '../components/SiteNav.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { projects } from '../data/site';
-import { getBreadcrumbSchema } from '../data/servicePages';
+import { getBreadcrumbSchema, getFaqPageSchema } from '../data/servicePages';
 
 const whatsappHref =
   'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Quero%20solicitar%20um%20or%C3%A7amento%20para%20cria%C3%A7%C3%A3o%20de%20site.';
@@ -214,6 +214,32 @@ const faqItems = [
       'Posso orientar a contratação e configurar tudo para publicação. Custos de domínio, hospedagem e ferramentas externas ficam separados do desenvolvimento.',
   },
 ];
+
+const creationServiceSchema = [
+  creationPageSchema,
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': 'https://luanalves.com.br/criacao-de-sites/#service',
+    name: 'Criação de Sites',
+    description:
+      'Criação de sites institucionais, blogs e landing pages para empresas que precisam vender mais com presença digital profissional.',
+    url: 'https://luanalves.com.br/criacao-de-sites/',
+    provider: {
+      '@id': 'https://luanalves.com.br/#business',
+    },
+    areaServed: {
+      '@type': 'Country',
+      name: 'Brasil',
+    },
+    offers: {
+      '@type': 'Offer',
+      availability: 'https://schema.org/InStock',
+      url: 'https://luanalves.com.br/criacao-de-sites/#contato',
+    },
+  },
+  getFaqPageSchema(faqItems, 'https://luanalves.com.br/criacao-de-sites/#faq'),
+];
 ---
 
 <BaseLayout
@@ -221,7 +247,7 @@ const faqItems = [
   title='Criação de Sites | Luan Alves'
   description='Criação de sites institucionais, blogs e landing pages para empresas que precisam vender mais com presença digital profissional.'
   canonicalPath='/criacao-de-sites/'
-  schema={creationPageSchema}>
+  schema={creationServiceSchema}>
   <main class='site-creation-page'>
     <SiteNav
       whatsappHref={whatsappHref}

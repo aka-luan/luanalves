@@ -748,6 +748,22 @@ export const getBreadcrumbSchema = (items: BreadcrumbSchemaItem[]) => ({
   })),
 });
 
+export const getFaqPageSchema = (
+  items: { question: string; answer: string }[],
+  id: string,
+) => ({
+  '@type': 'FAQPage',
+  '@id': id,
+  mainEntity: items.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+});
+
 const serviceHubBreadcrumb = [
   { name: 'Início', path: '/' },
   { name: 'Criação de Sites', path: '/criacao-de-sites/' },
@@ -784,4 +800,5 @@ export const getServicePageSchema = (page: ServicePageContent) => [
       url: `${siteUrl}${page.canonicalPath}#contato`,
     },
   },
+  getFaqPageSchema(page.faq, `${siteUrl}${page.canonicalPath}#faq`),
 ];
