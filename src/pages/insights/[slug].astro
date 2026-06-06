@@ -27,6 +27,25 @@ const whatsappMessage = encodeURIComponent(
   `Olá, Luan! Li o artigo "${post.title}" e quero entender qual estrutura faz sentido para o meu projeto.`,
 );
 const whatsappHref = `https://wa.me/5591982890565?text=${whatsappMessage}`;
+const portfolioHref = '/portfolio/';
+const authorLocation = 'Belém, PA';
+const authorInitials = post.author.name
+  .split(' ')
+  .slice(0, 2)
+  .map((part) => part[0]?.toUpperCase() ?? '')
+  .join('');
+const authorSocialLinks = [
+  {
+    href: 'https://instagram.com/luan.webdev',
+    label: 'Instagram de Luan Alves',
+    icon: 'photo_camera',
+  },
+  {
+    href: 'https://linkedin.com/in/aka-luan',
+    label: 'LinkedIn de Luan Alves',
+    icon: 'work',
+  },
+];
 const toc = getInsightToc(post);
 const relatedPosts = insights
   .filter((item) => item.slug !== post.slug)
@@ -346,12 +365,50 @@ const renderInlineLinks = (text: string) => text;
       </div>
 
       <section class='author-card' aria-labelledby='author-title'>
-        <div>
-          <p class='post-eyebrow'>Autor</p>
-          <h2 id='author-title'>{post.author.name}</h2>
-          <p>{post.author.role}</p>
+        <div class='author-card__identity'>
+          <div class='author-card__avatar' aria-hidden='true'>{authorInitials}</div>
+
+          <div class='author-card__heading'>
+            <p class='post-eyebrow'>Autor</p>
+            <h2 id='author-title'>{post.author.name}</h2>
+            <p class='author-card__meta'>
+              <span>{post.author.role}</span>
+              <span aria-hidden='true'>•</span>
+              <span>{authorLocation}</span>
+            </p>
+          </div>
         </div>
-        <p>{post.author.bio}</p>
+
+        <p class='author-card__bio'>{post.author.bio}</p>
+
+        <div class='author-card__actions'>
+          <a
+            class='author-card__action author-card__action--primary'
+            href={whatsappHref}
+            target='_blank'
+            rel='noreferrer'>
+            <span class='material-symbols-outlined' aria-hidden='true'>chat</span>
+            Falar no WhatsApp
+          </a>
+
+          <a class='author-card__action' href={portfolioHref}>
+            <span class='material-symbols-outlined' aria-hidden='true'>work</span>
+            Ver portfólio
+          </a>
+
+          {
+            authorSocialLinks.map((link) => (
+              <a
+                class='author-card__icon-link'
+                href={link.href}
+                target='_blank'
+                rel='noreferrer'
+                aria-label={link.label}>
+                <span class='material-symbols-outlined' aria-hidden='true'>{link.icon}</span>
+              </a>
+            ))
+          }
+        </div>
       </section>
     </article>
 
@@ -855,34 +912,154 @@ const renderInlineLinks = (text: string) => text;
 
   .author-card {
     display: grid;
-    grid-template-columns: minmax(12rem, 0.35fr) minmax(0, 1fr);
-    gap: clamp(1.4rem, 4vw, 3rem);
-    align-items: center;
+    gap: 1.35rem;
     margin: 0 0 clamp(3.2rem, 7vw, 5.4rem);
-    padding: clamp(1.1rem, 2.6vw, 1.65rem);
+    padding: clamp(1.4rem, 3vw, 1.8rem);
     border-color: rgba(229, 218, 207, 0.1);
     background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.016), transparent 48%),
-      rgba(22, 22, 22, 0.72);
+      linear-gradient(180deg, rgba(255, 255, 255, 0.018), transparent 48%),
+      rgba(20, 20, 20, 0.84);
     box-shadow:
-      inset 0 0 0 1px rgba(255, 255, 255, 0.016),
-      0 1.4rem 3rem rgba(0, 0, 0, 0.16),
-      0 2.8rem 5.2rem rgba(0, 0, 0, 0.12);
+      inset 0 0 0 1px rgba(255, 255, 255, 0.014),
+      0 1.1rem 2.4rem rgba(0, 0, 0, 0.16),
+      0 2.2rem 4.8rem rgba(0, 0, 0, 0.12);
   }
 
   .author-card h2 {
-    font-size: clamp(1.8rem, 3vw, 2.45rem);
+    font-size: clamp(1.8rem, 3vw, 2.35rem);
   }
 
-  .author-card p {
-    margin: 0.6rem 0 0;
+  .author-card__identity {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-width: 0;
   }
 
-  .author-card > p {
-    max-width: 42rem;
+  .author-card__avatar {
+    display: grid;
+    flex: 0 0 auto;
+    place-items: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: 1px solid rgba(229, 196, 135, 0.34);
+    border-radius: 999px;
+    background:
+      radial-gradient(circle at 30% 28%, rgba(229, 196, 135, 0.1), transparent 58%),
+      rgba(229, 196, 135, 0.06);
+    color: var(--primary);
+    font-size: 1.15rem;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.03),
+      0 0.7rem 1.5rem rgba(0, 0, 0, 0.14);
+  }
+
+  .author-card__heading {
+    min-width: 0;
+  }
+
+  .author-card__heading .post-eyebrow {
+    margin-bottom: 0.45rem;
+  }
+
+  .author-card__meta,
+  .author-card__bio {
+    margin: 0;
     color: var(--muted);
+  }
+
+  .author-card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.45rem;
+    margin-top: 0.4rem;
+    color: var(--subtle);
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  .author-card__bio {
+    max-width: 46rem;
     font-size: clamp(0.98rem, 1.25vw, 1.08rem);
     line-height: 1.75;
+    text-wrap: pretty;
+  }
+
+  .author-card__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+  }
+
+  .author-card__action,
+  .author-card__icon-link {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    min-height: 2.55rem;
+    padding: 0.72rem 1rem;
+    border: 1px solid rgba(153, 143, 129, 0.18);
+    background: rgba(255, 255, 255, 0.02);
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 800;
+    line-height: 1;
+    transition:
+      border-color 180ms ease,
+      background-color 180ms ease,
+      color 180ms ease,
+      transform 180ms ease,
+      box-shadow 180ms ease;
+  }
+
+  .author-card__action .material-symbols-outlined,
+  .author-card__icon-link .material-symbols-outlined {
+    font-size: 1rem;
+  }
+
+  .author-card__action:hover,
+  .author-card__action:focus-visible,
+  .author-card__icon-link:hover,
+  .author-card__icon-link:focus-visible {
+    border-color: rgba(229, 196, 135, 0.34);
+    background: rgba(255, 255, 255, 0.035);
+    color: var(--text);
+    transform: translateY(-1px);
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.018),
+      0 1rem 2rem rgba(0, 0, 0, 0.1);
+  }
+
+  .author-card__action:active,
+  .author-card__icon-link:active {
+    transform: scale(0.96);
+  }
+
+  .author-card__action--primary {
+    border-color: rgba(75, 146, 88, 0.34);
+    background: rgba(34, 93, 45, 0.38);
+    color: #83e08f;
+    box-shadow:
+      inset 0 0 0 1px rgba(132, 224, 143, 0.06),
+      0 0.9rem 1.8rem rgba(0, 0, 0, 0.12);
+  }
+
+  .author-card__action--primary:hover,
+  .author-card__action--primary:focus-visible {
+    border-color: rgba(132, 224, 143, 0.42);
+    background: rgba(39, 108, 53, 0.48);
+    color: #9cf0a7;
+  }
+
+  .author-card__icon-link {
+    width: 2.55rem;
+    min-width: 2.55rem;
+    padding: 0;
   }
 
   .post-sidebar {
@@ -1083,6 +1260,36 @@ const renderInlineLinks = (text: string) => text;
     .post-share button,
     .post-whatsapp {
       width: 100%;
+      white-space: normal;
+    }
+
+    .author-card {
+      gap: 1.1rem;
+      padding: 1.1rem;
+    }
+
+    .author-card__identity {
+      align-items: flex-start;
+    }
+
+    .author-card__avatar {
+      width: 3.15rem;
+      height: 3.15rem;
+      font-size: 1rem;
+    }
+
+    .author-card__meta,
+    .author-card__actions {
+      width: 100%;
+    }
+
+    .author-card__actions {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+
+    .author-card__action {
+      min-width: 0;
       white-space: normal;
     }
 
