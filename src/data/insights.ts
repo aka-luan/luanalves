@@ -2139,6 +2139,362 @@ export const insights: InsightPost[] = [
       },
     ],
   },
+  {
+    title: 'Landing page ou site institucional: qual escolher?',
+    excerpt:
+      'Entenda quando vale mais ter um site institucional, uma landing page ou os dois juntos, com base em objetivo, SEO, conversão e momento do negócio.',
+    description:
+      'Compare landing page e site institucional e veja qual formato escolher para sua empresa com base em presença digital, confiança, SEO, campanhas e conversão.',
+    category: 'Mercado',
+    categorySlug: 'freelance',
+    date: '05 jun. 2026',
+    isoDate: '2026-06-05',
+    readTime: '14 min',
+    slug: 'landing-page-ou-site-institucional',
+    tags: ['Landing page', 'Site institucional', 'Criação de sites', 'Conversão'],
+    published: true,
+    heroImage: '/assets/insights/site-institucional-vs-landing-post.webp',
+    heroImageAlt:
+      'Comparação visual entre um site institucional e uma landing page em ambiente editorial escuro.',
+    author: {
+      name: 'Luan Alves',
+      role: 'Desenvolvedor web freelancer',
+      bio: 'Desenvolvo sites, blogs e landing pages com foco em performance, SEO técnico e conversão via WhatsApp.',
+    },
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Se sua empresa precisa apresentar a marca, explicar serviços, transmitir confiança e aparecer no Google, o site institucional costuma ser a melhor escolha. Se o objetivo é divulgar uma oferta específica, captar leads, vender um serviço ou rodar uma campanha, a landing page tende a ser mais eficiente.',
+      },
+      {
+        type: 'paragraph',
+        text: 'Na prática, landing page e site institucional não competem entre si. Eles resolvem problemas diferentes. Em muitos cenários, a estratégia mais forte é combinar os dois: o site institucional como base de presença e autoridade, e landing pages como páginas focadas em campanha, oferta e conversão.',
+      },
+      {
+        type: 'table',
+        caption:
+          'Resumo prático das diferenças entre site institucional e landing page.',
+        columns: ['Critério', 'Site institucional', 'Landing page'],
+        rows: [
+          ['Objetivo', 'Apresentar a empresa', 'Gerar uma ação específica'],
+          ['Estrutura', 'Várias páginas', 'Página única'],
+          ['Conteúdo', 'Mais completo', 'Mais direto e persuasivo'],
+          ['Melhor para', 'Credibilidade, SEO e presença digital', 'Campanhas, anúncios e conversão'],
+          ['Prazo', 'Geralmente maior', 'Geralmente menor'],
+          ['SEO', 'Mais forte no longo prazo', 'Pode ranquear, mas costuma apoiar campanha'],
+          ['Conversão', 'Distribuída em várias páginas', 'Concentrada em uma única oferta'],
+        ],
+      },
+      {
+        type: 'heading',
+        id: 'resposta-rapida-qual-e-melhor',
+        level: 2,
+        text: 'Resposta rápida: qual é melhor?',
+      },
+      {
+        type: 'paragraph',
+        text: 'Melhor formato depende do objetivo do projeto. Se sua empresa precisa ser encontrada, entendida e levada a sério, o site institucional normalmente vem primeiro. Se você quer divulgar uma campanha, testar uma oferta ou gerar leads com mais foco, a landing page tende a fazer mais sentido.',
+      },
+      {
+        type: 'blockquote',
+        text: 'Não escolha pelo nome do formato. Escolha pelo objetivo do negócio.',
+      },
+      {
+        type: 'heading',
+        id: 'o-que-e-um-site-institucional',
+        level: 2,
+        text: 'O que é um site institucional?',
+      },
+      {
+        type: 'paragraph',
+        text: 'O site institucional é a presença oficial da empresa na internet. Ele apresenta a marca, explica serviços, organiza informações, transmite credibilidade e cria uma base melhor para SEO, conteúdo e relacionamento comercial no longo prazo.',
+      },
+      {
+        type: 'list',
+        items: [
+          'Home para proposta de valor e visão geral.',
+          'Páginas de serviços com explicação mais clara.',
+          'Sobre, contato, prova de confiança e diferenciais.',
+          'Possibilidade de blog, cases e expansão futura.',
+        ],
+      },
+      {
+        type: 'heading',
+        id: 'quando-escolher-um-site-institucional',
+        level: 2,
+        text: 'Quando escolher um site institucional?',
+      },
+      {
+        type: 'list',
+        items: [
+          'Quando a empresa precisa apresentar vários serviços.',
+          'Quando a marca precisa transmitir mais profissionalismo.',
+          'Quando o site precisa sustentar SEO e presença digital.',
+          'Quando o público precisa entender melhor a empresa antes de entrar em contato.',
+          'Quando o projeto é pensado para crescer no longo prazo.',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: 'Se sua empresa precisa organizar melhor serviços, autoridade e contato, o site institucional costuma ser a base mais sólida.',
+      },
+      {
+        type: 'heading',
+        id: 'o-que-e-uma-landing-page',
+        level: 2,
+        text: 'O que é uma landing page?',
+      },
+      {
+        type: 'paragraph',
+        text: 'A landing page é uma página criada com foco em uma única ação. Ela reduz distrações e conduz o visitante para uma conversão específica, como pedir orçamento, preencher formulário, agendar conversa, baixar material ou responder a uma campanha.',
+      },
+      {
+        type: 'list',
+        items: [
+          'Promessa principal clara logo no início.',
+          'Benefícios e oferta organizados em narrativa linear.',
+          'Prova social, objeções, FAQ e CTA forte.',
+          'Menos navegação paralela e menos dispersão.',
+        ],
+      },
+      {
+        type: 'heading',
+        id: 'quando-escolher-uma-landing-page',
+        level: 2,
+        text: 'Quando escolher uma landing page?',
+      },
+      {
+        type: 'list',
+        items: [
+          'Quando você tem uma campanha específica.',
+          'Quando precisa captar leads com mais foco.',
+          'Quando quer validar uma oferta ou serviço.',
+          'Quando vai investir em tráfego pago.',
+          'Quando quer uma página mais enxuta e orientada à conversão.',
+        ],
+      },
+      {
+        type: 'heading',
+        id: 'objetivo-presenca-ou-conversao',
+        level: 2,
+        text: 'Objetivo: presença ou conversão?',
+      },
+      {
+        type: 'paragraph',
+        text: 'Essa é a primeira distinção importante. O site institucional ajuda a construir presença, confiança e contexto. A landing page ajuda a capturar uma ação específica com menos distração. Os dois podem coexistir sem conflito quando a estratégia está clara.',
+      },
+      {
+        type: 'heading',
+        id: 'estrutura-varias-paginas-ou-narrativa-linear',
+        level: 2,
+        text: 'Estrutura: várias páginas ou narrativa linear?',
+      },
+      {
+        type: 'paragraph',
+        text: 'No site institucional, o visitante navega por diferentes páginas e caminhos. Na landing page, a jornada tende a ser linear. Isso muda a forma como você organiza informação, CTAs, objeções e prova social.',
+      },
+      {
+        type: 'heading',
+        id: 'conteudo-explicacao-ampla-ou-oferta-especifica',
+        level: 2,
+        text: 'Conteúdo: explicação ampla ou oferta específica?',
+      },
+      {
+        type: 'paragraph',
+        text: 'O site institucional explica a empresa como um todo. A landing page aprofunda uma única oferta, campanha ou promessa. Se o visitante precisa entender sua empresa antes de confiar, o institucional tende a funcionar melhor. Se ele já veio por anúncio ou busca específica, a landing page pode converter melhor.',
+      },
+      {
+        type: 'heading',
+        id: 'seo-qual-ajuda-mais-no-longo-prazo',
+        level: 2,
+        text: 'SEO: qual ajuda mais no longo prazo?',
+      },
+      {
+        type: 'paragraph',
+        text: 'O site institucional costuma ter vantagem para SEO de longo prazo porque acomoda páginas de serviço, estrutura semântica mais ampla, conteúdo e blog. Landing pages também podem ser otimizadas, mas normalmente brilham mais como apoio a campanhas e ofertas específicas.',
+      },
+      {
+        type: 'heading',
+        id: 'conversao-onde-o-foco-fica-mais-forte',
+        level: 2,
+        text: 'Conversão: onde o foco fica mais forte?',
+      },
+      {
+        type: 'paragraph',
+        text: 'A landing page tende a concentrar melhor a atenção em uma única ação. O site institucional converte de forma mais distribuída, em diferentes páginas e momentos da jornada. Isso não torna um melhor que o outro por regra. Torna cada um mais adequado para um objetivo.',
+      },
+      {
+        type: 'heading',
+        id: 'prazo-e-investimento-como-isso-muda',
+        level: 2,
+        text: 'Prazo e investimento: como isso muda?',
+      },
+      {
+        type: 'paragraph',
+        text: 'Em geral, o site institucional exige mais páginas, mais organização de conteúdo e mais planejamento. A landing page tende a ser mais rápida e enxuta, mas ainda precisa de estratégia, copy e testes para funcionar bem. Aqui, o critério principal continua sendo objetivo, não só custo.',
+      },
+      {
+        type: 'heading',
+        id: 'site-institucional-ou-landing-page-qual-vem-primeiro',
+        level: 2,
+        text: 'Site institucional ou landing page: qual vem primeiro?',
+      },
+      {
+        type: 'table',
+        caption:
+          'Cenários práticos para decidir qual formato costuma vir primeiro.',
+        columns: ['Situação', 'Melhor escolha'],
+        rows: [
+          ['Empresa nova sem presença digital', 'Site institucional simples'],
+          ['Campanha de tráfego pago', 'Landing page'],
+          ['Serviço único com oferta clara', 'Landing page'],
+          ['Empresa com vários serviços', 'Site institucional'],
+          ['Estratégia de SEO', 'Site institucional + blog'],
+          ['Validação rápida de mercado', 'Landing page'],
+          ['Crescimento com anúncios e SEO', 'Os dois juntos'],
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: 'Se a empresa ainda não tem presença profissional, o site institucional tende a ser a base mais segura. Se já existe uma presença mínima e a urgência é converter uma oferta ou campanha, a landing page pode vir primeiro.',
+      },
+      {
+        type: 'heading',
+        id: 'quando-usar-os-dois-juntos',
+        level: 2,
+        text: 'Quando usar os dois juntos?',
+      },
+      {
+        type: 'paragraph',
+        text: 'Essa costuma ser a estratégia mais completa. O site institucional funciona como base de confiança. As landing pages funcionam como páginas específicas para campanhas, serviços, anúncios e ofertas. Juntos, eles permitem construir autoridade no longo prazo e converter melhor em ações pontuais.',
+      },
+      {
+        type: 'heading',
+        id: 'erros-comuns-ao-escolher-entre-landing-page-e-site-institucional',
+        level: 2,
+        text: 'Erros comuns ao escolher entre landing page e site institucional',
+      },
+      {
+        type: 'list',
+        items: [
+          'Criar landing page quando a empresa ainda não transmite confiança.',
+          'Criar site institucional grande sem estratégia clara.',
+          'Usar landing page sem oferta bem definida.',
+          'Investir em tráfego sem página de conversão adequada.',
+          'Esperar que uma landing page substitua toda a presença digital.',
+          'Criar site institucional sem CTAs claros.',
+          'Decidir só pelo preço, não pelo objetivo.',
+        ],
+      },
+      {
+        type: 'heading',
+        id: 'como-decidir-em-5-perguntas',
+        level: 2,
+        text: 'Como decidir em 5 perguntas',
+      },
+      {
+        type: 'list',
+        ordered: true,
+        items: [
+          'O objetivo é apresentar a empresa ou vender uma oferta específica?',
+          'Você precisa aparecer no Google ou captar leads com anúncios?',
+          'O público precisa conhecer melhor sua empresa antes de entrar em contato?',
+          'Você tem vários serviços ou apenas uma oferta principal?',
+          'O projeto é de longo prazo ou uma campanha pontual?',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: 'Se a maioria das respostas aponta para autoridade, serviços, presença e SEO, o site institucional tende a fazer mais sentido. Se aponta para campanha, oferta e conversão imediata, a landing page tende a ser a melhor escolha. Se aponta para os dois cenários, a combinação normalmente é o caminho ideal.',
+      },
+      {
+        type: 'heading',
+        id: 'perguntas-frequentes',
+        level: 2,
+        text: 'Perguntas frequentes sobre landing page e site institucional',
+      },
+      {
+        type: 'faq',
+        items: [
+          {
+            question: 'Qual a diferença entre landing page e site institucional?',
+            answer:
+              'A landing page é focada em uma ação específica. O site institucional apresenta a empresa de forma mais completa, com várias páginas e foco em presença, credibilidade e informação.',
+          },
+          {
+            question: 'Landing page substitui site institucional?',
+            answer:
+              'Em alguns cenários simples, pode funcionar temporariamente. Mas para empresas que precisam transmitir autoridade, explicar serviços e construir presença no Google, o site institucional é mais completo.',
+          },
+          {
+            question: 'Qual converte mais: landing page ou site institucional?',
+            answer:
+              'A landing page tende a converter melhor em campanhas específicas porque concentra a atenção em uma única ação. O site institucional converte de forma mais ampla, em diferentes páginas e momentos da jornada.',
+          },
+          {
+            question: 'Qual é melhor para SEO?',
+            answer:
+              'O site institucional costuma ser melhor para SEO de longo prazo, especialmente quando inclui páginas de serviço, estrutura semântica organizada e conteúdo estratégico.',
+          },
+          {
+            question: 'Quando devo criar uma landing page?',
+            answer:
+              'Quando você tem uma campanha, oferta, lançamento, serviço específico ou precisa captar leads com foco em uma ação clara.',
+          },
+          {
+            question: 'Quando devo criar um site institucional?',
+            answer:
+              'Quando sua empresa precisa apresentar a marca, explicar serviços, transmitir confiança, aparecer no Google e ter uma presença digital profissional.',
+          },
+          {
+            question: 'Posso ter site institucional e landing pages?',
+            answer:
+              'Sim. Essa costuma ser a estratégia mais completa: site institucional para autoridade e landing pages para campanhas e conversões específicas.',
+          },
+        ],
+      },
+      {
+        type: 'heading',
+        id: 'proximo-passo',
+        level: 2,
+        text: 'Próximo passo',
+      },
+      {
+        type: 'paragraph',
+        text: 'Se você quer decidir com mais segurança entre site institucional, landing page ou uma estratégia combinada, o melhor caminho é alinhar formato com objetivo, momento do negócio e tipo de conversão que a empresa precisa gerar.',
+      },
+      {
+        type: 'links',
+        items: [
+          {
+            href: '/criacao-de-sites/',
+            label: 'Criação de sites',
+            text: 'Veja como estruturo sites profissionais com foco em SEO, performance e conversão.',
+          },
+          {
+            href: '/site-institucional/',
+            label: 'Site institucional',
+            text: 'Conheça a solução para empresas que precisam transmitir mais confiança e organizar melhor seus serviços.',
+          },
+          {
+            href: '/landing-page/',
+            label: 'Landing page',
+            text: 'Entenda o formato ideal para campanhas, ofertas específicas e captação de leads.',
+          },
+          {
+            href: '/insights/site-institucional-o-que-precisa-ter/',
+            label: 'O que um site institucional precisa ter',
+            text: 'Aprofunde a leitura com o artigo que mostra os elementos essenciais de um site institucional profissional.',
+          },
+          {
+            href: 'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Li%20o%20artigo%20sobre%20landing%20page%20ou%20site%20institucional%20e%20quero%20entender%20qual%20estrutura%20faz%20mais%20sentido%20para%20meu%20projeto.',
+            label: 'Falar no WhatsApp',
+            text: 'Me conte sobre seu projeto e eu te ajudo a decidir se faz mais sentido ter um site institucional, uma landing page ou os dois juntos.',
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export const publishedInsights = insights.filter(
@@ -2164,6 +2520,8 @@ export const getInsightPath = (post: Pick<InsightPost, 'slug'>) =>
   `/insights/${post.slug}/`;
 
 export const insightHeroPrompts: Record<string, string> = {
+  'landing-page-ou-site-institucional':
+    'Create a premium dark editorial blog hero image for an article comparing a landing page and an institutional website. Show a realistic web design workspace or split-scene contrast between a broader multi-page brand presence and a focused single-offer conversion page, without cheesy labels or text overlays. Use sharp architectural composition, dark surfaces, restrained gold accent lighting, believable shadows, high detail, clean negative space, and a polished but realistic studio feel. Emphasize decision-making, clarity, trust, SEO, and conversion rather than literal charts or marketing clichés. Wide 16:10 composition suitable for a website article hero. No text in the image, no logos, no watermark, no cluttered UI, no exaggerated neon.',
   'site-barato-vs-site-profissional':
     'Create a premium dark editorial blog hero image for an article comparing a cheap website versus a professional website. Show a realistic web design workspace or split-scene contrast between a generic, low-effort site setup and a more polished, strategic professional build, without using cheesy before/after labels. Use sharp architectural composition, dark surfaces, restrained gold accent lighting, believable shadows, high detail, clean negative space, and a polished but realistic studio feel. Emphasize contrast in structure, quality, and trust rather than literal money symbols. Wide 16:10 composition suitable for a website article hero. No text in the image, no logos, no watermark, no cluttered UI, no exaggerated neon.',
   'quanto-tempo-leva-para-criar-um-site-profissional':
