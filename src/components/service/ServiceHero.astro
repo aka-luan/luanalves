@@ -10,6 +10,7 @@ const { page } = Astro.props;
 const { hero } = page;
 const titleParts = hero.title.split(hero.accent);
 const titleDensity = hero.title.length > 64 ? 'long' : 'default';
+const showEyebrow = page.slug !== 'site-institucional';
 const breadcrumbItems = [
   { label: 'Início', href: '/' },
   { label: 'Criação de Sites', href: '/criacao-de-sites/' },
@@ -22,6 +23,7 @@ const breadcrumbItems = [
   id='solucao'
   aria-labelledby='service-hero-title'
   data-motion='hero'
+  data-service={page.slug}
   data-title-density={titleDensity}>
   <div class='service-hero__glow' aria-hidden='true' data-motion-glow></div>
   <div class='service-hero__grain' aria-hidden='true'></div>
@@ -30,12 +32,16 @@ const breadcrumbItems = [
     <div class='service-hero__copy'>
       <Breadcrumbs items={breadcrumbItems} />
 
-      <p
-        class='service-eyebrow'
-        data-motion-hero-eyebrow
-        data-motion-hidden='y-sm'>
-        {hero.eyebrow}
-      </p>
+      {
+        showEyebrow && (
+          <p
+            class='service-eyebrow'
+            data-motion-hero-eyebrow
+            data-motion-hidden='y-sm'>
+            {hero.eyebrow}
+          </p>
+        )
+      }
 
       <h1
         id='service-hero-title'
@@ -215,6 +221,60 @@ const breadcrumbItems = [
     line-height: 1.01;
   }
 
+  .service-hero[data-service='site-institucional'] {
+    padding-top: clamp(7rem, 8.7vw, 8.35rem);
+  }
+
+  .service-hero[data-service='site-institucional']::before {
+    mask-image: radial-gradient(circle at 55% 44%, black, transparent 65%);
+  }
+
+  .service-hero[data-service='site-institucional'] .service-hero__glow {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(8, 8, 8, 0.92),
+        rgba(8, 8, 8, 0.36) 49%,
+        rgba(8, 8, 8, 0.6)
+      ),
+      radial-gradient(
+        ellipse at 55% 52%,
+        rgba(235, 194, 116, 0.2),
+        transparent 34rem
+      ),
+      radial-gradient(
+        ellipse at 42% 58%,
+        rgba(223, 189, 121, 0.1),
+        transparent 26rem
+      );
+  }
+
+  .service-hero[data-service='site-institucional'] .service-hero__inner {
+    grid-template-columns: minmax(29rem, 0.92fr) minmax(34rem, 1.08fr);
+    gap: clamp(0.8rem, 2.1vw, 2.25rem);
+    min-height: calc(100svh - 11.4rem);
+  }
+
+  .service-hero[data-service='site-institucional'] .service-hero__copy {
+    padding-top: clamp(0rem, 1.2vw, 0.75rem);
+  }
+
+  .service-hero[data-service='site-institucional'] h1 {
+    max-width: 12.2ch;
+    font-size: clamp(3.28rem, 4.28vw, 4.58rem);
+    line-height: 0.95;
+  }
+
+  .service-hero[data-service='site-institucional'] .service-lead {
+    max-width: 31.6rem;
+    color: rgba(236, 229, 219, 0.87);
+    line-height: 1.64;
+  }
+
+  .service-hero[data-service='site-institucional'] .service-actions {
+    margin-top: 2.05rem;
+  }
+
   .service-hero h1 em {
     display: block;
     color: #dfbd79;
@@ -337,6 +397,15 @@ const breadcrumbItems = [
     min-width: 0;
   }
 
+  .service-hero[data-service='site-institucional'] .service-hero__media {
+    isolation: isolate;
+    transform: translate(-0.7rem, -0.9rem);
+  }
+
+  .service-hero[data-service='site-institucional'] .service-hero__media::before {
+    content: none;
+  }
+
   .service-orbit {
     position: absolute;
     top: 6%;
@@ -354,6 +423,13 @@ const breadcrumbItems = [
     height: auto;
     margin-inline: auto;
     filter: drop-shadow(0 34px 70px rgba(0, 0, 0, 0.28));
+  }
+
+  .service-hero[data-service='site-institucional'] .service-hero__media img {
+    width: min(90%, 41rem);
+    filter:
+      drop-shadow(0 2.2rem 4.8rem rgba(0, 0, 0, 0.34))
+      drop-shadow(0 0 2.4rem rgba(223, 189, 121, 0.08));
   }
 
   @media (max-width: 900px) {
@@ -398,6 +474,36 @@ const breadcrumbItems = [
 
     .service-features {
       width: min(100%, 38rem);
+    }
+
+    .service-hero[data-service='site-institucional'] {
+      padding-top: 7rem;
+    }
+
+    .service-hero[data-service='site-institucional'] .service-hero__inner {
+      grid-template-columns: 1fr;
+      gap: 1.8rem;
+      min-height: auto;
+    }
+
+    .service-hero[data-service='site-institucional'] h1 {
+      max-width: 13ch;
+      font-size: clamp(2.82rem, 8.9vw, 4.05rem);
+      line-height: 0.98;
+    }
+
+    .service-hero[data-service='site-institucional'] .service-lead {
+      max-width: 35rem;
+    }
+
+    .service-hero[data-service='site-institucional'] .service-actions {
+      margin-top: 1.9rem;
+    }
+
+    .service-hero[data-service='site-institucional'] .service-hero__media {
+      width: min(100%, 37rem);
+      margin: 0 auto -0.5rem;
+      transform: none;
     }
   }
 
@@ -455,6 +561,26 @@ const breadcrumbItems = [
 
     .service-feature__icon {
       grid-row: span 2;
+    }
+
+    .service-hero[data-service='site-institucional'] h1 {
+      max-width: min(11.8ch, 100%);
+      font-size: clamp(2.28rem, 9.8vw, 3.06rem);
+      line-height: 1;
+    }
+
+    .service-hero[data-service='site-institucional'] .service-lead {
+      font-size: 0.98rem;
+      line-height: 1.62;
+    }
+
+    .service-hero[data-service='site-institucional'] .service-actions {
+      margin-top: 1.65rem;
+    }
+
+    .service-hero[data-service='site-institucional'] .service-hero__media {
+      width: min(100%, 31rem);
+      margin-top: -0.35rem;
     }
   }
 </style>
