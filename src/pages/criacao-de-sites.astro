@@ -333,7 +333,7 @@ const creationServiceSchema = [
           data-motion-hidden='scale'>
           <div class='creation-orbit'></div>
           <img
-            src='/assets/hero-img.webp'
+            src='/assets/criacao-de-sites-hero-img.webp'
             alt=''
             width='1448'
             height='1086'
@@ -414,9 +414,13 @@ const creationServiceSchema = [
                     ))}
                   </div>
 
-                  <a class='button button-outline button-compact solution-card__cta' href={item.href}>
+                  <a
+                    class='button button-outline button-compact solution-card__cta'
+                    href={item.href}>
                     <span>Ver detalhes</span>
-                    <span class='material-symbols-outlined' aria-hidden='true'>north_east</span>
+                    <span class='material-symbols-outlined' aria-hidden='true'>
+                      north_east
+                    </span>
                   </a>
                 </div>
               </article>
@@ -1261,7 +1265,12 @@ const creationServiceSchema = [
     position: absolute;
     inset: 0 0 auto;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(229, 196, 135, 0.42), transparent);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(229, 196, 135, 0.42),
+      transparent
+    );
     opacity: 0.45;
     pointer-events: none;
   }
