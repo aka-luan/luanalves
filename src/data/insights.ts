@@ -1751,6 +1751,394 @@ export const insights: InsightPost[] = [
       },
     ],
   },
+  {
+    title: 'Site barato vs site profissional: qual a diferença?',
+    excerpt:
+      'Entenda o que realmente muda entre um site barato e um site profissional em estratégia, SEO, performance, conversão, suporte e custo-benefício.',
+    description:
+      'Compare site barato vs site profissional e veja o que muda em planejamento, design, conteúdo, SEO, performance, segurança, suporte e resultado antes de contratar.',
+    category: 'Mercado',
+    categorySlug: 'freelance',
+    date: '05 jun. 2026',
+    isoDate: '2026-06-05',
+    readTime: '14 min',
+    slug: 'site-barato-vs-site-profissional',
+    tags: ['Site profissional', 'Custo-benefício', 'Criação de sites', 'Freelancer'],
+    published: true,
+    heroImage: '/assets/insights/barato-x-caro-post.webp',
+    heroImageAlt:
+      'Comparativo visual entre uma estrutura de site genérica e outra profissional em ambiente editorial escuro.',
+    author: {
+      name: 'Luan Alves',
+      role: 'Desenvolvedor web freelancer',
+      bio: 'Desenvolvo sites, blogs e landing pages com foco em performance, SEO técnico e conversão via WhatsApp.',
+    },
+    content: [
+      {
+        type: 'paragraph',
+        text: 'A principal diferença entre um site barato e um site profissional não está só no visual ou no preço. Está no planejamento, na personalização, na performance, no SEO, na clareza da comunicação, no suporte e na capacidade do site gerar confiança e contatos para a empresa.',
+      },
+      {
+        type: 'paragraph',
+        text: 'Site barato não é automaticamente um erro. Em alguns cenários ele pode fazer sentido. O problema começa quando a economia inicial parece vantagem, mas custa caro depois em credibilidade, lentidão, dificuldade para evoluir e oportunidade perdida. Por isso, a melhor comparação não é só preço. É risco, estrutura e resultado.',
+      },
+      {
+        type: 'table',
+        caption:
+          'Resumo prático das diferenças entre site barato e site profissional.',
+        columns: ['Critério', 'Site barato', 'Site profissional'],
+        rows: [
+          [
+            'Estratégia',
+            'Pouco ou nenhum planejamento',
+            'Estrutura pensada para objetivo de negócio',
+          ],
+          [
+            'Design',
+            'Template genérico ou adaptação rápida',
+            'Visual alinhado à marca e à jornada do visitante',
+          ],
+          [
+            'Conteúdo',
+            'Texto genérico e pouco orientado à conversão',
+            'Mensagem clara, escaneável e comercial',
+          ],
+          [
+            'SEO',
+            'Base limitada ou inexistente',
+            'Estrutura pronta para indexação e crescimento',
+          ],
+          [
+            'Performance',
+            'Pode carregar devagar, principalmente no celular',
+            'Código e imagens otimizados',
+          ],
+          [
+            'Conversão',
+            'Contato solto no fim da página',
+            'CTAs, fluxo e prova de confiança ao longo da jornada',
+          ],
+          [
+            'Suporte',
+            'Entrega sem acompanhamento',
+            'Revisão, ajustes e suporte pós-lançamento',
+          ],
+          [
+            'Resultado',
+            'Presença mínima',
+            'Mais autoridade, clareza e chance de gerar contato',
+          ],
+        ],
+      },
+      {
+        type: 'heading',
+        id: 'qual-e-a-diferenca-entre-site-barato-e-site-profissional',
+        level: 2,
+        text: 'Qual é a diferença entre site barato e site profissional?',
+      },
+      {
+        type: 'paragraph',
+        text: 'A diferença real está no que acontece antes, durante e depois da entrega. Site barato geralmente nasce para reduzir custo e acelerar publicação. Site profissional nasce para resolver um objetivo comercial com mais clareza, confiança e base técnica.',
+      },
+      {
+        type: 'blockquote',
+        text: 'Não compare só preço. Compare risco, estrutura e resultado esperado.',
+      },
+      {
+        type: 'heading',
+        id: 'o-que-e-um-site-barato',
+        level: 2,
+        text: 'O que é um site barato?',
+      },
+      {
+        type: 'paragraph',
+        text: 'Um site barato normalmente é criado com foco em reduzir investimento inicial e publicar rápido. Isso pode significar template pronto, pouca personalização, SEO limitado, textos genéricos, menos revisão e pouco suporte depois da entrega.',
+      },
+      {
+        type: 'list',
+        items: [
+          'Uso de modelo pronto ou adaptação simples.',
+          'Poucas páginas e pouco diagnóstico do negócio.',
+          'Layout parecido com muitos outros sites.',
+          'Texto improvisado ou sem direcionamento comercial.',
+          'Otimização limitada para Google e celular.',
+          'Dificuldade maior para evoluir depois.',
+        ],
+      },
+      {
+        type: 'heading',
+        id: 'o-que-e-um-site-profissional',
+        level: 2,
+        text: 'O que é um site profissional?',
+      },
+      {
+        type: 'paragraph',
+        text: 'Um site profissional é construído para representar bem a empresa, facilitar entendimento da oferta, carregar rápido, funcionar em qualquer tela, aparecer melhor no Google e guiar o visitante até o contato. Ele não depende só de aparência. Depende de estrutura.',
+      },
+      {
+        type: 'list',
+        items: [
+          'Briefing e planejamento antes de desenhar a página.',
+          'Estrutura de navegação coerente com serviços e objeções.',
+          'Design mais alinhado à marca e à leitura.',
+          'SEO técnico inicial e performance melhor resolvida.',
+          'CTAs e contato organizados para conversão.',
+          'Teste, revisão e suporte pós-lançamento.',
+        ],
+      },
+      {
+        type: 'heading',
+        id: 'estrategia-template-ou-objetivo',
+        level: 2,
+        text: 'Estratégia: template ou objetivo?',
+      },
+      {
+        type: 'paragraph',
+        text: 'Site barato costuma começar pela pergunta “qual modelo você quer?”. Site profissional começa por “o que seu site precisa fazer pelo negócio?”. Essa diferença muda tudo: páginas necessárias, ordem da informação, prioridade de CTAs e profundidade do conteúdo.',
+      },
+      {
+        type: 'heading',
+        id: 'design-bonito-nao-e-o-mesmo-que-design-estrategico',
+        level: 2,
+        text: 'Design: bonito não é o mesmo que estratégico',
+      },
+      {
+        type: 'paragraph',
+        text: 'Muitos sites baratos parecem aceitáveis à primeira vista, mas ainda passam sensação de improviso. Em projeto profissional, design não é enfeite. É organização visual para o visitante entender, confiar e agir sem esforço.',
+      },
+      {
+        type: 'heading',
+        id: 'conteudo-texto-generico-ou-mensagem-que-vende-confianca',
+        level: 2,
+        text: 'Conteúdo: texto genérico ou mensagem que vende confiança',
+      },
+      {
+        type: 'paragraph',
+        text: 'Site barato muitas vezes fala pouco sobre problema, solução, diferencial e próximo passo. Site profissional deixa claro o que a empresa faz, para quem faz, por que merece confiança e como iniciar a conversa. Isso melhora a leitura humana e também ajuda SEO.',
+      },
+      {
+        type: 'list',
+        items: [
+          'Proposta de valor clara logo no início.',
+          'Serviços bem explicados e sem vaga generalidade.',
+          'Diferenciais reais, prova de confiança e FAQ.',
+          'Chamadas para ação distribuídas com mais intenção.',
+        ],
+      },
+      {
+        type: 'heading',
+        id: 'seo-site-barato-pode-existir-mas-nao-ser-encontrado',
+        level: 2,
+        text: 'SEO: site barato pode existir, mas não ser encontrado',
+      },
+      {
+        type: 'paragraph',
+        text: 'SEO não é detalhe de acabamento. Título, meta description, headings, URLs, links internos, sitemap, alt text e base semântica organizada ajudam o Google a entender a página. Em site barato, isso costuma ficar incompleto ou ser tratado como opcional.',
+      },
+      {
+        type: 'paragraph',
+        text: 'Se sua empresa quer uma base mais sólida para busca, vale entender também quanto custa montar uma estrutura mais completa em um projeto profissional, especialmente quando SEO já entra como requisito desde o começo.',
+      },
+      {
+        type: 'heading',
+        id: 'performance-segundos-de-lentidao-custam-oportunidades',
+        level: 2,
+        text: 'Performance: segundos de lentidão custam oportunidades',
+      },
+      {
+        type: 'paragraph',
+        text: 'Template inchado, plugins demais, imagens pesadas e scripts sem controle podem transformar economia em atrito. Site profissional tende a nascer com mais atenção a carregamento rápido, experiência mobile e estabilidade, especialmente para quem recebe tráfego no celular.',
+      },
+      {
+        type: 'heading',
+        id: 'conversao-site-profissional-guia-visitante-ate-o-contato',
+        level: 2,
+        text: 'Conversão: site profissional guia o visitante até o contato',
+      },
+      {
+        type: 'paragraph',
+        text: 'Um site barato pode ter só um formulário no rodapé. Um site profissional pensa em jornada: CTA na primeira dobra, botão depois dos serviços, prova social antes do contato, FAQ para reduzir dúvida e WhatsApp em pontos estratégicos.',
+      },
+      {
+        type: 'paragraph',
+        text: 'Esse raciocínio fica ainda mais importante em projetos focados em campanha, onde clareza, velocidade e foco de mensagem influenciam direto a taxa de conversão.',
+      },
+      {
+        type: 'heading',
+        id: 'seguranca-e-manutencao-problema-costuma-aparecer-depois',
+        level: 2,
+        text: 'Segurança e manutenção: o problema costuma aparecer depois',
+      },
+      {
+        type: 'paragraph',
+        text: 'O risco de um site barato nem sempre aparece no primeiro dia. Ele costuma surgir depois, quando o formulário para de enviar, um plugin quebra, o SSL falha, a atualização fica sem responsável ou uma mudança simples vira dor de cabeça. Site profissional tenta reduzir esse passivo desde o início.',
+      },
+      {
+        type: 'heading',
+        id: 'custo-beneficio-barato-nem-sempre-e-mais-economico',
+        level: 2,
+        text: 'Custo-benefício: barato nem sempre é mais econômico',
+      },
+      {
+        type: 'paragraph',
+        text: 'Um site barato pode custar menos na contratação, mas sair caro se não gerar contato, precisar ser refeito cedo, travar crescimento ou prejudicar a imagem da empresa. Por outro lado, um site profissional costuma exigir mais investimento porque embute mais planejamento, revisão e base técnica.',
+      },
+      {
+        type: 'heading',
+        id: 'quando-um-site-barato-pode-fazer-sentido',
+        level: 2,
+        text: 'Quando um site barato pode fazer sentido?',
+      },
+      {
+        type: 'list',
+        items: [
+          'Projeto temporário ou campanha curta.',
+          'Validação rápida de ideia.',
+          'Orçamento muito limitado no começo.',
+          'Presença digital mínima sem ambição imediata de SEO.',
+          'Página simples enquanto uma estrutura maior ainda não é prioridade.',
+        ],
+      },
+      {
+        type: 'heading',
+        id: 'quando-vale-investir-em-um-site-profissional',
+        level: 2,
+        text: 'Quando vale investir em um site profissional?',
+      },
+      {
+        type: 'list',
+        items: [
+          'A empresa precisa transmitir mais confiança.',
+          'O site vai apoiar vendas ou orçamentos.',
+          'O público compara fornecedores antes de decidir.',
+          'Existe interesse em aparecer melhor no Google.',
+          'A marca precisa parecer mais madura no digital.',
+          'O projeto precisa durar, evoluir e integrar conteúdo ou campanhas.',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: 'Para empresas que precisam apresentar melhor seus serviços e parecer mais sérias no digital, um site institucional profissional costuma ser o formato mais equilibrado.',
+      },
+      {
+        type: 'heading',
+        id: 'como-identificar-se-um-orcamento-de-site-esta-barato-demais',
+        level: 2,
+        text: 'Como identificar se um orçamento de site está barato demais?',
+      },
+      {
+        type: 'list',
+        items: [
+          'Ninguém pergunta sobre seu negócio, público ou objetivo.',
+          'Promessa de entrega muito rápida sem entender escopo.',
+          'Nada é dito sobre SEO, performance ou celular.',
+          'Processo, revisão e suporte ficam vagos.',
+          'Não explicam o que está incluso em páginas e funcionalidades.',
+          'Domínio, hospedagem, publicação e manutenção ficam indefinidos.',
+          'Tudo é vendido como “site completo” sem detalhamento real.',
+        ],
+      },
+      {
+        type: 'heading',
+        id: 'o-que-perguntar-antes-de-contratar-um-site',
+        level: 2,
+        text: 'O que perguntar antes de contratar um site?',
+      },
+      {
+        type: 'list',
+        items: [
+          'O site será personalizado ou baseado em template?',
+          'Quantas páginas estão inclusas?',
+          'SEO básico entra no projeto?',
+          'A versão mobile será revisada de verdade?',
+          'Quem cuida de publicação, hospedagem e suporte?',
+          'Formulário, WhatsApp e eventos de contato serão testados?',
+          'O que acontece depois da entrega?',
+        ],
+      },
+      {
+        type: 'heading',
+        id: 'perguntas-frequentes',
+        level: 2,
+        text: 'Perguntas frequentes sobre site barato e site profissional',
+      },
+      {
+        type: 'faq',
+        items: [
+          {
+            question: 'Qual a diferença entre site barato e site profissional?',
+            answer:
+              'A diferença está no planejamento, design, conteúdo, SEO, performance, suporte e capacidade do site gerar confiança e resultado. O preço é só uma parte da comparação.',
+          },
+          {
+            question: 'Site barato vale a pena?',
+            answer:
+              'Pode valer em projetos simples, temporários ou de validação rápida. Para empresas que precisam vender, parecer mais profissionais e aparecer no Google, o risco costuma ser maior.',
+          },
+          {
+            question: 'Por que um site profissional custa mais?',
+            answer:
+              'Porque envolve mais diagnóstico, estrutura, copy, desenvolvimento, SEO inicial, responsividade, performance, testes e suporte. Não é só montagem visual.',
+          },
+          {
+            question: 'Um site barato pode aparecer no Google?',
+            answer:
+              'Pode, mas normalmente tem menos base técnica e menos estrutura de conteúdo para competir bem em SEO. Isso reduz consistência no longo prazo.',
+          },
+          {
+            question: 'Todo site profissional precisa ser feito do zero?',
+            answer:
+              'Não. O ponto principal não é fazer tudo do zero, e sim entregar personalização, performance, clareza de comunicação e base técnica coerente com o objetivo do projeto.',
+          },
+          {
+            question: 'Como saber se estou contratando um bom site?',
+            answer:
+              'Analise portfólio, processo, o que está incluso, qualidade da comunicação, atenção a SEO, performance, mobile e suporte depois da entrega.',
+          },
+        ],
+      },
+      {
+        type: 'heading',
+        id: 'proximo-passo',
+        level: 2,
+        text: 'Próximo passo',
+      },
+      {
+        type: 'paragraph',
+        text: 'Se você está comparando propostas, o melhor caminho é entender qual estrutura faz sentido para o momento do seu negócio. Assim você evita pagar por excesso, mas também evita economizar no que compromete resultado, credibilidade e crescimento.',
+      },
+      {
+        type: 'links',
+        items: [
+          {
+            href: '/criacao-de-sites/',
+            label: 'Criação de sites',
+            text: 'Veja como estruturo sites profissionais com base técnica, clareza comercial e foco em conversão.',
+          },
+          {
+            href: '/site-institucional/',
+            label: 'Site institucional',
+            text: 'Entenda o formato ideal para empresas que precisam apresentar serviços com mais autoridade e confiança.',
+          },
+          {
+            href: '/landing-page/',
+            label: 'Landing page',
+            text: 'Conheça a estrutura indicada para campanhas, ofertas específicas e geração de leads.',
+          },
+          {
+            href: '/insights/quanto-custa-um-site-profissional/',
+            label: 'Quanto custa um site profissional',
+            text: 'Compare este artigo com o guia de preço para entender investimento e escopo sem misturar valor com estrutura.',
+          },
+          {
+            href: 'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Li%20o%20artigo%20sobre%20site%20barato%20vs%20site%20profissional%20e%20quero%20entender%20qual%20estrutura%20faz%20mais%20sentido%20para%20meu%20projeto.',
+            label: 'Falar no WhatsApp',
+            text: 'Me conte sobre seu projeto e eu te ajudo a escolher uma estrutura que faça sentido para seu momento.',
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export const publishedInsights = insights.filter(
@@ -1776,6 +2164,8 @@ export const getInsightPath = (post: Pick<InsightPost, 'slug'>) =>
   `/insights/${post.slug}/`;
 
 export const insightHeroPrompts: Record<string, string> = {
+  'site-barato-vs-site-profissional':
+    'Create a premium dark editorial blog hero image for an article comparing a cheap website versus a professional website. Show a realistic web design workspace or split-scene contrast between a generic, low-effort site setup and a more polished, strategic professional build, without using cheesy before/after labels. Use sharp architectural composition, dark surfaces, restrained gold accent lighting, believable shadows, high detail, clean negative space, and a polished but realistic studio feel. Emphasize contrast in structure, quality, and trust rather than literal money symbols. Wide 16:10 composition suitable for a website article hero. No text in the image, no logos, no watermark, no cluttered UI, no exaggerated neon.',
   'quanto-tempo-leva-para-criar-um-site-profissional':
     'Create a premium dark editorial blog hero image for an article about how long it takes to build a professional website. Show a realistic web design workspace or laptop setup with subtle project-planning cues such as notes, layout sketches, timeline marks, or progress indicators, but avoid literal clocks or cheesy deadline symbolism. Use sharp, architectural composition, dark surfaces, restrained gold accent lighting, believable cinematic shadows, high detail, clean negative space, and a polished but realistic studio feel. The image should feel strategic, technical, and trustworthy, not like generic stock photography. Wide 16:10 composition suitable for a website article hero. No text in the image, no logos, no watermark, no cluttered UI, no exaggerated neon.',
 };
