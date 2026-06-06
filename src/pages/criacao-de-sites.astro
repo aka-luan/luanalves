@@ -498,7 +498,9 @@ const creationServiceSchema = [
                 <p>{item.copy}</p>
                 <div class='results-card__benefit'>
                   <span class='results-card__benefit-icon' aria-hidden='true'>
-                    <span class='material-symbols-outlined'>{item.benefitIcon}</span>
+                    <span class='material-symbols-outlined'>
+                      {item.benefitIcon}
+                    </span>
                   </span>
                   <span>{item.benefit}</span>
                 </div>
@@ -1179,7 +1181,7 @@ const creationServiceSchema = [
   }
 
   .solutions-eyebrow {
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.75rem;
   }
 
   .solutions-copy h2 {
@@ -1227,7 +1229,7 @@ const creationServiceSchema = [
     display: grid;
     grid-template-rows: auto auto 1fr;
     overflow: hidden;
-    border: 1px solid rgba(229, 218, 207, 0.14);
+    border: 1px solid rgba(229, 218, 207, 0.11);
     border-radius: 0.45rem;
     background:
       linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 32%),
@@ -1309,7 +1311,8 @@ const creationServiceSchema = [
     position: absolute;
     inset: 0;
     background:
-      linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.52)),
+      linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.3) 58%, rgba(16, 16, 15, 0.66)),
+      linear-gradient(0deg, rgba(16, 16, 15, 0.72), transparent 34%),
       radial-gradient(circle at 72% 32%, transparent, rgba(0, 0, 0, 0.34));
   }
 
@@ -1338,7 +1341,8 @@ const creationServiceSchema = [
     align-content: start;
     min-height: 14.2rem;
     padding: clamp(1.65rem, 2.2vw, 2rem);
-    border-top: 1px solid rgba(229, 218, 207, 0.1);
+    border-top: 1px solid rgba(229, 218, 207, 0.075);
+    box-shadow: inset 0 1.2rem 1.8rem -1.9rem rgba(223, 189, 121, 0.35);
   }
 
   .solution-card__title {
@@ -2125,8 +2129,7 @@ const creationServiceSchema = [
   .included-card {
     position: relative;
     min-height: clamp(11.8rem, 13.4vw, 13rem);
-    padding: clamp(1.35rem, 1.7vw, 1.55rem) clamp(1.3rem, 1.8vw, 1.6rem)
-      1.35rem;
+    padding: clamp(1.35rem, 1.7vw, 1.55rem) clamp(1.3rem, 1.8vw, 1.6rem) 1.35rem;
     overflow: hidden;
     border: 1px solid rgba(229, 218, 207, 0.13);
     border-radius: 0;
@@ -2310,10 +2313,10 @@ const creationServiceSchema = [
 
   .differentials-section__inner {
     display: grid;
-    grid-template-columns: minmax(31rem, 0.86fr) minmax(36rem, 1.14fr);
+    grid-template-columns: minmax(33rem, 0.98fr) minmax(32rem, 1.02fr);
     grid-template-areas: 'content media';
     align-items: center;
-    gap: clamp(2.1rem, 4.7vw, 4.65rem) clamp(2rem, 4.4vw, 4.2rem);
+    gap: clamp(2rem, 4.2vw, 4.1rem) clamp(2rem, 4vw, 3.8rem);
     width: min(100%, 84.8rem);
     min-height: calc(100svh - 12.2rem);
     margin: 0 auto;
@@ -2328,31 +2331,51 @@ const creationServiceSchema = [
   .differentials-media {
     grid-area: media;
     position: relative;
+    isolation: isolate;
     min-width: 0;
-    margin-right: clamp(-2rem, -2vw, -0.75rem);
-    transform: translate(0.15rem, 0.25rem);
+    margin-right: 0;
+    transform: translate(-0.15rem, 0.15rem);
   }
 
   .differentials-media img {
     position: relative;
     z-index: 1;
-    width: min(49vw, 55rem);
+    width: min(42vw, 46rem);
     max-width: none;
     height: auto;
-    filter: drop-shadow(0 3rem 5rem rgba(0, 0, 0, 0.48))
-      drop-shadow(0 0 3.2rem rgba(218, 176, 101, 0.13));
+    opacity: 0.92;
+    filter: drop-shadow(0 2.35rem 4.2rem rgba(0, 0, 0, 0.42))
+      drop-shadow(0 0 2.3rem rgba(218, 176, 101, 0.1));
+  }
+
+  .differentials-media::after {
+    content: '';
+    position: absolute;
+    inset: 5% -2% 3% 5%;
+    z-index: 2;
+    background:
+      linear-gradient(90deg, rgba(10, 11, 11, 0.64), transparent 22%),
+      linear-gradient(
+        180deg,
+        rgba(10, 11, 11, 0.5),
+        transparent 18%,
+        transparent 76%,
+        rgba(10, 11, 11, 0.62)
+      ),
+      linear-gradient(270deg, rgba(10, 11, 11, 0.48), transparent 20%);
+    pointer-events: none;
   }
 
   .differentials-orbit {
     position: absolute;
-    top: -5.4%;
-    left: 13.5%;
-    width: 58%;
+    top: -3%;
+    left: 16%;
+    width: 52%;
     aspect-ratio: 2.9 / 1;
-    border: 1px solid rgba(211, 169, 98, 0.22);
+    border: 1px solid rgba(211, 169, 98, 0.16);
     border-bottom: 0;
     border-radius: 50% 50% 0 0 / 100% 100% 0 0;
-    opacity: 0.72;
+    opacity: 0.5;
   }
 
   .differentials-orbit::before {
@@ -2369,7 +2392,7 @@ const creationServiceSchema = [
   }
 
   .differentials-copy {
-    max-width: 38.5rem;
+    max-width: 37.5rem;
   }
 
   .differentials-eyebrow,
@@ -2384,7 +2407,7 @@ const creationServiceSchema = [
     margin: 0;
     color: #f5f2ef;
     font-family: 'Newsreader', serif;
-    font-size: clamp(3.45rem, 4.65vw, 5rem);
+    font-size: clamp(3.18rem, 4.15vw, 4.42rem);
     font-weight: 600;
     letter-spacing: -0.058em;
     line-height: 0.96;
@@ -2411,7 +2434,7 @@ const creationServiceSchema = [
   .differentials-lead,
   .creation-contact__copy p {
     max-width: 32.8rem;
-    margin: 1.55rem 0 0;
+    margin: 1.25rem 0 0;
     color: rgba(226, 218, 208, 0.82);
     font-size: clamp(1.02rem, 1.18vw, 1.1rem);
     font-weight: 300;
@@ -2422,16 +2445,16 @@ const creationServiceSchema = [
   .differentials-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
-    width: min(100%, 34.8rem);
-    margin-top: 2.45rem;
+    gap: 0.85rem;
+    width: min(100%, 36rem);
+    margin-top: 1.75rem;
   }
 
   .differential-card {
-    min-height: 14.1rem;
-    padding: 1.6rem 1.55rem 1.65rem;
+    min-height: 10.9rem;
+    padding: 1.25rem 1.25rem 1.3rem;
     border: 1px solid rgba(229, 218, 207, 0.15);
-    border-radius: 0.45rem;
+    border-radius: 0;
     background:
       linear-gradient(145deg, rgba(255, 255, 255, 0.03), transparent 42%),
       rgba(15, 16, 15, 0.58);
@@ -2443,9 +2466,9 @@ const creationServiceSchema = [
   .differential-card__icon {
     display: grid;
     place-items: center;
-    width: 4.45rem;
-    height: 4.45rem;
-    margin-bottom: 1.25rem;
+    width: 3.25rem;
+    height: 3.25rem;
+    margin-bottom: 0.85rem;
     color: #d9ae5f;
     border: 1px solid rgba(211, 169, 98, 0.36);
     border-radius: 999px;
@@ -2453,7 +2476,7 @@ const creationServiceSchema = [
   }
 
   .differential-card__icon .material-symbols-outlined {
-    font-size: 1.9rem;
+    font-size: 1.45rem;
     font-variation-settings:
       'FILL' 0,
       'wght' 210,
@@ -2465,19 +2488,19 @@ const creationServiceSchema = [
     margin: 0;
     color: #dfbd79;
     font-family: 'Newsreader', serif;
-    font-size: clamp(1.46rem, 1.86vw, 1.72rem);
+    font-size: clamp(1.28rem, 1.55vw, 1.46rem);
     font-weight: 600;
     letter-spacing: -0.055em;
-    line-height: 1.06;
+    line-height: 1.08;
     text-wrap: balance;
   }
 
   .differential-card p {
-    margin: 0.72rem 0 0;
+    margin: 0.52rem 0 0;
     color: rgba(226, 218, 208, 0.72);
-    font-size: clamp(0.9rem, 1.04vw, 0.97rem);
+    font-size: clamp(0.86rem, 0.95vw, 0.92rem);
     font-weight: 300;
-    line-height: 1.52;
+    line-height: 1.44;
     text-wrap: pretty;
   }
 
@@ -3512,28 +3535,28 @@ const creationServiceSchema = [
     }
 
     .differentials-section__inner {
-      grid-template-columns: minmax(27rem, 0.9fr) minmax(31rem, 1.1fr);
-      column-gap: 1.7rem;
+      grid-template-columns: minmax(29rem, 1fr) minmax(28rem, 1fr);
+      column-gap: 2rem;
     }
 
     .differentials-copy h2,
     .faq-copy h2,
     .creation-contact__copy h2 {
-      font-size: clamp(3.05rem, 5.25vw, 4.35rem);
+      font-size: clamp(2.9rem, 4.8vw, 4rem);
     }
 
     .differentials-media img,
     .creation-contact__media img {
-      width: min(48vw, 49rem);
+      width: min(39vw, 40rem);
     }
 
     .differentials-grid {
-      width: min(100%, 34.6rem);
+      width: min(100%, 35rem);
     }
 
     .differential-card {
-      min-height: 13.4rem;
-      padding-inline: 1.25rem;
+      min-height: 10.8rem;
+      padding-inline: 1.15rem;
     }
 
     .portfolio-copy h2 {
@@ -3871,7 +3894,7 @@ const creationServiceSchema = [
     .differentials-copy h2 {
       max-width: 13.4ch;
       margin-inline: auto;
-      font-size: clamp(3.05rem, 10.8vw, 5rem);
+      font-size: clamp(2.85rem, 9.7vw, 4.25rem);
     }
 
     .differentials-lead {
@@ -3880,8 +3903,8 @@ const creationServiceSchema = [
 
     .differentials-media {
       justify-self: center;
-      width: min(100%, 45rem);
-      margin: -0.7rem auto -0.25rem;
+      width: min(100%, 37rem);
+      margin: -0.35rem auto -0.15rem;
       transform: none;
     }
 
@@ -3892,8 +3915,8 @@ const creationServiceSchema = [
 
     .differentials-grid {
       justify-self: center;
-      width: min(100%, 44rem);
-      margin-top: 2rem;
+      width: min(100%, 38rem);
+      margin-top: 1.6rem;
     }
 
     .portfolio-section {
@@ -4150,50 +4173,68 @@ const creationServiceSchema = [
     }
 
     .solution-card__media {
-      aspect-ratio: 1.22 / 0.82;
+      aspect-ratio: 1.46 / 0.82;
     }
 
     .solution-card__body {
-      padding: 1.45rem 1.3rem;
+      padding: 1.18rem 1.15rem 1.22rem;
     }
 
     .solution-card__title {
-      grid-template-columns: 3.2rem 1fr;
-      gap: 1rem;
+      grid-template-columns: 2.72rem 1fr;
+      gap: 0.78rem;
+      align-items: center;
     }
 
     .solution-card__icon {
-      width: 3.2rem;
-      height: 3.2rem;
+      width: 2.72rem;
+      height: 2.72rem;
+    }
+
+    .solution-card__icon .material-symbols-outlined {
+      font-size: 1.42rem;
     }
 
     .solution-card h3 {
-      font-size: 1.58rem;
+      font-size: 1.42rem;
+      line-height: 1.08;
     }
 
     .solution-card p {
-      margin: 0.85rem 0 0;
-      font-size: 0.98rem;
+      margin: 0.68rem 0 0;
+      color: rgba(226, 218, 208, 0.8);
+      font-size: 0.94rem;
+      line-height: 1.54;
     }
 
     .solution-card__tags {
-      gap: 0.55rem;
-      margin-top: 1.45rem;
+      gap: 0.42rem;
+      margin-top: 1rem;
     }
 
     .solution-card__tags span {
-      min-height: 1.95rem;
-      padding-inline: 0.75rem;
-      font-size: 0.58rem;
-      letter-spacing: 0.18em;
+      min-height: 1.66rem;
+      padding: 0.05rem 0.58rem 0;
+      font-size: 0.52rem;
+      letter-spacing: 0.14em;
+      border-color: rgba(211, 169, 98, 0.32);
+      background: rgba(223, 189, 121, 0.045);
     }
 
     .solution-card__cta {
       width: 100%;
       justify-content: space-between;
-      min-height: 2.6rem;
-      margin-top: 1.25rem;
-      padding-inline: 0.9rem 0.78rem;
+      height: 2.5rem;
+      min-height: 2.5rem;
+      margin-top: 1rem;
+      padding-block: 0;
+      padding-inline: 0.78rem 0.68rem;
+      font-size: 0.6rem;
+      letter-spacing: 0.16em;
+    }
+
+    .solution-card__cta .material-symbols-outlined {
+      font-size: 0.9rem;
     }
 
     .solutions-note {
@@ -4354,6 +4395,8 @@ const creationServiceSchema = [
     }
 
     .included-card__icon {
+      width: 2rem;
+      height: 2rem;
       grid-row: span 2;
       margin-bottom: 0;
     }
@@ -4439,26 +4482,26 @@ const creationServiceSchema = [
 
     .differentials-media,
     .creation-contact__media {
-      width: min(100%, 35rem);
+      width: min(100%, 31rem);
     }
 
     .differentials-grid {
       grid-template-columns: 1fr;
-      gap: 1rem;
+      gap: 0.85rem;
     }
 
     .differential-card {
       display: grid;
-      grid-template-columns: 3.2rem 1fr;
-      column-gap: 1rem;
+      grid-template-columns: 2.8rem 1fr;
+      column-gap: 0.9rem;
       min-height: 0;
-      padding: 1.45rem 1.3rem;
+      padding: 1.18rem 1.15rem;
     }
 
     .differential-card__icon {
       grid-row: span 2;
-      width: 3.2rem;
-      height: 3.2rem;
+      width: 2.8rem;
+      height: 2.8rem;
       margin-bottom: 0;
     }
 
@@ -4467,12 +4510,12 @@ const creationServiceSchema = [
     }
 
     .differential-card h3 {
-      font-size: 1.72rem;
+      font-size: 1.5rem;
     }
 
     .differential-card p {
-      margin-top: 0.65rem;
-      font-size: 0.98rem;
+      margin-top: 0.45rem;
+      font-size: 0.95rem;
     }
 
     .faq-item summary {
