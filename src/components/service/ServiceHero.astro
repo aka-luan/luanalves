@@ -10,7 +10,13 @@ const { page } = Astro.props;
 const { hero } = page;
 const titleParts = hero.title.split(hero.accent);
 const titleDensity = hero.title.length > 64 ? 'long' : 'default';
-const showEyebrow = page.slug !== 'site-institucional';
+const hiddenHeroEyebrowSlugs = new Set([
+  'site-institucional',
+  'landing-page',
+  'blog-profissional',
+  'criacao-de-sites-belem',
+]);
+const showEyebrow = !hiddenHeroEyebrowSlugs.has(page.slug);
 const breadcrumbItems = [
   { label: 'Início', href: '/' },
   { label: 'Criação de Sites', href: '/criacao-de-sites/' },
