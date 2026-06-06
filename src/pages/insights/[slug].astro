@@ -146,7 +146,7 @@ const renderInlineLinks = (text: string) => text;
           <div class='post-meta' aria-label='Metadados do artigo'>
             <span>{post.date}</span>
             <span>{post.readTime}</span>
-            <span>{post.tags.slice(0, 2).join(' / ')}</span>
+            <span>{`${post.category} / ${post.tags[0]}`}</span>
           </div>
         </div>
 
