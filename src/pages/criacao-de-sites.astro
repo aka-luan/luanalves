@@ -70,41 +70,34 @@ const resultCards = [
   {
     number: '01',
     icon: 'workspace_premium',
+    benefitIcon: 'person',
     title: 'Autoridade',
     copy: 'Design profissional que transmite confiança desde o primeiro acesso.',
+    benefit: 'Mais confiança do seu cliente',
   },
   {
     number: '02',
     icon: 'search',
+    benefitIcon: 'trending_up',
     title: 'SEO técnico',
     copy: 'Estrutura preparada para indexação e boas práticas de busca.',
+    benefit: 'Mais visibilidade no Google',
   },
   {
     number: '03',
     icon: 'speed',
+    benefitIcon: 'phone_iphone',
     title: 'Performance',
     copy: 'Carregamento rápido em desktop e mobile.',
+    benefit: 'Experiência rápida no mobile',
   },
   {
     number: '04',
     icon: 'chat_bubble',
+    benefitIcon: 'monetization_on',
     title: 'Conversão',
     copy: 'Páginas pensadas para gerar contatos, pedidos e orçamentos.',
-  },
-];
-
-const resultStats = [
-  {
-    icon: 'trending_up',
-    label: 'Mais visibilidade no Google',
-  },
-  {
-    icon: 'person',
-    label: 'Mais confiança do seu cliente',
-  },
-  {
-    icon: 'monetization_on',
-    label: 'Mais resultados para o seu negócio',
+    benefit: 'Mais pedidos de orçamento',
   },
 ];
 
@@ -503,22 +496,12 @@ const creationServiceSchema = [
 
                 <h3>{item.title}</h3>
                 <p>{item.copy}</p>
-              </article>
-            ))
-          }
-        </div>
-
-        <div class='results-benefits' aria-label='Benefícios esperados'>
-          {
-            resultStats.map((item) => (
-              <article
-                class='results-benefit'
-                data-motion-item='result'
-                data-motion-hidden='y-sm'>
-                <span class='results-benefit__icon' aria-hidden='true'>
-                  <span class='material-symbols-outlined'>{item.icon}</span>
-                </span>
-                <p>{item.label}</p>
+                <div class='results-card__benefit'>
+                  <span class='results-card__benefit-icon' aria-hidden='true'>
+                    <span class='material-symbols-outlined'>{item.benefitIcon}</span>
+                  </span>
+                  <span>{item.benefit}</span>
+                </div>
               </article>
             ))
           }
@@ -1559,8 +1542,7 @@ const creationServiceSchema = [
     grid-template-columns: minmax(24rem, 0.83fr) minmax(38rem, 1.17fr);
     grid-template-areas:
       'copy cards'
-      'media cards'
-      'media benefits';
+      'media cards';
     gap: 1.65rem clamp(3rem, 5.7vw, 5.4rem);
     width: min(100%, 84.8rem);
     margin: 0 auto;
@@ -1632,15 +1614,17 @@ const creationServiceSchema = [
     grid-area: cards;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.45rem;
+    gap: 1.05rem;
     align-self: start;
   }
 
   .results-card {
     position: relative;
-    min-height: clamp(17.7rem, 22vw, 20.35rem);
-    padding: clamp(1.9rem, 2.45vw, 2.25rem) clamp(1.85rem, 2.7vw, 2.45rem)
-      clamp(1.75rem, 2.4vw, 2.15rem);
+    display: grid;
+    align-content: start;
+    min-height: clamp(15.4rem, 18.6vw, 17.4rem);
+    padding: clamp(1.35rem, 1.75vw, 1.65rem) clamp(1.45rem, 2vw, 1.85rem)
+      clamp(1.3rem, 1.7vw, 1.6rem);
     overflow: hidden;
     border: 1px solid rgba(229, 218, 207, 0.13);
     background:
@@ -1669,21 +1653,21 @@ const creationServiceSchema = [
   .results-card__head {
     display: flex;
     align-items: center;
-    gap: 1.65rem;
-    margin-bottom: 1.95rem;
+    gap: 1.25rem;
+    margin-bottom: 1.15rem;
   }
 
   .results-card__number {
     color: #dfbd79;
     font-family: 'Newsreader', serif;
-    font-size: 1.75rem;
+    font-size: 1.48rem;
     font-weight: 600;
     letter-spacing: -0.045em;
     line-height: 1;
   }
 
   .results-card__rule {
-    width: 3.4rem;
+    width: 2.7rem;
     height: 1px;
     background: rgba(229, 218, 207, 0.13);
   }
@@ -1691,9 +1675,9 @@ const creationServiceSchema = [
   .results-card__icon {
     display: grid;
     place-items: center;
-    width: 4.2rem;
-    height: 4.2rem;
-    margin-bottom: 1.6rem;
+    width: 3.35rem;
+    height: 3.35rem;
+    margin-bottom: 0.95rem;
     border: 1px solid rgba(229, 196, 135, 0.5);
     border-radius: 999px;
     color: #d9ae5f;
@@ -1704,7 +1688,7 @@ const creationServiceSchema = [
   }
 
   .results-card__icon .material-symbols-outlined {
-    font-size: 1.8rem;
+    font-size: 1.45rem;
     font-variation-settings:
       'FILL' 0,
       'wght' 240,
@@ -1716,58 +1700,47 @@ const creationServiceSchema = [
     margin: 0;
     color: #f5f2ef;
     font-family: 'Newsreader', serif;
-    font-size: clamp(1.9rem, 2.65vw, 2.24rem);
+    font-size: clamp(1.58rem, 2.2vw, 1.9rem);
     font-weight: 600;
     letter-spacing: -0.055em;
     line-height: 1.04;
   }
 
   .results-card p {
-    max-width: 15.6rem;
-    margin: 1.3rem 0 0;
+    max-width: 17.4rem;
+    margin: 0.78rem 0 0;
     color: rgba(226, 218, 208, 0.76);
-    font-size: clamp(0.98rem, 1.25vw, 1.1rem);
+    font-size: clamp(0.9rem, 1.05vw, 0.98rem);
     font-weight: 300;
-    line-height: 1.55;
+    line-height: 1.48;
   }
 
-  .results-benefits {
-    grid-area: benefits;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    align-self: end;
-    min-height: 6.2rem;
-    margin-top: 1.7rem;
-    border: 1px solid rgba(229, 218, 207, 0.13);
-    background: rgba(14, 14, 14, 0.38);
-    box-shadow:
-      inset 0 0 36px rgba(255, 255, 255, 0.012),
-      0 20px 44px rgba(0, 0, 0, 0.18);
-  }
-
-  .results-benefit {
-    display: grid;
-    grid-template-columns: 3.6rem 1fr;
+  .results-card__benefit {
+    display: inline-grid;
+    grid-template-columns: 1.35rem minmax(0, 1fr);
     align-items: center;
-    gap: 1.05rem;
-    min-width: 0;
-    padding: 1.15rem clamp(1.05rem, 2vw, 1.85rem);
+    gap: 0.5rem;
+    width: min(100%, 15.8rem);
+    min-height: 2.35rem;
+    margin-top: 1rem;
+    padding: 0.46rem 0.58rem;
+    color: rgba(245, 242, 239, 0.78);
+    background: rgba(229, 196, 135, 0.035);
+    box-shadow:
+      inset 0 0 0 1px rgba(229, 196, 135, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.035);
   }
 
-  .results-benefit + .results-benefit {
-    border-left: 1px solid rgba(229, 218, 207, 0.1);
-  }
-
-  .results-benefit__icon {
+  .results-card__benefit-icon {
     display: grid;
     place-items: center;
-    width: 3.15rem;
-    height: 3.15rem;
-    color: #d9ae5f;
+    width: 1.35rem;
+    height: 1.35rem;
+    color: rgba(217, 174, 95, 0.86);
   }
 
-  .results-benefit__icon .material-symbols-outlined {
-    font-size: 2.05rem;
+  .results-card__benefit-icon .material-symbols-outlined {
+    font-size: 1rem;
     font-variation-settings:
       'FILL' 0,
       'wght' 220,
@@ -1775,14 +1748,12 @@ const creationServiceSchema = [
       'opsz' 24;
   }
 
-  .results-benefit p {
-    max-width: 11rem;
-    margin: 0;
-    color: rgba(226, 218, 208, 0.86);
-    font-size: 0.86rem;
-    font-weight: 600;
-    line-height: 1.45;
-    text-wrap: balance;
+  .results-card__benefit > span:last-child {
+    min-width: 0;
+    font-size: 0.76rem;
+    font-weight: 700;
+    line-height: 1.3;
+    text-wrap: pretty;
   }
 
   .process-section {
@@ -2087,12 +2058,12 @@ const creationServiceSchema = [
   .included-section__inner {
     position: relative;
     display: grid;
-    grid-template-columns: minmax(31rem, 0.88fr) minmax(38rem, 1.12fr);
+    grid-template-columns: minmax(38rem, 1.08fr) minmax(30rem, 0.92fr);
     grid-template-areas:
       'copy media'
       'cards media';
     align-items: center;
-    column-gap: clamp(2rem, 4.1vw, 3.9rem);
+    column-gap: clamp(2.4rem, 4.5vw, 4.6rem);
     width: min(100%, 84.8rem);
     min-height: calc(100svh - 12.1rem);
     margin: 0 auto;
@@ -2144,24 +2115,24 @@ const creationServiceSchema = [
   .included-grid {
     grid-area: cards;
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.86rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
     align-self: start;
-    width: min(100%, 37.5rem);
-    margin-top: 2.35rem;
+    width: min(100%, 44rem);
+    margin-top: 2.2rem;
   }
 
   .included-card {
     position: relative;
-    min-height: clamp(14.6rem, 16.5vw, 16.35rem);
-    padding: clamp(1.55rem, 1.9vw, 1.8rem) clamp(1.35rem, 1.7vw, 1.55rem)
-      1.55rem;
+    min-height: clamp(11.8rem, 13.4vw, 13rem);
+    padding: clamp(1.35rem, 1.7vw, 1.55rem) clamp(1.3rem, 1.8vw, 1.6rem)
+      1.35rem;
     overflow: hidden;
     border: 1px solid rgba(229, 218, 207, 0.13);
-    border-radius: 0.45rem;
+    border-radius: 0;
     background:
-      linear-gradient(145deg, rgba(255, 255, 255, 0.032), transparent 38%),
-      rgba(15, 16, 15, 0.62);
+      linear-gradient(145deg, rgba(255, 255, 255, 0.036), transparent 36%),
+      rgba(15, 16, 15, 0.68);
     box-shadow:
       inset 0 0 0 1px rgba(255, 255, 255, 0.015),
       0 22px 42px rgba(0, 0, 0, 0.16);
@@ -2184,14 +2155,14 @@ const creationServiceSchema = [
   .included-card__icon {
     display: grid;
     place-items: center;
-    width: 3.15rem;
-    height: 3.15rem;
-    margin-bottom: 1.35rem;
+    width: 2.65rem;
+    height: 2.65rem;
+    margin-bottom: 1rem;
     color: #d9ae5f;
   }
 
   .included-card__icon .material-symbols-outlined {
-    font-size: 2.45rem;
+    font-size: 2rem;
     font-variation-settings:
       'FILL' 0,
       'wght' 210,
@@ -2200,23 +2171,24 @@ const creationServiceSchema = [
   }
 
   .included-card h3 {
-    max-width: 8.8ch;
+    max-width: 100%;
     margin: 0;
     color: #f5f2ef;
     font-family: 'Newsreader', serif;
-    font-size: clamp(1.58rem, 2.06vw, 1.86rem);
+    font-size: clamp(1.42rem, 1.72vw, 1.64rem);
     font-weight: 600;
     letter-spacing: -0.055em;
-    line-height: 1.04;
-    text-wrap: balance;
+    line-height: 1.08;
+    overflow-wrap: anywhere;
+    text-wrap: pretty;
   }
 
   .included-card p {
-    margin: 0.9rem 0 0;
+    margin: 0.68rem 0 0;
     color: rgba(226, 218, 208, 0.74);
-    font-size: clamp(0.9rem, 1.04vw, 0.98rem);
+    font-size: clamp(0.88rem, 0.98vw, 0.94rem);
     font-weight: 300;
-    line-height: 1.52;
+    line-height: 1.48;
     text-wrap: pretty;
   }
 
@@ -2225,32 +2197,33 @@ const creationServiceSchema = [
     position: relative;
     align-self: center;
     min-width: 0;
-    margin-right: clamp(-11rem, -10vw, -6rem);
-    transform: translate(0.9rem, 1.1rem);
+    margin-right: 0;
+    transform: translate(-0.45rem, 0.45rem);
   }
 
   .included-media img {
     position: relative;
     z-index: 1;
-    width: min(67vw, 67.8rem);
+    width: min(41vw, 42rem);
     max-width: none;
     height: auto;
-    filter: drop-shadow(0 3rem 5.2rem rgba(0, 0, 0, 0.48))
-      drop-shadow(0 0 3.4rem rgba(218, 176, 101, 0.15));
+    opacity: 0.9;
+    filter: drop-shadow(0 2.4rem 4.4rem rgba(0, 0, 0, 0.42))
+      drop-shadow(0 0 2.3rem rgba(218, 176, 101, 0.1));
   }
 
   .included-orbit {
     position: absolute;
-    top: 5.8%;
-    left: 4.6%;
+    top: 8.5%;
+    left: 8%;
     z-index: 0;
-    width: 82%;
+    width: 70%;
     aspect-ratio: 1;
-    border: 1px solid rgba(211, 169, 98, 0.21);
+    border: 1px solid rgba(211, 169, 98, 0.14);
     border-radius: 999px;
     box-shadow:
-      0 0 35px rgba(211, 169, 98, 0.08),
-      inset 0 0 35px rgba(211, 169, 98, 0.035);
+      0 0 28px rgba(211, 169, 98, 0.045),
+      inset 0 0 28px rgba(211, 169, 98, 0.025);
   }
 
   .differentials-section,
@@ -3499,7 +3472,7 @@ const creationServiceSchema = [
     }
 
     .results-card {
-      min-height: 17.4rem;
+      min-height: 16.2rem;
     }
 
     .process-section__inner {
@@ -3516,8 +3489,8 @@ const creationServiceSchema = [
     }
 
     .included-section__inner {
-      grid-template-columns: minmax(27rem, 0.86fr) minmax(32rem, 1.14fr);
-      column-gap: 1.7rem;
+      grid-template-columns: minmax(34rem, 1.06fr) minmax(27rem, 0.94fr);
+      column-gap: 2rem;
     }
 
     .included-copy h2 {
@@ -3525,16 +3498,17 @@ const creationServiceSchema = [
     }
 
     .included-grid {
-      width: min(100%, 34.4rem);
-      gap: 0.75rem;
+      width: min(100%, 40rem);
+      gap: 0.9rem;
     }
 
     .included-card {
-      padding-inline: 1.15rem;
+      min-height: 12rem;
+      padding-inline: 1.2rem;
     }
 
     .included-media img {
-      width: min(62vw, 55rem);
+      width: min(35vw, 36rem);
     }
 
     .differentials-section__inner {
@@ -3721,8 +3695,7 @@ const creationServiceSchema = [
       grid-template-areas:
         'copy'
         'media'
-        'cards'
-        'benefits';
+        'cards';
       gap: 2rem;
     }
 
@@ -3756,12 +3729,6 @@ const creationServiceSchema = [
     .results-card-grid {
       width: min(100%, 44rem);
       justify-self: center;
-    }
-
-    .results-benefits {
-      width: min(100%, 44rem);
-      justify-self: center;
-      margin-top: 0;
     }
 
     .process-section {
@@ -3853,7 +3820,7 @@ const creationServiceSchema = [
 
     .included-media {
       justify-self: center;
-      width: min(100%, 45rem);
+      width: min(100%, 38rem);
       margin: -0.85rem auto -0.2rem;
       transform: none;
     }
@@ -3864,9 +3831,9 @@ const creationServiceSchema = [
     }
 
     .included-orbit {
-      top: 3%;
-      left: 11%;
-      width: 76%;
+      top: 6%;
+      left: 15%;
+      width: 66%;
     }
 
     .included-grid {
@@ -4261,52 +4228,37 @@ const creationServiceSchema = [
 
     .results-card-grid {
       grid-template-columns: 1fr;
-      gap: 1rem;
+      gap: 0.85rem;
     }
 
     .results-card {
       min-height: 0;
-      padding: 1.65rem 1.45rem 1.75rem;
+      padding: 1.35rem 1.25rem 1.45rem;
     }
 
     .results-card__head {
-      margin-bottom: 1.35rem;
+      margin-bottom: 0.95rem;
     }
 
     .results-card__icon {
-      width: 3.6rem;
-      height: 3.6rem;
-      margin-bottom: 1.25rem;
+      width: 3.05rem;
+      height: 3.05rem;
+      margin-bottom: 0.85rem;
     }
 
     .results-card h3 {
-      font-size: 1.86rem;
+      font-size: 1.62rem;
     }
 
     .results-card p {
       max-width: 19rem;
-      margin-top: 0.9rem;
-      font-size: 1rem;
+      margin-top: 0.7rem;
+      font-size: 0.95rem;
     }
 
-    .results-benefits {
-      grid-template-columns: 1fr;
-    }
-
-    .results-benefit {
-      grid-template-columns: 3.15rem 1fr;
-      min-height: 5.15rem;
-      padding: 1rem 1.25rem;
-    }
-
-    .results-benefit + .results-benefit {
-      border-top: 1px solid rgba(229, 218, 207, 0.1);
-      border-left: 0;
-    }
-
-    .results-benefit p {
-      max-width: 100%;
-      text-wrap: pretty;
+    .results-card__benefit {
+      width: 100%;
+      margin-top: 0.95rem;
     }
 
     .process-section {
@@ -4384,7 +4336,7 @@ const creationServiceSchema = [
     }
 
     .included-media {
-      width: min(100%, 35rem);
+      width: min(100%, 31rem);
       margin-top: -0.5rem;
     }
 
