@@ -8,13 +8,6 @@ const siteUrl = 'https://luanalves.com.br';
 const whatsappHref =
   'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20solicitar%20um%20or%C3%A7amento%20para%20um%20site.';
 
-const filters = [
-  { label: 'Todos', value: 'all', current: true },
-  { label: 'Site Institucional', value: 'site-institucional' },
-  { label: 'Blog Profissional', value: 'blog-profissional' },
-  { label: 'Landing Page', value: 'landing-page' },
-];
-
 const metrics = [
   { value: '12+', label: 'Projetos' },
   { value: '5+', label: 'Anos' },
@@ -42,6 +35,36 @@ const slugify = (value: string) =>
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/(^-|-$)/g, '');
+
+const portfolioCategoryCounts = portfolioProjects.reduce<Record<string, number>>(
+  (counts, project) => {
+    project.categories.map(slugify).forEach((categorySlug) => {
+      counts[categorySlug] = (counts[categorySlug] ?? 0) + 1;
+    });
+
+    return counts;
+  },
+  {},
+);
+
+const filters = [
+  { label: 'Todos', value: 'all', current: true, disabled: false },
+  {
+    label: 'Site Institucional',
+    value: 'site-institucional',
+    disabled: (portfolioCategoryCounts['site-institucional'] ?? 0) === 0,
+  },
+  {
+    label: 'Blog Profissional',
+    value: 'blog-profissional',
+    disabled: (portfolioCategoryCounts['blog-profissional'] ?? 0) === 0,
+  },
+  {
+    label: 'Landing Page',
+    value: 'landing-page',
+    disabled: (portfolioCategoryCounts['landing-page'] ?? 0) === 0,
+  },
+];
 
 const portfolioSchema = [
   {
@@ -197,6 +220,8 @@ const portfolioSchema = [
               <button
                 type='button'
                 data-portfolio-filter={filter.value}
+                disabled={filter.disabled}
+                aria-disabled={filter.disabled ? 'true' : undefined}
                 aria-current={filter.current ? 'true' : undefined}>
                 {filter.label}
               </button>
@@ -595,6 +620,12 @@ const portfolioSchema = [
 
   .portfolio-filters button:active {
     transform: scale(0.96);
+  }
+
+  .portfolio-filters button:disabled {
+    opacity: 0.42;
+    cursor: not-allowed;
+    transform: none;
   }
 
   .portfolio-grid {
@@ -1003,55 +1034,3 @@ const portfolioSchema = [
     }
   }
 </style>
-
-<script>
-  const portfolioFilters = document.querySelectorAll('[data-portfolio-filter]');
-  const portfolioCards = document.querySelectorAll('[data-portfolio-card]');
-  const portfolioEmpty = document.querySelector('[data-portfolio-empty]');
-
-  const setActiveFilter = (activeFilter) => {
-    portfolioFilters.forEach((filter) => {
-      if (filter === activeFilter) {
-        filter.setAttribute('aria-current', 'true');
-        return;
-      }
-
-      filter.removeAttribute('aria-current');
-    });
-  };
-
-  const filterPortfolio = (filterValue) => {
-    let visibleCount = 0;
-
-    portfolioCards.forEach((card) => {
-      const categories = card.getAttribute('data-portfolio-categories') ?? '';
-      const shouldShow =
-        filterValue === 'all' || categories.split(' ').includes(filterValue);
-
-      if (card instanceof HTMLElement) {
-        card.hidden = !shouldShow;
-      }
-
-      if (shouldShow) {
-        visibleCount += 1;
-      }
-    });
-
-    if (portfolioEmpty instanceof HTMLElement) {
-      portfolioEmpty.hidden = visibleCount > 0;
-    }
-  };
-
-  portfolioFilters.forEach((filter) => {
-    filter.addEventListener('click', () => {
-      const filterValue = filter.getAttribute('data-portfolio-filter');
-
-      if (!filterValue) {
-        return;
-      }
-
-      setActiveFilter(filter);
-      filterPortfolio(filterValue);
-    });
-  });
-</script>
