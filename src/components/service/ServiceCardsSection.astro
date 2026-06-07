@@ -237,7 +237,7 @@ const titleDensity = title.length > 64 ? 'long' : 'default';
 
   @media (max-width: 900px) {
     .service-cards {
-      padding: 6.5rem 1.15rem 4.5rem;
+      padding: 5.5rem 1.15rem 4rem;
     }
 
     .service-cards__copy h2 {
@@ -251,11 +251,15 @@ const titleDensity = title.length > 64 ? 'long' : 'default';
 
   @media (max-width: 560px) {
     .service-cards {
-      padding-inline: 0.9rem;
+      padding: 4.65rem 0.9rem 3.65rem;
+    }
+
+    .service-cards__inner {
+      gap: 2rem;
     }
 
     .service-eyebrow {
-      margin-bottom: 1.35rem;
+      margin-bottom: 1.05rem;
       font-size: 0.64rem;
       letter-spacing: 0.2em;
     }
@@ -271,17 +275,36 @@ const titleDensity = title.length > 64 ? 'long' : 'default';
     }
 
     .service-cards__copy > p {
+      margin-top: 1.05rem;
       font-size: 1rem;
-      line-height: 1.68;
+      line-height: 1.62;
     }
 
     .service-cards__grid {
       grid-template-columns: 1fr;
+      gap: 0.85rem;
     }
 
     .service-card {
       min-height: 0;
-      padding: 1.45rem 1.3rem;
+      padding: 1.25rem 1.15rem;
+    }
+
+    .service-card__icon {
+      width: 2.9rem;
+      height: 2.9rem;
+      margin-top: 1.35rem;
+    }
+
+    .service-card h3 {
+      margin-top: 1rem;
+      font-size: 1.55rem;
+    }
+
+    .service-card p {
+      margin-top: 0.7rem;
+      font-size: 0.94rem;
+      line-height: 1.5;
     }
   }
 </style>

@@ -42,8 +42,19 @@ const className = Astro.props.class;
   }
 
   .breadcrumbs a {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.5rem;
+    padding-inline: 0.22rem;
     color: var(--muted);
     transition: color 180ms ease;
+  }
+
+  .breadcrumbs a::before {
+    content: '';
+    position: absolute;
+    inset: -0.25rem -0.25rem;
   }
 
   .breadcrumbs a:hover,
@@ -60,7 +71,7 @@ const className = Astro.props.class;
   @media (max-width: 560px) {
     .breadcrumbs {
       gap: 0.45rem;
-      margin-bottom: 1.25rem;
+      margin-bottom: 0.95rem;
       font-size: 0.58rem;
       letter-spacing: 0.12em;
     }

@@ -281,6 +281,49 @@ const breadcrumbItems = [
     margin-top: 2.05rem;
   }
 
+  .service-hero[data-service='landing-page'] .service-hero__glow {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(8, 8, 8, 0.92),
+        rgba(8, 8, 8, 0.34) 50%,
+        rgba(8, 8, 8, 0.58)
+      ),
+      radial-gradient(
+        ellipse at 56% 50%,
+        rgba(235, 194, 116, 0.2),
+        transparent 33rem
+      ),
+      radial-gradient(
+        ellipse at 42% 60%,
+        rgba(223, 189, 121, 0.08),
+        transparent 25rem
+      );
+  }
+
+  .service-hero[data-service='landing-page'] .service-hero__inner {
+    grid-template-columns: minmax(29rem, 0.91fr) minmax(34rem, 1.09fr);
+    gap: clamp(0.85rem, 2vw, 2.15rem);
+    min-height: calc(100svh - 11.7rem);
+  }
+
+  .service-hero[data-service='landing-page'][data-title-density='long'] h1 {
+    max-width: 14.2ch;
+    font-size: clamp(2.92rem, 3.82vw, 4.08rem);
+    line-height: 0.98;
+  }
+
+  .service-hero[data-service='landing-page'] .service-lead {
+    max-width: 31.8rem;
+    color: rgba(236, 229, 219, 0.87);
+    line-height: 1.63;
+  }
+
+  .service-hero[data-service='landing-page'] .service-actions {
+    gap: 0.75rem;
+    margin-top: 1.95rem;
+  }
+
   .service-hero h1 em {
     display: block;
     color: #dfbd79;
@@ -408,6 +451,18 @@ const breadcrumbItems = [
     transform: translate(-0.7rem, -0.9rem);
   }
 
+  .service-hero[data-service='landing-page'] .service-hero__media {
+    isolation: isolate;
+    transform: translate(-0.85rem, -0.75rem);
+  }
+
+  .service-hero[data-service='landing-page'] .service-orbit {
+    top: 8%;
+    left: 10%;
+    width: 52%;
+    opacity: 0.72;
+  }
+
   .service-hero[data-service='site-institucional'] .service-hero__media::before {
     content: none;
   }
@@ -436,6 +491,13 @@ const breadcrumbItems = [
     filter:
       drop-shadow(0 2.2rem 4.8rem rgba(0, 0, 0, 0.34))
       drop-shadow(0 0 2.4rem rgba(223, 189, 121, 0.08));
+  }
+
+  .service-hero[data-service='landing-page'] .service-hero__media img {
+    width: min(96%, 45rem);
+    filter:
+      drop-shadow(0 2.35rem 5rem rgba(0, 0, 0, 0.34))
+      drop-shadow(0 0 2.4rem rgba(223, 189, 121, 0.09));
   }
 
   @media (max-width: 900px) {
@@ -509,6 +571,77 @@ const breadcrumbItems = [
     .service-hero[data-service='site-institucional'] .service-hero__media {
       width: min(100%, 37rem);
       margin: 0 auto -0.5rem;
+      transform: none;
+    }
+
+    .service-hero[data-service='landing-page'] {
+      padding-top: 7rem;
+    }
+
+    .service-hero[data-service='landing-page'] .service-hero__inner {
+      grid-template-columns: 1fr;
+      gap: 1.15rem;
+      min-height: auto;
+    }
+
+    .service-hero[data-service='landing-page'] .service-hero__copy {
+      display: contents;
+      text-align: center;
+    }
+
+    .service-hero[data-service='landing-page'] :global(.breadcrumbs),
+    .service-hero[data-service='landing-page'] h1,
+    .service-hero[data-service='landing-page'] .service-lead,
+    .service-hero[data-service='landing-page'] .service-actions,
+    .service-hero[data-service='landing-page'] .service-features,
+    .service-hero[data-service='landing-page'] .service-hero__media {
+      justify-self: center;
+    }
+
+    .service-hero[data-service='landing-page'] :global(.breadcrumbs) {
+      order: 1;
+    }
+
+    .service-hero[data-service='landing-page'] h1 {
+      order: 2;
+    }
+
+    .service-hero[data-service='landing-page'] .service-lead {
+      order: 3;
+    }
+
+    .service-hero[data-service='landing-page'] .service-actions {
+      order: 4;
+    }
+
+    .service-hero[data-service='landing-page'] .service-hero__media {
+      order: 5;
+    }
+
+    .service-hero[data-service='landing-page'] .service-features {
+      order: 6;
+    }
+
+    .service-hero[data-service='landing-page'][data-title-density='long'] h1 {
+      max-width: 15ch;
+      font-size: clamp(2.68rem, 8.4vw, 3.78rem);
+      line-height: 1;
+    }
+
+    .service-hero[data-service='landing-page'] .service-lead {
+      max-width: 34.5rem;
+      margin-top: 0;
+      line-height: 1.62;
+    }
+
+    .service-hero[data-service='landing-page'] .service-actions {
+      gap: 0.75rem;
+      margin-top: 0.45rem;
+    }
+
+    .service-hero[data-service='landing-page'] .service-hero__media {
+      width: min(100%, 38rem);
+      margin: -0.65rem auto -0.45rem;
       transform: none;
     }
   }
@@ -587,6 +720,54 @@ const breadcrumbItems = [
     .service-hero[data-service='site-institucional'] .service-hero__media {
       width: min(100%, 31rem);
       margin-top: -0.35rem;
+    }
+
+    .service-hero[data-service='landing-page'][data-title-density='long'] h1 {
+      max-width: min(14.4ch, 100%);
+      font-size: clamp(2.18rem, 8.5vw, 2.72rem);
+      line-height: 1.04;
+    }
+
+    .service-hero[data-service='landing-page'] .service-lead {
+      max-width: 100%;
+      margin-top: 0;
+      font-size: 0.98rem;
+      line-height: 1.62;
+    }
+
+    .service-hero[data-service='landing-page'] .service-actions {
+      gap: 0.72rem;
+      margin-top: 0.35rem;
+    }
+
+    .service-hero[data-service='landing-page'] .service-hero__media {
+      width: min(100%, 31rem);
+      margin-top: -0.85rem;
+    }
+
+    .service-hero[data-service='landing-page'] .service-features {
+      width: min(100%, 31rem);
+    }
+
+    .service-hero[data-service='landing-page'] .service-feature {
+      grid-template-columns: 2.45rem 1fr;
+      column-gap: 0.78rem;
+      min-height: 0;
+      padding: 0.92rem 1rem;
+    }
+
+    .service-hero[data-service='landing-page'] .service-feature__icon {
+      width: 2.45rem;
+      height: 2.45rem;
+    }
+
+    .service-hero[data-service='landing-page'] .service-feature strong {
+      font-size: 1.14rem;
+    }
+
+    .service-hero[data-service='landing-page'] .service-feature p {
+      font-size: 0.86rem;
+      line-height: 1.42;
     }
   }
 </style>
