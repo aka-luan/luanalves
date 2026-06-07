@@ -302,7 +302,9 @@ const creationServiceSchema = [
                   class='creation-feature'
                   data-motion-item='hero-feature'
                   data-motion-hidden='y-sm'>
-                  <span class='creation-feature__icon icon-chip' aria-hidden='true'>
+                  <span
+                    class='creation-feature__icon icon-chip'
+                    aria-hidden='true'>
                     <span class='material-symbols-outlined'>{item.icon}</span>
                   </span>
                   <p>{item.label}</p>
@@ -340,7 +342,7 @@ const creationServiceSchema = [
       <div class='solutions-section__inner'>
         <div class='solutions-copy editorial-copy editorial-copy--center'>
           <p
-            class='creation-eyebrow solutions-eyebrow editorial-eyebrow'
+            class='creation-eyebrow results-eyebrow editorial-eyebrow'
             data-motion-heading
             data-motion-hidden='y-sm'>
             Soluções
@@ -444,13 +446,20 @@ const creationServiceSchema = [
             Resultados
           </p>
 
-          <h2 class='editorial-title' id='results-title' data-motion-heading data-motion-hidden='y-md'>
+          <h2
+            class='editorial-title'
+            id='results-title'
+            data-motion-heading
+            data-motion-hidden='y-md'>
             <span>Um bom site</span>
             <span>precisa <em>trabalhar</em></span>
             <em>por você.</em>
           </h2>
 
-          <p class='results-lead editorial-lead' data-motion-copy data-motion-hidden='y-md'>
+          <p
+            class='results-lead editorial-lead'
+            data-motion-copy
+            data-motion-hidden='y-md'>
             Mais do que presença digital, o seu site deve transmitir confiança,
             aparecer no Google, carregar rápido e facilitar o contato com a sua
             empresa.
@@ -521,12 +530,19 @@ const creationServiceSchema = [
             Processo
           </p>
 
-          <h2 class='editorial-title' id='process-title' data-motion-heading data-motion-hidden='y-md'>
+          <h2
+            class='editorial-title'
+            id='process-title'
+            data-motion-heading
+            data-motion-hidden='y-md'>
             <span>Como funciona</span>
             <span><em>a criação</em> do seu site</span>
           </h2>
 
-          <p class='process-lead editorial-lead' data-motion-copy data-motion-hidden='y-md'>
+          <p
+            class='process-lead editorial-lead'
+            data-motion-copy
+            data-motion-hidden='y-md'>
             Um processo claro reduz retrabalho, acelera a entrega e garante que
             cada etapa faça sentido para o seu negócio.
           </p>
@@ -585,12 +601,19 @@ const creationServiceSchema = [
             Incluso
           </p>
 
-          <h2 class='editorial-title' id='included-title' data-motion-heading data-motion-hidden='y-md'>
+          <h2
+            class='editorial-title'
+            id='included-title'
+            data-motion-heading
+            data-motion-hidden='y-md'>
             <span>O que está incluso</span>
             <em>no projeto.</em>
           </h2>
 
-          <p class='included-lead editorial-lead' data-motion-copy data-motion-hidden='y-md'>
+          <p
+            class='included-lead editorial-lead'
+            data-motion-copy
+            data-motion-hidden='y-md'>
             Cada entrega combina estratégia, design e desenvolvimento para que o
             site já nasça pronto para performar.
           </p>
@@ -1202,13 +1225,6 @@ const creationServiceSchema = [
   }
 
   .solutions-copy p {
-    max-width: 42rem;
-    margin: 1.45rem 0 0;
-    color: rgba(226, 218, 208, 0.82);
-    font-size: clamp(1rem, 1.14vw, 1.08rem);
-    font-weight: 300;
-    line-height: 1.62;
-    text-wrap: pretty;
   }
 
   .solutions-grid {
@@ -1305,7 +1321,12 @@ const creationServiceSchema = [
     position: absolute;
     inset: 0;
     background:
-      linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.3) 58%, rgba(16, 16, 15, 0.66)),
+      linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.08),
+        rgba(0, 0, 0, 0.3) 58%,
+        rgba(16, 16, 15, 0.66)
+      ),
       linear-gradient(0deg, rgba(16, 16, 15, 0.72), transparent 34%),
       radial-gradient(circle at 72% 32%, transparent, rgba(0, 0, 0, 0.34));
   }

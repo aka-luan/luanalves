@@ -43,8 +43,10 @@ const copyMotionAttrs = motion
   {...sectionMotionAttrs}>
   <div class='shared-faq__inner'>
     <div class='shared-faq__copy'>
-      <div class='shared-faq__kicker' aria-hidden='true' {...eyebrowMotionAttrs}>
-        {showSectionIndex && <span>8 / 9</span>}
+      <div
+        class='shared-faq__kicker'
+        aria-hidden='true'
+        {...eyebrowMotionAttrs}>
         <span>{eyebrow}</span>
       </div>
 
@@ -77,14 +79,13 @@ const copyMotionAttrs = motion
                 {String(index + 1).padStart(2, '0')}
               </span>
               <span class='shared-faq__item-question'>{item.question}</span>
-              <span class='shared-faq__item-toggle' aria-hidden='true'></span>
+              <span class='shared-faq__item-toggle' aria-hidden='true' />
             </summary>
             <p>{item.answer}</p>
           </details>
         ))
       }
     </div>
-
   </div>
 </section>
 
@@ -363,6 +364,5 @@ const copyMotionAttrs = motion
       margin: 0 1.1rem 1.35rem 4.25rem;
       font-size: 0.97rem;
     }
-
   }
 </style>

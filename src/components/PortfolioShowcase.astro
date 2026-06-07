@@ -58,7 +58,11 @@ const moreMotionAttrs = motion
 
   <div class='portfolio-showcase__inner'>
     <div class='portfolio-showcase__copy'>
-      <p class='creation-eyebrow portfolio-showcase__eyebrow' {...eyebrowMotionAttrs}>{eyebrow}</p>
+      <p
+        class='creation-eyebrow results-eyebrow editorial-eyebrow'
+        {...eyebrowMotionAttrs}>
+        {eyebrow}
+      </p>
 
       <h2 id={`${id}-title`} {...titleMotionAttrs}>
         {
@@ -222,16 +226,6 @@ const moreMotionAttrs = motion
     font-weight: 600;
   }
 
-  .portfolio-showcase__copy > p {
-    max-width: 30.5rem;
-    margin: 1.55rem 0 0;
-    color: rgba(226, 218, 208, 0.78);
-    font-size: clamp(1rem, 1.12vw, 1.08rem);
-    font-weight: 300;
-    line-height: 1.48;
-    text-wrap: pretty;
-  }
-
   .portfolio-showcase__grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -286,7 +280,11 @@ const moreMotionAttrs = motion
     inset: 0;
     background:
       linear-gradient(180deg, transparent 62%, rgba(0, 0, 0, 0.18)),
-      radial-gradient(circle at 50% 100%, rgba(223, 189, 121, 0.08), transparent 50%);
+      radial-gradient(
+        circle at 50% 100%,
+        rgba(223, 189, 121, 0.08),
+        transparent 50%
+      );
     opacity: 0.42;
     pointer-events: none;
   }
