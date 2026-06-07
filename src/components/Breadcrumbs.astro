@@ -14,7 +14,7 @@ const className = Astro.props.class;
 ---
 
 <nav
-  class:list={['breadcrumbs', className]}
+  class:list={['shared-breadcrumbs', className]}
   aria-label='Breadcrumb'>
   {
     items.map((item, index) => (
@@ -25,55 +25,3 @@ const className = Astro.props.class;
     ))
   }
 </nav>
-
-<style>
-  .breadcrumbs {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.55rem;
-    margin-bottom: clamp(1.35rem, 3vw, 1.9rem);
-    color: var(--subtle);
-    font-size: 0.62rem;
-    font-weight: 800;
-    letter-spacing: 0.18em;
-    line-height: 1.6;
-    text-transform: uppercase;
-  }
-
-  .breadcrumbs a {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    min-height: 2.5rem;
-    padding-inline: 0.22rem;
-    color: var(--muted);
-    transition: color 180ms ease;
-  }
-
-  .breadcrumbs a::before {
-    content: '';
-    position: absolute;
-    inset: -0.25rem -0.25rem;
-  }
-
-  .breadcrumbs a:hover,
-  .breadcrumbs a:focus-visible {
-    color: var(--primary);
-  }
-
-  @media (max-width: 900px) {
-    .breadcrumbs {
-      justify-content: center;
-    }
-  }
-
-  @media (max-width: 560px) {
-    .breadcrumbs {
-      gap: 0.45rem;
-      margin-bottom: 0.95rem;
-      font-size: 0.58rem;
-      letter-spacing: 0.12em;
-    }
-  }
-</style>

@@ -257,7 +257,7 @@ const creationServiceSchema = [
       <div class='creation-hero__grain' aria-hidden='true'></div>
 
       <div class='creation-hero__inner'>
-        <div class='creation-hero__copy'>
+        <div class='creation-hero__copy editorial-copy'>
           <Breadcrumbs items={breadcrumbItems} />
 
           <h1
@@ -270,7 +270,7 @@ const creationServiceSchema = [
           </h1>
 
           <p
-            class='creation-lead'
+            class='creation-lead editorial-lead'
             data-motion-hero-copy
             data-motion-hidden='y-md'>
             Crio sites institucionais, blogs e landing pages para empresas que
@@ -280,7 +280,7 @@ const creationServiceSchema = [
 
           <div class='creation-actions' data-motion-hero-actions>
             <a
-              class='creation-button creation-button--solid'
+              class='creation-button shared-button shared-button--solid'
               href={whatsappHref}
               target='_blank'
               rel='noreferrer'
@@ -288,7 +288,7 @@ const creationServiceSchema = [
               Solicitar orçamento
             </a>
             <a
-              class='creation-button creation-button--outline'
+              class='creation-button shared-button shared-button--outline'
               href='/portfolio/'
               data-motion-hidden='y-sm'>
               Ver projetos
@@ -302,7 +302,7 @@ const creationServiceSchema = [
                   class='creation-feature'
                   data-motion-item='hero-feature'
                   data-motion-hidden='y-sm'>
-                  <span class='creation-feature__icon' aria-hidden='true'>
+                  <span class='creation-feature__icon icon-chip' aria-hidden='true'>
                     <span class='material-symbols-outlined'>{item.icon}</span>
                   </span>
                   <p>{item.label}</p>
@@ -338,15 +338,16 @@ const creationServiceSchema = [
       <div class='solutions-section__glow' aria-hidden='true'></div>
 
       <div class='solutions-section__inner'>
-        <div class='solutions-copy'>
+        <div class='solutions-copy editorial-copy editorial-copy--center'>
           <p
-            class='creation-eyebrow solutions-eyebrow'
+            class='creation-eyebrow solutions-eyebrow editorial-eyebrow'
             data-motion-heading
             data-motion-hidden='y-sm'>
             Soluções
           </p>
 
           <h2
+            class='editorial-title editorial-title--compact'
             id='solutions-title'
             data-motion-heading
             data-motion-hidden='y-md'>
@@ -435,21 +436,21 @@ const creationServiceSchema = [
       <div class='results-section__glow' aria-hidden='true'></div>
 
       <div class='results-section__inner'>
-        <div class='results-copy'>
+        <div class='results-copy editorial-copy'>
           <p
-            class='creation-eyebrow results-eyebrow'
+            class='creation-eyebrow results-eyebrow editorial-eyebrow'
             data-motion-heading
             data-motion-hidden='y-sm'>
             Resultados
           </p>
 
-          <h2 id='results-title' data-motion-heading data-motion-hidden='y-md'>
+          <h2 class='editorial-title' id='results-title' data-motion-heading data-motion-hidden='y-md'>
             <span>Um bom site</span>
             <span>precisa <em>trabalhar</em></span>
             <em>por você.</em>
           </h2>
 
-          <p class='results-lead' data-motion-copy data-motion-hidden='y-md'>
+          <p class='results-lead editorial-lead' data-motion-copy data-motion-hidden='y-md'>
             Mais do que presença digital, o seu site deve transmitir confiança,
             aparecer no Google, carregar rápido e facilitar o contato com a sua
             empresa.
@@ -512,20 +513,20 @@ const creationServiceSchema = [
       <div class='process-section__glow' aria-hidden='true'></div>
 
       <div class='process-section__inner'>
-        <div class='process-copy'>
+        <div class='process-copy editorial-copy'>
           <p
-            class='creation-eyebrow process-eyebrow'
+            class='creation-eyebrow process-eyebrow editorial-eyebrow'
             data-motion-heading
             data-motion-hidden='y-sm'>
             Processo
           </p>
 
-          <h2 id='process-title' data-motion-heading data-motion-hidden='y-md'>
+          <h2 class='editorial-title' id='process-title' data-motion-heading data-motion-hidden='y-md'>
             <span>Como funciona</span>
             <span><em>a criação</em> do seu site</span>
           </h2>
 
-          <p class='process-lead' data-motion-copy data-motion-hidden='y-md'>
+          <p class='process-lead editorial-lead' data-motion-copy data-motion-hidden='y-md'>
             Um processo claro reduz retrabalho, acelera a entrega e garante que
             cada etapa faça sentido para o seu negócio.
           </p>
@@ -576,20 +577,20 @@ const creationServiceSchema = [
       <div class='included-section__glow' aria-hidden='true'></div>
 
       <div class='included-section__inner'>
-        <div class='included-copy'>
+        <div class='included-copy editorial-copy'>
           <p
-            class='creation-eyebrow included-eyebrow'
+            class='creation-eyebrow included-eyebrow editorial-eyebrow'
             data-motion-heading
             data-motion-hidden='y-sm'>
             Incluso
           </p>
 
-          <h2 id='included-title' data-motion-heading data-motion-hidden='y-md'>
+          <h2 class='editorial-title' id='included-title' data-motion-heading data-motion-hidden='y-md'>
             <span>O que está incluso</span>
             <em>no projeto.</em>
           </h2>
 
-          <p class='included-lead' data-motion-copy data-motion-hidden='y-md'>
+          <p class='included-lead editorial-lead' data-motion-copy data-motion-hidden='y-md'>
             Cada entrega combina estratégia, design e desenvolvimento para que o
             site já nasça pronto para performar.
           </p>
@@ -640,9 +641,9 @@ const creationServiceSchema = [
 
       <div class='differentials-section__inner'>
         <div class='differentials-content'>
-          <div class='differentials-copy'>
+          <div class='differentials-copy editorial-copy'>
             <p
-              class='creation-eyebrow differentials-eyebrow'
+              class='creation-eyebrow differentials-eyebrow editorial-eyebrow'
               data-motion-heading
               data-motion-hidden='y-sm'>
               Diferenciais
@@ -657,7 +658,7 @@ const creationServiceSchema = [
             </h2>
 
             <p
-              class='differentials-lead'
+              class='differentials-lead editorial-lead'
               data-motion-copy
               data-motion-hidden='y-md'>
               Você fala com quem planeja, desenha e desenvolve o site, sem

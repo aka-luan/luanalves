@@ -21,12 +21,12 @@ const titleDensity = title.length > 64 ? 'long' : 'default';
   data-motion-section='process'
   data-title-density={titleDensity}>
   <div class='service-process__inner'>
-    <div class='service-process__copy'>
-      <p class='service-eyebrow' data-motion-heading data-motion-hidden='y-sm'>{eyebrow}</p>
-      <h2 id='process-title' data-motion-heading data-motion-hidden='y-md'>
+    <div class='service-process__copy editorial-copy'>
+      <p class='editorial-eyebrow' data-motion-heading data-motion-hidden='y-sm'>{eyebrow}</p>
+      <h2 class='editorial-title' id='process-title' data-motion-heading data-motion-hidden='y-md'>
         {titleParts[0]}<em>{accent}</em>{titleParts[1]}
       </h2>
-      <p data-motion-copy data-motion-hidden='y-md'>{copy}</p>
+      <p class='editorial-lead' data-motion-copy data-motion-hidden='y-md'>{copy}</p>
     </div>
 
     <div class='service-process__timeline' aria-label='Etapas do projeto'>
@@ -74,47 +74,14 @@ const titleDensity = title.length > 64 ? 'long' : 'default';
     margin: 0 auto;
   }
 
-  .service-eyebrow {
-    margin: 0 0 1.45rem;
-    color: #d9ae5f;
-    font-size: 0.74rem;
-    font-weight: 700;
-    letter-spacing: 0.26em;
-    text-transform: uppercase;
+  .service-process__copy {
+    max-width: 29rem;
   }
 
-  .service-process h2 {
-    max-width: 14.5ch;
-    margin: 0;
-    color: #f5f2ef;
-    font-family: 'Newsreader', serif;
-    font-size: clamp(2.9rem, 4.2vw, 4.25rem);
-    font-weight: 600;
-    letter-spacing: -0.048em;
-    line-height: 1.01;
-    text-wrap: balance;
-  }
-
-  .service-process[data-title-density='long'] h2 {
+  .service-process[data-title-density='long'] .editorial-title {
     max-width: 17ch;
     font-size: clamp(2.6rem, 3.6vw, 3.65rem);
     line-height: 1.04;
-  }
-
-  .service-process h2 em {
-    color: #dfbd79;
-    font-style: italic;
-    font-weight: 600;
-  }
-
-  .service-process__copy > p {
-    max-width: 29rem;
-    margin: 1.45rem 0 0;
-    color: rgba(226, 218, 208, 0.78);
-    font-size: clamp(1rem, 1.12vw, 1.08rem);
-    font-weight: 300;
-    line-height: 1.62;
-    text-wrap: pretty;
   }
 
   .service-process__timeline {
@@ -215,12 +182,11 @@ const titleDensity = title.length > 64 ? 'long' : 'default';
       text-align: center;
     }
 
-    .service-process h2 {
+    .service-process .editorial-title {
       margin-inline: auto;
-      font-size: clamp(2.72rem, 8.8vw, 4rem);
     }
 
-    .service-process[data-title-density='long'] h2 {
+    .service-process[data-title-density='long'] .editorial-title {
       font-size: clamp(2.45rem, 7.8vw, 3.45rem);
     }
   }
@@ -230,18 +196,7 @@ const titleDensity = title.length > 64 ? 'long' : 'default';
       padding-inline: 0.9rem;
     }
 
-    .service-eyebrow {
-      margin-bottom: 1.35rem;
-      font-size: 0.64rem;
-      letter-spacing: 0.2em;
-    }
-
-    .service-process h2 {
-      font-size: clamp(2.2rem, 9.6vw, 3.05rem);
-      letter-spacing: -0.045em;
-    }
-
-    .service-process[data-title-density='long'] h2 {
+    .service-process[data-title-density='long'] .editorial-title {
       font-size: clamp(1.98rem, 8.1vw, 2.56rem);
       line-height: 1.06;
     }
