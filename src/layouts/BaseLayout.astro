@@ -1,5 +1,6 @@
 ---
 import Analytics from '@vercel/analytics/astro';
+import SpeedInsights from '@vercel/speed-insights/astro';
 import '../styles/fonts.css';
 import '../styles/global.css';
 
@@ -170,6 +171,7 @@ const schemaGraph = {
       <slot />
     </div>
     <Analytics />
+    <SpeedInsights />
     <script>
       import '../scripts/page-transitions';
     </script>
