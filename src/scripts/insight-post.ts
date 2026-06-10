@@ -6,8 +6,11 @@ type Cleanup = () => void;
 gsap.registerPlugin(ScrollTrigger);
 
 function getShareUrl(root: ParentNode) {
-  const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
-  const configuredUrl = root.querySelector<HTMLElement>('[data-insight-post]')?.dataset.url;
+  const canonical = document.querySelector<HTMLLinkElement>(
+    'link[rel="canonical"]',
+  );
+  const configuredUrl = root.querySelector<HTMLElement>('[data-insight-post]')
+    ?.dataset.url;
 
   return configuredUrl ?? canonical?.href ?? window.location.href;
 }
@@ -39,7 +42,9 @@ function revealNow(elements: Element[]) {
 function initInsightMotion(page: HTMLElement, reduceMotion: MediaQueryList) {
   const html = document.documentElement;
   const breadcrumb = page.querySelector<HTMLElement>('.post-breadcrumb');
-  const heroEyebrow = page.querySelector<HTMLElement>('.post-hero .post-eyebrow');
+  const heroEyebrow = page.querySelector<HTMLElement>(
+    '.post-hero .post-eyebrow',
+  );
   const heroTitle = page.querySelector<HTMLElement>('.post-hero h1');
   const heroCopy = page.querySelector<HTMLElement>(
     '.post-hero__copy > p:not(.post-eyebrow)',
@@ -53,9 +58,7 @@ function initInsightMotion(page: HTMLElement, reduceMotion: MediaQueryList) {
     ),
   );
   const sidebarItems = Array.from(
-    page.querySelectorAll(
-      '.post-sidebar__panel, .post-whatsapp',
-    ),
+    page.querySelectorAll('.post-sidebar__panel, .post-whatsapp'),
   );
   const authorCard = page.querySelector<HTMLElement>('.author-card');
   const relatedHeader = Array.from(
@@ -103,11 +106,11 @@ function initInsightMotion(page: HTMLElement, reduceMotion: MediaQueryList) {
       scale: 1.08,
       willChange: 'transform',
     });
-    gsap.set(articleBlocks, {
-      autoAlpha: 0,
-      y: 34,
-      willChange: 'transform, opacity',
-    });
+    // gsap.set(articleBlocks, {
+    //   autoAlpha: 0,
+    //   y: 34,
+    //   willChange: 'transform, opacity',
+    // });
     gsap.set(sidebarItems, {
       autoAlpha: 0,
       x: 24,
@@ -189,20 +192,20 @@ function initInsightMotion(page: HTMLElement, reduceMotion: MediaQueryList) {
       });
     }
 
-    ScrollTrigger.batch(articleBlocks, {
-      start: 'top 86%',
-      once: true,
-      onEnter: (batch) => {
-        gsap.to(batch, {
-          autoAlpha: 1,
-          y: 0,
-          duration: 0.72,
-          stagger: 0.07,
-          ease: 'power3.out',
-          clearProps: 'transform,opacity,visibility,willChange',
-        });
-      },
-    });
+    // ScrollTrigger.batch(articleBlocks, {
+    //   start: 'top 86%',
+    //   once: true,
+    //   onEnter: (batch) => {
+    //     gsap.to(batch, {
+    //       autoAlpha: 1,
+    //       y: 0,
+    //       duration: 0.72,
+    //       stagger: 0.07,
+    //       ease: 'power3.out',
+    //       clearProps: 'transform,opacity,visibility,willChange',
+    //     });
+    //   },
+    // });
 
     if (sidebarItems.length) {
       gsap.to(sidebarItems, {
@@ -267,7 +270,9 @@ export function initInsightPost(root: ParentNode = document): Cleanup {
   }
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const progressBar = root.querySelector<HTMLElement>('[data-reading-progress]');
+  const progressBar = root.querySelector<HTMLElement>(
+    '[data-reading-progress]',
+  );
   const tocLinks = Array.from(
     root.querySelectorAll<HTMLAnchorElement>('[data-insight-toc-link]'),
   );
@@ -330,8 +335,7 @@ export function initInsightPost(root: ParentNode = document): Cleanup {
         const visible = entries
           .filter((entry) => entry.isIntersecting)
           .sort(
-            (a, b) =>
-              a.boundingClientRect.top - b.boundingClientRect.top,
+            (a, b) => a.boundingClientRect.top - b.boundingClientRect.top,
           )[0];
 
         if (visible?.target instanceof HTMLElement) {
@@ -346,7 +350,9 @@ export function initInsightPost(root: ParentNode = document): Cleanup {
 
     headings.forEach((heading) => observer.observe(heading));
     updateActiveFromScroll();
-    window.addEventListener('scroll', updateActiveFromScroll, { passive: true });
+    window.addEventListener('scroll', updateActiveFromScroll, {
+      passive: true,
+    });
     window.addEventListener('resize', updateActiveFromScroll);
     cleanups.push(() => {
       observer.disconnect();
