@@ -1,6 +1,28 @@
 # Roadmap de SEO — Luan Alves
 
-Atualizado em: 2026-05-06
+Atualizado em: 2026-06-12
+
+## Status atual
+
+Este roadmap começou antes de parte da arquitetura recomendada ser implementada. Antes de abrir novas tarefas, compare o plano abaixo com o código atual.
+
+### Já existe no repositório
+
+- Páginas comerciais para `/criacao-de-sites/`, `/site-institucional/`, `/landing-page/`, `/blog-profissional/` e `/criacao-de-sites-belem/`.
+- Índice de portfólio em `/portfolio/` e páginas de case geradas por `/portfolio/[slug]/`.
+- Índice editorial em `/insights/` e artigos gerados por `/insights/[slug]/`.
+- `BaseLayout.astro` com title, description, canonical, Open Graph, Twitter metadata e JSON-LD base.
+- Schema complementar por página para serviços, portfólio, cases e artigos.
+- `@astrojs/sitemap`, `public/robots.txt` e `public/llms.txt`.
+- Helper de `lastmod` em `scripts/seo-metadata.mjs`.
+
+### Ainda precisa de revisão humana ou auditoria
+
+- Search Console, impressões, cliques e leads reais via WhatsApp.
+- Validação externa de schema em páginas representativas.
+- Lighthouse/Core Web Vitals atualizados.
+- Google Business Profile, citações locais e perfis externos.
+- Política de privacidade/analytics e requisitos legais.
 
 ## Diagnóstico rápido
 
