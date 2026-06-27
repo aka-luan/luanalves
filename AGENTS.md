@@ -12,10 +12,9 @@ Guidance for coding agents working in this repository. Keep this file short and 
 ## Start Here
 
 - `ARCHITECTURE.md` - system shape, route map, data flow, scripts, and build helpers.
-- `docs/index.md` - documentation table of contents.
-- `design.md` - visual, layout, copy, accessibility, motion, SEO, and UI QA source of truth.
-- `docs/SEO-ROADMAP.md` - SEO strategy and current status notes.
-- `docs/PLANS.md` - lightweight active/backlog items.
+- `design.md` - visual, layout, copy, accessibility, motion, and SEO source of truth. Read before UI/page/copy work.
+- `docs/SEO-STATUS.md` - what SEO work is done vs. what needs human review.
+- `docs/PLANS.md` - active/backlog items.
 
 ## Commands
 
@@ -67,4 +66,5 @@ Before finishing code changes, run the narrowest useful check:
 - The repo has both `package-lock.json` and `pnpm-lock.yaml`; prefer `pnpm` and do not rewrite unrelated lockfiles.
 - Some portfolio media paths may be placeholders. Check `public/assets/` before assuming an image or video exists.
 - `pnpm run build` includes `scripts/patch-build-assets.mjs`; treat the post-build patch as part of the build contract.
+- Barba head syncing can silently drop SEO/social tags if new `<head>` elements aren't covered by the selectors in `src/scripts/page-transitions.ts`. Update boot and cleanup paths there when adding Barba-aware behavior.
 - If you hit a project-specific trap that would slow down the next agent, add a short note here or in the relevant `docs/` file.
