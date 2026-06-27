@@ -801,4 +801,34 @@ export const getServicePageSchema = (page: ServicePageContent) => [
     },
   },
   getFaqPageSchema(page.faq, `${siteUrl}${page.canonicalPath}#faq`),
+  ...(page.slug === 'criacao-de-sites-belem'
+    ? [
+        {
+          '@context': 'https://schema.org',
+          '@type': 'ProfessionalService',
+          '@id': `${siteUrl}/criacao-de-sites-belem/#localbusiness`,
+          name: 'Luan Alves — Criação de Sites em Belém',
+          description:
+            'Criação de sites profissionais para empresas de Belém e região metropolitana. Atendimento remoto direto, SEO técnico e entrega no prazo.',
+          url: `${siteUrl}/criacao-de-sites-belem/`,
+          telephone: '+55-91-98289-0565',
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Belém',
+            addressRegion: 'PA',
+            addressCountry: 'BR',
+          },
+          areaServed: [
+            { '@type': 'City', name: 'Belém' },
+            { '@type': 'AdministrativeArea', name: 'Região Metropolitana de Belém' },
+          ],
+          founder: { '@id': `${siteUrl}/#person` },
+          availableChannel: {
+            '@type': 'ServiceChannel',
+            serviceUrl: 'https://wa.me/5591982890565',
+            serviceType: 'WhatsApp',
+          },
+        },
+      ]
+    : []),
 ];

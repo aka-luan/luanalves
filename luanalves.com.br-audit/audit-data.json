@@ -1,0 +1,370 @@
+{
+  "summary": {
+    "health_score": 67,
+    "business_type": "Freelance Web Developer / Professional Services (B2B, local + national, Brazil)",
+    "top_findings": [
+      "Zero Google organic presence — site not appearing in any search queries for the domain",
+      "No Google Business Profile — blocks all local pack / Maps visibility for Belém market",
+      "All sitemap lastmod dates identical — disables crawl prioritization signals",
+      "No LCP image preload hint — missing easy LCP improvement",
+      "Only 6 published articles — insufficient content base for SEO authority"
+    ],
+    "quick_wins": [
+      "Submit sitemap to Google Search Console and verify indexation",
+      "Create Google Business Profile (free, high impact for local SEO)",
+      "Add <link rel=\"preload\"> for hero-img.webp in BaseLayout.astro",
+      "Fix contactOption: TollFree in Person schema (remove or replace)",
+      "Add LocalBusiness schema to /criacao-de-sites-belem/ page"
+    ]
+  },
+  "categories": [
+    {
+      "name": "Technical SEO",
+      "score": 68,
+      "what_works": [
+        "robots.txt correct with sitemap-index.xml reference",
+        "21 URLs in sitemap-0.xml, all accessible",
+        "Canonical URLs on all pages",
+        "No noindex detected anywhere",
+        "lang=pt-BR on html element",
+        "Self-hosted fonts with font-display: swap",
+        "fetchpriority=high on LCP image"
+      ],
+      "findings": [
+        {
+          "title": "Zero Google organic presence",
+          "severity": "Critical",
+          "description": "site:luanalves.com.br and brand searches return zero domain results. Site may be new/unindexed or facing crawling delays.",
+          "recommendation": "Submit sitemap to Google Search Console. Verify indexation. Request indexing for homepage and key service pages."
+        },
+        {
+          "title": "/sitemap.xml returns 404",
+          "severity": "High",
+          "description": "robots.txt correctly points to /sitemap-index.xml but /sitemap.xml returns 404. Legacy crawlers and some tools expect /sitemap.xml.",
+          "recommendation": "Add redirect from /sitemap.xml to /sitemap-index.xml via vercel.json redirects, or generate a /sitemap.xml alias."
+        },
+        {
+          "title": "All sitemap lastmod dates identical",
+          "severity": "Medium",
+          "description": "Every URL in sitemap-0.xml has lastmod: 2026-06-05T03:00:00.000Z regardless of actual content age.",
+          "recommendation": "Use per-page real modification timestamps in sitemap generation. Astro has sitemap integration options for this."
+        },
+        {
+          "title": "No LCP image preload hint",
+          "severity": "Medium",
+          "description": "hero-img.webp has fetchpriority=high but no <link rel=\"preload\"> in <head>. Preload scanner discovers LCP resource earlier.",
+          "recommendation": "Add <link rel=\"preload\" as=\"image\" href=\"/assets/hero-img.webp\" type=\"image/webp\" fetchpriority=\"high\" /> in BaseLayout.astro head for homepage namespace."
+        },
+        {
+          "title": "contactOption: TollFree incorrect in schema",
+          "severity": "Low",
+          "description": "BaseLayout.astro line 56 sets contactOption: TollFree on WhatsApp ContactPoint. WhatsApp is not a toll-free line.",
+          "recommendation": "Remove contactOption field or replace with contactType: 'customer support'."
+        }
+      ]
+    },
+    {
+      "name": "Content Quality & E-E-A-T",
+      "score": 74,
+      "what_works": [
+        "Author bio with name, role, location on all articles",
+        "Social links (Instagram, LinkedIn) on author cards",
+        "Article depth 2500-2800 words",
+        "FAQ blocks on service pages and articles",
+        "Related posts section",
+        "WhatsApp CTAs with article-contextual messages",
+        "Proper pt-BR language and accents throughout"
+      ],
+      "findings": [
+        {
+          "title": "Only 6 published articles",
+          "severity": "High",
+          "description": "Thin content base for a content-SEO strategy. Competitors in 'criação de sites' maintain 30-100+ articles.",
+          "recommendation": "Publish 2-3 articles/month. Prioritize FAQ/pricing/comparison keywords. Next articles: 'como escolher hospedagem para site', 'diferença entre site WordPress e Astro', 'o que é SEO técnico'."
+        },
+        {
+          "title": "No external citations in articles",
+          "severity": "High",
+          "description": "Articles make industry claims without external source links. Hurts E-E-A-T Expertise and Trust signals.",
+          "recommendation": "Add 2-3 outbound links per article to IBGE data, Google Search Central docs, Semrush/Ahrefs public research."
+        },
+        {
+          "title": "dateModified equals datePublished on all articles",
+          "severity": "Medium",
+          "description": "BlogPosting schema and article display show same date for published and modified. Google uses freshness as a ranking signal.",
+          "recommendation": "Add dateModified field to InsightPublishedPost type and pass separately in schema."
+        },
+        {
+          "title": "Some articles lack real hero images",
+          "severity": "Medium",
+          "description": "Template falls back to generic og-cover.webp for articles without heroImage. Reduces rich snippet visual differentiation.",
+          "recommendation": "Create unique 1200x800 webp hero images for all 6 existing articles."
+        },
+        {
+          "title": "Insights listing H1 is just 'Insights'",
+          "severity": "Low",
+          "description": "Weak H1, misses keyword intent. Title tag already uses the full phrase.",
+          "recommendation": "Change H1 to match title: 'Insights sobre Desenvolvimento Web e SEO'."
+        }
+      ]
+    },
+    {
+      "name": "Schema / Structured Data",
+      "score": 76,
+      "what_works": [
+        "@graph pattern in BaseLayout for clean multi-type schema",
+        "Person, ProfessionalService, WebSite base schemas",
+        "BreadcrumbList on service pages and articles",
+        "Service schema on all service pages",
+        "FAQPage schema on service and article pages",
+        "BlogPosting schema with full metadata on articles",
+        "Proper @id anchors throughout"
+      ],
+      "findings": [
+        {
+          "title": "contactOption: TollFree factually wrong",
+          "severity": "High",
+          "description": "Schema.org validation will flag this. WhatsApp is not a toll-free number.",
+          "recommendation": "Remove contactOption from the WhatsApp ContactPoint in BaseLayout.astro."
+        },
+        {
+          "title": "No LocalBusiness schema on Belém page",
+          "severity": "Medium",
+          "description": "Only Service schema present. LocalBusiness/ProfessionalService schema required for local rich results.",
+          "recommendation": "Add ProfessionalService schema with PostalAddress to /criacao-de-sites-belem/ in servicePages.ts."
+        },
+        {
+          "title": "Portfolio listing lacks ItemList schema",
+          "severity": "Medium",
+          "description": "7 portfolio case pages are not represented as structured data on the listing page.",
+          "recommendation": "Add ItemList schema to /portfolio/ with ListItem for each case study."
+        },
+        {
+          "title": "dateModified = datePublished in BlogPosting",
+          "severity": "Medium",
+          "description": "Reduces freshness signal to Google for article content.",
+          "recommendation": "Track and emit real dateModified per article."
+        },
+        {
+          "title": "No ImageObject schema",
+          "severity": "Low",
+          "description": "Hero images lack ImageObject with width, height, contentUrl.",
+          "recommendation": "Add ImageObject to BlogPosting and Person schemas."
+        },
+        {
+          "title": "No priceRange in ProfessionalService",
+          "severity": "Low",
+          "description": "Missing optional but useful signal for Knowledge Panel and local results.",
+          "recommendation": "Add priceRange: 'R$1.500–R$8.000' to ProfessionalService schema."
+        }
+      ]
+    },
+    {
+      "name": "Performance (CWV)",
+      "score": 71,
+      "what_works": [
+        "Static site generation via Astro",
+        "All images in webp format",
+        "Lazy loading on non-LCP images",
+        "Self-hosted fonts, no external CDN blocking",
+        "Vercel CDN delivery",
+        "font-display: swap on all fonts"
+      ],
+      "findings": [
+        {
+          "title": "Missing LCP image preload",
+          "severity": "High",
+          "description": "No <link rel=preload> for hero-img.webp. fetchpriority alone is weaker than a head preload hint.",
+          "recommendation": "Add preload link in BaseLayout.astro head, scoped to homepage namespace."
+        },
+        {
+          "title": "No srcset/sizes on hero image",
+          "severity": "Medium",
+          "description": "Full 1086px image downloaded on all viewports including mobile 375px.",
+          "recommendation": "Generate 480w, 768w, 1086w variants and add srcset + sizes attributes."
+        },
+        {
+          "title": "Material Symbols full font loaded",
+          "severity": "Medium",
+          "description": "Full icon font likely 400-500kb; only ~20 icons used.",
+          "recommendation": "Subset icon font to used codepoints using pyftsubset or Google variable font subsetting."
+        },
+        {
+          "title": "Barba.js transition JS overhead",
+          "severity": "Low",
+          "description": "Page transitions add bundle weight and potential for Barba head-sync issues (documented in AGENTS.md).",
+          "recommendation": "Monitor LCP on page transitions. Ensure all head elements are covered by Barba sync selectors."
+        }
+      ]
+    },
+    {
+      "name": "AI Search Readiness (GEO)",
+      "score": 79,
+      "what_works": [
+        "llms.txt exists with accurate professional profile",
+        "robots.txt allows all AI crawlers",
+        "FAQPage schema feeds AI overviews",
+        "Author identity well-established",
+        "Article heading hierarchy with IDs for passage-level citation",
+        "Long-form articles are strong AI snippet candidates"
+      ],
+      "findings": [
+        {
+          "title": "llms.txt lacks service-specific detail",
+          "severity": "High",
+          "description": "Current llms.txt is a general profile. AI tools need granular data: pricing, process, tech stack, client outcomes.",
+          "recommendation": "Expand llms.txt with per-service sections and client result summaries."
+        },
+        {
+          "title": "No llms-full.txt",
+          "severity": "Medium",
+          "description": "Extended content file for AI crawlers not present.",
+          "recommendation": "Create /llms-full.txt with article excerpts, portfolio summaries, FAQ content."
+        },
+        {
+          "title": "No speakable schema on articles",
+          "severity": "Medium",
+          "description": "Speakable marks passages for AI assistant and TTS response eligibility.",
+          "recommendation": "Add speakable property to BlogPosting schema referencing article intro and key sections."
+        },
+        {
+          "title": "Brand disambiguation weak",
+          "severity": "Medium",
+          "description": "'Luan Alves' is a common name. No Wikidata entity or strong disambiguation signals.",
+          "recommendation": "Ensure LinkedIn and GitHub sameAs URLs are correct and profiles are active. Consider Wikidata entry."
+        }
+      ]
+    },
+    {
+      "name": "Local SEO",
+      "score": 55,
+      "what_works": [
+        "Dedicated /criacao-de-sites-belem/ page",
+        "City and region mentioned throughout",
+        "WhatsApp with Belém area code (+55 91)",
+        "Footer shows Belém, PA location"
+      ],
+      "findings": [
+        {
+          "title": "No Google Business Profile",
+          "severity": "Critical",
+          "description": "No GBP listing found for Luan Alves in Belém. GBP is the primary driver of local pack and Maps visibility.",
+          "recommendation": "Create GBP at business.google.com. Category: Web designer. Include website, phone, service area."
+        },
+        {
+          "title": "No LocalBusiness schema on Belém page",
+          "severity": "High",
+          "description": "Page lacks structured local business data required for local rich results.",
+          "recommendation": "Add ProfessionalService schema with PostalAddress to the Belém service page."
+        },
+        {
+          "title": "NAP incomplete — no address",
+          "severity": "High",
+          "description": "Name and phone present but no address. NAP consistency requires address.",
+          "recommendation": "Use city-level address (Belém, PA, Brasil) consistently across all digital presence."
+        },
+        {
+          "title": "No local directory citations",
+          "severity": "Medium",
+          "description": "Not listed on major BR business directories.",
+          "recommendation": "Submit to Empresas.com.br, Guiamais, Apontador with consistent NAP."
+        },
+        {
+          "title": "Zero Google reviews",
+          "severity": "Medium",
+          "description": "Reviews are a top local ranking factor.",
+          "recommendation": "After GBP creation, ask past clients for reviews with direct review link."
+        }
+      ]
+    },
+    {
+      "name": "Images",
+      "score": 72,
+      "what_works": [
+        "All images in webp format",
+        "Hero image has explicit width/height (1086x1536)",
+        "Alt text present on hero image and portfolio images",
+        "Lazy loading on non-critical images",
+        "Images served via Vercel CDN"
+      ],
+      "findings": [
+        {
+          "title": "No srcset on hero image",
+          "severity": "Medium",
+          "description": "Full resolution image served to all viewports.",
+          "recommendation": "Add srcset with responsive variants (480w, 768w, 1086w)."
+        },
+        {
+          "title": "Some article hero images are placeholders",
+          "severity": "Medium",
+          "description": "Articles without heroImage fall back to generic og-cover.webp.",
+          "recommendation": "Add unique hero images to all 6 articles."
+        },
+        {
+          "title": "Portfolio images may be placeholders",
+          "severity": "Low",
+          "description": "AGENTS.md notes 'Some portfolio media paths may be placeholders.' Broken images would hurt E-E-A-T signals.",
+          "recommendation": "Audit public/assets/ to verify all portfolio images exist and load correctly."
+        }
+      ]
+    }
+  ],
+  "action_plan": {
+    "phases": [
+      {
+        "name": "Phase 1: Critical Fixes",
+        "timeframe": "Week 1",
+        "items": [
+          "Submit sitemap to Google Search Console + verify indexation of all 21 URLs",
+          "Create Google Business Profile for Belém market",
+          "Fix contactOption: TollFree in BaseLayout.astro (line 56) — remove the field",
+          "Add <link rel=preload> for hero-img.webp in BaseLayout.astro head",
+          "Add LocalBusiness/ProfessionalService schema to /criacao-de-sites-belem/ page"
+        ]
+      },
+      {
+        "name": "Phase 2: High-Impact Improvements",
+        "timeframe": "Weeks 2-3",
+        "items": [
+          "Add /sitemap.xml redirect → /sitemap-index.xml in vercel.json",
+          "Fix sitemap lastmod to use real per-page modification dates",
+          "Add dateModified field to InsightPublishedPost type + schema",
+          "Expand llms.txt with service pricing, process, and client outcome sections",
+          "Create hero images for all 6 insight articles (1200x800 webp)",
+          "Add outbound citations to articles (2-3 per article)",
+          "Add ItemList schema to /portfolio/ page"
+        ]
+      },
+      {
+        "name": "Phase 3: Content & Authority",
+        "timeframe": "Month 2",
+        "items": [
+          "Publish 2-3 new insight articles targeting FAQ/comparison keywords",
+          "Submit to top 10 Brazilian business directories with consistent NAP",
+          "Add srcset/sizes to hero image for responsive delivery",
+          "Create llms-full.txt with extended content",
+          "Add speakable schema to BlogPosting",
+          "Change Insights listing H1 to match title tag",
+          "Add priceRange to ProfessionalService schema",
+          "Request Google reviews from past clients after GBP setup"
+        ]
+      },
+      {
+        "name": "Phase 4: Monitoring & Iteration",
+        "timeframe": "Ongoing",
+        "items": [
+          "Monitor Google Search Console weekly for indexation, CTR, impressions",
+          "Track GBP views, calls, direction requests monthly",
+          "Subset Material Symbols icon font to reduce font payload",
+          "Add ImageObject schema to article and person schemas",
+          "Continue 2 articles/month cadence",
+          "Audit portfolio case pages for completeness and outcome summaries"
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "findings_dir": "findings/",
+    "screenshots_dir": "screenshots/"
+  }
+}
