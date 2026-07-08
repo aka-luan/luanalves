@@ -3,7 +3,7 @@ import SiteFooter from '../../components/SiteFooter.astro';
 import InsightFaq from '../../components/InsightFaq.astro';
 import SiteNav from '../../components/SiteNav.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { navigation } from '../../data/site';
+import { navigation, buildWhatsappHref } from '../../data/site';
 import {
   getInsightPath,
   getInsightToc,
@@ -24,10 +24,9 @@ const { post } = Astro.props as { post: InsightPublishedPost };
 const siteUrl = 'https://luanalves.com.br';
 const canonicalPath = getInsightPath(post);
 const canonicalUrl = `${siteUrl}${canonicalPath}`;
-const whatsappMessage = encodeURIComponent(
+const whatsappHref = buildWhatsappHref(
   `Olá, Luan! Li o artigo "${post.title}" e quero entender qual estrutura faz sentido para o meu projeto.`,
 );
-const whatsappHref = `https://wa.me/5591982890565?text=${whatsappMessage}`;
 const portfolioHref = '/portfolio/';
 const authorLocation = 'Belém, PA';
 const authorInitials = post.author.name

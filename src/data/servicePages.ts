@@ -1,8 +1,6 @@
-const phone = '5591982890565';
-const siteUrl = 'https://luanalves.com.br';
+import { WHATSAPP_PHONE, WHATSAPP_PHONE_DISPLAY, buildWhatsappHref } from './site';
 
-const buildWhatsappHref = (text: string) =>
-  `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+const siteUrl = 'https://luanalves.com.br';
 
 export interface BreadcrumbSchemaItem {
   name: string;
@@ -811,7 +809,7 @@ export const getServicePageSchema = (page: ServicePageContent) => [
           description:
             'Criação de sites profissionais para empresas de Belém e região metropolitana. Atendimento remoto direto, SEO técnico e entrega no prazo.',
           url: `${siteUrl}/criacao-de-sites-belem/`,
-          telephone: '+55-91-98289-0565',
+          telephone: WHATSAPP_PHONE_DISPLAY,
           address: {
             '@type': 'PostalAddress',
             addressLocality: 'Belém',
@@ -825,7 +823,7 @@ export const getServicePageSchema = (page: ServicePageContent) => [
           founder: { '@id': `${siteUrl}/#person` },
           availableChannel: {
             '@type': 'ServiceChannel',
-            serviceUrl: 'https://wa.me/5591982890565',
+            serviceUrl: `https://wa.me/${WHATSAPP_PHONE}`,
             serviceType: 'WhatsApp',
           },
         },

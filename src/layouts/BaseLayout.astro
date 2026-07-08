@@ -1,6 +1,7 @@
 ---
 import Analytics from '@vercel/analytics/astro';
 import SpeedInsights from '@vercel/speed-insights/astro';
+import { WHATSAPP_PHONE } from '../data/site';
 import '../styles/fonts.css';
 import '../styles/global.css';
 
@@ -53,7 +54,7 @@ const baseSchema = [
       '@type': 'ContactPoint',
       contactType: 'Atendimento ao Cliente',
       availableLanguage: 'Portuguese',
-      url: 'https://wa.me/5591982890565',
+      url: `https://wa.me/${WHATSAPP_PHONE}`,
     },
   },
   {
@@ -72,7 +73,7 @@ const baseSchema = [
     },
     availableChannel: {
       '@type': 'ServiceChannel',
-      serviceUrl: 'https://wa.me/5591982890565',
+      serviceUrl: `https://wa.me/${WHATSAPP_PHONE}`,
       serviceType: 'WhatsApp',
     },
     hasOfferCatalog: {

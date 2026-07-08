@@ -1,5 +1,5 @@
 ---
-import { navigation as defaultNavigation } from '../data/site';
+import { navigation as defaultNavigation, WHATSAPP_PHONE } from '../data/site';
 
 interface FooterLink {
   href: string;
@@ -17,7 +17,7 @@ const { links = defaultNavigation, motion = true, brandHref = '#top' } =
   Astro.props;
 
 const currentYear = new Date().getFullYear();
-const whatsappHref = 'https://wa.me/5591982890565';
+const whatsappHref = `https://wa.me/${WHATSAPP_PHONE}`;
 const serviceLinkGroup =
   links.find((item) => item.href === '/criacao-de-sites/') ??
   links.find((item) => item.children?.length);

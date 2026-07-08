@@ -1,4 +1,6 @@
 ---
+import { WHATSAPP_PHONE } from '../data/site';
+
 interface InsightFaqItem {
   question: string;
   answer: string;
@@ -50,7 +52,7 @@ const {
 
       <a
         class='button button-outline button-compact'
-        href='https://wa.me/5591982890565'
+        href={`https://wa.me/${WHATSAPP_PHONE}`}
         target='_blank'
         rel='noopener noreferrer'>
         <span class='material-symbols-outlined' aria-hidden='true'>chat</span>

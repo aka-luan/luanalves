@@ -1,3 +1,5 @@
+import { buildWhatsappHref } from './site';
+
 export type InsightCategorySlug =
   | 'desenvolvimento'
   | 'seo'
@@ -477,7 +479,9 @@ const checklistInsight: InsightPost = {
           text: 'Conheça a estrutura para publicar conteúdo indexável e conectar SEO com geração de contatos.',
         },
         {
-          href: 'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Li%20o%20artigo%20sobre%20checklist%20de%20lan%C3%A7amento%20de%20site%20e%20quero%20revisar%20meu%20projeto%20antes%20de%20publicar.',
+          href: buildWhatsappHref(
+            'Olá, Luan! Li o artigo sobre checklist de lançamento de site e quero revisar meu projeto antes de publicar.',
+          ),
           label: 'Falar no WhatsApp',
           text: 'Se quiser revisar seu site antes de publicar, me chama e eu te ajudo a validar estrutura, SEO básico e conversão.',
         },
@@ -969,7 +973,9 @@ const siteInstitucionalInsight: InsightPublishedPost = {
           text: 'Compare escopo, investimento e diferenças entre landing page, site institucional e outras estruturas.',
         },
         {
-          href: 'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Li%20o%20artigo%20sobre%20site%20institucional%20e%20quero%20entender%20qual%20estrutura%20faz%20sentido%20para%20a%20minha%20empresa.',
+          href: buildWhatsappHref(
+            'Olá, Luan! Li o artigo sobre site institucional e quero entender qual estrutura faz sentido para a minha empresa.',
+          ),
           label: 'Falar no WhatsApp',
           text: 'Se quiser definir a melhor estrutura para o seu site institucional, me chama e eu te ajudo a organizar conteúdo, SEO e conversão.',
         },
@@ -1352,7 +1358,9 @@ const quantoTempoInsight: InsightPublishedPost = {
           text: 'Descubra como um blog bem estruturado ajuda a construir presença orgânica com base técnica limpa.',
         },
         {
-          href: 'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Li%20o%20artigo%20sobre%20quanto%20tempo%20leva%20para%20criar%20um%20site%20profissional%20e%20quero%20entender%20qual%20prazo%20faz%20sentido%20para%20meu%20projeto.',
+          href: buildWhatsappHref(
+            'Olá, Luan! Li o artigo sobre quanto tempo leva para criar um site profissional e quero entender qual prazo faz sentido para meu projeto.',
+          ),
           label: 'Falar no WhatsApp',
           text: 'Me conte sobre seu projeto e eu te ajudo a entender qual prazo faz sentido para o tipo de site que sua empresa precisa.',
         },
@@ -1743,7 +1751,9 @@ export const insights: InsightPost[] = [
             text: 'Veja como estruturar conteúdo indexável para fortalecer autoridade orgânica.',
           },
           {
-            href: 'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Li%20o%20artigo%20sobre%20quanto%20custa%20um%20site%20e%20quero%20entender%20qual%20estrutura%20faz%20sentido%20para%20meu%20projeto.',
+            href: buildWhatsappHref(
+              'Olá, Luan! Li o artigo sobre quanto custa um site e quero entender qual estrutura faz sentido para meu projeto.',
+            ),
             label: 'Falar no WhatsApp',
             text: 'Me conte sobre seu projeto e eu te digo qual estrutura faz mais sentido antes de você investir.',
           },
@@ -2131,7 +2141,9 @@ export const insights: InsightPost[] = [
             text: 'Compare este artigo com o guia de preço para entender investimento e escopo sem misturar valor com estrutura.',
           },
           {
-            href: 'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Li%20o%20artigo%20sobre%20site%20barato%20vs%20site%20profissional%20e%20quero%20entender%20qual%20estrutura%20faz%20mais%20sentido%20para%20meu%20projeto.',
+            href: buildWhatsappHref(
+              'Olá, Luan! Li o artigo sobre site barato vs site profissional e quero entender qual estrutura faz mais sentido para meu projeto.',
+            ),
             label: 'Falar no WhatsApp',
             text: 'Me conte sobre seu projeto e eu te ajudo a escolher uma estrutura que faça sentido para seu momento.',
           },
@@ -2487,7 +2499,9 @@ export const insights: InsightPost[] = [
             text: 'Aprofunde a leitura com o artigo que mostra os elementos essenciais de um site institucional profissional.',
           },
           {
-            href: 'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Li%20o%20artigo%20sobre%20landing%20page%20ou%20site%20institucional%20e%20quero%20entender%20qual%20estrutura%20faz%20mais%20sentido%20para%20meu%20projeto.',
+            href: buildWhatsappHref(
+              'Olá, Luan! Li o artigo sobre landing page ou site institucional e quero entender qual estrutura faz mais sentido para meu projeto.',
+            ),
             label: 'Falar no WhatsApp',
             text: 'Me conte sobre seu projeto e eu te ajudo a decidir se faz mais sentido ter um site institucional, uma landing page ou os dois juntos.',
           },

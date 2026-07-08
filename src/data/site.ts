@@ -1,3 +1,9 @@
+export const WHATSAPP_PHONE = '5591993731066';
+export const WHATSAPP_PHONE_DISPLAY = '+55-91-99373-1066';
+
+export const buildWhatsappHref = (text: string) =>
+  `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(text)}`;
+
 export const navigation = [
   { href: '/', label: 'Início' },
   {

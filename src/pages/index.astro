@@ -10,10 +10,12 @@ import {
   services,
   featuredPortfolioProjects,
   reasons,
+  buildWhatsappHref,
 } from '../data/site';
 
-const whatsappHref =
-  'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Estou%20interessado%20em%20criar%20um%20site%20profissional%20para%20meu%20neg%C3%B3cio.%20Podemos%20conversar%3F';
+const whatsappHref = buildWhatsappHref(
+  'Olá, Luan! Estou interessado em criar um site profissional para meu negócio. Podemos conversar?',
+);
 ---
 
 <BaseLayout>

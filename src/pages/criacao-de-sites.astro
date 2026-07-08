@@ -6,11 +6,12 @@ import PortfolioShowcase from '../components/PortfolioShowcase.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import SiteNav from '../components/SiteNav.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { projects } from '../data/site';
+import { projects, buildWhatsappHref } from '../data/site';
 import { getBreadcrumbSchema, getFaqPageSchema } from '../data/servicePages';
 
-const whatsappHref =
-  'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Quero%20solicitar%20um%20or%C3%A7amento%20para%20cria%C3%A7%C3%A3o%20de%20site.';
+const whatsappHref = buildWhatsappHref(
+  'Olá, Luan! Quero solicitar um orçamento para criação de site.',
+);
 
 const breadcrumbItems = [
   { label: 'Início', href: '/' },

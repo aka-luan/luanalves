@@ -2,12 +2,13 @@
 import SiteFooter from '../../components/SiteFooter.astro';
 import SiteNav from '../../components/SiteNav.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { navigation, portfolioProjects } from '../../data/site';
+import { navigation, portfolioProjects, buildWhatsappHref } from '../../data/site';
 import { getInsightPath, publishedInsights } from '../../data/insights';
 
 const siteUrl = 'https://luanalves.com.br';
-const whatsappHref =
-  'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20solicitar%20um%20or%C3%A7amento%20para%20um%20site.';
+const whatsappHref = buildWhatsappHref(
+  'Olá, Luan! Vi seu portfólio e quero solicitar um orçamento para um site.',
+);
 
 export function getStaticPaths() {
   return portfolioProjects.map((project, index) => {

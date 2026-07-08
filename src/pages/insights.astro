@@ -2,12 +2,13 @@
 import SiteFooter from '../components/SiteFooter.astro';
 import SiteNav from '../components/SiteNav.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { navigation } from '../data/site';
+import { navigation, buildWhatsappHref } from '../data/site';
 import { getInsightPath, insightFilters, insights } from '../data/insights';
 
 const siteUrl = 'https://luanalves.com.br';
-const whatsappHref =
-  'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Vi%20a%20p%C3%A1gina%20Insights%20e%20quero%20conversar%20sobre%20estrat%C3%A9gia%20digital.';
+const whatsappHref = buildWhatsappHref(
+  'Olá, Luan! Vi a página Insights e quero conversar sobre estratégia digital.',
+);
 
 const filters = insightFilters;
 const posts = insights;
