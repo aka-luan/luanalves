@@ -1724,7 +1724,308 @@ const escolherFreelancerInsight: InsightPublishedPost = {
   ],
 };
 
+const performanceConversaoInsight: InsightPublishedPost = {
+  title: 'Por que a performance do site afeta a conversão?',
+  excerpt:
+    'Entenda como velocidade, estabilidade e resposta aos cliques influenciam confiança, SEO e geração de contatos — especialmente no celular.',
+  description:
+    'Descubra por que a performance do site afeta a conversão e o SEO. Veja como LCP, INP, CLS, peso da página, scripts, imagens, hospedagem e formulários influenciam a jornada até o contato.',
+  category: 'SEO',
+  categorySlug: 'seo',
+  date: '30 jul. 2026',
+  isoDate: '2026-07-30',
+  readTime: '11 min',
+  slug: 'por-que-performance-site-afeta-conversao',
+  tags: ['Performance', 'Conversão', 'SEO', 'Core Web Vitals', 'Mobile'],
+  published: true,
+  heroImage: '/assets/insights/quanto-tempo-post.webp',
+  heroImageAlt:
+    'Mesa de trabalho com notebook e elementos de planejamento, representando velocidade e performance de um site profissional.',
+  author: {
+    name: 'Luan Alves',
+    role: 'Desenvolvedor web freelancer',
+    bio: 'Desenvolvo sites, blogs e landing pages com foco em performance, SEO técnico e conversão via WhatsApp.',
+  },
+  content: [
+    {
+      type: 'paragraph',
+      text: 'A performance do site afeta a conversão porque cada espera, travamento ou salto visual acontece antes de o visitante conseguir entender a oferta e agir. Uma página rápida, estável e responsiva reduz atrito; uma página lenta faz a pessoa desistir, desconfiar ou adiar o contato.',
+    },
+    {
+      type: 'paragraph',
+      text: 'Isso vale para e-commerce, mas também para um site institucional, uma landing page ou um blog profissional. Se o objetivo é receber uma mensagem no WhatsApp, um formulário ou um pedido de orçamento, performance é parte do caminho até essa ação — não um detalhe separado do marketing.',
+    },
+    {
+      type: 'table',
+      caption: 'Como problemas de performance aparecem no funil de conversão.',
+      columns: ['Problema percebido', 'O que o visitante sente', 'Risco para o negócio'],
+      rows: [
+        ['Primeiro carregamento lento', 'A página parece não responder', 'Abandono antes da proposta aparecer'],
+        ['Imagem ou texto demora a aparecer', 'A primeira impressão fica incompleta', 'Menos confiança e atenção'],
+        ['Layout pula durante o carregamento', 'A navegação parece instável', 'Clique errado ou perda de foco'],
+        ['Botão demora para responder', 'A ação parece quebrada', 'Menos formulários, compras ou mensagens'],
+        ['Site pesa no celular', 'A experiência consome tempo e dados', 'Maior rejeição em conexões móveis'],
+      ],
+    },
+    {
+      type: 'heading',
+      id: 'performance-nao-e-so-velocidade',
+      level: 2,
+      text: 'Performance não é só velocidade de carregamento',
+    },
+    {
+      type: 'paragraph',
+      text: 'Quando alguém diz que um site é rápido, normalmente está falando de mais de uma coisa: o conteúdo principal aparece cedo, os cliques respondem sem travar, a navegação continua fluida e os elementos não ficam pulando. Uma página pode abrir depressa e ainda assim falhar quando o visitante tenta interagir.',
+    },
+    {
+      type: 'list',
+      items: [
+        'Carregamento: quanto tempo leva para o conteúdo principal ficar disponível.',
+        'Resposta: quanto tempo o site demora para reagir a um toque ou clique.',
+        'Estabilidade: se textos, imagens e botões mantêm a posição durante o carregamento.',
+        'Resiliência: como a experiência se comporta em celulares, redes lentas e dispositivos menos potentes.',
+      ],
+    },
+    {
+      type: 'heading',
+      id: 'performance-em-cada-etapa-do-funil',
+      level: 2,
+      text: 'A performance influencia cada etapa do funil',
+    },
+    {
+      type: 'heading',
+      id: 'descoberta-e-primeiro-carregamento',
+      level: 3,
+      text: 'Descoberta e primeiro carregamento',
+    },
+    {
+      type: 'paragraph',
+      text: 'Antes de converter, a pessoa precisa chegar e conseguir ver a página. Conteúdo pesado, scripts demais ou uma renderização dependente de JavaScript podem atrasar o primeiro contato. Isso também reduz o aproveitamento de campanhas, links compartilhados e visitas vindas do Google: você paga ou trabalha para trazer alguém e perde a oportunidade antes de a mensagem aparecer.',
+    },
+    {
+      type: 'heading',
+      id: 'entendimento-e-confianca',
+      level: 3,
+      text: 'Entendimento e confiança',
+    },
+    {
+      type: 'paragraph',
+      text: 'O visitante usa sinais rápidos para decidir se vale continuar. Uma página que aparece de forma organizada, mantém a hierarquia visual e responde bem transmite cuidado. Quando o site trava, pula ou demora para mostrar o botão de contato, a percepção de qualidade da empresa também é afetada.',
+    },
+    {
+      type: 'heading',
+      id: 'engajamento-e-navegacao',
+      level: 3,
+      text: 'Engajamento e navegação',
+    },
+    {
+      type: 'paragraph',
+      text: 'Depois de chegar, a pessoa precisa navegar entre serviços, cases, perguntas e contato. Links lentos, transições pesadas e formulários que não respondem interrompem a jornada. É por isso que vale observar não só a entrada na página, mas também os caminhos que levam até a conversão.',
+    },
+    {
+      type: 'heading',
+      id: 'acao-e-reengajamento',
+      level: 3,
+      text: 'Ação e reengajamento',
+    },
+    {
+      type: 'paragraph',
+      text: 'Um botão de WhatsApp, orçamento ou compra precisa estar visível, rotulado e pronto para responder quando a intenção aparece. Uma ação interrompida pode não ser repetida. Mesmo quem não converte na primeira visita tende a voltar menos quando a experiência inicial foi frustrante.',
+    },
+    {
+      type: 'heading',
+      id: 'as-metricas-que-ajudam-a-diagnosticar',
+      level: 2,
+      text: 'As métricas que ajudam a diagnosticar',
+    },
+    {
+      type: 'paragraph',
+      text: 'As Core Web Vitals ajudam a organizar o diagnóstico, mas não substituem o objetivo do negócio. LCP observa quando o conteúdo principal aparece, INP observa a resposta às interações e CLS observa a estabilidade visual. Junto delas, peso da página, tempo de resposta do servidor, erros de JavaScript e conclusão de formulários explicam melhor o que o visitante realmente vive.',
+    },
+    {
+      type: 'table',
+      caption: 'Métricas técnicas e perguntas de negócio para investigar.',
+      columns: ['Métrica ou sinal', 'Pergunta prática'],
+      rows: [
+        ['LCP', 'A proposta principal aparece cedo o suficiente?'],
+        ['INP', 'O botão ou formulário responde quando a pessoa tenta agir?'],
+        ['CLS', 'A página fica estável ou o CTA muda de lugar?'],
+        ['Peso e rede', 'A experiência continua aceitável no celular e em conexão limitada?'],
+        ['Fluxo de conversão', 'Em qual etapa as pessoas abandonam antes do contato?'],
+      ],
+    },
+    {
+      type: 'paragraph',
+      text: 'Não transforme uma nota única em diagnóstico. Ferramentas de laboratório simulam condições; dados de usuários mostram o que acontece no mundo real. Use PageSpeed Insights ou Lighthouse para encontrar causas, Search Console para acompanhar sinais de experiência e Analytics para relacionar velocidade com páginas, eventos e conversões.',
+    },
+    {
+      type: 'heading',
+      id: 'o-que-mais-costuma-deixar-um-site-lento',
+      level: 2,
+      text: 'O que mais costuma deixar um site lento?',
+    },
+    {
+      type: 'list',
+      items: [
+        'Imagens grandes ou entregues em formato inadequado.',
+        'Vídeos e animações carregados antes de o conteúdo principal.',
+        'Scripts de terceiros, widgets e pixels que não são usados.',
+        'CSS e JavaScript que bloqueiam a leitura inicial.',
+        'Fontes demais ou arquivos sem estratégia de carregamento.',
+        'Hospedagem, cache ou CDN mal configurados para o público do site.',
+        'Elementos sem dimensões reservadas, causando saltos no layout.',
+        'Formulários e integrações que travam no momento da ação.',
+      ],
+    },
+    {
+      type: 'heading',
+      id: 'como-priorizar-melhorias-de-performance',
+      level: 2,
+      text: 'Como priorizar melhorias de performance',
+    },
+    {
+      type: 'paragraph',
+      text: 'A ordem certa depende do diagnóstico, mas existe uma lógica segura: corrija primeiro o que aparece na primeira tela e impede a ação principal. Depois trate gargalos que se repetem em várias páginas. Só então invista em ajustes menores que não mudam o comportamento do visitante.',
+    },
+    {
+      type: 'list',
+      ordered: true,
+      items: [
+        'Defina a conversão principal: mensagem, formulário, ligação, agendamento ou compra.',
+        'Meça a página de entrada em mobile e desktop.',
+        'Identifique o maior bloqueio: imagem, script, servidor, fonte, layout ou integração.',
+        'Otimize o conteúdo acima da dobra sem remover clareza ou prova de valor.',
+        'Teste o fluxo completo até a conversão, não apenas a tela inicial.',
+        'Compare os dados antes e depois para confirmar se a mudança ajudou.',
+      ],
+    },
+    {
+      type: 'heading',
+      id: 'melhorias-praticas-que-costumam-ajudar',
+      level: 2,
+      text: 'Melhorias práticas que costumam ajudar',
+    },
+    {
+      type: 'list',
+      items: [
+        'Comprimir imagens e escolher o formato adequado ao uso.',
+        'Carregar imagens fora da primeira tela apenas quando necessário.',
+        'Remover scripts, fontes e integrações sem função clara.',
+        'Usar cache, compactação e uma infraestrutura compatível com o público.',
+        'Reservar espaço para imagens, banners e fontes antes de eles aparecerem.',
+        'Manter botões e formulários leves, acessíveis e fáceis de testar.',
+        'Evitar adicionar animação só porque a tecnologia permite.',
+      ],
+    },
+    {
+      type: 'paragraph',
+      text: 'Performance não significa deixar o site sem personalidade. O objetivo é fazer design, conteúdo, tecnologia e conversão trabalharem juntos. Um visual forte continua possível quando o projeto escolhe o que merece carregar primeiro e o que pode esperar.',
+    },
+    {
+      type: 'heading',
+      id: 'como-medir-o-impacto-na-conversao',
+      level: 2,
+      text: 'Como medir o impacto na conversão',
+    },
+    {
+      type: 'paragraph',
+      text: 'Antes de otimizar, registre a situação atual. Anote o tempo e as métricas da página principal, a taxa de conclusão do formulário ou o número de cliques no WhatsApp. Depois da mudança, compare o mesmo fluxo e um período semelhante. Se a performance melhora, mas o CTA continua confuso, o próximo gargalo pode ser mensagem, oferta ou confiança — não mais velocidade.',
+    },
+    {
+      type: 'list',
+      items: [
+        'Cliques no CTA principal.',
+        'Início e conclusão de formulários.',
+        'Tempo até a primeira interação importante.',
+        'Abandono por página ou etapa do fluxo.',
+        'Conversões por dispositivo e origem de tráfego.',
+      ],
+    },
+    {
+      type: 'blockquote',
+      text: 'Performance é o tempo entre a intenção do visitante e a possibilidade real de agir.',
+    },
+    {
+      type: 'heading',
+      id: 'perguntas-frequentes-sobre-performance-e-conversao',
+      level: 2,
+      text: 'Perguntas frequentes sobre performance e conversão',
+    },
+    {
+      type: 'faq',
+      items: [
+        {
+          question: 'Um site rápido sempre converte mais?',
+          answer:
+            'Não. Performance remove atrito, mas oferta, copy, confiança, preço e clareza do CTA também influenciam a conversão. O site rápido cria uma condição melhor para esses elementos funcionarem.',
+        },
+        {
+          question: 'Performance ajuda o site a aparecer no Google?',
+          answer:
+            'Ajuda a oferecer uma experiência melhor e participa dos sinais de experiência usados pelo Google, mas não é o único fator de ranqueamento. Conteúdo útil, relevância, arquitetura e autoridade continuam importantes.',
+        },
+        {
+          question: 'Preciso refazer o site para melhorar a performance?',
+          answer:
+            'Nem sempre. Muitas melhorias começam com imagens, scripts, fontes, cache, layout e integrações. Uma análise identifica se a estrutura atual pode ser otimizada ou se o custo de continuar remendando já não compensa.',
+        },
+        {
+          question: 'Qual é a melhor ferramenta para medir a velocidade?',
+          answer:
+            'Use mais de uma fonte. PageSpeed Insights e Lighthouse ajudam no diagnóstico técnico; dados reais de Analytics e Search Console mostram comportamento, páginas afetadas e resultados de negócio.',
+        },
+        {
+          question: 'Por que devo priorizar o celular?',
+          answer:
+            'Porque a experiência mobile costuma ocorrer em telas menores, redes variáveis e dispositivos com menos recursos. Um site que só funciona bem em um computador rápido pode perder visitantes justamente no momento em que eles tentam entrar em contato.',
+        },
+      ],
+    },
+    {
+      type: 'heading',
+      id: 'proximo-passo',
+      level: 2,
+      text: 'Próximo passo',
+    },
+    {
+      type: 'paragraph',
+      text: 'Comece escolhendo uma página importante e uma conversão clara. Meça a experiência no celular, encontre o maior bloqueio e teste o caminho completo até o contato. Melhorar performance fica muito mais fácil quando cada ajuste está ligado a uma ação que o negócio precisa gerar.',
+    },
+    {
+      type: 'links',
+      items: [
+        {
+          href: '/criacao-de-sites/',
+          label: 'Criação de sites',
+          text: 'Veja como estruturo sites profissionais com base técnica, SEO e foco em conversão.',
+        },
+        {
+          href: '/landing-page/',
+          label: 'Landing page',
+          text: 'Conheça uma estrutura enxuta para campanhas e ofertas que precisam carregar e converter com foco.',
+        },
+        {
+          href: '/portfolio/urbem/',
+          label: 'Case: site da Urbem',
+          text: 'Veja um projeto institucional organizado para conteúdo técnico, leitura e crescimento orgânico.',
+        },
+        {
+          href: '/insights/como-escolher-desenvolvedor-web-freelancer/',
+          label: 'Como escolher um desenvolvedor web freelancer',
+          text: 'Use o guia para comparar profissionais que possam cuidar da performance desde o planejamento.',
+        },
+        {
+          href: 'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Li%20o%20artigo%20sobre%20performance%20do%20site%20e%20quero%20entender%20como%20melhorar%20a%20convers%C3%A3o%20do%20meu%20projeto.',
+          label: 'Falar no WhatsApp',
+          text: 'Se o seu site está lento ou perdendo contatos, me envie o endereço e conversamos sobre o próximo diagnóstico.',
+        },
+      ],
+    },
+  ],
+};
+
 export const insights: InsightPost[] = [
+  performanceConversaoInsight,
   escolherFreelancerInsight,
   checklistInsight,
   siteInstitucionalInsight,

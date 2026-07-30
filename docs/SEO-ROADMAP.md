@@ -4,9 +4,9 @@ Updated: 2026-07-30. Supersedes `docs/SEO-ROADMAP-archived.md`: the implementati
 
 ## Where things stand
 
-- 22 indexable routes: home, 5 service pages, `/portfolio/` + 7 cases, `/insights/` + 7 articles.
+- 23 indexable routes: home, 5 service pages, `/portfolio/` + 7 cases, `/insights/` + 8 articles.
 - Metadata, canonical, sitemap, robots.txt, llms.txt, breadcrumbs, and per-page-type schema are in place.
-- The binding constraint is no longer on-page work. It is: (1) zero measurement data — nothing confirms these pages are indexed or ranking; (2) zero off-site signals — no GBP, citations, or external profiles; (3) editorial cadence needs to continue beyond 7 articles.
+- The binding constraint is no longer on-page work. It is: (1) zero measurement data — nothing confirms these pages are indexed or ranking; (2) zero off-site signals — no GBP, citations, or external profiles; (3) editorial cadence needs to continue beyond 8 articles.
 
 Priorities below are ordered by dependency: P0 makes everything else verifiable, P1 is the highest-leverage remaining work for a local freelancer site, P2/P3 compound over time.
 
@@ -38,7 +38,7 @@ Priorities below are ordered by dependency: P0 makes everything else verifiable,
 The next two articles are mapped to keyword pillars in the archived roadmap:
 
 1. "Como escolher um desenvolvedor web freelancer" — published 2026-07-30 (pillar: educação → conversão).
-2. "Por que a performance do site afeta conversão" (pillar: blog/SEO; links naturally to cases with real numbers).
+2. "Por que a performance do site afeta conversão" — published 2026-07-30 (pillar: blog/SEO; links naturally to cases with real numbers).
 
 The existing 6 articles now link to at least one relevant individual case each (completed 2026-07-30). New articles must link to at least one service page and one case, use correct pt-BR with accents, and open with an answer-first block.
 Leading indicator: new articles receive impressions in GSC within 2–3 weeks of publish; if older articles show queries with impressions but low CTR, retitle before writing new ones.
