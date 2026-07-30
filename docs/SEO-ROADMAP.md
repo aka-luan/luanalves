@@ -13,11 +13,15 @@ Priorities below are ordered by dependency: P0 makes everything else verifiable,
 ## P0 — Measurement and validation (target: 2026-08-06; blocks validation of everything else)
 
 1. **Verify the domain in Google Search Console and submit the sitemap.**
+   Status (2026-07-30): complete; domain access and sitemap submission confirmed by the site owner.
    Failure check: coverage report shows fewer than ~19/21 routes indexed after 4 weeks → investigate exclusions per URL. Leading indicator: impressions > 0 for the brand query "luan alves" within days of verification.
 2. **Capture a Core Web Vitals baseline** (PageSpeed Insights on home, one service page, one article; record LCP / INP / CLS — INP, never FID). Store the numbers here so future changes have a reference.
+   Status (2026-07-30): Search Console/CrUX reports insufficient usage data for both mobile and desktop over the last 90 days. Lab baselines are intentionally deferred.
    Failure check: any page scoring "poor" on a vital → open a fix task before P2 content work.
 3. **Validate schema on representative page types** with the Rich Results Test: home, one service page, one case, and one article. Record warnings and errors; create a fix task for invalid markup before expanding schema.
+   Status (2026-07-30): rendered JSON-LD passed local syntax, expected-type, and absolute-URL validation for all four page types. See `docs/SCHEMA-REPORT.md`. One live Rich Results Test remains advisable after deployment.
 4. **Confirm WhatsApp lead attribution end to end.** Per-page prefilled message text already exists in `src/data/servicePages.ts` (good — the receiving inbox can tell which page a lead came from). Decide whether to also fire an analytics event on WhatsApp CTA clicks; without it, the leads KPI is measured only by inbox counting.
+   Status (2026-07-30): implemented a site-wide Vercel Analytics `whatsapp_click` event with page path, page title, and CTA label. Automated interaction coverage is in place. Confirm one production event in the Vercel dashboard after deployment.
    Failure check: a month passes and you can't say how many leads came from which page → attribution is not working.
 
 ## P1 — Local SEO & off-site authority (weeks 1–4; old Phase 5)
@@ -47,7 +51,7 @@ Leading indicator: new articles receive impressions in GSC within 2–3 weeks of
 
 ## Housekeeping
 
-- **Add `src/pages/404.astro`** — currently missing; hosting default 404 loses navigation and brand.
+- **Custom 404 page** — completed 2026-07-30 with branded navigation, recovery links, WhatsApp help, `noindex, follow`, and no canonical URL.
 - Create `/sobre/` page (E-E-A-T: experience, method, stack, real social links). The article author card already references the `#person` schema entity; a real about page strengthens it. Medium priority — do after P1.
 - Refresh the KPI table below with real baselines once GSC has ~4 weeks of data.
 

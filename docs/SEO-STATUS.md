@@ -12,18 +12,20 @@
 - Breadcrumbs and `BreadcrumbList` schema on internal pages.
 - FAQPage schema on service pages. Google retired FAQ rich results for all sites on 2026-05-07; existing markup may remain while it mirrors visible FAQ content, but it has no Google rich-result benefit or proven special AI/LLM citation value.
 - Per-page prefilled WhatsApp messages in `src/data/servicePages.ts` (enables page-level lead attribution at the inbox).
+- Site-wide Vercel Analytics event for WhatsApp CTA clicks (`whatsapp_click`) with page and CTA context.
+- Custom branded `404.astro` with recovery links and correct `noindex, follow` handling.
+- Representative rendered JSON-LD validation recorded in `docs/SCHEMA-REPORT.md`.
 
 ## Needs Human Review
 
-- Search Console verification, sitemap submission, impressions/clicks data (no data in repo).
-- Schema validation on representative pages (Rich Results Test).
+- Search Console indexing/impressions/clicks monitoring after verification and sitemap submission.
+- One live Rich Results Test after deployment; local rendered-source validation passes.
 - Lighthouse / Core Web Vitals baseline (LCP / INP / CLS).
 - Google Business Profile, local citations, external profiles.
 - Privacy/analytics consent and legal requirements.
 
 ## Known Gaps
 
-- No `src/pages/404.astro`.
 - No `/sobre/` page (E-E-A-T).
 - Editorial cadence stalled at 6 articles.
 

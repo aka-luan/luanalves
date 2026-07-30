@@ -8,7 +8,8 @@ interface Props {
   title?: string;
   description?: string;
   namespace?: string;
-  canonicalPath?: string;
+  canonicalPath?: string | null;
+  robots?: string;
   ogType?: 'website' | 'article' | 'profile';
   socialImage?: string;
   socialImageAlt?: string;
@@ -20,6 +21,7 @@ const {
   description = 'Desenvolvedor web freelancer especializado em sites, blogs e landing pages que convertem. Atendimento direto, entrega no prazo. Solicite seu orçamento.',
   namespace = 'home',
   canonicalPath = '/',
+  robots,
   ogType = 'website',
   socialImage = '/assets/og-cover.webp',
   socialImageAlt = 'Luan Alves - Desenvolvimento Web Profissional',
@@ -29,7 +31,8 @@ const {
 const siteUrl = 'https://luanalves.com.br';
 const toAbsoluteUrl = (path: string) =>
   path.startsWith('http') ? path : new URL(path, siteUrl).toString();
-const canonicalUrl = toAbsoluteUrl(canonicalPath);
+const canonicalUrl = canonicalPath ? toAbsoluteUrl(canonicalPath) : null;
+const socialPageUrl = canonicalUrl ?? siteUrl;
 const socialImageUrl = toAbsoluteUrl(socialImage);
 const baseSchema = [
   {
@@ -136,10 +139,11 @@ const schemaGraph = {
     )}
     <title>{title}</title>
     <meta name='description' content={description} />
-    <link rel='canonical' href={canonicalUrl} />
+    {canonicalUrl && <link rel='canonical' href={canonicalUrl} />}
+    {robots && <meta name='robots' content={robots} />}
 
     <meta property='og:type' content={ogType} />
-    <meta property='og:url' content={canonicalUrl} />
+    <meta property='og:url' content={socialPageUrl} />
     <meta property='og:title' content={title} />
     <meta property='og:description' content={description} />
     <meta property='og:image' content={socialImageUrl} />

@@ -5,6 +5,7 @@ import { initInsightPost } from './insight-post';
 import { cleanupPortfolioFilters, initPortfolioFilters } from './portfolio-filters';
 import { initProjectModalFromDom } from './project-modal';
 import { cleanupMobileNav, initMobileNav } from './mobile-nav';
+import { initWhatsappAnalytics } from './whatsapp-analytics';
 
 type Cleanup = () => void;
 
@@ -75,9 +76,11 @@ function syncHead(nextHtml: string) {
 
   const selectors = [
     'meta[name="description"]',
+    'meta[name="robots"]',
     'meta[property^="og:"]',
     'meta[name^="twitter:"]',
     'link[rel="canonical"]',
+    'script[type="application/ld+json"]',
   ];
 
   selectors.forEach((selector) => {
@@ -144,6 +147,8 @@ function scrollToTarget(hash = window.location.hash) {
 }
 
 function initBarba() {
+  initWhatsappAnalytics();
+
   if (window.__pageTransitionsStarted__) {
     bootPageScripts();
     return;

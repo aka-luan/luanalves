@@ -1,0 +1,230 @@
+---
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteNav from '../components/SiteNav.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { navigation } from '../data/site';
+
+const whatsappHref =
+  'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20N%C3%A3o%20encontrei%20a%20p%C3%A1gina%20que%20procurava%20e%20preciso%20de%20ajuda.';
+---
+
+<BaseLayout
+  namespace='not-found'
+  title='Página não encontrada | Luan Alves'
+  description='A página que você tentou acessar não está disponível. Volte ao início ou conheça os serviços e projetos de Luan Alves.'
+  canonicalPath={null}
+  robots='noindex, follow'>
+  <main class='not-found-page' id='top'>
+    <SiteNav
+      items={navigation}
+      whatsappHref={whatsappHref}
+      brandHref='/'
+      brandAriaLabel='Luan Alves, página inicial'
+      motion={false}
+    />
+
+    <section class='not-found' aria-labelledby='not-found-title'>
+      <div class='not-found__grid hero-grid' aria-hidden='true'></div>
+
+      <div class='container not-found__inner'>
+        <div class='not-found__code' aria-hidden='true'>404</div>
+
+        <div class='not-found__content'>
+          <p class='not-found__eyebrow'>Página não encontrada</p>
+          <h1 id='not-found-title'>Esta página saiu do ar.</h1>
+          <p class='not-found__copy'>
+            O endereço pode ter mudado ou não existe mais. Você pode voltar ao
+            início ou seguir para uma das áreas principais do site.
+          </p>
+
+          <div class='not-found__actions'>
+            <a class='button button-solid' href='/'>
+              Voltar ao início
+              <span class='material-symbols-outlined' aria-hidden='true'>
+                arrow_right_alt
+              </span>
+            </a>
+            <a
+              class='button button-outline'
+              href={whatsappHref}
+              target='_blank'
+              rel='noreferrer'>
+              Pedir ajuda
+            </a>
+          </div>
+
+          <nav class='not-found__links' aria-label='Atalhos úteis'>
+            <a href='/criacao-de-sites/'>Criação de sites</a>
+            <a href='/portfolio/'>Portfólio</a>
+            <a href='/insights/'>Insights</a>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <SiteFooter motion={false} />
+  </main>
+</BaseLayout>
+
+<style>
+  .not-found-page {
+    min-height: 100dvh;
+    background: var(--background);
+  }
+
+  .not-found {
+    position: relative;
+    display: grid;
+    min-height: min(54rem, 100dvh);
+    padding: 8.5rem 0 5rem;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(77, 70, 58, 0.28);
+  }
+
+  .not-found__grid {
+    position: absolute;
+    inset: 0;
+    opacity: 0.7;
+    mask-image: linear-gradient(to bottom, black, transparent 88%);
+  }
+
+  .not-found__inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(13rem, 0.65fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(3rem, 8vw, 8rem);
+  }
+
+  .not-found__code {
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid rgba(229, 196, 135, 0.2);
+    color: rgba(229, 196, 135, 0.16);
+    font-family: 'Newsreader', serif;
+    font-size: clamp(8rem, 20vw, 17rem);
+    font-weight: 600;
+    line-height: 0.72;
+    letter-spacing: -0.09em;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    user-select: none;
+  }
+
+  .not-found__content {
+    max-width: 43rem;
+  }
+
+  .not-found__eyebrow {
+    margin: 0 0 1.5rem;
+    color: var(--primary);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+  }
+
+  .not-found h1 {
+    max-width: 9ch;
+    margin: 0;
+    color: var(--text);
+    font-family: 'Newsreader', serif;
+    font-size: clamp(4.2rem, 9vw, 7.8rem);
+    font-weight: 500;
+    line-height: 0.88;
+    letter-spacing: -0.055em;
+    text-wrap: balance;
+  }
+
+  .not-found__copy {
+    max-width: 36rem;
+    margin: 2rem 0 0;
+    color: var(--muted);
+    font-size: clamp(1rem, 1.6vw, 1.14rem);
+    font-weight: 300;
+    line-height: 1.85;
+  }
+
+  .not-found__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    margin-top: 2.4rem;
+  }
+
+  .not-found__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.7rem;
+    margin-top: 3.5rem;
+    padding-top: 1.35rem;
+    border-top: 1px solid rgba(77, 70, 58, 0.34);
+  }
+
+  .not-found__links a {
+    color: var(--subtle);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    transition:
+      color 180ms ease,
+      transform 180ms ease;
+  }
+
+  .not-found__links a:hover,
+  .not-found__links a:focus-visible {
+    color: var(--primary);
+    transform: translateX(0.15rem);
+  }
+
+  @media (max-width: 767px) {
+    .not-found {
+      min-height: 100dvh;
+      padding: 7.5rem 0 4rem;
+    }
+
+    .not-found__inner {
+      grid-template-columns: 1fr;
+      align-content: center;
+      gap: 2.2rem;
+    }
+
+    .not-found__code {
+      align-self: auto;
+      display: block;
+      padding-bottom: 1.35rem;
+      border-right: 0;
+      border-bottom: 1px solid rgba(229, 196, 135, 0.2);
+      font-size: clamp(5.5rem, 28vw, 8rem);
+      line-height: 0.72;
+      writing-mode: initial;
+      transform: none;
+    }
+
+    .not-found h1 {
+      max-width: 8ch;
+      font-size: clamp(3.7rem, 17vw, 5.5rem);
+    }
+
+    .not-found__copy {
+      margin-top: 1.5rem;
+    }
+
+    .not-found__actions {
+      align-items: stretch;
+      flex-direction: column;
+    }
+
+    .not-found__actions .button {
+      width: 100%;
+    }
+
+    .not-found__links {
+      gap: 1rem 1.4rem;
+      margin-top: 2.5rem;
+    }
+  }
+</style>
