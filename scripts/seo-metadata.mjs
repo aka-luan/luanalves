@@ -6,6 +6,7 @@ const siteRefreshDate = new Date('2026-06-05T00:00:00-03:00');
 const staticRouteDates = new Map([
   ['/', siteRefreshDate],
   ['/criacao-de-sites/', siteRefreshDate],
+  ['/sobre/', siteRefreshDate],
   ['/site-institucional/', siteRefreshDate],
   ['/landing-page/', siteRefreshDate],
   ['/blog-profissional/', siteRefreshDate],

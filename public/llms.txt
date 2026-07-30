@@ -7,6 +7,7 @@
 
 ## Primary pages
 - Home: https://luanalves.com.br/
+- Sobre: https://luanalves.com.br/sobre/
 - Criação de sites: https://luanalves.com.br/criacao-de-sites/
 - Site institucional: https://luanalves.com.br/site-institucional/
 - Landing page: https://luanalves.com.br/landing-page/

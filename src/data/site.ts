@@ -1,5 +1,6 @@
 export const navigation = [
   { href: '/', label: 'Início' },
+  { href: '/sobre/', label: 'Sobre' },
   {
     href: '/criacao-de-sites/',
     label: 'Criação de Sites',

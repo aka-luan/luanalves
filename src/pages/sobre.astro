@@ -1,0 +1,1170 @@
+---
+import HomeCta from '../components/HomeCta.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteNav from '../components/SiteNav.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { featuredPortfolioProjects, navigation } from '../data/site';
+
+const siteUrl = 'https://luanalves.com.br';
+const whatsappHref =
+  'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Quero%20conversar%20sobre%20um%20projeto%20de%20site.';
+
+const methodSteps = [
+  {
+    icon: 'explore',
+    title: 'Entender o contexto',
+    copy: 'Antes de abrir o editor, alinho objetivo, público, oferta, referências e o papel que o site precisa cumprir no negócio.',
+  },
+  {
+    icon: 'account_tree',
+    title: 'Organizar a experiência',
+    copy: 'Transformo informação dispersa em uma estrutura clara, com hierarquia, conteúdo, navegação e caminhos de contato bem definidos.',
+  },
+  {
+    icon: 'design_services',
+    title: 'Projetar e desenvolver',
+    copy: 'Crio uma interface coerente com a marca e implemento uma base responsiva, acessível, rápida e preparada para SEO.',
+  },
+  {
+    icon: 'rocket_launch',
+    title: 'Revisar e publicar',
+    copy: 'Faço os ajustes finais, publico com cuidado e entrego orientação para que o site continue útil depois do lançamento.',
+  },
+];
+
+const workPrinciples = [
+  {
+    icon: 'forum',
+    title: 'Você fala com quem faz',
+    copy: 'A comunicação é direta do diagnóstico ao pós-lançamento, sem camadas de agência ou repasses confusos.',
+  },
+  {
+    icon: 'speed',
+    title: 'Performance é parte do projeto',
+    copy: 'Peso de imagens, estabilidade visual e carregamento entram na decisão desde a estrutura, não como remendo final.',
+  },
+  {
+    icon: 'search',
+    title: 'SEO começa na arquitetura',
+    copy: 'Hierarquia semântica, metadados, links internos e conteúdo claro formam uma base mais preparada para ser encontrada.',
+  },
+  {
+    icon: 'support_agent',
+    title: 'A entrega não termina no deploy',
+    copy: 'O lançamento vem acompanhado de orientação e suporte para os ajustes essenciais da primeira fase.',
+  },
+];
+
+const stackGroups = [
+  {
+    label: 'Construção',
+    value: 'Astro, TypeScript, HTML semântico, CSS e JavaScript',
+  },
+  {
+    label: 'Experiência',
+    value: 'Design responsivo, acessibilidade, motion com propósito e mobile first',
+  },
+  {
+    label: 'Crescimento',
+    value: 'SEO técnico, performance, conteúdo estruturado e conversão via WhatsApp',
+  },
+];
+
+const aboutSchema = [
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Início',
+        item: siteUrl,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Sobre',
+        item: siteUrl + '/sobre/',
+      },
+    ],
+  },
+  {
+    '@type': 'AboutPage',
+    '@id': siteUrl + '/sobre/#about',
+    name: 'Sobre Luan Alves',
+    description:
+      'Conheça a experiência, o processo e a stack de Luan Alves, desenvolvedor web freelancer em Belém que cria sites profissionais para empresas brasileiras.',
+    url: siteUrl + '/sobre/',
+    inLanguage: 'pt-BR',
+    mainEntity: { '@id': siteUrl + '/#person' },
+    about: { '@id': siteUrl + '/#person' },
+  },
+  {
+    '@type': 'ProfilePage',
+    '@id': siteUrl + '/sobre/#profile',
+    url: siteUrl + '/sobre/',
+    inLanguage: 'pt-BR',
+    mainEntity: { '@id': siteUrl + '/#person' },
+  },
+];
+---
+
+<BaseLayout
+  namespace='about'
+  title='Sobre Luan Alves | Desenvolvedor Web Freelancer'
+  description='Conheça Luan Alves, desenvolvedor web freelancer em Belém. Experiência, processo e stack para criar sites rápidos, acessíveis e que convertem.'
+  canonicalPath='/sobre/'
+  ogType='profile'
+  socialImageAlt='Luan Alves, desenvolvedor web freelancer'
+  schema={aboutSchema}>
+  <main class='about-page' id='top'>
+    <SiteNav
+      items={navigation}
+      whatsappHref={whatsappHref}
+      brandHref='/'
+      brandAriaLabel='Luan Alves, página inicial'
+    />
+
+    <section class='about-hero' aria-labelledby='about-title' data-motion='hero'>
+      <div class='about-hero__grid hero-grid' aria-hidden='true' data-motion-glow></div>
+      <div class='container about-hero__inner'>
+        <div class='about-hero__copy'>
+          <nav class='shared-breadcrumbs' aria-label='Breadcrumb'>
+            <a href='/'>Início</a>
+            <span aria-hidden='true'>/</span>
+            <span>Sobre</span>
+          </nav>
+
+          <p class='about-eyebrow' data-motion-hero-eyebrow data-motion-hidden='y-sm'>
+            Sobre o profissional
+          </p>
+          <h1 id='about-title' data-motion-hero-title data-motion-hidden='y-lg'>
+            Experiência para transformar presença digital em <em>confiança.</em>
+          </h1>
+          <p class='about-hero__lead' data-motion-hero-copy data-motion-hidden='y-md'>
+            Sou Luan Alves, desenvolvedor web freelancer em Belém. Crio sites
+            profissionais para empresas que precisam explicar melhor o que fazem,
+            aparecer no Google e gerar novas conversas.
+          </p>
+
+          <div class='about-hero__actions' data-motion-hero-actions>
+            <a
+              class='shared-button shared-button--solid'
+              href={whatsappHref}
+              target='_blank'
+              rel='noreferrer'
+              data-motion-hidden='y-sm'>
+              Conversar sobre um projeto
+            </a>
+            <a
+              class='shared-button shared-button--outline'
+              href='/portfolio/'
+              data-motion-hidden='y-sm'>
+              Ver projetos reais
+            </a>
+          </div>
+
+          <dl class='about-stats' aria-label='Experiência profissional'>
+            <div data-motion-item='hero-feature' data-motion-hidden='y-sm'>
+              <dt>5+</dt>
+              <dd>Anos de experiência</dd>
+            </div>
+            <div data-motion-item='hero-feature' data-motion-hidden='y-sm'>
+              <dt>12+</dt>
+              <dd>Projetos no portfólio</dd>
+            </div>
+            <div data-motion-item='hero-feature' data-motion-hidden='y-sm'>
+              <dt>100%</dt>
+              <dd>Atendimento direto</dd>
+            </div>
+          </dl>
+        </div>
+
+        <figure class='about-hero__media' data-motion-item='hero-media' data-motion-hidden='scale'>
+          <div class='about-hero__image-frame'>
+            <img
+              src='/assets/hero-img.webp'
+              alt='Retrato de Luan Alves, desenvolvedor web freelancer em Belém, PA.'
+              width='1086'
+              height='1536'
+              fetchpriority='high'
+              decoding='async'
+            />
+          </div>
+          <figcaption>
+            <span class='material-symbols-outlined' aria-hidden='true'>location_on</span>
+            Belém, PA · atendimento remoto em todo o Brasil
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class='about-intro about-section' aria-labelledby='about-intro-title'>
+      <div class='container about-intro__grid'>
+        <div class='about-section__heading'>
+          <span class='about-section__line' aria-hidden='true'></span>
+          <h2 id='about-intro-title'>O trabalho começa antes do código.</h2>
+        </div>
+
+        <div class='about-intro__copy'>
+          <p>
+            Um site profissional precisa fazer mais do que existir. Ele precisa
+            traduzir a proposta de uma empresa, organizar a decisão de quem visita
+            e tornar o próximo passo simples.
+          </p>
+          <p>
+            É por isso que cada projeto começa com contexto. Entendo o negócio, o
+            público, os diferenciais e as dúvidas que precisam ser respondidas. A
+            partir daí, escolho a estrutura, o ritmo visual e a tecnologia que fazem
+            sentido para aquela presença digital.
+          </p>
+          <p>
+            Trabalho diretamente com empresas e profissionais de diferentes
+            segmentos, de Belém para todo o Brasil. O resultado é uma parceria mais
+            próxima, com menos ruído e mais responsabilidade sobre cada detalhe da
+            entrega.
+          </p>
+        </div>
+
+        <aside class='about-statement'>
+          <span class='material-symbols-outlined' aria-hidden='true'>format_quote</span>
+          <p>Clareza para decidir. Técnica para sustentar. Design para ser lembrado.</p>
+          <span class='about-statement__label'>Critério de trabalho</span>
+        </aside>
+      </div>
+    </section>
+
+    <section class='about-process about-section' aria-labelledby='about-process-title'>
+      <div class='container'>
+        <div class='about-process__intro'>
+          <div class='about-section__heading'>
+            <span class='about-section__line' aria-hidden='true'></span>
+            <h2 id='about-process-title'>Um processo que deixa o caminho visível.</h2>
+          </div>
+          <p>
+            Você sabe o que está acontecendo em cada etapa, o que precisa decidir e
+            como o projeto avança até a publicação.
+          </p>
+        </div>
+
+        <div class='about-process__list'>
+          {
+            methodSteps.map((step, index) => (
+              <article class='about-process__step' data-motion-item='process' data-motion-hidden='y-card'>
+                <span class='about-process__number'>{String(index + 1).padStart(2, '0')}</span>
+                <span class='about-process__icon' aria-hidden='true'>
+                  <span class='material-symbols-outlined'>{step.icon}</span>
+                </span>
+                <div>
+                  <h3>{step.title}</h3>
+                  <p>{step.copy}</p>
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class='about-stack about-section' aria-labelledby='about-stack-title'>
+      <div class='container about-stack__grid'>
+        <div class='about-stack__copy'>
+          <p class='about-eyebrow'>Base técnica</p>
+          <h2 id='about-stack-title'>Uma stack enxuta para sites que carregam.</h2>
+          <p>
+            A tecnologia fica a serviço do projeto. Uso ferramentas que permitem
+            entregar experiências rápidas, fáceis de manter e coerentes com o nível
+            de ambição de cada negócio.
+          </p>
+          <a class='about-text-link' href='/insights/'>
+            Ler os insights técnicos
+            <span class='material-symbols-outlined' aria-hidden='true'>arrow_forward</span>
+          </a>
+        </div>
+
+        <dl class='about-stack__list'>
+          {
+            stackGroups.map((group) => (
+              <div class='about-stack__item'>
+                <dt>{group.label}</dt>
+                <dd>{group.value}</dd>
+              </div>
+            ))
+          }
+        </dl>
+      </div>
+    </section>
+
+    <section class='about-work about-section' aria-labelledby='about-work-title'>
+      <div class='container'>
+        <div class='about-section__heading about-section__heading--wide'>
+          <span class='about-section__line' aria-hidden='true'></span>
+          <div>
+            <p class='about-eyebrow'>Trabalhos publicados</p>
+            <h2 id='about-work-title'>Experiência que pode ser aberta, navegada e avaliada.</h2>
+          </div>
+          <a class='about-text-link' href='/portfolio/'>
+            Ver portfólio completo
+            <span class='material-symbols-outlined' aria-hidden='true'>arrow_forward</span>
+          </a>
+        </div>
+
+        <div class='about-work__grid'>
+          {
+            featuredPortfolioProjects.map((project, index) => (
+              <a class:list={['about-case', index === 1 && 'about-case--offset']} href={project.href}>
+                <span class='about-case__media'>
+                  <img
+                    src={project.image}
+                    alt={project.alt}
+                    width='900'
+                    height='620'
+                    loading='lazy'
+                    decoding='async'
+                  />
+                </span>
+                <span class='about-case__body'>
+                  <span class='about-case__meta'>{project.categories.join(' · ')}</span>
+                  <strong>{project.title}</strong>
+                  <span class='about-case__link'>Abrir case <span aria-hidden='true'>↗</span></span>
+                </span>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class='about-principles about-section' aria-labelledby='about-principles-title'>
+      <div class='container'>
+        <div class='about-section__heading'>
+          <span class='about-section__line' aria-hidden='true'></span>
+          <h2 id='about-principles-title'>O que você pode esperar da parceria.</h2>
+        </div>
+
+        <div class='about-principles__grid'>
+          {
+            workPrinciples.map((principle) => (
+              <article class='about-principle'>
+                <span class='about-principle__icon' aria-hidden='true'>
+                  <span class='material-symbols-outlined'>{principle.icon}</span>
+                </span>
+                <h3>{principle.title}</h3>
+                <p>{principle.copy}</p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class='about-social' aria-labelledby='about-social-title'>
+      <div class='container about-social__inner'>
+        <div>
+          <h2 id='about-social-title'>Conheça também os bastidores.</h2>
+        </div>
+        <div class='about-social__links'>
+          <a href='https://linkedin.com/in/aka-luan' target='_blank' rel='noreferrer'>
+            LinkedIn <span class='material-symbols-outlined' aria-hidden='true'>north_east</span>
+          </a>
+          <a href='https://github.com/aka-luan' target='_blank' rel='noreferrer'>
+            GitHub <span class='material-symbols-outlined' aria-hidden='true'>north_east</span>
+          </a>
+          <a href='https://instagram.com/luan.webdev' target='_blank' rel='noreferrer'>
+            Instagram <span class='material-symbols-outlined' aria-hidden='true'>north_east</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <HomeCta
+      whatsappHref={whatsappHref}
+      title='Se o seu negócio precisa de mais clareza no digital, vamos conversar.'
+      copy='Conte o que você quer construir. Eu respondo com contexto, próximos passos e uma proposta alinhada ao momento do projeto.'
+      buttonLabel='Falar sobre meu projeto'
+      motion={false}
+    />
+  </main>
+
+  <SiteFooter brandHref='/' />
+</BaseLayout>
+
+<style>
+  .about-page {
+    min-height: 100svh;
+    overflow-x: hidden;
+    background:
+      radial-gradient(circle at 76% 10%, rgba(229, 196, 135, 0.11), transparent 28rem),
+      linear-gradient(180deg, #101111 0%, #151514 42%, #0e0f0f 100%);
+  }
+
+  .about-hero {
+    position: relative;
+    min-height: min(54rem, 100svh);
+    padding: 7.8rem 0 4rem;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .about-hero__grid {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    mask-image: radial-gradient(circle at 70% 42%, black, transparent 70%);
+    opacity: 0.68;
+  }
+
+  .about-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      linear-gradient(90deg, rgba(10, 10, 10, 0.94) 0%, rgba(10, 10, 10, 0.52) 58%, rgba(10, 10, 10, 0.1) 100%),
+      radial-gradient(circle at 78% 44%, rgba(229, 196, 135, 0.12), transparent 26rem);
+    pointer-events: none;
+  }
+
+  .about-hero__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.02fr) minmax(22rem, 0.78fr);
+    align-items: center;
+    gap: clamp(3rem, 8vw, 8rem);
+  }
+
+  .about-hero__copy {
+    display: grid;
+    justify-items: start;
+    min-width: 0;
+  }
+
+  .about-eyebrow {
+    margin: 0 0 1.35rem;
+    color: #dfbd79;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.24em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .about-hero h1,
+  .about-section h2,
+  .about-stack h2,
+  .about-social h2 {
+    margin: 0;
+    color: #f5f2ef;
+    font-family: 'Newsreader', serif;
+    font-weight: 600;
+    letter-spacing: -0.052em;
+    line-height: 1.01;
+    text-wrap: balance;
+  }
+
+  .about-hero h1 {
+    max-width: 11ch;
+    font-size: clamp(3.45rem, 5.35vw, 5.45rem);
+  }
+
+  .about-hero h1 em {
+    color: #dfbd79;
+    font-style: italic;
+    font-weight: 600;
+    line-height: 1.1;
+    padding-bottom: 0.1em;
+  }
+
+  .about-hero__lead {
+    max-width: 37rem;
+    margin: 1.5rem 0 0;
+    color: rgba(226, 218, 208, 0.82);
+    font-size: clamp(1rem, 1.22vw, 1.16rem);
+    font-weight: 350;
+    line-height: 1.72;
+    text-wrap: pretty;
+  }
+
+  .about-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 2.2rem;
+  }
+
+  .about-hero__actions .shared-button {
+    min-height: 3.3rem;
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+    width: min(100%, 40rem);
+    margin: 2.7rem 0 0;
+    padding-top: 1.35rem;
+    border-top: 1px solid rgba(229, 218, 207, 0.16);
+  }
+
+  .about-stats div {
+    display: grid;
+    gap: 0.35rem;
+    min-width: 0;
+  }
+
+  .about-stats dt {
+    color: #f4f1ee;
+    font-family: 'Newsreader', serif;
+    font-size: clamp(1.9rem, 3vw, 2.75rem);
+    font-weight: 600;
+    letter-spacing: -0.06em;
+    line-height: 1;
+  }
+
+  .about-stats dd {
+    max-width: 8.5rem;
+    margin: 0;
+    color: rgba(226, 218, 208, 0.62);
+    font-size: 0.78rem;
+    line-height: 1.45;
+  }
+
+  .about-hero__media {
+    width: min(100%, 28rem);
+    margin: 0;
+    justify-self: end;
+  }
+
+  .about-hero__image-frame {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 0.77;
+    border: 1px solid rgba(229, 218, 207, 0.17);
+    background: #18221f;
+    box-shadow: 0 32px 80px rgba(0, 0, 0, 0.28), inset 0 0 0 1px rgba(255, 255, 255, 0.025);
+  }
+
+  .about-hero__image-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.25));
+    pointer-events: none;
+  }
+
+  .about-hero__image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .about-hero__media figcaption {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.85rem;
+    color: rgba(226, 218, 208, 0.58);
+    font-size: 0.7rem;
+    line-height: 1.5;
+  }
+
+  .about-hero__media figcaption .material-symbols-outlined {
+    color: #dfbd79;
+    font-size: 1rem;
+  }
+
+  .about-section {
+    position: relative;
+    padding: clamp(5rem, 9vw, 8.8rem) 0;
+  }
+
+  .about-intro {
+    border-top: 1px solid rgba(229, 218, 207, 0.08);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.018), transparent 42%);
+  }
+
+  .about-intro__grid {
+    display: grid;
+    grid-template-columns: minmax(14rem, 0.72fr) minmax(0, 1.08fr) minmax(15rem, 0.68fr);
+    gap: clamp(2rem, 5vw, 5.8rem);
+    align-items: start;
+  }
+
+  .about-section__heading {
+    display: grid;
+    gap: 1.35rem;
+    align-content: start;
+  }
+
+  .about-section__heading h2,
+  .about-stack h2,
+  .about-social h2 {
+    font-size: clamp(2.65rem, 4.8vw, 4.55rem);
+  }
+
+  .about-section__line {
+    display: block;
+    width: 4.5rem;
+    height: 1px;
+    background: #dfbd79;
+  }
+
+  .about-intro__copy {
+    display: grid;
+    gap: 1.2rem;
+    max-width: 38rem;
+  }
+
+  .about-intro__copy p,
+  .about-process__intro > p,
+  .about-stack__copy > p {
+    margin: 0;
+    color: rgba(226, 218, 208, 0.78);
+    font-size: 1.02rem;
+    line-height: 1.78;
+    text-wrap: pretty;
+  }
+
+  .about-statement {
+    display: grid;
+    gap: 1rem;
+    align-content: end;
+    min-height: 15rem;
+    padding: 1.5rem;
+    border-left: 1px solid rgba(229, 196, 135, 0.34);
+    background: linear-gradient(135deg, rgba(229, 196, 135, 0.07), transparent 65%);
+  }
+
+  .about-statement .material-symbols-outlined {
+    color: #dfbd79;
+    font-size: 2rem;
+  }
+
+  .about-statement p {
+    margin: 0;
+    color: #f5f2ef;
+    font-family: 'Newsreader', serif;
+    font-size: clamp(1.65rem, 2.5vw, 2.25rem);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+  }
+
+  .about-statement__label {
+    color: rgba(226, 218, 208, 0.54);
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .about-process {
+    background: #101111;
+  }
+
+  .about-process__intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(16rem, 0.65fr);
+    gap: clamp(2rem, 7vw, 8rem);
+    align-items: end;
+    margin-bottom: 4.8rem;
+  }
+
+  .about-process__intro > p {
+    max-width: 27rem;
+    padding-bottom: 0.25rem;
+  }
+
+  .about-process__list {
+    position: relative;
+    display: grid;
+    border-top: 1px solid rgba(229, 218, 207, 0.14);
+  }
+
+  .about-process__step {
+    display: grid;
+    grid-template-columns: 3.2rem 3.5rem minmax(0, 1fr);
+    gap: 1.5rem;
+    align-items: start;
+    padding: 1.7rem 0 1.75rem;
+    border-bottom: 1px solid rgba(229, 218, 207, 0.14);
+  }
+
+  .about-process__number {
+    padding-top: 0.25rem;
+    color: rgba(223, 189, 121, 0.72);
+    font-family: 'Newsreader', serif;
+    font-size: 1.45rem;
+    font-style: italic;
+  }
+
+  .about-process__icon,
+  .about-principle__icon {
+    display: grid;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid rgba(229, 196, 135, 0.32);
+    color: #dfbd79;
+    background: rgba(229, 196, 135, 0.035);
+  }
+
+  .about-process__step h3,
+  .about-principle h3 {
+    margin: 0;
+    color: #f5f2ef;
+    font-family: 'Newsreader', serif;
+    font-size: clamp(1.55rem, 2.1vw, 2rem);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1.08;
+  }
+
+  .about-process__step p,
+  .about-principle p {
+    max-width: 42rem;
+    margin: 0.6rem 0 0;
+    color: rgba(226, 218, 208, 0.68);
+    line-height: 1.7;
+    text-wrap: pretty;
+  }
+
+  .about-stack {
+    background:
+      radial-gradient(circle at 14% 42%, rgba(229, 196, 135, 0.08), transparent 24rem),
+      #151514;
+  }
+
+  .about-stack__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(20rem, 0.88fr);
+    gap: clamp(3rem, 8vw, 9rem);
+    align-items: center;
+  }
+
+  .about-stack__copy {
+    display: grid;
+    justify-items: start;
+    gap: 1.4rem;
+    max-width: 38rem;
+  }
+
+  .about-stack__copy .about-eyebrow {
+    margin-bottom: -0.45rem;
+  }
+
+  .about-stack__copy > p {
+    max-width: 35rem;
+  }
+
+  .about-text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    color: #dfbd79;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    line-height: 1.4;
+    text-transform: uppercase;
+    transition: color 180ms ease, transform 180ms ease;
+  }
+
+  .about-text-link .material-symbols-outlined {
+    font-size: 1rem;
+    transition: transform 180ms ease;
+  }
+
+  .about-text-link:hover,
+  .about-text-link:focus-visible {
+    color: #f5f2ef;
+    transform: translateX(0.15rem);
+  }
+
+  .about-text-link:hover .material-symbols-outlined,
+  .about-text-link:focus-visible .material-symbols-outlined {
+    transform: translateX(0.18rem);
+  }
+
+  .about-stack__list {
+    display: grid;
+    margin: 0;
+    border-top: 1px solid rgba(229, 218, 207, 0.18);
+  }
+
+  .about-stack__item {
+    display: grid;
+    grid-template-columns: minmax(6rem, 0.36fr) minmax(0, 1fr);
+    gap: 1.5rem;
+    padding: 1.45rem 0;
+    border-bottom: 1px solid rgba(229, 218, 207, 0.18);
+  }
+
+  .about-stack__item dt {
+    color: #dfbd79;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
+
+  .about-stack__item dd {
+    margin: 0;
+    color: #f5f2ef;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .about-work {
+    background: #101111;
+  }
+
+  .about-section__heading--wide {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: auto auto;
+    column-gap: clamp(2rem, 6vw, 7rem);
+    align-items: end;
+    margin-bottom: 3rem;
+  }
+
+  .about-section__heading--wide .about-section__line {
+    grid-column: 1 / -1;
+  }
+
+  .about-section__heading--wide .about-eyebrow {
+    margin-bottom: 1.1rem;
+  }
+
+  .about-section__heading--wide .about-text-link {
+    padding-bottom: 0.3rem;
+  }
+
+  .about-work__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.2rem;
+    align-items: start;
+  }
+
+  .about-case {
+    display: grid;
+    min-width: 0;
+    border: 1px solid rgba(229, 218, 207, 0.14);
+    background: rgba(16, 17, 16, 0.72);
+    transition: border-color 180ms ease, transform 180ms ease, background-color 180ms ease;
+  }
+
+  .about-case--offset {
+    transform: translateY(2.4rem);
+  }
+
+  .about-case:hover,
+  .about-case:focus-visible {
+    border-color: rgba(229, 196, 135, 0.42);
+    background: rgba(24, 25, 23, 0.92);
+    transform: translateY(-0.3rem);
+  }
+
+  .about-case--offset:hover,
+  .about-case--offset:focus-visible {
+    transform: translateY(2.1rem);
+  }
+
+  .about-case__media {
+    display: block;
+    aspect-ratio: 1.28;
+    overflow: hidden;
+    background: #222320;
+  }
+
+  .about-case__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 420ms ease;
+  }
+
+  .about-case:hover .about-case__media img,
+  .about-case:focus-visible .about-case__media img {
+    transform: scale(1.035);
+  }
+
+  .about-case__body {
+    display: grid;
+    gap: 0.65rem;
+    padding: 1.25rem;
+  }
+
+  .about-case__meta {
+    color: #dfbd79;
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .about-case__body strong {
+    color: #f5f2ef;
+    font-family: 'Newsreader', serif;
+    font-size: clamp(1.5rem, 2.1vw, 2rem);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+  }
+
+  .about-case__link {
+    color: rgba(226, 218, 208, 0.58);
+    font-size: 0.72rem;
+    line-height: 1.4;
+  }
+
+  .about-case__link span {
+    color: #dfbd79;
+    font-size: 0.9rem;
+  }
+
+  .about-principles {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.018), transparent 34%),
+      #151514;
+  }
+
+  .about-principles__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.3rem;
+    margin-top: 4rem;
+  }
+
+  .about-principle {
+    display: grid;
+    align-content: start;
+    min-width: 0;
+    padding: 1.5rem 0 0;
+    border-top: 1px solid rgba(229, 218, 207, 0.18);
+  }
+
+  .about-principle__icon {
+    margin-bottom: 1.3rem;
+  }
+
+  .about-principle h3 {
+    font-size: 1.55rem;
+  }
+
+  .about-social {
+    padding: 3rem 0;
+    border-top: 1px solid rgba(229, 218, 207, 0.08);
+    background: #101111;
+  }
+
+  .about-social__inner {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .about-social h2 {
+    max-width: 14ch;
+    font-size: clamp(2.2rem, 3.7vw, 3.6rem);
+  }
+
+  .about-social__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.3rem 2rem;
+  }
+
+  .about-social__links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: rgba(226, 218, 208, 0.72);
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 180ms ease, transform 180ms ease;
+  }
+
+  .about-social__links a:hover,
+  .about-social__links a:focus-visible {
+    color: #dfbd79;
+    transform: translateX(0.15rem);
+  }
+
+  .about-social__links .material-symbols-outlined {
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 960px) {
+    .about-hero__inner {
+      grid-template-columns: minmax(0, 1fr) minmax(19rem, 0.72fr);
+      gap: 3rem;
+    }
+
+    .about-intro__grid {
+      grid-template-columns: minmax(0, 0.74fr) minmax(0, 1fr);
+    }
+
+    .about-statement {
+      grid-column: 1 / -1;
+      min-height: 0;
+      max-width: 33rem;
+    }
+
+    .about-principles__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      row-gap: 2.2rem;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .about-hero {
+      min-height: auto;
+      padding: 7.5rem 0 4.5rem;
+    }
+
+    .about-hero__inner,
+    .about-intro__grid,
+    .about-process__intro,
+    .about-stack__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .about-hero__inner {
+      gap: 3.4rem;
+    }
+
+    .about-hero h1 {
+      max-width: 12ch;
+      font-size: clamp(3rem, 13vw, 4.2rem);
+    }
+
+    .about-hero__lead {
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+    .about-hero__actions,
+    .about-hero__actions .shared-button {
+      width: 100%;
+    }
+
+    .about-hero__media {
+      width: min(100%, 24rem);
+      justify-self: center;
+    }
+
+    .about-stats {
+      gap: 0.8rem;
+    }
+
+    .about-stats dt {
+      font-size: clamp(1.7rem, 8vw, 2.4rem);
+    }
+
+    .about-stats dd {
+      font-size: 0.72rem;
+    }
+
+    .about-section__heading h2,
+    .about-stack h2 {
+      font-size: clamp(2.7rem, 12vw, 3.7rem);
+    }
+
+    .about-intro__copy {
+      max-width: none;
+    }
+
+    .about-process__intro {
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .about-process__step {
+      grid-template-columns: 2.3rem 2.75rem minmax(0, 1fr);
+      gap: 0.8rem;
+      padding-block: 1.35rem;
+    }
+
+    .about-process__icon,
+    .about-principle__icon {
+      width: 2.7rem;
+      height: 2.7rem;
+    }
+
+    .about-process__step h3 {
+      font-size: 1.45rem;
+    }
+
+    .about-process__step p,
+    .about-principle p,
+    .about-intro__copy p,
+    .about-process__intro > p,
+    .about-stack__copy > p {
+      font-size: 0.96rem;
+      line-height: 1.65;
+    }
+
+    .about-stack__grid {
+      gap: 3rem;
+    }
+
+    .about-stack__item {
+      grid-template-columns: 5.7rem minmax(0, 1fr);
+      gap: 0.8rem;
+    }
+
+    .about-stack__item dd {
+      font-size: 0.94rem;
+    }
+
+    .about-section__heading--wide {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .about-section__heading--wide .about-text-link {
+      padding-bottom: 0;
+    }
+
+    .about-work__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .about-case--offset,
+    .about-case--offset:hover,
+    .about-case--offset:focus-visible {
+      transform: none;
+    }
+
+    .about-principles__grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .about-social__inner {
+      align-items: start;
+      flex-direction: column;
+    }
+
+    .about-social__links {
+      display: grid;
+      gap: 0.8rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .about-case,
+    .about-case__media img,
+    .about-text-link,
+    .about-social__links a {
+      transition: none;
+    }
+  }
+</style>

@@ -4,7 +4,7 @@ Updated: 2026-07-30. Supersedes `docs/SEO-ROADMAP-archived.md`: the implementati
 
 ## Where things stand
 
-- 23 indexable routes: home, 5 service pages, `/portfolio/` + 7 cases, `/insights/` + 8 articles.
+- 24 indexable routes: home, `/sobre/`, 5 service pages, `/portfolio/` + 7 cases, `/insights/` + 8 articles.
 - Metadata, canonical, sitemap, robots.txt, llms.txt, breadcrumbs, and per-page-type schema are in place.
 - The binding constraint is no longer on-page work. It is: (1) zero measurement data — nothing confirms these pages are indexed or ranking; (2) zero off-site signals — no GBP, citations, or external profiles; (3) editorial cadence needs to continue beyond 8 articles.
 
@@ -52,7 +52,7 @@ Leading indicator: new articles receive impressions in GSC within 2–3 weeks of
 ## Housekeeping
 
 - **Custom 404 page** — completed 2026-07-30 with branded navigation, recovery links, WhatsApp help, `noindex, follow`, and no canonical URL.
-- Create `/sobre/` page (E-E-A-T: experience, method, stack, real social links). The article author card already references the `#person` schema entity; a real about page strengthens it. Medium priority — do after P1.
+- Create `/sobre/` page (E-E-A-T: experience, method, stack, real social links). Completed 2026-07-30. The page connects the `#person` entity to a first-party profile, process, stack, real projects, and social links.
 - Refresh the KPI table below with real baselines once GSC has ~4 weeks of data.
 
 ## KPIs (reset against current reality)
