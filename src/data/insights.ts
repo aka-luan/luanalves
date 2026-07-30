@@ -1376,7 +1376,356 @@ const quantoTempoInsight: InsightPublishedPost = {
   ],
 };
 
+const escolherFreelancerInsight: InsightPublishedPost = {
+  title:
+    'Como escolher um desenvolvedor web freelancer: 9 critérios essenciais',
+  excerpt:
+    'Aprenda a comparar portfólio, processo, proposta, tecnologia e suporte antes de contratar quem vai criar o site da sua empresa.',
+  description:
+    'Veja como escolher um desenvolvedor web freelancer com segurança: defina o escopo, avalie portfólio real, compare propostas, confirme acessos, contrato, SEO, performance e suporte.',
+  category: 'Mercado',
+  categorySlug: 'freelance',
+  date: '30 jul. 2026',
+  isoDate: '2026-07-30',
+  readTime: '13 min',
+  slug: 'como-escolher-desenvolvedor-web-freelancer',
+  tags: [
+    'Freelancer',
+    'Criação de sites',
+    'Portfólio',
+    'Contrato',
+    'SEO',
+  ],
+  published: true,
+  heroImage: '/assets/insights/site-institucional-post.webp',
+  heroImageAlt:
+    'Mesa de trabalho com notebook e interface de site, representando a escolha de um desenvolvedor web freelancer.',
+  author: {
+    name: 'Luan Alves',
+    role: 'Desenvolvedor web freelancer',
+    bio: 'Desenvolvo sites, blogs e landing pages com foco em performance, SEO técnico e conversão via WhatsApp.',
+  },
+  content: [
+    {
+      type: 'paragraph',
+      text: 'A melhor forma de escolher um desenvolvedor web freelancer não é começar pelo menor preço nem pela tecnologia mais famosa. É comparar quem entende o objetivo do negócio, mostra projetos reais, explica o processo e deixa claro o que será entregue, testado e transferido para você.',
+    },
+    {
+      type: 'paragraph',
+      text: 'Um site profissional precisa funcionar como parte da empresa: apresentar a marca, ser encontrado, carregar bem no celular e conduzir o visitante para uma ação. Por isso, a contratação deve avaliar resultado e responsabilidade, não apenas aparência ou quantidade de páginas.',
+    },
+    {
+      type: 'table',
+      caption: 'Resumo dos critérios para comparar desenvolvedores web freelancers.',
+      columns: ['Critério', 'O que confirmar', 'Por que importa'],
+      rows: [
+        ['Objetivo', 'Qual problema o site precisa resolver', 'Evita uma solução bonita, mas inadequada'],
+        ['Portfólio', 'URLs reais e projetos próximos do seu', 'Permite avaliar o trabalho em uso'],
+        ['Escopo', 'Páginas, funções, conteúdo e revisões', 'Deixa as propostas comparáveis'],
+        ['Processo', 'Etapas, aprovações e responsabilidades', 'Reduz retrabalho e atrasos'],
+        ['Base técnica', 'Mobile, SEO, performance, acessibilidade e segurança', 'Protege experiência e crescimento'],
+        ['Autonomia', 'Domínio, hospedagem, código e acessos em seu nome', 'Evita dependência do fornecedor'],
+        ['Pós-lançamento', 'Garantia, manutenção e treinamento', 'Define quem cuida do site depois'],
+      ],
+    },
+    {
+      type: 'heading',
+      id: 'defina-o-que-o-site-precisa-fazer',
+      level: 2,
+      text: '1. Defina o que o site precisa fazer',
+    },
+    {
+      type: 'paragraph',
+      text: 'Antes de pedir orçamento, escreva em uma frase qual resultado você espera. Pode ser apresentar a empresa, gerar pedidos de orçamento, divulgar um serviço, publicar conteúdo, vender produtos ou organizar uma operação com login e integrações. Objetivos diferentes exigem estruturas, prazos e investimentos diferentes.',
+    },
+    {
+      type: 'list',
+      items: [
+        'Quem precisa encontrar o site e em que momento da decisão?',
+        'Qual ação principal o visitante deve realizar?',
+        'Quais páginas, serviços e conteúdos já existem?',
+        'O site será institucional, uma landing page, um blog, uma loja ou uma aplicação?',
+        'Quem fornecerá textos, imagens, identidade visual e aprovações?',
+      ],
+    },
+    {
+      type: 'paragraph',
+      text: 'Quanto mais claro for o ponto de partida, menos a proposta dependerá de suposições. Um bom freelancer também fará perguntas antes de apresentar preço. Isso é sinal de diagnóstico, não burocracia.',
+    },
+    {
+      type: 'heading',
+      id: 'avalie-o-portfolio-como-usuario',
+      level: 2,
+      text: '2. Avalie o portfólio como usuário',
+    },
+    {
+      type: 'paragraph',
+      text: 'Captura de tela mostra intenção visual, mas não mostra como o site funciona depois de publicado. Peça URLs reais e abra os projetos no celular e no computador. Navegue pelo menu, procure uma informação, clique nos botões e observe se a experiência parece coerente.',
+    },
+    {
+      type: 'list',
+      items: [
+        'O site carrega sem esperar demais?',
+        'O texto continua legível em uma tela pequena?',
+        'O menu, os formulários e os botões funcionam?',
+        'A proposta de valor fica clara rapidamente?',
+        'O profissional explica qual era o problema e o que ele resolveu?',
+        'Há cases de negócios parecidos com o seu, e não apenas telas bonitas?',
+      ],
+    },
+    {
+      type: 'paragraph',
+      text: 'Portfólio relevante não precisa ser do mesmo segmento. O mais importante é enxergar situações próximas: site institucional, geração de leads, catálogo, blog, agendamento ou integração. Pergunte qual foi exatamente a participação do freelancer em cada projeto.',
+    },
+    {
+      type: 'heading',
+      id: 'compare-escopo-e-processo',
+      level: 2,
+      text: '3. Compare escopo e processo, não só o valor',
+    },
+    {
+      type: 'paragraph',
+      text: 'Duas propostas podem dizer “site profissional” e entregar coisas completamente diferentes. Coloque lado a lado páginas, funcionalidades, conteúdo, design, integrações, revisões, testes, publicação e suporte. Se um item importante não aparece, considere que ele ainda não está combinado.',
+    },
+    {
+      type: 'heading',
+      id: 'o-que-deve-aparecer-na-proposta',
+      level: 3,
+      text: 'O que deve aparecer na proposta',
+    },
+    {
+      type: 'list',
+      items: [
+        'Lista de páginas e modelos incluídos.',
+        'Funcionalidades, integrações e limites técnicos.',
+        'Responsabilidade por textos, imagens e cadastro de conteúdo.',
+        'Etapas de descoberta, estrutura, design, desenvolvimento, testes e publicação.',
+        'Quantidade de rodadas de revisão e como as aprovações acontecem.',
+        'Prazo por marcos, dependências do cliente e tratamento de mudanças de escopo.',
+        'Forma de pagamento, impostos, ferramentas e custos de domínio ou hospedagem.',
+      ],
+    },
+    {
+      type: 'paragraph',
+      text: 'Preço só se torna comparável quando a base é a mesma. Uma proposta mais barata pode simplesmente ter omitido conteúdo, testes, suporte ou configuração técnica que outra pessoa incluiu.',
+    },
+    {
+      type: 'heading',
+      id: 'confirme-a-base-tecnica',
+      level: 2,
+      text: '4. Confirme a base técnica que será entregue',
+    },
+    {
+      type: 'paragraph',
+      text: 'Você não precisa escolher a linguagem ou o framework. Precisa entender se o profissional tem um plano para os requisitos que afetam o negócio: experiência mobile, carregamento, indexação, acessibilidade, segurança, formulários e manutenção.',
+    },
+    {
+      type: 'list',
+      items: [
+        'Layout responsivo e navegação por toque.',
+        'URLs, títulos, headings, sitemap e indexação configurados de forma coerente.',
+        'Imagens e scripts tratados para não prejudicar a experiência.',
+        'HTTPS, permissões, backups e atualizações compatíveis com a plataforma.',
+        'Formulários, WhatsApp, e-mail e integrações testados antes da publicação.',
+        'Contraste, foco de teclado, textos alternativos e leitura acessível.',
+      ],
+    },
+    {
+      type: 'paragraph',
+      text: 'Desconfie de promessa absoluta, como “primeiro lugar no Google”, “segurança total” ou “nota 100 garantida”. Um profissional sério explica o que controla, o que depende de conteúdo e servidor e como vai medir e corrigir problemas reais.',
+    },
+    {
+      type: 'heading',
+      id: 'garanta-autonomia-sobre-o-site',
+      level: 2,
+      text: '5. Garanta autonomia sobre o site',
+    },
+    {
+      type: 'paragraph',
+      text: 'Domínio, hospedagem, contas de analytics e acessos principais devem estar em seu nome ou em uma conta da empresa. O freelancer pode configurar tudo e orientar a escolha, mas a propriedade não deve ficar presa ao fornecedor.',
+    },
+    {
+      type: 'list',
+      items: [
+        'Você receberá acesso ao domínio e à hospedagem?',
+        'O código, o design e os arquivos finais serão entregues?',
+        'As licenças de temas, plugins e serviços estão identificadas?',
+        'Existe documentação ou treinamento para tarefas comuns?',
+        'Outro profissional conseguiria assumir o projeto no futuro?',
+      ],
+    },
+    {
+      type: 'paragraph',
+      text: 'Autonomia não significa que você precisa fazer tudo sozinho. Significa saber onde o projeto está, quem possui cada acesso e como a empresa pode continuar operando se a parceria mudar.',
+    },
+    {
+      type: 'heading',
+      id: 'entenda-freelancer-ou-agencia',
+      level: 2,
+      text: '6. Entenda quando freelancer ou agência faz mais sentido',
+    },
+    {
+      type: 'paragraph',
+      text: 'Freelancer costuma ser uma boa escolha quando você quer contato direto com quem desenvolve, escopo enxuto, decisão rápida e uma solução adaptada ao negócio. Agência pode fazer mais sentido quando o projeto exige várias especialidades simultâneas, operação de marketing integrada ou uma equipe dedicada por longo período.',
+    },
+    {
+      type: 'paragraph',
+      text: 'Não trate essa comparação como uma disputa de qualidade. Compare quem realmente executará o trabalho, quanto de atenção o projeto receberá e quais entregas estão incluídas. Uma agência não é automaticamente melhor, assim como um freelancer não é automaticamente mais barato ou mais adequado.',
+    },
+    {
+      type: 'heading',
+      id: 'combine-contrato-pagamento-e-suporte',
+      level: 2,
+      text: '7. Combine contrato, pagamento e suporte',
+    },
+    {
+      type: 'paragraph',
+      text: 'O contrato transforma uma conversa em um acordo verificável. Ele deve registrar escopo, etapas, prazos, revisões, responsabilidades, propriedade dos arquivos, tratamento de mudanças, forma de pagamento e o que acontece depois da publicação.',
+    },
+    {
+      type: 'list',
+      items: [
+        'Evite pagar 100% antes de qualquer etapa verificável.',
+        'Prefira parcelas ligadas a marcos do projeto.',
+        'Defina o que a garantia cobre e por quanto tempo.',
+        'Separe manutenção recorrente de ajustes incluídos na entrega.',
+        'Confirme como será o atendimento depois do lançamento.',
+      ],
+    },
+    {
+      type: 'paragraph',
+      text: 'Suporte não precisa ser mensal para todo negócio. Algumas empresas precisam de manutenção contínua; outras preferem receber treinamento e solicitar ajustes quando necessário. O ponto importante é escolher conscientemente, em vez de descobrir a responsabilidade depois que o site estiver no ar.',
+    },
+    {
+      type: 'heading',
+      id: 'identifique-sinais-de-alerta',
+      level: 2,
+      text: '8. Identifique sinais de alerta',
+    },
+    {
+      type: 'list',
+      items: [
+        'Preço muito baixo sem explicação de escopo, prazo ou método.',
+        'Promessa de ranking, velocidade ou segurança garantida.',
+        'Portfólio formado apenas por imagens, sem links reais.',
+        'Recusa em detalhar páginas, funções, revisões e responsabilidades.',
+        'Domínio, hospedagem ou acessos registrados exclusivamente no nome do fornecedor.',
+        'Prazo fechado antes de entender conteúdo, integrações e aprovações.',
+        'Uso de jargão para evitar respostas simples sobre o que será entregue.',
+        'Resistência a contrato ou a uma forma de pagamento ligada a etapas.',
+      ],
+    },
+    {
+      type: 'paragraph',
+      text: 'Um sinal isolado pode ter uma explicação. Vários juntos indicam risco alto. A melhor defesa é fazer perguntas objetivas, registrar as respostas e não contratar sob pressão.',
+    },
+    {
+      type: 'heading',
+      id: 'perguntas-para-comparar-propostas',
+      level: 2,
+      text: '9. Use estas perguntas antes de decidir',
+    },
+    {
+      type: 'list',
+      ordered: true,
+      items: [
+        'Quais projetos do seu portfólio são mais próximos do meu objetivo?',
+        'O que você precisa saber antes de fechar o escopo?',
+        'Quais etapas teremos e o que depende de mim em cada uma?',
+        'O que está incluído em conteúdo, SEO, testes e publicação?',
+        'Como você testa o site no celular, em acessibilidade e em diferentes navegadores?',
+        'Quem ficará com o domínio, hospedagem, código e contas de análise?',
+        'Quantas revisões estão incluídas e como mudanças são orçadas?',
+        'O que acontece se o conteúdo ou a aprovação atrasar?',
+        'Qual suporte existe depois do lançamento?',
+        'O que não está incluído nesta proposta?',
+      ],
+    },
+    {
+      type: 'blockquote',
+      text: 'Escolha quem consegue explicar o projeto com clareza antes de tentar impressionar com tecnologia.',
+    },
+    {
+      type: 'heading',
+      id: 'frequentes-sobre-contratar-freelancer',
+      level: 2,
+      text: 'Perguntas frequentes sobre contratar um freelancer',
+    },
+    {
+      type: 'faq',
+      items: [
+        {
+          question: 'Preciso contratar um desenvolvedor da minha cidade?',
+          answer:
+            'Não necessariamente. Um projeto pode ser conduzido remotamente quando há comunicação clara, documentação, etapas de aprovação e acesso organizado às informações. Para uma empresa local, conhecer o contexto do mercado pode ajudar, mas não substitui portfólio e processo.',
+        },
+        {
+          question: 'É melhor contratar freelancer ou agência para criar um site?',
+          answer:
+            'Depende da complexidade e do tipo de acompanhamento. Freelancer costuma atender bem projetos pequenos e médios com contato direto. Agência pode fazer sentido quando o escopo exige uma equipe multidisciplinar e operação integrada.',
+        },
+        {
+          question: 'O menor orçamento é a melhor escolha?',
+          answer:
+            'Não. Compare o que cada proposta entrega, incluindo conteúdo, testes, suporte, acessos e responsabilidades. Um preço menor pode refletir um escopo menor ou deixar itens importantes para serem cobrados depois.',
+        },
+        {
+          question: 'O desenvolvedor precisa trabalhar com WordPress?',
+          answer:
+            'Não. A plataforma deve ser escolhida pelo objetivo, pela necessidade de edição, pelas integrações e pela manutenção esperada. O profissional deve explicar a escolha e suas limitações sem vender uma tecnologia como solução universal.',
+        },
+        {
+          question: 'SEO vem incluído na criação do site?',
+          answer:
+            'Depende da proposta. No mínimo, confirme títulos, URLs, headings, indexação, sitemap, imagens e base técnica. SEO contínuo, conteúdo e autoridade são trabalhos adicionais que precisam ser combinados conforme a meta do negócio.',
+        },
+      ],
+    },
+    {
+      type: 'heading',
+      id: 'proximo-passo',
+      level: 2,
+      text: 'Próximo passo',
+    },
+    {
+      type: 'paragraph',
+      text: 'Se você já sabe o objetivo do projeto, reúna referências, liste as páginas necessárias e envie as mesmas perguntas para dois ou três profissionais. A proposta mais forte não é necessariamente a mais barata: é a que deixa claro como o site será planejado, construído, testado e entregue.',
+    },
+    {
+      type: 'links',
+      items: [
+        {
+          href: '/criacao-de-sites/',
+          label: 'Criação de sites',
+          text: 'Veja como estruturo sites profissionais com foco em SEO, performance e conversão.',
+        },
+        {
+          href: '/portfolio/urbem/',
+          label: 'Case: site da Urbem',
+          text: 'Conheça um projeto institucional com conteúdo técnico, organização de informação e base para crescimento orgânico.',
+        },
+        {
+          href: '/portfolio/agencia-skyrocket/',
+          label: 'Case: site da Agência Skyrocket',
+          text: 'Veja um projeto que combina identidade visual, clareza de serviços e experiência responsiva.',
+        },
+        {
+          href: '/insights/site-barato-vs-site-profissional/',
+          label: 'Site barato vs site profissional',
+          text: 'Continue a comparação entendendo o que costuma separar preço baixo de uma entrega realmente profissional.',
+        },
+        {
+          href: 'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Li%20o%20artigo%20sobre%20como%20escolher%20um%20desenvolvedor%20web%20freelancer%20e%20quero%20conversar%20sobre%20meu%20projeto.',
+          label: 'Falar no WhatsApp',
+          text: 'Se quiser comparar o escopo do seu projeto, me envie uma mensagem e eu te ajudo a organizar os próximos passos.',
+        },
+      ],
+    },
+  ],
+};
+
 export const insights: InsightPost[] = [
+  escolherFreelancerInsight,
   checklistInsight,
   siteInstitucionalInsight,
   quantoTempoInsight,

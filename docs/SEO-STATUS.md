@@ -27,7 +27,7 @@
 ## Known Gaps
 
 - No `/sobre/` page (E-E-A-T).
-- Editorial cadence stalled at 6 articles.
+- Editorial cadence now has 7 published articles; continue with two articles per month.
 
 ## Roadmaps
 

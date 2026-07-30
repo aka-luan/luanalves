@@ -20,6 +20,7 @@ Use this file for small tasks that do not need a full execution plan in `docs/ex
 ## Done
 
 - Reconciled SEO roadmap with shipped work; new prioritized plan in `docs/SEO-ROADMAP.md` (2026-07-30).
+- Published the researched Insight “Como escolher um desenvolvedor web freelancer” with portfolio, process, SEO, contract and support guidance.
 - Added one relevant portfolio case link to each existing insight article.
 - Added site-wide WhatsApp CTA analytics attribution and automated interaction coverage.
 - Added the branded custom 404 page with correct robots/canonical behavior.
