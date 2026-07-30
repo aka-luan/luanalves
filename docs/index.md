@@ -6,4 +6,5 @@
 - [Architecture](../ARCHITECTURE.md) - runtime shape, routes, data flow, scripts, build helpers, tests.
 - [Design source of truth](../design.md) - visual direction, copy, motion, accessibility, SEO, page checklist.
 - [SEO status](SEO-STATUS.md) - what's implemented vs. what needs human review.
+- [SEO roadmap](SEO-ROADMAP.md) - current prioritized SEO plan (measurement, local, editorial, GEO).
 - [Lightweight plans](PLANS.md) - active/backlog items.

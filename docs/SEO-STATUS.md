@@ -10,16 +10,24 @@
 - Portfolio index + case pages (`/portfolio/[slug]/`).
 - Editorial index + articles (`/insights/[slug]/`).
 - Breadcrumbs and `BreadcrumbList` schema on internal pages.
-- FAQPage schema on service pages.
+- FAQPage schema on service pages. Google retired FAQ rich results for all sites on 2026-05-07; existing markup may remain while it mirrors visible FAQ content, but it has no Google rich-result benefit or proven special AI/LLM citation value.
+- Per-page prefilled WhatsApp messages in `src/data/servicePages.ts` (enables page-level lead attribution at the inbox).
 
 ## Needs Human Review
 
-- Search Console impressions, clicks, and rankings (no data in repo).
+- Search Console verification, sitemap submission, impressions/clicks data (no data in repo).
 - Schema validation on representative pages (Rich Results Test).
-- Lighthouse / Core Web Vitals baseline.
+- Lighthouse / Core Web Vitals baseline (LCP / INP / CLS).
 - Google Business Profile, local citations, external profiles.
 - Privacy/analytics consent and legal requirements.
 
-## Historical Roadmap
+## Known Gaps
 
-Full phased SEO plan preserved in `docs/SEO-ROADMAP-archived.md` for reference.
+- No `src/pages/404.astro`.
+- No `/sobre/` page (E-E-A-T).
+- Editorial cadence stalled at 6 articles.
+
+## Roadmaps
+
+- Current plan: `docs/SEO-ROADMAP.md` (prioritized, updated 2026-07-30).
+- Historical phased plan: `docs/SEO-ROADMAP-archived.md` (implementation work from phases 1–4 shipped; outstanding validation moved to the current plan).
