@@ -14,13 +14,13 @@ Use this file for small tasks that do not need a full execution plan in `docs/ex
 ## Backlog
 
 - Add a short README if this repo needs a public developer entry point.
-- Retrofit at least one relevant portfolio case link into each existing insight article.
 - Add a manual QA checklist for portfolio and insight page templates.
 - Add privacy/legal notes once analytics and consent expectations are confirmed.
 
 ## Done
 
 - Reconciled SEO roadmap with shipped work; new prioritized plan in `docs/SEO-ROADMAP.md` (2026-07-30).
+- Added one relevant portfolio case link to each existing insight article.
 - Added site-wide WhatsApp CTA analytics attribution and automated interaction coverage.
 - Added the branded custom 404 page with correct robots/canonical behavior.
 - Validated representative rendered JSON-LD for home, service, case, and article templates.

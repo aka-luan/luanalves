@@ -477,6 +477,11 @@ const checklistInsight: InsightPost = {
           text: 'Conheça a estrutura para publicar conteúdo indexável e conectar SEO com geração de contatos.',
         },
         {
+          href: '/portfolio/urbem/',
+          label: 'Case: site da Urbem',
+          text: 'Veja como um site institucional com conteúdo técnico pode organizar produtos, projetos e SEO para um público B2B.',
+        },
+        {
           href: 'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Li%20o%20artigo%20sobre%20checklist%20de%20lan%C3%A7amento%20de%20site%20e%20quero%20revisar%20meu%20projeto%20antes%20de%20publicar.',
           label: 'Falar no WhatsApp',
           text: 'Se quiser revisar seu site antes de publicar, me chama e eu te ajudo a validar estrutura, SEO básico e conversão.',
@@ -964,6 +969,11 @@ const siteInstitucionalInsight: InsightPublishedPost = {
           text: 'Descubra quando faz sentido conectar site institucional com uma base editorial para crescer em SEO.',
         },
         {
+          href: '/portfolio/tresor-incorporacoes/',
+          label: 'Case: site da Trésor Incorporações',
+          text: 'Conheça um site institucional criado para transmitir sofisticação, clareza e confiança desde o primeiro acesso.',
+        },
+        {
           href: '/insights/quanto-custa-um-site-profissional/',
           label: 'Quanto custa um site profissional',
           text: 'Compare escopo, investimento e diferenças entre landing page, site institucional e outras estruturas.',
@@ -1350,6 +1360,11 @@ const quantoTempoInsight: InsightPublishedPost = {
           href: '/blog-profissional/',
           label: 'Blog profissional',
           text: 'Descubra como um blog bem estruturado ajuda a construir presença orgânica com base técnica limpa.',
+        },
+        {
+          href: '/portfolio/agencia-skyrocket/',
+          label: 'Case: site da Agência Skyrocket',
+          text: 'Veja um projeto que combinou identidade forte, seções objetivas e experiência responsiva para apresentar serviços.',
         },
         {
           href: 'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Li%20o%20artigo%20sobre%20quanto%20tempo%20leva%20para%20criar%20um%20site%20profissional%20e%20quero%20entender%20qual%20prazo%20faz%20sentido%20para%20meu%20projeto.',
@@ -1743,6 +1758,11 @@ export const insights: InsightPost[] = [
             text: 'Veja como estruturar conteúdo indexável para fortalecer autoridade orgânica.',
           },
           {
+            href: '/portfolio/aa-engenharia/',
+            label: 'Case: site da Conviva Engenharia',
+            text: 'Conheça um projeto institucional organizado para apresentar marca, empreendimentos e diferenciais comerciais.',
+          },
+          {
             href: 'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Li%20o%20artigo%20sobre%20quanto%20custa%20um%20site%20e%20quero%20entender%20qual%20estrutura%20faz%20sentido%20para%20meu%20projeto.',
             label: 'Falar no WhatsApp',
             text: 'Me conte sobre seu projeto e eu te digo qual estrutura faz mais sentido antes de você investir.',
@@ -2131,6 +2151,11 @@ export const insights: InsightPost[] = [
             text: 'Compare este artigo com o guia de preço para entender investimento e escopo sem misturar valor com estrutura.',
           },
           {
+            href: '/portfolio/clinica-cdv/',
+            label: 'Case: site da Clínica CDV',
+            text: 'Veja como clareza, especialidades e agendamento podem transformar um site institucional em caminho de contato.',
+          },
+          {
             href: 'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Li%20o%20artigo%20sobre%20site%20barato%20vs%20site%20profissional%20e%20quero%20entender%20qual%20estrutura%20faz%20mais%20sentido%20para%20meu%20projeto.',
             label: 'Falar no WhatsApp',
             text: 'Me conte sobre seu projeto e eu te ajudo a escolher uma estrutura que faça sentido para seu momento.',
@@ -2485,6 +2510,11 @@ export const insights: InsightPost[] = [
             href: '/insights/site-institucional-o-que-precisa-ter/',
             label: 'O que um site institucional precisa ter',
             text: 'Aprofunde a leitura com o artigo que mostra os elementos essenciais de um site institucional profissional.',
+          },
+          {
+            href: '/portfolio/poliana-bentes/',
+            label: 'Case: site da Poliana Bentes',
+            text: 'Conheça uma estrutura institucional e editorial criada para comunicar credibilidade e atuação estratégica.',
           },
           {
             href: 'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Li%20o%20artigo%20sobre%20landing%20page%20ou%20site%20institucional%20e%20quero%20entender%20qual%20estrutura%20faz%20mais%20sentido%20para%20meu%20projeto.',

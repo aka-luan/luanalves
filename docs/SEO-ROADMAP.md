@@ -40,7 +40,7 @@ Next two, both already mapped to keyword pillars in the archived roadmap and sti
 1. "Como escolher um desenvolvedor web freelancer" (pillar: educação → conversion).
 2. "Por que a performance do site afeta conversão" (pillar: blog/SEO; links naturally to cases with real numbers).
 
-The existing 6 articles consistently link to service pages but not to individual cases. Before or alongside the next editorial batch, retrofit at least one relevant case link into each existing article. New articles must link to at least one service page and one case, use correct pt-BR with accents, and open with an answer-first block.
+The existing 6 articles now link to at least one relevant individual case each (completed 2026-07-30). New articles must link to at least one service page and one case, use correct pt-BR with accents, and open with an answer-first block.
 Leading indicator: new articles receive impressions in GSC within 2–3 weeks of publish; if older articles show queries with impressions but low CTR, retitle before writing new ones.
 
 ## P3 — GEO / AI search upkeep (ongoing, low effort)
