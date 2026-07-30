@@ -234,7 +234,10 @@ const aboutSchema = [
       </div>
     </section>
 
-    <section class='about-process about-section' aria-labelledby='about-process-title'>
+    <section
+      class='about-process about-section'
+      aria-labelledby='about-process-title'
+      data-motion-section='process'>
       <div class='container'>
         <div class='about-process__intro'>
           <div class='about-section__heading'>
@@ -576,6 +579,7 @@ const aboutSchema = [
   .about-section {
     position: relative;
     padding: clamp(5rem, 9vw, 8.8rem) 0;
+    scroll-margin-top: 6rem;
   }
 
   .about-intro {
