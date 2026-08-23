@@ -4,9 +4,10 @@ Updated: 2026-07-30. Supersedes `docs/SEO-ROADMAP-archived.md`: the implementati
 
 ## Where things stand
 
-- 24 indexable routes: home, `/sobre/`, 5 service pages, `/portfolio/` + 7 cases, `/insights/` + 8 articles.
+- 27 indexable routes: home, `/sobre/`, 5 service pages, 3 national segment verticals, `/portfolio/` + 7 cases, `/insights/` + 8 articles.
 - Metadata, canonical, sitemap, robots.txt, llms.txt, breadcrumbs, and per-page-type schema are in place.
 - The binding constraint is no longer on-page work. It is: (1) zero measurement data — nothing confirms these pages are indexed or ranking; (2) zero off-site signals — no GBP, citations, or external profiles; (3) editorial cadence needs to continue beyond 8 articles.
+- Segment verticals published on 2026-08-23 target incorporadoras, construtoras and the engineered-timber ecosystem. The engineered-timber page also serves sales enablement and specialist-authority goals because its exact-match commercial SERP is immature.
 
 Priorities below are ordered by dependency: P0 makes everything else verifiable, P1 is the highest-leverage remaining work for a local freelancer site, P2/P3 compound over time.
 

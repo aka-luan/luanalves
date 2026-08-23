@@ -85,6 +85,40 @@ const relatedInsights = publishedInsights.slice(0, 2);
       motionName='differentials'
     />
 
+    {
+      page.relatedSegments?.length && (
+        <section class='service-segments' aria-labelledby='service-segments-title'>
+          <div class='service-segments__inner'>
+            <div class='service-segments__heading'>
+              <p class='editorial-eyebrow'>Sites por segmento</p>
+              <h2 id='service-segments-title'>
+                Uma base institucional adaptada ao seu mercado.
+              </h2>
+              <p>
+                Quando o ciclo de venda é complexo, conteúdo e prova precisam
+                acompanhar a linguagem de quem decide.
+              </p>
+            </div>
+
+            <div class='service-segments__links'>
+              {page.relatedSegments.map((segment) => (
+                <a href={segment.href}>
+                  <span>{segment.number}</span>
+                  <div>
+                    <strong>{segment.label}</strong>
+                    <p>{segment.copy}</p>
+                  </div>
+                  <span class='material-symbols-outlined' aria-hidden='true'>
+                    arrow_forward
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+      )
+    }
+
     <PortfolioShowcase
       projects={featuredPortfolioProjects}
       copy='Projetos reais usados como referência de acabamento, performance e presença digital profissional.'
@@ -164,6 +198,75 @@ const relatedInsights = publishedInsights.slice(0, 2);
 
   .service-reading {
     padding: clamp(4.2rem, 5vw, 5.4rem) 1.15rem 0;
+  }
+
+  .service-segments {
+    padding: clamp(5.5rem, 8vw, 8rem) 1.15rem 0;
+  }
+
+  .service-segments__inner {
+    display: grid;
+    grid-template-columns: minmax(18rem, 0.7fr) minmax(0, 1.3fr);
+    gap: clamp(2.5rem, 7vw, 7rem);
+    width: min(100%, 82rem);
+    margin: 0 auto;
+    padding-top: clamp(3rem, 5vw, 5rem);
+    border-top: 1px solid rgba(229, 218, 207, 0.13);
+  }
+
+  .service-segments__heading h2 {
+    margin: 1rem 0 0;
+    color: #f4f1ee;
+    font-family: 'Newsreader', serif;
+    font-size: clamp(2.8rem, 4.6vw, 4.4rem);
+    font-weight: 600;
+    letter-spacing: -0.05em;
+    line-height: 0.97;
+    text-wrap: balance;
+  }
+
+  .service-segments__heading > p:last-child {
+    max-width: 30rem;
+    margin: 1.25rem 0 0;
+    color: rgba(226, 218, 208, 0.75);
+    line-height: 1.7;
+  }
+
+  .service-segments__links {
+    display: grid;
+  }
+
+  .service-segments__links a {
+    display: grid;
+    grid-template-columns: 2.3rem 1fr auto;
+    gap: 1.15rem;
+    align-items: start;
+    padding: 1.45rem 0;
+    border-top: 1px solid rgba(229, 218, 207, 0.13);
+  }
+
+  .service-segments__links a > span:first-child {
+    color: rgba(223, 189, 121, 0.58);
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+  }
+
+  .service-segments__links strong {
+    color: #f4f1ee;
+    font-family: 'Newsreader', serif;
+    font-size: clamp(1.55rem, 2.5vw, 2.15rem);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+  }
+
+  .service-segments__links p {
+    margin: 0.45rem 0 0;
+    color: rgba(226, 218, 208, 0.7);
+    line-height: 1.6;
+  }
+
+  .service-segments__links .material-symbols-outlined {
+    color: #dfbd79;
   }
 
   .service-reading__inner {
@@ -258,8 +361,26 @@ const relatedInsights = publishedInsights.slice(0, 2);
   }
 
   @media (max-width: 900px) {
+    .service-segments__inner {
+      grid-template-columns: 1fr;
+    }
+
     .service-reading__grid {
       grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .service-segments {
+      padding-inline: 0.9rem;
+    }
+
+    .service-segments__links a {
+      grid-template-columns: 2rem 1fr;
+    }
+
+    .service-segments__links .material-symbols-outlined {
+      display: none;
     }
   }
 </style>

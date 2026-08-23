@@ -48,6 +48,50 @@ const primaryServiceLabel = project.categories.includes('Landing Page')
   : project.categories.includes('Blog Profissional')
     ? 'Blog Profissional'
     : 'Site Institucional';
+const verticalLinksByProject: Record<
+  string,
+  { href: string; label: string; copy: string }[]
+> = {
+  'tresor-incorporacoes': [
+    {
+      href: '/site-para-incorporadora/',
+      label: 'Site para incorporadora',
+      copy: 'Veja como projetos imobiliários podem unir marca, empreendimentos e conversão.',
+    },
+  ],
+  'conviva-engenharia': [
+    {
+      href: '/site-para-construtora/',
+      label: 'Site para construtora',
+      copy: 'Conheça a estrutura indicada para apresentar obras, experiência e confiança comercial.',
+    },
+  ],
+  urbem: [
+    {
+      href: '/site-para-industria-de-madeira-engenheirada/',
+      label: 'Site para madeira engenheirada',
+      copy: 'Veja como organizar indústria, produtos, projetos e conteúdo técnico para decisores B2B.',
+    },
+    {
+      href: '/site-para-construtora/',
+      label: 'Site para construtora',
+      copy: 'Entenda como conteúdo técnico e projetos podem sustentar autoridade no setor da construção.',
+    },
+  ],
+  tymber: [
+    {
+      href: '/site-para-incorporadora/',
+      label: 'Site para incorporadora',
+      copy: 'Veja como posicionamento e empreendimentos formam uma jornada imobiliária mais forte.',
+    },
+    {
+      href: '/site-para-industria-de-madeira-engenheirada/',
+      label: 'Site para madeira engenheirada',
+      copy: 'Conheça a narrativa indicada para empresas do ecossistema de mass timber.',
+    },
+  ],
+};
+const segmentLinks = verticalLinksByProject[project.slug] ?? [];
 const relatedInsights = publishedInsights.slice(0, 2);
 
 const caseSchema = [
@@ -286,7 +330,17 @@ const caseSchema = [
         </a>
 
         {
-          relatedInsights.map((post) => (
+          segmentLinks.map((link) => (
+            <a class='case-links__card' href={link.href}>
+              <small>Especialidade relacionada</small>
+              <strong>{link.label}</strong>
+              <p>{link.copy}</p>
+            </a>
+          ))
+        }
+
+        {
+          relatedInsights.slice(0, segmentLinks.length ? 1 : 2).map((post) => (
             <a class='case-links__card' href={getInsightPath(post)}>
               <small>{post.category}</small>
               <strong>{post.title}</strong>

@@ -1,3 +1,5 @@
+import { verticalPageLinks } from './verticalPages';
+
 const phone = '5591982890565';
 const siteUrl = 'https://luanalves.com.br';
 
@@ -22,6 +24,7 @@ export interface ServicePageContent {
   description: string;
   canonicalPath: string;
   serviceName: string;
+  relatedSegments?: typeof verticalPageLinks;
   whatsappHref: string;
   hero: {
     eyebrow: string;
@@ -155,6 +158,7 @@ export const servicePages: Record<string, ServicePageContent> = {
       'Site institucional para empresas que precisam transmitir autoridade, apresentar serviços com clareza e aparecer no Google com base técnica sólida.',
     canonicalPath: '/site-institucional/',
     serviceName: 'Site Institucional',
+    relatedSegments: verticalPageLinks,
     whatsappHref: buildWhatsappHref(
       'Olá, Luan! Quero solicitar um orçamento para um site institucional profissional.',
     ),

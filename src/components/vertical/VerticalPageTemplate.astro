@@ -1,0 +1,1195 @@
+---
+import Breadcrumbs from '../Breadcrumbs.astro';
+import FaqSection from '../FaqSection.astro';
+import HomeCta from '../HomeCta.astro';
+import SiteFooter from '../SiteFooter.astro';
+import SiteNav from '../SiteNav.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { navigation, portfolioProjects } from '../../data/site';
+import {
+  getVerticalPageSchema,
+  verticalPageLinks,
+  type VerticalPageContent,
+} from '../../data/verticalPages';
+
+interface Props {
+  page: VerticalPageContent;
+}
+
+const { page } = Astro.props;
+const primaryCase = portfolioProjects.find(
+  (project) => project.id === page.cases.primaryId,
+);
+const secondaryCase = portfolioProjects.find(
+  (project) => project.id === page.cases.secondaryId,
+);
+
+if (!primaryCase || !secondaryCase) {
+  throw new Error(`Cases não encontrados para ${page.slug}`);
+}
+
+const process = [
+  {
+    number: '01',
+    title: 'Diagnóstico do negócio',
+    copy: 'Entendo a operação, os públicos, o ciclo comercial e as evidências que o site precisa organizar.',
+  },
+  {
+    number: '02',
+    title: 'Arquitetura e narrativa',
+    copy: 'Defino páginas, hierarquia, mensagens e caminhos de conversão antes de desenhar a interface.',
+  },
+  {
+    number: '03',
+    title: 'Design e desenvolvimento',
+    copy: 'Transformo a estratégia em uma experiência responsiva, rápida e coerente com a identidade da empresa.',
+  },
+  {
+    number: '04',
+    title: 'Revisão e lançamento',
+    copy: 'Valido conteúdo, acessibilidade, SEO e performance e deixo a base pronta para evolução.',
+  },
+];
+
+const relatedVerticals = verticalPageLinks.filter(
+  (vertical) => vertical.href !== page.canonicalPath,
+);
+---
+
+<BaseLayout
+  namespace={page.namespace}
+  title={page.title}
+  description={page.description}
+  canonicalPath={page.canonicalPath}
+  socialImage={page.hero.image}
+  socialImageAlt={page.hero.imageAlt}
+  schema={getVerticalPageSchema(page)}>
+  <main class='vertical-page' id='top'>
+    <SiteNav
+      items={navigation}
+      whatsappHref={page.whatsappHref}
+      brandHref='/'
+      brandAriaLabel='Luan Alves, página inicial'
+    />
+
+    <section class='vertical-hero' aria-labelledby='vertical-title'>
+      <div class='vertical-hero__grid'>
+        <div class='vertical-hero__copy'>
+          <Breadcrumbs
+            items={[
+              { label: 'Início', href: '/' },
+              { label: 'Criação de Sites', href: '/criacao-de-sites/' },
+              { label: page.serviceName },
+            ]}
+          />
+
+          <p class='vertical-eyebrow'>{page.hero.eyebrow}</p>
+          <h1 id='vertical-title'>
+            <span>{page.hero.title}</span>
+            <em>{page.hero.accent}</em>
+          </h1>
+          <p class='vertical-hero__lead'>{page.hero.copy}</p>
+
+          <div class='vertical-hero__actions'>
+            <a
+              class='vertical-button vertical-button--solid'
+              href={page.whatsappHref}
+              target='_blank'
+              rel='noreferrer'>
+              <span>{page.hero.primaryCta}</span>
+              <span class='material-symbols-outlined' aria-hidden='true'>
+                arrow_outward
+              </span>
+            </a>
+            <a class='vertical-button vertical-button--text' href='#cases'>
+              Ver experiência no segmento
+            </a>
+          </div>
+        </div>
+
+        <div class='vertical-hero__visual'>
+          <div class='vertical-hero__index' aria-hidden='true'>
+            <span>{page.slug === 'site-para-incorporadora' ? '01' : page.slug === 'site-para-construtora' ? '02' : '03'}</span>
+            <small>Especialidade</small>
+          </div>
+          <figure class='vertical-hero__frame'>
+            <div class='vertical-browser-bar' aria-hidden='true'>
+              <span></span><span></span><span></span>
+              <small>projeto real</small>
+            </div>
+            <img
+              src={page.hero.image}
+              alt={page.hero.imageAlt}
+              width='1200'
+              height='820'
+              loading='eager'
+              decoding='async'
+              fetchpriority='high'
+            />
+          </figure>
+          <p class='vertical-hero__caption'>
+            <span>Case em destaque</span>
+            <strong>{primaryCase.title}</strong>
+          </p>
+        </div>
+      </div>
+
+      <div class='vertical-proof' aria-label='Pilares da entrega'>
+        {
+          page.hero.proof.map((item, index) => (
+            <article>
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <strong>{item.value}</strong>
+              <p>{item.label}</p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class='vertical-tension' aria-labelledby='problems-title'>
+      <div class='vertical-section-heading'>
+        <p class='vertical-eyebrow'>{page.problems.eyebrow}</p>
+        <h2 id='problems-title'>{page.problems.title}</h2>
+        <p>{page.problems.copy}</p>
+      </div>
+
+      <div class='vertical-tension__grid'>
+        {
+          page.problems.items.map((item, index) => (
+            <article>
+              <span class='vertical-card-number' aria-hidden='true'>
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <span class='material-symbols-outlined' aria-hidden='true'>
+                {item.icon}
+              </span>
+              <h3>{item.title}</h3>
+              <p>{item.copy}</p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class='vertical-blueprint' aria-labelledby='architecture-title'>
+      <div class='vertical-blueprint__intro'>
+        <p class='vertical-eyebrow'>{page.architecture.eyebrow}</p>
+        <h2 id='architecture-title'>{page.architecture.title}</h2>
+        <p>{page.architecture.copy}</p>
+      </div>
+
+      <ol class='vertical-blueprint__list'>
+        {
+          page.architecture.items.map((item, index) => (
+            <li>
+              <span class='vertical-blueprint__number'>
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <span class='vertical-blueprint__icon material-symbols-outlined' aria-hidden='true'>
+                {item.icon}
+              </span>
+              <div>
+                <h3>{item.title}</h3>
+                <p>{item.copy}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+
+    <section class='vertical-cases' id='cases' aria-labelledby='cases-title'>
+      <div class='vertical-cases__heading'>
+        <p class='vertical-eyebrow'>{page.cases.eyebrow}</p>
+        <h2 id='cases-title'>{page.cases.title}</h2>
+        <p>{page.cases.copy}</p>
+      </div>
+
+      <div class='vertical-cases__grid'>
+        <a
+          class='vertical-case vertical-case--primary'
+          href={`/portfolio/${primaryCase.slug}/`}>
+          <figure>
+            <img
+              src={primaryCase.image}
+              alt={primaryCase.alt}
+              width='1200'
+              height='820'
+              loading='lazy'
+              decoding='async'
+            />
+          </figure>
+          <div class='vertical-case__copy'>
+            <span>Case principal · {primaryCase.segment}</span>
+            <h3>{primaryCase.title}</h3>
+            <p>{primaryCase.solution}</p>
+            <strong>
+              Ver case completo
+              <span class='material-symbols-outlined' aria-hidden='true'>
+                arrow_outward
+              </span>
+            </strong>
+          </div>
+        </a>
+
+        <a
+          class='vertical-case vertical-case--secondary'
+          href={`/portfolio/${secondaryCase.slug}/`}>
+          <figure>
+            <img
+              src={secondaryCase.image}
+              alt={secondaryCase.alt}
+              width='900'
+              height='650'
+              loading='lazy'
+              decoding='async'
+            />
+          </figure>
+          <div class='vertical-case__copy'>
+            <span>Case complementar · {secondaryCase.segment}</span>
+            <h3>{secondaryCase.title}</h3>
+            <p>{secondaryCase.lead}</p>
+            <strong>
+              Conhecer o projeto
+              <span class='material-symbols-outlined' aria-hidden='true'>
+                arrow_outward
+              </span>
+            </strong>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class='vertical-process' aria-labelledby='process-title'>
+      <div class='vertical-process__heading'>
+        <p class='vertical-eyebrow'>Processo</p>
+        <h2 id='process-title'>Da leitura do negócio ao site pronto para crescer.</h2>
+        <p>
+          A tecnologia entra depois que público, conteúdo e decisão comercial
+          estão claros. Isso reduz retrabalho e deixa a interface mais precisa.
+        </p>
+      </div>
+
+      <ol class='vertical-process__list'>
+        {
+          process.map((step) => (
+            <li>
+              <span>{step.number}</span>
+              <div>
+                <h3>{step.title}</h3>
+                <p>{step.copy}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+
+    <section class='vertical-differentials' aria-labelledby='differentials-title'>
+      <div class='vertical-differentials__heading'>
+        <p class='vertical-eyebrow'>{page.differentials.eyebrow}</p>
+        <h2 id='differentials-title'>{page.differentials.title}</h2>
+        <p>{page.differentials.copy}</p>
+      </div>
+
+      <div class='vertical-differentials__grid'>
+        {
+          page.differentials.items.map((item) => (
+            <article>
+              <span class='material-symbols-outlined' aria-hidden='true'>
+                {item.icon}
+              </span>
+              <h3>{item.title}</h3>
+              <p>{item.copy}</p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class='vertical-related' aria-labelledby='related-title'>
+      <div>
+        <p class='vertical-eyebrow'>Outros segmentos</p>
+        <h2 id='related-title'>A mesma base técnica, outra realidade comercial.</h2>
+      </div>
+      <div class='vertical-related__links'>
+        {
+          relatedVerticals.map((vertical) => (
+            <a href={vertical.href}>
+              <span>{vertical.number}</span>
+              <div>
+                <strong>{vertical.label}</strong>
+                <p>{vertical.copy}</p>
+              </div>
+              <span class='material-symbols-outlined' aria-hidden='true'>
+                arrow_forward
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </section>
+
+    <FaqSection
+      items={page.faq}
+      title='Dúvidas antes de estruturar o projeto.'
+      copy='Escopo, atualização e recursos são definidos de acordo com a operação — sem transformar possibilidades em promessas genéricas.'
+      motion={false}
+      showSectionIndex={false}
+    />
+
+    <HomeCta
+      whatsappHref={page.whatsappHref}
+      title={page.cta.title}
+      copy={page.cta.copy}
+      buttonLabel={page.cta.buttonLabel}
+      motion={false}
+    />
+  </main>
+
+  <SiteFooter links={navigation} brandHref='/' />
+</BaseLayout>
+
+<style>
+  :global(html),
+  :global(body) {
+    overflow-x: clip;
+  }
+
+  :global(body) {
+    background: var(--surface-lowest);
+  }
+
+  .vertical-page {
+    --vertical-gold: #dfbd79;
+    --vertical-cream: #f5f1e9;
+    --vertical-muted: rgba(229, 221, 210, 0.72);
+    min-height: 100svh;
+    background:
+      radial-gradient(circle at 84% 8%, rgba(218, 176, 101, 0.11), transparent 29rem),
+      linear-gradient(180deg, #0d0e0d 0%, #151614 40%, #0d0e0d 100%);
+    color: var(--vertical-cream);
+  }
+
+  .vertical-page :global(.site-nav) {
+    --nav-bg: rgba(13, 14, 13, 0.88);
+    --nav-border: rgba(223, 189, 121, 0.2);
+    --nav-blur: 18px;
+  }
+
+  .vertical-eyebrow {
+    margin: 0;
+    color: var(--vertical-gold);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+  }
+
+  .vertical-hero {
+    position: relative;
+    padding: clamp(8.5rem, 12vw, 10.5rem) clamp(1.25rem, 5vw, 5rem) 0;
+    overflow: hidden;
+  }
+
+  .vertical-hero::before {
+    content: '';
+    position: absolute;
+    top: 3.5rem;
+    right: -13rem;
+    width: 39rem;
+    height: 39rem;
+    border: 1px solid rgba(223, 189, 121, 0.11);
+    transform: rotate(22deg);
+    pointer-events: none;
+  }
+
+  .vertical-hero__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(27rem, 1.08fr);
+    gap: clamp(3rem, 7vw, 8rem);
+    align-items: center;
+    width: min(100%, 88rem);
+    margin: 0 auto;
+  }
+
+  .vertical-hero__copy {
+    position: relative;
+    z-index: 2;
+  }
+
+  .vertical-hero__copy :global(.shared-breadcrumbs) {
+    margin-bottom: clamp(2rem, 4vw, 3.25rem);
+  }
+
+  .vertical-hero__copy > .vertical-eyebrow {
+    margin-bottom: 1.25rem;
+  }
+
+  .vertical-hero h1,
+  .vertical-section-heading h2,
+  .vertical-blueprint h2,
+  .vertical-cases h2,
+  .vertical-process h2,
+  .vertical-differentials h2,
+  .vertical-related h2 {
+    margin: 0;
+    font-family: 'Newsreader', serif;
+    font-weight: 600;
+    letter-spacing: -0.058em;
+    text-wrap: balance;
+  }
+
+  .vertical-hero h1 {
+    max-width: 12ch;
+    font-size: clamp(3.75rem, 6.6vw, 6.65rem);
+    line-height: 0.9;
+  }
+
+  .vertical-hero h1 span,
+  .vertical-hero h1 em {
+    display: block;
+  }
+
+  .vertical-hero h1 em {
+    color: var(--vertical-gold);
+    font-style: italic;
+  }
+
+  .vertical-hero__lead {
+    max-width: 39rem;
+    margin: 1.75rem 0 0;
+    color: var(--vertical-muted);
+    font-size: clamp(1.05rem, 1.45vw, 1.24rem);
+    font-weight: 300;
+    line-height: 1.72;
+  }
+
+  .vertical-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem 1.35rem;
+    align-items: center;
+    margin-top: 2rem;
+  }
+
+  .vertical-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    min-height: 3.35rem;
+    color: var(--vertical-cream);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: border-color 180ms ease, background 180ms ease, color 180ms ease, transform 180ms ease;
+  }
+
+  .vertical-button--solid {
+    padding: 0.8rem 1.25rem;
+    background: var(--vertical-gold);
+    color: #17140e;
+  }
+
+  .vertical-button--solid:hover,
+  .vertical-button--solid:focus-visible {
+    background: #f0d294;
+    transform: translateY(-2px);
+  }
+
+  .vertical-button--text {
+    min-height: auto;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid rgba(223, 189, 121, 0.46);
+  }
+
+  .vertical-button--text:hover,
+  .vertical-button--text:focus-visible {
+    color: var(--vertical-gold);
+    border-color: var(--vertical-gold);
+  }
+
+  .vertical-hero__visual {
+    position: relative;
+    padding: 3.6rem 0 2rem 2.7rem;
+  }
+
+  .vertical-hero__index {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    display: grid;
+    gap: 0.15rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--vertical-gold);
+  }
+
+  .vertical-hero__index span {
+    color: var(--vertical-gold);
+    font-family: 'Newsreader', serif;
+    font-size: 2.8rem;
+    font-style: italic;
+    line-height: 0.9;
+  }
+
+  .vertical-hero__index small,
+  .vertical-hero__caption span {
+    color: rgba(229, 221, 210, 0.56);
+    font-size: 0.58rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .vertical-hero__frame {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid rgba(223, 189, 121, 0.25);
+    background: #171817;
+    box-shadow: 0 2.5rem 6rem rgba(0, 0, 0, 0.42);
+    transform: rotate(1.4deg);
+  }
+
+  .vertical-browser-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.42rem;
+    height: 2.45rem;
+    padding: 0 0.9rem;
+    border-bottom: 1px solid rgba(229, 221, 210, 0.1);
+  }
+
+  .vertical-browser-bar > span {
+    width: 0.43rem;
+    height: 0.43rem;
+    border-radius: 50%;
+    background: rgba(223, 189, 121, 0.52);
+  }
+
+  .vertical-browser-bar small {
+    margin-left: auto;
+    color: rgba(229, 221, 210, 0.44);
+    font-size: 0.52rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .vertical-hero__frame img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1.42 / 1;
+    object-fit: cover;
+    object-position: top center;
+  }
+
+  .vertical-hero__caption {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    gap: 0.3rem;
+    width: max-content;
+    max-width: 80%;
+    margin: -1.7rem 1.5rem 0 auto;
+    padding: 1rem 1.25rem;
+    border: 1px solid rgba(223, 189, 121, 0.22);
+    background: rgba(13, 14, 13, 0.94);
+  }
+
+  .vertical-hero__caption strong {
+    font-family: 'Newsreader', serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+  }
+
+  .vertical-proof {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: min(100%, 88rem);
+    margin: clamp(4.5rem, 7vw, 7rem) auto 0;
+    border-top: 1px solid rgba(229, 221, 210, 0.13);
+    border-bottom: 1px solid rgba(229, 221, 210, 0.13);
+  }
+
+  .vertical-proof article {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.25rem 1rem;
+    padding: 1.7rem clamp(1rem, 3vw, 2.25rem);
+    border-right: 1px solid rgba(229, 221, 210, 0.13);
+  }
+
+  .vertical-proof article:last-child {
+    border-right: 0;
+  }
+
+  .vertical-proof article > span {
+    grid-row: span 2;
+    color: rgba(223, 189, 121, 0.55);
+    font-family: 'Newsreader', serif;
+    font-size: 1rem;
+    font-style: italic;
+  }
+
+  .vertical-proof strong {
+    font-family: 'Newsreader', serif;
+    font-size: clamp(1.35rem, 2vw, 1.75rem);
+    font-weight: 600;
+  }
+
+  .vertical-proof p {
+    margin: 0;
+    color: rgba(229, 221, 210, 0.54);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .vertical-tension,
+  .vertical-blueprint,
+  .vertical-cases,
+  .vertical-process,
+  .vertical-differentials,
+  .vertical-related {
+    width: min(100%, 82rem);
+    margin: 0 auto;
+    padding: clamp(6.5rem, 10vw, 10rem) clamp(1.25rem, 3vw, 2rem);
+  }
+
+  .vertical-section-heading,
+  .vertical-cases__heading,
+  .vertical-differentials__heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.6fr);
+    gap: 1rem clamp(2rem, 6vw, 6rem);
+    align-items: end;
+  }
+
+  .vertical-section-heading .vertical-eyebrow,
+  .vertical-cases__heading .vertical-eyebrow,
+  .vertical-differentials__heading .vertical-eyebrow {
+    grid-column: 1 / -1;
+  }
+
+  .vertical-section-heading h2,
+  .vertical-cases h2,
+  .vertical-differentials h2,
+  .vertical-related h2 {
+    font-size: clamp(3.1rem, 5.5vw, 5.35rem);
+    line-height: 0.96;
+  }
+
+  .vertical-section-heading > p:last-child,
+  .vertical-cases__heading > p:last-child,
+  .vertical-differentials__heading > p:last-child,
+  .vertical-blueprint__intro > p:last-child,
+  .vertical-process__heading > p:last-child {
+    margin: 0;
+    color: var(--vertical-muted);
+    font-weight: 300;
+    line-height: 1.72;
+  }
+
+  .vertical-tension__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 4rem;
+    border-top: 1px solid rgba(229, 221, 210, 0.14);
+  }
+
+  .vertical-tension__grid article {
+    position: relative;
+    min-height: 22rem;
+    padding: 2rem;
+    border-right: 1px solid rgba(229, 221, 210, 0.14);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.015), transparent);
+  }
+
+  .vertical-tension__grid article:last-child {
+    border-right: 0;
+  }
+
+  .vertical-card-number {
+    position: absolute;
+    top: 1.4rem;
+    right: 1.4rem;
+    color: rgba(229, 221, 210, 0.25);
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+  }
+
+  .vertical-tension__grid .material-symbols-outlined,
+  .vertical-differentials__grid .material-symbols-outlined {
+    color: var(--vertical-gold);
+    font-size: 2.1rem;
+  }
+
+  .vertical-tension__grid h3,
+  .vertical-differentials__grid h3,
+  .vertical-blueprint h3,
+  .vertical-process h3 {
+    margin: 2.8rem 0 0;
+    font-family: 'Newsreader', serif;
+    font-size: clamp(1.75rem, 2.7vw, 2.35rem);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+
+  .vertical-tension__grid p,
+  .vertical-differentials__grid p,
+  .vertical-blueprint__list p,
+  .vertical-process__list p,
+  .vertical-related__links p {
+    margin: 1rem 0 0;
+    color: var(--vertical-muted);
+    font-weight: 300;
+    line-height: 1.68;
+  }
+
+  .vertical-blueprint {
+    display: grid;
+    grid-template-columns: minmax(18rem, 0.7fr) minmax(0, 1.3fr);
+    gap: clamp(3rem, 8vw, 8rem);
+    align-items: start;
+    width: min(100%, 88rem);
+    border-top: 1px solid rgba(229, 221, 210, 0.12);
+    border-bottom: 1px solid rgba(229, 221, 210, 0.12);
+  }
+
+  .vertical-blueprint__intro {
+    position: sticky;
+    top: 7rem;
+  }
+
+  .vertical-blueprint h2,
+  .vertical-process h2 {
+    margin-top: 1rem;
+    font-size: clamp(3rem, 5vw, 4.8rem);
+    line-height: 0.96;
+  }
+
+  .vertical-blueprint__intro > p:last-child,
+  .vertical-process__heading > p:last-child {
+    margin-top: 1.5rem;
+  }
+
+  .vertical-blueprint__list,
+  .vertical-process__list {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .vertical-blueprint__list li {
+    display: grid;
+    grid-template-columns: 2.5rem 3rem minmax(0, 1fr);
+    gap: 1.25rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(229, 221, 210, 0.12);
+  }
+
+  .vertical-blueprint__list li:last-child {
+    border-bottom: 0;
+  }
+
+  .vertical-blueprint__number {
+    color: rgba(223, 189, 121, 0.55);
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+  }
+
+  .vertical-blueprint__icon {
+    color: var(--vertical-gold);
+    font-size: 2rem;
+  }
+
+  .vertical-blueprint h3 {
+    margin: 0;
+  }
+
+  .vertical-cases {
+    width: min(100%, 88rem);
+  }
+
+  .vertical-cases__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(19rem, 0.65fr);
+    gap: 1.15rem;
+    align-items: end;
+    margin-top: 4rem;
+  }
+
+  .vertical-case {
+    display: grid;
+    overflow: hidden;
+    border: 1px solid rgba(229, 221, 210, 0.14);
+    background: rgba(255, 255, 255, 0.018);
+    transition: border-color 200ms ease, transform 200ms ease;
+  }
+
+  .vertical-case:hover,
+  .vertical-case:focus-visible {
+    border-color: rgba(223, 189, 121, 0.5);
+    transform: translateY(-4px);
+  }
+
+  .vertical-case figure {
+    margin: 0;
+    overflow: hidden;
+    background: #0a0b0a;
+  }
+
+  .vertical-case--primary figure {
+    aspect-ratio: 1.47 / 1;
+  }
+
+  .vertical-case--secondary figure {
+    aspect-ratio: 1.14 / 1;
+  }
+
+  .vertical-case img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 600ms cubic-bezier(0.2, 0.75, 0.25, 1);
+  }
+
+  .vertical-case:hover img,
+  .vertical-case:focus-visible img {
+    transform: scale(1.025);
+  }
+
+  .vertical-case__copy {
+    display: grid;
+    padding: clamp(1.45rem, 3vw, 2.4rem);
+  }
+
+  .vertical-case__copy > span {
+    color: var(--vertical-gold);
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .vertical-case__copy h3 {
+    margin: 0.65rem 0 0;
+    font-family: 'Newsreader', serif;
+    font-size: clamp(2.25rem, 4vw, 3.8rem);
+    font-weight: 600;
+    letter-spacing: -0.05em;
+    line-height: 0.95;
+  }
+
+  .vertical-case--secondary .vertical-case__copy h3 {
+    font-size: clamp(1.9rem, 3vw, 2.75rem);
+  }
+
+  .vertical-case__copy p {
+    margin: 1rem 0 0;
+    color: var(--vertical-muted);
+    font-weight: 300;
+    line-height: 1.65;
+  }
+
+  .vertical-case__copy > strong {
+    display: inline-flex;
+    gap: 0.65rem;
+    align-items: center;
+    margin-top: 1.5rem;
+    color: var(--vertical-gold);
+    font-size: 0.64rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .vertical-process {
+    display: grid;
+    grid-template-columns: minmax(18rem, 0.7fr) minmax(0, 1.3fr);
+    gap: clamp(3rem, 8vw, 8rem);
+  }
+
+  .vertical-process__list li {
+    display: grid;
+    grid-template-columns: 3.25rem 1fr;
+    gap: 1.25rem;
+    padding: 1.75rem 0;
+    border-top: 1px solid rgba(229, 221, 210, 0.14);
+  }
+
+  .vertical-process__list li > span {
+    color: var(--vertical-gold);
+    font-family: 'Newsreader', serif;
+    font-size: 1.25rem;
+    font-style: italic;
+  }
+
+  .vertical-process h3 {
+    margin: 0;
+    font-size: clamp(1.65rem, 2.5vw, 2.2rem);
+  }
+
+  .vertical-process__list p {
+    max-width: 38rem;
+  }
+
+  .vertical-differentials {
+    width: min(100%, 88rem);
+    border-top: 1px solid rgba(229, 221, 210, 0.12);
+  }
+
+  .vertical-differentials__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.8rem;
+    margin-top: 4rem;
+  }
+
+  .vertical-differentials__grid article {
+    min-height: 20rem;
+    padding: 1.7rem;
+    border: 1px solid rgba(229, 221, 210, 0.13);
+    background: linear-gradient(150deg, rgba(223, 189, 121, 0.055), transparent 45%);
+  }
+
+  .vertical-differentials__grid h3 {
+    margin-top: 3.5rem;
+    font-size: clamp(1.55rem, 2.2vw, 2rem);
+  }
+
+  .vertical-related {
+    display: grid;
+    grid-template-columns: minmax(18rem, 0.68fr) minmax(0, 1.32fr);
+    gap: clamp(3rem, 8vw, 8rem);
+    padding-top: 4rem;
+    border-top: 1px solid rgba(229, 221, 210, 0.13);
+  }
+
+  .vertical-related h2 {
+    margin-top: 1rem;
+    font-size: clamp(2.6rem, 4vw, 4rem);
+  }
+
+  .vertical-related__links {
+    display: grid;
+  }
+
+  .vertical-related__links a {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr auto;
+    gap: 1.2rem;
+    align-items: start;
+    padding: 1.65rem 0;
+    border-top: 1px solid rgba(229, 221, 210, 0.14);
+  }
+
+  .vertical-related__links a > span:first-child {
+    color: rgba(223, 189, 121, 0.58);
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+  }
+
+  .vertical-related__links strong {
+    font-family: 'Newsreader', serif;
+    font-size: clamp(1.7rem, 2.8vw, 2.35rem);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+  }
+
+  .vertical-related__links p {
+    max-width: 35rem;
+    margin-top: 0.55rem;
+  }
+
+  .vertical-related__links .material-symbols-outlined {
+    color: var(--vertical-gold);
+    transition: transform 180ms ease;
+  }
+
+  .vertical-related__links a:hover .material-symbols-outlined,
+  .vertical-related__links a:focus-visible .material-symbols-outlined {
+    transform: translateX(0.35rem);
+  }
+
+  @media (max-width: 1000px) {
+    .vertical-hero__grid,
+    .vertical-blueprint,
+    .vertical-process,
+    .vertical-related {
+      grid-template-columns: 1fr;
+    }
+
+    .vertical-hero__copy {
+      max-width: 49rem;
+    }
+
+    .vertical-hero__visual {
+      width: min(100%, 48rem);
+      justify-self: end;
+    }
+
+    .vertical-blueprint__intro {
+      position: static;
+      max-width: 44rem;
+    }
+
+    .vertical-cases__grid {
+      grid-template-columns: minmax(0, 1.15fr) minmax(17rem, 0.85fr);
+    }
+
+    .vertical-differentials__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 760px) {
+    .vertical-hero {
+      padding: 7.5rem 1rem 0;
+    }
+
+    .vertical-hero::before {
+      opacity: 0.55;
+    }
+
+    .vertical-hero h1 {
+      font-size: clamp(3.25rem, 14vw, 5rem);
+    }
+
+    .vertical-hero__visual {
+      padding: 3.25rem 0 1.5rem 1rem;
+    }
+
+    .vertical-hero__frame {
+      transform: rotate(0.8deg);
+    }
+
+    .vertical-proof {
+      grid-template-columns: 1fr;
+      margin-top: 3.5rem;
+    }
+
+    .vertical-proof article {
+      border-right: 0;
+      border-bottom: 1px solid rgba(229, 221, 210, 0.13);
+    }
+
+    .vertical-proof article:last-child {
+      border-bottom: 0;
+    }
+
+    .vertical-tension,
+    .vertical-blueprint,
+    .vertical-cases,
+    .vertical-process,
+    .vertical-differentials,
+    .vertical-related {
+      padding: 6rem 1rem;
+    }
+
+    .vertical-section-heading,
+    .vertical-cases__heading,
+    .vertical-differentials__heading {
+      grid-template-columns: 1fr;
+      align-items: start;
+    }
+
+    .vertical-section-heading h2,
+    .vertical-cases h2,
+    .vertical-differentials h2 {
+      font-size: clamp(2.85rem, 12vw, 4rem);
+    }
+
+    .vertical-tension__grid {
+      grid-template-columns: 1fr;
+      margin-top: 3rem;
+    }
+
+    .vertical-tension__grid article {
+      min-height: 0;
+      border-right: 0;
+      border-bottom: 1px solid rgba(229, 221, 210, 0.14);
+    }
+
+    .vertical-tension__grid article:last-child {
+      border-bottom: 0;
+    }
+
+    .vertical-cases__grid {
+      grid-template-columns: 1fr;
+      margin-top: 3rem;
+    }
+
+    .vertical-case--primary figure,
+    .vertical-case--secondary figure {
+      aspect-ratio: 1.28 / 1;
+    }
+
+    .vertical-differentials__grid {
+      grid-template-columns: 1fr;
+      margin-top: 3rem;
+    }
+
+    .vertical-differentials__grid article {
+      min-height: 0;
+    }
+
+    .vertical-related {
+      padding-top: 3rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .vertical-hero__actions {
+      align-items: stretch;
+    }
+
+    .vertical-button--solid {
+      width: 100%;
+    }
+
+    .vertical-hero__caption {
+      max-width: calc(100% - 1rem);
+      margin-right: 0.5rem;
+    }
+
+    .vertical-blueprint__list li {
+      grid-template-columns: 2rem 1fr;
+    }
+
+    .vertical-blueprint__icon {
+      display: none;
+    }
+
+    .vertical-process__list li {
+      grid-template-columns: 2.5rem 1fr;
+    }
+
+    .vertical-related__links a {
+      grid-template-columns: 2rem 1fr;
+    }
+
+    .vertical-related__links .material-symbols-outlined {
+      display: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vertical-button,
+    .vertical-case,
+    .vertical-case img,
+    .vertical-related__links .material-symbols-outlined {
+      transition: none;
+    }
+  }
+</style>

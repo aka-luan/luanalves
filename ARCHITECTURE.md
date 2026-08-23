@@ -20,6 +20,7 @@ There is no backend service or database in this repository.
 - `/` - home page with services, selected portfolio, differentiators, and contact.
 - `/criacao-de-sites/` - custom service page for site creation.
 - `/site-institucional/`, `/landing-page/`, `/blog-profissional/`, `/criacao-de-sites-belem/` - service pages generated from `src/data/servicePages.ts` through `ServicePageTemplate.astro`.
+- `/site-para-incorporadora/`, `/site-para-construtora/`, `/site-para-industria-de-madeira-engenheirada/` - vertical commercial pages generated from `src/data/verticalPages.ts` through `VerticalPageTemplate.astro`.
 - `/portfolio/` - portfolio index.
 - `/portfolio/[slug]/` - case study pages generated from `portfolioProjects` in `src/data/site.ts`.
 - `/insights/` - editorial index.
@@ -30,6 +31,8 @@ There is no backend service or database in this repository.
 `src/data/site.ts` owns navigation, service summaries, home portfolio cards, full portfolio case details, featured portfolio projects, and conversion reasons.
 
 `src/data/servicePages.ts` owns service-page content, shared process blocks, shared FAQ blocks, WhatsApp links, breadcrumbs, FAQ schema, and service schema.
+
+`src/data/verticalPages.ts` owns industry-specific commercial content, case selection, WhatsApp attribution, links between verticals, and `Service`/breadcrumb schema without `FAQPage` markup.
 
 `src/data/insights.ts` owns editorial post metadata, article blocks, categories, filters, article paths, table-of-contents helpers, and hero image prompts.
 

@@ -7,10 +7,12 @@
 - `@astrojs/sitemap`, `public/robots.txt`, `public/llms.txt`.
 - Sitemap `lastmod` helper in `scripts/seo-metadata.mjs`.
 - Commercial pages: `/criacao-de-sites/`, `/site-institucional/`, `/landing-page/`, `/blog-profissional/`, `/criacao-de-sites-belem/`.
+- National vertical pages: `/site-para-incorporadora/`, `/site-para-construtora/`, `/site-para-industria-de-madeira-engenheirada/`, each with segment-specific copy, cases, WhatsApp attribution, canonical metadata and `Service` schema.
 - Portfolio index + case pages (`/portfolio/[slug]/`).
 - Editorial index + articles (`/insights/[slug]/`).
 - Breadcrumbs and `BreadcrumbList` schema on internal pages.
 - FAQPage schema on service pages. Google retired FAQ rich results for all sites on 2026-05-07; existing markup may remain while it mirrors visible FAQ content, but it has no Google rich-result benefit or proven special AI/LLM citation value.
+- New vertical pages keep visible FAQs but intentionally omit `FAQPage` schema.
 - Per-page prefilled WhatsApp messages in `src/data/servicePages.ts` (enables page-level lead attribution at the inbox).
 - Site-wide Vercel Analytics event for WhatsApp CTA clicks (`whatsapp_click`) with page and CTA context.
 - Custom branded `404.astro` with recovery links and correct `noindex, follow` handling.

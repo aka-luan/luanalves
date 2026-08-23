@@ -19,6 +19,7 @@ Use this file for small tasks that do not need a full execution plan in `docs/ex
 
 ## Done
 
+- Added national commercial verticals for incorporadoras, construtoras and the engineered-timber ecosystem, with real case evidence, internal links, WhatsApp attribution and SEO metadata.
 - Reconciled SEO roadmap with shipped work; new prioritized plan in `docs/SEO-ROADMAP.md` (2026-07-30).
 - Published the researched Insight “Como escolher um desenvolvedor web freelancer” with portfolio, process, SEO, contract and support guidance.
 - Published the researched Insight “Por que a performance do site afeta a conversão?” with a conversion funnel, Core Web Vitals guidance and measurement checklist.

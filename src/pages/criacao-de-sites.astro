@@ -8,6 +8,7 @@ import SiteNav from '../components/SiteNav.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { projects } from '../data/site';
 import { getBreadcrumbSchema, getFaqPageSchema } from '../data/servicePages';
+import { verticalPageLinks } from '../data/verticalPages';
 
 const whatsappHref =
   'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Quero%20solicitar%20um%20or%C3%A7amento%20para%20cria%C3%A7%C3%A3o%20de%20site.';
@@ -426,6 +427,44 @@ const creationServiceSchema = [
           Todos os formatos são desenvolvidos com foco em performance, SEO técnico,
           experiência do usuário e resultados reais.
         </p>
+      </div>
+    </section>
+
+    <section
+      class='segments-section'
+      aria-labelledby='segments-title'>
+      <div class='segments-section__inner'>
+        <div class='segments-section__heading'>
+          <p class='creation-eyebrow editorial-eyebrow'>
+            Sites para segmentos especializados
+          </p>
+          <h2 id='segments-title'>
+            O mesmo rigor técnico.
+            <em>Uma narrativa para cada mercado.</em>
+          </h2>
+          <p>
+            Incorporadoras, construtoras e empresas de madeira engenheirada
+            vendem decisões complexas. Cada página organiza problemas, provas e
+            caminhos comerciais próprios do segmento.
+          </p>
+        </div>
+
+        <div class='segments-section__list'>
+          {
+            verticalPageLinks.map((item) => (
+              <a href={item.href}>
+                <span>{item.number}</span>
+                <div>
+                  <strong>{item.label}</strong>
+                  <p>{item.copy}</p>
+                </div>
+                <span class='material-symbols-outlined' aria-hidden='true'>
+                  arrow_outward
+                </span>
+              </a>
+            ))
+          }
+        </div>
       </div>
     </section>
 
@@ -1305,6 +1344,114 @@ const creationServiceSchema = [
 
   .solution-card__browser span:nth-child(3) {
     background: #8eb36a;
+  }
+
+  .segments-section {
+    position: relative;
+    padding: clamp(6rem, 8vw, 8rem) clamp(1.25rem, 6vw, 5.8rem);
+    border-top: 1px solid rgba(229, 218, 207, 0.1);
+    border-bottom: 1px solid rgba(229, 218, 207, 0.1);
+    background:
+      linear-gradient(90deg, rgba(229, 196, 135, 0.045), transparent 38%),
+      #101110;
+  }
+
+  .segments-section__inner {
+    display: grid;
+    grid-template-columns: minmax(18rem, 0.72fr) minmax(0, 1.28fr);
+    gap: clamp(3rem, 8vw, 8rem);
+    width: min(100%, 82rem);
+    margin: 0 auto;
+  }
+
+  .segments-section__heading h2 {
+    margin: 1rem 0 0;
+    color: #f5f2ef;
+    font-family: 'Newsreader', serif;
+    font-size: clamp(3rem, 4.8vw, 4.75rem);
+    font-weight: 600;
+    letter-spacing: -0.058em;
+    line-height: 0.95;
+    text-wrap: balance;
+  }
+
+  .segments-section__heading h2 em {
+    display: block;
+    color: #dfbd79;
+    font-style: italic;
+  }
+
+  .segments-section__heading > p:last-child {
+    max-width: 32rem;
+    margin: 1.5rem 0 0;
+    color: rgba(226, 218, 208, 0.75);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  .segments-section__list {
+    display: grid;
+  }
+
+  .segments-section__list a {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr auto;
+    gap: 1.25rem;
+    align-items: start;
+    padding: 1.65rem 0;
+    border-top: 1px solid rgba(229, 218, 207, 0.14);
+  }
+
+  .segments-section__list a > span:first-child {
+    color: rgba(223, 189, 121, 0.58);
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+  }
+
+  .segments-section__list strong {
+    color: #f5f2ef;
+    font-family: 'Newsreader', serif;
+    font-size: clamp(1.75rem, 2.7vw, 2.35rem);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+  }
+
+  .segments-section__list p {
+    max-width: 36rem;
+    margin: 0.55rem 0 0;
+    color: rgba(226, 218, 208, 0.7);
+    font-weight: 300;
+    line-height: 1.65;
+  }
+
+  .segments-section__list .material-symbols-outlined {
+    color: #dfbd79;
+    transition: transform 180ms ease;
+  }
+
+  .segments-section__list a:hover .material-symbols-outlined,
+  .segments-section__list a:focus-visible .material-symbols-outlined {
+    transform: translate(0.25rem, -0.25rem);
+  }
+
+  @media (max-width: 860px) {
+    .segments-section__inner {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .segments-section {
+      padding-inline: 0.9rem;
+    }
+
+    .segments-section__list a {
+      grid-template-columns: 2rem 1fr;
+    }
+
+    .segments-section__list .material-symbols-outlined {
+      display: none;
+    }
   }
 
   .solution-card__media {
