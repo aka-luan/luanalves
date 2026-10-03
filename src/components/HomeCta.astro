@@ -6,6 +6,7 @@ interface Props {
   copy?: string;
   buttonLabel?: string;
   motion?: boolean;
+  analyticsPosition?: string;
 }
 
 const {
@@ -15,6 +16,7 @@ const {
   copy = 'Me conte sobre o seu projeto. Atendo empresas em Belém e em todo o Brasil de forma 100% remota — com a agilidade de um freelancer e a qualidade de uma agência. Respondo em até 24 horas.',
   buttonLabel = 'Falar no WhatsApp',
   motion = true,
+  analyticsPosition = 'home_final',
 } = Astro.props;
 
 const sectionMotionAttrs = motion ? { 'data-motion-section': 'cta' } : {};
@@ -39,11 +41,11 @@ const buttonMotionAttrs = motion
       <p {...copyMotionAttrs}>{copy}</p>
       <a
         class='button button-solid button-large'
-        href={whatsappHref}
+        href={whatsappHref} data-analytics-position={analyticsPosition}
         target='_blank'
         rel='noreferrer'
         {...buttonMotionAttrs}>
-        <span class='material-symbols-outlined'>forum</span>
+        <span class='material-symbols-outlined' aria-hidden='true'>forum</span>
         {buttonLabel}
       </a>
     </div>

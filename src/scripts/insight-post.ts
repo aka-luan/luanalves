@@ -86,98 +86,18 @@ function initInsightMotion(page: HTMLElement, reduceMotion: MediaQueryList) {
   }
 
   const context = gsap.context(() => {
-    gsap.set([breadcrumb, heroEyebrow, heroTitle, heroCopy].filter(Boolean), {
-      autoAlpha: 0,
-      y: 24,
-      willChange: 'transform, opacity',
+    // The article hero is visible from HTML and must stay visible during boot.
+    const belowViewport = (element: Element) =>
+      element.getBoundingClientRect().top >= window.innerHeight;
+    gsap.set(sidebarItems.filter(belowViewport), {
+      autoAlpha: 0, x: 24, willChange: 'transform, opacity',
     });
-    gsap.set(heroMeta, {
-      autoAlpha: 0,
-      y: 14,
-      willChange: 'transform, opacity',
+    if (authorCard && belowViewport(authorCard)) {
+      gsap.set(authorCard, { autoAlpha: 0, y: 30, willChange: 'transform, opacity' });
+    }
+    gsap.set([...relatedHeader, ...relatedCards].filter(belowViewport), {
+      autoAlpha: 0, y: 30, willChange: 'transform, opacity',
     });
-    gsap.set(heroVisual, {
-      autoAlpha: 0,
-      y: 36,
-      scale: 0.985,
-      willChange: 'transform, opacity',
-    });
-    gsap.set(heroImage, {
-      scale: 1.08,
-      willChange: 'transform',
-    });
-    // gsap.set(articleBlocks, {
-    //   autoAlpha: 0,
-    //   y: 34,
-    //   willChange: 'transform, opacity',
-    // });
-    gsap.set(sidebarItems, {
-      autoAlpha: 0,
-      x: 24,
-      willChange: 'transform, opacity',
-    });
-    gsap.set(authorCard, {
-      autoAlpha: 0,
-      y: 30,
-      willChange: 'transform, opacity',
-    });
-    gsap.set([...relatedHeader, ...relatedCards], {
-      autoAlpha: 0,
-      y: 30,
-      willChange: 'transform, opacity',
-    });
-
-    gsap
-      .timeline({
-        defaults: {
-          duration: 0.82,
-          ease: 'power3.out',
-        },
-      })
-      .to(breadcrumb, {
-        autoAlpha: 1,
-        y: 0,
-        clearProps: 'transform,opacity,visibility,willChange',
-      })
-      .to(
-        [heroEyebrow, heroTitle, heroCopy].filter(Boolean),
-        {
-          autoAlpha: 1,
-          y: 0,
-          stagger: 0.08,
-          clearProps: 'transform,opacity,visibility,willChange',
-        },
-        0.1,
-      )
-      .to(
-        heroMeta,
-        {
-          autoAlpha: 1,
-          y: 0,
-          stagger: 0.06,
-          clearProps: 'transform,opacity,visibility,willChange',
-        },
-        0.34,
-      )
-      .to(
-        heroVisual,
-        {
-          autoAlpha: 1,
-          y: 0,
-          scale: 1,
-          clearProps: 'transform,opacity,visibility,willChange',
-        },
-        0.48,
-      )
-      .to(
-        heroImage,
-        {
-          scale: 1,
-          duration: 1.2,
-          clearProps: 'transform,willChange',
-        },
-        0.5,
-      );
 
     if (heroVisual && heroImage) {
       gsap.to(heroImage, {

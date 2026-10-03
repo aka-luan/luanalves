@@ -93,7 +93,7 @@ const relatedVerticals = verticalPageLinks.filter(
           <div class='vertical-hero__actions'>
             <a
               class='vertical-button vertical-button--solid'
-              href={page.whatsappHref}
+              href={page.whatsappHref} data-analytics-position='segment_hero'
               target='_blank'
               rel='noreferrer'>
               <span>{page.hero.primaryCta}</span>
@@ -339,7 +339,7 @@ const relatedVerticals = verticalPageLinks.filter(
       showSectionIndex={false}
     />
 
-    <HomeCta
+    <HomeCta analyticsPosition='segment_final'
       whatsappHref={page.whatsappHref}
       title={page.cta.title}
       copy={page.cta.copy}

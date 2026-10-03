@@ -150,7 +150,7 @@ const aboutSchema = [
           <div class='about-hero__actions' data-motion-hero-actions>
             <a
               class='shared-button shared-button--solid'
-              href={whatsappHref}
+              href={whatsappHref} data-analytics-position='about_hero'
               target='_blank'
               rel='noreferrer'
               data-motion-hidden='y-sm'>
@@ -380,7 +380,7 @@ const aboutSchema = [
       </div>
     </section>
 
-    <HomeCta
+    <HomeCta analyticsPosition='about_final'
       whatsappHref={whatsappHref}
       title='Se o seu negócio precisa de mais clareza no digital, vamos conversar.'
       copy='Conte o que você quer construir. Eu respondo com contexto, próximos passos e uma proposta alinhada ao momento do projeto.'
