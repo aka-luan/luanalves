@@ -4,6 +4,7 @@ import ProjectPortfolio from '../components/ProjectPortfolio.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import SiteNav from '../components/SiteNav.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getHeroImage, homeHeroSizes } from '../data/heroImages';
 import {
   navigation,
   trustItems,
@@ -14,6 +15,7 @@ import {
 
 const whatsappHref =
   'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Estou%20interessado%20em%20criar%20um%20site%20profissional%20para%20meu%20neg%C3%B3cio.%20Podemos%20conversar%3F';
+const heroImage = await getHeroImage('/assets/hero-img.webp', homeHeroSizes);
 ---
 
 <BaseLayout>
@@ -93,10 +95,8 @@ const whatsappHref =
           data-motion-hidden='scale'>
           <div class='hero-media-frame'>
             <img
-              src='/assets/hero-img.webp'
+              {...heroImage}
               alt='Retrato de Luan Alves, desenvolvedor web.'
-              width='1086'
-              height='1536'
               decoding='async'
               fetchpriority='high'
             />

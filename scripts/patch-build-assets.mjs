@@ -29,7 +29,12 @@ function getRelativeAstroPath(htmlFile) {
 }
 
 function rewriteAssetUrls(html, assetBasePath) {
-  return html.replaceAll('"/_astro/', `"${assetBasePath}`).replaceAll("'/_astro/", `'${assetBasePath}`);
+  return html
+    .replaceAll('"/_astro/', `"${assetBasePath}`)
+    .replaceAll("'/_astro/", `'${assetBasePath}`)
+    .replace(/\b(?:srcset|imagesrcset)=(['"])(.*?)\1/g, (attribute) =>
+      attribute.replace(/([\s,])\/_astro\//g, `$1${assetBasePath}`),
+    );
 }
 
 async function main() {

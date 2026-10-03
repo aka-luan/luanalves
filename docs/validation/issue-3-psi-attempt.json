@@ -1,0 +1,18 @@
+{
+  "observed_at": "2026-10-03T22:49:58.266Z",
+  "origin": "https://luanalves.com.br",
+  "strategy": "mobile",
+  "runs_per_url": 3,
+  "status": "incomplete",
+  "pages": [
+    {
+      "url": "https://luanalves.com.br/",
+      "runs": []
+    }
+  ],
+  "failure": {
+    "url": "https://luanalves.com.br/",
+    "run": 1,
+    "http_status": 429
+  }
+}

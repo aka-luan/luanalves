@@ -73,6 +73,12 @@ BaseLayout loads the optional GA4 Google tag asynchronously only on the producti
 
 Shared font preloads remain in the persistent head on all routes. Page-specific head additions must still be covered by syncHead.
 
+## Responsive Hero Delivery
+
+src/data/heroImages.ts generates responsive WebP variants from existing public assets. Keep sizes aligned with each template. The desktop-only home preload shares the image candidates and is replaced during Barba navigation.
+
+Astro inlines route CSS to avoid blocking the text hero on a stylesheet request. Barba retains and deduplicates inline style elements alongside stylesheet links. The post-build patch must rewrite every srcset/imagesrcset candidate relative to its output HTML, including candidates after commas.
+
 ## Build Helpers
 
 `pnpm run build` runs `astro build` and then `scripts/patch-build-assets.mjs`.

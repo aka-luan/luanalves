@@ -1,5 +1,6 @@
 ---
 import Breadcrumbs from '../Breadcrumbs.astro';
+import { getHeroImage } from '../../data/heroImages';
 import type { ServicePageContent } from '../../data/servicePages';
 
 interface Props {
@@ -8,6 +9,7 @@ interface Props {
 
 const { page } = Astro.props;
 const { hero } = page;
+const heroImage = await getHeroImage(hero.image, '(max-width: 900px) calc(100vw - 37px), 50vw');
 const titleParts = hero.title.split(hero.accent);
 const titleDensity = hero.title.length > 64 ? 'long' : 'default';
 const hiddenHeroEyebrowSlugs = new Set([
@@ -102,10 +104,8 @@ const breadcrumbItems = [
       data-motion-hidden='scale'>
       <div class='service-orbit'></div>
       <img
-        src={hero.image}
+        {...heroImage}
         alt=''
-        width='1448'
-        height='1086'
         decoding='async'
         fetchpriority='high'
       />

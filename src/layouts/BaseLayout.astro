@@ -3,6 +3,7 @@ import Analytics from '@vercel/analytics/astro';
 import SpeedInsights from '@vercel/speed-insights/astro';
 import '../styles/fonts.css';
 import '../styles/global.css';
+import { getHeroImage, homeHeroSizes } from '../data/heroImages';
 
 interface Props {
   title?: string;
@@ -126,6 +127,9 @@ const baseSchema = [
 ];
 
 const pageSchema = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
+const homeHeroImage = namespace === 'home'
+  ? await getHeroImage('/assets/hero-img.webp', homeHeroSizes)
+  : null;
 const schemaGraph = {
   '@context': 'https://schema.org',
   '@graph': [...baseSchema, ...pageSchema],
@@ -137,8 +141,8 @@ const schemaGraph = {
   <head>
     <meta charset='UTF-8' />
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-    {namespace === 'home' && (
-      <link rel='preload' as='image' href='/assets/hero-img.webp' type='image/webp' fetchpriority='high' />
+    {homeHeroImage && (
+      <link rel='preload' as='image' href={homeHeroImage.src} imagesrcset={homeHeroImage.srcset} imagesizes={homeHeroImage.sizes} media='(min-width: 961px)' type='image/webp' fetchpriority='high' />
     )}
     <link rel='preload' as='font' href='/fonts/Newsreader/newsreader-600-normal.woff2' type='font/woff2' crossorigin />
     <link rel='preload' as='font' href='/fonts/Manrope/manrope-400-normal.woff2' type='font/woff2' crossorigin />

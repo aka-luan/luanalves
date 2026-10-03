@@ -3,6 +3,7 @@ import SiteFooter from '../../components/SiteFooter.astro';
 import InsightFaq from '../../components/InsightFaq.astro';
 import SiteNav from '../../components/SiteNav.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getHeroImage } from '../../data/heroImages';
 import { navigation } from '../../data/site';
 import {
   getInsightPath,
@@ -21,6 +22,9 @@ export function getStaticPaths() {
 }
 
 const { post } = Astro.props as { post: InsightPublishedPost };
+const heroImage = post.heroImage
+  ? await getHeroImage(post.heroImage, '(max-width: 1168px) calc(100vw - 48px), 1120px')
+  : null;
 const siteUrl = 'https://luanalves.com.br';
 const canonicalPath = getInsightPath(post);
 const canonicalUrl = `${siteUrl}${canonicalPath}`;
@@ -174,10 +178,8 @@ const renderInlineLinks = (text: string) => text;
           {
             post.heroImage ? (
               <img
-                src={post.heroImage}
+                {...heroImage}
                 alt={post.heroImageAlt}
-                width='1200'
-                height='800'
                 loading='eager'
                 fetchpriority='high'
                 decoding='async'
