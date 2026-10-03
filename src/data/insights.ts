@@ -2408,7 +2408,7 @@ export const insights: InsightPost[] = [
             text: 'Veja como estruturar conteúdo indexável para fortalecer autoridade orgânica.',
           },
           {
-            href: '/portfolio/aa-engenharia/',
+            href: '/portfolio/conviva-engenharia/',
             label: 'Case: site da Conviva Engenharia',
             text: 'Conheça um projeto institucional organizado para apresentar marca, empreendimentos e diferenciais comerciais.',
           },

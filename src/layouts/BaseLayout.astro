@@ -29,6 +29,9 @@ const {
 } = Astro.props;
 
 const siteUrl = 'https://luanalves.com.br';
+// The measurement ID is public; a build variable may override or disable it.
+const googleAnalyticsId = import.meta.env.PUBLIC_GOOGLE_ANALYTICS_ID ?? 'G-MWZHK1N4TN';
+const hasGoogleAnalytics = /^G-[A-Z0-9]+$/.test(googleAnalyticsId ?? '');
 const toAbsoluteUrl = (path: string) =>
   path.startsWith('http') ? path : new URL(path, siteUrl).toString();
 const canonicalUrl = canonicalPath ? toAbsoluteUrl(canonicalPath) : null;
@@ -137,6 +140,8 @@ const schemaGraph = {
     {namespace === 'home' && (
       <link rel='preload' as='image' href='/assets/hero-img.webp' type='image/webp' fetchpriority='high' />
     )}
+    <link rel='preload' as='font' href='/fonts/Newsreader/newsreader-600-normal.woff2' type='font/woff2' crossorigin />
+    <link rel='preload' as='font' href='/fonts/Manrope/manrope-400-normal.woff2' type='font/woff2' crossorigin />
     <title>{title}</title>
     <meta name='description' content={description} />
     {canonicalUrl && <link rel='canonical' href={canonicalUrl} />}
@@ -176,6 +181,38 @@ const schemaGraph = {
     <div data-barba='container' data-barba-namespace={namespace}>
       <slot />
     </div>
+    {hasGoogleAnalytics && (
+      <script is:inline define:vars={{ googleAnalyticsId }}>
+        // Keep local development and preview traffic out of the production baseline.
+        if (['luanalves.com.br', 'www.luanalves.com.br'].includes(location.hostname)) {
+          window.dataLayer = window.dataLayer || [];
+          window.gtag = function () { window.dataLayer.push(arguments); };
+          window.gtag('js', new Date());
+          // Preserve campaign attribution without forwarding arbitrary query strings.
+          const campaign = {};
+          const params = new URLSearchParams(location.search);
+          for (const [query, field] of Object.entries({
+            utm_source: 'campaign_source', utm_medium: 'campaign_medium',
+            utm_campaign: 'campaign_name', utm_content: 'campaign_content',
+            utm_term: 'campaign_term',
+          })) {
+            const value = params.get(query);
+            if (value) campaign[field] = value.slice(0, 100);
+          }
+          window.gtag('config', googleAnalyticsId, {
+            ...campaign,
+            send_page_view: false,
+            page_location: location.origin + location.pathname,
+            allow_google_signals: false,
+            allow_ad_personalization_signals: false,
+          });
+          const googleTag = document.createElement('script');
+          googleTag.async = true;
+          googleTag.src = 'https://www.googletagmanager.com/gtag/js?id=' + googleAnalyticsId;
+          document.head.append(googleTag);
+        }
+      </script>
+    )}
     <Analytics />
     <SpeedInsights />
     <script>
