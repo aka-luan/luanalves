@@ -1,0 +1,18 @@
+{
+  "status": "complete-intermediate",
+  "productionCommit": "b45275d57d3b96e639ba58fad47818619bf29f39",
+  "configuration": "Lighthouse 13.5.0, Moto G Power, mobile, slow 4G, initial load; calculator values (CLS rounded by calculator)",
+  "runs": [
+    {"page":"home","LCP":5905,"FCP":3676,"TBT":12,"CLS":0.04,"reportUrl":"https://pagespeed.web.dev/analysis/https-luanalves-com-br/bdq42u01cb?form_factor=mobile"},
+    {"page":"home","LCP":6261,"FCP":3787,"TBT":0,"CLS":0.01,"reportUrl":"https://pagespeed.web.dev/analysis/https-luanalves-com-br/hmhijow63a?form_factor=mobile"},
+    {"page":"home","LCP":6287,"FCP":3797,"TBT":14,"CLS":0,"reportUrl":"https://pagespeed.web.dev/analysis/https-luanalves-com-br/yxm2395j3a?form_factor=mobile"},
+    {"page":"belem","LCP":4501,"FCP":3826,"TBT":9,"CLS":0.01,"reportUrl":"https://pagespeed.web.dev/analysis/https-luanalves-com-br-criacao-de-sites-belem/4j5aj1fz8t?form_factor=mobile"},
+    {"page":"belem","LCP":4060,"FCP":3376,"TBT":27,"CLS":0.01,"reportUrl":"https://pagespeed.web.dev/analysis/https-luanalves-com-br-criacao-de-sites-belem/6qhu4asngc?form_factor=mobile"},
+    {"page":"belem","LCP":4501,"FCP":3826,"TBT":64,"CLS":0.01,"reportUrl":"https://pagespeed.web.dev/analysis/https-luanalves-com-br-criacao-de-sites-belem/ijeo06nd6z?form_factor=mobile"},
+    {"page":"article","LCP":3935,"FCP":3376,"TBT":24,"CLS":0.01,"reportUrl":"https://pagespeed.web.dev/analysis/https-luanalves-com-br-insights-quanto-tempo-leva-para-criar-um-site-profissional/vzgjuitxr3?form_factor=mobile"},
+    {"page":"article","LCP":5747,"FCP":3601,"TBT":11,"CLS":0.01,"reportUrl":"https://pagespeed.web.dev/analysis/https-luanalves-com-br-insights-quanto-tempo-leva-para-criar-um-site-profissional/w5jg3jylor?form_factor=mobile"},
+    {"page":"article","LCP":5265,"FCP":3376,"TBT":12,"CLS":0.01,"reportUrl":"https://pagespeed.web.dev/analysis/https-luanalves-com-br-insights-quanto-tempo-leva-para-criar-um-site-profissional/ilr5k9zscb?form_factor=mobile"}
+  ],
+  "rejected": [{"reportUrl":"https://pagespeed.web.dev/analysis/https-luanalves-com-br/yycjzbymsy?form_factor=mobile","reason":"New report URL retained prior home audit content/capture time; replaced with a fresh sample."}],
+  "notes": "Home CLS regressed, so this is intermediate evidence. Final validation must measure the layout-stability follow-up."
+}

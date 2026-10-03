@@ -106,3 +106,5 @@ Run `pnpm run build` after page, layout, content, or SEO changes. Run `pnpm run 
 
 - NEEDS_HUMAN_REVIEW: Real lead metrics, Search Console baselines, and conversion attribution are not present in the repo.
 - NEEDS_HUMAN_REVIEW: External business profiles and local SEO facts must be verified outside this repository before being documented as facts.
+
+Mobile header CSS must match the controller's initial compact state to avoid shifting on boot. The home heading has authored line breaks: use an em-based width that accommodates both Newsreader and the serif fallback, rather than a ch limit whose width changes during font swap. Keep the mobile eyebrow line-height explicit so the CTA position is stable while fonts load.
