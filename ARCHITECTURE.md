@@ -108,3 +108,4 @@ Run `pnpm run build` after page, layout, content, or SEO changes. Run `pnpm run 
 - NEEDS_HUMAN_REVIEW: External business profiles and local SEO facts must be verified outside this repository before being documented as facts.
 
 Mobile header CSS must match the controller's initial compact state to avoid shifting on boot. The home heading has authored line breaks: use an em-based width that accommodates both Newsreader and the serif fallback, rather than a ch limit whose width changes during font swap. Keep the mobile eyebrow line-height explicit so the CTA position is stable while fonts load.
+Keep the home heading and its child span at a stable block width during font swap; a shrink-to-fit inline-block can register CLS even when its line count and CTA position are stable.

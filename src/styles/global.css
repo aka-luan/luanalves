@@ -359,6 +359,7 @@ a:focus-visible {
 
 .hero-title {
   /* Authored line breaks must not rewrap when the fallback font swaps. */
+  width: 100%;
   max-width: 6em;
   margin-inline: 0;
   font-family: "Newsreader", serif;
@@ -369,7 +370,7 @@ a:focus-visible {
 }
 
 .hero-title>span {
-  display: inline-block;
+  display: block;
 }
 
 .hero-title__muted {
