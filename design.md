@@ -1,59 +1,44 @@
 # Design Guidelines
 
-This file is the design source of truth for new pages, layouts, and major UI sections in this Astro site. Read it before creating or changing page structure.
+Source of truth for visual, page, copy, and SEO work on this site.
 
-## Design Direction
+## Direction And Layout
 
-- Build a dark premium editorial interface, not a generic SaaS template.
-- Keep the site sharp and architectural. The global radius is intentionally `--radius: 0px`.
-- Use restrained gold accents from the existing CSS custom properties in `src/styles/global.css`.
-- Prefer the current surface system before adding new colors: `--background`, `--surface`, `--surface-elevated`, `--surface-soft`, `--surface-lowest`, and `--line`.
-- Use Manrope for body/UI text and Newsreader for editorial display headings.
-- Do not add remote font dependencies. Fonts must stay local under `public/fonts/`.
-- Use Material Symbols for icons because the local icon font is already included.
-- Keep visual emphasis focused on clarity, craft, performance, and WhatsApp conversion.
+- Dark premium editorial presentation with sharp architectural geometry; --radius: 0px is intentional.
+- Use existing gold accents, surface tokens, spacing, and section/container patterns in src/styles/global.css before adding new ones.
+- Manrope for body/UI and Newsreader for editorial display headings. Keep fonts local under public/fonts/ and use the existing Material Symbols icon font.
+- Compose sections around their content, real project imagery, and clear WhatsApp conversion paths.
+- Preserve this palette, geometry, type, and icon language unless the requested redesign changes them.
 
-## Page And Layout Rules
+## Copy And Commercial Scope
 
-- Start new pages from the existing Astro patterns in `src/pages/`, `src/components/`, and `src/components/service/`.
-- Use `src/layouts/BaseLayout.astro` for shared HTML shell concerns: title, description, canonical URL, Open Graph, Twitter metadata, schema, analytics, and global assets.
-- Keep reusable content in `src/data/site.ts` or another shared data file when multiple components/pages need it.
-- Keep Astro components mostly presentational. Put browser behavior in `src/scripts/`.
-- Preserve one clear H1 per page.
-- Favor composed editorial sections, real project imagery, and strong conversion paths over decorative cards.
-- Use existing section rhythm first: `.section`, `.container`, service components, portfolio components, and CTA patterns.
-- Do not introduce a new palette, rounded component language, remote font, or icon family unless the user explicitly asks for a broader redesign.
+Visible copy is direct pt-BR with correct accents. CTAs should describe the page's intent and lead naturally to WhatsApp contact.
 
-## Copy And Language
+Keep these market distinctions explicit:
 
-- Visible UI copy must be Portuguese Brazil (`pt-BR`) with correct accentuation.
-- Check long Portuguese words and CTA labels on mobile so they do not clip, overflow, or wrap awkwardly.
-- Keep copy direct and conversion-aware. The site should guide visitors toward WhatsApp contact without feeling noisy.
-- Preserve terms that already define the business: desenvolvimento web, criação de sites, site institucional, blog profissional, landing page, portfólio, orçamento, conversão, lançamento, suporte.
-- Do not trust mojibake shown by PowerShell. If text appears corrupted in terminal output, verify the actual file encoding before changing copy.
+- Incorporadora: structures and commercializes real-estate developments; emphasize brand, launches, and interested-buyer capture.
+- Construtora: executes construction work; emphasize technical capacity, delivery history, and served segments.
+- Empresa de madeira engenheirada: designs, manufactures, or assembles CLT, MLC, or other mass-timber systems; avoid reducing it to a generic madeireira.
 
-## Assets And Media
+The core offer covers information architecture, design, development, project presentation, institutional content, technical SEO, performance, and conversion. CMS, CRM, advanced catalogs, restricted areas, and external integrations are optional scope extensions; never imply automatic inclusion.
 
-- Use real images from `public/assets/` when possible.
-- Verify every referenced image, video, poster, and placeholder path exists before shipping.
-- Give images meaningful `alt` text in pt-BR.
-- Keep social/OG image paths consistent with metadata in `BaseLayout.astro`.
-- Avoid fake screenshots, purely decorative SVG art, and generic stock-like visuals when a real project or service image can communicate better.
+## Media
 
-## Motion And Interaction
+Prefer real project/service assets in public/assets/. Avoid invented screenshots, generic stock-like visuals, or decorative art when real work communicates better.
+Use meaningful pt-BR alt text and consistent social-preview assets.
 
-- Respect reduced motion. Motion code must check `prefers-reduced-motion` or use the existing `motion-enabled` setup.
-- Use motion to clarify hierarchy, page transitions, reveal timing, or user feedback. Avoid animation that only adds noise.
-- Keep browser interaction logic in `src/scripts/`, especially navigation, page transitions, GSAP behavior, modals, and lightboxes.
-- Preserve focus states, keyboard behavior, button semantics, dialog labels, and accessible close controls.
-- Buttons and links need clear hover, focus-visible, and active states.
+## Interaction And Accessibility
+
+- Check Portuguese headings and CTA labels at mobile widths for clipping and awkward wrapping.
+- Preserve readable contrast, keyboard operation, focus-visible states, button semantics, dialog labels, and accessible close controls.
+- Hover, focus, and active states must communicate the same action.
+- Motion should clarify hierarchy, transitions, or feedback. Respect prefers-reduced-motion and the existing motion-enabled setup.
 
 ## SEO And Conversion
 
-- New pages need page-specific title, description, canonical path, Open Graph/Twitter metadata, and appropriate schema through `BaseLayout.astro`.
-- Keep one clear H1 and a logical heading hierarchy.
-- Include internal links to relevant service pages, portfolio examples, and WhatsApp/contact where natural.
-- Do not add `SearchAction` schema unless real site search exists.
-- Read `docs/SEO-ROADMAP.md` before SEO-focused changes.
-- Conversion priority is WhatsApp contact. CTAs should be visible, specific, and consistent with the page intent.
-
+- Use one clear H1 and a logical heading hierarchy.
+- Provide page-specific title, description, canonical, social metadata, and appropriate schema through BaseLayout.astro.
+- Add relevant service, case, and contact links where they help the visitor.
+- Add SearchAction only if real site search exists.
+- Schema must reflect visible content. Check current search documentation before promising eligibility or benefits from a schema type.
+- WhatsApp is the primary conversion path; keep CTAs specific, visible, and consistent with the page intent.

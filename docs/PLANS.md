@@ -1,30 +1,22 @@
-# Lightweight Plans
+# Pending Work
 
-Use this file for small tasks that do not need a full execution plan in `docs/exec-plans/active/`.
+Read for planning and prioritization. These tasks require current evidence or an owner decision; they are not automatic implementation instructions.
 
-## Active
+## Production Measurement And Validation
 
-- Monitor GSC index coverage and impressions after verification and sitemap submission.
-- Capture PageSpeed Insights lab baselines when time allows; CrUX currently has insufficient field data.
-- Confirm one `whatsapp_click` event in the Vercel Analytics dashboard after deployment.
-- Run one live Rich Results Test after deployment; rendered-source validation already passes.
-- Add current deployment/hosting notes after human confirmation.
-- Decide whether broader browser-script tests are worth adding beyond the project modal.
+Next step: inspect existing GSC and business-profile account state, then capture:
 
-## Backlog
+- Current GSC coverage and search performance, with exclusions worth investigating.
+- A useful performance baseline for home, a service page, and an article; distinguish lab measurements from available field data.
+- One production whatsapp_click event with page and CTA context in the analytics dashboard.
+- Production structured-data checks for home, service, case, and article templates, including warnings and errors.
 
-- Add a short README if this repo needs a public developer entry point.
-- Add a manual QA checklist for portfolio and insight page templates.
-- Add privacy/legal notes once analytics and consent expectations are confirmed.
+Complete when each result has an observation date and evidence recorded here, and any concrete defect has a next step and completion criterion. Insufficient field data is not a failed implementation.
 
-## Done
+Historical context only: the 2026-06-27 audit reported a live, verified GBP and 20/21 indexed pages; the 2026-07-30 roadmap recorded owner-confirmed GSC access and sitemap submission. Those reports remain in Git history and do not establish today's baseline. Inspect existing accounts before proposing account creation.
 
-- Added national commercial verticals for incorporadoras, construtoras and the engineered-timber ecosystem, with real case evidence, internal links, WhatsApp attribution and SEO metadata.
-- Reconciled SEO roadmap with shipped work; new prioritized plan in `docs/SEO-ROADMAP.md` (2026-07-30).
-- Published the researched Insight “Como escolher um desenvolvedor web freelancer” with portfolio, process, SEO, contract and support guidance.
-- Published the researched Insight “Por que a performance do site afeta a conversão?” with a conversion funnel, Core Web Vitals guidance and measurement checklist.
-- Added one relevant portfolio case link to each existing insight article.
-- Added site-wide WhatsApp CTA analytics attribution and automated interaction coverage.
-- Added the branded custom 404 page with correct robots/canonical behavior.
-- Validated representative rendered JSON-LD for home, service, case, and article templates.
-- Initial agent docs harness created.
+## Privacy And Analytics Decision
+
+Next step: ask the owner to confirm analytics usage, data handling, and consent/legal expectations against the current site behavior.
+
+Complete when the decision is recorded and any required visitor-facing privacy information or consent behavior has been implemented and verified. Do not infer requirements from a historical SEO checklist.
