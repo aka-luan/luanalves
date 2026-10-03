@@ -108,7 +108,7 @@ const navMotionAttrs = motion
 
     <a
       class='button button-outline button-compact'
-      href={whatsappHref}
+      href={whatsappHref} data-analytics-position='header'
       target='_blank'
       rel='noreferrer'>
       Falar no WhatsApp
@@ -145,16 +145,16 @@ const navMotionAttrs = motion
       <div class='mobile-menu-footer'>
         <a
           class='mobile-menu-cta'
-          href={whatsappHref}
+          href={whatsappHref} data-analytics-position='mobile_menu'
           target='_blank'
           rel='noreferrer'>
           <span>Falar no WhatsApp</span>
-          <span class='material-symbols-outlined'>arrow_right_alt</span>
+          <span class='material-symbols-outlined' aria-hidden='true'>arrow_right_alt</span>
         </a>
 
         <div class='mobile-menu-meta'>
           <div class='mobile-menu-secondary-links'>
-            <a href={whatsappHref} target='_blank' rel='noreferrer'>WhatsApp</a>
+            <a href={whatsappHref} data-analytics-position='mobile_menu_secondary' target='_blank' rel='noreferrer'>WhatsApp</a>
             {
               mobileItems.slice(-2).map((item) => (
                 <a href={item.href} data-mobile-menu-link>

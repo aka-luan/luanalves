@@ -26,6 +26,14 @@ Page behavior must initialize on both direct load and navigation. Register clean
 
 Head changes must also survive Barba navigation: inspect the replacement and persistent-node selectors in syncHead before introducing metadata, structured data, or asset tags.
 
+## Rendering And Measurement
+
+Hero text, images, navigation, and CTAs render visibly from HTML. CSS must not hide content while waiting for the motion bundle. Landing and article motion may prime only content below the current viewport; preserve this on Barba initialization and reduced motion.
+
+BaseLayout loads the optional GA4 Google tag asynchronously only on the production host, using the verified stream ID with an optional PUBLIC_GOOGLE_ANALYTICS_ID override (an empty value disables collection). Barba afterEnter sends the initial and subsequent page views after head syncing; do not add a second initial pageview. Disable enhanced-measurement history pageviews in GA4 when using this manual strategy. The persistent tag is not reinserted during navigation. WhatsApp tracking uses one delegated listener, sends readable labels and stable data-analytics-position values to GA4 and Vercel, and excludes phone numbers, message text, and destination URLs. See [the tracking and lead-funnel plan](docs/analytics.md) for account setup and validation.
+
+Shared font preloads remain in the persistent head on all routes. Page-specific head additions must still be covered by syncHead.
+
 ## Build Contract
 
 package.json defines the commands. The production build runs Astro and then scripts/patch-build-assets.mjs.

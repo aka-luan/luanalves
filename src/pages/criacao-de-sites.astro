@@ -281,7 +281,7 @@ const creationServiceSchema = [
           <div class='creation-actions' data-motion-hero-actions>
             <a
               class='creation-button shared-button shared-button--solid'
-              href={whatsappHref}
+              href={whatsappHref} data-analytics-position="service_hero"
               target='_blank'
               rel='noreferrer'
               data-motion-hidden='y-sm'>
@@ -768,7 +768,7 @@ const creationServiceSchema = [
 
     <FaqSection items={faqItems} showSectionIndex={false} />
 
-    <HomeCta whatsappHref={whatsappHref} />
+    <HomeCta whatsappHref={whatsappHref} analyticsPosition="service_final" />
   </main>
 
   <SiteFooter brandHref='/' />

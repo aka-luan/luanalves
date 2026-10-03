@@ -5,6 +5,7 @@ import { initInsightPost } from './insight-post';
 import { cleanupPortfolioFilters, initPortfolioFilters } from './portfolio-filters';
 import { initProjectModalFromDom } from './project-modal';
 import { cleanupMobileNav, initMobileNav } from './mobile-nav';
+import { trackGooglePageView } from './google-analytics';
 import { initWhatsappAnalytics } from './whatsapp-analytics';
 
 type Cleanup = () => void;
@@ -170,6 +171,8 @@ function initBarba() {
   });
 
   barba.hooks.afterEnter(() => {
+    // Barba calls afterEnter on both the first load and subsequent navigation.
+    trackGooglePageView();
     if (pendingHash && window.location.hash !== pendingHash) {
       history.replaceState(
         history.state,

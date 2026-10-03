@@ -17,28 +17,6 @@ const whatsappHref =
 ---
 
 <BaseLayout>
-  <div class='page-loader' data-loader aria-hidden='true'>
-    <div class='page-loader__backdrop hero-grid' aria-hidden='true'></div>
-    <div class='page-loader__inner'>
-      <span class='page-loader__label' data-loader-label
-        >Desenvolvimento Web Profissional</span
-      >
-      <div class='page-loader__brand' data-loader-brand>
-        <span>Luan Alves</span>
-        <span class='brand-dot' aria-hidden='true'></span>
-      </div>
-      <div class='page-loader__track' data-loader-progress>
-        <span
-          class='page-loader__line page-loader__line--base'
-          aria-hidden='true'></span>
-        <span
-          class='page-loader__line page-loader__line--fill'
-          data-loader-progress-fill
-          aria-hidden='true'></span>
-      </div>
-    </div>
-  </div>
-
   <SiteNav items={navigation} whatsappHref={whatsappHref} />
 
   <main id='top'>
@@ -70,7 +48,7 @@ const whatsappHref =
           <div class='hero-actions' data-motion-hero-actions>
             <a
               class='button button-solid'
-              href={whatsappHref}
+              href={whatsappHref} data-analytics-position='home_hero'
               target='_blank'
               rel='noreferrer'
               data-motion-hidden='y-sm'>

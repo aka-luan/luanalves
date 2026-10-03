@@ -179,6 +179,7 @@ const renderInlineLinks = (text: string) => text;
                 width='1200'
                 height='800'
                 loading='eager'
+                fetchpriority='high'
                 decoding='async'
               />
             ) : (
@@ -290,7 +291,7 @@ const renderInlineLinks = (text: string) => text;
                 return (
                   <div class='post-links'>
                     {block.items.map((item) => (
-                      <a href={item.href}>
+                      <a href={item.href} data-analytics-position='article_related_link'>
                         <span>{item.label}</span>
                         <strong>{item.text}</strong>
                       </a>
@@ -345,7 +346,7 @@ const renderInlineLinks = (text: string) => text;
 
           <a
             class='post-whatsapp'
-            href={whatsappHref}
+            href={whatsappHref} data-analytics-position='article_sidebar'
             target='_blank'
             rel='noreferrer'>
             Pedir orientação de orçamento
@@ -376,7 +377,7 @@ const renderInlineLinks = (text: string) => text;
         <div class='author-card__actions'>
           <a
             class='author-card__action author-card__action--primary'
-            href={whatsappHref}
+            href={whatsappHref} data-analytics-position='article_author'
             target='_blank'
             rel='noreferrer'>
             <span class='material-symbols-outlined' aria-hidden='true'>chat</span>
