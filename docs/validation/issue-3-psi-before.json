@@ -1,0 +1,134 @@
+{
+  "observed_at": "2026-10-03T23:09:56.848Z",
+  "origin": "https://luanalves.com.br",
+  "phase": "before-responsive-images-and-inline-css",
+  "strategy": "mobile",
+  "runs_per_url": 3,
+  "status": "complete",
+  "method": "PSI browser UI; exact millisecond values from the report calculator links",
+  "pages": [
+    {
+      "url": "https://luanalves.com.br/",
+      "runs": [
+        {
+          "route": "/",
+          "run": 1,
+          "report": "https://pagespeed.web.dev/analysis/https-luanalves-com-br/bw0np117a9?form_factor=mobile",
+          "lcp_ms": 6179,
+          "fcp_ms": 3718,
+          "tbt_ms": 33,
+          "cls": 0,
+          "lighthouse_version": "13.5.0"
+        },
+        {
+          "route": "/",
+          "run": 2,
+          "report": "https://pagespeed.web.dev/analysis/https-luanalves-com-br/1jwx9dinh7?form_factor=mobile",
+          "lcp_ms": 6336,
+          "fcp_ms": 3692,
+          "tbt_ms": 35,
+          "cls": 0,
+          "lighthouse_version": "13.5.0"
+        },
+        {
+          "route": "/",
+          "run": 3,
+          "report": "https://pagespeed.web.dev/analysis/https-luanalves-com-br/383ze7n9my?form_factor=mobile",
+          "lcp_ms": 6226,
+          "fcp_ms": 3711,
+          "tbt_ms": 19,
+          "cls": 0,
+          "lighthouse_version": "13.5.0"
+        }
+      ],
+      "medians": {
+        "lcp_ms": 6226,
+        "fcp_ms": 3711,
+        "tbt_ms": 33,
+        "cls": 0
+      }
+    },
+    {
+      "url": "https://luanalves.com.br/criacao-de-sites-belem/",
+      "runs": [
+        {
+          "route": "/criacao-de-sites-belem/",
+          "run": 1,
+          "report": "https://pagespeed.web.dev/analysis/https-luanalves-com-br-criacao-de-sites-belem/yk679id8qv?form_factor=mobile",
+          "lcp_ms": 6505,
+          "fcp_ms": 3872,
+          "tbt_ms": 189,
+          "cls": 0.01,
+          "lighthouse_version": "13.5.0"
+        },
+        {
+          "route": "/criacao-de-sites-belem/",
+          "run": 2,
+          "report": "https://pagespeed.web.dev/analysis/https-luanalves-com-br-criacao-de-sites-belem/8qi6mwjx5x?form_factor=mobile",
+          "lcp_ms": 6403,
+          "fcp_ms": 3696,
+          "tbt_ms": 48,
+          "cls": 0.02,
+          "lighthouse_version": "13.5.0"
+        },
+        {
+          "route": "/criacao-de-sites-belem/",
+          "run": 3,
+          "report": "https://pagespeed.web.dev/analysis/https-luanalves-com-br-criacao-de-sites-belem/b5byzjzru4?form_factor=mobile",
+          "lcp_ms": 6511,
+          "fcp_ms": 3923,
+          "tbt_ms": 213,
+          "cls": 0,
+          "lighthouse_version": "13.5.0"
+        }
+      ],
+      "medians": {
+        "lcp_ms": 6505,
+        "fcp_ms": 3872,
+        "tbt_ms": 189,
+        "cls": 0.01
+      }
+    },
+    {
+      "url": "https://luanalves.com.br/insights/quanto-tempo-leva-para-criar-um-site-profissional/",
+      "runs": [
+        {
+          "route": "/insights/quanto-tempo-leva-para-criar-um-site-profissional/",
+          "run": 1,
+          "report": "https://pagespeed.web.dev/analysis/https-luanalves-com-br-insights-quanto-tempo-leva-para-criar-um-site-profissional/kks0d450dl?form_factor=mobile",
+          "lcp_ms": 6198,
+          "fcp_ms": 3545,
+          "tbt_ms": 34,
+          "cls": 0.05,
+          "lighthouse_version": "13.5.0"
+        },
+        {
+          "route": "/insights/quanto-tempo-leva-para-criar-um-site-profissional/",
+          "run": 2,
+          "report": "https://pagespeed.web.dev/analysis/https-luanalves-com-br-insights-quanto-tempo-leva-para-criar-um-site-profissional/a6f0r06lvk?form_factor=mobile",
+          "lcp_ms": 2414,
+          "fcp_ms": 1659,
+          "tbt_ms": 14,
+          "cls": 0.01,
+          "lighthouse_version": "13.5.0"
+        },
+        {
+          "route": "/insights/quanto-tempo-leva-para-criar-um-site-profissional/",
+          "run": 3,
+          "report": "https://pagespeed.web.dev/analysis/https-luanalves-com-br-insights-quanto-tempo-leva-para-criar-um-site-profissional/276nqnymja?form_factor=mobile",
+          "lcp_ms": 6075,
+          "fcp_ms": 3545,
+          "tbt_ms": 1,
+          "cls": 0.05,
+          "lighthouse_version": "13.5.0"
+        }
+      ],
+      "medians": {
+        "lcp_ms": 6075,
+        "fcp_ms": 3545,
+        "tbt_ms": 14,
+        "cls": 0.05
+      }
+    }
+  ]
+}

@@ -81,6 +81,7 @@ function syncHead(nextHtml: string) {
     'meta[property^="og:"]',
     'meta[name^="twitter:"]',
     'link[rel="canonical"]',
+    'link[rel="preload"][as="image"]',
     'script[type="application/ld+json"]',
   ];
 
@@ -94,8 +95,8 @@ function syncHead(nextHtml: string) {
 
   const assetSelectors = [
     'link[rel="stylesheet"][href]',
-    'style[data-vite-dev-id]',
-    'style[data-astro-dev-id]',
+    // Production CSS is inline; keep route styles available after Barba swaps.
+    'style',
   ];
 
   assetSelectors.forEach((selector) => {
