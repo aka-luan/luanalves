@@ -16,6 +16,7 @@ A publicação original permanece em 05/06/2026. A revisão substantiva de 04/10
 - Navegador em 390 × 844 e 320 × 740: sem overflow horizontal da página (larguras de documento 380 e 310 px). A tabela e o modelo longo têm rolagem própria.
 - O bloco copiável foi corrigido para não incluir indentação do template no conteúdo.
 - `git diff --check`: sem erros.
+- Integração com a branch do PR #24: build e 18 testes passaram; os contatos de cabeçalho, lateral e autor usam mensagem de revisão de lançamento, preservando o contato contextual do corpo.
 
 Capturas: [cabeçalho mobile](issue-8-checklist-mobile.png) e [registro copiável](issue-8-checklist-record.png).
 
