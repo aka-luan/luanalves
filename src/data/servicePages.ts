@@ -1,4 +1,5 @@
 import { verticalPageLinks } from './verticalPages';
+import { projectExtensionsCopy, projectScopeFaq } from './projectScope';
 
 const phone = '5591982890565';
 const siteUrl = 'https://luanalves.com.br';
@@ -122,16 +123,12 @@ const sharedDifferentials = [
   {
     icon: 'support_agent',
     title: 'Suporte pós-lançamento',
-    copy: 'Entrega com orientação e acompanhamento para ajustes essenciais depois da publicação.',
+    copy: 'Orientação de atualização e condições de suporte definidas na proposta.',
   },
 ];
 
 const sharedFaq = [
-  {
-    question: 'Quanto tempo leva para o projeto ficar pronto?',
-    answer:
-      'O prazo depende do escopo, número de páginas e materiais disponíveis. Antes de começar, você recebe um cronograma claro com etapas e datas.',
-  },
+  ...projectScopeFaq,
   {
     question: 'A página funciona bem no celular?',
     answer:
@@ -145,7 +142,7 @@ const sharedFaq = [
   {
     question: 'Você pode configurar WhatsApp, mapa ou analytics?',
     answer:
-      'Sim. Integrações essenciais podem entrar no escopo, incluindo WhatsApp, mapa, eventos de conversão e ferramentas de análise.',
+      'Os caminhos de contato pelo WhatsApp fazem parte da base. Mapas, eventos de conversão e ferramentas de análise são integrações opcionais avaliadas e orçadas no escopo.',
   },
 ];
 
@@ -254,7 +251,7 @@ export const servicePages: Record<string, ServicePageContent> = {
       eyebrow: 'Incluso',
       title: 'O que entra no projeto institucional.',
       accent: 'projeto institucional',
-      copy: 'A entrega cobre a base necessária para sua empresa se apresentar bem, carregar rápido e converter visitantes em conversas.',
+      copy: 'A base organiza páginas, conteúdo fornecido, design, desenvolvimento, SEO técnico e contato. ' + projectExtensionsCopy,
       items: [
         {
           icon: 'schema',
@@ -274,7 +271,7 @@ export const servicePages: Record<string, ServicePageContent> = {
         {
           icon: 'settings',
           title: 'Configurações essenciais',
-          copy: 'SEO inicial, favicon, social preview e integrações combinadas.',
+          copy: 'SEO inicial, favicon e imagens de compartilhamento. Integrações externas são opcionais.',
         },
       ],
     },
@@ -401,7 +398,7 @@ export const servicePages: Record<string, ServicePageContent> = {
       eyebrow: 'Incluso',
       title: 'Elementos essenciais para uma landing page eficiente.',
       accent: 'landing page eficiente',
-      copy: 'A entrega prioriza clareza, velocidade e conversão sem excesso de elementos que desviam a atenção.',
+      copy: 'A base organiza a oferta, conteúdo fornecido, design, desenvolvimento, SEO técnico, performance e contato. ' + projectExtensionsCopy,
       items: [
         {
           icon: 'title',
@@ -462,7 +459,7 @@ export const servicePages: Record<string, ServicePageContent> = {
       title:
         'Blog profissional para transformar conteúdo em autoridade e oportunidades',
       accent: 'autoridade e oportunidades',
-      copy: 'Crio estruturas editoriais rápidas, organizadas e preparadas para SEO, com experiência de leitura profissional e gestão simples de conteúdo.',
+      copy: 'Crio estruturas editoriais organizadas e preparadas para SEO, com leitura profissional. A solução de atualização é definida conforme a rotina da equipe; CMS é uma extensão opcional.',
       ctaLabel: 'Quero criar um blog profissional',
       secondaryLabel: 'Ver projetos',
       secondaryHref: '#portfolio',
@@ -548,7 +545,7 @@ export const servicePages: Record<string, ServicePageContent> = {
       eyebrow: 'Incluso',
       title: 'Base técnica e visual para conteúdo profissional.',
       accent: 'conteúdo profissional',
-      copy: 'O projeto entrega a estrutura para publicar com padrão visual, organização e boas práticas de SEO.',
+      copy: 'A base entrega arquitetura editorial, organização do conteúdo fornecido, design, desenvolvimento, SEO técnico, performance e contato. ' + projectExtensionsCopy,
       items: [
         {
           icon: 'dashboard',
@@ -695,7 +692,7 @@ export const servicePages: Record<string, ServicePageContent> = {
       eyebrow: 'Incluso',
       title: 'Estrutura para presença local profissional.',
       accent: 'presença local',
-      copy: 'A entrega pode combinar apresentação institucional, conteúdo local, WhatsApp, mapa e base técnica de SEO.',
+      copy: 'A base combina apresentação institucional, conteúdo local fornecido, design, desenvolvimento, WhatsApp, SEO técnico e performance. ' + projectExtensionsCopy,
       items: [
         {
           icon: 'corporate_fare',

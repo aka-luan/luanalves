@@ -1,3 +1,5 @@
+import { projectScopeFaq } from './projectScope';
+
 const phone = '5591982890565';
 const siteUrl = 'https://luanalves.com.br';
 
@@ -83,6 +85,7 @@ export const verticalPageLinks = [
 ];
 
 const sharedFaq = [
+  ...projectScopeFaq,
   {
     question: 'O site será responsivo e rápido no celular?',
     answer:
@@ -92,11 +95,6 @@ const sharedFaq = [
     question: 'A entrega inclui SEO?',
     answer:
       'Inclui a base técnica de SEO: metadados, hierarquia de títulos, URLs, canonical, dados estruturados adequados, performance e conteúdo semanticamente organizado.',
-  },
-  {
-    question: 'É possível atualizar projetos e conteúdos depois?',
-    answer:
-      'Sim. A forma de atualização pode usar arquivos estruturados, CMS ou integrações, conforme a frequência de publicação e a rotina da equipe. Essa decisão entra no escopo do projeto.',
   },
 ];
 
@@ -206,7 +204,7 @@ export const verticalPages: Record<string, VerticalPageContent> = {
         {
           icon: 'extension',
           title: 'Crescimento previsto',
-          copy: 'CMS, CRM, formulários e novas páginas podem ser incorporados quando a rotina exigir.',
+          copy: 'CMS, CRM, formulários e novas páginas são extensões opcionais, avaliadas e orçadas quando a rotina exigir.',
         },
       ],
     },
