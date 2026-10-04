@@ -20,4 +20,4 @@ Verificações:
 - [Belém em 320 × 740](issue-7-belem-mobile.png): atendimento remoto e CTA legíveis. Viewport temporária restaurada.
 - `git diff --check` passou. Não foi adicionada lógica de DOM, foco, modal ou timers.
 
-Mensuração da #7: a auditoria anterior registra Belém com 1 clique/102 impressões e a consulta local com 1/27 no export até 29/09/2026. São agregações separadas, não um cruzamento página × consulta. A linha de base autenticada e comparação de 28 dias com contatos qualificados continuam pendentes; estas alterações locais não demonstram ganho de posição ou conversão. Nenhum novo GBP foi criado.
+Mensuração da #7: a auditoria anterior registra Belém com 1 clique/102 impressões e a consulta local com 1/27 no export até 29/09/2026. São agregações separadas, não um cruzamento página × consulta. A [referência autenticada de 04/10/2026](2026-10-04-issue-7-gsc-baseline.md) registra filtros de página/consulta, país e dispositivo no período exibido de 02/09–29/09. A comparação de 28 dias após publicação com contatos qualificados continua pendente; estas alterações locais não demonstram ganho de posição ou conversão. Nenhum novo GBP foi criado.
