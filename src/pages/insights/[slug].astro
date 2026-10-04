@@ -97,7 +97,7 @@ const articleSchema = [
       ? `${siteUrl}${post.heroImage}`
       : `${siteUrl}/assets/og-cover.webp`,
     datePublished: post.isoDate,
-    dateModified: post.isoDate,
+    dateModified: post.updatedIsoDate ?? post.isoDate,
     author: { '@id': `${siteUrl}/#person` },
     publisher: { '@id': `${siteUrl}/#business` },
     mainEntityOfPage: canonicalUrl,
@@ -167,7 +167,14 @@ const renderInlineLinks = (text: string) => text;
           <h1>{post.title}</h1>
           <p>{post.description}</p>
           <div class='post-meta' aria-label='Metadados do artigo'>
-            <span>{post.date}</span>
+            <time datetime={post.isoDate}>{post.updatedIsoDate ? `Publicado em ${post.date}` : post.date}</time>
+            {post.updatedIsoDate && (
+              <time datetime={post.updatedIsoDate}>
+                Atualizado em {new Intl.DateTimeFormat('pt-BR', {
+                  day: '2-digit', month: 'short', year: 'numeric', timeZone: 'UTC',
+                }).format(new Date(`${post.updatedIsoDate}T00:00:00Z`))}
+              </time>
+            )}
             <span>{post.readTime}</span>
             <span>{`${post.category} / ${post.tags[0]}`}</span>
           </div>
@@ -227,11 +234,7 @@ const renderInlineLinks = (text: string) => text;
                 return (
                   <figure class='post-code'>
                     {block.caption && <figcaption>{block.caption}</figcaption>}
-                    <pre>
-                      <code class={`language-${block.language}`}>
-                        {block.code}
-                      </code>
-                    </pre>
+                    <pre><code class={`language-${block.language}`}>{block.code}</code></pre>
                   </figure>
                 );
               }
