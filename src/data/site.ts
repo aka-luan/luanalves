@@ -182,6 +182,9 @@ interface PortfolioCaseDetail {
   siteLabel: string;
   challenge: string;
   solution: string;
+  participation?: { development: string; designAndCopy: string };
+  primaryService?: { href: string; label: string };
+  evidence?: { href: string; label: string; description: string }[];
   deliverables: {
     title: string;
     description: string;
@@ -376,6 +379,15 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
     segment: 'Indústria · Madeira engenheirada',
     deliveredAt: '2024',
     siteLabel: 'urbembr.com',
+    participation: {
+      development: 'Luan Alves realizou o desenvolvimento completo do site, a implementação do blog e do CMS customizado e as configurações necessárias para o deploy.',
+      designAndCopy: 'O design e a copy foram fornecidos pela agência parceira e implementados no site por Luan.',
+    },
+    primaryService: { href: '/site-institucional/', label: 'Site Institucional' },
+    evidence: [
+      { href: 'https://urbembr.com/', label: 'Produtos e conteúdo técnico', description: 'A página inicial apresenta S4S, Glulam e CLT, além de caminhos para biblioteca, blog e contato.' },
+      { href: 'https://urbembr.com/projetos/', label: 'Projetos por aplicação', description: 'O portfólio reúne aplicações da madeira engenheirada em categorias como residencial, comercial e institucional.' },
+    ],
     challenge:
       'A Urbem precisava apresentar uma operação técnica e sustentável para arquitetos, construtoras e decisores que avaliam especificações antes de iniciar uma conversa comercial.',
     solution:
@@ -392,14 +404,14 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
           'Base editorial para publicar conteúdo técnico e apoiar descoberta orgânica.',
       },
       {
-        title: 'Organização de conteúdo',
+        title: 'CMS customizado',
         description:
-          'Arquitetura de páginas pensada para leitura técnica sem perder clareza comercial.',
+          'CMS configurado e customizado para administrar páginas e conteúdo editorial.',
       },
       {
-        title: 'SEO técnico',
+        title: 'Configuração de deploy',
         description:
-          'Fundação de metadados, URLs e conteúdo estruturado para melhorar indexação.',
+          'Configurações necessárias para publicar o site no ambiente de hospedagem.',
       },
     ],
     gallery: [
@@ -415,8 +427,8 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
         label: 'Conteúdo institucional preparado para o público brasileiro.',
       },
       {
-        value: 'SEO',
-        label: 'Estrutura criada para indexação e crescimento orgânico.',
+        value: 'Conteúdo',
+        label: 'Produtos, biblioteca e blog com caminhos próprios na navegação.',
       },
       {
         value: 'B2B',
@@ -488,6 +500,14 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
     segment: 'Engenharia · Imobiliário',
     deliveredAt: '2025',
     siteLabel: 'convivaengenharia.com.br',
+    participation: {
+      development: 'Luan Alves realizou o desenvolvimento completo do site, a implementação do blog e do CMS customizado e as configurações necessárias para o deploy.',
+      designAndCopy: 'A Agência Skyrocket forneceu o design e a copy, implementados no site por Luan.',
+    },
+    primaryService: { href: '/site-institucional/', label: 'Site Institucional' },
+    evidence: [
+      { href: 'https://convivaengenharia.com.br/', label: 'Empreendimentos e atendimento', description: 'A página inicial apresenta empreendimentos, etapas da jornada do comprador, stands e canais de atendimento.' },
+    ],
     challenge:
       'A Conviva precisava apresentar empreendimentos e diferenciais de moradia com uma experiência que gerasse confiança sem parecer genérica.',
     solution:
@@ -499,19 +519,19 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
           'Estrutura para apresentar marca, empreendimentos e diferenciais comerciais.',
       },
       {
-        title: 'Conteúdo de autoridade',
+        title: 'Blog profissional',
         description:
-          'Texto organizado para explicar qualidade de vida, localização e confiança.',
+          'Implementação da estrutura de artigos e publicação de conteúdo.',
       },
       {
-        title: 'Navegação comercial',
+        title: 'CMS customizado',
         description:
-          'Caminhos claros para visitantes avançarem até contato e avaliação.',
+          'CMS configurado e customizado para administrar páginas e conteúdo editorial.',
       },
       {
-        title: 'Performance visual',
+        title: 'Configuração de deploy',
         description:
-          'Imagens e seções planejadas para impacto sem perder velocidade.',
+          'Configurações necessárias para publicar o site no ambiente de hospedagem.',
       },
     ],
     gallery: [
@@ -524,15 +544,15 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
     results: [
       {
         value: 'Imóveis',
-        label: 'Apresentação mais clara de empreendimentos e diferenciais.',
+        label: 'Empreendimentos apresentados com localização e diferenciais de moradia.',
       },
       {
-        value: 'Confiança',
-        label: 'Conteúdo desenhado para reduzir atrito na decisão.',
+        value: 'Jornada',
+        label: 'Informações sobre compra, andamento da obra, entrega e assistência técnica.',
       },
       {
         value: 'Contato',
-        label: 'Fluxo visual direcionado para conversas comerciais.',
+        label: 'Stands e canais de atendimento apresentados junto ao conteúdo imobiliário.',
       },
     ],
   },
@@ -662,6 +682,15 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
     segment: 'Consultoria · Relações institucionais',
     deliveredAt: '2023',
     siteLabel: 'polianabentes.com.br',
+    participation: {
+      development: 'Luan Alves realizou o desenvolvimento completo do site, a implementação do blog e do CMS customizado e as configurações necessárias para o deploy.',
+      designAndCopy: 'A Parawara Design forneceu o design e a copy, implementados no site por Luan.',
+    },
+    primaryService: { href: '/site-institucional/', label: 'Site Institucional' },
+    evidence: [
+      { href: 'https://polianabentes.com.br/', label: 'Posicionamento e atuação no Pará', description: 'A apresentação institucional descreve a consultoria sediada em Belém e a atuação junto a empresas e instituições.' },
+      { href: 'https://polianabentes.com.br/nossos-servicos/', label: 'Serviços da consultoria', description: 'A página organiza relações institucionais e governamentais e inteligência estratégica e regulatória.' },
+    ],
     challenge:
       'A consultoria precisava transmitir credibilidade, atuação estratégica e conhecimento do território amazônico sem depender de uma comunicação carregada.',
     solution:
@@ -678,14 +707,14 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
           'Base para publicação de conteúdo e atualização institucional.',
       },
       {
-        title: 'CMS organizado',
+        title: 'CMS customizado',
         description:
-          'Gestão simplificada para páginas e conteúdos recorrentes.',
+          'CMS configurado e customizado para administrar páginas e conteúdo editorial.',
       },
       {
-        title: 'Mensagem estratégica',
+        title: 'Configuração de deploy',
         description:
-          'Copy voltada para transparência, solidez e construção de relações.',
+          'Configurações necessárias para publicar o site no ambiente de hospedagem.',
       },
     ],
     gallery: [
@@ -702,16 +731,16 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
     ],
     results: [
       {
-        value: 'CMS',
-        label: 'Estrutura preparada para gestão simples de conteúdo.',
+        value: 'Serviços',
+        label: 'Áreas de atuação descritas em uma página própria da consultoria.',
       },
       {
         value: 'Editorial',
         label: 'Base de blog para fortalecer autoridade institucional.',
       },
       {
-        value: 'Credibilidade',
-        label: 'Mensagem mais clara para empresas e instituições.',
+        value: 'Território',
+        label: 'Apresentação da sede em Belém e da atuação no território paraense.',
       },
     ],
     mobileImage: '/assets/poliana-bentes-home.webp',
