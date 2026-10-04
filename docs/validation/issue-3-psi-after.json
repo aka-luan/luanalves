@@ -1,0 +1,187 @@
+{
+  "observed_at": "2026-10-04T00:00:48.524Z",
+  "origin": "https://luanalves.com.br",
+  "phase": "after-responsive-images-inline-css-and-layout-stability",
+  "strategy": "mobile",
+  "runs_per_url": 3,
+  "status": "complete",
+  "production_commit": "e0818a462397bfcef9b71d8d8e284870250b2806",
+  "deployment_id": "dpl_4nmh3bmRJAEYf4bgHGugSbhWWjhu",
+  "configuration": "Lighthouse 13.5.0; emulated Moto G Power; slow 4G; initial page load; HeadlessChromium 153.0.8010.36",
+  "method": "PSI browser UI; millisecond values from calculator; displayed CLS also preserved because calculator rounds it",
+  "pages": [
+    {
+      "url": "https://luanalves.com.br/",
+      "runs": [
+        {
+          "page": "home",
+          "lcp_ms": 2774,
+          "fcp_ms": 959,
+          "tbt_ms": 31,
+          "cls": 0,
+          "display_cls": 0.002,
+          "report": "https://pagespeed.web.dev/analysis/https-luanalves-com-br/x0t79844c7?form_factor=mobile",
+          "captured": "2026-10-03 20:55 GMT-3",
+          "run": 1,
+          "lighthouse_version": "13.5.0"
+        },
+        {
+          "page": "home",
+          "lcp_ms": 6260,
+          "fcp_ms": 3789,
+          "tbt_ms": 0,
+          "cls": 0,
+          "display_cls": 0,
+          "report": "https://pagespeed.web.dev/analysis/https-luanalves-com-br/p2f4g8kjj6?form_factor=mobile",
+          "captured": "2026-10-03 20:56 GMT-3",
+          "run": 2,
+          "lighthouse_version": "13.5.0"
+        },
+        {
+          "page": "home",
+          "lcp_ms": 2561,
+          "fcp_ms": 2026,
+          "tbt_ms": 0,
+          "cls": 0,
+          "display_cls": 0,
+          "report": "https://pagespeed.web.dev/analysis/https-luanalves-com-br/okctxujrhv?form_factor=mobile",
+          "captured": "2026-10-03 20:57 GMT-3",
+          "run": 3,
+          "lighthouse_version": "13.5.0"
+        }
+      ],
+      "medians": {
+        "lcp_ms": 2774,
+        "fcp_ms": 2026,
+        "tbt_ms": 0,
+        "cls": 0,
+        "display_cls": 0
+      },
+      "before_medians": {
+        "lcp_ms": 6226,
+        "fcp_ms": 3711,
+        "tbt_ms": 33,
+        "cls": 0
+      }
+    },
+    {
+      "url": "https://luanalves.com.br/criacao-de-sites-belem/",
+      "runs": [
+        {
+          "page": "belem",
+          "lcp_ms": 4075,
+          "fcp_ms": 3376,
+          "tbt_ms": 45,
+          "cls": 0,
+          "display_cls": 0.003,
+          "report": "https://pagespeed.web.dev/analysis/https-luanalves-com-br-criacao-de-sites-belem/wx97thm5sr?form_factor=mobile",
+          "captured": "2026-10-03 20:55 GMT-3",
+          "run": 1,
+          "lighthouse_version": "13.5.0"
+        },
+        {
+          "page": "belem",
+          "lcp_ms": 6169,
+          "fcp_ms": 3826,
+          "tbt_ms": 23,
+          "cls": 0,
+          "display_cls": 0.003,
+          "report": "https://pagespeed.web.dev/analysis/https-luanalves-com-br-criacao-de-sites-belem/jnac4rjx3r?form_factor=mobile",
+          "captured": "2026-10-03 20:56 GMT-3",
+          "run": 2,
+          "lighthouse_version": "13.5.0"
+        },
+        {
+          "page": "belem",
+          "lcp_ms": 4501,
+          "fcp_ms": 3826,
+          "tbt_ms": 20,
+          "cls": 0.01,
+          "display_cls": 0.007,
+          "report": "https://pagespeed.web.dev/analysis/https-luanalves-com-br-criacao-de-sites-belem/askgrl0rbp?form_factor=mobile",
+          "captured": "2026-10-03 20:58 GMT-3",
+          "run": 3,
+          "lighthouse_version": "13.5.0"
+        }
+      ],
+      "medians": {
+        "lcp_ms": 4501,
+        "fcp_ms": 3826,
+        "tbt_ms": 23,
+        "cls": 0,
+        "display_cls": 0.003
+      },
+      "before_medians": {
+        "lcp_ms": 6505,
+        "fcp_ms": 3872,
+        "tbt_ms": 189,
+        "cls": 0.01
+      }
+    },
+    {
+      "url": "https://luanalves.com.br/insights/quanto-tempo-leva-para-criar-um-site-profissional/",
+      "runs": [
+        {
+          "page": "article",
+          "lcp_ms": 5740,
+          "fcp_ms": 3601,
+          "tbt_ms": 4,
+          "cls": 0.01,
+          "display_cls": 0.005,
+          "report": "https://pagespeed.web.dev/analysis/https-luanalves-com-br-insights-quanto-tempo-leva-para-criar-um-site-profissional/9y1tfg7bhq?form_factor=mobile",
+          "captured": "2026-10-03 20:55 GMT-3",
+          "run": 1,
+          "lighthouse_version": "13.5.0"
+        },
+        {
+          "page": "article",
+          "lcp_ms": 3782,
+          "fcp_ms": 3376,
+          "tbt_ms": 4,
+          "cls": 0.05,
+          "display_cls": 0.045,
+          "report": "https://pagespeed.web.dev/analysis/https-luanalves-com-br-insights-quanto-tempo-leva-para-criar-um-site-profissional/7gf3dd0g7q?form_factor=mobile",
+          "captured": "2026-10-03 20:56 GMT-3",
+          "run": 2,
+          "lighthouse_version": "13.5.0"
+        },
+        {
+          "page": "article",
+          "lcp_ms": 3908,
+          "fcp_ms": 3376,
+          "tbt_ms": 4,
+          "cls": 0.01,
+          "display_cls": 0.005,
+          "report": "https://pagespeed.web.dev/analysis/https-luanalves-com-br-insights-quanto-tempo-leva-para-criar-um-site-profissional/skjutl6vi6?form_factor=mobile",
+          "captured": "2026-10-03 20:57 GMT-3",
+          "run": 3,
+          "lighthouse_version": "13.5.0"
+        }
+      ],
+      "medians": {
+        "lcp_ms": 3908,
+        "fcp_ms": 3376,
+        "tbt_ms": 4,
+        "cls": 0.01,
+        "display_cls": 0.005
+      },
+      "before_medians": {
+        "lcp_ms": 6075,
+        "fcp_ms": 3545,
+        "tbt_ms": 14,
+        "cls": 0.05
+      }
+    }
+  ],
+  "rejected": [
+    {
+      "report": "https://pagespeed.web.dev/analysis/https-luanalves-com-br-criacao-de-sites-belem/4sfg49o814?form_factor=mobile",
+      "reason": "Retained prior service audit metrics and 20:56 capture time; replaced with a fresh 20:58 sample."
+    }
+  ],
+  "notes": [
+    "Baseline home displayed CLS confirmed 0 on all three archived reports.",
+    "No field data; TBT is not INP.",
+    "Three-run medians are snapshots, not a controlled causal estimate. Preserve variation and do not combine intermediate builds."
+  ]
+}
