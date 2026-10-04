@@ -20,4 +20,8 @@ A publicação original permanece em 05/06/2026. A revisão substantiva de 04/10
 
 Capturas: [cabeçalho mobile](issue-8-checklist-mobile.png) e [registro copiável](issue-8-checklist-record.png).
 
+## Preview hospedado
+
+Em 04/10/2026, a Vercel marcou como pronto o deployment `87wWE7GHATy9gTKyhC2vhtBJrUmd` do commit `235faa8`. O [preview do artigo](https://luanalves-git-codex-issue-8-launch-checklist-aka-luans-projects.vercel.app/insights/checklist-lancamento-site-empresarial/) foi conferido com a sessão autenticada existente, em 390 × 844 px: documento com 380 px, title e conteúdo revisados, publicação `2026-06-05`, atualização `2026-10-04` e canonical apontando para a URL pública com barra. O modelo não contém indentação extra. Os contatos de lateral/autor e corpo mantêm mensagens de revisão de lançamento. Nenhuma mensagem foi enviada. [Captura do preview mobile](issue-8-checklist-preview.png).
+
 Publicação e validação no domínio final ainda pendentes. A issue permanece aberta até essa etapa; não há alegação de aumento de cliques ou conversões.
