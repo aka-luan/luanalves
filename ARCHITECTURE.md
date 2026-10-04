@@ -32,11 +32,15 @@ There is no backend service or database in this repository.
 
 `src/data/servicePages.ts` owns service-page content, shared process blocks, shared FAQ blocks, WhatsApp links, breadcrumbs, FAQ schema, and service schema.
 
+Service pages select their proof case and framing in servicePages.ts. ServiceProof resolves the actual case data and fails the build for an unknown slug. Render proof after benefits, scope before the intermediate contact CTA, then process and objections. Keep the portfolio, para-quem, diferenciais and perguntas anchors when consolidating sections. Institutional references on the landing-page service must explicitly state that they do not establish campaign conversion or media return.
+
 `src/data/verticalPages.ts` owns industry-specific commercial content, case selection, WhatsApp attribution, links between verticals, and `Service`/breadcrumb schema without `FAQPage` markup.
 
 `src/data/insights.ts` owns editorial post metadata, article blocks, categories, filters, article paths, table-of-contents helpers, and hero image prompts.
 
 Article isoDate/date describe original publication. Set updatedIsoDate only for a substantive editorial revision; the article displays it separately, BlogPosting uses it for dateModified and the sitemap uses it for lastmod. Do not refresh publication dates or mark untouched articles as updated during template changes.
+
+Service and case owners curate relatedInsightSlugs by delivery and buyer questions. The Insights module resolves published posts in that order, deduplicates selections, and supplies a planning fallback for missing/unpublished slugs. Article contact labels and messages are chosen together by topic in getInsightContact; preserve contextual links authored inside article blocks.
 
 src/data/projectScope.ts owns shared commercial conditions and optional extensions used by the service hub, services and segment FAQs.
 
@@ -48,7 +52,7 @@ Astro pages import these data modules, compose components, and pass page-specifi
 
 - `<html lang="pt-BR">`.
 - title, description, canonical, Open Graph, Twitter metadata.
-- base JSON-LD graph for `Person`, `ProfessionalService`, and `WebSite`.
+- base JSON-LD graph for `Person`, `Organization`, and `WebSite`.
 - page-level schema appended through the `schema` prop.
 - local font CSS and global CSS.
 - Vercel Analytics, Speed Insights, and the production-only GA4 Google tag.
@@ -57,6 +61,10 @@ Astro pages import these data modules, compose components, and pass page-specifi
 `astro.config.mjs` configures `@astrojs/sitemap` and delegates `lastmod` values to `scripts/seo-metadata.mjs`.
 
 `public/robots.txt` and `public/llms.txt` are static public files.
+
+BaseLayout owns the stable Person #person, Organization #business and WebSite #website identities. Page-level Service providers and case providers reference #business; a local service changes areaServed, not the business identity. Keep identity images independent of page social images. ContactPoint describes the WhatsApp contact. Do not infer a physical address, prices, reviews or exact publication dates from incomplete source data. Case years are not exact dates; editorial dates come from the article data.
+
+The canonical origin is https://luanalves.com.br and page URLs end in a slash. Astro trailingSlash and Vercel trailingSlash must agree. vercel.json normalizes www to the apex host using a permanent redirect; Vercel handles HTTPS and excludes file-extension paths from slash normalization. Astro preview does not execute Vercel host redirects: verify status, destination, query preservation and asset access on a deployed preview/production environment before declaring a redirect issue closed.
 
 ## Browser Scripts
 
@@ -68,6 +76,8 @@ Astro pages import these data modules, compose components, and pass page-specifi
 - `src/scripts/insight-post.ts` owns article progress, table-of-contents state, share links, and article motion.
 
 Motion code must respect `prefers-reduced-motion` and the existing `motion-enabled` class.
+
+The mobile navigation controller lives only in src/scripts/mobile-nav.ts and is initialized by the shared page lifecycle on direct load and Barba navigation. Keep SiteNav presentational; a second inline controller creates competing listeners. The native disclosure button exposes aria-expanded, keeps the closed mobile menu inert, and restores its focus on Escape. Desktop navigation must never remain inert after resizing.
 
 ## Rendering And Measurement
 

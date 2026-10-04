@@ -7,6 +7,7 @@ import { getHeroImage } from '../../data/heroImages';
 import { navigation } from '../../data/site';
 import {
   getInsightPath,
+  getInsightContact,
   getInsightToc,
   insights,
   publishedInsights,
@@ -28,10 +29,8 @@ const heroImage = post.heroImage
 const siteUrl = 'https://luanalves.com.br';
 const canonicalPath = getInsightPath(post);
 const canonicalUrl = `${siteUrl}${canonicalPath}`;
-const whatsappMessage = encodeURIComponent(
-  `Olá, Luan! Li o artigo "${post.title}" e quero entender qual estrutura faz sentido para o meu projeto.`,
-);
-const whatsappHref = `https://wa.me/5591982890565?text=${whatsappMessage}`;
+const articleContact = getInsightContact(post);
+const whatsappHref = articleContact.href;
 const portfolioHref = '/portfolio/';
 const authorLocation = 'Belém, PA';
 const authorInitials = post.author.name
@@ -354,7 +353,7 @@ const renderInlineLinks = (text: string) => text;
             href={whatsappHref} data-analytics-position='article_sidebar'
             target='_blank'
             rel='noreferrer'>
-            Pedir orientação de orçamento
+            {articleContact.label}
             <span class='material-symbols-outlined' aria-hidden='true'
               >arrow_forward</span
             >
@@ -386,7 +385,7 @@ const renderInlineLinks = (text: string) => text;
             target='_blank'
             rel='noreferrer'>
             <span class='material-symbols-outlined' aria-hidden='true'>chat</span>
-            Falar no WhatsApp
+            {articleContact.label}
           </a>
 
           <a class='author-card__action' href={portfolioHref}>

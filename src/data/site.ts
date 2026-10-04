@@ -174,6 +174,7 @@ export const projects = [
 
 interface PortfolioCaseDetail {
   slug: string;
+  relatedInsightSlugs: string[];
   year: string;
   client: string;
   segment: string;
@@ -309,6 +310,7 @@ const basePortfolioProjects = [
 const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
   'tresor-incorporacoes': {
     slug: 'tresor-incorporacoes',
+    relatedInsightSlugs: ['site-institucional-o-que-precisa-ter', 'quanto-tempo-leva-para-criar-um-site-profissional'],
     year: '2025',
     client: 'Trésor Incorporações',
     segment: 'Incorporadora · Alto padrão',
@@ -368,6 +370,7 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
   },
   urbem: {
     slug: 'urbem',
+    relatedInsightSlugs: ['site-institucional-o-que-precisa-ter', 'checklist-lancamento-site-empresarial'],
     year: '2024',
     client: 'Urbem',
     segment: 'Indústria · Madeira engenheirada',
@@ -423,6 +426,7 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
   },
   tymber: {
     slug: 'tymber',
+    relatedInsightSlugs: ['site-institucional-o-que-precisa-ter', 'landing-page-ou-site-institucional'],
     year: '2025',
     client: 'Tymber',
     segment: 'Incorporadora · Mass timber',
@@ -478,6 +482,7 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
   },
   'conviva-engenharia': {
     slug: 'conviva-engenharia',
+    relatedInsightSlugs: ['site-institucional-o-que-precisa-ter', 'quanto-custa-um-site-profissional'],
     year: '2025',
     client: 'Conviva Engenharia',
     segment: 'Engenharia · Imobiliário',
@@ -533,6 +538,7 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
   },
   'agencia-skyrocket': {
     slug: 'agencia-skyrocket',
+    relatedInsightSlugs: ['site-institucional-o-que-precisa-ter', 'como-escolher-desenvolvedor-web-freelancer'],
     year: '2023',
     client: 'Agência Skyrocket',
     segment: 'Agência · Marketing digital',
@@ -594,6 +600,7 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
   },
   'clinica-cdv': {
     slug: 'clinica-cdv',
+    relatedInsightSlugs: ['site-institucional-o-que-precisa-ter', 'checklist-lancamento-site-empresarial'],
     year: '2024',
     client: 'Clínica CDV',
     segment: 'Saúde · Clínica médica',
@@ -649,6 +656,7 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
   },
   'poliana-bentes': {
     slug: 'poliana-bentes',
+    relatedInsightSlugs: ['site-institucional-o-que-precisa-ter', 'quanto-tempo-leva-para-criar-um-site-profissional'],
     year: '2023',
     client: 'Poliana Bentes',
     segment: 'Consultoria · Relações institucionais',

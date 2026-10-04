@@ -1,9 +1,10 @@
 ---
 import SiteFooter from '../../components/SiteFooter.astro';
+import HomeCta from '../../components/HomeCta.astro';
 import SiteNav from '../../components/SiteNav.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { navigation, portfolioProjects } from '../../data/site';
-import { getInsightPath, publishedInsights } from '../../data/insights';
+import { getInsightPath, getCuratedInsights } from '../../data/insights';
 
 const siteUrl = 'https://luanalves.com.br';
 const whatsappHref =
@@ -21,6 +22,9 @@ export function getStaticPaths() {
 }
 
 const { project, nextProject } = Astro.props;
+const caseWhatsappHref = `https://wa.me/5591982890565?text=${encodeURIComponent(
+  `Olá, Luan! Vi o projeto ${project.title} no seu portfólio e quero conversar sobre um site para minha empresa.`,
+)}`;
 const projectUrl = `${siteUrl}/portfolio/${project.slug}/`;
 const pageTitle = `${project.title} | Case de Portfólio · Luan Alves`;
 const pageDescription = `${project.lead} Conheça desafio, solução, entregas e resultados do projeto.`;
@@ -92,7 +96,7 @@ const verticalLinksByProject: Record<
   ],
 };
 const segmentLinks = verticalLinksByProject[project.slug] ?? [];
-const relatedInsights = publishedInsights.slice(0, 2);
+const relatedInsights = getCuratedInsights(project.relatedInsightSlugs);
 
 const caseSchema = [
   {
@@ -128,8 +132,6 @@ const caseSchema = [
     image: new URL(project.image, siteUrl).toString(),
     creator: { '@id': `${siteUrl}/#person` },
     about: project.categories,
-    datePublished: `${project.year}-01-01`,
-    dateModified: `${project.year}-01-01`,
     inLanguage: 'pt-BR',
     sameAs: externalUrl,
     mainEntityOfPage: {
@@ -313,10 +315,19 @@ const caseSchema = [
       </div>
     </section>
 
+    <HomeCta
+      whatsappHref={caseWhatsappHref}
+      title='Quer um site assim para sua empresa?'
+      copy={`O projeto ${project.title} é uma referência para nossa conversa. Me conte o que sua empresa faz, o objetivo do site e quando pretende publicar para alinharmos a estrutura e o escopo antes da proposta.`}
+      buttonLabel='Conversar pelo WhatsApp'
+      analyticsPosition='case_final'
+      motion={false}
+    />
+
     <section class='case-links' aria-labelledby='case-links-title' data-motion-section='case-links'>
       <p class='case-section-label' data-motion-heading data-motion-hidden='y-sm'>Próximos passos</p>
       <h2 id='case-links-title' data-motion-heading data-motion-hidden='y-md'>
-        Continue por páginas com intenção comercial.
+        Conheça o serviço e tire suas dúvidas.
       </h2>
 
       <div class='case-links__grid'>

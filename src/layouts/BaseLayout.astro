@@ -48,7 +48,7 @@ const baseSchema = [
     description:
       'Desenvolvedor web especializado em sites institucionais, blogs e landing pages para pequenas e médias empresas em todo o Brasil.',
     url: siteUrl,
-    image: socialImageUrl,
+    image: toAbsoluteUrl('/assets/hero-img.webp'),
     sameAs: ['https://linkedin.com/in/aka-luan', 'https://github.com/aka-luan'],
     knowsAbout: [
       'Desenvolvimento Web',
@@ -65,22 +65,24 @@ const baseSchema = [
   },
   {
     '@context': 'https://schema.org',
-    '@type': 'ProfessionalService',
+    '@type': 'Organization',
     '@id': `${siteUrl}/#business`,
     name: 'Luan Alves — Desenvolvimento Web',
     description:
       'Criação de sites institucionais, blogs e landing pages para apresentar empresas e facilitar contatos em todo o Brasil. Atendimento direto, com escopo, cronograma e suporte definidos na proposta.',
     url: siteUrl,
-    image: socialImageUrl,
+    image: toAbsoluteUrl('/assets/og-cover.webp'),
     founder: { '@id': `${siteUrl}/#person` },
     areaServed: {
       '@type': 'Country',
       name: 'Brasil',
     },
-    availableChannel: {
-      '@type': 'ServiceChannel',
-      serviceUrl: 'https://wa.me/5591982890565',
-      serviceType: 'WhatsApp',
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'Atendimento ao Cliente',
+      availableLanguage: 'Portuguese',
+      telephone: '+55-91-98289-0565',
+      url: 'https://wa.me/5591982890565',
     },
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
@@ -98,7 +100,7 @@ const baseSchema = [
           '@type': 'Offer',
           name: 'Blog Profissional',
           description:
-            'Estrutura editorial otimizada para SEO com gestão simplificada de conteúdo.',
+            'Estrutura editorial com SEO técnico e gestão de conteúdo conforme o escopo contratado.',
           url: `${siteUrl}/blog-profissional/`,
           seller: { '@id': `${siteUrl}/#business` },
         },
@@ -106,7 +108,7 @@ const baseSchema = [
           '@type': 'Offer',
           name: 'Landing Page',
           description:
-            'Página de alta conversão para campanhas digitais, focada em geração de leads e velocidade.',
+            'Página para apresentar uma oferta de campanha e facilitar contatos, com atenção à velocidade.',
           url: `${siteUrl}/landing-page/`,
           seller: { '@id': `${siteUrl}/#business` },
         },

@@ -1,0 +1,36 @@
+Browser tab: 6, Title: "Validador da marcação do esquema", URL: "https://validator.schema.org/".
+0 AXWebArea Validador da marcação do esquema, URL: validator.schema.org/
+	1 container
+		2 container pagehead1
+			3 link Description: Schema.org, Value: schema.org/
+			4 content list
+				5 link Description: Documentation, Value: schema.org/docs/documents.html
+				6 link Description: Schemas, Value: schema.org/docs/schemas.html
+				7 link Description: Validate, Value: validator.schema.org/
+				8 link Description: About, Value: schema.org/docs/about.html
+			9 container gsc-iw-id1
+				10 text field (settable) Description: search, ID: gsc-i-id1
+		11 container fetch-bar
+			12 text public
+			13 container button-panel
+				14 button Testar de novo, ID: new-test
+				15 button language_japanese_kana, ID: select-language
+				16 button info, ID: settings-help
+		17 container
+			18 text entry area (settable)
+			19 container
+				24 text < script type = "application/ld+json" > { "@context" : "https://schema.org" , "@graph" :[{ "@context" : "https://schema.org" , "@type" : "Person" , "@id" : "https://luanalves.com.br/#person" , "name" : "Luan Alves" , "jobTitle" : "Desenvolvedor Web Freelancer" , "description" : "Desenvolvedor web especializado em sites institucionais, blogs e landing pages para pequenas e médias empresas em todo o Brasil." , "url" : "https://luanalves.com.br" , "image" : "https://luanalves.com.br/assets/hero-img.webp" , "sameAs" :[ "https://linkedin.com/in/aka-luan" , "https://github.com/aka-luan" ], "knowsAbout" :[ "Desenvolvimento Web" , "SEO" , "Landing Pages" , "Design para Conversão" ], "contactPoint" :{ "@type" : "ContactPoint" , "contactType" : "Atendimento ao Cliente" , "availableLanguage" : "Portuguese" , "url" : "https://wa.me/5591982890565" }},{ "@context" : "https://schema.org" , "@type" : "Organization" , "@id" : "https://luanalves.com.br/#business" , "name" : "Luan Alves — Desenvolvimento Web" , "description" : "Criação de sites institucionais, blogs e landing pages para apresentar empresas e facilitar contatos em todo o Brasil. Atendimento direto, com escopo, cronograma e suporte definidos na proposta." , "url" : "https://luanalves.com.br" , "image" : "https://luanalves.com.br/assets/og-cover.webp" , "founder" :{ "@id" : "https://luanalves.com.br/#person" }, "areaServed" :{ "@type" : "Country" , "name" : "Brasil" }, "contactPoint" :{ "@type" : "ContactPoint" , "contactType" : "Atendimento ao Cliente" , "availableLanguage" : "Portuguese" , "telephone" : "+55-91-98289-0565" , "url" : "https://wa.me/5591982890565" }, "hasOfferCatalog" :{ "@type" : "OfferCatalog" , "name" : "Serviços de Desenvolvimento Web" , "itemListElement" :[{ "@type" : "Offer" , "name" : "Site Institucional" , "description" : "Site profissional para empresas com foco em autoridade de marca, SEO e experiência do usuário." , "url" : "https://luanalves.com.br/site-institucional/" , "seller" :{ "@id" : "https://luanalves.com.br/#business" }},{ "@type" : "Offer" , "name" : "Blog Profissional" , "description" : "Estrutura editorial com SEO técnico e gestão de conteúdo conforme o escopo contratado." , "url" : "https://luanalves.com.br/blog-profissional/" , "seller" :{ "@id" : "https://luanalves.com.br/#business" }},{ "@type" : "Offer" , "name" : "Landing Page" , "description" : "Página para apresentar uma oferta de campanha e facilitar contatos, com atenção à velocidade." , "url" : "https://luanalves.com.br/landing-page/" , "seller" :{ "@id" : "https://luanalves.com.br/#business" }}]}},{ "@context" : "https://schema.org" , "@type" : "WebSite" , "@id" : "https://luanalves.com.br/#website" , "name" : "Luan Alves" , "url" : "https://luanalves.com.br" , "description" : "Site profissional de Luan Alves, desenvolvedor web freelancer especializado em sites, blogs e landing pages." , "publisher" :{ "@id" : "https://luanalves.com.br/#person" }, "inLanguage" : "pt-BR" }]} </ script >
+		25 container
+			26 text Detectado 0 ERROS
+			27 text 0 AVISOS
+			28 text 2 ITENS
+			29 content list
+				30 container
+					31 text Organization 0 ERROS 0 AVISOS 1 ITEM
+				32 container
+					33 text WebSite 0 ERROS 0 AVISOS 1 ITEM
+		21 button (disabled) play_arrow, ID: validate-button
+			22 text play_arrow
+		23 text VALIDAR
+
+The focused UI element is 0 AXWebArea Validador da marcação do esquema, URL: validator.schema.org/

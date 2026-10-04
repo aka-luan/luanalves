@@ -1,0 +1,349 @@
+[
+  {
+    "file": "404.html",
+    "types": [
+      "Person",
+      "Organization",
+      "WebSite"
+    ],
+    "faqQuestions": 0
+  },
+  {
+    "file": "blog-profissional\\index.html",
+    "canonical": "https://luanalves.com.br/blog-profissional/",
+    "types": [
+      "Person",
+      "Organization",
+      "WebSite",
+      "BreadcrumbList",
+      "Service",
+      "FAQPage"
+    ],
+    "faqQuestions": 11
+  },
+  {
+    "file": "criacao-de-sites\\index.html",
+    "canonical": "https://luanalves.com.br/criacao-de-sites/",
+    "types": [
+      "Person",
+      "Organization",
+      "WebSite",
+      "BreadcrumbList",
+      "Service",
+      "FAQPage"
+    ],
+    "faqQuestions": 9
+  },
+  {
+    "file": "criacao-de-sites-belem\\index.html",
+    "canonical": "https://luanalves.com.br/criacao-de-sites-belem/",
+    "types": [
+      "Person",
+      "Organization",
+      "WebSite",
+      "BreadcrumbList",
+      "Service",
+      "FAQPage"
+    ],
+    "faqQuestions": 11
+  },
+  {
+    "file": "index.html",
+    "canonical": "https://luanalves.com.br/",
+    "types": [
+      "Person",
+      "Organization",
+      "WebSite"
+    ],
+    "faqQuestions": 0
+  },
+  {
+    "file": "insights\\checklist-lancamento-site-empresarial\\index.html",
+    "canonical": "https://luanalves.com.br/insights/checklist-lancamento-site-empresarial/",
+    "types": [
+      "Person",
+      "Organization",
+      "WebSite",
+      "BreadcrumbList",
+      "BlogPosting",
+      "FAQPage"
+    ],
+    "faqQuestions": 5
+  },
+  {
+    "file": "insights\\como-escolher-desenvolvedor-web-freelancer\\index.html",
+    "canonical": "https://luanalves.com.br/insights/como-escolher-desenvolvedor-web-freelancer/",
+    "types": [
+      "Person",
+      "Organization",
+      "WebSite",
+      "BreadcrumbList",
+      "BlogPosting",
+      "FAQPage"
+    ],
+    "faqQuestions": 5
+  },
+  {
+    "file": "insights\\index.html",
+    "canonical": "https://luanalves.com.br/insights/",
+    "types": [
+      "Person",
+      "Organization",
+      "WebSite",
+      "BreadcrumbList",
+      "CollectionPage",
+      "ItemList"
+    ],
+    "faqQuestions": 0
+  },
+  {
+    "file": "insights\\landing-page-ou-site-institucional\\index.html",
+    "canonical": "https://luanalves.com.br/insights/landing-page-ou-site-institucional/",
+    "types": [
+      "Person",
+      "Organization",
+      "WebSite",
+      "BreadcrumbList",
+      "BlogPosting",
+      "FAQPage"
+    ],
+    "faqQuestions": 7
+  },
+  {
+    "file": "insights\\por-que-performance-site-afeta-conversao\\index.html",
+    "canonical": "https://luanalves.com.br/insights/por-que-performance-site-afeta-conversao/",
+    "types": [
+      "Person",
+      "Organization",
+      "WebSite",
+      "BreadcrumbList",
+      "BlogPosting",
+      "FAQPage"
+    ],
+    "faqQuestions": 5
+  },
+  {
+    "file": "insights\\quanto-custa-um-site-profissional\\index.html",
+    "canonical": "https://luanalves.com.br/insights/quanto-custa-um-site-profissional/",
+    "types": [
+      "Person",
+      "Organization",
+      "WebSite",
+      "BreadcrumbList",
+      "BlogPosting",
+      "FAQPage"
+    ],
+    "faqQuestions": 10
+  },
+  {
+    "file": "insights\\quanto-tempo-leva-para-criar-um-site-profissional\\index.html",
+    "canonical": "https://luanalves.com.br/insights/quanto-tempo-leva-para-criar-um-site-profissional/",
+    "types": [
+      "Person",
+      "Organization",
+      "WebSite",
+      "BreadcrumbList",
+      "BlogPosting",
+      "FAQPage"
+    ],
+    "faqQuestions": 5
+  },
+  {
+    "file": "insights\\site-barato-vs-site-profissional\\index.html",
+    "canonical": "https://luanalves.com.br/insights/site-barato-vs-site-profissional/",
+    "types": [
+      "Person",
+      "Organization",
+      "WebSite",
+      "BreadcrumbList",
+      "BlogPosting",
+      "FAQPage"
+    ],
+    "faqQuestions": 6
+  },
+  {
+    "file": "insights\\site-institucional-o-que-precisa-ter\\index.html",
+    "canonical": "https://luanalves.com.br/insights/site-institucional-o-que-precisa-ter/",
+    "types": [
+      "Person",
+      "Organization",
+      "WebSite",
+      "BreadcrumbList",
+      "BlogPosting",
+      "FAQPage"
+    ],
+    "faqQuestions": 6
+  },
+  {
+    "file": "landing-page\\index.html",
+    "canonical": "https://luanalves.com.br/landing-page/",
+    "types": [
+      "Person",
+      "Organization",
+      "WebSite",
+      "BreadcrumbList",
+      "Service",
+      "FAQPage"
+    ],
+    "faqQuestions": 11
+  },
+  {
+    "file": "portfolio\\agencia-skyrocket\\index.html",
+    "canonical": "https://luanalves.com.br/portfolio/agencia-skyrocket/",
+    "types": [
+      "Person",
+      "Organization",
+      "WebSite",
+      "BreadcrumbList",
+      "CreativeWork"
+    ],
+    "faqQuestions": 0
+  },
+  {
+    "file": "portfolio\\clinica-cdv\\index.html",
+    "canonical": "https://luanalves.com.br/portfolio/clinica-cdv/",
+    "types": [
+      "Person",
+      "Organization",
+      "WebSite",
+      "BreadcrumbList",
+      "CreativeWork"
+    ],
+    "faqQuestions": 0
+  },
+  {
+    "file": "portfolio\\conviva-engenharia\\index.html",
+    "canonical": "https://luanalves.com.br/portfolio/conviva-engenharia/",
+    "types": [
+      "Person",
+      "Organization",
+      "WebSite",
+      "BreadcrumbList",
+      "CreativeWork"
+    ],
+    "faqQuestions": 0
+  },
+  {
+    "file": "portfolio\\index.html",
+    "canonical": "https://luanalves.com.br/portfolio/",
+    "types": [
+      "Person",
+      "Organization",
+      "WebSite",
+      "BreadcrumbList",
+      "CollectionPage",
+      "ItemList"
+    ],
+    "faqQuestions": 0
+  },
+  {
+    "file": "portfolio\\poliana-bentes\\index.html",
+    "canonical": "https://luanalves.com.br/portfolio/poliana-bentes/",
+    "types": [
+      "Person",
+      "Organization",
+      "WebSite",
+      "BreadcrumbList",
+      "CreativeWork"
+    ],
+    "faqQuestions": 0
+  },
+  {
+    "file": "portfolio\\tresor-incorporacoes\\index.html",
+    "canonical": "https://luanalves.com.br/portfolio/tresor-incorporacoes/",
+    "types": [
+      "Person",
+      "Organization",
+      "WebSite",
+      "BreadcrumbList",
+      "CreativeWork"
+    ],
+    "faqQuestions": 0
+  },
+  {
+    "file": "portfolio\\tymber\\index.html",
+    "canonical": "https://luanalves.com.br/portfolio/tymber/",
+    "types": [
+      "Person",
+      "Organization",
+      "WebSite",
+      "BreadcrumbList",
+      "CreativeWork"
+    ],
+    "faqQuestions": 0
+  },
+  {
+    "file": "portfolio\\urbem\\index.html",
+    "canonical": "https://luanalves.com.br/portfolio/urbem/",
+    "types": [
+      "Person",
+      "Organization",
+      "WebSite",
+      "BreadcrumbList",
+      "CreativeWork"
+    ],
+    "faqQuestions": 0
+  },
+  {
+    "file": "site-institucional\\index.html",
+    "canonical": "https://luanalves.com.br/site-institucional/",
+    "types": [
+      "Person",
+      "Organization",
+      "WebSite",
+      "BreadcrumbList",
+      "Service",
+      "FAQPage"
+    ],
+    "faqQuestions": 11
+  },
+  {
+    "file": "site-para-construtora\\index.html",
+    "canonical": "https://luanalves.com.br/site-para-construtora/",
+    "types": [
+      "Person",
+      "Organization",
+      "WebSite",
+      "BreadcrumbList",
+      "Service"
+    ],
+    "faqQuestions": 0
+  },
+  {
+    "file": "site-para-incorporadora\\index.html",
+    "canonical": "https://luanalves.com.br/site-para-incorporadora/",
+    "types": [
+      "Person",
+      "Organization",
+      "WebSite",
+      "BreadcrumbList",
+      "Service"
+    ],
+    "faqQuestions": 0
+  },
+  {
+    "file": "site-para-industria-de-madeira-engenheirada\\index.html",
+    "canonical": "https://luanalves.com.br/site-para-industria-de-madeira-engenheirada/",
+    "types": [
+      "Person",
+      "Organization",
+      "WebSite",
+      "BreadcrumbList",
+      "Service"
+    ],
+    "faqQuestions": 0
+  },
+  {
+    "file": "sobre\\index.html",
+    "canonical": "https://luanalves.com.br/sobre/",
+    "types": [
+      "Person",
+      "Organization",
+      "WebSite",
+      "BreadcrumbList",
+      "AboutPage",
+      "ProfilePage"
+    ],
+    "faqQuestions": 0
+  }
+]

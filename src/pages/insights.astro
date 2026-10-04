@@ -7,7 +7,7 @@ import { getInsightPath, insightFilters, insights } from '../data/insights';
 
 const siteUrl = 'https://luanalves.com.br';
 const whatsappHref =
-  'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Vi%20a%20p%C3%A1gina%20Insights%20e%20quero%20conversar%20sobre%20estrat%C3%A9gia%20digital.';
+  `https://wa.me/5591982890565?text=${encodeURIComponent('Olá, Luan! Li seus Insights e quero conversar sobre o objetivo do meu site e o formato adequado para minha empresa.')}`;
 
 const filters = insightFilters;
 const posts = insights;
@@ -240,10 +240,10 @@ const insightsSchema = [
         <aside class='insights-cta' aria-labelledby='insights-cta-title' data-motion-section='cta' data-motion-panel data-motion-hidden='y-lg'>
           <div data-motion-heading data-motion-hidden='y-sm'>
             <p class='insights-eyebrow'>Próximo passo</p>
-            <h2 id='insights-cta-title'>Quer transformar conteúdo em contato?</h2>
+            <h2 id='insights-cta-title'>Qual é o próximo passo para o seu site?</h2>
             <p>
-              Me chama no WhatsApp para planejar uma base editorial rápida,
-              indexável e conectada às páginas comerciais do seu site.
+              Me conte o objetivo da sua empresa. Vamos alinhar o formato,
+              a estrutura e os materiais para um site institucional, blog ou landing page.
             </p>
           </div>
 
