@@ -1,17 +1,15 @@
 ---
 import FaqSection from '../FaqSection.astro';
 import HomeCta from '../HomeCta.astro';
-import PortfolioShowcase from '../PortfolioShowcase.astro';
 import SiteFooter from '../SiteFooter.astro';
 import SiteNav from '../SiteNav.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { featuredPortfolioProjects } from '../../data/site';
-import { getInsightPath, publishedInsights } from '../../data/insights';
+import { getInsightPath, getCuratedInsights } from '../../data/insights';
 import {
   getServicePageSchema,
   type ServicePageContent,
 } from '../../data/servicePages';
-import ServiceAudienceSection from './ServiceAudienceSection.astro';
+import ServiceProof from './ServiceProof.astro';
 import ServiceCardsSection from './ServiceCardsSection.astro';
 import ServiceHero from './ServiceHero.astro';
 import ServiceProcessSection from './ServiceProcessSection.astro';
@@ -21,7 +19,7 @@ interface Props {
 }
 
 const { page } = Astro.props;
-const relatedInsights = publishedInsights.slice(0, 2);
+const relatedInsights = getCuratedInsights(page.relatedInsightSlugs);
 ---
 
 <BaseLayout
@@ -49,21 +47,7 @@ const relatedInsights = publishedInsights.slice(0, 2);
       motionName='benefits'
     />
 
-    <ServiceAudienceSection
-      eyebrow={page.audience.eyebrow}
-      title={page.audience.title}
-      accent={page.audience.accent}
-      copy={page.audience.copy}
-      items={page.audience.items}
-    />
-
-    <ServiceProcessSection
-      eyebrow={page.process.eyebrow}
-      title={page.process.title}
-      accent={page.process.accent}
-      copy={page.process.copy}
-      items={page.process.items}
-    />
+    <ServiceProof proof={page.proof} />
 
     <ServiceCardsSection
       id='incluso'
@@ -75,16 +59,41 @@ const relatedInsights = publishedInsights.slice(0, 2);
       motionName='included'
     />
 
-    <ServiceCardsSection
-      id='diferenciais'
-      eyebrow={page.differentials.eyebrow}
-      title={page.differentials.title}
-      accent={page.differentials.accent}
-      copy={page.differentials.copy}
-      items={page.differentials.items}
-      motionName='differentials'
+    <HomeCta
+      id='conversar-sobre-escopo'
+      analyticsPosition='service_after_case'
+      whatsappHref={page.whatsappHref}
+      title='Esse formato faz sentido para sua empresa?'
+      copy='Me conte o objetivo, as páginas necessárias e a data desejada. Vamos alinhar a entrega base e as extensões antes da proposta.'
+      buttonLabel='Conversar sobre o escopo'
+      motion={false}
     />
 
+    <section class='service-summary section' id='para-quem' aria-labelledby='audience-title'>
+      <div class='container'>
+        <p class='editorial-eyebrow'>{page.audience.eyebrow}</p>
+        <h2 id='audience-title'>{page.audience.title}</h2>
+        <p>{page.audience.copy}</p>
+        <ul>{page.audience.items.map((item) => <li>{item.title}</li>)}</ul>
+      </div>
+    </section>
+
+    <ServiceProcessSection
+      eyebrow={page.process.eyebrow}
+      title={page.process.title}
+      accent={page.process.accent}
+      copy={page.process.copy}
+      items={page.process.items}
+    />
+
+    <section class='service-summary section' id='diferenciais' aria-labelledby='service-partnership-title'>
+      <div class='container'>
+        <p class='editorial-eyebrow'>Como vamos trabalhar</p>
+        <h2 id='service-partnership-title'>Atendimento direto e decisões combinadas.</h2>
+        <p>Você fala comigo durante o projeto. Materiais, etapas de aprovação, revisões, atualizações e suporte são definidos na proposta. Veja as condições nas perguntas frequentes.</p>
+        <a href='#perguntas'>Consultar as condições do projeto</a>
+      </div>
+    </section>
     {
       page.relatedSegments?.length && (
         <section class='service-segments' aria-labelledby='service-segments-title'>
@@ -118,12 +127,6 @@ const relatedInsights = publishedInsights.slice(0, 2);
         </section>
       )
     }
-
-    <PortfolioShowcase
-      projects={featuredPortfolioProjects}
-      copy='Projetos reais usados como referência de acabamento, performance e presença digital profissional.'
-      moreHref='/portfolio/'
-    />
 
     <section class='service-reading' aria-labelledby='service-reading-title'>
       <div class='service-reading__inner'>
@@ -199,6 +202,20 @@ const relatedInsights = publishedInsights.slice(0, 2);
   .service-reading {
     padding: clamp(4.2rem, 5vw, 5.4rem) 1.15rem 0;
   }
+
+  .service-summary { scroll-margin-top: 6rem; }
+  .service-summary h2 {
+    max-width: 45rem;
+    margin: 1rem 0;
+    font-family: 'Newsreader', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    text-wrap: balance;
+  }
+  .service-summary p { max-width: 45rem; color: var(--muted); line-height: 1.7; }
+  .service-summary ul { display: flex; flex-wrap: wrap; gap: 0.7rem 2rem; padding-left: 1.2rem; color: var(--muted); }
+  .service-summary a { color: var(--primary); text-decoration: underline; text-underline-offset: 0.25em; }
 
   .service-segments {
     padding: clamp(5.5rem, 8vw, 8rem) 1.15rem 0;

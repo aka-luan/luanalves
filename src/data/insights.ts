@@ -3181,6 +3181,68 @@ export const publishedInsights = insights.filter(
   (post): post is InsightPublishedPost => post.published === true,
 );
 
+// Missing or unpublished selections fall back to broad project-planning questions.
+export function getCuratedInsights(slugs: string[], limit = 2) {
+  const fallbackSlugs = ['landing-page-ou-site-institucional', 'quanto-custa-um-site-profissional'];
+  return [...new Set([...slugs, ...fallbackSlugs])]
+    .map((slug) => publishedInsights.find((post) => post.slug === slug))
+    .filter((post): post is InsightPublishedPost => Boolean(post))
+    .slice(0, limit);
+}
+
+interface InsightContact {
+  label: string;
+  intent: string;
+}
+
+const insightContacts: Record<string, InsightContact> = {
+  'checklist-lancamento-site-empresarial': {
+    label: 'Conversar sobre o lançamento',
+    intent: 'quero revisar o lançamento do meu site e alinhar os pontos que precisam ser conferidos antes de publicar',
+  },
+  'site-institucional-o-que-precisa-ter': {
+    label: 'Planejar a estrutura do site',
+    intent: 'quero organizar as páginas, os serviços e os caminhos de contato do site da minha empresa',
+  },
+  'quanto-tempo-leva-para-criar-um-site-profissional': {
+    label: 'Planejar o prazo do projeto',
+    intent: 'quero conversar sobre o objetivo do meu site e a data desejada para publicação, considerando materiais e aprovações',
+  },
+  'como-escolher-desenvolvedor-web-freelancer': {
+    label: 'Conversar sobre a contratação',
+    intent: 'quero conhecer seu processo e alinhar o escopo de um site para minha empresa',
+  },
+  'por-que-performance-site-afeta-conversao': {
+    label: 'Conversar sobre performance',
+    intent: 'quero entender como revisar carregamento, estabilidade e contato no celular no meu site',
+  },
+  'quanto-custa-um-site-profissional': {
+    label: 'Alinhar escopo e investimento',
+    intent: 'quero alinhar as páginas, funcionalidades e materiais do meu projeto para receber uma proposta',
+  },
+  'site-barato-vs-site-profissional': {
+    label: 'Definir prioridades do projeto',
+    intent: 'quero definir as prioridades e os limites do meu projeto de site antes de comparar propostas',
+  },
+  'landing-page-ou-site-institucional': {
+    label: 'Escolher o formato do site',
+    intent: 'quero decidir entre landing page e site institucional conforme a oferta e o objetivo da minha empresa',
+  },
+};
+
+export function getInsightContact(post: Pick<InsightPost, 'slug' | 'title'>) {
+  const contact = insightContacts[post.slug] ?? {
+    label: 'Conversar sobre meu site',
+    intent: 'quero alinhar o objetivo e a estrutura de um site para minha empresa',
+  };
+  return {
+    label: contact.label,
+    href: `https://wa.me/5591982890565?text=${encodeURIComponent(
+      `Olá, Luan! Li o artigo "${post.title}" e ${contact.intent}.`,
+    )}`,
+  };
+}
+
 export const insightFilters: InsightFilter[] = [
   { label: 'Todos', value: 'all', current: true },
   ...Array.from(

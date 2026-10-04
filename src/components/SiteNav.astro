@@ -40,13 +40,6 @@ const navMotionAttrs = motion
   data-header-nav
   data-mobile-nav
   {...navMotionAttrs}>
-  <input
-    class='nav-toggle'
-    type='checkbox'
-    id='site-nav-toggle'
-    aria-label='Abrir menu'
-  />
-
   <div class='nav-mobile-bar' data-mobile-nav-bar>
     <a
       class='brand'
@@ -59,9 +52,12 @@ const navMotionAttrs = motion
       <span class='brand-dot' aria-hidden='true'></span>
     </a>
 
-    <label
+    <button
       class='nav-toggle-button'
-      for='site-nav-toggle'
+      type='button'
+      id='site-nav-toggle'
+      aria-controls='site-nav-menu'
+      aria-expanded='false'
       aria-label='Abrir menu de navegação'>
       <svg
         class='nav-toggle-icon'
@@ -78,10 +74,10 @@ const navMotionAttrs = motion
         ></path>
         <path class='nav-toggle-icon__line' d='M7 16 27 16'></path>
       </svg>
-    </label>
+    </button>
   </div>
 
-  <div class='nav-menu' data-mobile-nav-menu>
+  <div class='nav-menu' id='site-nav-menu' data-mobile-nav-menu>
     <div class='nav-links'>
       {
         items.map((item) =>
@@ -163,7 +159,7 @@ const navMotionAttrs = motion
               ))
             }
           </div>
-          <p>© {currentYear} Luan Alves. Sites que aparecem no Google e convertem.</p>
+          <p>© {currentYear} Luan Alves. Sites para apresentar sua empresa.</p>
         </div>
       </div>
     </div>
@@ -171,12 +167,6 @@ const navMotionAttrs = motion
 </nav>
 
 <style>
-  .nav-toggle {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-  }
-
   .nav-toggle-button {
     display: none;
   }
@@ -314,6 +304,11 @@ const navMotionAttrs = motion
     .nav-toggle-button:hover {
       color: var(--primary);
       border-color: rgba(229, 196, 135, 0.4);
+    }
+
+    .nav-toggle-button:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 4px;
     }
 
     .nav-toggle-button:active {
@@ -544,260 +539,3 @@ const navMotionAttrs = motion
     }
   }
 </style>
-
-<script>
-  import gsap from 'gsap';
-
-  const menuToggle = document.querySelector('#site-nav-toggle');
-  const mobileNav = document.querySelector('[data-mobile-nav]');
-  const mobileNavBar = document.querySelector('[data-mobile-nav-bar]');
-  const mobileNavMenu = document.querySelector('[data-mobile-nav-menu]');
-  const mobileMenuContent = document.querySelector(
-    '[data-mobile-menu-content]',
-  );
-  const mobileLinks = document.querySelectorAll('[data-mobile-menu-link]');
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  let menuTween;
-  let menuOpenHeight = 0;
-
-  const isMobileViewport = () => window.innerWidth <= 767;
-  const setScrollLock = (locked) => {
-    document.body.classList.toggle('menu-open', locked);
-  };
-
-  const clearMenuTween = () => {
-    menuTween?.kill();
-    menuTween = undefined;
-  };
-
-  const syncToggle = (open) => {
-    if (menuToggle instanceof HTMLInputElement) {
-      menuToggle.checked = open;
-    }
-  };
-
-  const setMenuOpenClass = (open) => {
-    if (mobileNav instanceof HTMLElement) {
-      mobileNav.classList.toggle('is-menu-open', open);
-    }
-  };
-
-  const setMenuActiveClass = (active) => {
-    if (mobileNav instanceof HTMLElement) {
-      mobileNav.classList.toggle('is-menu-active', active);
-    }
-  };
-
-  const resetDesktopMenuState = () => {
-    if (
-      !(mobileNav instanceof HTMLElement) ||
-      !(mobileNavMenu instanceof HTMLElement) ||
-      !(mobileMenuContent instanceof HTMLElement)
-    ) {
-      return;
-    }
-
-    clearMenuTween();
-    syncToggle(false);
-    setMenuActiveClass(false);
-    setMenuOpenClass(false);
-    setScrollLock(false);
-    gsap.set([mobileNav, mobileNavMenu, mobileMenuContent], {
-      clearProps: 'all',
-    });
-  };
-
-  const animateMenu = (open, immediate = false) => {
-    if (
-      !(menuToggle instanceof HTMLInputElement) ||
-      !(mobileNav instanceof HTMLElement) ||
-      !(mobileNavBar instanceof HTMLElement) ||
-      !(mobileNavMenu instanceof HTMLElement) ||
-      !(mobileMenuContent instanceof HTMLElement)
-    ) {
-      return;
-    }
-
-    if (!isMobileViewport()) {
-      resetDesktopMenuState();
-      return;
-    }
-
-    clearMenuTween();
-
-    if (reduceMotion.matches || immediate) {
-      syncToggle(open);
-      setMenuActiveClass(open);
-      setMenuOpenClass(open);
-      setScrollLock(open);
-
-      if (open) {
-        gsap.set(mobileNavMenu, { display: 'flex' });
-        gsap.set(mobileNavMenu, { height: 'auto' });
-        gsap.set(mobileMenuContent, { display: 'flex', autoAlpha: 1, y: 0 });
-      } else {
-        gsap.set(mobileMenuContent, { autoAlpha: 0 });
-        gsap.set(mobileMenuContent, { clearProps: 'all' });
-        gsap.set(mobileNavMenu, { clearProps: 'all' });
-      }
-
-      return;
-    }
-
-    const getOpenMenuHeight = () => {
-      gsap.set(mobileNavMenu, { display: 'flex', height: 'auto' });
-      gsap.set(mobileMenuContent, {
-        display: 'flex',
-        clearProps: 'all',
-        maxHeight: 'none',
-      });
-
-      const navTop = mobileNav.getBoundingClientRect().top;
-      const availableHeight = Math.max(
-        window.innerHeight - navTop - mobileNavBar.offsetHeight - 24,
-        160,
-      );
-      const contentHeight = mobileMenuContent.scrollHeight;
-      const targetHeight = Math.max(
-        Math.min(contentHeight, availableHeight),
-        160,
-      );
-
-      gsap.set(mobileMenuContent, { maxHeight: targetHeight });
-      return targetHeight;
-    };
-
-    if (open) {
-      syncToggle(true);
-      setMenuActiveClass(true);
-      setMenuOpenClass(true);
-      setScrollLock(true);
-      menuOpenHeight = getOpenMenuHeight();
-
-      gsap.set(mobileNavMenu, { display: 'flex', height: 0 });
-      gsap.set(mobileMenuContent, {
-        display: 'flex',
-        autoAlpha: 0,
-        y: 24,
-        maxHeight: menuOpenHeight,
-      });
-
-      menuTween = gsap.timeline({
-        defaults: { ease: 'power3.inOut' },
-      });
-
-      menuTween
-        .to(mobileNavMenu, {
-          height: menuOpenHeight,
-          duration: 0.42,
-        })
-        .to(
-          mobileMenuContent,
-          {
-            autoAlpha: 1,
-            y: 0,
-            duration: 0.26,
-            ease: 'power2.out',
-            clearProps: 'y',
-          },
-          0.1,
-        );
-
-      return;
-    }
-
-    syncToggle(false);
-    setMenuOpenClass(false);
-    gsap.set(mobileNavMenu, { height: mobileNavMenu.offsetHeight });
-
-    menuTween = gsap.timeline({
-      defaults: { ease: 'power3.inOut' },
-      onComplete: () => {
-        setMenuActiveClass(false);
-        setScrollLock(false);
-        gsap.set(mobileMenuContent, { clearProps: 'all' });
-        gsap.set(mobileNavMenu, { clearProps: 'all' });
-      },
-    });
-
-    menuTween
-      .to(mobileMenuContent, {
-        autoAlpha: 0,
-        y: 18,
-        duration: 0.16,
-        ease: 'power2.in',
-      })
-      .to(
-        mobileNavMenu,
-        {
-          height: 0,
-          duration: 0.34,
-        },
-        0,
-      );
-  };
-
-  if (menuToggle instanceof HTMLInputElement) {
-    menuToggle.addEventListener('change', () => {
-      animateMenu(menuToggle.checked);
-    });
-
-    mobileLinks.forEach((link) => {
-      link.addEventListener('click', () => {
-        animateMenu(false);
-      });
-    });
-
-    document.addEventListener('keydown', (event) => {
-      if (
-        event.key === 'Escape' &&
-        mobileNav instanceof HTMLElement &&
-        mobileNav.classList.contains('is-menu-active')
-      ) {
-        animateMenu(false);
-      }
-    });
-
-    window.addEventListener('resize', () => {
-      if (!isMobileViewport()) {
-        resetDesktopMenuState();
-        return;
-      }
-
-      if (
-        mobileNav instanceof HTMLElement &&
-        mobileNav.classList.contains('is-menu-active')
-      ) {
-        menuOpenHeight = Math.max(
-          Math.min(
-            mobileMenuContent instanceof HTMLElement
-              ? mobileMenuContent.scrollHeight
-              : 0,
-            Math.max(
-              window.innerHeight -
-                mobileNav.getBoundingClientRect().top -
-                mobileNavBar.offsetHeight -
-                24,
-              160,
-            ),
-          ),
-          160,
-        );
-        gsap.set(mobileNavMenu, { height: menuOpenHeight });
-        if (mobileMenuContent instanceof HTMLElement) {
-          gsap.set(mobileMenuContent, { maxHeight: menuOpenHeight });
-        }
-      }
-    });
-
-    document.addEventListener('astro:before-swap', () => {
-      syncToggle(false);
-      setMenuActiveClass(false);
-      setMenuOpenClass(false);
-      setScrollLock(false);
-      clearMenuTween();
-    });
-
-    animateMenu(menuToggle.checked, true);
-  }
-</script>
