@@ -83,4 +83,29 @@ describe('WhatsApp analytics', () => {
     expect(window.gtag).toHaveBeenCalledWith('event', 'whatsapp_click', expect.objectContaining({ cta_label: 'Contato' }));
     expect(vercel.track).toHaveBeenCalledTimes(1);
   });
+
+  it('tracks a click on the decorative icon with only the readable CTA label', () => {
+    markup('<a href="https://wa.me/123" data-analytics-position="service_hero">Solicitar orçamento<span aria-hidden="true" class="material-symbols-outlined">arrow_outward</span></a>');
+    const send = vi.fn();
+    cleanup = initWhatsappAnalytics(document, send);
+    click('.material-symbols-outlined');
+    expect(send).toHaveBeenCalledExactlyOnceWith('whatsapp_click', expect.objectContaining({
+      cta_label: 'Solicitar orçamento', cta_position: 'service_hero',
+    }));
+  });
+
+  it('continues delivering to Vercel when Google throws and removes the listener on repeated cleanup', () => {
+    markup('<a href="https://wa.me/123" aria-label="Falar no WhatsApp"><svg><title>forum</title></svg></a>');
+    window.gtag = vi.fn(() => { throw new Error('blocked'); });
+    cleanup = initWhatsappAnalytics();
+    click('svg');
+    expect(window.gtag).toHaveBeenCalledTimes(1);
+    expect(vercel.track).toHaveBeenCalledExactlyOnceWith('whatsapp_click', expect.objectContaining({
+      cta_label: 'Falar no WhatsApp', cta_position: 'unclassified',
+    }));
+    cleanup();
+    cleanup();
+    click();
+    expect(vercel.track).toHaveBeenCalledTimes(1);
+  });
 });

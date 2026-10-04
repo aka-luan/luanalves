@@ -1,0 +1,12 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.luanalves.com.br" }],
+      "destination": "https://luanalves.com.br/:path*",
+      "permanent": true
+    }
+  ]
+}

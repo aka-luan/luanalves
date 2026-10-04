@@ -39,7 +39,7 @@ function getContainerRoot() {
   return document.querySelector<HTMLElement>('[data-barba="container"]') ?? document;
 }
 
-function bootPageScripts({ includeMobileNav = true } = {}) {
+function bootPageScripts() {
   const root = getContainerRoot();
 
   initLandingMotion();
@@ -50,9 +50,7 @@ function bootPageScripts({ includeMobileNav = true } = {}) {
   cleanupInsightPost = initInsightPost(root);
   cleanupPortfolioPageFilters = initPortfolioFilters(root);
 
-  if (includeMobileNav) {
-    initMobileNav(root);
-  }
+  initMobileNav(root);
 }
 
 function cleanupPageScripts() {
@@ -238,7 +236,7 @@ function initBarba() {
     ],
   });
 
-  bootPageScripts({ includeMobileNav: false });
+  bootPageScripts();
 }
 
 if (document.readyState === 'loading') {

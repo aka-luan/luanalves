@@ -35,8 +35,12 @@ export function initMobileNav(root: ParentNode = document) {
   };
 
   const syncToggle = (open: boolean) => {
-    if (menuToggle instanceof HTMLInputElement) {
-      menuToggle.checked = open;
+    if (menuToggle instanceof HTMLButtonElement) {
+      menuToggle.setAttribute('aria-expanded', String(open));
+      menuToggle.setAttribute('aria-label', open ? 'Fechar menu de navegação' : 'Abrir menu de navegação');
+    }
+    if (mobileNavMenu instanceof HTMLElement) {
+      mobileNavMenu.inert = isMobileViewport() && !open;
     }
   };
 
@@ -73,7 +77,7 @@ export function initMobileNav(root: ParentNode = document) {
 
   const animateMenu = (open: boolean, immediate = false) => {
     if (
-      !(menuToggle instanceof HTMLInputElement) ||
+      !(menuToggle instanceof HTMLButtonElement) ||
       !(mobileNav instanceof HTMLElement) ||
       !(mobileNavBar instanceof HTMLElement) ||
       !(mobileNavMenu instanceof HTMLElement) ||
@@ -89,30 +93,11 @@ export function initMobileNav(root: ParentNode = document) {
 
     clearMenuTween();
 
-    if (reduceMotion.matches || immediate) {
-      syncToggle(open);
-      setMenuActiveClass(open);
-      setMenuOpenClass(open);
-      setScrollLock(open);
-
-      if (open) {
-        gsap.set(mobileNavMenu, { display: 'flex' });
-        gsap.set(mobileNavMenu, { height: 'auto' });
-        gsap.set(mobileMenuContent, { display: 'flex', autoAlpha: 1, y: 0 });
-      } else {
-        gsap.set(mobileMenuContent, { autoAlpha: 0 });
-        gsap.set(mobileMenuContent, { clearProps: 'all' });
-        gsap.set(mobileNavMenu, { clearProps: 'all' });
-      }
-
-      return;
-    }
-
     const getOpenMenuHeight = () => {
       gsap.set(mobileNavMenu, { display: 'flex', height: 'auto' });
+      gsap.set(mobileMenuContent, { clearProps: 'all' });
       gsap.set(mobileMenuContent, {
         display: 'flex',
-        clearProps: 'all',
         maxHeight: 'none',
       });
 
@@ -124,9 +109,29 @@ export function initMobileNav(root: ParentNode = document) {
       const contentHeight = mobileMenuContent.scrollHeight;
       const targetHeight = Math.max(Math.min(contentHeight, availableHeight), 160);
 
-      gsap.set(mobileMenuContent, { maxHeight: targetHeight });
+      gsap.set(mobileMenuContent, { maxHeight: `${targetHeight}px` });
       return targetHeight;
     };
+
+    if (reduceMotion.matches || immediate) {
+      syncToggle(open);
+      setMenuActiveClass(open);
+      setMenuOpenClass(open);
+      setScrollLock(open);
+
+      if (open) {
+        menuOpenHeight = getOpenMenuHeight();
+        gsap.set(mobileNavMenu, { display: 'flex' });
+        gsap.set(mobileNavMenu, { height: menuOpenHeight });
+        gsap.set(mobileMenuContent, { display: 'flex', autoAlpha: 1, y: 0 });
+      } else {
+        gsap.set(mobileMenuContent, { autoAlpha: 0 });
+        gsap.set(mobileMenuContent, { clearProps: 'all' });
+        gsap.set(mobileNavMenu, { clearProps: 'all' });
+      }
+
+      return;
+    }
 
     if (open) {
       syncToggle(true);
@@ -140,7 +145,7 @@ export function initMobileNav(root: ParentNode = document) {
         display: 'flex',
         autoAlpha: 0,
         y: 24,
-        maxHeight: menuOpenHeight,
+        maxHeight: `${menuOpenHeight}px`,
       });
 
       menuTween = gsap.timeline({
@@ -198,13 +203,13 @@ export function initMobileNav(root: ParentNode = document) {
       );
   };
 
-  if (!(menuToggle instanceof HTMLInputElement)) {
+  if (!(menuToggle instanceof HTMLButtonElement)) {
     return () => {};
   }
 
-  const handleChange = () => animateMenu(menuToggle.checked);
-  menuToggle.addEventListener('change', handleChange);
-  cleanupCallbacks.push(() => menuToggle.removeEventListener('change', handleChange));
+  const handleToggle = () => animateMenu(menuToggle.getAttribute('aria-expanded') !== 'true');
+  menuToggle.addEventListener('click', handleToggle);
+  cleanupCallbacks.push(() => menuToggle.removeEventListener('click', handleToggle));
 
   mobileLinks.forEach((link) => {
     const handleClick = () => animateMenu(false);
@@ -219,6 +224,7 @@ export function initMobileNav(root: ParentNode = document) {
       mobileNav.classList.contains('is-menu-active')
     ) {
       animateMenu(false);
+      menuToggle.focus();
     }
   };
   document.addEventListener('keydown', handleKeydown);
@@ -229,6 +235,8 @@ export function initMobileNav(root: ParentNode = document) {
       resetDesktopMenuState();
       return;
     }
+
+    syncToggle(menuToggle.getAttribute('aria-expanded') === 'true');
 
     if (
       mobileNav instanceof HTMLElement &&
@@ -251,7 +259,7 @@ export function initMobileNav(root: ParentNode = document) {
       );
       gsap.set(mobileNavMenu, { height: menuOpenHeight });
       if (mobileMenuContent instanceof HTMLElement) {
-        gsap.set(mobileMenuContent, { maxHeight: menuOpenHeight });
+        gsap.set(mobileMenuContent, { maxHeight: `${menuOpenHeight}px` });
       }
     }
   };
@@ -268,7 +276,7 @@ export function initMobileNav(root: ParentNode = document) {
     delete window.__mobileNavCleanup__;
   };
 
-  animateMenu(menuToggle.checked, true);
+  animateMenu(false, true);
 
   return window.__mobileNavCleanup__;
 }
