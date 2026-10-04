@@ -4,6 +4,8 @@ Use this file for small tasks that do not need a full execution plan in `docs/ex
 
 ## Active
 
+- GA4 production receipt was confirmed on 2026-10-03 with three synthetic clicks: see [issue 16 evidence](validation/2026-10-03-issue-16-analytics.md). Luan still needs to fill the private commercial baseline for 2026-10-04–2026-10-31. This does not confirm receipt in a separate Vercel dashboard or imply commercial demand.
+
 - Monitor GSC index coverage and impressions after verification and sitemap submission.
 - Capture PageSpeed Insights lab baselines when time allows; CrUX currently has insufficient field data.
 - Confirm one `whatsapp_click` event in the Vercel Analytics dashboard after deployment.
