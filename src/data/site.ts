@@ -182,6 +182,8 @@ interface PortfolioCaseDetail {
   siteLabel: string;
   challenge: string;
   solution: string;
+  primaryService?: { href: string; label: string };
+  evidence?: { href: string; label: string; description: string }[];
   deliverables: {
     title: string;
     description: string;
@@ -376,6 +378,11 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
     segment: 'Indústria · Madeira engenheirada',
     deliveredAt: '2024',
     siteLabel: 'urbembr.com',
+    primaryService: { href: '/site-institucional/', label: 'Site Institucional' },
+    evidence: [
+      { href: 'https://urbembr.com/', label: 'Produtos e conteúdo técnico', description: 'A página inicial apresenta S4S, Glulam e CLT, além de caminhos para biblioteca, blog e contato.' },
+      { href: 'https://urbembr.com/projetos/', label: 'Projetos por aplicação', description: 'O portfólio reúne aplicações da madeira engenheirada em categorias como residencial, comercial e institucional.' },
+    ],
     challenge:
       'A Urbem precisava apresentar uma operação técnica e sustentável para arquitetos, construtoras e decisores que avaliam especificações antes de iniciar uma conversa comercial.',
     solution:
@@ -415,8 +422,8 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
         label: 'Conteúdo institucional preparado para o público brasileiro.',
       },
       {
-        value: 'SEO',
-        label: 'Estrutura criada para indexação e crescimento orgânico.',
+        value: 'Conteúdo',
+        label: 'Produtos, biblioteca e blog com caminhos próprios na navegação.',
       },
       {
         value: 'B2B',
@@ -488,6 +495,10 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
     segment: 'Engenharia · Imobiliário',
     deliveredAt: '2025',
     siteLabel: 'convivaengenharia.com.br',
+    primaryService: { href: '/site-institucional/', label: 'Site Institucional' },
+    evidence: [
+      { href: 'https://convivaengenharia.com.br/', label: 'Empreendimentos e atendimento', description: 'A página inicial apresenta empreendimentos, etapas da jornada do comprador, stands e canais de atendimento.' },
+    ],
     challenge:
       'A Conviva precisava apresentar empreendimentos e diferenciais de moradia com uma experiência que gerasse confiança sem parecer genérica.',
     solution:
@@ -524,15 +535,15 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
     results: [
       {
         value: 'Imóveis',
-        label: 'Apresentação mais clara de empreendimentos e diferenciais.',
+        label: 'Empreendimentos apresentados com localização e diferenciais de moradia.',
       },
       {
-        value: 'Confiança',
-        label: 'Conteúdo desenhado para reduzir atrito na decisão.',
+        value: 'Jornada',
+        label: 'Informações sobre compra, andamento da obra, entrega e assistência técnica.',
       },
       {
         value: 'Contato',
-        label: 'Fluxo visual direcionado para conversas comerciais.',
+        label: 'Stands e canais de atendimento apresentados junto ao conteúdo imobiliário.',
       },
     ],
   },
@@ -662,6 +673,11 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
     segment: 'Consultoria · Relações institucionais',
     deliveredAt: '2023',
     siteLabel: 'polianabentes.com.br',
+    primaryService: { href: '/site-institucional/', label: 'Site Institucional' },
+    evidence: [
+      { href: 'https://polianabentes.com.br/', label: 'Posicionamento e atuação no Pará', description: 'A apresentação institucional descreve a consultoria sediada em Belém e a atuação junto a empresas e instituições.' },
+      { href: 'https://polianabentes.com.br/nossos-servicos/', label: 'Serviços da consultoria', description: 'A página organiza relações institucionais e governamentais e inteligência estratégica e regulatória.' },
+    ],
     challenge:
       'A consultoria precisava transmitir credibilidade, atuação estratégica e conhecimento do território amazônico sem depender de uma comunicação carregada.',
     solution:
@@ -702,16 +718,16 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
     ],
     results: [
       {
-        value: 'CMS',
-        label: 'Estrutura preparada para gestão simples de conteúdo.',
+        value: 'Serviços',
+        label: 'Áreas de atuação descritas em uma página própria da consultoria.',
       },
       {
         value: 'Editorial',
         label: 'Base de blog para fortalecer autoridade institucional.',
       },
       {
-        value: 'Credibilidade',
-        label: 'Mensagem mais clara para empresas e instituições.',
+        value: 'Território',
+        label: 'Apresentação da sede em Belém e da atuação no território paraense.',
       },
     ],
     mobileImage: '/assets/poliana-bentes-home.webp',

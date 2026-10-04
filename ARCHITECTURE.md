@@ -30,6 +30,8 @@ There is no backend service or database in this repository.
 
 `src/data/site.ts` owns navigation, service summaries, home portfolio cards, full portfolio case details, featured portfolio projects, and conversion reasons.
 
+Cases may curate primaryService and public evidence links in their data. A public page supports an observation about the visible structure, not individual authorship, original delivery scope or measured commercial improvement. Keep qualitative resources separate from business metrics; quantified results require source, period, method and permission. Confirm collaborator credits and CMS/blog delivery with the owner before expanding attribution or reclassifying a case.
+
 `src/data/servicePages.ts` owns service-page content, shared process blocks, shared FAQ blocks, WhatsApp links, breadcrumbs, FAQ schema, and service schema.
 
 Service pages select their proof case and framing in servicePages.ts. ServiceProof resolves the actual case data and fails the build for an unknown slug. Render proof after benefits, scope before the intermediate contact CTA, then process and objections. Keep the portfolio, para-quem, diferenciais and perguntas anchors when consolidating sections. Institutional references on the landing-page service must explicitly state that they do not establish campaign conversion or media return.
