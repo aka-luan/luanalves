@@ -182,6 +182,7 @@ interface PortfolioCaseDetail {
   siteLabel: string;
   challenge: string;
   solution: string;
+  participation?: { development: string; designAndCopy: string };
   primaryService?: { href: string; label: string };
   evidence?: { href: string; label: string; description: string }[];
   deliverables: {
@@ -378,6 +379,10 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
     segment: 'Indústria · Madeira engenheirada',
     deliveredAt: '2024',
     siteLabel: 'urbembr.com',
+    participation: {
+      development: 'Luan Alves realizou o desenvolvimento completo do site, a implementação do blog e do CMS customizado e as configurações necessárias para o deploy.',
+      designAndCopy: 'O design e a copy foram fornecidos pela agência parceira e implementados no site por Luan.',
+    },
     primaryService: { href: '/site-institucional/', label: 'Site Institucional' },
     evidence: [
       { href: 'https://urbembr.com/', label: 'Produtos e conteúdo técnico', description: 'A página inicial apresenta S4S, Glulam e CLT, além de caminhos para biblioteca, blog e contato.' },
@@ -399,14 +404,14 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
           'Base editorial para publicar conteúdo técnico e apoiar descoberta orgânica.',
       },
       {
-        title: 'Organização de conteúdo',
+        title: 'CMS customizado',
         description:
-          'Arquitetura de páginas pensada para leitura técnica sem perder clareza comercial.',
+          'CMS configurado e customizado para administrar páginas e conteúdo editorial.',
       },
       {
-        title: 'SEO técnico',
+        title: 'Configuração de deploy',
         description:
-          'Fundação de metadados, URLs e conteúdo estruturado para melhorar indexação.',
+          'Configurações necessárias para publicar o site no ambiente de hospedagem.',
       },
     ],
     gallery: [
@@ -495,6 +500,10 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
     segment: 'Engenharia · Imobiliário',
     deliveredAt: '2025',
     siteLabel: 'convivaengenharia.com.br',
+    participation: {
+      development: 'Luan Alves realizou o desenvolvimento completo do site, a implementação do blog e do CMS customizado e as configurações necessárias para o deploy.',
+      designAndCopy: 'A Agência Skyrocket forneceu o design e a copy, implementados no site por Luan.',
+    },
     primaryService: { href: '/site-institucional/', label: 'Site Institucional' },
     evidence: [
       { href: 'https://convivaengenharia.com.br/', label: 'Empreendimentos e atendimento', description: 'A página inicial apresenta empreendimentos, etapas da jornada do comprador, stands e canais de atendimento.' },
@@ -510,19 +519,19 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
           'Estrutura para apresentar marca, empreendimentos e diferenciais comerciais.',
       },
       {
-        title: 'Conteúdo de autoridade',
+        title: 'Blog profissional',
         description:
-          'Texto organizado para explicar qualidade de vida, localização e confiança.',
+          'Implementação da estrutura de artigos e publicação de conteúdo.',
       },
       {
-        title: 'Navegação comercial',
+        title: 'CMS customizado',
         description:
-          'Caminhos claros para visitantes avançarem até contato e avaliação.',
+          'CMS configurado e customizado para administrar páginas e conteúdo editorial.',
       },
       {
-        title: 'Performance visual',
+        title: 'Configuração de deploy',
         description:
-          'Imagens e seções planejadas para impacto sem perder velocidade.',
+          'Configurações necessárias para publicar o site no ambiente de hospedagem.',
       },
     ],
     gallery: [
@@ -673,6 +682,10 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
     segment: 'Consultoria · Relações institucionais',
     deliveredAt: '2023',
     siteLabel: 'polianabentes.com.br',
+    participation: {
+      development: 'Luan Alves realizou o desenvolvimento completo do site, a implementação do blog e do CMS customizado e as configurações necessárias para o deploy.',
+      designAndCopy: 'A Parawara Design forneceu o design e a copy, implementados no site por Luan.',
+    },
     primaryService: { href: '/site-institucional/', label: 'Site Institucional' },
     evidence: [
       { href: 'https://polianabentes.com.br/', label: 'Posicionamento e atuação no Pará', description: 'A apresentação institucional descreve a consultoria sediada em Belém e a atuação junto a empresas e instituições.' },
@@ -694,14 +707,14 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
           'Base para publicação de conteúdo e atualização institucional.',
       },
       {
-        title: 'CMS organizado',
+        title: 'CMS customizado',
         description:
-          'Gestão simplificada para páginas e conteúdos recorrentes.',
+          'CMS configurado e customizado para administrar páginas e conteúdo editorial.',
       },
       {
-        title: 'Mensagem estratégica',
+        title: 'Configuração de deploy',
         description:
-          'Copy voltada para transparência, solidez e construção de relações.',
+          'Configurações necessárias para publicar o site no ambiente de hospedagem.',
       },
     ],
     gallery: [

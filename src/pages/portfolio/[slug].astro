@@ -248,6 +248,13 @@ const caseSchema = [
 
         <h2>A solução</h2>
         <p>{project.solution}</p>
+        {project.participation && (
+          <>
+            <h2>Minha participação</h2>
+            <p>{project.participation.development}</p>
+            <p>{project.participation.designAndCopy}</p>
+          </>
+        )}
       </div>
 
       <div class='case-body__deliverables' data-motion-item='case-deliverables' data-motion-hidden='x-right'>
