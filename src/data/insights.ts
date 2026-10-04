@@ -19,6 +19,7 @@ interface InsightBasePost {
   categorySlug: InsightCategorySlug;
   date: string;
   isoDate: string;
+  updatedIsoDate?: string;
   readTime: string;
   slug: string;
   tags: string[];
@@ -97,15 +98,16 @@ export type InsightPost = InsightBasePost | InsightPublishedPost;
 
 const checklistInsight: InsightPost = {
   title:
-    'Checklist para lançamento de site empresarial: o que revisar antes de publicar',
+    'O que conferir antes de lançar um site empresarial',
   excerpt:
-    'Um guia prático para revisar conteúdo, SEO, performance, formulários, segurança e conversão antes de colocar um site no ar.',
+    'Um checklist com testes, critérios de aprovação e registro de pendências para revisar conteúdo, mobile, contato e base técnica antes de publicar.',
   description:
-    'Veja o checklist para lançamento de site empresarial e revise conteúdo, mobile, SEO, velocidade, formulários, SSL, analytics e pós-lançamento antes de publicar.',
+    'Confira o que testar antes de lançar um site empresarial: conteúdo, celular, contato, SEO, velocidade e domínio, com critérios para aprovar cada etapa.',
   category: 'SEO',
   categorySlug: 'seo',
   date: '05 jun. 2026',
   isoDate: '2026-06-05',
+  updatedIsoDate: '2026-10-04',
   readTime: '14 min',
   slug: 'checklist-lancamento-site-empresarial',
   tags: ['Checklist', 'Lançamento', 'SEO', 'Conversão'],
@@ -121,32 +123,49 @@ const checklistInsight: InsightPost = {
   content: [
     {
       type: 'paragraph',
-      text: 'Antes de publicar um site empresarial, revise pelo menos estes pontos: conteúdo, versão mobile, links, formulários, SEO básico, velocidade, domínio, SSL, analytics e segurança. Lançar um site sem essa revisão aumenta o risco de perder credibilidade, visitas e contatos logo no início.',
+      text: 'Antes de lançar um site empresarial, confira conteúdo, leitura no celular, navegação, canais de contato, SEO básico, carregamento, domínio e segurança. Para cada item, registre o teste feito, o resultado e quem resolve as pendências. Um botão de contato que não chega ao canal correto precisa ser corrigido antes da divulgação.',
     },
     {
       type: 'paragraph',
-      text: 'Na prática, o lançamento não é momento de descobrir erro de texto, botão quebrado ou página lenta. Site empresarial precisa entrar no ar com aparência confiável, estrutura indexável e caminho claro para conversão.',
+      text: 'Use a tabela abaixo na versão que será publicada. Marque cada linha como aprovado, pendente ou não se aplica; neste último caso, registre o motivo. Se o site usa apenas WhatsApp, por exemplo, não há formulário a testar. Depois da publicação, repita os testes no domínio final: um preview funcionando não confirma redirects, recebimento de mensagens ou medição em produção.',
     },
     {
       type: 'table',
       caption:
-        'Tabela-resumo do que revisar antes de publicar um site empresarial.',
-      columns: ['Área', 'O que revisar antes do lançamento'],
+        'Checklist de lançamento: teste, critério de aprovação e evidência para registrar.',
+      columns: ['Item', 'Como conferir', 'Aprovar quando'],
       rows: [
-        ['Conteúdo', 'Textos, dados de contato, clareza da oferta e CTAs'],
-        ['Design e mobile', 'Responsividade, leitura, contraste e navegação'],
-        ['Links e botões', 'Menu, logo, botões, redes sociais e 404'],
-        ['Conversão', 'Formulários, WhatsApp, telefone e e-mail clicáveis'],
-        [
-          'SEO básico',
-          'Title, description, H1, headings, URLs, sitemap e robots',
-        ],
-        ['Performance', 'Imagens, scripts, fontes, cache e Core Web Vitals'],
-        ['Infraestrutura', 'Domínio, SSL, redirects, DNS e versão final'],
-        ['Métricas', 'Analytics, Search Console e eventos principais'],
-        ['Segurança', 'Backup, acessos, spam e atualizações'],
-        ['Pós-lançamento', 'Indexação, testes finais e monitoramento inicial'],
+        ['Conteúdo', 'Releia home, serviço e contato; confira dados com o responsável pela empresa.', 'Oferta, escopo e canal estão corretos, sem texto provisório nem promessa sem respaldo.'],
+        ['Celular e teclado', 'Abra as páginas em um celular; use Tab, Enter e Escape no menu e nos controles.', 'Texto e CTA são legíveis, foco é visível e o fluxo funciona sem depender do mouse.'],
+        ['Links', 'Percorra menu, rodapé, âncoras e botões; abra também uma URL inexistente.', 'Destinos correspondem aos rótulos; a página 404 oferece um caminho de volta.'],
+        ['WhatsApp', 'Abra o CTA e confira número e mensagem antes de enviar.', 'O canal pertence à empresa e a mensagem combina com a página; abrir o app não comprova conversa recebida.'],
+        ['Formulário, se houver', 'Envie um teste identificado e confirme o recebimento com quem atende.', 'Validação, erro, sucesso e entrega funcionam; o teste não fica misturado aos leads reais.'],
+        ['Indexação', 'Confira title, H1, canonical, robots e sitemap no domínio final.', 'Páginas públicas não mantêm noindex do teste; canonical e sitemap apontam para URLs finais acessíveis.'],
+        ['Carregamento', 'Teste home e páginas comerciais no celular; registre URL, data e configuração do relatório.', 'Conteúdo e CTA aparecem, não há travamento impeditivo e problemas medidos têm responsável.'],
+        ['Domínio e redirects', 'Abra HTTP/HTTPS, com/sem www e URLs antigas com uma query de teste.', 'Cada variante chega à URL escolhida sem loop, preservando o caminho e a query necessários.'],
+        ['Medição', 'Faça um clique identificado e confira evento, página e posição no painel.', 'O evento chega uma vez; cliques ficam separados de conversas e leads qualificados.'],
+        ['Acessos e recuperação', 'Confirme responsáveis pelo domínio, hospedagem e CMS; confira cópia e procedimento de recuperação.', 'A equipe sabe como recuperar a versão anterior e não depende de acesso temporário de terceiros.'],
       ],
+    },
+    {
+      type: 'heading',
+      id: 'registre-aprovacoes-e-pendencias',
+      level: 2,
+      text: 'Registre o que foi aprovado e o que ainda falta',
+    },
+    {
+      type: 'paragraph',
+      text: 'Copie este modelo para uma planilha ou documento do projeto. Use uma linha por página e teste, com responsável e prazo para cada pendência. Dados pessoais de contatos e conteúdo de mensagens ficam fora dos relatórios de analytics.',
+    },
+    {
+      type: 'code',
+      language: 'text',
+      code: 'Página / URL:\nItem verificado:\nTeste realizado e data:\nStatus: aprovado / pendente / não se aplica\nEvidência: captura, relatório ou confirmação de recebimento\nResponsável pela correção:\nPrazo combinado:\nResultado do novo teste:',
+      caption: 'Modelo de registro para copiar. Repita uma linha por verificação.',
+    },
+    {
+      type: 'paragraph',
+      text: 'Adie a divulgação quando uma falha impede entender a oferta, usar o site ou receber contatos, quando a versão final está indisponível ou quando há um problema de acesso ou segurança sem solução. Um ajuste visual secundário pode entrar numa lista posterior, com responsável e prazo. A decisão considera o risco concreto do projeto, não apenas uma nota de ferramenta.',
     },
     {
       type: 'heading',
@@ -156,11 +175,11 @@ const checklistInsight: InsightPost = {
     },
     {
       type: 'paragraph',
-      text: 'Porque erro pequeno em lançamento costuma virar problema grande depois. Um formulário que não envia, um WhatsApp sem mensagem pronta, uma página com title duplicado ou uma versão mobile mal resolvida já bastam para reduzir confiança e derrubar conversão.',
+      text: 'A revisão evita que a equipe aprove só a aparência e descubra depois que o contato não chega. Um formulário precisa ser recebido, um link precisa abrir o destino certo e o conteúdo precisa corresponder à oferta. A evidência do teste ajuda a separar o que funciona do que foi apenas instalado.',
     },
     {
       type: 'blockquote',
-      text: 'Site pronto não é site apenas bonito. Site pronto é site revisado, testado e preparado para receber visita, indexar bem e gerar contato.',
+      text: 'Um item aprovado tem teste e resultado registrados. A aparência de um botão ou a presença de uma ferramenta, sozinhas, não confirmam que o fluxo funciona.',
     },
     {
       type: 'heading',
@@ -191,7 +210,7 @@ const checklistInsight: InsightPost = {
     },
     {
       type: 'paragraph',
-      text: 'Boa parte do tráfego empresarial chega pelo celular. Se o visitante precisa dar zoom para ler, tocar duas vezes para abrir menu ou lutar com formulário, o site já entra devendo. Revisão mobile não é detalhe. É parte do lançamento.',
+      text: 'Teste no celular mesmo quando a revisão principal foi feita no computador. Abra a home, um serviço e a página de contato em orientação vertical; confira também uma tela estreita de 320px. Navegue entre as páginas e recarregue uma delas diretamente: os dois caminhos precisam funcionar.',
     },
     {
       type: 'list',
@@ -291,7 +310,7 @@ const checklistInsight: InsightPost = {
     },
     {
       type: 'paragraph',
-      text: 'Página lenta piora experiência, reduz conversão e costuma prejudicar a primeira impressão da marca. O visitante talvez não saiba explicar Core Web Vitals, mas percebe quando o site demora, treme ou trava.',
+      text: 'Observe quanto demora para aparecer o conteúdo principal, se o layout muda durante a leitura e se o site responde ao toque. Um relatório de laboratório ajuda a encontrar problemas em condições simuladas; dados de campo representam visitas reais e podem estar indisponíveis num site novo. Não trate uma nota isolada como prova de conversão ou de aprovação de Core Web Vitals.',
     },
     {
       type: 'list',
@@ -342,6 +361,8 @@ const checklistInsight: InsightPost = {
         'Google Analytics ou ferramenta equivalente instalada.',
         'Google Search Console preparado para a propriedade final.',
         'Eventos importantes configurados, como clique em WhatsApp e envio de formulário.',
+        'Um teste identificado aparece uma única vez no painel, com página e posição do contato.',
+        'Cliques no WhatsApp são contados separadamente de conversas recebidas, propostas e contratos.',
         'Tag Manager, se usado, publicado na versão correta.',
         'Metas ou conversões principais mapeadas desde o início.',
       ],
@@ -397,7 +418,7 @@ const checklistInsight: InsightPost = {
     },
     {
       type: 'paragraph',
-      text: 'Publicar não encerra o trabalho. Os primeiros dias servem para confirmar se a versão final está respondendo bem em produção, se a medição está correta e se o site está pronto para começar a ganhar tração orgânica e comercial.',
+      text: 'No domínio final, repita o fluxo de um visitante: entrar, encontrar um serviço e iniciar contato. Confira redirects e recebimento dos testes, além da indexação e medição. Nas semanas seguintes, registre exposição, visitas, cliques e conversas em períodos comparáveis; baixo volume não permite atribuir uma pequena variação ao lançamento.',
     },
     {
       type: 'list',
@@ -408,6 +429,27 @@ const checklistInsight: InsightPost = {
         'Monitore velocidade e erros técnicos.',
         'Acompanhe cliques, leads e comportamento das principais páginas.',
         'Revise o site após 7, 15 e 30 dias para ajustes finos.',
+      ],
+    },
+    {
+      type: 'heading',
+      id: 'referencias-para-a-revisao-tecnica',
+      level: 2,
+      text: 'Referências para a revisão técnica',
+    },
+    {
+      type: 'links',
+      items: [
+        {
+          href: 'https://developers.google.com/search/docs/crawling-indexing/block-indexing',
+          label: 'Google: bloqueio de indexação com noindex',
+          text: 'Confira como noindex funciona antes de remover os bloqueios usados na versão de teste. Robots.txt e noindex cumprem funções diferentes.',
+        },
+        {
+          href: 'https://web.dev/articles/vitals',
+          label: 'web.dev: Core Web Vitals',
+          text: 'Entenda as métricas de experiência e a diferença entre medições de laboratório e dados de visitas reais.',
+        },
       ],
     },
     {
@@ -483,8 +525,8 @@ const checklistInsight: InsightPost = {
         },
         {
           href: 'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Li%20o%20artigo%20sobre%20checklist%20de%20lan%C3%A7amento%20de%20site%20e%20quero%20revisar%20meu%20projeto%20antes%20de%20publicar.',
-          label: 'Falar no WhatsApp',
-          text: 'Se quiser revisar seu site antes de publicar, me chama e eu te ajudo a validar estrutura, SEO básico e conversão.',
+          label: 'Conversar sobre o lançamento',
+          text: 'Conte o objetivo do site, a data desejada e quais pontos ainda precisam ser revisados antes de publicar.',
         },
       ],
     },

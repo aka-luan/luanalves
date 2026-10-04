@@ -36,6 +36,8 @@ There is no backend service or database in this repository.
 
 `src/data/insights.ts` owns editorial post metadata, article blocks, categories, filters, article paths, table-of-contents helpers, and hero image prompts.
 
+Article isoDate/date describe original publication. Set updatedIsoDate only for a substantive editorial revision; the article displays it separately, BlogPosting uses it for dateModified and the sitemap uses it for lastmod. Do not refresh publication dates or mark untouched articles as updated during template changes.
+
 src/data/projectScope.ts owns shared commercial conditions and optional extensions used by the service hub, services and segment FAQs.
 
 Astro pages import these data modules, compose components, and pass page-specific metadata/schema to `BaseLayout.astro`.
