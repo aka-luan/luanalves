@@ -15,7 +15,7 @@ Schema.org [marks ProfessionalService as deprecated](https://schema.org/Professi
 
 - `pnpm run build`: passed, 28 pages, including the production asset patch.
 - `node docs/validation/check-issue-6-schema.mjs`: passed across all 28 HTML pages; stable identities, unique top-level IDs, canonical convention, visible FAQ text, real identity assets and case date policy. Output: [generated check](issue-6-generated-schema.json).
-- Schema.org Validator code tests: home, Belém service, Poliana case and cost article each returned zero errors and zero warnings. Raw snapshots are `issue-6-validator-{home,belem,case,article}.txt`; [service screenshot](issue-6-validator-belem.png). These tests validate code from the local build, not the currently published version.
+- Schema.org Validator code tests: home, Belém service, Poliana case and cost article each returned zero errors and zero warnings. Raw snapshots are `issue-6-validator-{home,case,article}.txt`; the Belém result is recorded in the [service screenshot](issue-6-validator-belem.png). These tests validate code from the local build, not the currently published version.
 - Barba Belém → Poliana navigation replaced service/FAQ nodes with CreativeWork, retained one JSON-LD script and updated the canonical after the transition: [navigation check](issue-6-barba-schema.json).
 - Public site baseline: HTTP already returns 308 to HTTPS and preserves the sample UTM; www and slashless service paths both still return 200. Robots and sitemap return 200. [Raw baseline](issue-4-production-before.json).
 
