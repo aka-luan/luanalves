@@ -34,17 +34,18 @@ const heroImage = await getHeroImage('/assets/hero-img.webp', homeHeroSizes);
           </p>
           <h1 class='hero-title'>
             <span data-motion-hero-title data-motion-hidden='y-lg'>
-              Seu negócio
+              Sites para
               <br />
-              merece um
+              sua empresa.
               <br />
-              <span class='hero-title__muted'>site que vende.</span>
+              <span class='hero-title__muted'>Contato fácil.</span>
             </span>
           </h1>
           <p class='hero-copy' data-motion-hero-copy data-motion-hidden='y-md'>
-            Crio sites institucionais, blogs e landing pages profissionais para
-            pequenas e médias empresas em todo o Brasil. Design estratégico,
-            código limpo e SEO desde o primeiro dia.
+            Crio sites institucionais, blogs e landing pages para empresas em
+            todo o Brasil. Organizo conteúdo, design e desenvolvimento para
+            apresentar seus serviços e facilitar o contato. Você fala comigo
+            durante todo o projeto.
           </p>
 
           <div class='hero-actions' data-motion-hero-actions>
@@ -54,15 +55,20 @@ const heroImage = await getHeroImage('/assets/hero-img.webp', homeHeroSizes);
               target='_blank'
               rel='noreferrer'
               data-motion-hidden='y-sm'>
-              Solicitar orçamento
+              Conversar sobre meu site
             </a>
             <a
               class='button button-ghost'
               href='/portfolio/'
               data-motion-hidden='y-sm'>
-              Ver portfólio
+              Ver projetos entregues
             </a>
           </div>
+
+          <p class='hero-next-step'>
+            Me envie o nome da empresa, o objetivo do site e a data desejada pelo
+            WhatsApp. Vamos alinhar estrutura, materiais e escopo antes da proposta.
+          </p>
 
           <div class='hero-proof' aria-label='Diferenciais principais'>
             <article
@@ -199,9 +205,9 @@ const heroImage = await getHeroImage('/assets/hero-img.webp', homeHeroSizes);
             Por que contratar um desenvolvedor web freelancer?
           </h2>
           <p class='why-copy' data-motion-copy data-motion-hidden='y-md'>
-            Ao contratar diretamente, você tem acesso ao profissional que vai
-            criar o seu site — sem camadas de agência, sem ruído na comunicação
-            e sem custo inflado.
+            Você fala com quem planeja, desenha e desenvolve o seu site.
+            Objetivos, materiais e decisões são alinhados diretamente comigo,
+            do primeiro contato à publicação.
           </p>
 
           <div class='reason-grid'>
@@ -244,6 +250,14 @@ const heroImage = await getHeroImage('/assets/hero-img.webp', homeHeroSizes);
 </BaseLayout>
 
 <style>
+  .hero-next-step {
+    max-width: 32rem;
+    margin: 1rem 0 0;
+    color: var(--muted);
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+
   .hero-media-frame {
     position: relative;
     width: clamp(300px, 30vw, 360px);

@@ -24,13 +24,13 @@ export const trustItems = [
   },
   {
     icon: 'verified',
-    title: 'Entrega no prazo',
-    subtitle: 'com qualidade garantida',
+    title: 'Design e desenvolvimento',
+    subtitle: 'para celular e desktop',
   },
   {
     icon: 'support_agent',
-    title: 'Suporte real',
-    subtitle: 'após o lançamento',
+    title: 'Escopo e etapas',
+    subtitle: 'definidos na proposta',
   },
 ];
 
@@ -40,24 +40,24 @@ export const services = [
     href: '/site-institucional/',
     title: 'Site Institucional',
     description:
-      'Presença digital premium para a sua empresa. Desenvolvido com foco em autoridade de marca, SEO técnico e experiência do usuário — para que clientes te encontrem no Google e confiem no que veem.',
-    bullets: ['SEO otimizado', 'Mobile first', 'Código limpo'],
+      'Apresente sua empresa, serviços e projetos em um site organizado, com leitura clara no celular e caminhos diretos para contato.',
+    bullets: ['SEO técnico', 'Design responsivo', 'Serviços e projetos'],
   },
   {
     icon: 'article',
     href: '/blog-profissional/',
     title: 'Blog Profissional',
     description:
-      'Estrutura editorial feita para ranquear no Google. Publique conteúdo com autoridade, performance e uma experiência de leitura que retém visitantes e gera oportunidades de negócio.',
-    bullets: ['SEO editorial', 'Gestão simples', 'Alta performance'],
+      'Organize artigos e temas em uma estrutura editorial com base técnica de SEO. A forma de publicação é definida conforme a rotina da sua equipe e o escopo do projeto.',
+    bullets: ['SEO editorial', 'Categorias e artigos', 'Leitura no celular'],
   },
   {
     icon: 'ads_click',
     href: '/landing-page/',
     title: 'Landing Page',
     description:
-      'Páginas desenvolvidas para campanhas e anúncios que precisam converter. Velocidade máxima, copy focada em lead e estrutura testada para maximizar o retorno do seu investimento em tráfego pago.',
-    bullets: ['Foco em conversão', 'Velocidade máxima', 'Para tráfego pago'],
+      'Apresente uma oferta de campanha com mensagem clara, carregamento otimizado e um caminho direto para contato. Integrações e mensuração são combinadas no escopo.',
+    bullets: ['Oferta e CTA claros', 'Página leve', 'Para campanhas'],
   },
 ];
 
@@ -741,10 +741,10 @@ export const reasons = [
   },
   {
     title: 'Design para conversão',
-    subtitle: 'Design pensado para vender',
+    subtitle: 'Caminhos claros para contato',
   },
   {
     title: 'Suporte pós-entrega',
-    subtitle: 'Suporte após o lançamento',
+    subtitle: 'Condições definidas na proposta',
   },
 ];

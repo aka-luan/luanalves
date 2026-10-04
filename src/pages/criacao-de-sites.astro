@@ -9,6 +9,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { projects } from '../data/site';
 import { getBreadcrumbSchema, getFaqPageSchema } from '../data/servicePages';
 import { verticalPageLinks } from '../data/verticalPages';
+import { projectExtensionsCopy, projectScopeFaq } from '../data/projectScope';
 
 const whatsappHref =
   'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Quero%20solicitar%20um%20or%C3%A7amento%20para%20cria%C3%A7%C3%A3o%20de%20site.';
@@ -49,9 +50,9 @@ const solutionItems = [
   {
     icon: 'article',
     title: 'Blog Profissional',
-    copy: 'Estrutura editorial preparada para conteúdo, ranqueamento e gestão simples.',
+    copy: 'Estrutura editorial para organizar artigos e temas, com base técnica de SEO e atualização definida no escopo.',
     image: '/assets/poliana-bentes-home.webp',
-    tags: ['Editorial', 'CMS', 'Performance'],
+    tags: ['Editorial', 'SEO técnico', 'Performance'],
     href: '/blog-profissional/',
   },
 ];
@@ -82,7 +83,7 @@ const resultCards = [
     benefitIcon: 'trending_up',
     title: 'SEO técnico',
     copy: 'Estrutura preparada para indexação e boas práticas de busca.',
-    benefit: 'Mais visibilidade no Google',
+    benefit: 'Base técnica para busca',
   },
   {
     number: '03',
@@ -98,7 +99,7 @@ const resultCards = [
     benefitIcon: 'monetization_on',
     title: 'Conversão',
     copy: 'Páginas pensadas para gerar contatos, pedidos e orçamentos.',
-    benefit: 'Mais pedidos de orçamento',
+    benefit: 'Caminhos claros para contato',
   },
 ];
 
@@ -148,13 +149,13 @@ const includedItems = [
   },
   {
     icon: 'extension',
-    title: 'Integrações essenciais',
-    copy: 'WhatsApp, formulários, mapa, analytics ou CMS.',
+    title: 'Conteúdo e contato',
+    copy: 'Organização dos materiais fornecidos e chamadas diretas para contato pelo WhatsApp.',
   },
   {
     icon: 'menu_book',
     title: 'Orientação de uso',
-    copy: 'Entrega com explicação para futuras atualizações.',
+    copy: 'Forma de atualização e orientação definidas conforme a solução escolhida.',
   },
 ];
 
@@ -162,7 +163,7 @@ const differentialItems = [
   {
     icon: 'forum',
     title: 'Comunicação direta',
-    copy: 'Alinhamento rápido e sem ruído de agência.',
+    copy: 'Você fala com quem planeja, desenha e desenvolve o site.',
   },
   {
     icon: 'code',
@@ -177,16 +178,12 @@ const differentialItems = [
   {
     icon: 'support_agent',
     title: 'Suporte pós-lançamento',
-    copy: 'Acompanhamento depois que o site vai ao ar.',
+    copy: 'Período, canais e ajustes cobertos definidos na proposta.',
   },
 ];
 
 const faqItems = [
-  {
-    question: 'Em quanto tempo o site fica pronto?',
-    answer:
-      'O prazo varia conforme a complexidade, mas projetos mais enxutos costumam levar algumas semanas. Antes de começar, eu apresento um cronograma claro.',
-  },
+  ...projectScopeFaq,
   {
     question: 'O site será responsivo?',
     answer:
@@ -196,16 +193,6 @@ const faqItems = [
     question: 'Você faz SEO?',
     answer:
       'Sim. A entrega inclui base técnica de SEO, estrutura semântica, títulos, metadados e performance como prioridade desde o início.',
-  },
-  {
-    question: 'Posso atualizar o conteúdo depois?',
-    answer:
-      'Sim. O projeto pode incluir orientação de uso, CMS ou uma estrutura preparada para atualizações futuras, conforme o escopo definido.',
-  },
-  {
-    question: 'O domínio e a hospedagem estão inclusos?',
-    answer:
-      'Posso orientar a contratação e configurar tudo para publicação. Custos de domínio, hospedagem e ferramentas externas ficam separados do desenvolvimento.',
   },
 ];
 
@@ -266,7 +253,7 @@ const creationServiceSchema = [
             data-motion-hero-title
             data-motion-hidden='y-lg'>
             Seu site precisa
-            <em>vender, não só existir.</em>
+            <em>facilitar o contato.</em>
           </h1>
 
           <p
@@ -652,8 +639,12 @@ const creationServiceSchema = [
             class='included-lead editorial-lead'
             data-motion-copy
             data-motion-hidden='y-md'>
-            Cada entrega combina estratégia, design e desenvolvimento para que o
-            site já nasça pronto para performar.
+            A entrega base combina arquitetura, conteúdo fornecido, design,
+            desenvolvimento, SEO técnico, performance e caminhos para contato.
+            As páginas e seções são definidas na proposta.
+          </p>
+          <p class='editorial-lead' data-motion-copy data-motion-hidden='y-md'>
+            {projectExtensionsCopy}
           </p>
         </div>
 

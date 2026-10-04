@@ -32,6 +32,8 @@ This file is the design source of truth for new pages, layouts, and major UI sec
 - Preserve terms that already define the business: desenvolvimento web, criação de sites, site institucional, blog profissional, landing page, portfólio, orçamento, conversão, lançamento, suporte.
 - Do not trust mojibake shown by PowerShell. If text appears corrupted in terminal output, verify the actual file encoding before changing copy.
 
+Commercial conditions confirmed by the owner on 2026-10-03: scope, supplied/produced materials, approval stages, revision rounds, schedule, update method and post-publication support are defined in the proposal. Domain, hosting and external-tool recurring costs are separate from development. Do not promise a 24-hour reply, fixed revision count or unlimited support. Shared buyer-facing conditions live in src/data/projectScope.ts; keep included sections and FAQs consistent with them.
+
 ## Assets And Media
 
 - Use real images from `public/assets/` when possible.
