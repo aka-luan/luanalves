@@ -38,6 +38,8 @@ Service pages select their proof case and framing in servicePages.ts. ServicePro
 
 `src/data/insights.ts` owns editorial post metadata, article blocks, categories, filters, article paths, table-of-contents helpers, and hero image prompts.
 
+Article isoDate/date describe original publication. Set updatedIsoDate only for a substantive editorial revision; the article displays it separately, BlogPosting uses it for dateModified and the sitemap uses it for lastmod. Do not refresh publication dates or mark untouched articles as updated during template changes.
+
 Service and case owners curate relatedInsightSlugs by delivery and buyer questions. The Insights module resolves published posts in that order, deduplicates selections, and supplies a planning fallback for missing/unpublished slugs. Article contact labels and messages are chosen together by topic in getInsightContact; preserve contextual links authored inside article blocks.
 
 src/data/projectScope.ts owns shared commercial conditions and optional extensions used by the service hub, services and segment FAQs.
