@@ -28,4 +28,10 @@ Os rodapés públicos creditam Agência Skyrocket na Conviva e Parawara Design n
 
 ## Aceite ainda pendente
 
+### Integração com os PRs 24 e 25
+
+Em 04/10/2026, a branch temporária `codex/open-issues-integration`, commit `76bb23d7072e552c12f84bb536c263536a5d4517`, reuniu o PR 24 (`de7b7a3`), o PR 25 (`f0eb365`) e esta alteração de cases (`d54d785`). O merge não teve conflitos. Build de 28 páginas, 18 testes e verificação de schema das 28 páginas passaram.
+
+A navegação interna Urbem → Insights → checklist foi conferida no navegador. Depois da transição, o artigo mostrou o título revisado, publicação original `2026-06-05`, revisão `2026-10-04`, canonical do checklist e um único script JSON-LD com BlogPosting/FAQPage, sem CreativeWork residual do case. As mensagens de revisão de lançamento foram preservadas. Isso valida a combinação local, não substitui a publicação nem confirma atribuições dos cases.
+
 Confirmar com Luan o papel efetivo em cada projeto, colaboradores, restrições e o escopo de blog/CMS da Conviva. Publicar somente depois dessa revisão e validar o domínio final. Se houver números comerciais, registrar período, fonte, método e autorização antes de incorporá-los. Ausência de números não invalida a descrição dos recursos, mas a fonte pública sozinha não conclui todos os critérios da issue 10.
