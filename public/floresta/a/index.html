@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Opção A — Showreel em tela cheia · Floresta Cine Vídeo</title>
+<title>Opção A — Só o vídeo · Floresta Cine Vídeo</title>
 <meta name="theme-color" content="#0B0D0A">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,36 +21,23 @@
 </div>
 
 <main class="hero hero-a" data-hero="a">
-  <div class="layer kb" data-layer></div>
-  <div class="layer kb" data-layer style="opacity:0"></div>
-  <svg class="tree" aria-hidden="true" viewBox="0 0 1440 300" preserveAspectRatio="none"><path d="M0 150 C 60 112, 110 142, 160 110 S 262 84, 322 124 S 432 94, 482 118 S 602 62, 662 106 S 762 90, 822 122 S 942 72, 1002 112 S 1122 86, 1182 120 S 1302 76, 1362 114 S 1420 104, 1440 110 L1440 300 L0 300 Z" fill="#0B0D0A" fill-opacity=".9"/></svg>
-  <div class="scrim"></div>
+  <header class="topbar" aria-hidden="true">
+    <div class="logo"><b>FLORESTA</b><span>CINE VÍDEO</span></div>
+    <nav><span>Produções</span><span>Sobre</span><span>Contato</span></nav>
+    <div class="where">Tucuruí · PA</div>
+    <span class="menu"><svg width="20" height="20" viewBox="0 0 20 20"><path d="M3 7H17M3 13H17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+  </header>
 
-  <div class="sitenav" aria-hidden="true">
-    <div class="brand"><b>FLORESTA</b><span>cine vídeo</span></div>
-    <div class="links"><span>Produções</span><span>Sobre</span><span>Contato</span></div>
-    <span class="menu"><svg width="18" height="18" viewBox="0 0 18 18"><path d="M2 6H16M2 12H16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
-  </div>
-
-  <div class="a-mid"><span class="chip" aria-hidden="true">SHOWREEL · VÍDEO EM LOOP, SEM SOM</span></div>
-
-  <div class="a-bottom">
-    <div class="a-copy">
-      <div class="eyebrow">PRODUTORA AUDIOVISUAL · TUCURUÍ, PARÁ · DESDE 2002</div>
-      <h1>Histórias da Amazônia, filmadas daqui.</h1>
-      <div class="row">
-        <a class="btn btn-solid" href="../c/">Ver produções</a>
-        <span class="btn btn-line"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14"><path d="M3 1.5L12 7 3 12.5Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>Assistir com som</span>
-      </div>
-    </div>
-    <div class="reel" aria-live="polite">
-      <div class="reel-head"><span>AGORA NO REEL</span><span data-count>01 / 05</span></div>
-      <div class="segs" data-segs></div>
-      <div class="fade" data-swap>
-        <div class="reel-title" data-title></div>
-        <div class="reel-meta" data-short></div>
-      </div>
-    </div>
+  <div class="screen">
+    <h1 class="sr">Floresta Cine Vídeo — produtora audiovisual em Tucuruí, Pará</h1>
+    <div class="layer kb" data-layer></div>
+    <div class="layer kb" data-layer style="opacity:0"></div>
+    <div class="scrim"></div>
+    <div class="cap fade" data-cap aria-live="polite"></div>
+    <button class="sound" type="button" data-sound aria-pressed="false" aria-label="Ligar o som">
+      <svg data-off width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h3l5-4v14l-5-4H4z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M16 9l5 6M21 9l-5 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <svg data-on width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" style="display:none"><path d="M4 9h3l5-4v14l-5-4H4z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M16 9.5a3.5 3.5 0 0 1 0 5M18.5 7a7 7 0 0 1 0 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
   </div>
 </main>
 
