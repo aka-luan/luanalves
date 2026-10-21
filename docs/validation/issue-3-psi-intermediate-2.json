@@ -1,0 +1,16 @@
+{
+ "status":"complete-intermediate","productionCommit":"db897815b998991df7113427781ac44eb8e84981",
+ "configuration":"Lighthouse 13.5.0 mobile slow 4G initial load; calculator CLS and displayed CLS both preserved",
+ "runs":[
+ {"page":"home","LCP":6259,"FCP":3676,"TBT":19,"CLS":0.01,"displayCLS":0.011,"reportUrl":"https://pagespeed.web.dev/analysis/https-luanalves-com-br/ebs9kt5vao?form_factor=mobile"},
+ {"page":"home","LCP":3901,"FCP":3376,"TBT":11,"CLS":0,"displayCLS":0,"reportUrl":"https://pagespeed.web.dev/analysis/https-luanalves-com-br/0how277ieo?form_factor=mobile"},
+ {"page":"home","LCP":6293,"FCP":3676,"TBT":49,"CLS":0,"displayCLS":0.002,"reportUrl":"https://pagespeed.web.dev/analysis/https-luanalves-com-br/ynvvexhv92?form_factor=mobile"},
+ {"page":"belem","LCP":6089,"FCP":3826,"TBT":103,"CLS":0.01,"displayCLS":0.014,"reportUrl":"https://pagespeed.web.dev/analysis/https-luanalves-com-br-criacao-de-sites-belem/cqpstj2mxv?form_factor=mobile"},
+ {"page":"belem","LCP":6152,"FCP":3826,"TBT":58,"CLS":0.01,"displayCLS":0.013,"reportUrl":"https://pagespeed.web.dev/analysis/https-luanalves-com-br-criacao-de-sites-belem/7drovodl19?form_factor=mobile"},
+ {"page":"belem","LCP":4051,"FCP":3376,"TBT":27,"CLS":0,"displayCLS":0.003,"reportUrl":"https://pagespeed.web.dev/analysis/https-luanalves-com-br-criacao-de-sites-belem/agwl1onr4k?form_factor=mobile"},
+ {"page":"article","LCP":3780,"FCP":1726,"TBT":54,"CLS":0.01,"displayCLS":0.005,"reportUrl":"https://pagespeed.web.dev/analysis/https-luanalves-com-br-insights-quanto-tempo-leva-para-criar-um-site-profissional/ichhqoi1dp?form_factor=mobile"},
+ {"page":"article","LCP":5739,"FCP":3601,"TBT":1,"CLS":0.04,"displayCLS":0.04,"reportUrl":"https://pagespeed.web.dev/analysis/https-luanalves-com-br-insights-quanto-tempo-leva-para-criar-um-site-profissional/9tjkm6j4ek?form_factor=mobile"},
+ {"page":"article","LCP":3901,"FCP":3376,"TBT":0,"CLS":0.01,"displayCLS":0.005,"reportUrl":"https://pagespeed.web.dev/analysis/https-luanalves-com-br-insights-quanto-tempo-leva-para-criar-um-site-profissional/p2c22o5kxj?form_factor=mobile"}
+ ],
+ "notes":"A remaining home span-width font swap was identified; final comparisons will use the fixed block width build."
+}

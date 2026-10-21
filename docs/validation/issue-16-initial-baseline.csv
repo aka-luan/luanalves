@@ -1,0 +1,3 @@
+period_start,period_end,timezone,source_system,page_path,source,medium,campaign,cta_position,page_views,whatsapp_clicks,unique_conversations,qualified_leads,proposals_sent,contracts_signed,validation_clicks,filters,evidence_reference,recorded_at
+2026-10-03T21:17:00-03:00,2026-10-03T21:22:00-03:00,America/Sao_Paulo,GA4,/,desconhecido,desconhecido,,home_hero,,2,,,,,2,Realtime All Users; cliques de validação,2026-10-03-issue-16-analytics.md,2026-10-03T21:22:00-03:00
+2026-10-03T21:17:00-03:00,2026-10-03T21:22:00-03:00,America/Sao_Paulo,GA4,/criacao-de-sites/,desconhecido,desconhecido,,service_hero,,1,,,,,1,Realtime All Users; cliques de validação,2026-10-03-issue-16-analytics.md,2026-10-03T21:22:00-03:00

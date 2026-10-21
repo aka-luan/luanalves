@@ -20,7 +20,9 @@ Keep these market distinctions explicit:
 - Construtora: executes construction work; emphasize technical capacity, delivery history, and served segments.
 - Empresa de madeira engenheirada: designs, manufactures, or assembles CLT, MLC, or other mass-timber systems; avoid reducing it to a generic madeireira.
 
-The core offer covers information architecture, design, development, project presentation, institutional content, technical SEO, performance, and conversion. CMS, CRM, advanced catalogs, restricted areas, and external integrations are optional scope extensions; never imply automatic inclusion.
+Commercial conditions confirmed by the owner on 2026-10-03: scope, supplied/produced materials, approval stages, revision rounds, schedule, update method and post-publication support are defined in the proposal. Domain, hosting and external-tool recurring costs are separate from development. Do not promise a 24-hour reply, fixed revision count or unlimited support. Shared buyer-facing conditions live in src/data/projectScope.ts; keep included sections and FAQs consistent with them.
+
+## Assets And Media
 
 ## Media
 

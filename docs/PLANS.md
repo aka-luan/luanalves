@@ -4,7 +4,14 @@ Read for planning and prioritization. These tasks require current evidence or an
 
 ## Production Measurement And Validation
 
-Next step: inspect existing GSC and business-profile account state, then capture:
+- GA4 production receipt was confirmed on 2026-10-03 with three synthetic clicks: see [issue 16 evidence](validation/2026-10-03-issue-16-analytics.md). Luan still needs to fill the private commercial baseline for 2026-10-04–2026-10-31. This does not confirm receipt in a separate Vercel dashboard or imply commercial demand.
+
+- Monitor GSC index coverage and impressions after verification and sitemap submission.
+- Capture PageSpeed Insights lab baselines when time allows; CrUX currently has insufficient field data.
+- Confirm one `whatsapp_click` event in the Vercel Analytics dashboard after deployment.
+- Run one live Rich Results Test after deployment; rendered-source validation already passes.
+- Add current deployment/hosting notes after human confirmation.
+- Decide whether broader browser-script tests are worth adding beyond the project modal.
 
 - Current GSC coverage and search performance, with exclusions worth investigating.
 - A useful performance baseline for home, a service page, and an article; distinguish lab measurements from available field data.

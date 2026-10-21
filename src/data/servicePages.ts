@@ -1,4 +1,5 @@
 import { verticalPageLinks } from './verticalPages';
+import { projectExtensionsCopy, projectScopeFaq } from './projectScope';
 
 const phone = '5591982890565';
 const siteUrl = 'https://luanalves.com.br';
@@ -19,6 +20,13 @@ export interface ServiceCard {
 
 export interface ServicePageContent {
   slug: string;
+  relatedInsightSlugs: string[];
+  proof: {
+    projectSlug: string;
+    title: string;
+    copy: string;
+    limitation: string;
+  };
   namespace: string;
   title: string;
   description: string;
@@ -65,13 +73,6 @@ export interface ServicePageContent {
     copy: string;
     items: ServiceCard[];
   };
-  differentials: {
-    eyebrow: string;
-    title: string;
-    accent: string;
-    copy: string;
-    items: ServiceCard[];
-  };
   faq: { question: string; answer: string }[];
   cta: {
     title: string;
@@ -103,35 +104,8 @@ const sharedProcess = [
   },
 ];
 
-const sharedDifferentials = [
-  {
-    icon: 'forum',
-    title: 'Atendimento direto',
-    copy: 'Você fala com quem planeja, desenha e desenvolve. Menos ruído, mais clareza.',
-  },
-  {
-    icon: 'speed',
-    title: 'Performance como padrão',
-    copy: 'Estrutura enxuta, imagens otimizadas e código pensado para carregar rápido.',
-  },
-  {
-    icon: 'search',
-    title: 'Base técnica de SEO',
-    copy: 'Metadados, hierarquia de headings, canonical e estrutura semântica desde o início.',
-  },
-  {
-    icon: 'support_agent',
-    title: 'Suporte pós-lançamento',
-    copy: 'Entrega com orientação e acompanhamento para ajustes essenciais depois da publicação.',
-  },
-];
-
 const sharedFaq = [
-  {
-    question: 'Quanto tempo leva para o projeto ficar pronto?',
-    answer:
-      'O prazo depende do escopo, número de páginas e materiais disponíveis. Antes de começar, você recebe um cronograma claro com etapas e datas.',
-  },
+  ...projectScopeFaq,
   {
     question: 'A página funciona bem no celular?',
     answer:
@@ -145,13 +119,20 @@ const sharedFaq = [
   {
     question: 'Você pode configurar WhatsApp, mapa ou analytics?',
     answer:
-      'Sim. Integrações essenciais podem entrar no escopo, incluindo WhatsApp, mapa, eventos de conversão e ferramentas de análise.',
+      'Os caminhos de contato pelo WhatsApp fazem parte da base. Mapas, eventos de conversão e ferramentas de análise são integrações opcionais avaliadas e orçadas no escopo.',
   },
 ];
 
 export const servicePages: Record<string, ServicePageContent> = {
   'site-institucional': {
     slug: 'site-institucional',
+    proof: {
+      projectSlug: 'agencia-skyrocket',
+      title: 'Serviços e identidade em uma estrutura institucional.',
+      copy: 'O projeto da Agência Skyrocket mostra como organizar a apresentação de uma empresa de serviços com identidade própria e caminhos de contato.',
+      limitation: 'A prova é a estrutura entregue e sua apresentação. Não há métricas de vendas atribuídas a este case.',
+    },
+    relatedInsightSlugs: ['site-institucional-o-que-precisa-ter', 'quanto-custa-um-site-profissional'],
     namespace: 'site-institucional',
     title: 'Site Institucional Profissional | Luan Alves',
     description:
@@ -254,7 +235,7 @@ export const servicePages: Record<string, ServicePageContent> = {
       eyebrow: 'Incluso',
       title: 'O que entra no projeto institucional.',
       accent: 'projeto institucional',
-      copy: 'A entrega cobre a base necessária para sua empresa se apresentar bem, carregar rápido e converter visitantes em conversas.',
+      copy: 'A base organiza páginas, conteúdo fornecido, design, desenvolvimento, SEO técnico e contato. ' + projectExtensionsCopy,
       items: [
         {
           icon: 'schema',
@@ -274,16 +255,9 @@ export const servicePages: Record<string, ServicePageContent> = {
         {
           icon: 'settings',
           title: 'Configurações essenciais',
-          copy: 'SEO inicial, favicon, social preview e integrações combinadas.',
+          copy: 'SEO inicial, favicon e imagens de compartilhamento. Integrações externas são opcionais.',
         },
       ],
-    },
-    differentials: {
-      eyebrow: 'Diferenciais',
-      title: 'Entrega direta, técnica e pensada para negócios reais.',
-      accent: 'negócios reais',
-      copy: 'O foco é criar uma presença profissional que não dependa de explicações extras para transmitir valor.',
-      items: sharedDifferentials,
     },
     faq: [
       ...sharedFaq,
@@ -301,6 +275,13 @@ export const servicePages: Record<string, ServicePageContent> = {
   },
   'landing-page': {
     slug: 'landing-page',
+    proof: {
+      projectSlug: 'agencia-skyrocket',
+      title: 'Uma referência de mensagem e apresentação de serviços.',
+      copy: 'O site institucional da Agência Skyrocket permite avaliar hierarquia visual, apresentação da oferta e caminhos de contato que também precisam ser planejados numa landing page.',
+      limitation: 'Este é um case institucional, não uma landing page de campanha. Ele não comprova taxa de conversão, retorno de mídia ou resultados de uma oferta específica.',
+    },
+    relatedInsightSlugs: ['landing-page-ou-site-institucional', 'por-que-performance-site-afeta-conversao'],
     namespace: 'landing-page',
     title: 'Landing Page para Campanhas | Luan Alves',
     description:
@@ -401,7 +382,7 @@ export const servicePages: Record<string, ServicePageContent> = {
       eyebrow: 'Incluso',
       title: 'Elementos essenciais para uma landing page eficiente.',
       accent: 'landing page eficiente',
-      copy: 'A entrega prioriza clareza, velocidade e conversão sem excesso de elementos que desviam a atenção.',
+      copy: 'A base organiza a oferta, conteúdo fornecido, design, desenvolvimento, SEO técnico, performance e contato. ' + projectExtensionsCopy,
       items: [
         {
           icon: 'title',
@@ -425,13 +406,6 @@ export const servicePages: Record<string, ServicePageContent> = {
         },
       ],
     },
-    differentials: {
-      eyebrow: 'Diferenciais',
-      title: 'Design e código trabalhando para diminuir atrito.',
-      accent: 'diminuir atrito',
-      copy: 'A página é construída para sustentar a campanha, não para competir com ela.',
-      items: sharedDifferentials,
-    },
     faq: [
       ...sharedFaq,
       {
@@ -448,6 +422,13 @@ export const servicePages: Record<string, ServicePageContent> = {
   },
   'blog-profissional': {
     slug: 'blog-profissional',
+    proof: {
+      projectSlug: 'poliana-bentes',
+      title: 'Conteúdo editorial integrado à presença institucional.',
+      copy: 'O projeto Poliana Bentes reúne site institucional e blog, com uma base para publicação de conteúdo e atualização da consultoria.',
+      limitation: 'O CMS fez parte do escopo deste projeto. A forma de publicação do seu blog é definida na proposta; o case não apresenta crescimento orgânico medido.',
+    },
+    relatedInsightSlugs: ['site-institucional-o-que-precisa-ter', 'checklist-lancamento-site-empresarial'],
     namespace: 'blog-profissional',
     title: 'Blog Profissional para Empresas | Luan Alves',
     description:
@@ -462,7 +443,7 @@ export const servicePages: Record<string, ServicePageContent> = {
       title:
         'Blog profissional para transformar conteúdo em autoridade e oportunidades',
       accent: 'autoridade e oportunidades',
-      copy: 'Crio estruturas editoriais rápidas, organizadas e preparadas para SEO, com experiência de leitura profissional e gestão simples de conteúdo.',
+      copy: 'Crio estruturas editoriais organizadas e preparadas para SEO, com leitura profissional. A solução de atualização é definida conforme a rotina da equipe; CMS é uma extensão opcional.',
       ctaLabel: 'Quero criar um blog profissional',
       secondaryLabel: 'Ver projetos',
       secondaryHref: '#portfolio',
@@ -548,7 +529,7 @@ export const servicePages: Record<string, ServicePageContent> = {
       eyebrow: 'Incluso',
       title: 'Base técnica e visual para conteúdo profissional.',
       accent: 'conteúdo profissional',
-      copy: 'O projeto entrega a estrutura para publicar com padrão visual, organização e boas práticas de SEO.',
+      copy: 'A base entrega arquitetura editorial, organização do conteúdo fornecido, design, desenvolvimento, SEO técnico, performance e contato. ' + projectExtensionsCopy,
       items: [
         {
           icon: 'dashboard',
@@ -572,13 +553,6 @@ export const servicePages: Record<string, ServicePageContent> = {
         },
       ],
     },
-    differentials: {
-      eyebrow: 'Diferenciais',
-      title: 'Um blog com cara de publicação séria, não só uma lista de posts.',
-      accent: 'publicação séria',
-      copy: 'A experiência editorial precisa reforçar autoridade em cada detalhe visual e técnico.',
-      items: sharedDifferentials,
-    },
     faq: [
       ...sharedFaq,
       {
@@ -595,6 +569,13 @@ export const servicePages: Record<string, ServicePageContent> = {
   },
   'criacao-de-sites-belem': {
     slug: 'criacao-de-sites-belem',
+    proof: {
+      projectSlug: 'poliana-bentes',
+      title: 'Um projeto para comunicar atuação no Pará.',
+      copy: 'A consultoria Poliana Bentes atua em relações institucionais no Pará. Sua base institucional e editorial organiza serviços, posicionamento e conteúdo para apresentar esse contexto.',
+      limitation: 'A referência local está na atuação da consultoria e na entrega apresentada. Não há métricas de posição local ou volume de leads atribuídas ao projeto.',
+    },
+    relatedInsightSlugs: ['como-escolher-desenvolvedor-web-freelancer', 'quanto-tempo-leva-para-criar-um-site-profissional'],
     namespace: 'criacao-de-sites-belem',
     title: 'Criação de Sites em Belém | Luan Alves',
     description:
@@ -609,7 +590,7 @@ export const servicePages: Record<string, ServicePageContent> = {
       title:
         'Criação de sites em Belém para negócios que querem crescer com presença digital profissional',
       accent: 'presença digital profissional',
-      copy: 'Desenvolvo sites para empresas de Belém e região metropolitana que precisam aparecer melhor, transmitir confiança e receber mais contatos pelo WhatsApp.',
+      copy: 'Atendo diretamente de Belém, com processo remoto. Organizo conteúdo, design e desenvolvimento para apresentar os serviços de empresas da cidade e região metropolitana e facilitar o contato pelo WhatsApp.',
       ctaLabel: 'Quero criar meu site em Belém',
       secondaryLabel: 'Ver portfólio',
       secondaryHref: '#portfolio',
@@ -618,12 +599,12 @@ export const servicePages: Record<string, ServicePageContent> = {
         {
           icon: 'location_on',
           title: 'Belém/PA',
-          copy: 'Copy local sem repetição forçada.',
+          copy: 'Atendimento direto de Belém, com processo remoto.',
         },
         {
           icon: 'map',
           title: 'SEO local',
-          copy: 'Estrutura para cidade, mapa e área de atendimento.',
+          copy: 'Informações sobre serviços e região de atendimento.',
         },
         {
           icon: 'chat_bubble',
@@ -646,7 +627,7 @@ export const servicePages: Record<string, ServicePageContent> = {
         {
           icon: 'travel_explore',
           title: 'SEO local',
-          copy: 'Metadados, headings e conteúdo alinhados à intenção de busca regional.',
+          copy: 'Serviços e região de atuação organizados para ajudar quem procura sua empresa a entender a oferta.',
         },
         {
           icon: 'pin_drop',
@@ -695,7 +676,7 @@ export const servicePages: Record<string, ServicePageContent> = {
       eyebrow: 'Incluso',
       title: 'Estrutura para presença local profissional.',
       accent: 'presença local',
-      copy: 'A entrega pode combinar apresentação institucional, conteúdo local, WhatsApp, mapa e base técnica de SEO.',
+      copy: 'A base combina apresentação institucional, conteúdo local fornecido, design, desenvolvimento, WhatsApp, SEO técnico e performance. ' + projectExtensionsCopy,
       items: [
         {
           icon: 'corporate_fare',
@@ -718,13 +699,6 @@ export const servicePages: Record<string, ServicePageContent> = {
           copy: 'Canonical, metadados, headings e performance desde a publicação.',
         },
       ],
-    },
-    differentials: {
-      eyebrow: 'Diferenciais',
-      title: 'Desenvolvimento profissional para negócios de Belém e do Brasil.',
-      accent: 'Belém',
-      copy: 'Você tem atendimento direto, visão técnica e uma página que respeita a busca local sem parecer texto artificial.',
-      items: sharedDifferentials,
     },
     faq: [
       ...sharedFaq,
@@ -805,34 +779,4 @@ export const getServicePageSchema = (page: ServicePageContent) => [
     },
   },
   getFaqPageSchema(page.faq, `${siteUrl}${page.canonicalPath}#faq`),
-  ...(page.slug === 'criacao-de-sites-belem'
-    ? [
-        {
-          '@context': 'https://schema.org',
-          '@type': 'ProfessionalService',
-          '@id': `${siteUrl}/criacao-de-sites-belem/#localbusiness`,
-          name: 'Luan Alves — Criação de Sites em Belém',
-          description:
-            'Criação de sites profissionais para empresas de Belém e região metropolitana. Atendimento remoto direto, SEO técnico e entrega no prazo.',
-          url: `${siteUrl}/criacao-de-sites-belem/`,
-          telephone: '+55-91-98289-0565',
-          address: {
-            '@type': 'PostalAddress',
-            addressLocality: 'Belém',
-            addressRegion: 'PA',
-            addressCountry: 'BR',
-          },
-          areaServed: [
-            { '@type': 'City', name: 'Belém' },
-            { '@type': 'AdministrativeArea', name: 'Região Metropolitana de Belém' },
-          ],
-          founder: { '@id': `${siteUrl}/#person` },
-          availableChannel: {
-            '@type': 'ServiceChannel',
-            serviceUrl: 'https://wa.me/5591982890565',
-            serviceType: 'WhatsApp',
-          },
-        },
-      ]
-    : []),
 ];

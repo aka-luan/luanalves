@@ -3,9 +3,11 @@ import SiteFooter from '../../components/SiteFooter.astro';
 import InsightFaq from '../../components/InsightFaq.astro';
 import SiteNav from '../../components/SiteNav.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getHeroImage } from '../../data/heroImages';
 import { navigation } from '../../data/site';
 import {
   getInsightPath,
+  getInsightContact,
   getInsightToc,
   insights,
   publishedInsights,
@@ -21,13 +23,14 @@ export function getStaticPaths() {
 }
 
 const { post } = Astro.props as { post: InsightPublishedPost };
+const heroImage = post.heroImage
+  ? await getHeroImage(post.heroImage, '(max-width: 1168px) calc(100vw - 48px), 1120px')
+  : null;
 const siteUrl = 'https://luanalves.com.br';
 const canonicalPath = getInsightPath(post);
 const canonicalUrl = `${siteUrl}${canonicalPath}`;
-const whatsappMessage = encodeURIComponent(
-  `Olá, Luan! Li o artigo "${post.title}" e quero entender qual estrutura faz sentido para o meu projeto.`,
-);
-const whatsappHref = `https://wa.me/5591982890565?text=${whatsappMessage}`;
+const articleContact = getInsightContact(post);
+const whatsappHref = articleContact.href;
 const portfolioHref = '/portfolio/';
 const authorLocation = 'Belém, PA';
 const authorInitials = post.author.name
@@ -94,7 +97,7 @@ const articleSchema = [
       ? `${siteUrl}${post.heroImage}`
       : `${siteUrl}/assets/og-cover.webp`,
     datePublished: post.isoDate,
-    dateModified: post.isoDate,
+    dateModified: post.updatedIsoDate ?? post.isoDate,
     author: { '@id': `${siteUrl}/#person` },
     publisher: { '@id': `${siteUrl}/#business` },
     mainEntityOfPage: canonicalUrl,
@@ -164,7 +167,14 @@ const renderInlineLinks = (text: string) => text;
           <h1>{post.title}</h1>
           <p>{post.description}</p>
           <div class='post-meta' aria-label='Metadados do artigo'>
-            <span>{post.date}</span>
+            <time datetime={post.isoDate}>{post.updatedIsoDate ? `Publicado em ${post.date}` : post.date}</time>
+            {post.updatedIsoDate && (
+              <time datetime={post.updatedIsoDate}>
+                Atualizado em {new Intl.DateTimeFormat('pt-BR', {
+                  day: '2-digit', month: 'short', year: 'numeric', timeZone: 'UTC',
+                }).format(new Date(`${post.updatedIsoDate}T00:00:00Z`))}
+              </time>
+            )}
             <span>{post.readTime}</span>
             <span>{`${post.category} / ${post.tags[0]}`}</span>
           </div>
@@ -174,11 +184,10 @@ const renderInlineLinks = (text: string) => text;
           {
             post.heroImage ? (
               <img
-                src={post.heroImage}
+                {...heroImage}
                 alt={post.heroImageAlt}
-                width='1200'
-                height='800'
                 loading='eager'
+                fetchpriority='high'
                 decoding='async'
               />
             ) : (
@@ -225,11 +234,7 @@ const renderInlineLinks = (text: string) => text;
                 return (
                   <figure class='post-code'>
                     {block.caption && <figcaption>{block.caption}</figcaption>}
-                    <pre>
-                      <code class={`language-${block.language}`}>
-                        {block.code}
-                      </code>
-                    </pre>
+                    <pre><code class={`language-${block.language}`}>{block.code}</code></pre>
                   </figure>
                 );
               }
@@ -290,7 +295,7 @@ const renderInlineLinks = (text: string) => text;
                 return (
                   <div class='post-links'>
                     {block.items.map((item) => (
-                      <a href={item.href}>
+                      <a href={item.href} data-analytics-position='article_related_link'>
                         <span>{item.label}</span>
                         <strong>{item.text}</strong>
                       </a>
@@ -345,10 +350,10 @@ const renderInlineLinks = (text: string) => text;
 
           <a
             class='post-whatsapp'
-            href={whatsappHref}
+            href={whatsappHref} data-analytics-position='article_sidebar'
             target='_blank'
             rel='noreferrer'>
-            Pedir orientação de orçamento
+            {articleContact.label}
             <span class='material-symbols-outlined' aria-hidden='true'
               >arrow_forward</span
             >
@@ -376,11 +381,11 @@ const renderInlineLinks = (text: string) => text;
         <div class='author-card__actions'>
           <a
             class='author-card__action author-card__action--primary'
-            href={whatsappHref}
+            href={whatsappHref} data-analytics-position='article_author'
             target='_blank'
             rel='noreferrer'>
             <span class='material-symbols-outlined' aria-hidden='true'>chat</span>
-            Falar no WhatsApp
+            {articleContact.label}
           </a>
 
           <a class='author-card__action' href={portfolioHref}>

@@ -4,6 +4,7 @@ import ProjectPortfolio from '../components/ProjectPortfolio.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import SiteNav from '../components/SiteNav.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getHeroImage, homeHeroSizes } from '../data/heroImages';
 import {
   navigation,
   trustItems,
@@ -14,31 +15,10 @@ import {
 
 const whatsappHref =
   'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Estou%20interessado%20em%20criar%20um%20site%20profissional%20para%20meu%20neg%C3%B3cio.%20Podemos%20conversar%3F';
+const heroImage = await getHeroImage('/assets/hero-img.webp', homeHeroSizes);
 ---
 
 <BaseLayout>
-  <div class='page-loader' data-loader aria-hidden='true'>
-    <div class='page-loader__backdrop hero-grid' aria-hidden='true'></div>
-    <div class='page-loader__inner'>
-      <span class='page-loader__label' data-loader-label
-        >Desenvolvimento Web Profissional</span
-      >
-      <div class='page-loader__brand' data-loader-brand>
-        <span>Luan Alves</span>
-        <span class='brand-dot' aria-hidden='true'></span>
-      </div>
-      <div class='page-loader__track' data-loader-progress>
-        <span
-          class='page-loader__line page-loader__line--base'
-          aria-hidden='true'></span>
-        <span
-          class='page-loader__line page-loader__line--fill'
-          data-loader-progress-fill
-          aria-hidden='true'></span>
-      </div>
-    </div>
-  </div>
-
   <SiteNav items={navigation} whatsappHref={whatsappHref} />
 
   <main id='top'>
@@ -54,35 +34,41 @@ const whatsappHref =
           </p>
           <h1 class='hero-title'>
             <span data-motion-hero-title data-motion-hidden='y-lg'>
-              Seu negócio
+              Sites para
               <br />
-              merece um
+              sua empresa.
               <br />
-              <span class='hero-title__muted'>site que vende.</span>
+              <span class='hero-title__muted'>Contato fácil.</span>
             </span>
           </h1>
           <p class='hero-copy' data-motion-hero-copy data-motion-hidden='y-md'>
-            Crio sites institucionais, blogs e landing pages profissionais para
-            pequenas e médias empresas em todo o Brasil. Design estratégico,
-            código limpo e SEO desde o primeiro dia.
+            Crio sites institucionais, blogs e landing pages para empresas em
+            todo o Brasil. Organizo conteúdo, design e desenvolvimento para
+            apresentar seus serviços e facilitar o contato. Você fala comigo
+            durante todo o projeto.
           </p>
 
           <div class='hero-actions' data-motion-hero-actions>
             <a
               class='button button-solid'
-              href={whatsappHref}
+              href={whatsappHref} data-analytics-position='home_hero'
               target='_blank'
               rel='noreferrer'
               data-motion-hidden='y-sm'>
-              Solicitar orçamento
+              Conversar sobre meu site
             </a>
             <a
               class='button button-ghost'
               href='/portfolio/'
               data-motion-hidden='y-sm'>
-              Ver portfólio
+              Ver projetos entregues
             </a>
           </div>
+
+          <p class='hero-next-step'>
+            Me envie o nome da empresa, o objetivo do site e a data desejada pelo
+            WhatsApp. Vamos alinhar estrutura, materiais e escopo antes da proposta.
+          </p>
 
           <div class='hero-proof' aria-label='Diferenciais principais'>
             <article
@@ -115,10 +101,8 @@ const whatsappHref =
           data-motion-hidden='scale'>
           <div class='hero-media-frame'>
             <img
-              src='/assets/hero-img.webp'
+              {...heroImage}
               alt='Retrato de Luan Alves, desenvolvedor web.'
-              width='1086'
-              height='1536'
               decoding='async'
               fetchpriority='high'
             />
@@ -221,9 +205,9 @@ const whatsappHref =
             Por que contratar um desenvolvedor web freelancer?
           </h2>
           <p class='why-copy' data-motion-copy data-motion-hidden='y-md'>
-            Ao contratar diretamente, você tem acesso ao profissional que vai
-            criar o seu site — sem camadas de agência, sem ruído na comunicação
-            e sem custo inflado.
+            Você fala com quem planeja, desenha e desenvolve o seu site.
+            Objetivos, materiais e decisões são alinhados diretamente comigo,
+            do primeiro contato à publicação.
           </p>
 
           <div class='reason-grid'>
@@ -266,6 +250,14 @@ const whatsappHref =
 </BaseLayout>
 
 <style>
+  .hero-next-step {
+    max-width: 32rem;
+    margin: 1rem 0 0;
+    color: var(--muted);
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+
   .hero-media-frame {
     position: relative;
     width: clamp(300px, 30vw, 360px);

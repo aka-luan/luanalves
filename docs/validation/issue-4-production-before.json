@@ -1,0 +1,38 @@
+[
+  {
+    "url": "http://luanalves.com.br/site-institucional?utm_source=issue4",
+    "status": 308,
+    "location": "https://luanalves.com.br/site-institucional?utm_source=issue4",
+    "contentType": "text/plain"
+  },
+  {
+    "url": "https://www.luanalves.com.br/site-institucional?utm_source=issue4",
+    "status": 200,
+    "location": null,
+    "contentType": "text/html; charset=utf-8"
+  },
+  {
+    "url": "https://luanalves.com.br/site-institucional?utm_source=issue4",
+    "status": 200,
+    "location": null,
+    "contentType": "text/html; charset=utf-8"
+  },
+  {
+    "url": "https://luanalves.com.br/site-institucional/",
+    "status": 200,
+    "location": null,
+    "contentType": "text/html; charset=utf-8"
+  },
+  {
+    "url": "https://luanalves.com.br/robots.txt",
+    "status": 200,
+    "location": null,
+    "contentType": "text/plain; charset=utf-8"
+  },
+  {
+    "url": "https://luanalves.com.br/sitemap-index.xml",
+    "status": 200,
+    "location": null,
+    "contentType": "application/xml"
+  }
+]

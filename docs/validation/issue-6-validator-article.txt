@@ -1,0 +1,41 @@
+Browser tab: 6, Title: "Validador da marcação do esquema", URL: "https://validator.schema.org/".
+0 AXWebArea Validador da marcação do esquema, URL: validator.schema.org/
+	1 container
+		2 container pagehead1
+			3 link Description: Schema.org, Value: schema.org/
+			4 content list
+				5 link Description: Documentation, Value: schema.org/docs/documents.html
+				6 link Description: Schemas, Value: schema.org/docs/schemas.html
+				7 link Description: Validate, Value: validator.schema.org/
+				8 link Description: About, Value: schema.org/docs/about.html
+			9 container gsc-iw-id1
+				10 text field (settable) Description: search, ID: gsc-i-id1
+		11 container fetch-bar
+			12 text public
+			13 container button-panel
+				14 button Testar de novo, ID: new-test
+				15 button language_japanese_kana, ID: select-language
+				16 button info, ID: settings-help
+		17 container
+			18 text entry area (settable)
+			19 container
+				25 container (showing 0-500 of 565 items)
+					26 text < script type = "application/ld+json" > { "@context" : "https://schema.org" , "@graph" :[{ "@context" : "https://schema.org" , "@type" : "Person" , "@id" : "https://luanalves.com.br/#person" , "name" : "Luan Alves" , "jobTitle" : "Desenvolvedor Web Freelancer" , "description" : "Desenvolvedor web especializado em sites institucionais, blogs e landing pages para pequenas e médias empresas em todo o Brasil." , "url" : "https://luanalves.com.br" , "image" : "https://luanalves.com.br/assets/hero-img.webp" , "sameAs" :[ "https://linkedin.com/in/aka-luan" , "https://github.com/aka-luan" ], "knowsAbout" :[ "Desenvolvimento Web" , "SEO" , "Landing Pages" , "Design para Conversão" ], "contactPoint" :{ "@type" : "ContactPoint" , "contactType" : "Atendimento ao Cliente" , "availableLanguage" : "Portuguese" , "url" : "https://wa.me/5591982890565" }},{ "@context" : "https://schema.org" , "@type" : "Organization" , "@id" : "https://luanalves.com.br/#business" , "name" : "Luan Alves — Desenvolvimento Web" , "description" : "Criação de sites institucionais, blogs e landing pages para apresentar empresas e facilitar contatos em todo o Brasil. Atendimento direto, com escopo, cronograma e suporte definidos na proposta." , "url" : "https://luanalves.com.br" , "image" : "https://luanalves.com.br/assets/og-cover.webp" , "founder" :{ "@id" : "https://luanalves.com.br/#person" }, "areaServed" :{ "@type" : "Country" , "name" : "Brasil" }, "contactPoint" :{ "@type" : "ContactPoint" , "contactType" : "Atendimento ao Cliente" , "availableLanguage" : "Portuguese" , "telephone" : "+55-91-98289-0565" , "url" : "https://wa.me/5591982890565" }, "hasOfferCatalog" :{ "@type" : "OfferCatalog" , "name" : "Serviços de Desenvolvimento Web" , "itemListElement" :[{ "@type" : "Offer" , "name" : "Site Institucional" , "description" : "Site profissional para empresas com foco em autoridade de marca, SEO e experiência do usuário." , "url" : "https://luanalves.com.br/site-institucional/" , "seller" :{ "@id" : "https://luanalves.com.br/#business" }},{ "@type" : "Offer" , "name" : "Blog Profissional" , "description" : "Estrutura editorial com SEO técnico e gestão de conteúdo conforme o escopo contratado." , "url" : "https://luanalves.com.br/blog-profissional/" , "seller" :{ "@id" : "https://luanalves.com.br/#business" }},{ "@type" : "Offer" , "name" : "Landing Page" , "description" : "Página para apresentar uma oferta de campanha e facilitar contatos, com atenção à velocidade." , "url" : "https://luanalves.com.br/landing-page/" , "seller" :{ "@id" : "https://luanalves.com.br/#business" }}]}},{ "@context" : "https://schema.org" , "@type" : "WebSite" , "@id" : "https://luanalves.com.br/#website" , "name" : "Luan Alves" , "url" : "https://luanalves.com.br" , "description" : "Site profissional de Luan Alves, desenvolvedor web freelancer especializado em sites, blogs e landing pages." , "publisher" :{ "@id" : "https://luanalves.com.br/#person" }, "inLanguage" : "pt-BR" },{ "@type" : "BreadcrumbList" , "itemListElement" :[{ "@type" : "ListItem" , "position" : 1 , "name" : "Início" , "item" : "https://luanalves.com.br" },{ "@type" : "ListItem" , "position" : 2 , "name" : "Insights" , "item" : "https://luanalves.com.br/insights/" },{ "@type" : "ListItem" , "position" : 3 , "name" : "Quanto custa um site profissional em 2026? Veja preços por tipo de projeto" , "item" : "https://luanalves.com.br/insights/quanto-custa-um-site-profissional/" }]},{ "@type" : "BlogPosting" , "@id" : "https://luanalves.com.br/insights/quanto-custa-um-site-profissional/#article" , "headline" : "Quanto custa um site profissional em 2026? Veja preços por tipo de projeto" , "description" : "Veja quanto custa criar um site profissional em 2026, com preços para landing page, site institucional, blog, loja virtual, manutenção, domínio e hospedagem." , "image" : "https://luanalves.com.br/assets/insights/quanto-custa-post.webp" , "datePublished" : "2026-06-05" , "dateModified" : "2026-06-05" , "author" :{ "@id" : "https://luanalves.com.br/#person" }, "publisher" :{ "@id" : "https://luanalves.com.br/#business" }, "mainEntityOfPage" : "https://luanalves.com.br/insights/quanto-custa-um-site-profissional/" , "url" : "https://luanalves.com.br/insights/quanto-custa-um-site-profissional/" , "inLanguage" : "pt-BR" , "articleSection" : "Mercado" , "keywords" : "Preço, Site profissional, Criação de sites, SEO" },{ "@type" : "FAQPage" , "@id" : "https://luanalves.com.br/insights/quanto-custa-um-site-profissional/#faq" , "mainEntity" :[{ "@type" : "Question" , "name" : "Quanto custa um site simples?" , "acceptedAnswer" :{ "@type" : "Answer" , "text" : "Um site simples pode custar de R$800 a R$3.000, dependendo do número de seções, design, conteúdo, formulário, WhatsApp e nível de acabamento." }},{ "@type" : "Question" , "name" : "Quanto custa um site profissional?" , "acceptedAnswer" :{ "@type" : "Answer" , "text" : "Um site profissional costuma variar de R$2.000 a R$8.000 em projetos institucionais, podendo passar disso quando inclui CMS, blog, integrações ou funcionalidades sob medida." }},{ "@type" : "Question" , "name" : "Quanto custa uma landing page?" , "acceptedAnswer" :{ "@type" : "Answer" , "text" : "Uma landing page profissional costuma ficar entre R$800 e R$2.500, mas pode custar mais quando envolve copy estratégica, design exclusivo, integrações e testes." }},{ "@type" : "Question" , "name" : "Quanto custa um site institucional?" , "acceptedAnswer" :{ "@type" : "Answer" , "text" : "Um site institucional normalmente fica entre R$2.000 e R$8.000, conforme quantidade de páginas, complexidade visual, SEO, conteúdo e suporte incluso." }},{ "@type" : "Question" , "name" : "Quanto custa manter um site por mês?" , "acceptedAnswer" :{ "@type" : "Answer" , "text" : "A manutenção pode variar de poucas dezenas de reais por mês, em custos básicos de domínio e hospedagem, até planos recorrentes maiores com suporte, conteúdo, SEO e evolução técnica." }},{ "@type" : "Question" , "name" : "O domínio está incluso no preço do site?" , "acceptedAnswer" :{ "@type" : "Answer" , "text" : "Depende da proposta. Alguns profissionais incluem orientação ou configuração, mas o domínio geralmente é um custo anual separado e deve ficar no nome do cliente." }},{ "@type" : "Question" , "name" : "Hospedagem está inclusa?" , "acceptedAnswer" :{
+		27 container
+			28 text Detectado 0 ERROS
+			29 text 0 AVISOS
+			30 text 4 ITENS
+			31 content list
+				32 container
+					33 text BreadcrumbList 0 ERROS 0 AVISOS 1 ITEM
+				34 container
+					35 text WebSite 0 ERROS 0 AVISOS 1 ITEM
+				36 container
+					37 text BlogPosting 0 ERROS 0 AVISOS 1 ITEM
+				38 container
+					39 text FAQPage 0 ERROS 0 AVISOS 1 ITEM
+		22 button (disabled) play_arrow, ID: validate-button
+			23 text play_arrow
+		24 text VALIDAR
+
+The focused UI element is 0 AXWebArea Validador da marcação do esquema, URL: validator.schema.org/

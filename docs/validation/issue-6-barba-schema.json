@@ -1,0 +1,58 @@
+[
+  {
+    "canonical": "https://luanalves.com.br/criacao-de-sites-belem/",
+    "graph": [
+      {
+        "id": "https://luanalves.com.br/#person",
+        "type": "Person"
+      },
+      {
+        "id": "https://luanalves.com.br/#business",
+        "type": "Organization"
+      },
+      {
+        "id": "https://luanalves.com.br/#website",
+        "type": "WebSite"
+      },
+      {
+        "type": "BreadcrumbList"
+      },
+      {
+        "id": "https://luanalves.com.br/criacao-de-sites-belem/#service",
+        "type": "Service"
+      },
+      {
+        "id": "https://luanalves.com.br/criacao-de-sites-belem/#faq",
+        "type": "FAQPage"
+      }
+    ],
+    "path": "/criacao-de-sites-belem/",
+    "scripts": 1
+  },
+  {
+    "canonical": "https://luanalves.com.br/portfolio/poliana-bentes/",
+    "graph": [
+      {
+        "id": "https://luanalves.com.br/#person",
+        "type": "Person"
+      },
+      {
+        "id": "https://luanalves.com.br/#business",
+        "type": "Organization"
+      },
+      {
+        "id": "https://luanalves.com.br/#website",
+        "type": "WebSite"
+      },
+      {
+        "type": "BreadcrumbList"
+      },
+      {
+        "id": "https://luanalves.com.br/portfolio/poliana-bentes/#creativework",
+        "type": "CreativeWork"
+      }
+    ],
+    "path": "/portfolio/poliana-bentes/",
+    "scripts": 1
+  }
+]

@@ -1,0 +1,169 @@
+{
+  "articles": [
+    {
+      "slug": "por-que-performance-site-afeta-conversao",
+      "label": "Conversar sobre performance",
+      "message": "Olá, Luan! Li o artigo \"Por que a performance do site afeta a conversão?\" e quero entender como revisar carregamento, estabilidade e contato no celular no meu site."
+    },
+    {
+      "slug": "como-escolher-desenvolvedor-web-freelancer",
+      "label": "Conversar sobre a contratação",
+      "message": "Olá, Luan! Li o artigo \"Como escolher um desenvolvedor web freelancer: 9 critérios essenciais\" e quero conhecer seu processo e alinhar o escopo de um site para minha empresa."
+    },
+    {
+      "slug": "checklist-lancamento-site-empresarial",
+      "label": "Conversar sobre o lançamento",
+      "message": "Olá, Luan! Li o artigo \"Checklist para lançamento de site empresarial: o que revisar antes de publicar\" e quero revisar o lançamento do meu site e alinhar os pontos que precisam ser conferidos antes de publicar."
+    },
+    {
+      "slug": "site-institucional-o-que-precisa-ter",
+      "label": "Planejar a estrutura do site",
+      "message": "Olá, Luan! Li o artigo \"Site institucional: o que precisa ter para gerar confiança e contatos?\" e quero organizar as páginas, os serviços e os caminhos de contato do site da minha empresa."
+    },
+    {
+      "slug": "quanto-tempo-leva-para-criar-um-site-profissional",
+      "label": "Planejar o prazo do projeto",
+      "message": "Olá, Luan! Li o artigo \"Quanto tempo leva para criar um site profissional?\" e quero conversar sobre o objetivo do meu site e a data desejada para publicação, considerando materiais e aprovações."
+    },
+    {
+      "slug": "quanto-custa-um-site-profissional",
+      "label": "Alinhar escopo e investimento",
+      "message": "Olá, Luan! Li o artigo \"Quanto custa um site profissional em 2026? Veja preços por tipo de projeto\" e quero alinhar as páginas, funcionalidades e materiais do meu projeto para receber uma proposta."
+    },
+    {
+      "slug": "site-barato-vs-site-profissional",
+      "label": "Definir prioridades do projeto",
+      "message": "Olá, Luan! Li o artigo \"Site barato vs site profissional: qual a diferença?\" e quero definir as prioridades e os limites do meu projeto de site antes de comparar propostas."
+    },
+    {
+      "slug": "landing-page-ou-site-institucional",
+      "label": "Escolher o formato do site",
+      "message": "Olá, Luan! Li o artigo \"Landing page ou site institucional: qual escolher?\" e quero decidir entre landing page e site institucional conforme a oferta e o objetivo da minha empresa."
+    }
+  ],
+  "services": [
+    {
+      "slug": "site-institucional",
+      "configured": [
+        "site-institucional-o-que-precisa-ter",
+        "quanto-custa-um-site-profissional"
+      ],
+      "rendered": [
+        "/insights/site-institucional-o-que-precisa-ter/",
+        "/insights/quanto-custa-um-site-profissional/"
+      ]
+    },
+    {
+      "slug": "landing-page",
+      "configured": [
+        "landing-page-ou-site-institucional",
+        "por-que-performance-site-afeta-conversao"
+      ],
+      "rendered": [
+        "/insights/landing-page-ou-site-institucional/",
+        "/insights/por-que-performance-site-afeta-conversao/"
+      ]
+    },
+    {
+      "slug": "blog-profissional",
+      "configured": [
+        "site-institucional-o-que-precisa-ter",
+        "checklist-lancamento-site-empresarial"
+      ],
+      "rendered": [
+        "/insights/site-institucional-o-que-precisa-ter/",
+        "/insights/checklist-lancamento-site-empresarial/"
+      ]
+    },
+    {
+      "slug": "criacao-de-sites-belem",
+      "configured": [
+        "como-escolher-desenvolvedor-web-freelancer",
+        "quanto-tempo-leva-para-criar-um-site-profissional"
+      ],
+      "rendered": [
+        "/insights/como-escolher-desenvolvedor-web-freelancer/",
+        "/insights/quanto-tempo-leva-para-criar-um-site-profissional/"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "slug": "tresor-incorporacoes",
+      "configured": [
+        "site-institucional-o-que-precisa-ter",
+        "quanto-tempo-leva-para-criar-um-site-profissional"
+      ],
+      "rendered": [
+        "/insights/site-institucional-o-que-precisa-ter/"
+      ]
+    },
+    {
+      "slug": "urbem",
+      "configured": [
+        "site-institucional-o-que-precisa-ter",
+        "checklist-lancamento-site-empresarial"
+      ],
+      "rendered": [
+        "/insights/site-institucional-o-que-precisa-ter/"
+      ]
+    },
+    {
+      "slug": "tymber",
+      "configured": [
+        "site-institucional-o-que-precisa-ter",
+        "landing-page-ou-site-institucional"
+      ],
+      "rendered": [
+        "/insights/site-institucional-o-que-precisa-ter/"
+      ]
+    },
+    {
+      "slug": "conviva-engenharia",
+      "configured": [
+        "site-institucional-o-que-precisa-ter",
+        "quanto-custa-um-site-profissional"
+      ],
+      "rendered": [
+        "/insights/site-institucional-o-que-precisa-ter/"
+      ]
+    },
+    {
+      "slug": "agencia-skyrocket",
+      "configured": [
+        "site-institucional-o-que-precisa-ter",
+        "como-escolher-desenvolvedor-web-freelancer"
+      ],
+      "rendered": [
+        "/insights/site-institucional-o-que-precisa-ter/",
+        "/insights/como-escolher-desenvolvedor-web-freelancer/"
+      ]
+    },
+    {
+      "slug": "clinica-cdv",
+      "configured": [
+        "site-institucional-o-que-precisa-ter",
+        "checklist-lancamento-site-empresarial"
+      ],
+      "rendered": [
+        "/insights/site-institucional-o-que-precisa-ter/",
+        "/insights/checklist-lancamento-site-empresarial/"
+      ]
+    },
+    {
+      "slug": "poliana-bentes",
+      "configured": [
+        "site-institucional-o-que-precisa-ter",
+        "quanto-tempo-leva-para-criar-um-site-profissional"
+      ],
+      "rendered": [
+        "/insights/site-institucional-o-que-precisa-ter/",
+        "/insights/quanto-tempo-leva-para-criar-um-site-profissional/"
+      ]
+    }
+  ],
+  "fallback": [
+    "landing-page-ou-site-institucional",
+    "quanto-custa-um-site-profissional"
+  ]
+}

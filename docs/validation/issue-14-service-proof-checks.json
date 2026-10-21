@@ -1,0 +1,75 @@
+[
+  {
+    "slug": "site-institucional",
+    "caseSlug": "agencia-skyrocket",
+    "sections": [
+      "solucao",
+      "beneficios",
+      "portfolio",
+      "incluso",
+      "conversar-sobre-escopo",
+      "para-quem",
+      "processo",
+      "diferenciais",
+      "",
+      "",
+      "perguntas",
+      "contato"
+    ],
+    "ctaPosition": "service_after_case"
+  },
+  {
+    "slug": "landing-page",
+    "caseSlug": "agencia-skyrocket",
+    "sections": [
+      "solucao",
+      "beneficios",
+      "portfolio",
+      "incluso",
+      "conversar-sobre-escopo",
+      "para-quem",
+      "processo",
+      "diferenciais",
+      "",
+      "perguntas",
+      "contato"
+    ],
+    "ctaPosition": "service_after_case"
+  },
+  {
+    "slug": "blog-profissional",
+    "caseSlug": "poliana-bentes",
+    "sections": [
+      "solucao",
+      "beneficios",
+      "portfolio",
+      "incluso",
+      "conversar-sobre-escopo",
+      "para-quem",
+      "processo",
+      "diferenciais",
+      "",
+      "perguntas",
+      "contato"
+    ],
+    "ctaPosition": "service_after_case"
+  },
+  {
+    "slug": "criacao-de-sites-belem",
+    "caseSlug": "poliana-bentes",
+    "sections": [
+      "solucao",
+      "beneficios",
+      "portfolio",
+      "incluso",
+      "conversar-sobre-escopo",
+      "para-quem",
+      "processo",
+      "diferenciais",
+      "",
+      "perguntas",
+      "contato"
+    ],
+    "ctaPosition": "service_after_case"
+  }
+]

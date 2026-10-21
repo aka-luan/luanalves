@@ -24,13 +24,13 @@ export const trustItems = [
   },
   {
     icon: 'verified',
-    title: 'Entrega no prazo',
-    subtitle: 'com qualidade garantida',
+    title: 'Design e desenvolvimento',
+    subtitle: 'para celular e desktop',
   },
   {
     icon: 'support_agent',
-    title: 'Suporte real',
-    subtitle: 'após o lançamento',
+    title: 'Escopo e etapas',
+    subtitle: 'definidos na proposta',
   },
 ];
 
@@ -40,24 +40,24 @@ export const services = [
     href: '/site-institucional/',
     title: 'Site Institucional',
     description:
-      'Presença digital premium para a sua empresa. Desenvolvido com foco em autoridade de marca, SEO técnico e experiência do usuário — para que clientes te encontrem no Google e confiem no que veem.',
-    bullets: ['SEO otimizado', 'Mobile first', 'Código limpo'],
+      'Apresente sua empresa, serviços e projetos em um site organizado, com leitura clara no celular e caminhos diretos para contato.',
+    bullets: ['SEO técnico', 'Design responsivo', 'Serviços e projetos'],
   },
   {
     icon: 'article',
     href: '/blog-profissional/',
     title: 'Blog Profissional',
     description:
-      'Estrutura editorial feita para ranquear no Google. Publique conteúdo com autoridade, performance e uma experiência de leitura que retém visitantes e gera oportunidades de negócio.',
-    bullets: ['SEO editorial', 'Gestão simples', 'Alta performance'],
+      'Organize artigos e temas em uma estrutura editorial com base técnica de SEO. A forma de publicação é definida conforme a rotina da sua equipe e o escopo do projeto.',
+    bullets: ['SEO editorial', 'Categorias e artigos', 'Leitura no celular'],
   },
   {
     icon: 'ads_click',
     href: '/landing-page/',
     title: 'Landing Page',
     description:
-      'Páginas desenvolvidas para campanhas e anúncios que precisam converter. Velocidade máxima, copy focada em lead e estrutura testada para maximizar o retorno do seu investimento em tráfego pago.',
-    bullets: ['Foco em conversão', 'Velocidade máxima', 'Para tráfego pago'],
+      'Apresente uma oferta de campanha com mensagem clara, carregamento otimizado e um caminho direto para contato. Integrações e mensuração são combinadas no escopo.',
+    bullets: ['Oferta e CTA claros', 'Página leve', 'Para campanhas'],
   },
 ];
 
@@ -174,6 +174,7 @@ export const projects = [
 
 interface PortfolioCaseDetail {
   slug: string;
+  relatedInsightSlugs: string[];
   year: string;
   client: string;
   segment: string;
@@ -181,6 +182,9 @@ interface PortfolioCaseDetail {
   siteLabel: string;
   challenge: string;
   solution: string;
+  participation?: { development: string; designAndCopy: string };
+  primaryService?: { href: string; label: string };
+  evidence?: { href: string; label: string; description: string }[];
   deliverables: {
     title: string;
     description: string;
@@ -309,6 +313,7 @@ const basePortfolioProjects = [
 const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
   'tresor-incorporacoes': {
     slug: 'tresor-incorporacoes',
+    relatedInsightSlugs: ['site-institucional-o-que-precisa-ter', 'quanto-tempo-leva-para-criar-um-site-profissional'],
     year: '2025',
     client: 'Trésor Incorporações',
     segment: 'Incorporadora · Alto padrão',
@@ -368,11 +373,21 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
   },
   urbem: {
     slug: 'urbem',
+    relatedInsightSlugs: ['site-institucional-o-que-precisa-ter', 'checklist-lancamento-site-empresarial'],
     year: '2024',
     client: 'Urbem',
     segment: 'Indústria · Madeira engenheirada',
     deliveredAt: '2024',
     siteLabel: 'urbembr.com',
+    participation: {
+      development: 'Luan Alves realizou o desenvolvimento completo do site, a implementação do blog e do CMS customizado e as configurações necessárias para o deploy.',
+      designAndCopy: 'O design e a copy foram fornecidos pela agência parceira e implementados no site por Luan.',
+    },
+    primaryService: { href: '/site-institucional/', label: 'Site Institucional' },
+    evidence: [
+      { href: 'https://urbembr.com/', label: 'Produtos e conteúdo técnico', description: 'A página inicial apresenta S4S, Glulam e CLT, além de caminhos para biblioteca, blog e contato.' },
+      { href: 'https://urbembr.com/projetos/', label: 'Projetos por aplicação', description: 'O portfólio reúne aplicações da madeira engenheirada em categorias como residencial, comercial e institucional.' },
+    ],
     challenge:
       'A Urbem precisava apresentar uma operação técnica e sustentável para arquitetos, construtoras e decisores que avaliam especificações antes de iniciar uma conversa comercial.',
     solution:
@@ -389,14 +404,14 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
           'Base editorial para publicar conteúdo técnico e apoiar descoberta orgânica.',
       },
       {
-        title: 'Organização de conteúdo',
+        title: 'CMS customizado',
         description:
-          'Arquitetura de páginas pensada para leitura técnica sem perder clareza comercial.',
+          'CMS configurado e customizado para administrar páginas e conteúdo editorial.',
       },
       {
-        title: 'SEO técnico',
+        title: 'Configuração de deploy',
         description:
-          'Fundação de metadados, URLs e conteúdo estruturado para melhorar indexação.',
+          'Configurações necessárias para publicar o site no ambiente de hospedagem.',
       },
     ],
     gallery: [
@@ -412,8 +427,8 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
         label: 'Conteúdo institucional preparado para o público brasileiro.',
       },
       {
-        value: 'SEO',
-        label: 'Estrutura criada para indexação e crescimento orgânico.',
+        value: 'Conteúdo',
+        label: 'Produtos, biblioteca e blog com caminhos próprios na navegação.',
       },
       {
         value: 'B2B',
@@ -423,6 +438,7 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
   },
   tymber: {
     slug: 'tymber',
+    relatedInsightSlugs: ['site-institucional-o-que-precisa-ter', 'landing-page-ou-site-institucional'],
     year: '2025',
     client: 'Tymber',
     segment: 'Incorporadora · Mass timber',
@@ -478,11 +494,20 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
   },
   'conviva-engenharia': {
     slug: 'conviva-engenharia',
+    relatedInsightSlugs: ['site-institucional-o-que-precisa-ter', 'quanto-custa-um-site-profissional'],
     year: '2025',
     client: 'Conviva Engenharia',
     segment: 'Engenharia · Imobiliário',
     deliveredAt: '2025',
     siteLabel: 'convivaengenharia.com.br',
+    participation: {
+      development: 'Luan Alves realizou o desenvolvimento completo do site, a implementação do blog e do CMS customizado e as configurações necessárias para o deploy.',
+      designAndCopy: 'A Agência Skyrocket forneceu o design e a copy, implementados no site por Luan.',
+    },
+    primaryService: { href: '/site-institucional/', label: 'Site Institucional' },
+    evidence: [
+      { href: 'https://convivaengenharia.com.br/', label: 'Empreendimentos e atendimento', description: 'A página inicial apresenta empreendimentos, etapas da jornada do comprador, stands e canais de atendimento.' },
+    ],
     challenge:
       'A Conviva precisava apresentar empreendimentos e diferenciais de moradia com uma experiência que gerasse confiança sem parecer genérica.',
     solution:
@@ -494,19 +519,19 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
           'Estrutura para apresentar marca, empreendimentos e diferenciais comerciais.',
       },
       {
-        title: 'Conteúdo de autoridade',
+        title: 'Blog profissional',
         description:
-          'Texto organizado para explicar qualidade de vida, localização e confiança.',
+          'Implementação da estrutura de artigos e publicação de conteúdo.',
       },
       {
-        title: 'Navegação comercial',
+        title: 'CMS customizado',
         description:
-          'Caminhos claros para visitantes avançarem até contato e avaliação.',
+          'CMS configurado e customizado para administrar páginas e conteúdo editorial.',
       },
       {
-        title: 'Performance visual',
+        title: 'Configuração de deploy',
         description:
-          'Imagens e seções planejadas para impacto sem perder velocidade.',
+          'Configurações necessárias para publicar o site no ambiente de hospedagem.',
       },
     ],
     gallery: [
@@ -519,20 +544,21 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
     results: [
       {
         value: 'Imóveis',
-        label: 'Apresentação mais clara de empreendimentos e diferenciais.',
+        label: 'Empreendimentos apresentados com localização e diferenciais de moradia.',
       },
       {
-        value: 'Confiança',
-        label: 'Conteúdo desenhado para reduzir atrito na decisão.',
+        value: 'Jornada',
+        label: 'Informações sobre compra, andamento da obra, entrega e assistência técnica.',
       },
       {
         value: 'Contato',
-        label: 'Fluxo visual direcionado para conversas comerciais.',
+        label: 'Stands e canais de atendimento apresentados junto ao conteúdo imobiliário.',
       },
     ],
   },
   'agencia-skyrocket': {
     slug: 'agencia-skyrocket',
+    relatedInsightSlugs: ['site-institucional-o-que-precisa-ter', 'como-escolher-desenvolvedor-web-freelancer'],
     year: '2023',
     client: 'Agência Skyrocket',
     segment: 'Agência · Marketing digital',
@@ -594,6 +620,7 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
   },
   'clinica-cdv': {
     slug: 'clinica-cdv',
+    relatedInsightSlugs: ['site-institucional-o-que-precisa-ter', 'checklist-lancamento-site-empresarial'],
     year: '2024',
     client: 'Clínica CDV',
     segment: 'Saúde · Clínica médica',
@@ -649,11 +676,21 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
   },
   'poliana-bentes': {
     slug: 'poliana-bentes',
+    relatedInsightSlugs: ['site-institucional-o-que-precisa-ter', 'quanto-tempo-leva-para-criar-um-site-profissional'],
     year: '2023',
     client: 'Poliana Bentes',
     segment: 'Consultoria · Relações institucionais',
     deliveredAt: '2023',
     siteLabel: 'polianabentes.com.br',
+    participation: {
+      development: 'Luan Alves realizou o desenvolvimento completo do site, a implementação do blog e do CMS customizado e as configurações necessárias para o deploy.',
+      designAndCopy: 'A Parawara Design forneceu o design e a copy, implementados no site por Luan.',
+    },
+    primaryService: { href: '/site-institucional/', label: 'Site Institucional' },
+    evidence: [
+      { href: 'https://polianabentes.com.br/', label: 'Posicionamento e atuação no Pará', description: 'A apresentação institucional descreve a consultoria sediada em Belém e a atuação junto a empresas e instituições.' },
+      { href: 'https://polianabentes.com.br/nossos-servicos/', label: 'Serviços da consultoria', description: 'A página organiza relações institucionais e governamentais e inteligência estratégica e regulatória.' },
+    ],
     challenge:
       'A consultoria precisava transmitir credibilidade, atuação estratégica e conhecimento do território amazônico sem depender de uma comunicação carregada.',
     solution:
@@ -670,14 +707,14 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
           'Base para publicação de conteúdo e atualização institucional.',
       },
       {
-        title: 'CMS organizado',
+        title: 'CMS customizado',
         description:
-          'Gestão simplificada para páginas e conteúdos recorrentes.',
+          'CMS configurado e customizado para administrar páginas e conteúdo editorial.',
       },
       {
-        title: 'Mensagem estratégica',
+        title: 'Configuração de deploy',
         description:
-          'Copy voltada para transparência, solidez e construção de relações.',
+          'Configurações necessárias para publicar o site no ambiente de hospedagem.',
       },
     ],
     gallery: [
@@ -694,16 +731,16 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
     ],
     results: [
       {
-        value: 'CMS',
-        label: 'Estrutura preparada para gestão simples de conteúdo.',
+        value: 'Serviços',
+        label: 'Áreas de atuação descritas em uma página própria da consultoria.',
       },
       {
         value: 'Editorial',
         label: 'Base de blog para fortalecer autoridade institucional.',
       },
       {
-        value: 'Credibilidade',
-        label: 'Mensagem mais clara para empresas e instituições.',
+        value: 'Território',
+        label: 'Apresentação da sede em Belém e da atuação no território paraense.',
       },
     ],
     mobileImage: '/assets/poliana-bentes-home.webp',
@@ -741,10 +778,10 @@ export const reasons = [
   },
   {
     title: 'Design para conversão',
-    subtitle: 'Design pensado para vender',
+    subtitle: 'Caminhos claros para contato',
   },
   {
     title: 'Suporte pós-entrega',
-    subtitle: 'Suporte após o lançamento',
+    subtitle: 'Condições definidas na proposta',
   },
 ];

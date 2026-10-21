@@ -1,0 +1,94 @@
+{
+  "observed_at": "2026-10-03T22:50:42.009Z",
+  "html_pages_checked": 28,
+  "responsive_candidates_checked": 55,
+  "pages": [
+    {
+      "route": "index.html",
+      "original_bytes": 68804,
+      "width": 1086,
+      "height": 1448,
+      "sizes": "(max-width: 960px) min(608px, calc(100vw - 48px)), 460px",
+      "variants": [
+        {
+          "width": "400w",
+          "bytes": 11018,
+          "url": "./_astro/hero-img.nMBDqvQM_Z1vOhHY.webp"
+        },
+        {
+          "width": "640w",
+          "bytes": 24620,
+          "url": "./_astro/hero-img.nMBDqvQM_Z1UJDsY.webp"
+        },
+        {
+          "width": "960w",
+          "bytes": 43142,
+          "url": "./_astro/hero-img.nMBDqvQM_Z1KNu3G.webp"
+        },
+        {
+          "width": "1086w",
+          "bytes": 60860,
+          "url": "./_astro/hero-img.nMBDqvQM_25dIil.webp"
+        }
+      ]
+    },
+    {
+      "route": "criacao-de-sites-belem/index.html",
+      "original_bytes": 105626,
+      "width": 1448,
+      "height": 1086,
+      "sizes": "(max-width: 900px) calc(100vw - 37px), 50vw",
+      "variants": [
+        {
+          "width": "400w",
+          "bytes": 14584,
+          "url": "../_astro/criacao-sites-belem-hero.BRsTyuMd_MqjT8.webp"
+        },
+        {
+          "width": "640w",
+          "bytes": 27866,
+          "url": "../_astro/criacao-sites-belem-hero.BRsTyuMd_1dlMI6.webp"
+        },
+        {
+          "width": "960w",
+          "bytes": 48132,
+          "url": "../_astro/criacao-sites-belem-hero.BRsTyuMd_Z1y6UoC.webp"
+        },
+        {
+          "width": "1448w",
+          "bytes": 89822,
+          "url": "../_astro/criacao-sites-belem-hero.BRsTyuMd_Z2dalde.webp"
+        }
+      ]
+    },
+    {
+      "route": "insights/quanto-tempo-leva-para-criar-um-site-profissional/index.html",
+      "original_bytes": 83212,
+      "width": 1672,
+      "height": 941,
+      "sizes": "(max-width: 1168px) calc(100vw - 48px), 1120px",
+      "variants": [
+        {
+          "width": "400w",
+          "bytes": 10764,
+          "url": "../../_astro/quanto-tempo-post.41Ejtn1V_rtnkb.webp"
+        },
+        {
+          "width": "640w",
+          "bytes": 20592,
+          "url": "../../_astro/quanto-tempo-post.41Ejtn1V_5YRvv.webp"
+        },
+        {
+          "width": "960w",
+          "bytes": 35336,
+          "url": "../../_astro/quanto-tempo-post.41Ejtn1V_17giNW.webp"
+        },
+        {
+          "width": "1448w",
+          "bytes": 58782,
+          "url": "../../_astro/quanto-tempo-post.41Ejtn1V_1uxIi0.webp"
+        }
+      ]
+    }
+  ]
+}

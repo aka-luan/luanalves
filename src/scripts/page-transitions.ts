@@ -5,6 +5,7 @@ import { initInsightPost } from './insight-post';
 import { cleanupPortfolioFilters, initPortfolioFilters } from './portfolio-filters';
 import { initProjectModalFromDom } from './project-modal';
 import { cleanupMobileNav, initMobileNav } from './mobile-nav';
+import { trackGooglePageView } from './google-analytics';
 import { initWhatsappAnalytics } from './whatsapp-analytics';
 
 type Cleanup = () => void;
@@ -38,7 +39,7 @@ function getContainerRoot() {
   return document.querySelector<HTMLElement>('[data-barba="container"]') ?? document;
 }
 
-function bootPageScripts({ includeMobileNav = true } = {}) {
+function bootPageScripts() {
   const root = getContainerRoot();
 
   initLandingMotion();
@@ -49,9 +50,7 @@ function bootPageScripts({ includeMobileNav = true } = {}) {
   cleanupInsightPost = initInsightPost(root);
   cleanupPortfolioPageFilters = initPortfolioFilters(root);
 
-  if (includeMobileNav) {
-    initMobileNav(root);
-  }
+  initMobileNav(root);
 }
 
 function cleanupPageScripts() {
@@ -80,6 +79,7 @@ function syncHead(nextHtml: string) {
     'meta[property^="og:"]',
     'meta[name^="twitter:"]',
     'link[rel="canonical"]',
+    'link[rel="preload"][as="image"]',
     'script[type="application/ld+json"]',
   ];
 
@@ -93,8 +93,8 @@ function syncHead(nextHtml: string) {
 
   const assetSelectors = [
     'link[rel="stylesheet"][href]',
-    'style[data-vite-dev-id]',
-    'style[data-astro-dev-id]',
+    // Production CSS is inline; keep route styles available after Barba swaps.
+    'style',
   ];
 
   assetSelectors.forEach((selector) => {
@@ -170,6 +170,8 @@ function initBarba() {
   });
 
   barba.hooks.afterEnter(() => {
+    // Barba calls afterEnter on both the first load and subsequent navigation.
+    trackGooglePageView();
     if (pendingHash && window.location.hash !== pendingHash) {
       history.replaceState(
         history.state,
@@ -234,7 +236,7 @@ function initBarba() {
     ],
   });
 
-  bootPageScripts({ includeMobileNav: false });
+  bootPageScripts();
 }
 
 if (document.readyState === 'loading') {

@@ -1,0 +1,17 @@
+{
+  "observed_at": "2026-10-03T23:18:58.465Z",
+  "preview": "https://luanalves-ipcfyl19p-aka-luans-projects.vercel.app/",
+  "vercel_build_state": "Ready",
+  "unauthenticated_request": {
+    "status": 302,
+    "redirect_origin": "https://vercel.com",
+    "redirect_path": "/sso-api"
+  },
+  "measurement_status": "rejected-authentication-page",
+  "rejected_reports": [
+    "https://pagespeed.web.dev/analysis/https-luanalves-ipcfyl19p-aka-luans-projects-vercel-app/ntzxk9hofa?form_factor=mobile",
+    "https://pagespeed.web.dev/analysis/https-luanalves-ipcfyl19p-aka-luans-projects-vercel-app-criacao-de-sites-belem/vl0iaot6sw?form_factor=mobile",
+    "https://pagespeed.web.dev/analysis/https-luanalves-ipcfyl19p-aka-luans-projects-vercel-app-insights-quanto-tempo-leva-para-criar-um-site-profissional/x2cdghxpav?form_factor=mobile"
+  ],
+  "reason": "Unauthenticated PSI cannot access the protected preview; metrics describe Vercel sign-in rather than this site."
+}

@@ -21,7 +21,7 @@ const staticRouteDates = new Map([
 
 const insightRouteDates = publishedInsights.map((post) => [
   getInsightPath(post),
-  new Date(`${post.isoDate}T00:00:00-03:00`),
+  new Date(`${post.updatedIsoDate ?? post.isoDate}T00:00:00-03:00`),
 ]);
 
 const portfolioRouteDates = portfolioProjects.map((project) => [
