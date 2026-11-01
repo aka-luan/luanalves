@@ -308,6 +308,19 @@ const basePortfolioProjects = [
     alt: 'Página de portfólio do site institucional da consultoria estratégica Poliana Bentes, com atuação em relações institucionais no Pará.',
     externalUrl: 'https://polianabentes.com.br/',
   },
+  {
+    id: 'forwhen',
+    title: 'ForWhen',
+    categories: ['Produto Digital'],
+    lead:
+      'Um presente digital de cartas para abrir no momento certo, com a voz real de quem está longe.',
+    description:
+      'ForWhen é um produto próprio de Luan Alves. Quem vai ficar longe escreve de 3 a 8 cartas "para quando…", cada uma com foto e nota de voz, e envia tudo em um link privado que abre no celular, sem app e sem conta.',
+    tags: ['Produto digital', 'Aplicação web', 'Pagamentos', 'Mobile-first'],
+    image: '/assets/forwhen-portfolio.webp',
+    alt: 'Página inicial do ForWhen em um navegador e o presente de exemplo aberto em um celular, com o envelope "For Maya, from Theo".',
+    externalUrl: 'https://forwhen.app/',
+  },
 ];
 
 const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
@@ -744,6 +757,87 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
       },
     ],
     mobileImage: '/assets/poliana-bentes-home.webp',
+  },
+  forwhen: {
+    slug: 'forwhen',
+    relatedInsightSlugs: ['landing-page-ou-site-institucional', 'por-que-performance-site-afeta-conversao'],
+    year: '2026',
+    client: 'Produto próprio',
+    segment: 'Presente digital · Mercado dos EUA',
+    deliveredAt: '2026',
+    siteLabel: 'forwhen.app',
+    participation: {
+      development: 'Luan Alves concebeu o ForWhen e fez o desenvolvimento completo: fluxo de criação, gravação de voz, experiência de quem recebe, pagamento, e-mails, infraestrutura e publicação.',
+      designAndCopy: 'O design de interface, a identidade visual e a copy em inglês também são de Luan, sem agência parceira.',
+    },
+    primaryService: { href: '/landing-page/', label: 'Landing Page' },
+    evidence: [
+      { href: 'https://forwhen.app/demo', label: 'Presente de exemplo', description: 'O presente de Theo para Maya mostra o envelope, a caixa de cartas, uma carta com foto e a nota de voz com a versão em texto.' },
+      { href: 'https://forwhen.app/', label: 'Página inicial', description: 'Apresenta o preço, o passo a passo, os públicos e as perguntas frequentes antes do fluxo de criação.' },
+      { href: 'https://forwhen.app/about', label: 'História do produto', description: 'Explica por que o produto troca as cartas de papel por um link com voz, foto e cartas lacradas até a data.' },
+    ],
+    challenge:
+      'Cartas "open when" em papel não levam a voz de quem escreve, precisam viajar junto ou pelo correio e só ficam fechadas pela força de vontade. O desafio era transformar esse ritual em um presente que abrisse no celular de quem está longe, sem app e sem conta, mantendo a sensação de abrir uma carta.',
+    solution:
+      'No ForWhen, a pessoa escreve de 3 a 8 cartas, cada uma com foto e nota de voz gravada por ela mesma, e paga US$ 9,99 uma única vez para receber um link privado. Quem recebe abre as cartas em uma caixa com tema noturno, feita para o celular. Cartas com data ficam lacradas até o dia no fuso de quem lê, e cada nota de voz tem a versão em texto logo abaixo do player.',
+    deliverables: [
+      {
+        title: 'Fluxo de criação',
+        description:
+          'Rascunho salvo enquanto a pessoa escreve, ideias de texto para cada momento, gravação de voz no navegador e prévia como destinatário antes de pagar.',
+      },
+      {
+        title: 'Experiência de quem recebe',
+        description:
+          'Envelope com selo que abre ao ser pressionado, caixa de cartas mobile-first, cartas lacradas até a data, releitura offline e atalho na tela inicial.',
+      },
+      {
+        title: 'Pagamento e entrega',
+        description:
+          'Checkout com pagamento único, cobrança em reais para compradores do Brasil, link enviado por e-mail e edição das cartas até que sejam abertas.',
+      },
+      {
+        title: 'Infraestrutura e SEO',
+        description:
+          'Next.js em Cloudflare Workers, PostgreSQL, fotos e áudios no Cloudflare R2, links de presente fora dos buscadores e guias indexáveis sobre cartas.',
+      },
+    ],
+    gallery: [
+      {
+        src: '/assets/forwhen-portfolio.webp',
+        alt: 'Página inicial do ForWhen no navegador e o envelope do presente de exemplo no celular.',
+        caption: 'Página inicial e presente de exemplo',
+      },
+      {
+        src: '/assets/forwhen-recipient.webp',
+        alt: 'Três telas de celular do presente de exemplo: o envelope fechado, a caixa de cartas de Theo para Maya e uma carta aberta com foto e player de voz.',
+        caption: 'Experiência de quem recebe',
+      },
+      {
+        src: '/assets/forwhen-sender.webp',
+        alt: 'Duas telas de celular: a página inicial do ForWhen e o primeiro passo da criação, com os nomes de quem envia e de quem recebe.',
+        caption: 'Página inicial e início da criação',
+      },
+    ],
+    results: [
+      {
+        value: 'Sem conta',
+        label: 'Quem envia e quem recebe usam apenas links privados, sem cadastro nem instalação.',
+      },
+      {
+        value: 'Voz real',
+        label: 'Cada carta pode levar uma nota de voz gravada por quem escreve, nunca uma voz de IA.',
+      },
+      {
+        value: 'Mobile',
+        label: 'Leitura pensada para o celular, com versão em texto para cada nota de voz.',
+      },
+      {
+        value: 'US$ 9,99',
+        label: 'Pagamento único no checkout, sem assinatura.',
+      },
+    ],
+    mobileImage: '/assets/forwhen-mobile.webp',
   },
 };
 
