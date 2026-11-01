@@ -16,16 +16,6 @@ const metrics = [
 
 const featuredProject = portfolioProjects[0];
 
-const projectYears: Record<string, string> = {
-  'tresor-incorporacoes': '2025',
-  urbem: '2024',
-  tymber: '2025',
-  'conviva-engenharia': '2025',
-  'agencia-skyrocket': '2023',
-  'clinica-cdv': '2024',
-  'poliana-bentes': '2023',
-};
-
 const formatCategory = (value: string) => value.replace(/^Site\s+/i, '');
 
 const slugify = (value: string) =>
@@ -63,6 +53,11 @@ const filters = [
     label: 'Landing Page',
     value: 'landing-page',
     disabled: (portfolioCategoryCounts['landing-page'] ?? 0) === 0,
+  },
+  {
+    label: 'Produto Digital',
+    value: 'produto-digital',
+    disabled: (portfolioCategoryCounts['produto-digital'] ?? 0) === 0,
   },
 ];
 
@@ -232,7 +227,6 @@ const portfolioSchema = [
         <div class='portfolio-grid' id='portfolio-grid'>
           {
             portfolioProjects.map((project, index) => {
-              const year = projectYears[project.id] ?? '2024';
               const categories = project.categories.map(formatCategory);
               const niches = project.tags.slice(1, 4);
               const categorySlugs = project.categories.map(slugify).join(' ');
@@ -264,7 +258,7 @@ const portfolioSchema = [
                       <div class='portfolio-card__categories' aria-label='Categorias'>
                         {categories.map((category) => <span>{category}</span>)}
                       </div>
-                      <span class='portfolio-card__year'>{year}</span>
+                      <span class='portfolio-card__year'>{project.year}</span>
                     </div>
                     <h3>{project.title}</h3>
                     <p class='portfolio-card__lead'>{project.lead}</p>

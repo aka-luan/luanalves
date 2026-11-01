@@ -3,6 +3,7 @@ import { portfolioProjects } from '../src/data/site.ts';
 
 const siteRefreshDate = new Date('2026-06-05T00:00:00-03:00');
 const verticalPagesDate = new Date('2026-08-23T00:00:00-03:00');
+const forwhenCaseDate = new Date('2026-11-01T00:00:00-03:00');
 
 const staticRouteDates = new Map([
   ['/', siteRefreshDate],
@@ -15,7 +16,7 @@ const staticRouteDates = new Map([
   ['/site-para-incorporadora/', verticalPagesDate],
   ['/site-para-construtora/', verticalPagesDate],
   ['/site-para-industria-de-madeira-engenheirada/', verticalPagesDate],
-  ['/portfolio/', siteRefreshDate],
+  ['/portfolio/', forwhenCaseDate],
   ['/insights/', siteRefreshDate],
 ]);
 
@@ -26,7 +27,7 @@ const insightRouteDates = publishedInsights.map((post) => [
 
 const portfolioRouteDates = portfolioProjects.map((project) => [
   `/portfolio/${project.slug}/`,
-  siteRefreshDate,
+  project.slug === 'forwhen' ? forwhenCaseDate : siteRefreshDate,
 ]);
 
 const routeDates = new Map([
