@@ -191,7 +191,7 @@ export function initMobileNav(root: ParentNode = document) {
         autoAlpha: 0,
         y: 18,
         duration: 0.16,
-        ease: 'power2.in',
+        ease: 'power2.out',
       })
       .to(
         mobileNavMenu,

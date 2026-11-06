@@ -483,6 +483,7 @@ const relatedVerticals = verticalPageLinks.filter(
     letter-spacing: 0.15em;
     text-transform: uppercase;
     transition:
+      transform 160ms cubic-bezier(0.23, 1, 0.32, 1),
       border-color 180ms ease,
       background 180ms ease,
       color 180ms ease;
@@ -497,6 +498,10 @@ const relatedVerticals = verticalPageLinks.filter(
   .vertical-button--solid:hover,
   .vertical-button--solid:focus-visible {
     background: #f0d294;
+  }
+
+  .vertical-button:active {
+    transform: scale(0.96);
   }
 
   .vertical-button--text {
