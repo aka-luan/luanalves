@@ -126,6 +126,19 @@ a:focus-visible {
   background-size: 40px 40px;
 }
 
+/* The header controller tweens these on .site-nav; non-inherited means each frame
+   restyles only the nav, not every element inside it. */
+@property --nav-width { syntax: '*'; inherits: false; }
+@property --nav-max-width { syntax: '*'; inherits: false; }
+@property --nav-margin-top { syntax: '*'; inherits: false; }
+@property --nav-padding-block { syntax: '*'; inherits: false; }
+@property --nav-padding-inline { syntax: '*'; inherits: false; }
+@property --nav-bg { syntax: '*'; inherits: false; }
+@property --nav-border { syntax: '*'; inherits: false; }
+@property --nav-shadow { syntax: '*'; inherits: false; }
+@property --nav-radius-local { syntax: '*'; inherits: false; }
+@property --nav-blur { syntax: '*'; inherits: false; }
+
 .site-nav {
   --nav-width: 100vw;
   --nav-max-width: none;
@@ -163,6 +176,35 @@ a:focus-visible {
   background: rgba(14, 14, 14, 0.88);
   border-color: rgba(77, 70, 58, 0.34);
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.28);
+}
+
+/* Desktop compacts on scroll: fade a pre-painted shadow layer instead of
+   repainting box-shadow every frame. Mobile clips overflow, so it keeps box-shadow. */
+@media (min-width: 768px) {
+  .site-nav {
+    transition:
+      background-color var(--duration-hover) ease,
+      border-color var(--duration-hover) ease;
+  }
+
+  .site-nav::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    z-index: -1;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.28);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--duration-hover) ease;
+  }
+
+  .site-nav.is-scrolled {
+    box-shadow: none;
+  }
+
+  .site-nav.is-scrolled::after {
+    opacity: 1;
+  }
 }
 
 .brand {
