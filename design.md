@@ -5,7 +5,11 @@ Source of truth for visual, page, copy, and SEO work on this site.
 ## Direction And Layout
 
 - Dark premium editorial presentation with sharp architectural geometry; --radius: 0px is intentional.
-- Use existing gold accents, surface tokens, spacing, and section/container patterns in src/styles/global.css before adding new ones.
+- Use warm charcoal surfaces, restrained gold accents, and the shared tokens in src/styles/global.css. Keep surfaces flat and project imagery clear; avoid stacked glows and decorative grids.
+- Newsreader display type uses weight 400 with comfortable line spacing. Body copy uses Manrope at weight 400 or above. Buttons and navigation use sentence case with normal letter spacing; reserve tracked uppercase for short section labels.
+- Keep the mobile header against the top edge so scrolled content cannot show above it. Use overflow-x: clip on article wrappers to preserve the sticky table of contents.
+- Page heroes share the `data-motion='hero'` hook so the header starts with the full brand and compacts on scroll. Keep header colors in the shared component instead of page overrides.
+- Use consistent desktop containers and at least 1.25rem mobile gutters. Keep mobile proof points compact so the primary action and introduction stay easy to scan.
 - Manrope for body/UI and Newsreader for editorial display headings. Keep fonts local under public/fonts/ and use the existing Material Symbols icon font.
 - Compose sections around their content, real project imagery, and clear WhatsApp conversion paths.
 - Preserve this palette, geometry, type, and icon language unless the requested redesign changes them.
@@ -32,6 +36,7 @@ Use meaningful pt-BR alt text and consistent social-preview assets.
 ## Interaction And Accessibility
 
 - Check Portuguese headings and CTA labels at mobile widths for clipping and awkward wrapping.
+- Screenshot reviews should include complete pages and internal section bounds, since clipped sections can hide overflow. Wait for image decoding before full-page captures and check for tall empty elements in the page flow.
 - Preserve readable contrast, keyboard operation, focus-visible states, button semantics, dialog labels, and accessible close controls.
 - Hover, focus, and active states must communicate the same action.
 - Motion should clarify hierarchy, transitions, or feedback. Respect prefers-reduced-motion and the existing motion-enabled setup.

@@ -42,10 +42,10 @@ const caseHref = `/portfolio/${project.slug}/`;
 </section>
 
 <style>
-  .service-proof { scroll-margin-top: 6rem; padding-inline: clamp(1.5rem, 6.25vw, 5.85rem); }
+  .service-proof { scroll-margin-top: 6rem; padding-inline: clamp(1.25rem, 6.25vw, 5.85rem); }
   .service-proof__inner {
     display: grid;
-    width: min(100%, 82rem);
+    width: min(100%, 78rem);
     grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
     gap: clamp(1.5rem, 4vw, 3.5rem);
   }
@@ -53,6 +53,7 @@ const caseHref = `/portfolio/${project.slug}/`;
   .service-proof h2 {
     margin: 1rem 0;
     font-family: 'Newsreader', serif;
+    font-weight: 400;
     font-size: clamp(2.2rem, 4.5vw, 4rem);
     line-height: 1.05;
     letter-spacing: -0.04em;
@@ -62,7 +63,7 @@ const caseHref = `/portfolio/${project.slug}/`;
   .service-proof__image { align-self: start; border: 1px solid var(--primary); }
   .service-proof__image img { display: block; width: 100%; height: auto; }
   .service-proof__story { display: grid; gap: 1.2rem; align-content: start; min-width: 0; }
-  .service-proof h3 { margin: 0 0 0.4rem; font-size: 1rem; }
+  .service-proof h3 { margin: 0 0 0.4rem; font-family: 'Newsreader', serif; font-weight: 400; font-size: 1.4rem; }
   .service-proof__story p { margin: 0; }
   .service-proof__limit { padding-top: 1rem; border-top: 1px solid var(--primary); font-size: 0.88rem; }
   .service-proof__story .button { justify-self: start; }

@@ -161,7 +161,7 @@ const renderInlineLinks = (text: string) => text;
         <span>{post.category}</span>
       </nav>
 
-      <header class='post-hero'>
+      <header class='post-hero' data-motion='hero'>
         <div class='post-hero__copy'>
           <p class='post-eyebrow'>{post.category}</p>
           <h1>{post.title}</h1>
@@ -447,31 +447,9 @@ const renderInlineLinks = (text: string) => text;
 
   .insight-post-page {
     min-height: 100svh;
-    overflow-x: hidden;
-    background:
-      radial-gradient(
-        circle at 12% 4%,
-        rgba(229, 196, 135, 0.12),
-        transparent 24rem
-      ),
-      radial-gradient(
-        circle at 88% 18%,
-        rgba(153, 143, 129, 0.12),
-        transparent 28rem
-      ),
-      linear-gradient(
-        180deg,
-        var(--surface-lowest),
-        var(--background) 46%,
-        var(--surface-lowest)
-      );
+    overflow-x: clip;
+    background: var(--background);
     color: var(--text);
-  }
-
-  .insight-post-page :global(.site-nav) {
-    --nav-bg: rgba(14, 14, 14, 0.88);
-    --nav-border: rgba(77, 70, 58, 0.34);
-    --nav-blur: 16px;
   }
 
   .reading-progress {
@@ -505,10 +483,10 @@ const renderInlineLinks = (text: string) => text;
     background: transparent;
     color: var(--muted);
     font: inherit;
-    font-size: 0.68rem;
+    font-size: 0.82rem;
     font-weight: 900;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    text-transform: none;
     transition:
       border-color var(--duration-hover) ease,
       background-color var(--duration-hover) ease,
@@ -529,7 +507,7 @@ const renderInlineLinks = (text: string) => text;
   }
 
   .post-shell {
-    width: min(1120px, calc(100vw - 3rem));
+    width: min(1120px, calc(100% - 6rem));
     margin: 0 auto;
   }
 
@@ -560,7 +538,7 @@ const renderInlineLinks = (text: string) => text;
     color: var(--primary);
     font-size: 0.66rem;
     font-weight: 900;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.13em;
     text-transform: uppercase;
   }
 
@@ -571,7 +549,7 @@ const renderInlineLinks = (text: string) => text;
     margin: 0;
     color: var(--text);
     font-family: 'Newsreader', serif;
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.05em;
     line-height: 1.02;
     text-wrap: balance;
@@ -586,7 +564,7 @@ const renderInlineLinks = (text: string) => text;
     margin: 1.25rem 0 0;
     color: var(--muted);
     font-size: clamp(1rem, 1.45vw, 1.16rem);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.78;
     text-wrap: pretty;
   }
@@ -618,7 +596,6 @@ const renderInlineLinks = (text: string) => text;
     position: relative;
     margin: 0;
     overflow: hidden;
-    aspect-ratio: 16 / 7;
     border: 1px solid rgba(229, 196, 135, 0.18);
     background: var(--surface);
     box-shadow:
@@ -628,13 +605,13 @@ const renderInlineLinks = (text: string) => text;
   }
 
   .post-hero__visual img {
+    display: block;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
     object-position: center;
     filter: saturate(0.86) contrast(1.05);
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-    transform: scale(1.01);
     transition: filter var(--duration-hover) ease;
   }
 
@@ -672,7 +649,7 @@ const renderInlineLinks = (text: string) => text;
   .post-content h3 {
     color: var(--text);
     font-family: 'Newsreader', serif;
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.035em;
     line-height: 1.08;
     text-wrap: balance;
@@ -738,6 +715,8 @@ const renderInlineLinks = (text: string) => text;
     font-family: 'Newsreader', serif;
     font-size: clamp(1.45rem, 3vw, 2rem);
     line-height: 1.22;
+
+    font-weight: 400;
   }
 
   .post-code,
@@ -1176,6 +1155,27 @@ const renderInlineLinks = (text: string) => text;
     }
   }
 
+  @media (min-width: 981px) {
+    .post-sidebar {
+      max-height: calc(100svh - 7rem);
+      grid-template-rows: minmax(0, 1fr) auto auto;
+    }
+
+    .post-sidebar__panel:first-child {
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+
+    .post-toc {
+      min-height: 0;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: var(--subtle) transparent;
+      padding-right: 0.5rem;
+    }
+  }
+
   @media (max-width: 980px) {
     .post-hero,
     .post-layout,
@@ -1199,7 +1199,7 @@ const renderInlineLinks = (text: string) => text;
 
   @media (max-width: 620px) {
     .post-shell {
-      width: calc(100vw - 1.5rem);
+      width: var(--container);
     }
 
     .post-hero {
@@ -1208,15 +1208,6 @@ const renderInlineLinks = (text: string) => text;
 
     .post-hero h1 {
       font-size: clamp(2.75rem, 13vw, 3.85rem);
-    }
-
-    .post-hero__visual {
-      aspect-ratio: 4 / 3;
-    }
-
-    .post-hero__visual,
-    .post-hero__visual img {
-      min-height: 15rem;
     }
 
     .post-meta,

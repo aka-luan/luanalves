@@ -146,8 +146,8 @@ export const servicePages: Record<string, ServicePageContent> = {
     hero: {
       eyebrow: 'Serviço • Site institucional',
       title:
-        'Site institucional para empresas que querem parecer tão profissionais quanto são',
-      accent: 'tão profissionais quanto são',
+        'Site institucional à altura da sua empresa',
+      accent: 'à altura da sua empresa',
       copy: 'Crio sites institucionais que apresentam serviços, diferenciais e formas de contato logo nas primeiras seções, com SEO técnico e layout adaptado ao celular.',
       ctaLabel: 'Quero um site institucional profissional',
       secondaryLabel: 'Ver portfólio',

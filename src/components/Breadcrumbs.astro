@@ -18,10 +18,10 @@ const className = Astro.props.class;
   aria-label='Breadcrumb'>
   {
     items.map((item, index) => (
-      <>
+      <span class='shared-breadcrumbs__item'>
         {index > 0 && <span aria-hidden='true'>/</span>}
         {item.href ? <a href={item.href}>{item.label}</a> : <span>{item.label}</span>}
-      </>
+      </span>
     ))
   }
 </nav>

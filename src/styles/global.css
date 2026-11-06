@@ -1,21 +1,21 @@
 :root {
-  --background: #131313;
-  --surface: #1c1b1b;
-  --surface-elevated: #201f1f;
+  --background: #181a19;
+  --surface: #202320;
+  --surface-elevated: #252824;
   --surface-strong: #2a2a2a;
-  --surface-soft: #161616;
-  --surface-lowest: #0e0e0e;
-  --text: #e5e2e1;
-  --muted: #d0c5b5;
-  --subtle: #998f81;
+  --surface-soft: #1d201d;
+  --surface-lowest: #141614;
+  --text: #f1eee7;
+  --muted: #bebfb4;
+  --subtle: #a2a697;
   --line: #4d463a;
-  --primary: #e5c487;
-  --primary-strong: #c8a96e;
-  --primary-ink: #402d00;
+  --primary: #ddc495;
+  --primary-strong: #ddc495;
+  --primary-ink: #24271e;
   --radius: 0px;
   --shadow: 0 32px 80px rgba(0, 0, 0, 0.28);
   --shadow-soft: 0 1px 0 rgba(255, 255, 255, 0.03), 0 18px 42px rgba(0, 0, 0, 0.22);
-  --container: min(1120px, calc(100vw - 3rem));
+  --container: min(1248px, calc(100% - 6rem));
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --duration-hover: 180ms;
   --duration-press: 160ms;
@@ -33,10 +33,7 @@ html {
 
 body {
   margin: 0;
-  background:
-    radial-gradient(circle at top center, rgba(229, 196, 135, 0.08), transparent 34%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.015), transparent 12rem),
-    var(--background);
+  background: var(--background);
   color: var(--text);
   font-family: "Manrope", sans-serif;
   text-rendering: optimizeLegibility;
@@ -112,18 +109,15 @@ a:focus-visible {
 
 .section {
   position: relative;
-  padding: 8rem 0;
+  padding: clamp(5rem, 7.5vw, 7.5rem) 0;
 }
 
 .section-surface {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 14rem), var(--surface);
+  background: var(--surface);
 }
 
 .hero-grid {
-  background-image:
-    linear-gradient(to right, rgba(77, 70, 58, 0.08) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(77, 70, 58, 0.08) 1px, transparent 1px);
-  background-size: 40px 40px;
+  background-image: none;
 }
 
 /* The header controller tweens these on .site-nav; non-inherited means each frame
@@ -250,10 +244,10 @@ a:focus-visible {
   align-items: center;
   min-height: 2.5rem;
   color: var(--muted);
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   font-weight: 600;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
+  letter-spacing: 0.035em;
+  text-transform: none;
   transition: color var(--duration-hover) ease;
 }
 
@@ -270,10 +264,10 @@ a:focus-visible {
   padding: 1.1rem 2rem;
   border: 1px solid transparent;
   border-radius: var(--radius);
-  font-size: 0.78rem;
+  font-size: 0.85rem;
   font-weight: 700;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  text-transform: none;
   transition:
     transform var(--duration-press) var(--ease-out),
     background-color var(--duration-hover) ease,
@@ -283,13 +277,13 @@ a:focus-visible {
 
 .button-compact {
   padding: 0.9rem 1.35rem;
-  font-size: 0.66rem;
+  font-size: 0.78rem;
 }
 
 .button-solid {
   background: var(--primary-strong);
   color: var(--primary-ink);
-  box-shadow: 0 18px 40px rgba(200, 169, 110, 0.18);
+  box-shadow: none;
 }
 
 .button-solid:hover {
@@ -313,29 +307,26 @@ a:focus-visible {
 }
 
 .hero {
-  min-height: 100svh;
+  min-height: min(850px, 100svh);
   display: grid;
   align-items: center;
   overflow: hidden;
-  padding-top: 7.5rem;
-  padding-bottom: 4.5rem;
+  padding-top: 10rem;
+  padding-bottom: 5rem;
 }
 
 .hero-glow {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(circle at 50% 20%, rgba(229, 196, 135, 0.12), transparent 24rem),
-    linear-gradient(180deg, transparent, var(--background));
-  opacity: 0.9;
+  background: none;
 }
 
 .hero-content {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 0.96fr) minmax(340px, 0.94fr);
-  gap: clamp(2.5rem, 4.5vw, 5.5rem);
+  grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.85fr);
+  gap: clamp(3rem, 6vw, 6rem);
   align-items: center;
 }
 
@@ -362,8 +353,7 @@ a:focus-visible {
   height: 0.38rem;
   margin-right: 0.55rem;
   border-radius: 999px;
-  background: #63d98b;
-  box-shadow: 0 0 18px rgba(99, 217, 139, 0.42);
+  background: var(--primary);
   transform: translateY(-0.08rem);
 }
 
@@ -373,7 +363,7 @@ a:focus-visible {
   color: var(--primary);
   font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.34em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
@@ -383,7 +373,7 @@ a:focus-visible {
 .cta-panel h2 {
   margin: 0;
   font-family: "Newsreader", serif;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: -0.05em;
   line-height: 1.04;
   text-wrap: balance;
@@ -392,13 +382,13 @@ a:focus-visible {
 .hero-title {
   /* Authored line breaks must not rewrap when the fallback font swaps. */
   width: 100%;
-  max-width: 6em;
+  max-width: 8.5em;
   margin-inline: 0;
   font-family: "Newsreader", serif;
-  font-size: clamp(3.45rem, 5.9vw, 4.9rem);
-  font-weight: 600;
-  letter-spacing: -0.06em;
-  line-height: 0.95;
+  font-size: clamp(3.5rem, 5.8vw, 5.65rem);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 1.02;
 }
 
 .hero-title>span {
@@ -407,7 +397,7 @@ a:focus-visible {
 
 .hero-title__muted {
   color: var(--primary);
-  font-style: normal;
+  font-style: italic;
 }
 
 .hero-copy,
@@ -420,19 +410,19 @@ a:focus-visible {
 }
 
 .hero-copy {
-  max-width: 32rem;
-  margin: 1.5rem 0 0;
-  font-size: clamp(1rem, 1.55vw, 1.18rem);
+  max-width: 30rem;
+  margin: 1.8rem 0 0;
+  font-size: 1.05rem;
   line-height: 1.75;
   font-weight: 400;
-  color: rgba(229, 226, 225, 0.72);
+  color: var(--muted);
   text-wrap: pretty;
 }
 
 .hero-actions {
   display: flex;
   justify-content: flex-start;
-  gap: 0.85rem;
+  gap: 1.5rem;
   margin-top: 2.2rem;
   flex-wrap: wrap;
 }
@@ -442,9 +432,7 @@ a:focus-visible {
   padding: 1rem 1.55rem;
   background: var(--primary-strong);
   color: var(--primary-ink);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.12),
-    0 16px 34px rgba(0, 0, 0, 0.18);
+  box-shadow: none;
 }
 
 .hero-actions .button-ghost {
@@ -468,9 +456,9 @@ a:focus-visible {
 .hero-proof {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(1.35rem, 2.2vw, 2.15rem);
+  gap: 1.5rem;
   width: min(100%, 42rem);
-  margin-top: 2.35rem;
+  margin-top: 3rem;
   padding-top: 1.5rem;
   border-top: 1px solid rgba(229, 218, 207, 0.12);
 }
@@ -485,17 +473,17 @@ a:focus-visible {
 .hero-proof-item strong {
   color: var(--text);
   font-family: "Newsreader", serif;
-  font-size: clamp(1.8rem, 2.15vw, 2.35rem);
-  font-weight: 600;
-  letter-spacing: -0.05em;
+  font-size: clamp(1.3rem, 1.65vw, 1.6rem);
+  font-weight: 400;
+  letter-spacing: -0.025em;
   line-height: 1;
   text-wrap: balance;
 }
 
 .hero-proof-item span {
   color: rgba(229, 226, 225, 0.66);
-  font-size: 0.86rem;
-  font-weight: 600;
+  font-size: 0.75rem;
+  font-weight: 400;
   letter-spacing: 0;
   line-height: 1.48;
   text-transform: none;
@@ -504,11 +492,12 @@ a:focus-visible {
 .hero-media {
   position: relative;
   min-width: 0;
-  padding: 0.35rem 0 0;
+  margin: 0;
+  padding: 0;
 }
 
 .hero-media::before {
-  content: "";
+  content: none;
   position: absolute;
   inset: auto 2rem -0.5rem auto;
   width: min(20rem, 44vw);
@@ -553,7 +542,7 @@ a:focus-visible {
   color: var(--text);
   font-family: "Newsreader", serif;
   font-size: 1.75rem;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: -0.04em;
   text-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
 }
@@ -625,17 +614,18 @@ a:focus-visible {
 .trust-bar {
   position: relative;
   z-index: 2;
-  padding: 1.75rem 0 4rem;
-  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.2));
+  padding: 0;
+  background: transparent;
 }
 
 .trust-grid {
+  border-block: 1px solid rgba(241, 238, 231, 0.1);
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.5rem;
   padding: 2.2rem 0;
-  background: var(--surface-lowest);
-  box-shadow: var(--shadow-soft);
+  background: transparent;
+  box-shadow: none;
 }
 
 .trust-item {
@@ -669,7 +659,7 @@ a:focus-visible {
   color: var(--muted);
   font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.24em;
+  letter-spacing: 0.13em;
   line-height: 1.8;
   text-transform: uppercase;
 }
@@ -696,6 +686,13 @@ a:focus-visible {
   letter-spacing: 0.18em;
   line-height: 1.6;
   text-transform: uppercase;
+}
+
+.shared-breadcrumbs__item {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  min-width: 0;
 }
 
 .shared-breadcrumbs a {
@@ -734,7 +731,7 @@ a:focus-visible {
   color: #d9ae5f;
   font-size: 0.74rem;
   font-weight: 700;
-  letter-spacing: 0.26em;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
 }
 
@@ -743,7 +740,7 @@ a:focus-visible {
   color: #f5f2ef;
   font-family: 'Newsreader', serif;
   font-size: clamp(2.9rem, 4.2vw, 4.25rem);
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: -0.048em;
   line-height: 1.01;
   text-wrap: balance;
@@ -764,7 +761,7 @@ a:focus-visible {
   margin: 1.45rem 0 0;
   color: rgba(226, 218, 208, 0.78);
   font-size: clamp(1rem, 1.12vw, 1.08rem);
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.62;
   text-wrap: pretty;
 }
@@ -779,7 +776,7 @@ a:focus-visible {
   min-width: 0;
   overflow: hidden;
   border: 1px solid rgba(229, 218, 207, 0.14);
-  border-radius: 0.35rem;
+  border-radius: var(--radius);
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.03), transparent 46%),
     rgba(16, 17, 16, 0.72);
@@ -811,7 +808,7 @@ a:focus-visible {
   font-family: 'Newsreader', serif;
   font-size: 1.28rem;
   font-style: italic;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .premium-card h3 {
@@ -819,7 +816,7 @@ a:focus-visible {
   color: #f5f2ef;
   font-family: 'Newsreader', serif;
   font-size: clamp(1.55rem, 1.75vw, 1.9rem);
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: -0.04em;
   line-height: 1.06;
   text-wrap: balance;
@@ -829,7 +826,7 @@ a:focus-visible {
   margin: 1rem 0 0;
   color: rgba(226, 218, 208, 0.74);
   font-size: 0.98rem;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.62;
   text-wrap: pretty;
 }
@@ -853,12 +850,12 @@ a:focus-visible {
   padding: 1rem 1.45rem;
   border: 1px solid rgba(230, 222, 211, 0.2);
   color: #f5f2ef;
-  font-size: 0.7rem;
+  font-size: 0.82rem;
   font-weight: 800;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.01em;
   line-height: 1.35;
   text-align: center;
-  text-transform: uppercase;
+  text-transform: none;
   transition:
     transform var(--duration-hover) ease,
     border-color var(--duration-hover) ease,
@@ -872,14 +869,14 @@ a:focus-visible {
 
 .shared-button--solid {
   border-color: #d9b66d;
-  background: linear-gradient(180deg, #edcf8b, #cfa967);
-  color: #382600;
-  box-shadow: 0 20px 42px rgba(207, 169, 103, 0.16);
+  background: var(--primary);
+  color: var(--primary-ink);
+  box-shadow: none;
 }
 
 .shared-button--solid:hover,
 .shared-button--solid:focus-visible {
-  background: linear-gradient(180deg, #f0d79f, #d5b274);
+  background: #ead5af;
 }
 
 .shared-button--outline:hover,
@@ -893,15 +890,16 @@ a:focus-visible {
   position: relative;
   padding: 5rem 2rem;
   text-align: center;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.016), transparent 36%), var(--surface-elevated);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.07), var(--shadow-soft);
+  background: var(--surface-elevated);
+  border: 1px solid rgba(241, 238, 231, 0.12);
+  box-shadow: none;
 }
 
 .section-heading h2,
 .why-layout h2,
 .cta-panel h2 {
-  font-size: clamp(2.7rem, 7vw, 5.2rem);
-  max-width: 12ch;
+  font-size: clamp(2.6rem, 4.4vw, 4.4rem);
+  max-width: 21ch;
 }
 
 .cta-panel h2 {
@@ -917,9 +915,12 @@ a:focus-visible {
 }
 
 .service-card {
-  padding: 2.75rem;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.015), transparent 35%), var(--surface-soft);
-  box-shadow: inset 0 2px 0 var(--primary), 0 1px 0 rgba(255, 255, 255, 0.02);
+  display: grid;
+  grid-template-rows: auto auto 1fr auto auto;
+  padding: 2.25rem;
+  border: 1px solid rgba(241, 238, 231, 0.12);
+  background: var(--surface-soft);
+  box-shadow: none;
   transition: background-color var(--duration-hover) ease;
 }
 
@@ -947,7 +948,7 @@ a:focus-visible {
 .project-meta h3 {
   font-family: "Newsreader", serif;
   font-size: 2rem;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: -0.04em;
   text-wrap: balance;
 }
@@ -973,7 +974,7 @@ a:focus-visible {
   color: var(--subtle);
   font-size: 0.74rem;
   font-weight: 600;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
 }
 
@@ -1021,7 +1022,7 @@ a:focus-visible {
 
 .project-media {
   position: relative;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   background: var(--surface-strong);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1), var(--shadow-soft);
@@ -1040,7 +1041,7 @@ a:focus-visible {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.82;
+  opacity: 1;
   transition: opacity var(--duration-hover) ease;
 }
 
@@ -1069,7 +1070,7 @@ a:focus-visible {
   margin: 0.35rem 0 0;
   font-size: 0.76rem;
   font-weight: 600;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
 }
 
@@ -1116,7 +1117,7 @@ a:focus-visible {
   margin: 1.6rem 0 0;
   font-size: 1.08rem;
   line-height: 1.9;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .reason-grid {
@@ -1178,7 +1179,7 @@ a:focus-visible {
   color: var(--text);
   font-size: 0.74rem;
   font-weight: 600;
-  letter-spacing: 0.38em;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
   text-align: center;
   text-wrap: balance;
@@ -1198,8 +1199,9 @@ a:focus-visible {
   position: relative;
   padding: 5rem 2rem;
   text-align: center;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.016), transparent 36%), var(--surface-elevated);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.07), var(--shadow-soft);
+  background: var(--surface-elevated);
+  border: 1px solid rgba(241, 238, 231, 0.12);
+  box-shadow: none;
 }
 
 .cta-accent {
@@ -1217,7 +1219,7 @@ a:focus-visible {
   margin: 1.4rem auto 0;
   font-size: 1.06rem;
   line-height: 1.9;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .button-large {
@@ -1237,7 +1239,7 @@ a:focus-visible {
 }
 
 .footer-shell {
-  width: min(100%, 84rem);
+  width: var(--container);
   padding: clamp(1.75rem, 3vw, 2.25rem) 0 0;
 }
 
@@ -1274,7 +1276,7 @@ a:focus-visible {
 .footer-tagline {
   max-width: 15rem;
   margin: 0;
-  color: rgba(226, 218, 208, 0.72);
+  color: var(--muted);
   font-size: 1rem;
   line-height: 1.7;
   text-wrap: pretty;
@@ -1285,7 +1287,7 @@ a:focus-visible {
   align-items: center;
   gap: 0.5rem;
   margin: 0;
-  color: rgba(153, 143, 129, 0.84);
+  color: var(--subtle);
   font-size: 0.82rem;
   letter-spacing: 0.02em;
 }
@@ -1351,10 +1353,10 @@ a:focus-visible {
 
 .footer-heading {
   margin: 0;
-  color: rgba(153, 143, 129, 0.74);
+  color: var(--subtle);
   font-size: 0.76rem;
   font-weight: 800;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
 }
 
@@ -1368,7 +1370,7 @@ a:focus-visible {
   align-items: center;
   gap: 0.32rem;
   width: fit-content;
-  color: rgba(226, 218, 208, 0.74);
+  color: var(--muted);
   font-size: 1rem;
   line-height: 1.35;
   text-wrap: pretty;
@@ -1410,12 +1412,14 @@ a:focus-visible {
   align-items: center;
   justify-content: center;
   gap: 0.7rem;
-  width: min(100%, 11.2rem);
+  width: fit-content;
+  max-width: 100%;
+  white-space: nowrap;
   min-height: 3.55rem;
   padding: 0.9rem 1.2rem;
-  border: 1px solid rgba(58, 108, 64, 0.92);
-  background: linear-gradient(180deg, rgba(29, 72, 34, 0.96), rgba(22, 58, 27, 0.98));
-  color: #d6ead4;
+  border: 1px solid var(--primary);
+  background: var(--primary);
+  color: var(--primary-ink);
   font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.02em;
@@ -1424,10 +1428,7 @@ a:focus-visible {
     background-color var(--duration-hover) ease,
     border-color var(--duration-hover) ease,
     transform var(--duration-hover) ease;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    0 1rem 2rem rgba(7, 32, 12, 0.22),
-    0 1.8rem 3.2rem rgba(7, 32, 12, 0.14);
+  box-shadow: none;
 }
 
 .footer-whatsapp-button svg {
@@ -1438,8 +1439,8 @@ a:focus-visible {
 
 .footer-whatsapp-button:hover,
 .footer-whatsapp-button:focus-visible {
-  border-color: rgba(77, 145, 85, 0.95);
-  background: linear-gradient(180deg, rgba(33, 83, 39, 0.98), rgba(24, 68, 31, 1));
+  border-color: #ead5af;
+  background: #ead5af;
 }
 
 .footer-whatsapp-button:focus-visible svg {
@@ -1459,7 +1460,7 @@ a:focus-visible {
 .footer-contact-note {
   max-width: 15.5rem;
   margin: 0;
-  color: rgba(153, 143, 129, 0.8);
+  color: var(--muted);
   font-size: 0.98rem;
   line-height: 1.7;
   text-wrap: pretty;
@@ -1478,7 +1479,7 @@ a:focus-visible {
 
 .footer-bottom-copy {
   margin: 0;
-  color: rgba(153, 143, 129, 0.56);
+  color: var(--subtle);
   font-size: 0.9rem;
   font-variant-numeric: tabular-nums;
   line-height: 1.4;
@@ -1532,7 +1533,7 @@ a:focus-visible {
 
   .hero {
     min-height: auto;
-    padding-top: 10.5rem;
+    padding-top: 9rem;
   }
 
   .hero-content {
@@ -1546,7 +1547,7 @@ a:focus-visible {
   }
 
   .hero-title {
-    max-width: 6em;
+    max-width: 9em;
     margin-inline: 0;
   }
 
@@ -1593,7 +1594,7 @@ a:focus-visible {
 
 @media (max-width: 720px) {
   :root {
-    --container: calc(100vw - 1.5rem);
+    --container: calc(100% - 2.5rem);
   }
 
   .nav-links a,
@@ -1624,7 +1625,7 @@ a:focus-visible {
   .editorial-eyebrow {
     margin-bottom: 1.35rem;
     font-size: 0.64rem;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.13em;
   }
 
   .editorial-title,
@@ -1657,8 +1658,8 @@ a:focus-visible {
   .shared-button {
     width: 100%;
     padding-inline: 1rem;
-    font-size: 0.64rem;
-    letter-spacing: 0.17em;
+    font-size: 0.82rem;
+    letter-spacing: 0.01em;
     white-space: normal;
   }
 
@@ -1681,25 +1682,25 @@ a:focus-visible {
   }
 
   .hero-proof {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-    margin-top: 2.5rem;
-    padding-top: 1.6rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.8rem;
+    margin-top: 2rem;
+    padding-top: 1.4rem;
   }
 
   .hero-proof-item {
-    grid-template-columns: minmax(5.5rem, max-content) minmax(0, 1fr);
-    align-items: baseline;
-    gap: 1rem;
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 0.6rem;
     text-align: left;
   }
 
   .hero-proof-item strong {
-    font-size: clamp(1.9rem, 10vw, 2.5rem);
+    font-size: 1.4rem;
   }
 
   .hero-proof-item span {
-    font-size: 0.9rem;
+    font-size: 0.7rem;
   }
 
   .hero-media-frame {
@@ -1791,7 +1792,7 @@ a:focus-visible {
   }
 
   .footer-shell {
-    width: calc(100vw - 1.8rem);
+    width: var(--container);
     padding-top: 1rem;
   }
 
