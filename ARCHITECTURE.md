@@ -76,6 +76,8 @@ The canonical origin is https://luanalves.com.br and page URLs end in a slash. A
 
 Motion code must respect `prefers-reduced-motion` and the existing `motion-enabled` class.
 
+The `--nav-*` custom properties are registered with `@property { inherits: false }` so the header tween restyles only `.site-nav`. Set and read them on `.site-nav` itself; descendants cannot see them. The Barba fade uses WAAPI (`element.animate`) so it stays on the compositor while the incoming page is parsed and laid out; keep it off GSAP.
+
 The mobile navigation controller lives only in src/scripts/mobile-nav.ts and is initialized by the shared page lifecycle on direct load and Barba navigation. Keep SiteNav presentational; a second inline controller creates competing listeners. The native disclosure button exposes aria-expanded, keeps the closed mobile menu inert, and restores its focus on Escape. Desktop navigation must never remain inert after resizing.
 
 ## Rendering And Measurement
