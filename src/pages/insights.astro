@@ -319,7 +319,7 @@ const insightsSchema = [
   .insights-breadcrumb a,
   .featured-article__cta {
     color: var(--muted);
-    transition: color 180ms ease;
+    transition: color var(--duration-hover) ease;
   }
 
   .insights-breadcrumb a:hover,
@@ -430,9 +430,9 @@ const insightsSchema = [
       0 1.4rem 3rem rgba(0, 0, 0, 0.16),
       0 2.8rem 5.6rem rgba(0, 0, 0, 0.12);
     transition:
-      border-color 220ms ease,
-      transform 220ms ease,
-      background-color 220ms ease;
+      border-color var(--duration-hover) ease,
+      transform var(--duration-hover) ease,
+      background-color var(--duration-hover) ease;
   }
 
   .featured-article::before {
@@ -481,9 +481,7 @@ const insightsSchema = [
     object-position: center;
     filter: saturate(0.9) contrast(1.06);
     transform: scale(1.01);
-    transition:
-      transform 420ms ease,
-      filter 220ms ease;
+    transition: filter var(--duration-hover) ease;
   }
 
   .featured-article:hover .featured-article__visual img,
@@ -574,13 +572,18 @@ const insightsSchema = [
   .featured-article__cta .material-symbols-outlined {
     font-size: 1rem;
     transition:
-      transform 180ms ease,
-      opacity 180ms ease;
+      transform var(--duration-hover) ease,
+      opacity var(--duration-hover) ease;
   }
 
-  .featured-article:hover .featured-article__cta .material-symbols-outlined,
   .featured-article:focus-visible .featured-article__cta .material-symbols-outlined {
     transform: translateX(2px);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .featured-article:hover .featured-article__cta .material-symbols-outlined {
+      transform: translateX(2px);
+    }
   }
 
   .insights-list {
@@ -625,9 +628,9 @@ const insightsSchema = [
     letter-spacing: 0.12em;
     text-transform: uppercase;
     transition:
-      border-color 180ms ease,
-      background-color 180ms ease,
-      color 180ms ease;
+      border-color var(--duration-hover) ease,
+      background-color var(--duration-hover) ease,
+      color var(--duration-hover) ease;
   }
 
   .insights-filters button[aria-current='true'],
@@ -662,9 +665,9 @@ const insightsSchema = [
       0 1.2rem 2.6rem rgba(0, 0, 0, 0.14),
       0 2.4rem 4.8rem rgba(0, 0, 0, 0.1);
     transition:
-      border-color 200ms ease,
-      transform 200ms ease,
-      background-color 200ms ease;
+      border-color var(--duration-hover) ease,
+      transform var(--duration-hover) ease,
+      background-color var(--duration-hover) ease;
   }
 
   .insight-card::before {
@@ -707,9 +710,7 @@ const insightsSchema = [
     object-position: center;
     filter: saturate(0.9) contrast(1.04);
     transform: scale(1.01);
-    transition:
-      transform 320ms ease,
-      filter 220ms ease;
+    transition: filter var(--duration-hover) ease;
   }
 
   .insight-card:hover .insight-card__visual img,
@@ -796,13 +797,18 @@ const insightsSchema = [
 
   .insight-card__footer .material-symbols-outlined {
     transition:
-      transform 180ms ease,
-      opacity 180ms ease;
+      transform var(--duration-hover) ease,
+      opacity var(--duration-hover) ease;
   }
 
-  .insight-card:hover .insight-card__footer .material-symbols-outlined,
   .insight-card:focus-visible .insight-card__footer .material-symbols-outlined {
     transform: translate(1px, -1px);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .insight-card:hover .insight-card__footer .material-symbols-outlined {
+      transform: translate(1px, -1px);
+    }
   }
 
   .insights-empty {

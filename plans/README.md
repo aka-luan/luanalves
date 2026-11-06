@@ -15,4 +15,5 @@ Written by `improve-animations` against commit `60f493b` plus the uncommitted mo
 ## Not planned (audit findings left open)
 
 - Modal Escape close and gallery autoplay: dropped; the unused project modal was deleted instead.
-- Mobile menu `height` animation → `clip-path`; header compaction animating layout properties; the reduced-motion override removing color fades; hover nudges not limited to hover-capable devices; Barba fade-out using `power2.inOut`; no motion tokens.
+- Done outside the plans: hover nudges gated to hover-capable devices, reduced motion keeps color and opacity feedback, Barba fade-out uses `power2.out`, header blur swaps instead of animating, motion tokens (`--ease-out`, `--duration-hover`, `--duration-press`).
+- Closed without change: the mobile menu `height` tween. `.site-nav` is `position: fixed`, so the tween re-lays out only the nav subtree, about once per visit; a `clip-path` reveal would clip the panel's border and shadow while it opens. The header width/padding tween stays for the same reason.

@@ -442,7 +442,7 @@ const caseSchema = [
 
   .case-breadcrumb a {
     color: var(--muted);
-    transition: color 180ms ease;
+    transition: color var(--duration-hover) ease;
   }
 
   .case-breadcrumb a:hover,
@@ -584,9 +584,7 @@ const caseSchema = [
     object-position: center top;
     filter: saturate(1.04) contrast(1.04) brightness(0.98);
     transform: scale(1.01);
-    transition:
-      transform 320ms ease,
-      filter 220ms ease;
+    transition: filter var(--duration-hover) ease;
   }
 
   .case-showcase:hover .case-browser__screen img,
@@ -658,7 +656,7 @@ const caseSchema = [
     gap: 0.22rem;
     overflow-wrap: anywhere;
     color: var(--muted);
-    transition: color 180ms ease;
+    transition: color var(--duration-hover) ease;
   }
 
   .case-overview a:hover,
@@ -836,7 +834,7 @@ const caseSchema = [
       inset 0 0 0 1px rgba(255, 255, 255, 0.014),
       0 1rem 2.2rem rgba(0, 0, 0, 0.12),
       0 2rem 3.8rem rgba(0, 0, 0, 0.08);
-    transition: border-color 180ms ease;
+    transition: border-color var(--duration-hover) ease;
   }
 
   .case-links__card:hover,
@@ -883,7 +881,7 @@ const caseSchema = [
       inset 0 0 0 1px rgba(255, 255, 255, 0.014),
       0 1rem 2.2rem rgba(0, 0, 0, 0.12),
       0 2rem 3.8rem rgba(0, 0, 0, 0.08);
-    transition: border-color 180ms ease;
+    transition: border-color var(--duration-hover) ease;
   }
 
   .case-gallery__item::before {
@@ -915,9 +913,7 @@ const caseSchema = [
     object-fit: cover;
     object-position: center top;
     transform: scale(1.01);
-    transition:
-      transform 260ms ease,
-      filter 220ms ease;
+    transition: filter var(--duration-hover) ease;
   }
 
   .case-gallery__item figcaption {
@@ -943,8 +939,8 @@ const caseSchema = [
       0 1rem 2.2rem rgba(0, 0, 0, 0.12),
       0 2rem 3.8rem rgba(0, 0, 0, 0.08);
     transition:
-      border-color 180ms ease,
-      background-color 180ms ease;
+      border-color var(--duration-hover) ease,
+      background-color var(--duration-hover) ease;
   }
 
   .case-result-card::before {
@@ -990,9 +986,9 @@ const caseSchema = [
       0 1.2rem 2.6rem rgba(0, 0, 0, 0.14),
       0 2.4rem 4.8rem rgba(0, 0, 0, 0.1);
     transition:
-      border-color 180ms ease,
-      background-color 180ms ease,
-      transform 180ms ease;
+      border-color var(--duration-hover) ease,
+      background-color var(--duration-hover) ease,
+      transform var(--duration-hover) ease;
   }
 
   .case-next__card:hover,
@@ -1032,13 +1028,18 @@ const caseSchema = [
     color: var(--primary);
     font-size: 1.55rem;
     transition:
-      transform 180ms ease,
-      opacity 180ms ease;
+      transform var(--duration-hover) ease,
+      opacity var(--duration-hover) ease;
   }
 
-  .case-next__card:hover .material-symbols-outlined,
   .case-next__card:focus-visible .material-symbols-outlined {
     transform: translateX(0.22rem);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .case-next__card:hover .material-symbols-outlined {
+      transform: translateX(0.22rem);
+    }
   }
 
   @media (max-width: 840px) {

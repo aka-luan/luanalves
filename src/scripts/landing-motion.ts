@@ -114,11 +114,16 @@ function createHeaderController({
       return;
     }
 
+    // Animating backdrop blur repaints everything behind the nav on every frame.
+    // Swap it while the nav background is near-opaque: after compacting, before expanding.
+    const { '--nav-blur': navBlur, ...animatedVars } = navVars;
+    gsap.set(nav, { '--nav-blur': shouldUseTop ? navBlur : '0px' });
     gsap.to(nav, {
-      ...navVars,
+      ...animatedVars,
       duration: 0.25,
       ease: 'power2.inOut',
       overwrite: 'auto',
+      onComplete: () => gsap.set(nav, { '--nav-blur': navBlur }),
     });
 
     setBrandState(shouldUseTop ? 'full' : 'short');

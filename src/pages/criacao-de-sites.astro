@@ -792,7 +792,7 @@ const creationServiceSchema = [
     display: inline-flex;
     align-items: center;
     color: rgba(229, 218, 207, 0.78);
-    transition: color 180ms ease;
+    transition: color var(--duration-hover) ease;
   }
 
   .creation-nav-links a,
@@ -814,9 +814,9 @@ const creationServiceSchema = [
     border: 1px solid rgba(229, 218, 207, 0.2);
     color: #f4f1ee;
     transition:
-      border-color 180ms ease,
-      color 180ms ease,
-      background-color 180ms ease;
+      border-color var(--duration-hover) ease,
+      color var(--duration-hover) ease,
+      background-color var(--duration-hover) ease;
   }
 
   .creation-nav-cta:hover,
@@ -964,10 +964,10 @@ const creationServiceSchema = [
     color: #f5f2ef;
     white-space: nowrap;
     transition:
-      transform 180ms ease,
-      border-color 180ms ease,
-      color 180ms ease,
-      background-color 180ms ease;
+      transform var(--duration-hover) ease,
+      border-color var(--duration-hover) ease,
+      color var(--duration-hover) ease,
+      background-color var(--duration-hover) ease;
   }
 
   .creation-button:active {
@@ -1203,8 +1203,8 @@ const creationServiceSchema = [
       0 1.4rem 2.8rem rgba(0, 0, 0, 0.16),
       0 2.8rem 5.4rem rgba(0, 0, 0, 0.12);
     transition:
-      border-color 180ms ease,
-      background-color 180ms ease;
+      border-color var(--duration-hover) ease,
+      background-color var(--duration-hover) ease;
   }
 
   .solution-card::before {
@@ -1335,12 +1335,17 @@ const creationServiceSchema = [
 
   .segments-section__list .material-symbols-outlined {
     color: #dfbd79;
-    transition: transform 180ms ease;
+    transition: transform var(--duration-hover) ease;
   }
 
-  .segments-section__list a:hover .material-symbols-outlined,
   .segments-section__list a:focus-visible .material-symbols-outlined {
     transform: translate(0.25rem, -0.25rem);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .segments-section__list a:hover .material-symbols-outlined {
+      transform: translate(0.25rem, -0.25rem);
+    }
   }
 
   @media (max-width: 860px) {
@@ -1394,9 +1399,9 @@ const creationServiceSchema = [
     filter: saturate(0.82) contrast(1.04);
     transform: scale(1.01);
     transition:
-      transform 220ms ease,
-      opacity 220ms ease,
-      filter 220ms ease;
+      transform var(--duration-hover) ease,
+      opacity var(--duration-hover) ease,
+      filter var(--duration-hover) ease;
   }
 
   .solution-card:hover .solution-card__media img,
@@ -1491,22 +1496,27 @@ const creationServiceSchema = [
     margin-top: 1.5rem;
     padding-inline: 0.95rem 0.82rem;
     transition:
-      transform 180ms ease,
-      border-color 180ms ease,
-      background-color 180ms ease,
-      color 180ms ease;
+      transform var(--duration-hover) ease,
+      border-color var(--duration-hover) ease,
+      background-color var(--duration-hover) ease,
+      color var(--duration-hover) ease;
   }
 
   .solution-card__cta .material-symbols-outlined {
     font-size: 1rem;
     transition:
-      transform 180ms ease,
-      opacity 180ms ease;
+      transform var(--duration-hover) ease,
+      opacity var(--duration-hover) ease;
   }
 
-  .solution-card__cta:hover .material-symbols-outlined,
   .solution-card__cta:focus-visible .material-symbols-outlined {
     transform: translate(1px, -1px);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .solution-card__cta:hover .material-symbols-outlined {
+      transform: translate(1px, -1px);
+    }
   }
 
   .solution-card__cta:active {
@@ -3059,8 +3069,8 @@ const creationServiceSchema = [
       inset 0 0 0 1px rgba(255, 255, 255, 0.012),
       0 28px 62px rgba(0, 0, 0, 0.18);
     transition:
-      border-color 220ms ease,
-      transform 220ms ease;
+      border-color var(--duration-hover) ease,
+      transform var(--duration-hover) ease;
   }
 
   .portfolio-card:hover,
@@ -3103,9 +3113,8 @@ const creationServiceSchema = [
     filter: saturate(1.04) contrast(1.04) brightness(1.06);
     transform: scale(1.01);
     transition:
-      opacity 260ms ease,
-      filter 260ms ease,
-      transform 700ms ease;
+      opacity var(--duration-hover) ease,
+      filter var(--duration-hover) ease;
   }
 
   .portfolio-card:hover .portfolio-card__media img,
@@ -3161,14 +3170,19 @@ const creationServiceSchema = [
     font-feature-settings: 'liga';
     -webkit-font-feature-settings: 'liga';
     -webkit-font-smoothing: antialiased;
-    transition: transform 220ms ease;
+    transition: transform var(--duration-hover) ease;
   }
 
-  .portfolio-card:hover .portfolio-card__arrow,
   .portfolio-card:focus-visible .portfolio-card__arrow,
-  .portfolio-more:hover .material-symbols-outlined,
   .portfolio-more:focus-visible .material-symbols-outlined {
     transform: translate(0.16rem, -0.16rem);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .portfolio-card:hover .portfolio-card__arrow,
+    .portfolio-more:hover .material-symbols-outlined {
+      transform: translate(0.16rem, -0.16rem);
+    }
   }
 
   .portfolio-more {
@@ -3187,9 +3201,9 @@ const creationServiceSchema = [
     letter-spacing: 0.28em;
     text-transform: uppercase;
     transition:
-      border-color 180ms ease,
-      background-color 180ms ease,
-      transform 180ms ease;
+      border-color var(--duration-hover) ease,
+      background-color var(--duration-hover) ease,
+      transform var(--duration-hover) ease;
   }
 
   .portfolio-more:hover,

@@ -764,12 +764,12 @@ const aboutSchema = [
     letter-spacing: 0.16em;
     line-height: 1.4;
     text-transform: uppercase;
-    transition: color 180ms ease, transform 180ms ease;
+    transition: color var(--duration-hover) ease, transform var(--duration-hover) ease;
   }
 
   .about-text-link .material-symbols-outlined {
     font-size: 1rem;
-    transition: transform 180ms ease;
+    transition: transform var(--duration-hover) ease;
   }
 
   .about-text-link:hover,
@@ -777,9 +777,14 @@ const aboutSchema = [
     color: #f5f2ef;
   }
 
-  .about-text-link:hover .material-symbols-outlined,
   .about-text-link:focus-visible .material-symbols-outlined {
     transform: translateX(0.18rem);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .about-text-link:hover .material-symbols-outlined {
+      transform: translateX(0.18rem);
+    }
   }
 
   .about-stack__list {
@@ -849,8 +854,8 @@ const aboutSchema = [
     border: 1px solid rgba(229, 218, 207, 0.14);
     background: rgba(16, 17, 16, 0.72);
     transition:
-      border-color 180ms ease,
-      background-color 180ms ease;
+      border-color var(--duration-hover) ease,
+      background-color var(--duration-hover) ease;
   }
 
   .about-case--offset {
@@ -973,7 +978,7 @@ const aboutSchema = [
     font-weight: 800;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    transition: color 180ms ease;
+    transition: color var(--duration-hover) ease;
   }
 
   .about-social__links a:hover,
@@ -1144,12 +1149,4 @@ const aboutSchema = [
     }
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .about-case,
-    .about-case__media img,
-    .about-text-link,
-    .about-social__links a {
-      transition: none;
-    }
-  }
 </style>

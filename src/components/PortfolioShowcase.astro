@@ -223,8 +223,8 @@ const defaultPositions = ['center 44%', 'center 50%', 'center 47%'];
       inset 0 0 0 1px rgba(255, 255, 255, 0.012),
       0 28px 62px rgba(0, 0, 0, 0.18);
     transition:
-      border-color 220ms ease,
-      transform 220ms ease;
+      border-color var(--duration-hover) ease,
+      transform var(--duration-hover) ease;
   }
 
   .portfolio-showcase__card:hover,
@@ -267,8 +267,8 @@ const defaultPositions = ['center 44%', 'center 50%', 'center 47%'];
     filter: saturate(1.04) contrast(1.04) brightness(1.06);
     transform: scale(1.01);
     transition:
-      opacity 260ms ease,
-      filter 260ms ease;
+      opacity var(--duration-hover) ease,
+      filter var(--duration-hover) ease;
   }
 
   .portfolio-showcase__card:hover .portfolio-showcase__media img,
@@ -324,14 +324,19 @@ const defaultPositions = ['center 44%', 'center 50%', 'center 47%'];
     font-feature-settings: 'liga';
     -webkit-font-feature-settings: 'liga';
     -webkit-font-smoothing: antialiased;
-    transition: transform 220ms ease;
+    transition: transform var(--duration-hover) ease;
   }
 
-  .portfolio-showcase__card:hover .portfolio-showcase__arrow,
   .portfolio-showcase__card:focus-visible .portfolio-showcase__arrow,
-  .portfolio-showcase__more:hover .material-symbols-outlined,
   .portfolio-showcase__more:focus-visible .material-symbols-outlined {
     transform: translate(0.16rem, -0.16rem);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .portfolio-showcase__card:hover .portfolio-showcase__arrow,
+    .portfolio-showcase__more:hover .material-symbols-outlined {
+      transform: translate(0.16rem, -0.16rem);
+    }
   }
 
   .portfolio-showcase__more {
@@ -350,9 +355,9 @@ const defaultPositions = ['center 44%', 'center 50%', 'center 47%'];
     letter-spacing: 0.28em;
     text-transform: uppercase;
     transition:
-      border-color 180ms ease,
-      background-color 180ms ease,
-      transform 180ms ease;
+      border-color var(--duration-hover) ease,
+      background-color var(--duration-hover) ease,
+      transform var(--duration-hover) ease;
   }
 
   .portfolio-showcase__more:hover,

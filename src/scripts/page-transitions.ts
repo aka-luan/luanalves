@@ -202,7 +202,7 @@ function initBarba() {
           return toPromise(current.container, {
             autoAlpha: 0,
             duration: 0.15,
-            ease: 'power2.inOut',
+            ease: 'power2.out',
           });
         },
         beforeEnter({ next }) {

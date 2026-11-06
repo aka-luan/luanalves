@@ -354,7 +354,7 @@ const portfolioSchema = [
 
   .portfolio-breadcrumb a {
     color: var(--muted);
-    transition: color 180ms ease;
+    transition: color var(--duration-hover) ease;
   }
 
   .portfolio-breadcrumb a:hover,
@@ -443,8 +443,8 @@ const portfolioSchema = [
       0 1.4rem 4.5rem rgba(0, 0, 0, 0.34),
       inset 0 1px 0 rgba(255, 255, 255, 0.06);
     transition:
-      border-color 220ms ease,
-      transform 220ms ease;
+      border-color var(--duration-hover) ease,
+      transform var(--duration-hover) ease;
   }
 
   .portfolio-featured:hover,
@@ -490,7 +490,7 @@ const portfolioSchema = [
     object-position: center top;
     filter: saturate(1.03) contrast(1.04) brightness(0.95);
     transform: scale(1.01);
-    transition: filter 260ms ease;
+    transition: filter var(--duration-hover) ease;
   }
 
   .portfolio-featured:hover .portfolio-featured__media img,
@@ -535,12 +535,17 @@ const portfolioSchema = [
     flex: 0 0 auto;
     color: var(--primary);
     font-size: 1.1rem;
-    transition: transform 180ms ease;
+    transition: transform var(--duration-hover) ease;
   }
 
-  .portfolio-featured:hover .portfolio-featured__body .material-symbols-outlined,
   .portfolio-featured:focus-visible .portfolio-featured__body .material-symbols-outlined {
     transform: translateY(0.16rem);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .portfolio-featured:hover .portfolio-featured__body .material-symbols-outlined {
+      transform: translateY(0.16rem);
+    }
   }
 
   .portfolio-work {
@@ -571,9 +576,9 @@ const portfolioSchema = [
     line-height: 1.2;
     text-transform: uppercase;
     transition:
-      border-color 180ms ease,
-      background-color 180ms ease,
-      color 180ms ease;
+      border-color var(--duration-hover) ease,
+      background-color var(--duration-hover) ease,
+      color var(--duration-hover) ease;
     cursor: pointer;
   }
 
@@ -628,9 +633,9 @@ const portfolioSchema = [
       0 1.2rem 2.6rem rgba(0, 0, 0, 0.14),
       0 2.6rem 5rem rgba(0, 0, 0, 0.1);
     transition:
-      border-color 200ms ease,
-      transform 200ms ease,
-      background-color 200ms ease;
+      border-color var(--duration-hover) ease,
+      transform var(--duration-hover) ease,
+      background-color var(--duration-hover) ease;
   }
 
   .portfolio-card::before {
@@ -683,9 +688,7 @@ const portfolioSchema = [
     object-position: center top;
     display: block;
     filter: saturate(1.02) contrast(1.03) brightness(0.96);
-    transition:
-      transform 400ms ease,
-      filter 220ms ease;
+    transition: filter var(--duration-hover) ease;
   }
 
   .portfolio-card:hover .portfolio-card__media img,
@@ -789,7 +792,7 @@ const portfolioSchema = [
     gap: 0.2rem;
     color: var(--muted);
     font-size: 0.69rem;
-    transition: color 200ms ease;
+    transition: color var(--duration-hover) ease;
     white-space: nowrap;
   }
 
@@ -801,13 +804,18 @@ const portfolioSchema = [
   .portfolio-card__cta .material-symbols-outlined {
     font-size: 0.85rem;
     transition:
-      transform 180ms ease,
-      opacity 180ms ease;
+      transform var(--duration-hover) ease,
+      opacity var(--duration-hover) ease;
   }
 
-  .portfolio-card:hover .portfolio-card__cta .material-symbols-outlined,
   .portfolio-card:focus-visible .portfolio-card__cta .material-symbols-outlined {
     transform: translate(1px, -1px);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .portfolio-card:hover .portfolio-card__cta .material-symbols-outlined {
+      transform: translate(1px, -1px);
+    }
   }
 
   .portfolio-cta {
@@ -856,8 +864,8 @@ const portfolioSchema = [
     text-transform: uppercase;
     white-space: nowrap;
     transition:
-      transform 160ms cubic-bezier(0.23, 1, 0.32, 1),
-      background-color 180ms ease;
+      transform var(--duration-press) var(--ease-out),
+      background-color var(--duration-hover) ease;
   }
 
   .portfolio-cta > a:hover,
