@@ -117,15 +117,10 @@ a:focus-visible {
 }
 
 .hero-grid {
-  --grid-shift-x: 0px;
-  --grid-shift-y: 0px;
   background-image:
     linear-gradient(to right, rgba(77, 70, 58, 0.08) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(77, 70, 58, 0.08) 1px, transparent 1px);
   background-size: 40px 40px;
-  background-position:
-    var(--grid-shift-x) var(--grid-shift-y),
-    var(--grid-shift-x) var(--grid-shift-y);
 }
 
 .site-nav {
@@ -214,15 +209,12 @@ a:focus-visible {
   font-weight: 600;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  transition:
-    color 180ms ease,
-    transform 180ms ease;
+  transition: color 180ms ease;
 }
 
 .nav-links a:hover,
 .footer-links a:hover {
   color: var(--primary);
-  transform: translateX(0.18rem);
 }
 
 .button {
@@ -238,19 +230,9 @@ a:focus-visible {
   letter-spacing: 0.22em;
   text-transform: uppercase;
   transition:
-    transform 180ms ease,
     background-color 180ms ease,
     color 180ms ease,
-    border-color 180ms ease,
-    box-shadow 180ms ease;
-}
-
-.button:hover {
-  transform: translateY(-2px);
-}
-
-.button:active {
-  transform: translateY(0);
+    border-color 180ms ease;
 }
 
 .button-compact {
@@ -753,10 +735,8 @@ a:focus-visible {
     rgba(16, 17, 16, 0.72);
   box-shadow: 0 24px 58px rgba(0, 0, 0, 0.16);
   transition:
-    transform 180ms ease,
     border-color 180ms ease,
-    background-color 180ms ease,
-    box-shadow 180ms ease;
+    background-color 180ms ease;
 }
 
 .premium-card::before {
@@ -774,7 +754,6 @@ a:focus-visible {
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.042), transparent 46%),
     rgba(20, 21, 20, 0.82);
-  box-shadow: 0 28px 64px rgba(0, 0, 0, 0.22);
 }
 
 .premium-card__number {
@@ -834,13 +813,7 @@ a:focus-visible {
     transform 180ms ease,
     border-color 180ms ease,
     color 180ms ease,
-    background-color 180ms ease,
-    box-shadow 180ms ease;
-}
-
-.shared-button:hover,
-.shared-button:focus-visible {
-  transform: translateY(-2px);
+    background-color 180ms ease;
 }
 
 .shared-button:active {
@@ -897,16 +870,11 @@ a:focus-visible {
   padding: 2.75rem;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.015), transparent 35%), var(--surface-soft);
   box-shadow: inset 0 2px 0 var(--primary), 0 1px 0 rgba(255, 255, 255, 0.02);
-  transition:
-    transform 220ms ease,
-    background-color 220ms ease,
-    box-shadow 220ms ease;
+  transition: background-color 220ms ease;
 }
 
 .service-card:hover {
-  transform: translateY(-6px);
   background: var(--surface-elevated);
-  box-shadow: var(--shadow);
 }
 
 .service-icon {
@@ -1023,13 +991,10 @@ a:focus-visible {
   height: 100%;
   object-fit: cover;
   opacity: 0.82;
-  transition:
-    transform 700ms ease,
-    opacity 300ms ease;
+  transition: opacity 300ms ease;
 }
 
 .project-card:hover .project-media img {
-  transform: scale(1.05);
   opacity: 1;
 }
 
@@ -1684,8 +1649,7 @@ a:focus-visible {
     color 180ms ease,
     border-color 180ms ease,
     background-color 180ms ease,
-    transform 180ms ease,
-    box-shadow 180ms ease;
+    transform 180ms ease;
 }
 
 .footer-social-link svg {
@@ -1699,9 +1663,6 @@ a:focus-visible {
   color: var(--primary);
   border-color: rgba(229, 196, 135, 0.34);
   background: rgba(229, 196, 135, 0.08);
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.018),
-    0 1.2rem 2.2rem rgba(0, 0, 0, 0.14);
 }
 
 .footer-social-link:hover svg,
@@ -1736,9 +1697,7 @@ a:focus-visible {
   font-size: 1rem;
   line-height: 1.35;
   text-wrap: pretty;
-  transition:
-    color 180ms ease,
-    transform 180ms ease;
+  transition: color 180ms ease;
 }
 
 .footer-link-list a::after {
@@ -1757,7 +1716,6 @@ a:focus-visible {
 .footer-link-list a:hover,
 .footer-link-list a:focus-visible {
   color: var(--text);
-  transform: translateX(0.14rem);
 }
 
 .footer-link-list a:hover::after,
@@ -1784,8 +1742,7 @@ a:focus-visible {
   transition:
     background-color 180ms ease,
     border-color 180ms ease,
-    transform 180ms ease,
-    box-shadow 180ms ease;
+    transform 180ms ease;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
     0 1rem 2rem rgba(7, 32, 12, 0.22),
@@ -1802,11 +1759,6 @@ a:focus-visible {
 .footer-whatsapp-button:focus-visible {
   border-color: rgba(77, 145, 85, 0.95);
   background: linear-gradient(180deg, rgba(33, 83, 39, 0.98), rgba(24, 68, 31, 1));
-  transform: translateY(-2px);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    0 1.4rem 2.4rem rgba(7, 32, 12, 0.24),
-    0 2.2rem 3.8rem rgba(7, 32, 12, 0.16);
 }
 
 .footer-whatsapp-button:hover svg,

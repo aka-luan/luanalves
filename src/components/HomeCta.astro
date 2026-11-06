@@ -5,7 +5,6 @@ interface Props {
   title?: string;
   copy?: string;
   buttonLabel?: string;
-  motion?: boolean;
   analyticsPosition?: string;
 }
 
@@ -15,36 +14,22 @@ const {
   title = 'Vamos definir o site que sua empresa precisa?',
   copy = 'Me conte o que sua empresa faz, o objetivo do site e quando pretende publicar. Vamos alinhar estrutura, materiais e escopo antes da proposta. O atendimento é direto comigo, de Belém para todo o Brasil.',
   buttonLabel = 'Conversar sobre meu site',
-  motion = true,
   analyticsPosition = 'home_final',
 } = Astro.props;
 
-const sectionMotionAttrs = motion ? { 'data-motion-section': 'cta' } : {};
-const panelMotionAttrs = motion
-  ? { 'data-motion-panel': '', 'data-motion-hidden': 'y-lg' }
-  : {};
-const accentMotionAttrs = motion
-  ? { 'data-motion-accent': '', 'data-motion-hidden': 'scale-x' }
-  : {};
-const headingMotionAttrs = motion ? { 'data-motion-heading': '' } : {};
-const copyMotionAttrs = motion ? { 'data-motion-copy': '' } : {};
-const buttonMotionAttrs = motion
-  ? { 'data-motion-button': '', 'data-motion-hidden': 'y-sm' }
-  : {};
 ---
 
-<section class='section' id={id} {...sectionMotionAttrs}>
+<section class='section' id={id}>
   <div class='container'>
-    <div class='cta-panel shared-cta-panel' {...panelMotionAttrs}>
-      <div class='cta-accent' aria-hidden='true' {...accentMotionAttrs}></div>
-      <h2 {...headingMotionAttrs}>{title}</h2>
-      <p {...copyMotionAttrs}>{copy}</p>
+    <div class='cta-panel shared-cta-panel'>
+      <div class='cta-accent' aria-hidden='true'></div>
+      <h2>{title}</h2>
+      <p>{copy}</p>
       <a
         class='button button-solid button-large'
         href={whatsappHref} data-analytics-position={analyticsPosition}
         target='_blank'
-        rel='noreferrer'
-        {...buttonMotionAttrs}>
+        rel='noreferrer'>
         <span class='material-symbols-outlined' aria-hidden='true'>forum</span>
         {buttonLabel}
       </a>

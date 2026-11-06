@@ -33,7 +33,7 @@ const breadcrumbItems = [
   data-motion='hero'
   data-service={page.slug}
   data-title-density={titleDensity}>
-  <div class='service-hero__glow' aria-hidden='true' data-motion-glow></div>
+  <div class='service-hero__glow' aria-hidden='true'></div>
   <div class='service-hero__grain' aria-hidden='true'></div>
 
   <div class='service-hero__inner'>
@@ -43,38 +43,32 @@ const breadcrumbItems = [
       {
         showEyebrow && (
           <p
-            class='service-eyebrow editorial-eyebrow'
-            data-motion-hero-eyebrow
-            data-motion-hidden='y-sm'>
+            class='service-eyebrow editorial-eyebrow'>
             {hero.eyebrow}
           </p>
         )
       }
 
       <h1
-        id='service-hero-title'
-        data-motion-hero-title
-        data-motion-hidden='y-lg'>
+        id='service-hero-title'>
         {titleParts[0]}<em>{hero.accent}</em>{titleParts[1]}
       </h1>
 
-      <p class='service-lead' data-motion-hero-copy data-motion-hidden='y-md'>
+      <p class='service-lead'>
         {hero.copy}
       </p>
 
-      <div class='service-actions' data-motion-hero-actions>
+      <div class='service-actions'>
         <a
           class='service-button shared-button shared-button--solid'
           href={page.whatsappHref} data-analytics-position='service_hero'
           target='_blank'
-          rel='noreferrer'
-          data-motion-hidden='y-sm'>
+          rel='noreferrer'>
           {hero.ctaLabel}
         </a>
         <a
           class='service-button shared-button shared-button--outline'
-          href={hero.secondaryHref}
-          data-motion-hidden='y-sm'>
+          href={hero.secondaryHref}>
           {hero.secondaryLabel}
         </a>
       </div>
@@ -83,9 +77,7 @@ const breadcrumbItems = [
         {
           hero.features.map((item) => (
             <article
-              class='service-feature'
-              data-motion-item='hero-feature'
-              data-motion-hidden='y-sm'>
+              class='service-feature'>
               <span class='service-feature__icon icon-chip' aria-hidden='true'>
                 <span class='material-symbols-outlined'>{item.icon}</span>
               </span>
@@ -99,9 +91,7 @@ const breadcrumbItems = [
 
     <div
       class='service-hero__media'
-      aria-hidden='true'
-      data-motion-item='hero-media'
-      data-motion-hidden='scale'>
+      aria-hidden='true'>
       <div class='service-orbit'></div>
       <img
         {...heroImage}

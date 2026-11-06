@@ -30,7 +30,6 @@ const mobileItems = items.flatMap((item) => [item, ...(item.children ?? [])]);
 const navMotionAttrs = motion
   ? {
       'data-motion-nav': '',
-      'data-motion-hidden': 'nav',
     }
   : {};
 ---
@@ -319,14 +318,14 @@ const navMotionAttrs = motion
       width: 1.3rem;
       height: 1.3rem;
       overflow: visible;
-      transition: transform 0.5s ease-in-out;
+      transition: transform 0.25s ease-in-out;
     }
 
     .nav-toggle-icon__curve,
     .nav-toggle-icon__line {
       transition:
-        stroke-dasharray 0.5s ease-in-out,
-        stroke-dashoffset 0.5s ease-in-out;
+        stroke-dasharray 0.25s ease-in-out,
+        stroke-dashoffset 0.25s ease-in-out;
     }
 
     .nav-toggle-icon__curve {
@@ -395,15 +394,12 @@ const navMotionAttrs = motion
       font-style: italic;
       line-height: 0.95;
       color: var(--muted);
-      transition:
-        color 220ms ease,
-        transform 220ms ease;
+      transition: color 220ms ease;
     }
 
     .mobile-menu-link:hover .mobile-menu-copy,
     .mobile-menu-link:focus-visible .mobile-menu-copy {
       color: var(--primary);
-      transform: translateX(0.35rem);
     }
 
     .mobile-menu-link--child {

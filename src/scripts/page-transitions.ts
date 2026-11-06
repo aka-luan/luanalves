@@ -195,7 +195,7 @@ function initBarba() {
     timeout: 7000,
     transitions: [
       {
-        name: 'site-fade-slide',
+        name: 'site-fade',
         leave({ current }) {
           document.documentElement.classList.add('is-transitioning');
           cleanupPageScripts();
@@ -207,29 +207,24 @@ function initBarba() {
 
           return toPromise(current.container, {
             autoAlpha: 0,
-            y: -18,
-            duration: 0.34,
+            duration: 0.15,
             ease: 'power2.inOut',
           });
         },
         beforeEnter({ next }) {
-          gsap.set(next.container, {
-            autoAlpha: 0,
-            y: reduceMotion() ? 0 : 24,
-          });
+          gsap.set(next.container, { autoAlpha: 0 });
         },
         enter({ next }) {
           if (reduceMotion()) {
-            gsap.set(next.container, { autoAlpha: 1, y: 0 });
+            gsap.set(next.container, { autoAlpha: 1 });
             return;
           }
 
           return toPromise(next.container, {
             autoAlpha: 1,
-            y: 0,
-            duration: 0.48,
+            duration: 0.2,
             ease: 'power3.out',
-            clearProps: 'opacity,visibility,transform',
+            clearProps: 'opacity,visibility',
           });
         },
       },

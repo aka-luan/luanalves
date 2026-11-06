@@ -9,11 +9,10 @@ interface FooterLink {
 
 interface Props {
   links?: FooterLink[];
-  motion?: boolean;
   brandHref?: string;
 }
 
-const { links = defaultNavigation, motion = true, brandHref = '#top' } =
+const { links = defaultNavigation, brandHref = '#top' } =
   Astro.props;
 
 const currentYear = new Date().getFullYear();
@@ -27,16 +26,12 @@ const serviceLinks = serviceLinkGroup
 const navigationLinks = links.filter(
   (item) => item.href !== serviceLinkGroup?.href,
 );
-const sectionMotionAttrs = motion ? { 'data-motion-section': 'footer' } : {};
-const itemMotionAttrs = motion
-  ? { 'data-motion-item': 'footer', 'data-motion-hidden': 'y-sm' }
-  : {};
 ---
 
-<footer class='site-footer' {...sectionMotionAttrs}>
+<footer class='site-footer'>
   <div class='container footer-shell'>
     <div class='footer-grid'>
-      <div class='footer-column footer-column--brand' {...itemMotionAttrs}>
+      <div class='footer-column footer-column--brand'>
         <a class='brand footer-brand' href={brandHref} aria-label='Luan Alves, página inicial'>
           <span class='brand-stack' aria-hidden='true'>
             <span class='brand-text'>Luan Alves</span>
@@ -129,7 +124,7 @@ const itemMotionAttrs = motion
         </div>
       </div>
 
-      <div class='footer-column' {...itemMotionAttrs}>
+      <div class='footer-column'>
         <p class='footer-heading'>Serviços</p>
         <div class='footer-link-list'>
           {serviceLinks.map((item) => (
@@ -138,7 +133,7 @@ const itemMotionAttrs = motion
         </div>
       </div>
 
-      <div class='footer-column' {...itemMotionAttrs}>
+      <div class='footer-column'>
         <p class='footer-heading'>Navegação</p>
         <div class='footer-link-list'>
           {navigationLinks.map((item) => (
@@ -147,7 +142,7 @@ const itemMotionAttrs = motion
         </div>
       </div>
 
-      <div class='footer-column footer-column--contact' {...itemMotionAttrs}>
+      <div class='footer-column footer-column--contact'>
         <p class='footer-heading'>Contato</p>
         <a
           class='footer-whatsapp-button'
@@ -179,7 +174,7 @@ const itemMotionAttrs = motion
       </div>
     </div>
 
-    <div class='footer-bottom' {...itemMotionAttrs}>
+    <div class='footer-bottom'>
       <p class='footer-bottom-copy'>Luan Alves © {currentYear}</p>
       <p class='footer-bottom-copy'>Desenvolvido em Belém, PA</p>
     </div>

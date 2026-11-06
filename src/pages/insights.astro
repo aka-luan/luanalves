@@ -83,9 +83,9 @@ const insightsSchema = [
     />
 
     <section class='insights-hero' aria-labelledby='insights-title' data-motion='hero'>
-      <div class='insights-hero__grid hero-grid' aria-hidden='true' data-motion-glow></div>
+      <div class='insights-hero__grid hero-grid' aria-hidden='true'></div>
       <div class='insights-shell'>
-        <nav class='insights-breadcrumb' aria-label='Breadcrumb' data-motion-hero-eyebrow data-motion-hidden='y-sm'>
+        <nav class='insights-breadcrumb' aria-label='Breadcrumb'>
           <a href='/'>Início</a>
           <span aria-hidden='true'>/</span>
           <span>Insights</span>
@@ -94,19 +94,19 @@ const insightsSchema = [
         <div class='insights-hero__layout'>
           <div class='insights-hero__copy'>
             <p class='insights-eyebrow'>Editorial técnico</p>
-            <h1 id='insights-title' data-motion-hero-title data-motion-hidden='y-lg'>Insights</h1>
-            <p data-motion-hero-copy data-motion-hidden='y-md'>
+            <h1 id='insights-title'>Insights</h1>
+            <p>
               Desenvolvimento web, SEO técnico e bastidores reais do trabalho freelancer,
               escrito por quem faz os sites.
             </p>
           </div>
 
           <dl class='insights-stats' aria-label='Números do Insights'>
-            <div data-motion-item='hero-feature' data-motion-hidden='y-sm'>
+            <div>
               <dt>{String(posts.length).padStart(2, '0')}</dt>
               <dd>Artigos</dd>
             </div>
-            <div data-motion-item='hero-feature' data-motion-hidden='y-sm'>
+            <div>
               <dt>{filters.length - 1}</dt>
               <dd>Categorias</dd>
             </div>
@@ -115,13 +115,11 @@ const insightsSchema = [
       </div>
     </section>
 
-    <section class='insights-featured' aria-labelledby='featured-title' data-motion-section='portfolio'>
+    <section class='insights-featured' aria-labelledby='featured-title'>
       <div class='insights-shell'>
         <a
           class='featured-article'
           href={postUrl(featuredPost)}
-          data-motion-item='project'
-          data-motion-hidden='y-card'
           aria-label={`Ler artigo em destaque: ${featuredPost.title}`}>
           <span class='featured-article__visual' aria-hidden='true'>
             {
@@ -165,14 +163,14 @@ const insightsSchema = [
 
     <section class='insights-list' aria-labelledby='insights-list-title'>
       <div class='insights-shell'>
-        <div data-motion-section='services'>
+        <div>
           <div class='insights-list__header'>
-            <div data-motion-heading data-motion-hidden='y-sm'>
+            <div>
               <p class='insights-eyebrow'>Arquivo</p>
               <h2 id='insights-list-title'>Todos os artigos</h2>
             </div>
 
-            <nav class='insights-filters' aria-label='Filtrar artigos por categoria' data-motion-copy data-motion-hidden='y-sm'>
+            <nav class='insights-filters' aria-label='Filtrar artigos por categoria'>
               {
                 filters.map((filter) => (
                   <button
@@ -194,8 +192,6 @@ const insightsSchema = [
                   href={postUrl(post)}
                   data-insight-card
                   data-insight-category={post.categorySlug}
-                  data-motion-item='service'
-                  data-motion-hidden='y-card'
                   aria-label={`Ler artigo: ${post.title}`}>
                   <span class:list={['insight-card__visual', `is-${post.categorySlug}`]}>
                     {
@@ -237,8 +233,8 @@ const insightsSchema = [
           </p>
         </div>
 
-        <aside class='insights-cta' aria-labelledby='insights-cta-title' data-motion-section='cta' data-motion-panel data-motion-hidden='y-lg'>
-          <div data-motion-heading data-motion-hidden='y-sm'>
+        <aside class='insights-cta' aria-labelledby='insights-cta-title'>
+          <div>
             <p class='insights-eyebrow'>Próximo passo</p>
             <h2 id='insights-cta-title'>Qual é o próximo passo para o seu site?</h2>
             <p>
@@ -247,7 +243,7 @@ const insightsSchema = [
             </p>
           </div>
 
-          <a href={whatsappHref} data-analytics-position='insights_final' target='_blank' rel='noreferrer' data-motion-button data-motion-hidden='y-sm'>
+          <a href={whatsappHref} data-analytics-position='insights_final' target='_blank' rel='noreferrer'>
             Falar no WhatsApp
             <span class='material-symbols-outlined' aria-hidden='true'>arrow_forward</span>
           </a>
@@ -323,7 +319,7 @@ const insightsSchema = [
   .insights-breadcrumb a,
   .featured-article__cta {
     color: var(--muted);
-    transition: color 180ms ease, transform 180ms ease;
+    transition: color 180ms ease;
   }
 
   .insights-breadcrumb a:hover,
@@ -435,7 +431,6 @@ const insightsSchema = [
       0 2.8rem 5.6rem rgba(0, 0, 0, 0.12);
     transition:
       border-color 220ms ease,
-      box-shadow 220ms ease,
       transform 220ms ease,
       background-color 220ms ease;
   }
@@ -455,11 +450,6 @@ const insightsSchema = [
   .insight-card:hover,
   .insight-card:focus-visible {
     border-color: rgba(229, 196, 135, 0.42);
-    box-shadow:
-      inset 0 0 0 1px rgba(255, 255, 255, 0.018),
-      0 1.9rem 3.6rem rgba(0, 0, 0, 0.18),
-      0 3.2rem 6.2rem rgba(0, 0, 0, 0.14);
-    transform: translateY(-0.28rem);
   }
 
   .featured-article__visual {
@@ -499,7 +489,6 @@ const insightsSchema = [
   .featured-article:hover .featured-article__visual img,
   .featured-article:focus-visible .featured-article__visual img {
     filter: saturate(0.96) contrast(1.08);
-    transform: scale(1.04);
   }
 
   .featured-article__screen {
@@ -635,7 +624,10 @@ const insightsSchema = [
     font-weight: 900;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    transition: border-color 180ms ease, background-color 180ms ease, color 180ms ease, transform 180ms ease;
+    transition:
+      border-color 180ms ease,
+      background-color 180ms ease,
+      color 180ms ease;
   }
 
   .insights-filters button[aria-current='true'],
@@ -672,7 +664,6 @@ const insightsSchema = [
     transition:
       border-color 200ms ease,
       transform 200ms ease,
-      box-shadow 200ms ease,
       background-color 200ms ease;
   }
 
@@ -724,7 +715,6 @@ const insightsSchema = [
   .insight-card:hover .insight-card__visual img,
   .insight-card:focus-visible .insight-card__visual img {
     filter: saturate(0.96) contrast(1.06);
-    transform: scale(1.04);
   }
 
   .insight-card__visual::before {
@@ -851,7 +841,6 @@ const insightsSchema = [
   .insights-cta > a:hover,
   .insights-cta > a:focus-visible {
     background: var(--primary);
-    transform: translateY(-2px);
   }
 
   .insights-cta > a:active {
@@ -938,12 +927,9 @@ const insightsSchema = [
 </style>
 
 <script>
-  import gsap from 'gsap';
-
   const insightFilters = document.querySelectorAll('[data-insights-filter]');
   const insightCards = document.querySelectorAll('[data-insight-card]');
   const insightEmpty = document.querySelector('[data-insights-empty]');
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
   const setActiveInsightFilter = (activeFilter) => {
     insightFilters.forEach((filter) => {
@@ -958,8 +944,6 @@ const insightsSchema = [
 
   const filterInsights = (filterValue) => {
     let visibleCount = 0;
-    const visibleCards = [];
-    const hiddenCards = [];
 
     insightCards.forEach((card) => {
       const category = card.getAttribute('data-insight-category');
@@ -967,12 +951,6 @@ const insightsSchema = [
 
       if (card instanceof HTMLElement) {
         card.hidden = !shouldShow;
-
-        if (shouldShow) {
-          visibleCards.push(card);
-        } else {
-          hiddenCards.push(card);
-        }
       }
 
       if (shouldShow) {
@@ -983,28 +961,6 @@ const insightsSchema = [
     if (insightEmpty instanceof HTMLElement) {
       insightEmpty.hidden = visibleCount > 0;
     }
-
-    if (reduceMotion.matches) {
-      gsap.set([...visibleCards, ...hiddenCards], { clearProps: 'all' });
-      return;
-    }
-
-    gsap.killTweensOf([...visibleCards, ...hiddenCards]);
-    gsap.set(visibleCards, {
-      autoAlpha: 0,
-      y: 18,
-      scale: 0.98,
-      willChange: 'transform, opacity',
-    });
-    gsap.to(visibleCards, {
-      autoAlpha: 1,
-      y: 0,
-      scale: 1,
-      duration: 0.46,
-      stagger: 0.055,
-      ease: 'power3.out',
-      clearProps: 'transform,opacity,visibility,willChange',
-    });
   };
 
   insightFilters.forEach((filter) => {

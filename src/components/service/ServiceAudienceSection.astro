@@ -18,21 +18,20 @@ const titleDensity = title.length > 64 ? 'long' : 'default';
   class='service-audience'
   id='para-quem'
   aria-labelledby='audience-title'
-  data-motion-section='audience'
   data-title-density={titleDensity}>
   <div class='service-audience__inner'>
     <div class='service-audience__copy editorial-copy'>
-      <p class='editorial-eyebrow' data-motion-heading data-motion-hidden='y-sm'>{eyebrow}</p>
-      <h2 class='editorial-title' id='audience-title' data-motion-heading data-motion-hidden='y-md'>
+      <p class='editorial-eyebrow'>{eyebrow}</p>
+      <h2 class='editorial-title' id='audience-title'>
         {titleParts[0]}<em>{accent}</em>{titleParts[1]}
       </h2>
-      <p class='editorial-lead' data-motion-copy data-motion-hidden='y-md'>{copy}</p>
+      <p class='editorial-lead'>{copy}</p>
     </div>
 
     <div class='service-audience__grid premium-card-grid'>
       {
         items.map((item) => (
-          <article class='service-audience-card premium-card' data-motion-item='audience' data-motion-hidden='x-left'>
+          <article class='service-audience-card premium-card'>
             <span class='service-audience-card__icon icon-chip' aria-hidden='true'>
               <span class='material-symbols-outlined'>{item.icon}</span>
             </span>
@@ -90,11 +89,6 @@ const titleDensity = title.length > 64 ? 'long' : 'default';
     grid-template-columns: 3.4rem minmax(0, 1fr);
     column-gap: 1.1rem;
     padding: 1.35rem;
-  }
-
-  .service-audience-card:hover,
-  .service-audience-card:focus-within {
-    transform: translateX(0.18rem);
   }
 
   .service-audience-card__icon {

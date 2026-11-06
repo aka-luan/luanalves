@@ -164,9 +164,7 @@ const caseSchema = [
       <div class='case-wrap'>
         <nav
           class='case-breadcrumb'
-          aria-label='Breadcrumb'
-          data-motion-hero-eyebrow
-          data-motion-hidden='y-sm'>
+          aria-label='Breadcrumb'>
           <a href='/'>Início</a>
           <span aria-hidden='true'>/</span>
           <a href='/portfolio/'>Portfólio</a>
@@ -174,21 +172,19 @@ const caseSchema = [
           <span>{project.title}</span>
         </nav>
 
-        <div class='case-hero__meta' data-motion-item='hero-feature' data-motion-hidden='y-sm'>
+        <div class='case-hero__meta'>
           {heroTags.map((tag: string) => <span class='case-tag'>{tag}</span>)}
           <span class='case-hero__year'>· {project.year}</span>
         </div>
 
-        <h1 id='case-title' data-motion-hero-title data-motion-hidden='y-lg'>{project.title}</h1>
-        <p data-motion-hero-copy data-motion-hidden='y-md'>{project.lead}</p>
+        <h1 id='case-title'>{project.title}</h1>
+        <p>{project.lead}</p>
       </div>
     </section>
 
     <section
       class='case-showcase'
-      aria-label={`Captura principal do projeto ${project.title}`}
-      data-motion-item='hero-media'
-      data-motion-hidden='scale'>
+      aria-label={`Captura principal do projeto ${project.title}`}>
       <div class='case-browser'>
         <div class='case-browser__bar' aria-hidden='true'>
           <span class='case-browser__dot case-browser__dot--red'></span>
@@ -216,21 +212,20 @@ const caseSchema = [
 
     <section
       class='case-overview'
-      aria-label='Resumo do projeto'
-      data-motion-section='case-overview'>
-      <div class='case-overview__cell' data-motion-item='case-overview' data-motion-hidden='y-sm'>
+      aria-label='Resumo do projeto'>
+      <div class='case-overview__cell'>
         <span>Cliente</span>
         <strong>{project.client}</strong>
       </div>
-      <div class='case-overview__cell' data-motion-item='case-overview' data-motion-hidden='y-sm'>
+      <div class='case-overview__cell'>
         <span>Segmento</span>
         <strong>{project.segment}</strong>
       </div>
-      <div class='case-overview__cell' data-motion-item='case-overview' data-motion-hidden='y-sm'>
+      <div class='case-overview__cell'>
         <span>Entregue em</span>
         <strong>{project.deliveredAt}</strong>
       </div>
-      <div class='case-overview__cell' data-motion-item='case-overview' data-motion-hidden='y-sm'>
+      <div class='case-overview__cell'>
         <span>Site</span>
         <a href={externalUrl} target='_blank' rel='noreferrer'>
           {project.siteLabel}
@@ -239,8 +234,8 @@ const caseSchema = [
       </div>
     </section>
 
-    <section class='case-body' data-motion-section='case-body'>
-      <div class='case-body__story' data-motion-item='case-story' data-motion-hidden='x-left'>
+    <section class='case-body'>
+      <div class='case-body__story'>
         <p class='case-section-label'>O projeto</p>
 
         <h2>O desafio</h2>
@@ -257,12 +252,12 @@ const caseSchema = [
         )}
       </div>
 
-      <div class='case-body__deliverables' data-motion-item='case-deliverables' data-motion-hidden='x-right'>
+      <div class='case-body__deliverables'>
         <p class='case-section-label'>Entregas</p>
         <ol class='case-deliverables' aria-label='Lista de entregas do projeto'>
           {
             project.deliverables.map((item, index: number) => (
-              <li data-motion-item='case-deliverable' data-motion-hidden='y-sm'>
+              <li>
                 <span aria-hidden='true'>{String(index + 1).padStart(2, '0')}</span>
                 <div>
                   <h3>{item.title}</h3>
@@ -277,15 +272,14 @@ const caseSchema = [
 
     <section
       class='case-gallery'
-      aria-labelledby='case-gallery-title'
-      data-motion-section='case-gallery'>
-      <p class='case-section-label' data-motion-heading data-motion-hidden='y-sm'>Capturas do projeto</p>
-      <h2 id='case-gallery-title' data-motion-heading data-motion-hidden='y-md'>Detalhes visuais da entrega</h2>
+      aria-labelledby='case-gallery-title'>
+      <p class='case-section-label'>Capturas do projeto</p>
+      <h2 id='case-gallery-title'>Detalhes visuais da entrega</h2>
 
       <div class='case-gallery__grid'>
         {
           gallery.map((item) => (
-            <figure class='case-gallery__item' data-motion-item='case-gallery' data-motion-hidden='y-card'>
+            <figure class='case-gallery__item'>
               <span>
                 <img
                   src={item.src}
@@ -305,15 +299,14 @@ const caseSchema = [
 
     <section
       class='case-results'
-      aria-labelledby='case-results-title'
-      data-motion-section='case-results'>
-      <p class='case-section-label' data-motion-heading data-motion-hidden='y-sm'>Entrega</p>
-      <h2 id='case-results-title' data-motion-heading data-motion-hidden='y-md'>Estrutura e recursos do projeto</h2>
+      aria-labelledby='case-results-title'>
+      <p class='case-section-label'>Entrega</p>
+      <h2 id='case-results-title'>Estrutura e recursos do projeto</h2>
 
       <div class='case-results__grid'>
         {
           project.results.map((result) => (
-            <article class='case-result-card' data-motion-item='case-result' data-motion-hidden='y-card'>
+            <article class='case-result-card'>
               <strong>{result.value}</strong>
               <p>{result.label}</p>
             </article>
@@ -341,12 +334,11 @@ const caseSchema = [
       copy={`O projeto ${project.title} é uma referência para nossa conversa. Me conte o que sua empresa faz, o objetivo do site e quando pretende publicar para alinharmos a estrutura e o escopo antes da proposta.`}
       buttonLabel='Conversar pelo WhatsApp'
       analyticsPosition='case_final'
-      motion={false}
     />
 
-    <section class='case-links' aria-labelledby='case-links-title' data-motion-section='case-links'>
-      <p class='case-section-label' data-motion-heading data-motion-hidden='y-sm'>Próximos passos</p>
-      <h2 id='case-links-title' data-motion-heading data-motion-hidden='y-md'>
+    <section class='case-links' aria-labelledby='case-links-title'>
+      <p class='case-section-label'>Próximos passos</p>
+      <h2 id='case-links-title'>
         Conheça o serviço e tire suas dúvidas.
       </h2>
 
@@ -381,12 +373,10 @@ const caseSchema = [
       </div>
     </section>
 
-    <section class='case-next' aria-label='Próximo projeto' data-motion-section='case-next'>
+    <section class='case-next' aria-label='Próximo projeto'>
       <a
         class='case-next__card'
-        href={`/portfolio/${nextProject.slug}/`}
-        data-motion-item='case-next'
-        data-motion-hidden='y-sm'>
+        href={`/portfolio/${nextProject.slug}/`}>
         <span>
           <small>Próximo projeto</small>
           <strong>{nextProject.title}</strong>
@@ -602,7 +592,6 @@ const caseSchema = [
   .case-showcase:hover .case-browser__screen img,
   .case-showcase:focus-within .case-browser__screen img {
     filter: saturate(1.07) contrast(1.06) brightness(1);
-    transform: scale(1.03);
   }
 
   .case-phone {
@@ -847,20 +836,12 @@ const caseSchema = [
       inset 0 0 0 1px rgba(255, 255, 255, 0.014),
       0 1rem 2.2rem rgba(0, 0, 0, 0.12),
       0 2rem 3.8rem rgba(0, 0, 0, 0.08);
-    transition:
-      transform 180ms ease,
-      border-color 180ms ease,
-      box-shadow 180ms ease;
+    transition: border-color 180ms ease;
   }
 
   .case-links__card:hover,
   .case-links__card:focus-visible {
     border-color: rgba(229, 196, 135, 0.32);
-    transform: translateY(-3px);
-    box-shadow:
-      inset 0 0 0 1px rgba(255, 255, 255, 0.018),
-      0 1.4rem 2.8rem rgba(0, 0, 0, 0.14),
-      0 2.6rem 4.8rem rgba(0, 0, 0, 0.1);
   }
 
   .case-links__card small {
@@ -902,10 +883,7 @@ const caseSchema = [
       inset 0 0 0 1px rgba(255, 255, 255, 0.014),
       0 1rem 2.2rem rgba(0, 0, 0, 0.12),
       0 2rem 3.8rem rgba(0, 0, 0, 0.08);
-    transition:
-      transform 180ms ease,
-      border-color 180ms ease,
-      box-shadow 180ms ease;
+    transition: border-color 180ms ease;
   }
 
   .case-gallery__item::before {
@@ -921,11 +899,6 @@ const caseSchema = [
   .case-gallery__item:hover,
   .case-gallery__item:focus-within {
     border-color: rgba(229, 196, 135, 0.24);
-    transform: translateY(-3px);
-    box-shadow:
-      inset 0 0 0 1px rgba(255, 255, 255, 0.018),
-      0 1.4rem 2.8rem rgba(0, 0, 0, 0.14),
-      0 2.6rem 4.8rem rgba(0, 0, 0, 0.1);
   }
 
   .case-gallery__item span {
@@ -945,11 +918,6 @@ const caseSchema = [
     transition:
       transform 260ms ease,
       filter 220ms ease;
-  }
-
-  .case-gallery__item:hover img,
-  .case-gallery__item:focus-within img {
-    transform: scale(1.04);
   }
 
   .case-gallery__item figcaption {
@@ -975,9 +943,7 @@ const caseSchema = [
       0 1rem 2.2rem rgba(0, 0, 0, 0.12),
       0 2rem 3.8rem rgba(0, 0, 0, 0.08);
     transition:
-      transform 180ms ease,
       border-color 180ms ease,
-      box-shadow 180ms ease,
       background-color 180ms ease;
   }
 
@@ -994,11 +960,6 @@ const caseSchema = [
   .case-result-card:hover,
   .case-result-card:focus-within {
     border-color: rgba(229, 196, 135, 0.3);
-    transform: translateY(-3px);
-    box-shadow:
-      inset 0 0 0 1px rgba(255, 255, 255, 0.018),
-      0 1.4rem 2.8rem rgba(0, 0, 0, 0.14),
-      0 2.6rem 4.8rem rgba(0, 0, 0, 0.1);
   }
 
   .case-result-card strong {
@@ -1031,19 +992,13 @@ const caseSchema = [
     transition:
       border-color 180ms ease,
       background-color 180ms ease,
-      transform 180ms ease,
-      box-shadow 180ms ease;
+      transform 180ms ease;
   }
 
   .case-next__card:hover,
   .case-next__card:focus-visible {
     border-color: rgba(229, 196, 135, 0.46);
     background-color: rgba(229, 196, 135, 0.04);
-    transform: translateY(-2px);
-    box-shadow:
-      inset 0 0 0 1px rgba(255, 255, 255, 0.018),
-      0 1.8rem 3.1rem rgba(0, 0, 0, 0.16),
-      0 3rem 5.6rem rgba(0, 0, 0, 0.12);
   }
 
   .case-next__card:active {

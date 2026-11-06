@@ -155,7 +155,7 @@ export function initMobileNav(root: ParentNode = document) {
       menuTween
         .to(mobileNavMenu, {
           height: menuOpenHeight,
-          duration: 0.42,
+          duration: 0.25,
         })
         .to(
           mobileMenuContent,
@@ -197,7 +197,7 @@ export function initMobileNav(root: ParentNode = document) {
         mobileNavMenu,
         {
           height: 0,
-          duration: 0.34,
+          duration: 0.25,
         },
         0,
       );

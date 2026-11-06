@@ -129,15 +129,12 @@ const portfolioSchema = [
     <section class='portfolio-hero' aria-labelledby='portfolio-title' data-motion='hero'>
       <div
         class='portfolio-hero__grid hero-grid'
-        aria-hidden='true'
-        data-motion-glow>
+        aria-hidden='true'>
       </div>
       <div class='portfolio-hero__inner'>
         <nav
           class='portfolio-breadcrumb'
-          aria-label='Breadcrumb'
-          data-motion-hero-eyebrow
-          data-motion-hidden='y-sm'>
+          aria-label='Breadcrumb'>
           <a href='/'>Início</a>
           <span aria-hidden='true'>/</span>
           <span>Portfólio</span>
@@ -147,11 +144,11 @@ const portfolioSchema = [
           <div>
             <div class='portfolio-hero__copy'>
               <h1 id='portfolio-title'>
-                <span data-motion-hero-title data-motion-hidden='y-lg'>
+                <span>
                   Projetos entregues para <span class='portfolio-title-accent'>empresas reais.</span>
                 </span>
               </h1>
-              <p data-motion-hero-copy data-motion-hidden='y-md'>
+              <p>
                 Sites institucionais e blogs profissionais publicados, com link
                 para abrir cada um.
               </p>
@@ -160,7 +157,7 @@ const portfolioSchema = [
             <dl class='portfolio-metrics' aria-label='Números do portfólio'>
               {
                 metrics.map((metric) => (
-                  <div data-motion-item='hero-feature' data-motion-hidden='y-sm'>
+                  <div>
                     <dt>{metric.value}</dt>
                     <dd>{metric.label}</dd>
                   </div>
@@ -172,8 +169,6 @@ const portfolioSchema = [
           <a
             class='portfolio-featured'
             href={`#${featuredProject.id}`}
-            data-motion-item='hero-media'
-            data-motion-hidden='scale'
             aria-label={`Ver projeto em destaque: ${featuredProject.title}`}>
             <span class='portfolio-featured__eyebrow'>Projeto em destaque</span>
             <span class='portfolio-featured__media'>
@@ -202,14 +197,11 @@ const portfolioSchema = [
 
     <section
       class='portfolio-work'
-      data-motion-section='portfolio'
       aria-label='Projetos do portfólio'>
       <div class='portfolio-work__inner'>
         <nav
           class='portfolio-filters'
-          aria-label='Filtrar projetos por tipo'
-          data-motion-heading
-          data-motion-hidden='y-sm'>
+          aria-label='Filtrar projetos por tipo'>
           {
             filters.map((filter) => (
               <button
@@ -236,8 +228,6 @@ const portfolioSchema = [
                   class='portfolio-card'
                   id={project.id}
                   href={`/portfolio/${project.slug}/`}
-                  data-motion-item='project'
-                  data-motion-hidden={index % 2 === 0 ? 'x-left' : 'x-right'}
                   data-portfolio-card
                   data-portfolio-categories={categorySlugs}
                   aria-label={`Ver projeto: ${project.title}`}>
@@ -249,7 +239,6 @@ const portfolioSchema = [
                       height='620'
                       loading={index < 2 ? 'eager' : 'lazy'}
                       decoding='async'
-                      data-motion-image
                     />
                   </div>
 
@@ -287,10 +276,7 @@ const portfolioSchema = [
 
         <aside
           class='portfolio-cta'
-          aria-labelledby='portfolio-cta-title'
-          data-motion-section='cta'
-          data-motion-panel
-          data-motion-hidden='y-lg'>
+          aria-labelledby='portfolio-cta-title'>
           <div>
             <h2 id='portfolio-cta-title'>Tem um projeto em mente?</h2>
             <p>
@@ -458,17 +444,12 @@ const portfolioSchema = [
       inset 0 1px 0 rgba(255, 255, 255, 0.06);
     transition:
       border-color 220ms ease,
-      transform 220ms ease,
-      box-shadow 220ms ease;
+      transform 220ms ease;
   }
 
   .portfolio-featured:hover,
   .portfolio-featured:focus-visible {
     border-color: rgba(229, 196, 135, 0.54);
-    transform: translateY(-0.3rem);
-    box-shadow:
-      0 2rem 5.5rem rgba(0, 0, 0, 0.42),
-      inset 0 1px 0 rgba(255, 255, 255, 0.08);
   }
 
   .portfolio-featured__eyebrow {
@@ -509,15 +490,12 @@ const portfolioSchema = [
     object-position: center top;
     filter: saturate(1.03) contrast(1.04) brightness(0.95);
     transform: scale(1.01);
-    transition:
-      filter 260ms ease,
-      transform 700ms ease;
+    transition: filter 260ms ease;
   }
 
   .portfolio-featured:hover .portfolio-featured__media img,
   .portfolio-featured:focus-visible .portfolio-featured__media img {
     filter: saturate(1.07) contrast(1.06) brightness(1);
-    transform: scale(1.045);
   }
 
   .portfolio-featured__body {
@@ -595,8 +573,7 @@ const portfolioSchema = [
     transition:
       border-color 180ms ease,
       background-color 180ms ease,
-      color 180ms ease,
-      transform 180ms ease;
+      color 180ms ease;
     cursor: pointer;
   }
 
@@ -606,10 +583,6 @@ const portfolioSchema = [
     border-color: rgba(229, 196, 135, 0.58);
     background: rgba(229, 196, 135, 0.08);
     color: var(--primary);
-  }
-
-  .portfolio-filters button:hover {
-    transform: translateY(-2px);
   }
 
   .portfolio-filters button:active {
@@ -657,7 +630,6 @@ const portfolioSchema = [
     transition:
       border-color 200ms ease,
       transform 200ms ease,
-      box-shadow 200ms ease,
       background-color 200ms ease;
   }
 
@@ -678,11 +650,6 @@ const portfolioSchema = [
   .portfolio-card:hover,
   .portfolio-card:focus-visible {
     border-color: rgba(229, 196, 135, 0.42);
-    transform: translateY(-0.3rem);
-    box-shadow:
-      inset 0 0 0 1px rgba(255, 255, 255, 0.018),
-      0 1.8rem 3.2rem rgba(0, 0, 0, 0.16),
-      0 3rem 5.8rem rgba(0, 0, 0, 0.14);
   }
 
   .portfolio-card:active {
@@ -724,7 +691,6 @@ const portfolioSchema = [
   .portfolio-card:hover .portfolio-card__media img,
   .portfolio-card:focus-visible .portfolio-card__media img {
     filter: saturate(1.06) contrast(1.05) brightness(1);
-    transform: scale(1.045);
   }
 
   .portfolio-card__body {
@@ -823,9 +789,7 @@ const portfolioSchema = [
     gap: 0.2rem;
     color: var(--muted);
     font-size: 0.69rem;
-    transition:
-      color 200ms ease,
-      transform 180ms ease;
+    transition: color 200ms ease;
     white-space: nowrap;
   }
 
@@ -891,15 +855,12 @@ const portfolioSchema = [
     letter-spacing: 0.18em;
     text-transform: uppercase;
     white-space: nowrap;
-    transition:
-      background-color 180ms ease,
-      transform 180ms ease;
+    transition: background-color 180ms ease;
   }
 
   .portfolio-cta > a:hover,
   .portfolio-cta > a:focus-visible {
     background: var(--primary);
-    transform: translateY(-2px);
   }
 
   .portfolio-cta .material-symbols-outlined {

@@ -264,7 +264,7 @@ export function initProjectModal({ projects, reduceMotion = false }: InitProject
     }
 
     galleryAutoplay = window.setTimeout(() => {
-      animateGalleryTo(activeGalleryIndex + 1, 1);
+      animateGalleryTo(activeGalleryIndex + 1);
     }, 3000);
   };
 
@@ -329,11 +329,11 @@ export function initProjectModal({ projects, reduceMotion = false }: InitProject
           left: targetRect.left,
           width: targetRect.width,
           height: targetRect.height,
-          duration: 0.62,
+          duration: 0.25,
         },
         0,
       )
-      .to(elements.lightboxShell, { autoAlpha: 1, duration: 0.32 }, 0.14);
+      .to(elements.lightboxShell, { autoAlpha: 1, duration: 0.2 }, 0.05);
   };
 
   const closeLightbox = () => {
@@ -377,7 +377,7 @@ export function initProjectModal({ projects, reduceMotion = false }: InitProject
             left: targetRect.left,
             width: targetRect.width,
             height: targetRect.height,
-            duration: 0.56,
+            duration: 0.25,
           },
           0,
         );
@@ -401,7 +401,7 @@ export function initProjectModal({ projects, reduceMotion = false }: InitProject
     syncGalleryFrame(elements, activeState.project, activeGalleryIndex);
   };
 
-  const animateGalleryTo = (nextIndex: number, direction: 1 | -1) => {
+  const animateGalleryTo = (nextIndex: number) => {
     if (!activeState || !elements.galleryImage) {
       return;
     }
@@ -436,21 +436,16 @@ export function initProjectModal({ projects, reduceMotion = false }: InitProject
 
     galleryTween
       .to(currentImage, {
-        xPercent: direction > 0 ? -8 : 8,
         autoAlpha: 0,
-        duration: 0.3,
+        duration: 0.15,
       })
       .add(() => {
         activeGalleryIndex = targetIndex;
         syncGallery();
-        gsap.set(currentImage, {
-          xPercent: direction > 0 ? 8 : -8,
-        });
       })
       .to(currentImage, {
-        xPercent: 0,
         autoAlpha: 1,
-        duration: 0.46,
+        duration: 0.15,
         ease: "power3.out",
       });
   };
@@ -543,7 +538,7 @@ export function initProjectModal({ projects, reduceMotion = false }: InitProject
           width: originRect.width,
           height: originRect.height,
           borderRadius: 0,
-          duration: 0.64,
+          duration: 0.25,
         },
         0,
       );
@@ -597,7 +592,7 @@ export function initProjectModal({ projects, reduceMotion = false }: InitProject
           {
             autoAlpha: 1,
             y: 0,
-            duration: 0.34,
+            duration: 0.25,
           },
           0.08,
         )
@@ -640,7 +635,7 @@ export function initProjectModal({ projects, reduceMotion = false }: InitProject
           width: heroRect.width,
           height: heroRect.height,
           borderRadius: 0,
-          duration: 0.72,
+          duration: 0.25,
         },
         0,
       )
@@ -649,10 +644,10 @@ export function initProjectModal({ projects, reduceMotion = false }: InitProject
         {
           autoAlpha: 1,
           y: 0,
-          duration: 0.44,
+          duration: 0.25,
           ease: "power2.out",
         },
-        0.18,
+        0.05,
       );
 
     trigger.blur();
@@ -689,13 +684,13 @@ export function initProjectModal({ projects, reduceMotion = false }: InitProject
   });
 
   const handleGalleryPrev = () => {
-    animateGalleryTo(activeGalleryIndex - 1, -1);
+    animateGalleryTo(activeGalleryIndex - 1);
   };
   elements.galleryPrev?.addEventListener("click", handleGalleryPrev);
   cleanupCallbacks.push(() => elements.galleryPrev?.removeEventListener("click", handleGalleryPrev));
 
   const handleGalleryNext = () => {
-    animateGalleryTo(activeGalleryIndex + 1, 1);
+    animateGalleryTo(activeGalleryIndex + 1);
   };
   elements.galleryNext?.addEventListener("click", handleGalleryNext);
   cleanupCallbacks.push(() => elements.galleryNext?.removeEventListener("click", handleGalleryNext));
