@@ -30,7 +30,6 @@ const mobileItems = items.flatMap((item) => [item, ...(item.children ?? [])]);
 const navMotionAttrs = motion
   ? {
       'data-motion-nav': '',
-      'data-motion-hidden': 'nav',
     }
   : {};
 ---
@@ -199,7 +198,7 @@ const navMotionAttrs = motion
 
   .nav-link .material-symbols-outlined {
     font-size: 1rem;
-    transition: transform 180ms ease;
+    transition: transform var(--duration-hover) ease;
   }
 
   .nav-item--has-children:hover .nav-link .material-symbols-outlined,
@@ -223,8 +222,8 @@ const navMotionAttrs = motion
     transform: translate(-50%, -0.35rem);
     backdrop-filter: blur(18px);
     transition:
-      opacity 160ms ease,
-      transform 160ms ease;
+      opacity var(--duration-hover) ease,
+      transform var(--duration-hover) ease;
   }
 
   .nav-submenu::before {
@@ -295,10 +294,10 @@ const navMotionAttrs = motion
       cursor: pointer;
       backdrop-filter: blur(16px);
       transition:
-        border-color 180ms ease,
-        color 180ms ease,
-        transform 180ms ease,
-        background-color 180ms ease;
+        border-color var(--duration-hover) ease,
+        color var(--duration-hover) ease,
+        transform var(--duration-hover) ease,
+        background-color var(--duration-hover) ease;
     }
 
     .nav-toggle-button:hover {
@@ -319,14 +318,14 @@ const navMotionAttrs = motion
       width: 1.3rem;
       height: 1.3rem;
       overflow: visible;
-      transition: transform 0.5s ease-in-out;
+      transition: transform 0.25s ease-in-out;
     }
 
     .nav-toggle-icon__curve,
     .nav-toggle-icon__line {
       transition:
-        stroke-dasharray 0.5s ease-in-out,
-        stroke-dashoffset 0.5s ease-in-out;
+        stroke-dasharray 0.25s ease-in-out,
+        stroke-dashoffset 0.25s ease-in-out;
     }
 
     .nav-toggle-icon__curve {
@@ -395,15 +394,12 @@ const navMotionAttrs = motion
       font-style: italic;
       line-height: 0.95;
       color: var(--muted);
-      transition:
-        color 220ms ease,
-        transform 220ms ease;
+      transition: color var(--duration-hover) ease;
     }
 
     .mobile-menu-link:hover .mobile-menu-copy,
     .mobile-menu-link:focus-visible .mobile-menu-copy {
       color: var(--primary);
-      transform: translateX(0.35rem);
     }
 
     .mobile-menu-link--child {
@@ -441,15 +437,20 @@ const navMotionAttrs = motion
       letter-spacing: 0.24em;
       text-transform: uppercase;
       transition:
-        background-color 220ms ease,
-        color 220ms ease,
-        border-color 220ms ease;
+        transform var(--duration-press) var(--ease-out),
+        background-color var(--duration-hover) ease,
+        color var(--duration-hover) ease,
+        border-color var(--duration-hover) ease;
     }
 
     .mobile-menu-cta:hover {
       background: var(--primary-strong);
       border-color: var(--primary-strong);
       color: var(--primary-ink);
+    }
+
+    .mobile-menu-cta:active {
+      transform: scale(0.96);
     }
 
     .mobile-menu-meta {

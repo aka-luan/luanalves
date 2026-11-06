@@ -510,10 +510,10 @@ const renderInlineLinks = (text: string) => text;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     transition:
-      border-color 180ms ease,
-      background-color 180ms ease,
-      color 180ms ease,
-      transform 180ms ease;
+      border-color var(--duration-hover) ease,
+      background-color var(--duration-hover) ease,
+      color var(--duration-hover) ease,
+      transform var(--duration-hover) ease;
   }
 
   .post-share button:hover,
@@ -635,15 +635,12 @@ const renderInlineLinks = (text: string) => text;
     filter: saturate(0.86) contrast(1.05);
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
     transform: scale(1.01);
-    transition:
-      transform 360ms ease,
-      filter 220ms ease;
+    transition: filter var(--duration-hover) ease;
   }
 
   .post-hero__visual:hover img,
   .post-hero__visual:focus-within img {
     filter: saturate(0.92) contrast(1.07);
-    transform: scale(1.03);
   }
 
   .post-hero__visual::after {
@@ -851,9 +848,8 @@ const renderInlineLinks = (text: string) => text;
     gap: 0.4rem;
     padding: 1rem;
     transition:
-      border-color 180ms ease,
-      transform 180ms ease,
-      box-shadow 180ms ease;
+      border-color var(--duration-hover) ease,
+      box-shadow var(--duration-hover) ease;
   }
 
   .post-links a:hover,
@@ -861,11 +857,6 @@ const renderInlineLinks = (text: string) => text;
   .related-card:hover,
   .related-card:focus-visible {
     border-color: rgba(229, 196, 135, 0.42);
-    transform: translateY(-0.18rem);
-    box-shadow:
-      inset 0 0 0 1px rgba(255, 255, 255, 0.018),
-      0 1.4rem 2.8rem rgba(0, 0, 0, 0.14),
-      0 2.6rem 4.8rem rgba(0, 0, 0, 0.1);
   }
 
   .post-links a:active,
@@ -987,11 +978,10 @@ const renderInlineLinks = (text: string) => text;
     font-weight: 800;
     line-height: 1;
     transition:
-      border-color 180ms ease,
-      background-color 180ms ease,
-      color 180ms ease,
-      transform 180ms ease,
-      box-shadow 180ms ease;
+      border-color var(--duration-hover) ease,
+      background-color var(--duration-hover) ease,
+      color var(--duration-hover) ease,
+      transform var(--duration-hover) ease;
   }
 
   .author-card__action .material-symbols-outlined,
@@ -1006,10 +996,6 @@ const renderInlineLinks = (text: string) => text;
     border-color: rgba(229, 196, 135, 0.34);
     background: rgba(255, 255, 255, 0.035);
     color: var(--text);
-    transform: translateY(-1px);
-    box-shadow:
-      inset 0 0 0 1px rgba(255, 255, 255, 0.018),
-      0 1rem 2rem rgba(0, 0, 0, 0.1);
   }
 
   .author-card__action:active,
@@ -1115,7 +1101,6 @@ const renderInlineLinks = (text: string) => text;
   .post-whatsapp:focus-visible {
     background: var(--primary);
     color: var(--primary-ink);
-    transform: translateY(-2px);
   }
 
   .related-section {
@@ -1145,9 +1130,9 @@ const renderInlineLinks = (text: string) => text;
     min-height: 13rem;
     padding: 1rem;
     transition:
-      border-color 180ms ease,
-      transform 180ms ease,
-      box-shadow 180ms ease;
+      border-color var(--duration-hover) ease,
+      transform var(--duration-hover) ease,
+      box-shadow var(--duration-hover) ease;
   }
 
   .related-card::after,
@@ -1162,8 +1147,8 @@ const renderInlineLinks = (text: string) => text;
     line-height: 1;
     opacity: 0.72;
     transition:
-      transform 180ms ease,
-      opacity 180ms ease;
+      transform var(--duration-hover) ease,
+      opacity var(--duration-hover) ease;
   }
 
   .related-card h3 {
@@ -1178,12 +1163,18 @@ const renderInlineLinks = (text: string) => text;
     line-height: 1.65;
   }
 
-  .related-card:hover::after,
   .related-card:focus-visible::after,
-  .post-links a:hover::after,
   .post-links a:focus-visible::after {
     transform: translate(1px, -1px);
     opacity: 1;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .related-card:hover::after,
+    .post-links a:hover::after {
+      transform: translate(1px, -1px);
+      opacity: 1;
+    }
   }
 
   @media (max-width: 980px) {

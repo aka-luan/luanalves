@@ -62,7 +62,7 @@ const whatsappHref =
       </div>
     </section>
 
-    <SiteFooter motion={false} />
+    <SiteFooter />
   </main>
 </BaseLayout>
 
@@ -169,15 +169,12 @@ const whatsappHref =
     font-weight: 700;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    transition:
-      color 180ms ease,
-      transform 180ms ease;
+    transition: color var(--duration-hover) ease;
   }
 
   .not-found__links a:hover,
   .not-found__links a:focus-visible {
     color: var(--primary);
-    transform: translateX(0.15rem);
   }
 
   @media (max-width: 767px) {

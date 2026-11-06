@@ -1,9 +1,4 @@
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
 type Cleanup = () => void;
-
-gsap.registerPlugin(ScrollTrigger);
 
 function getShareUrl(root: ParentNode) {
   const canonical = document.querySelector<HTMLLinkElement>(
@@ -24,162 +19,6 @@ function setProgress(progressBar: HTMLElement) {
   const progress = Math.min(Math.max(scrollTop / maxScroll, 0), 1);
 
   progressBar.style.transform = `scaleX(${progress})`;
-}
-
-function revealNow(elements: Element[]) {
-  elements.forEach((element) => {
-    gsap.set(element, {
-      autoAlpha: 1,
-      x: 0,
-      y: 0,
-      scale: 1,
-      rotationX: 0,
-      clearProps: 'transform,opacity,visibility,willChange',
-    });
-  });
-}
-
-function initInsightMotion(page: HTMLElement, reduceMotion: MediaQueryList) {
-  const html = document.documentElement;
-  const breadcrumb = page.querySelector<HTMLElement>('.post-breadcrumb');
-  const heroEyebrow = page.querySelector<HTMLElement>(
-    '.post-hero .post-eyebrow',
-  );
-  const heroTitle = page.querySelector<HTMLElement>('.post-hero h1');
-  const heroCopy = page.querySelector<HTMLElement>(
-    '.post-hero__copy > p:not(.post-eyebrow)',
-  );
-  const heroMeta = Array.from(page.querySelectorAll('.post-meta span'));
-  const heroVisual = page.querySelector<HTMLElement>('.post-hero__visual');
-  const heroImage = page.querySelector<HTMLElement>('.post-hero__visual img');
-  const articleBlocks = Array.from(
-    page.querySelectorAll(
-      '.post-content > :is(h2, h3, p, ul, ol, blockquote, figure, .post-links)',
-    ),
-  );
-  const sidebarItems = Array.from(
-    page.querySelectorAll('.post-sidebar__panel, .post-whatsapp'),
-  );
-  const authorCard = page.querySelector<HTMLElement>('.author-card');
-  const relatedHeader = Array.from(
-    page.querySelectorAll('.related-section__header > *'),
-  );
-  const relatedCards = Array.from(page.querySelectorAll('.related-card'));
-  const allTargets = [
-    breadcrumb,
-    heroEyebrow,
-    heroTitle,
-    heroCopy,
-    ...heroMeta,
-    heroVisual,
-    heroImage,
-    ...articleBlocks,
-    ...sidebarItems,
-    authorCard,
-    ...relatedHeader,
-    ...relatedCards,
-  ].filter((element): element is Element => Boolean(element));
-
-  if (!html.classList.contains('motion-enabled') || reduceMotion.matches) {
-    revealNow(allTargets);
-    return () => {};
-  }
-
-  const context = gsap.context(() => {
-    // The article hero is visible from HTML and must stay visible during boot.
-    const belowViewport = (element: Element) =>
-      element.getBoundingClientRect().top >= window.innerHeight;
-    gsap.set(sidebarItems.filter(belowViewport), {
-      autoAlpha: 0, x: 24, willChange: 'transform, opacity',
-    });
-    if (authorCard && belowViewport(authorCard)) {
-      gsap.set(authorCard, { autoAlpha: 0, y: 30, willChange: 'transform, opacity' });
-    }
-    gsap.set([...relatedHeader, ...relatedCards].filter(belowViewport), {
-      autoAlpha: 0, y: 30, willChange: 'transform, opacity',
-    });
-
-    if (heroVisual && heroImage) {
-      gsap.to(heroImage, {
-        yPercent: -4,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: heroVisual,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: 1.1,
-        },
-      });
-    }
-
-    // ScrollTrigger.batch(articleBlocks, {
-    //   start: 'top 86%',
-    //   once: true,
-    //   onEnter: (batch) => {
-    //     gsap.to(batch, {
-    //       autoAlpha: 1,
-    //       y: 0,
-    //       duration: 0.72,
-    //       stagger: 0.07,
-    //       ease: 'power3.out',
-    //       clearProps: 'transform,opacity,visibility,willChange',
-    //     });
-    //   },
-    // });
-
-    if (sidebarItems.length) {
-      gsap.to(sidebarItems, {
-        autoAlpha: 1,
-        x: 0,
-        duration: 0.72,
-        stagger: 0.08,
-        ease: 'power3.out',
-        clearProps: 'transform,opacity,visibility,willChange',
-        scrollTrigger: {
-          trigger: page.querySelector('.post-layout'),
-          start: 'top 78%',
-          once: true,
-        },
-      });
-    }
-
-    if (authorCard) {
-      gsap.to(authorCard, {
-        autoAlpha: 1,
-        y: 0,
-        duration: 0.78,
-        ease: 'power3.out',
-        clearProps: 'transform,opacity,visibility,willChange',
-        scrollTrigger: {
-          trigger: authorCard,
-          start: 'top 88%',
-          once: true,
-        },
-      });
-    }
-
-    if (relatedHeader.length || relatedCards.length) {
-      gsap.to([...relatedHeader, ...relatedCards], {
-        autoAlpha: 1,
-        y: 0,
-        duration: 0.74,
-        stagger: 0.08,
-        ease: 'power3.out',
-        clearProps: 'transform,opacity,visibility,willChange',
-        scrollTrigger: {
-          trigger: page.querySelector('.related-section'),
-          start: 'top 82%',
-          once: true,
-        },
-      });
-    }
-  }, page);
-
-  ScrollTrigger.refresh();
-
-  return () => {
-    context.revert();
-  };
 }
 
 export function initInsightPost(root: ParentNode = document): Cleanup {
@@ -207,8 +46,6 @@ export function initInsightPost(root: ParentNode = document): Cleanup {
   );
   const cleanups: Cleanup[] = [];
   let frame = 0;
-
-  cleanups.push(initInsightMotion(page, reduceMotion));
 
   if (progressBar) {
     const updateProgress = () => {

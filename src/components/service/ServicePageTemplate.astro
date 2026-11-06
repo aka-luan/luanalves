@@ -44,7 +44,6 @@ const relatedInsights = getCuratedInsights(page.relatedInsightSlugs);
       accent={page.benefits.accent}
       copy={page.benefits.copy}
       items={page.benefits.items}
-      motionName='benefits'
     />
 
     <ServiceProof proof={page.proof} />
@@ -56,7 +55,6 @@ const relatedInsights = getCuratedInsights(page.relatedInsightSlugs);
       accent={page.included.accent}
       copy={page.included.copy}
       items={page.included.items}
-      motionName='included'
     />
 
     <HomeCta
@@ -66,7 +64,6 @@ const relatedInsights = getCuratedInsights(page.relatedInsightSlugs);
       title='Esse formato faz sentido para sua empresa?'
       copy='Me conte o objetivo, as páginas necessárias e a data desejada. Vamos alinhar a entrega base e as extensões antes da proposta.'
       buttonLabel='Conversar sobre o escopo'
-      motion={false}
     />
 
     <section class='service-summary section' id='para-quem' aria-labelledby='audience-title'>
@@ -337,19 +334,12 @@ const relatedInsights = getCuratedInsights(page.relatedInsightSlugs);
     box-shadow:
       inset 0 0 0 1px rgba(255, 255, 255, 0.012),
       0 22px 52px rgba(0, 0, 0, 0.16);
-    transition:
-      border-color 180ms ease,
-      transform 180ms ease,
-      box-shadow 180ms ease;
+    transition: border-color var(--duration-hover) ease;
   }
 
   .service-reading__card:hover,
   .service-reading__card:focus-visible {
     border-color: rgba(229, 196, 135, 0.42);
-    transform: translateY(-3px);
-    box-shadow:
-      inset 0 0 0 1px rgba(255, 255, 255, 0.018),
-      0 28px 60px rgba(0, 0, 0, 0.2);
   }
 
   .service-reading__badge,

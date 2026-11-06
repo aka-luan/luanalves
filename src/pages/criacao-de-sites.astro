@@ -240,7 +240,7 @@ const creationServiceSchema = [
       class='creation-hero'
       aria-labelledby='creation-hero-title'
       data-motion='hero'>
-      <div class='creation-hero__glow' aria-hidden='true' data-motion-glow>
+      <div class='creation-hero__glow' aria-hidden='true'>
       </div>
       <div class='creation-hero__grain' aria-hidden='true'></div>
 
@@ -249,35 +249,29 @@ const creationServiceSchema = [
           <Breadcrumbs items={breadcrumbItems} />
 
           <h1
-            id='creation-hero-title'
-            data-motion-hero-title
-            data-motion-hidden='y-lg'>
+            id='creation-hero-title'>
             Seu site precisa
             <em>facilitar o contato.</em>
           </h1>
 
           <p
-            class='creation-lead editorial-lead'
-            data-motion-hero-copy
-            data-motion-hidden='y-md'>
+            class='creation-lead editorial-lead'>
             Crio sites institucionais, blogs e landing pages para empresas que
             querem apresentar serviços com clareza e receber pedidos de
             orçamento pelo WhatsApp.
           </p>
 
-          <div class='creation-actions' data-motion-hero-actions>
+          <div class='creation-actions'>
             <a
               class='creation-button shared-button shared-button--solid'
               href={whatsappHref} data-analytics-position="service_hero"
               target='_blank'
-              rel='noreferrer'
-              data-motion-hidden='y-sm'>
+              rel='noreferrer'>
               Solicitar orçamento
             </a>
             <a
               class='creation-button shared-button shared-button--outline'
-              href='/portfolio/'
-              data-motion-hidden='y-sm'>
+              href='/portfolio/'>
               Ver projetos
             </a>
           </div>
@@ -286,9 +280,7 @@ const creationServiceSchema = [
             {
               featureItems.map((item) => (
                 <article
-                  class='creation-feature'
-                  data-motion-item='hero-feature'
-                  data-motion-hidden='y-sm'>
+                  class='creation-feature'>
                   <span
                     class='creation-feature__icon icon-chip'
                     aria-hidden='true'>
@@ -303,9 +295,7 @@ const creationServiceSchema = [
 
         <div
           class='creation-hero__media'
-          aria-hidden='true'
-          data-motion-item='hero-media'
-          data-motion-hidden='scale'>
+          aria-hidden='true'>
           <div class='creation-orbit'></div>
           <img
             src='/assets/criacao-de-sites-hero-img.webp'
@@ -322,29 +312,24 @@ const creationServiceSchema = [
     <section
       class='solutions-section'
       id='solucoes'
-      aria-labelledby='solutions-title'
-      data-motion-section='services'>
+      aria-labelledby='solutions-title'>
       <div class='solutions-section__glow' aria-hidden='true'></div>
 
       <div class='solutions-section__inner'>
         <div class='solutions-copy editorial-copy editorial-copy--center'>
           <p
-            class='creation-eyebrow results-eyebrow editorial-eyebrow'
-            data-motion-heading
-            data-motion-hidden='y-sm'>
+            class='creation-eyebrow results-eyebrow editorial-eyebrow'>
             Soluções
           </p>
 
           <h2
             class='editorial-title editorial-title--compact'
-            id='solutions-title'
-            data-motion-heading
-            data-motion-hidden='y-md'>
+            id='solutions-title'>
             <span>Três formatos,</span>
             <em>conforme o objetivo.</em>
           </h2>
 
-          <p data-motion-copy data-motion-hidden='y-md'>
+          <p>
             O formato depende do que o site precisa fazer: apresentar a empresa,
             sustentar uma campanha ou publicar conteúdo.
           </p>
@@ -354,9 +339,7 @@ const creationServiceSchema = [
           {
             solutionItems.map((item) => (
               <article
-                class='solution-card'
-                data-motion-item='service'
-                data-motion-hidden='y-card'>
+                class='solution-card'>
                 <div class='solution-card__browser' aria-hidden='true'>
                   <span />
                   <span />
@@ -405,9 +388,7 @@ const creationServiceSchema = [
         </div>
 
         <p
-          class='solutions-note'
-          data-motion-item='service'
-          data-motion-hidden='y-sm'>
+          class='solutions-note'>
           <span class='material-symbols-outlined' aria-hidden='true'>
             check_circle
           </span>
@@ -458,33 +439,26 @@ const creationServiceSchema = [
     <section
       class='results-section'
       id='resultados'
-      aria-labelledby='results-title'
-      data-motion-section='results'>
+      aria-labelledby='results-title'>
       <div class='results-section__glow' aria-hidden='true'></div>
 
       <div class='results-section__inner'>
         <div class='results-copy editorial-copy'>
           <p
-            class='creation-eyebrow results-eyebrow editorial-eyebrow'
-            data-motion-heading
-            data-motion-hidden='y-sm'>
+            class='creation-eyebrow results-eyebrow editorial-eyebrow'>
             Entrega
           </p>
 
           <h2
             class='editorial-title'
-            id='results-title'
-            data-motion-heading
-            data-motion-hidden='y-md'>
+            id='results-title'>
             <span>O que o site</span>
             <span>precisa <em>fazer</em></span>
             <em>pela sua empresa.</em>
           </h2>
 
           <p
-            class='results-lead editorial-lead'
-            data-motion-copy
-            data-motion-hidden='y-md'>
+            class='results-lead editorial-lead'>
             O site precisa carregar bem no celular, estar preparado para
             indexação no Google e levar o visitante ao WhatsApp em poucos
             toques.
@@ -493,9 +467,7 @@ const creationServiceSchema = [
 
         <div
           class='results-media'
-          aria-hidden='true'
-          data-motion-item='visual'
-          data-motion-hidden='scale'>
+          aria-hidden='true'>
           <img
             src='/assets/resultados-img.webp'
             alt=''
@@ -510,9 +482,7 @@ const creationServiceSchema = [
           {
             resultCards.map((item) => (
               <article
-                class='results-card'
-                data-motion-item='result'
-                data-motion-hidden='y-card'>
+                class='results-card'>
                 <div class='results-card__head'>
                   <span class='results-card__number'>{item.number}</span>
                   <span class='results-card__rule' aria-hidden='true' />
@@ -542,32 +512,25 @@ const creationServiceSchema = [
     <section
       class='process-section'
       id='processo'
-      aria-labelledby='process-title'
-      data-motion-section='process'>
+      aria-labelledby='process-title'>
       <div class='process-section__glow' aria-hidden='true'></div>
 
       <div class='process-section__inner'>
         <div class='process-copy editorial-copy'>
           <p
-            class='creation-eyebrow process-eyebrow editorial-eyebrow'
-            data-motion-heading
-            data-motion-hidden='y-sm'>
+            class='creation-eyebrow process-eyebrow editorial-eyebrow'>
             Processo
           </p>
 
           <h2
             class='editorial-title'
-            id='process-title'
-            data-motion-heading
-            data-motion-hidden='y-md'>
+            id='process-title'>
             <span>Como funciona</span>
             <span><em>a criação</em> do seu site</span>
           </h2>
 
           <p
-            class='process-lead editorial-lead'
-            data-motion-copy
-            data-motion-hidden='y-md'>
+            class='process-lead editorial-lead'>
             Defino a estrutura antes do design para evitar refazer páginas no
             meio do projeto.
           </p>
@@ -577,9 +540,7 @@ const creationServiceSchema = [
           {
             processSteps.map((item) => (
               <article
-                class='process-step'
-                data-motion-item='process'
-                data-motion-hidden='x-left'>
+                class='process-step'>
                 <span class='process-step__number'>{item.number}</span>
                 <span class='process-step__marker' aria-hidden='true'>
                   <span />
@@ -595,9 +556,7 @@ const creationServiceSchema = [
 
         <div
           class='process-media'
-          aria-hidden='true'
-          data-motion-item='visual'
-          data-motion-hidden='scale'>
+          aria-hidden='true'>
           <img
             src='/assets/processo-img.webp'
             alt=''
@@ -613,37 +572,30 @@ const creationServiceSchema = [
     <section
       class='included-section'
       id='incluso'
-      aria-labelledby='included-title'
-      data-motion-section='included'>
+      aria-labelledby='included-title'>
       <div class='included-section__glow' aria-hidden='true'></div>
 
       <div class='included-section__inner'>
         <div class='included-copy editorial-copy'>
           <p
-            class='creation-eyebrow included-eyebrow editorial-eyebrow'
-            data-motion-heading
-            data-motion-hidden='y-sm'>
+            class='creation-eyebrow included-eyebrow editorial-eyebrow'>
             Incluso
           </p>
 
           <h2
             class='editorial-title'
-            id='included-title'
-            data-motion-heading
-            data-motion-hidden='y-md'>
+            id='included-title'>
             <span>O que está incluso</span>
             <em>no projeto.</em>
           </h2>
 
           <p
-            class='included-lead editorial-lead'
-            data-motion-copy
-            data-motion-hidden='y-md'>
+            class='included-lead editorial-lead'>
             A entrega base combina arquitetura, conteúdo fornecido, design,
             desenvolvimento, SEO técnico, performance e caminhos para contato.
             As páginas e seções são definidas na proposta.
           </p>
-          <p class='editorial-lead' data-motion-copy data-motion-hidden='y-md'>
+          <p class='editorial-lead'>
             {projectExtensionsCopy}
           </p>
         </div>
@@ -652,9 +604,7 @@ const creationServiceSchema = [
           {
             includedItems.map((item) => (
               <article
-                class='included-card'
-                data-motion-item='included'
-                data-motion-hidden='y-card'>
+                class='included-card'>
                 <span class='included-card__icon' aria-hidden='true'>
                   <span class='material-symbols-outlined'>{item.icon}</span>
                 </span>
@@ -668,9 +618,7 @@ const creationServiceSchema = [
 
         <div
           class='included-media'
-          aria-hidden='true'
-          data-motion-item='visual'
-          data-motion-hidden='scale'>
+          aria-hidden='true'>
           <div class='included-orbit'></div>
           <img
             src='/assets/incluso-img.webp'
@@ -687,32 +635,25 @@ const creationServiceSchema = [
     <section
       class='differentials-section'
       id='diferenciais'
-      aria-labelledby='differentials-title'
-      data-motion-section='differentials'>
+      aria-labelledby='differentials-title'>
       <div class='differentials-section__glow' aria-hidden='true'></div>
 
       <div class='differentials-section__inner'>
         <div class='differentials-content'>
           <div class='differentials-copy editorial-copy'>
             <p
-              class='creation-eyebrow differentials-eyebrow editorial-eyebrow'
-              data-motion-heading
-              data-motion-hidden='y-sm'>
+              class='creation-eyebrow differentials-eyebrow editorial-eyebrow'>
               Diferenciais
             </p>
 
             <h2
-              id='differentials-title'
-              data-motion-heading
-              data-motion-hidden='y-md'>
+              id='differentials-title'>
               <span>Por que trabalhar</span>
               <span><em>diretamente</em> comigo.</span>
             </h2>
 
             <p
-              class='differentials-lead editorial-lead'
-              data-motion-copy
-              data-motion-hidden='y-md'>
+              class='differentials-lead editorial-lead'>
               Você fala com quem planeja, desenha e desenvolve o site, sem
               intermediários.
             </p>
@@ -722,9 +663,7 @@ const creationServiceSchema = [
             {
               differentialItems.map((item) => (
                 <article
-                  class='differential-card'
-                  data-motion-item='differential'
-                  data-motion-hidden='y-card'>
+                  class='differential-card'>
                   <span class='differential-card__icon' aria-hidden='true'>
                     <span class='material-symbols-outlined'>{item.icon}</span>
                   </span>
@@ -739,9 +678,7 @@ const creationServiceSchema = [
 
         <div
           class='differentials-media'
-          aria-hidden='true'
-          data-motion-item='visual'
-          data-motion-hidden='scale'>
+          aria-hidden='true'>
           <span class='differentials-orbit'></span>
           <img
             src='/assets/diferenciais-img.webp'
@@ -855,9 +792,7 @@ const creationServiceSchema = [
     display: inline-flex;
     align-items: center;
     color: rgba(229, 218, 207, 0.78);
-    transition:
-      color 180ms ease,
-      transform 180ms ease;
+    transition: color var(--duration-hover) ease;
   }
 
   .creation-nav-links a,
@@ -869,7 +804,6 @@ const creationServiceSchema = [
   .creation-nav-links a:hover,
   .creation-nav-links a:focus-visible {
     color: #e5c487;
-    transform: translateY(-1px);
   }
 
   .creation-nav-cta {
@@ -880,10 +814,9 @@ const creationServiceSchema = [
     border: 1px solid rgba(229, 218, 207, 0.2);
     color: #f4f1ee;
     transition:
-      border-color 180ms ease,
-      color 180ms ease,
-      background-color 180ms ease,
-      transform 180ms ease;
+      border-color var(--duration-hover) ease,
+      color var(--duration-hover) ease,
+      background-color var(--duration-hover) ease;
   }
 
   .creation-nav-cta:hover,
@@ -891,7 +824,6 @@ const creationServiceSchema = [
     border-color: rgba(229, 196, 135, 0.55);
     background: rgba(229, 196, 135, 0.06);
     color: #e5c487;
-    transform: translateY(-1px);
   }
 
   .creation-hero {
@@ -1032,16 +964,10 @@ const creationServiceSchema = [
     color: #f5f2ef;
     white-space: nowrap;
     transition:
-      transform 180ms ease,
-      border-color 180ms ease,
-      color 180ms ease,
-      background-color 180ms ease,
-      box-shadow 180ms ease;
-  }
-
-  .creation-button:hover,
-  .creation-button:focus-visible {
-    transform: translateY(-2px);
+      transform var(--duration-hover) ease,
+      border-color var(--duration-hover) ease,
+      color var(--duration-hover) ease,
+      background-color var(--duration-hover) ease;
   }
 
   .creation-button:active {
@@ -1059,7 +985,6 @@ const creationServiceSchema = [
   .creation-button--solid:hover,
   .creation-button--solid:focus-visible {
     background: linear-gradient(180deg, #f0d899, #dab56f);
-    box-shadow: 0 24px 52px rgba(207, 169, 103, 0.22);
   }
 
   .creation-button--outline:hover,
@@ -1278,10 +1203,8 @@ const creationServiceSchema = [
       0 1.4rem 2.8rem rgba(0, 0, 0, 0.16),
       0 2.8rem 5.4rem rgba(0, 0, 0, 0.12);
     transition:
-      transform 180ms ease,
-      border-color 180ms ease,
-      box-shadow 180ms ease,
-      background-color 180ms ease;
+      border-color var(--duration-hover) ease,
+      background-color var(--duration-hover) ease;
   }
 
   .solution-card::before {
@@ -1301,15 +1224,10 @@ const creationServiceSchema = [
 
   .solution-card:hover,
   .solution-card:focus-within {
-    transform: translateY(-4px);
     border-color: rgba(229, 196, 135, 0.24);
     background:
       linear-gradient(180deg, rgba(255, 255, 255, 0.048), transparent 34%),
       rgba(18, 18, 17, 0.82);
-    box-shadow:
-      inset 0 0 0 1px rgba(255, 255, 255, 0.02),
-      0 1.8rem 3.4rem rgba(0, 0, 0, 0.18),
-      0 3.4rem 6.2rem rgba(0, 0, 0, 0.16);
   }
 
   .solution-card__browser {
@@ -1417,12 +1335,17 @@ const creationServiceSchema = [
 
   .segments-section__list .material-symbols-outlined {
     color: #dfbd79;
-    transition: transform 180ms ease;
+    transition: transform var(--duration-hover) ease;
   }
 
-  .segments-section__list a:hover .material-symbols-outlined,
   .segments-section__list a:focus-visible .material-symbols-outlined {
     transform: translate(0.25rem, -0.25rem);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .segments-section__list a:hover .material-symbols-outlined {
+      transform: translate(0.25rem, -0.25rem);
+    }
   }
 
   @media (max-width: 860px) {
@@ -1476,16 +1399,15 @@ const creationServiceSchema = [
     filter: saturate(0.82) contrast(1.04);
     transform: scale(1.01);
     transition:
-      transform 220ms ease,
-      opacity 220ms ease,
-      filter 220ms ease;
+      transform var(--duration-hover) ease,
+      opacity var(--duration-hover) ease,
+      filter var(--duration-hover) ease;
   }
 
   .solution-card:hover .solution-card__media img,
   .solution-card:focus-within .solution-card__media img {
     opacity: 0.8;
     filter: saturate(0.9) contrast(1.06);
-    transform: scale(1.04);
   }
 
   .solution-card__body {
@@ -1574,22 +1496,27 @@ const creationServiceSchema = [
     margin-top: 1.5rem;
     padding-inline: 0.95rem 0.82rem;
     transition:
-      transform 180ms ease,
-      border-color 180ms ease,
-      background-color 180ms ease,
-      color 180ms ease;
+      transform var(--duration-hover) ease,
+      border-color var(--duration-hover) ease,
+      background-color var(--duration-hover) ease,
+      color var(--duration-hover) ease;
   }
 
   .solution-card__cta .material-symbols-outlined {
     font-size: 1rem;
     transition:
-      transform 180ms ease,
-      opacity 180ms ease;
+      transform var(--duration-hover) ease,
+      opacity var(--duration-hover) ease;
   }
 
-  .solution-card__cta:hover .material-symbols-outlined,
   .solution-card__cta:focus-visible .material-symbols-outlined {
     transform: translate(1px, -1px);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .solution-card__cta:hover .material-symbols-outlined {
+      transform: translate(1px, -1px);
+    }
   }
 
   .solution-card__cta:active {
@@ -3142,18 +3069,13 @@ const creationServiceSchema = [
       inset 0 0 0 1px rgba(255, 255, 255, 0.012),
       0 28px 62px rgba(0, 0, 0, 0.18);
     transition:
-      border-color 220ms ease,
-      transform 220ms ease,
-      box-shadow 220ms ease;
+      border-color var(--duration-hover) ease,
+      transform var(--duration-hover) ease;
   }
 
   .portfolio-card:hover,
   .portfolio-card:focus-visible {
     border-color: rgba(229, 196, 135, 0.48);
-    transform: translateY(-0.35rem);
-    box-shadow:
-      inset 0 0 0 1px rgba(255, 255, 255, 0.018),
-      0 34px 72px rgba(0, 0, 0, 0.24);
   }
 
   .portfolio-card:active {
@@ -3191,16 +3113,14 @@ const creationServiceSchema = [
     filter: saturate(1.04) contrast(1.04) brightness(1.06);
     transform: scale(1.01);
     transition:
-      opacity 260ms ease,
-      filter 260ms ease,
-      transform 700ms ease;
+      opacity var(--duration-hover) ease,
+      filter var(--duration-hover) ease;
   }
 
   .portfolio-card:hover .portfolio-card__media img,
   .portfolio-card:focus-visible .portfolio-card__media img {
     opacity: 1;
     filter: saturate(1.08) contrast(1.06) brightness(1.08);
-    transform: scale(1.055);
   }
 
   .portfolio-card__meta {
@@ -3250,14 +3170,19 @@ const creationServiceSchema = [
     font-feature-settings: 'liga';
     -webkit-font-feature-settings: 'liga';
     -webkit-font-smoothing: antialiased;
-    transition: transform 220ms ease;
+    transition: transform var(--duration-hover) ease;
   }
 
-  .portfolio-card:hover .portfolio-card__arrow,
   .portfolio-card:focus-visible .portfolio-card__arrow,
-  .portfolio-more:hover .material-symbols-outlined,
   .portfolio-more:focus-visible .material-symbols-outlined {
     transform: translate(0.16rem, -0.16rem);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .portfolio-card:hover .portfolio-card__arrow,
+    .portfolio-more:hover .material-symbols-outlined {
+      transform: translate(0.16rem, -0.16rem);
+    }
   }
 
   .portfolio-more {
@@ -3276,16 +3201,15 @@ const creationServiceSchema = [
     letter-spacing: 0.28em;
     text-transform: uppercase;
     transition:
-      border-color 180ms ease,
-      background-color 180ms ease,
-      transform 180ms ease;
+      border-color var(--duration-hover) ease,
+      background-color var(--duration-hover) ease,
+      transform var(--duration-hover) ease;
   }
 
   .portfolio-more:hover,
   .portfolio-more:focus-visible {
     border-color: rgba(229, 196, 135, 0.5);
     background: rgba(229, 196, 135, 0.055);
-    transform: translateY(-2px);
   }
 
   .creation-contact {

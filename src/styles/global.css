@@ -16,6 +16,9 @@
   --shadow: 0 32px 80px rgba(0, 0, 0, 0.28);
   --shadow-soft: 0 1px 0 rgba(255, 255, 255, 0.03), 0 18px 42px rgba(0, 0, 0, 0.22);
   --container: min(1120px, calc(100vw - 3rem));
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --duration-hover: 180ms;
+  --duration-press: 160ms;
 }
 
 * {
@@ -117,15 +120,10 @@ a:focus-visible {
 }
 
 .hero-grid {
-  --grid-shift-x: 0px;
-  --grid-shift-y: 0px;
   background-image:
     linear-gradient(to right, rgba(77, 70, 58, 0.08) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(77, 70, 58, 0.08) 1px, transparent 1px);
   background-size: 40px 40px;
-  background-position:
-    var(--grid-shift-x) var(--grid-shift-y),
-    var(--grid-shift-x) var(--grid-shift-y);
 }
 
 .site-nav {
@@ -156,9 +154,9 @@ a:focus-visible {
   box-shadow: var(--nav-shadow);
   backdrop-filter: blur(var(--nav-blur));
   transition:
-    background-color 220ms ease,
-    border-color 220ms ease,
-    box-shadow 220ms ease;
+    background-color var(--duration-hover) ease,
+    border-color var(--duration-hover) ease,
+    box-shadow var(--duration-hover) ease;
 }
 
 .site-nav.is-scrolled {
@@ -214,15 +212,12 @@ a:focus-visible {
   font-weight: 600;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  transition:
-    color 180ms ease,
-    transform 180ms ease;
+  transition: color var(--duration-hover) ease;
 }
 
 .nav-links a:hover,
 .footer-links a:hover {
   color: var(--primary);
-  transform: translateX(0.18rem);
 }
 
 .button {
@@ -238,19 +233,10 @@ a:focus-visible {
   letter-spacing: 0.22em;
   text-transform: uppercase;
   transition:
-    transform 180ms ease,
-    background-color 180ms ease,
-    color 180ms ease,
-    border-color 180ms ease,
-    box-shadow 180ms ease;
-}
-
-.button:hover {
-  transform: translateY(-2px);
-}
-
-.button:active {
-  transform: translateY(0);
+    transform var(--duration-press) var(--ease-out),
+    background-color var(--duration-hover) ease,
+    color var(--duration-hover) ease,
+    border-color var(--duration-hover) ease;
 }
 
 .button-compact {
@@ -278,6 +264,10 @@ a:focus-visible {
 .button-outline:hover {
   border-color: rgba(229, 196, 135, 0.5);
   color: var(--primary);
+}
+
+.button:active {
+  transform: scale(0.96);
 }
 
 .hero {
@@ -625,7 +615,7 @@ a:focus-visible {
   height: 3rem;
   border: 1px solid rgba(229, 196, 135, 0.22);
   color: var(--primary);
-  transition: background-color 180ms ease;
+  transition: background-color var(--duration-hover) ease;
 }
 
 .trust-item:hover .trust-icon {
@@ -673,7 +663,7 @@ a:focus-visible {
   min-height: 2.5rem;
   padding-inline: 0.22rem;
   color: var(--muted);
-  transition: color 180ms ease;
+  transition: color var(--duration-hover) ease;
 }
 
 .shared-breadcrumbs a::before {
@@ -753,10 +743,8 @@ a:focus-visible {
     rgba(16, 17, 16, 0.72);
   box-shadow: 0 24px 58px rgba(0, 0, 0, 0.16);
   transition:
-    transform 180ms ease,
-    border-color 180ms ease,
-    background-color 180ms ease,
-    box-shadow 180ms ease;
+    border-color var(--duration-hover) ease,
+    background-color var(--duration-hover) ease;
 }
 
 .premium-card::before {
@@ -774,7 +762,6 @@ a:focus-visible {
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.042), transparent 46%),
     rgba(20, 21, 20, 0.82);
-  box-shadow: 0 28px 64px rgba(0, 0, 0, 0.22);
 }
 
 .premium-card__number {
@@ -831,16 +818,10 @@ a:focus-visible {
   text-align: center;
   text-transform: uppercase;
   transition:
-    transform 180ms ease,
-    border-color 180ms ease,
-    color 180ms ease,
-    background-color 180ms ease,
-    box-shadow 180ms ease;
-}
-
-.shared-button:hover,
-.shared-button:focus-visible {
-  transform: translateY(-2px);
+    transform var(--duration-hover) ease,
+    border-color var(--duration-hover) ease,
+    color var(--duration-hover) ease,
+    background-color var(--duration-hover) ease;
 }
 
 .shared-button:active {
@@ -897,16 +878,11 @@ a:focus-visible {
   padding: 2.75rem;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.015), transparent 35%), var(--surface-soft);
   box-shadow: inset 0 2px 0 var(--primary), 0 1px 0 rgba(255, 255, 255, 0.02);
-  transition:
-    transform 220ms ease,
-    background-color 220ms ease,
-    box-shadow 220ms ease;
+  transition: background-color var(--duration-hover) ease;
 }
 
 .service-card:hover {
-  transform: translateY(-6px);
   background: var(--surface-elevated);
-  box-shadow: var(--shadow);
 }
 
 .service-icon {
@@ -1015,7 +991,7 @@ a:focus-visible {
   inset: 0;
   background: linear-gradient(180deg, transparent 40%, rgba(0, 0, 0, 0.16));
   opacity: 0;
-  transition: opacity 280ms ease;
+  transition: opacity var(--duration-hover) ease;
 }
 
 .project-media img {
@@ -1023,19 +999,15 @@ a:focus-visible {
   height: 100%;
   object-fit: cover;
   opacity: 0.82;
-  transition:
-    transform 700ms ease,
-    opacity 300ms ease;
+  transition: opacity var(--duration-hover) ease;
 }
 
 .project-card:hover .project-media img {
-  transform: scale(1.05);
   opacity: 1;
 }
 
 .project-card:hover .project-media::after,
-.project-card:focus-visible .project-media::after,
-.project-card.is-project-active .project-media::after {
+.project-card:focus-visible .project-media::after {
   opacity: 1;
 }
 
@@ -1062,396 +1034,17 @@ a:focus-visible {
 .project-meta-action {
   display: inline-flex;
   color: var(--primary);
-  transition: transform 220ms ease;
+  transition: transform var(--duration-hover) ease;
 }
 
-.project-card:hover .project-meta-action,
 .project-card:focus-visible .project-meta-action {
   transform: translate(0.2rem, -0.2rem);
 }
 
-.project-modal {
-  position: fixed;
-  inset: 0;
-  z-index: 50;
-  display: grid;
-  place-items: center;
-  padding: 1.5rem;
-}
-
-.project-modal[hidden] {
-  display: none;
-}
-
-.project-modal-backdrop {
-  position: absolute;
-  inset: 0;
-  border: 0;
-  background:
-    radial-gradient(circle at top, rgba(229, 196, 135, 0.12), transparent 28%),
-    rgba(6, 6, 6, 0.82);
-  cursor: pointer;
-}
-
-.project-modal-shell {
-  position: relative;
-  z-index: 1;
-  width: min(1120px, calc(100vw - 3rem));
-  max-height: calc(100svh - 3rem);
-  overflow: auto;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 20%),
-    rgba(18, 18, 18, 0.96);
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
-    0 34px 90px rgba(0, 0, 0, 0.42);
-  backdrop-filter: blur(20px);
-}
-
-.project-modal-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 1.25rem 1.25rem 0;
-  margin-bottom: 1rem;
-}
-
-.project-modal-kicker,
-.project-modal-video-header,
-.project-modal-gallery-heading,
-.project-modal-note {
-  color: var(--subtle);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-}
-
-.project-modal-kicker {
-  margin: 0;
-}
-
-.project-modal-close {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 3rem;
-  height: 3rem;
-  border: 1px solid rgba(153, 143, 129, 0.24);
-  background: rgba(255, 255, 255, 0.02);
-  color: var(--text);
-  cursor: pointer;
-  transition:
-    color 180ms ease,
-    border-color 180ms ease,
-    transform 180ms ease,
-    background-color 180ms ease;
-}
-
-.project-modal-close:hover,
-.project-modal-close:focus-visible {
-  color: var(--primary);
-  border-color: rgba(229, 196, 135, 0.42);
-  background: rgba(229, 196, 135, 0.06);
-}
-
-.project-modal-close:active {
-  transform: scale(0.96);
-}
-
-.project-modal-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1.28fr) minmax(320px, 0.72fr);
-  gap: 1.5rem;
-  padding: 0 1.25rem 1.25rem;
-  align-items: start;
-}
-
-.project-modal-primary,
-.project-modal-secondary {
-  display: grid;
-  gap: 1.25rem;
-  align-content: start;
-}
-
-.project-modal-hero,
-.project-modal-video-frame,
-.project-modal-gallery-view {
-  background: var(--surface-strong);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-}
-
-.project-modal-hero {
-  aspect-ratio: 4 / 5;
-  overflow: hidden;
-}
-
-.project-modal-hero img,
-.project-modal-gallery-view img,
-.project-modal-video-frame video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.project-modal-copy {
-  display: grid;
-  gap: 1rem;
-  padding: 1.35rem 1.5rem 1.5rem;
-  background: rgba(255, 255, 255, 0.02);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.07);
-}
-
-.project-modal-copy h3 {
-  margin: 0;
-  font-family: "Newsreader", serif;
-  font-size: clamp(2.4rem, 5vw, 4.2rem);
-  font-weight: 600;
-  letter-spacing: -0.05em;
-  line-height: 1.04;
-  text-wrap: balance;
-}
-
-.project-modal-copy p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 1rem;
-  line-height: 1.85;
-}
-
-.project-modal-actions {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
-  padding-top: 0.5rem;
-}
-
-.project-modal-secondary {
-  align-content: start;
-}
-
-.project-modal-video-card,
-.project-modal-gallery {
-  display: grid;
-  gap: 0.85rem;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.02);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.07);
-}
-
-.project-modal-video-header,
-.project-modal-gallery-heading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.project-modal-video-frame {
-  position: relative;
-  min-height: 100%;
-  overflow: hidden;
-}
-
-.project-modal-video-card {
-  grid-template-rows: auto 1fr;
-}
-
-.project-modal-video-frame::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 55%, rgba(0, 0, 0, 0.44));
-  pointer-events: none;
-}
-
-.project-modal-video-badge {
-  position: absolute;
-  left: 1rem;
-  bottom: 1rem;
-  z-index: 1;
-  padding: 0.45rem 0.6rem;
-  background: rgba(14, 14, 14, 0.78);
-  border: 1px solid rgba(229, 196, 135, 0.28);
-  color: var(--primary);
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-.project-modal-gallery-stage {
-  position: relative;
-}
-
-.project-modal-gallery-nav {
-  position: absolute;
-  top: 50%;
-  z-index: 2;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.85rem;
-  height: 2.85rem;
-  border: 1px solid rgba(153, 143, 129, 0.24);
-  background: rgba(12, 12, 12, 0.54);
-  backdrop-filter: blur(10px);
-  color: var(--text);
-  cursor: pointer;
-  transform: translateY(-50%);
-  transition:
-    color 180ms ease,
-    border-color 180ms ease,
-    background-color 180ms ease,
-    transform 180ms ease;
-}
-
-.project-modal-gallery-nav--left {
-  left: 0.85rem;
-}
-
-.project-modal-gallery-nav:not(.project-modal-gallery-nav--left) {
-  right: 0.85rem;
-}
-
-.project-modal-gallery-view {
-  position: relative;
-  display: block;
-  width: 100%;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  cursor: zoom-in;
-  overflow: hidden;
-}
-
-.project-modal-gallery-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.28));
-  pointer-events: none;
-}
-
-.project-modal-gallery-nav:hover,
-.project-modal-gallery-nav:focus-visible,
-.project-modal-gallery-view:hover,
-.project-modal-gallery-view:focus-visible {
-  color: var(--primary);
-}
-
-.project-modal-gallery-nav:focus-visible,
-.project-modal-gallery-view:focus-visible {
-  outline: 1px solid rgba(229, 196, 135, 0.42);
-  outline-offset: 0.2rem;
-}
-
-.project-modal-gallery-nav:active {
-  transform: translateY(-50%) scale(0.96);
-}
-
-.project-modal-gallery-view img {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-}
-
-.project-modal-gallery-zoom {
-  position: absolute;
-  right: 1rem;
-  bottom: 1rem;
-  z-index: 1;
-  padding: 0.4rem 0.58rem;
-  background: rgba(12, 12, 12, 0.54);
-  border: 1px solid rgba(153, 143, 129, 0.24);
-  color: var(--text);
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  pointer-events: none;
-}
-
-.project-lightbox {
-  position: fixed;
-  inset: 0;
-  z-index: 70;
-  display: grid;
-  place-items: center;
-  padding: 1.5rem;
-}
-
-.project-lightbox[hidden] {
-  display: none;
-}
-
-.project-lightbox-backdrop {
-  position: absolute;
-  inset: 0;
-  border: 0;
-  background: rgba(6, 6, 6, 0.9);
-}
-
-.project-lightbox-shell {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  gap: 0.85rem;
-  width: min(1120px, calc(100vw - 3rem));
-}
-
-.project-lightbox-close {
-  justify-self: end;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 3rem;
-  height: 3rem;
-  border: 1px solid rgba(153, 143, 129, 0.24);
-  background: rgba(255, 255, 255, 0.02);
-  color: var(--text);
-  cursor: pointer;
-  transition:
-    color 180ms ease,
-    border-color 180ms ease,
-    transform 180ms ease,
-    background-color 180ms ease;
-}
-
-.project-lightbox-close:hover,
-.project-lightbox-close:focus-visible {
-  color: var(--primary);
-  border-color: rgba(229, 196, 135, 0.42);
-  background: rgba(229, 196, 135, 0.06);
-}
-
-.project-lightbox-close:active {
-  transform: scale(0.96);
-}
-
-.project-lightbox-shell img {
-  width: 100%;
-  max-height: calc(100svh - 7rem);
-  object-fit: contain;
-  background: rgba(16, 16, 16, 0.98);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1), 0 28px 72px rgba(0, 0, 0, 0.34);
-}
-
-.project-modal-clone {
-  z-index: 60;
-  object-fit: cover;
-  pointer-events: none;
-  box-shadow: 0 24px 54px rgba(0, 0, 0, 0.28);
-}
-
-.project-lightbox-clone {
-  z-index: 71;
-  object-fit: cover;
-  pointer-events: none;
-  box-shadow: 0 28px 72px rgba(0, 0, 0, 0.34);
+@media (hover: hover) and (pointer: fine) {
+  .project-card:hover .project-meta-action {
+    transform: translate(0.2rem, -0.2rem);
+  }
 }
 
 .why-section {
@@ -1681,17 +1274,16 @@ a:focus-visible {
     inset 0 0 0 1px rgba(255, 255, 255, 0.014),
     0 0.9rem 1.8rem rgba(0, 0, 0, 0.12);
   transition:
-    color 180ms ease,
-    border-color 180ms ease,
-    background-color 180ms ease,
-    transform 180ms ease,
-    box-shadow 180ms ease;
+    color var(--duration-hover) ease,
+    border-color var(--duration-hover) ease,
+    background-color var(--duration-hover) ease,
+    transform var(--duration-hover) ease;
 }
 
 .footer-social-link svg {
   transition:
-    transform 180ms ease,
-    opacity 180ms ease;
+    transform var(--duration-hover) ease,
+    opacity var(--duration-hover) ease;
 }
 
 .footer-social-link:hover,
@@ -1699,14 +1291,16 @@ a:focus-visible {
   color: var(--primary);
   border-color: rgba(229, 196, 135, 0.34);
   background: rgba(229, 196, 135, 0.08);
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.018),
-    0 1.2rem 2.2rem rgba(0, 0, 0, 0.14);
 }
 
-.footer-social-link:hover svg,
 .footer-social-link:focus-visible svg {
   transform: translateY(-1px);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .footer-social-link:hover svg {
+    transform: translateY(-1px);
+  }
 }
 
 .footer-social-link:active {
@@ -1736,9 +1330,7 @@ a:focus-visible {
   font-size: 1rem;
   line-height: 1.35;
   text-wrap: pretty;
-  transition:
-    color 180ms ease,
-    transform 180ms ease;
+  transition: color var(--duration-hover) ease;
 }
 
 .footer-link-list a::after {
@@ -1750,20 +1342,25 @@ a:focus-visible {
   opacity: 0;
   transform: translate(-0.2rem, 0.1rem);
   transition:
-    transform 180ms ease,
-    opacity 180ms ease;
+    transform var(--duration-hover) ease,
+    opacity var(--duration-hover) ease;
 }
 
 .footer-link-list a:hover,
 .footer-link-list a:focus-visible {
   color: var(--text);
-  transform: translateX(0.14rem);
 }
 
-.footer-link-list a:hover::after,
 .footer-link-list a:focus-visible::after {
   opacity: 1;
   transform: translate(0, 0);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .footer-link-list a:hover::after {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
 }
 
 .footer-whatsapp-button {
@@ -1782,10 +1379,9 @@ a:focus-visible {
   letter-spacing: 0.02em;
   text-align: center;
   transition:
-    background-color 180ms ease,
-    border-color 180ms ease,
-    transform 180ms ease,
-    box-shadow 180ms ease;
+    background-color var(--duration-hover) ease,
+    border-color var(--duration-hover) ease,
+    transform var(--duration-hover) ease;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
     0 1rem 2rem rgba(7, 32, 12, 0.22),
@@ -1794,24 +1390,24 @@ a:focus-visible {
 
 .footer-whatsapp-button svg {
   transition:
-    transform 180ms ease,
-    opacity 180ms ease;
+    transform var(--duration-hover) ease,
+    opacity var(--duration-hover) ease;
 }
 
 .footer-whatsapp-button:hover,
 .footer-whatsapp-button:focus-visible {
   border-color: rgba(77, 145, 85, 0.95);
   background: linear-gradient(180deg, rgba(33, 83, 39, 0.98), rgba(24, 68, 31, 1));
-  transform: translateY(-2px);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    0 1.4rem 2.4rem rgba(7, 32, 12, 0.24),
-    0 2.2rem 3.8rem rgba(7, 32, 12, 0.16);
 }
 
-.footer-whatsapp-button:hover svg,
 .footer-whatsapp-button:focus-visible svg {
   transform: translateX(1px);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .footer-whatsapp-button:hover svg {
+    transform: translateX(1px);
+  }
 }
 
 .footer-whatsapp-button:active {
@@ -1950,15 +1546,6 @@ a:focus-visible {
   .services-more {
     align-items: flex-start;
     flex-direction: column;
-  }
-
-  .project-modal-shell {
-    width: calc(100vw - 1.5rem);
-    max-height: calc(100svh - 1.5rem);
-  }
-
-  .project-modal-layout {
-    grid-template-columns: 1fr;
   }
 }
 
@@ -2154,32 +1741,6 @@ a:focus-visible {
     flex-direction: column;
     align-items: flex-start;
   }
-
-  .project-modal {
-    padding: 0.75rem;
-  }
-
-  .project-modal-head {
-    padding: 0.85rem 0.85rem 0;
-  }
-
-  .project-modal-layout {
-    padding: 0 0.85rem 0.85rem;
-  }
-
-  .project-modal-copy,
-  .project-modal-video-card,
-  .project-modal-gallery {
-    padding: 0.9rem;
-  }
-
-  .project-modal-actions .button {
-    width: auto;
-  }
-
-  .project-lightbox {
-    padding: 0.75rem;
-  }
 }
 
 @media (max-width: 560px) {
@@ -2225,13 +1786,13 @@ a:focus-visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
-
   *,
   *::before,
   *::after {
     scroll-behavior: auto !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    /* Drop movement, keep color and opacity feedback. */
+    transition-property: color, background-color, border-color, outline-color, opacity, filter !important;
   }
 }

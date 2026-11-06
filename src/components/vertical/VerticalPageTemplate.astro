@@ -335,7 +335,6 @@ const relatedVerticals = verticalPageLinks.filter(
       items={page.faq}
       title='Dúvidas antes de estruturar o projeto.'
       copy='Escopo, forma de atualização e recursos entram na proposta conforme a operação da empresa.'
-      motion={false}
       showSectionIndex={false}
     />
 
@@ -344,7 +343,6 @@ const relatedVerticals = verticalPageLinks.filter(
       title={page.cta.title}
       copy={page.cta.copy}
       buttonLabel={page.cta.buttonLabel}
-      motion={false}
     />
   </main>
 
@@ -484,7 +482,11 @@ const relatedVerticals = verticalPageLinks.filter(
     font-weight: 800;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    transition: border-color 180ms ease, background 180ms ease, color 180ms ease, transform 180ms ease;
+    transition:
+      transform var(--duration-press) var(--ease-out),
+      border-color var(--duration-hover) ease,
+      background var(--duration-hover) ease,
+      color var(--duration-hover) ease;
   }
 
   .vertical-button--solid {
@@ -496,7 +498,10 @@ const relatedVerticals = verticalPageLinks.filter(
   .vertical-button--solid:hover,
   .vertical-button--solid:focus-visible {
     background: #f0d294;
-    transform: translateY(-2px);
+  }
+
+  .vertical-button:active {
+    transform: scale(0.96);
   }
 
   .vertical-button--text {
@@ -832,13 +837,12 @@ const relatedVerticals = verticalPageLinks.filter(
     overflow: hidden;
     border: 1px solid rgba(229, 221, 210, 0.14);
     background: rgba(255, 255, 255, 0.018);
-    transition: border-color 200ms ease, transform 200ms ease;
+    transition: border-color var(--duration-hover) ease;
   }
 
   .vertical-case:hover,
   .vertical-case:focus-visible {
     border-color: rgba(223, 189, 121, 0.5);
-    transform: translateY(-4px);
   }
 
   .vertical-case figure {
@@ -861,12 +865,6 @@ const relatedVerticals = verticalPageLinks.filter(
     height: 100%;
     object-fit: cover;
     object-position: top center;
-    transition: transform 600ms cubic-bezier(0.2, 0.75, 0.25, 1);
-  }
-
-  .vertical-case:hover img,
-  .vertical-case:focus-visible img {
-    transform: scale(1.025);
   }
 
   .vertical-case__copy {
@@ -1013,12 +1011,17 @@ const relatedVerticals = verticalPageLinks.filter(
 
   .vertical-related__links .material-symbols-outlined {
     color: var(--vertical-gold);
-    transition: transform 180ms ease;
+    transition: transform var(--duration-hover) ease;
   }
 
-  .vertical-related__links a:hover .material-symbols-outlined,
   .vertical-related__links a:focus-visible .material-symbols-outlined {
     transform: translateX(0.35rem);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .vertical-related__links a:hover .material-symbols-outlined {
+      transform: translateX(0.35rem);
+    }
   }
 
   @media (max-width: 1000px) {
@@ -1179,12 +1182,4 @@ const relatedVerticals = verticalPageLinks.filter(
     }
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .vertical-button,
-    .vertical-case,
-    .vertical-case img,
-    .vertical-related__links .material-symbols-outlined {
-      transition: none;
-    }
-  }
 </style>

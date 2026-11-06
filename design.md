@@ -35,6 +35,8 @@ Use meaningful pt-BR alt text and consistent social-preview assets.
 - Preserve readable contrast, keyboard operation, focus-visible states, button semantics, dialog labels, and accessible close controls.
 - Hover, focus, and active states must communicate the same action.
 - Motion should clarify hierarchy, transitions, or feedback. Respect prefers-reduced-motion and the existing motion-enabled setup.
+- Motion budget: no scroll reveals, parallax, or hover lifts and zooms. Hover changes color, border, or filter over `var(--duration-hover) ease`; small arrow nudges sit behind `@media (hover: hover) and (pointer: fine)` with a matching `:focus-visible` rule. Press feedback is `scale(0.96)` over `var(--duration-press) var(--ease-out)`. Interface motion stays at or under 250ms; GSAP tweens use `power2.out`/`power3.out` for enter and exit, `power2.inOut`/`power3.inOut` only for on-screen morphs.
+- Reduced motion drops movement globally but keeps color and opacity transitions; don't add per-component `transition: none` overrides.
 
 ## SEO And Conversion
 

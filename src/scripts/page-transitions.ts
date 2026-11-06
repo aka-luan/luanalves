@@ -3,7 +3,6 @@ import gsap from 'gsap';
 import { cleanupLandingMotion, initLandingMotion } from './landing-motion';
 import { initInsightPost } from './insight-post';
 import { cleanupPortfolioFilters, initPortfolioFilters } from './portfolio-filters';
-import { initProjectModalFromDom } from './project-modal';
 import { cleanupMobileNav, initMobileNav } from './mobile-nav';
 import { trackGooglePageView } from './google-analytics';
 import { initWhatsappAnalytics } from './whatsapp-analytics';
@@ -16,7 +15,6 @@ declare global {
   }
 }
 
-let cleanupProjectModal: Cleanup = () => {};
 let cleanupInsightPost: Cleanup = () => {};
 let cleanupPortfolioPageFilters: Cleanup = () => {};
 let pendingHash = '';
@@ -43,10 +41,8 @@ function bootPageScripts() {
   const root = getContainerRoot();
 
   initLandingMotion();
-  cleanupProjectModal();
   cleanupInsightPost();
   cleanupPortfolioPageFilters();
-  cleanupProjectModal = initProjectModalFromDom();
   cleanupInsightPost = initInsightPost(root);
   cleanupPortfolioPageFilters = initPortfolioFilters(root);
 
@@ -55,10 +51,8 @@ function bootPageScripts() {
 
 function cleanupPageScripts() {
   cleanupLandingMotion();
-  cleanupProjectModal();
   cleanupInsightPost();
   cleanupPortfolioPageFilters();
-  cleanupProjectModal = () => {};
   cleanupInsightPost = () => {};
   cleanupPortfolioPageFilters = () => {};
   cleanupMobileNav();
@@ -195,7 +189,7 @@ function initBarba() {
     timeout: 7000,
     transitions: [
       {
-        name: 'site-fade-slide',
+        name: 'site-fade',
         leave({ current }) {
           document.documentElement.classList.add('is-transitioning');
           cleanupPageScripts();
@@ -207,29 +201,24 @@ function initBarba() {
 
           return toPromise(current.container, {
             autoAlpha: 0,
-            y: -18,
-            duration: 0.34,
-            ease: 'power2.inOut',
+            duration: 0.15,
+            ease: 'power2.out',
           });
         },
         beforeEnter({ next }) {
-          gsap.set(next.container, {
-            autoAlpha: 0,
-            y: reduceMotion() ? 0 : 24,
-          });
+          gsap.set(next.container, { autoAlpha: 0 });
         },
         enter({ next }) {
           if (reduceMotion()) {
-            gsap.set(next.container, { autoAlpha: 1, y: 0 });
+            gsap.set(next.container, { autoAlpha: 1 });
             return;
           }
 
           return toPromise(next.container, {
             autoAlpha: 1,
-            y: 0,
-            duration: 0.48,
+            duration: 0.2,
             ease: 'power3.out',
-            clearProps: 'opacity,visibility,transform',
+            clearProps: 'opacity,visibility',
           });
         },
       },

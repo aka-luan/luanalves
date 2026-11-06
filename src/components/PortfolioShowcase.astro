@@ -19,7 +19,6 @@ interface Props {
   copy?: string;
   moreHref?: string;
   moreLabel?: string;
-  motion?: boolean;
 }
 
 const {
@@ -30,41 +29,25 @@ const {
   copy = 'Alguns sites já desenvolvidos para empresas reais, com diferentes objetivos e estilos.',
   moreHref = '/portfolio/',
   moreLabel = 'Ver portfólio completo',
-  motion = true,
 } = Astro.props;
 
 const defaultPositions = ['center 44%', 'center 50%', 'center 47%'];
-const sectionMotionAttrs = motion ? { 'data-motion-section': 'portfolio' } : {};
-const eyebrowMotionAttrs = motion
-  ? { 'data-motion-heading': '', 'data-motion-hidden': 'y-sm' }
-  : {};
-const titleMotionAttrs = motion
-  ? { 'data-motion-heading': '', 'data-motion-hidden': 'y-md' }
-  : {};
-const copyMotionAttrs = motion
-  ? { 'data-motion-copy': '', 'data-motion-hidden': 'y-md' }
-  : {};
-const moreMotionAttrs = motion
-  ? { 'data-motion-item': 'project', 'data-motion-hidden': 'y-sm' }
-  : {};
 ---
 
 <section
   class='portfolio-showcase'
   id={id}
-  aria-labelledby={`${id}-title`}
-  {...sectionMotionAttrs}>
+  aria-labelledby={`${id}-title`}>
   <div class='portfolio-showcase__glow' aria-hidden='true'></div>
 
   <div class='portfolio-showcase__inner'>
     <div class='portfolio-showcase__copy'>
       <p
-        class='creation-eyebrow results-eyebrow editorial-eyebrow'
-        {...eyebrowMotionAttrs}>
+        class='creation-eyebrow results-eyebrow editorial-eyebrow'>
         {eyebrow}
       </p>
 
-      <h2 id={`${id}-title`} {...titleMotionAttrs}>
+      <h2 id={`${id}-title`}>
         {
           title === 'Projetos selecionados.' ? (
             <>
@@ -77,7 +60,7 @@ const moreMotionAttrs = motion
         }
       </h2>
 
-      <p {...copyMotionAttrs}>{copy}</p>
+      <p>{copy}</p>
     </div>
 
     <div class='portfolio-showcase__grid' aria-label='Projetos selecionados'>
@@ -85,20 +68,13 @@ const moreMotionAttrs = motion
         projects.map((item, index) => {
           const href = item.href ?? item.url;
           const isExternal = href?.startsWith('http') ?? false;
-          const cardMotionAttrs = motion
-            ? {
-                'data-motion-item': 'project',
-                'data-motion-hidden': index % 2 === 0 ? 'x-left' : 'x-right',
-              }
-            : {};
 
           return (
             <a
               class='portfolio-showcase__card'
               href={href}
               target={isExternal ? '_blank' : undefined}
-              rel={isExternal ? 'noreferrer' : undefined}
-              {...cardMotionAttrs}>
+              rel={isExternal ? 'noreferrer' : undefined}>
               <span class='portfolio-showcase__media'>
                 <img
                   src={item.image}
@@ -110,7 +86,6 @@ const moreMotionAttrs = motion
                   };`}
                   loading='lazy'
                   decoding='async'
-                  data-motion-image={motion ? '' : undefined}
                 />
               </span>
 
@@ -130,7 +105,7 @@ const moreMotionAttrs = motion
       }
     </div>
 
-    <a class='portfolio-showcase__more' href={moreHref} {...moreMotionAttrs}>
+    <a class='portfolio-showcase__more' href={moreHref}>
       {moreLabel}
       <span class='material-symbols-outlined' aria-hidden='true'>
         north_east
@@ -248,22 +223,17 @@ const moreMotionAttrs = motion
       inset 0 0 0 1px rgba(255, 255, 255, 0.012),
       0 28px 62px rgba(0, 0, 0, 0.18);
     transition:
-      border-color 220ms ease,
-      transform 220ms ease,
-      box-shadow 220ms ease;
+      border-color var(--duration-hover) ease,
+      transform var(--duration-hover) ease;
   }
 
   .portfolio-showcase__card:hover,
   .portfolio-showcase__card:focus-visible {
     border-color: rgba(229, 196, 135, 0.48);
-    transform: translateY(-0.35rem);
-    box-shadow:
-      inset 0 0 0 1px rgba(255, 255, 255, 0.018),
-      0 34px 72px rgba(0, 0, 0, 0.24);
   }
 
   .portfolio-showcase__card:active {
-    transform: translateY(-0.15rem) scale(0.96);
+    transform: scale(0.96);
   }
 
   .portfolio-showcase__media {
@@ -297,16 +267,14 @@ const moreMotionAttrs = motion
     filter: saturate(1.04) contrast(1.04) brightness(1.06);
     transform: scale(1.01);
     transition:
-      opacity 260ms ease,
-      filter 260ms ease,
-      transform 700ms ease;
+      opacity var(--duration-hover) ease,
+      filter var(--duration-hover) ease;
   }
 
   .portfolio-showcase__card:hover .portfolio-showcase__media img,
   .portfolio-showcase__card:focus-visible .portfolio-showcase__media img {
     opacity: 1;
     filter: saturate(1.08) contrast(1.06) brightness(1.08);
-    transform: scale(1.055);
   }
 
   .portfolio-showcase__meta {
@@ -356,14 +324,19 @@ const moreMotionAttrs = motion
     font-feature-settings: 'liga';
     -webkit-font-feature-settings: 'liga';
     -webkit-font-smoothing: antialiased;
-    transition: transform 220ms ease;
+    transition: transform var(--duration-hover) ease;
   }
 
-  .portfolio-showcase__card:hover .portfolio-showcase__arrow,
   .portfolio-showcase__card:focus-visible .portfolio-showcase__arrow,
-  .portfolio-showcase__more:hover .material-symbols-outlined,
   .portfolio-showcase__more:focus-visible .material-symbols-outlined {
     transform: translate(0.16rem, -0.16rem);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .portfolio-showcase__card:hover .portfolio-showcase__arrow,
+    .portfolio-showcase__more:hover .material-symbols-outlined {
+      transform: translate(0.16rem, -0.16rem);
+    }
   }
 
   .portfolio-showcase__more {
@@ -382,16 +355,15 @@ const moreMotionAttrs = motion
     letter-spacing: 0.28em;
     text-transform: uppercase;
     transition:
-      border-color 180ms ease,
-      background-color 180ms ease,
-      transform 180ms ease;
+      border-color var(--duration-hover) ease,
+      background-color var(--duration-hover) ease,
+      transform var(--duration-hover) ease;
   }
 
   .portfolio-showcase__more:hover,
   .portfolio-showcase__more:focus-visible {
     border-color: rgba(229, 196, 135, 0.5);
     background: rgba(229, 196, 135, 0.055);
-    transform: translateY(-2px);
   }
 
   @media (max-width: 900px) {

@@ -23,17 +23,15 @@ const heroImage = await getHeroImage('/assets/hero-img.webp', homeHeroSizes);
 
   <main id='top'>
     <section class='hero section hero-grid' data-motion='hero'>
-      <div class='hero-glow' aria-hidden='true' data-motion-glow></div>
+      <div class='hero-glow' aria-hidden='true'></div>
       <div class='container hero-content'>
         <div class='hero-copy-block'>
           <p
-            class='eyebrow hero-eyebrow'
-            data-motion-hero-eyebrow
-            data-motion-hidden='y-sm'>
+            class='eyebrow hero-eyebrow'>
             Desenvolvedor web
           </p>
           <h1 class='hero-title'>
-            <span data-motion-hero-title data-motion-hidden='y-lg'>
+            <span>
               Sites para
               <br />
               sua empresa.
@@ -41,26 +39,24 @@ const heroImage = await getHeroImage('/assets/hero-img.webp', homeHeroSizes);
               <span class='hero-title__muted'>Contato fácil.</span>
             </span>
           </h1>
-          <p class='hero-copy' data-motion-hero-copy data-motion-hidden='y-md'>
+          <p class='hero-copy'>
             Crio sites institucionais, blogs e landing pages para empresas em
             todo o Brasil. Organizo conteúdo, design e desenvolvimento para
             apresentar seus serviços e facilitar o contato. Você fala comigo
             durante todo o projeto.
           </p>
 
-          <div class='hero-actions' data-motion-hero-actions>
+          <div class='hero-actions'>
             <a
               class='button button-solid'
               href={whatsappHref} data-analytics-position='home_hero'
               target='_blank'
-              rel='noreferrer'
-              data-motion-hidden='y-sm'>
+              rel='noreferrer'>
               Conversar sobre meu site
             </a>
             <a
               class='button button-ghost'
-              href='/portfolio/'
-              data-motion-hidden='y-sm'>
+              href='/portfolio/'>
               Ver projetos entregues
             </a>
           </div>
@@ -72,23 +68,17 @@ const heroImage = await getHeroImage('/assets/hero-img.webp', homeHeroSizes);
 
           <div class='hero-proof' aria-label='Diferenciais principais'>
             <article
-              class='hero-proof-item'
-              data-motion-item='hero-feature'
-              data-motion-hidden='y-sm'>
+              class='hero-proof-item'>
               <strong>5+</strong>
               <span>Anos de experiência</span>
             </article>
             <article
-              class='hero-proof-item'
-              data-motion-item='hero-feature'
-              data-motion-hidden='y-sm'>
+              class='hero-proof-item'>
               <strong>{services.length}</strong>
               <span>Formatos de site</span>
             </article>
             <article
-              class='hero-proof-item'
-              data-motion-item='hero-feature'
-              data-motion-hidden='y-sm'>
+              class='hero-proof-item'>
               <strong>Belém, PA</strong>
               <span>Atendimento remoto em todo o Brasil</span>
             </article>
@@ -96,9 +86,7 @@ const heroImage = await getHeroImage('/assets/hero-img.webp', homeHeroSizes);
         </div>
 
         <figure
-          class='hero-media'
-          data-motion-item='hero-media'
-          data-motion-hidden='scale'>
+          class='hero-media'>
           <div class='hero-media-frame'>
             <img
               {...heroImage}
@@ -118,14 +106,12 @@ const heroImage = await getHeroImage('/assets/hero-img.webp', homeHeroSizes);
       </div>
     </section>
 
-    <section class='trust-bar' data-motion-section='trust'>
+    <section class='trust-bar'>
       <div class='container trust-grid'>
         {
           trustItems.map((item, index) => (
             <article
-              class:list={['trust-item', index === 1 && 'trust-item-bordered']}
-              data-motion-item='trust'
-              data-motion-hidden='y-sm'>
+              class:list={['trust-item', index === 1 && 'trust-item-bordered']}>
               <div class='trust-icon'>
                 <span class='material-symbols-outlined'>{item.icon}</span>
               </div>
@@ -140,13 +126,13 @@ const heroImage = await getHeroImage('/assets/hero-img.webp', homeHeroSizes);
       </div>
     </section>
 
-    <section class='section' id='servicos' data-motion-section='services'>
+    <section class='section' id='servicos'>
       <div class='container'>
         <div class='section-heading'>
-          <span class='eyebrow' data-motion-heading data-motion-hidden='y-sm'
+          <span class='eyebrow'
             >Soluções</span
           >
-          <h2 data-motion-heading data-motion-hidden='y-md'>
+          <h2>
             Criação de sites profissionais para empresas
           </h2>
         </div>
@@ -156,9 +142,7 @@ const heroImage = await getHeroImage('/assets/hero-img.webp', homeHeroSizes);
             services.map((service) => (
               <a
                 href={service.href}
-                class='service-card'
-                data-motion-item='service'
-                data-motion-hidden='y-card'>
+                class='service-card'>
                 <div class='service-icon'>
                   <span class='material-symbols-outlined'>{service.icon}</span>
                 </div>
@@ -176,9 +160,7 @@ const heroImage = await getHeroImage('/assets/hero-img.webp', homeHeroSizes);
         </div>
 
         <div
-          class='services-more'
-          data-motion-item='service'
-          data-motion-hidden='y-sm'>
+          class='services-more'>
           <p>
             Veja detalhes do processo, formatos de entrega e benefícios da
             criação de sites profissionais.
@@ -192,19 +174,19 @@ const heroImage = await getHeroImage('/assets/hero-img.webp', homeHeroSizes);
       </div>
     </section>
 
-    <ProjectPortfolio projects={featuredPortfolioProjects} mode='link' />
+    <ProjectPortfolio projects={featuredPortfolioProjects} />
 
-    <section class='section why-section' data-motion-section='why'>
+    <section class='section why-section'>
       <div class='why-grid-accent hero-grid' aria-hidden='true'></div>
       <div class='container why-layout'>
         <div>
-          <span class='eyebrow' data-motion-heading data-motion-hidden='y-sm'
+          <span class='eyebrow'
             >Diferenciais</span
           >
-          <h2 data-motion-heading data-motion-hidden='y-md'>
+          <h2>
             Por que contratar um desenvolvedor web freelancer?
           </h2>
-          <p class='why-copy' data-motion-copy data-motion-hidden='y-md'>
+          <p class='why-copy'>
             Você fala com quem planeja, desenha e desenvolve o seu site.
             Objetivos, materiais e decisões são alinhados diretamente comigo,
             do primeiro contato à publicação.
@@ -214,9 +196,7 @@ const heroImage = await getHeroImage('/assets/hero-img.webp', homeHeroSizes);
             {
               reasons.map((reason) => (
                 <article
-                  class='reason-item'
-                  data-motion-item='reason'
-                  data-motion-hidden='y-sm'>
+                  class='reason-item'>
                   <span class='material-symbols-outlined reason-check'>
                     check_circle
                   </span>
@@ -231,9 +211,7 @@ const heroImage = await getHeroImage('/assets/hero-img.webp', homeHeroSizes);
         </div>
 
         <div
-          class='experience-panel'
-          data-motion-experience
-          data-motion-hidden='scale'>
+          class='experience-panel'>
           <div class='experience-card'>
             <span class='experience-number'>5+</span>
             <span class='experience-label'>Anos de experiência</span>

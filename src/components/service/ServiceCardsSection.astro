@@ -8,7 +8,6 @@ interface Props {
   accent: string;
   copy: string;
   items: ServiceCard[];
-  motionName?: string;
 }
 
 const {
@@ -18,7 +17,6 @@ const {
   accent,
   copy,
   items,
-  motionName = id,
 } = Astro.props;
 const titleParts = title.split(accent);
 const titleDensity = title.length > 64 ? 'long' : 'default';
@@ -28,29 +26,24 @@ const titleDensity = title.length > 64 ? 'long' : 'default';
   class='service-cards'
   id={id}
   aria-labelledby={`${id}-title`}
-  data-motion-section={motionName}
   data-title-density={titleDensity}>
   <div class='service-cards__glow' aria-hidden='true'></div>
   <div class='service-cards__inner'>
     <div class='service-cards__copy editorial-copy editorial-copy--center'>
-      <p class='editorial-eyebrow' data-motion-heading data-motion-hidden='y-sm'>{eyebrow}</p>
+      <p class='editorial-eyebrow'>{eyebrow}</p>
       <h2
         class='editorial-title editorial-title--compact'
-        id={`${id}-title`}
-        data-motion-heading
-        data-motion-hidden='y-md'>
+        id={`${id}-title`}>
         {titleParts[0]}<em>{accent}</em>{titleParts[1]}
       </h2>
-      <p class='editorial-lead' data-motion-copy data-motion-hidden='y-md'>{copy}</p>
+      <p class='editorial-lead'>{copy}</p>
     </div>
 
     <div class='service-cards__grid premium-card-grid'>
       {
         items.map((item, index) => (
           <article
-            class='service-cards__card premium-card'
-            data-motion-item={motionName}
-            data-motion-hidden='y-card'>
+            class='service-cards__card premium-card'>
             <span class='premium-card__number'>{String(index + 1).padStart(2, '0')}</span>
             <span class='service-cards__icon icon-chip' aria-hidden='true'>
               <span class='material-symbols-outlined'>{item.icon}</span>
@@ -121,11 +114,6 @@ const titleDensity = title.length > 64 ? 'long' : 'default';
     align-content: start;
     min-height: 20rem;
     padding: 1.55rem;
-  }
-
-  .service-cards__card:hover,
-  .service-cards__card:focus-within {
-    transform: translateY(-3px);
   }
 
   .service-cards__icon {
