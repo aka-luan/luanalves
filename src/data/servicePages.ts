@@ -90,17 +90,17 @@ const sharedProcess = [
   {
     icon: 'account_tree',
     title: 'Estrutura',
-    copy: 'Organizo narrativa, seções, CTAs e prioridades antes do design para reduzir retrabalho.',
+    copy: 'Defino a ordem das seções, o texto de cada uma e onde ficam os botões de contato antes de começar o design.',
   },
   {
     icon: 'design_services',
     title: 'Design e desenvolvimento',
-    copy: 'Crio a interface e implemento em Astro com foco em velocidade, responsividade e leitura.',
+    copy: 'Crio a interface e implemento em Astro, com layout adaptado ao celular e otimização de carregamento.',
   },
   {
     icon: 'rocket_launch',
     title: 'Revisão e lançamento',
-    copy: 'Ajusto detalhes finais, publico a página e deixo a base pronta para mensuração e melhorias.',
+    copy: 'Faço os ajustes finais combinados e publico a página.',
   },
 ];
 
@@ -109,7 +109,7 @@ const sharedFaq = [
   {
     question: 'A página funciona bem no celular?',
     answer:
-      'Sim. O layout é pensado para desktop e mobile, com atenção à leitura, velocidade, navegação e CTAs fáceis de acessar.',
+      'Sim. O layout é feito para celular e desktop, com texto legível, carregamento otimizado e botões de contato fáceis de tocar.',
   },
   {
     question: 'O projeto já inclui SEO?',
@@ -134,11 +134,11 @@ export const servicePages: Record<string, ServicePageContent> = {
     },
     relatedInsightSlugs: ['site-institucional-o-que-precisa-ter', 'quanto-custa-um-site-profissional'],
     namespace: 'site-institucional',
-    title: 'Site Institucional Profissional | Luan Alves',
+    title: 'Site institucional profissional | Luan Alves',
     description:
-      'Site institucional para empresas que precisam transmitir autoridade, apresentar serviços com clareza e aparecer no Google com base técnica sólida.',
+      'Site institucional para empresas que precisam apresentar serviços, diferenciais e formas de contato, com SEO técnico e botões para o WhatsApp.',
     canonicalPath: '/site-institucional/',
-    serviceName: 'Site Institucional',
+    serviceName: 'Site institucional',
     relatedSegments: verticalPageLinks,
     whatsappHref: buildWhatsappHref(
       'Olá, Luan! Quero solicitar um orçamento para um site institucional profissional.',
@@ -148,7 +148,7 @@ export const servicePages: Record<string, ServicePageContent> = {
       title:
         'Site institucional para empresas que querem parecer tão profissionais quanto são',
       accent: 'tão profissionais quanto são',
-      copy: 'Crio sites institucionais com visual premium, estrutura clara e base técnica para apresentar sua empresa com autoridade desde o primeiro acesso.',
+      copy: 'Crio sites institucionais que apresentam serviços, diferenciais e formas de contato logo nas primeiras seções, com SEO técnico e layout adaptado ao celular.',
       ctaLabel: 'Quero um site institucional profissional',
       secondaryLabel: 'Ver portfólio',
       secondaryHref: '#portfolio',
@@ -156,8 +156,8 @@ export const servicePages: Record<string, ServicePageContent> = {
       features: [
         {
           icon: 'workspace_premium',
-          title: 'Autoridade',
-          copy: 'Imagem profissional desde a primeira dobra.',
+          title: 'Apresentação',
+          copy: 'Serviços e diferenciais logo no início.',
         },
         {
           icon: 'search',
@@ -167,20 +167,20 @@ export const servicePages: Record<string, ServicePageContent> = {
         {
           icon: 'devices',
           title: 'Responsivo',
-          copy: 'Experiência consistente em qualquer tela.',
+          copy: 'Layout adaptado a celular, tablet e desktop.',
         },
       ],
     },
     benefits: {
       eyebrow: 'Benefícios',
-      title: 'Presença digital com clareza, confiança e intenção comercial.',
-      accent: 'confiança',
+      title: 'Um site que explica o que você faz e como falar com você.',
+      accent: 'como falar com você',
       copy: 'Um site institucional bem construído ajuda o cliente a entender o que você faz, por que confiar e como iniciar uma conversa.',
       items: [
         {
           icon: 'verified',
-          title: 'Credibilidade imediata',
-          copy: 'Design, conteúdo e hierarquia visual para reduzir dúvida e transmitir segurança.',
+          title: 'Credibilidade',
+          copy: 'Empresa, serviços e projetos organizados para o cliente conferir antes de entrar em contato.',
         },
         {
           icon: 'corporate_fare',
@@ -195,7 +195,7 @@ export const servicePages: Record<string, ServicePageContent> = {
         {
           icon: 'chat_bubble',
           title: 'Contato facilitado',
-          copy: 'CTAs estratégicos para WhatsApp em pontos naturais da navegação.',
+          copy: 'Botões de WhatsApp no início, ao longo das seções e no fim da página.',
         },
       ],
     },
@@ -214,7 +214,7 @@ export const servicePages: Record<string, ServicePageContent> = {
         {
           icon: 'apartment',
           title: 'Empresas consolidadas',
-          copy: 'Atualize a percepção da marca com uma vitrine digital mais refinada.',
+          copy: 'Substitua um site desatualizado por um que mostre o que a empresa faz hoje.',
         },
         {
           icon: 'handshake',
@@ -226,9 +226,9 @@ export const servicePages: Record<string, ServicePageContent> = {
     process: {
       eyebrow: 'Processo',
       title:
-        'Método claro para transformar posicionamento em página publicada.',
+        'Da conversa inicial à página publicada, em quatro etapas.',
       accent: 'página publicada',
-      copy: 'Cada etapa conecta estratégia, design e desenvolvimento para evitar uma página bonita sem função comercial.',
+      copy: 'Defino estrutura e textos antes do design, para que cada seção tenha uma função clara para quem visita.',
       items: sharedProcess,
     },
     included: {
@@ -244,17 +244,17 @@ export const servicePages: Record<string, ServicePageContent> = {
         },
         {
           icon: 'edit_note',
-          title: 'Copy orientada à clareza',
-          copy: 'Ajustes de texto para explicar valor, diferenciais e próximos passos.',
+          title: 'Revisão de textos',
+          copy: 'Ajustes no texto fornecido para explicar serviços, diferenciais e próximos passos.',
         },
         {
           icon: 'image',
           title: 'Tratamento visual',
-          copy: 'Organização de imagens, cards, destaques e chamadas com padrão premium.',
+          copy: 'Imagens, cards, destaques e chamadas com o mesmo padrão visual em todas as páginas.',
         },
         {
           icon: 'settings',
-          title: 'Configurações essenciais',
+          title: 'Configurações de publicação',
           copy: 'SEO inicial, favicon e imagens de compartilhamento. Integrações externas são opcionais.',
         },
       ],
@@ -268,9 +268,9 @@ export const servicePages: Record<string, ServicePageContent> = {
       },
     ],
     cta: {
-      title: 'Vamos criar uma presença institucional mais forte?',
-      copy: 'Me conte sobre sua empresa, seus serviços e o que precisa mudar na percepção digital do seu negócio.',
-      buttonLabel: 'Quero um site institucional profissional',
+      title: 'Vamos planejar o site da sua empresa?',
+      copy: 'Me conte sobre sua empresa, seus serviços e o que o site precisa resolver.',
+      buttonLabel: 'Pedir orçamento do site institucional',
     },
   },
   'landing-page': {
@@ -283,20 +283,20 @@ export const servicePages: Record<string, ServicePageContent> = {
     },
     relatedInsightSlugs: ['landing-page-ou-site-institucional', 'por-que-performance-site-afeta-conversao'],
     namespace: 'landing-page',
-    title: 'Landing Page para Campanhas | Luan Alves',
+    title: 'Landing page para campanhas | Luan Alves',
     description:
-      'Landing page profissional para tráfego pago, captação de leads e campanhas com foco em velocidade, clareza e conversão via WhatsApp.',
+      'Landing page para tráfego pago e captação de leads, com uma oferta por página, carregamento otimizado e contato pelo WhatsApp.',
     canonicalPath: '/landing-page/',
-    serviceName: 'Landing Page',
+    serviceName: 'Landing page',
     whatsappHref: buildWhatsappHref(
       'Olá, Luan! Quero uma landing page para minha campanha.',
     ),
     hero: {
       eyebrow: 'Serviço • Landing page',
       title:
-        'Landing page feita para transformar visitantes em oportunidades reais',
-      accent: 'oportunidades reais',
-      copy: 'Desenvolvo páginas focadas em campanhas, anúncios e captação de leads, com narrativa objetiva, carregamento rápido e CTAs bem posicionados.',
+        'Landing page para levar quem clica no anúncio até o WhatsApp',
+      accent: 'até o WhatsApp',
+      copy: 'Desenvolvo páginas focadas em campanhas, anúncios e captação de leads, com texto direto, carregamento otimizado e botões de contato ao longo da página.',
       ctaLabel: 'Quero uma landing page para minha campanha',
       secondaryLabel: 'Ver cases',
       secondaryHref: '#portfolio',
@@ -309,13 +309,13 @@ export const servicePages: Record<string, ServicePageContent> = {
         },
         {
           icon: 'speed',
-          title: 'Velocidade',
-          copy: 'Menos atrito entre clique e contato.',
+          title: 'Carregamento',
+          copy: 'Página leve, otimizada para abrir no celular.',
         },
         {
           icon: 'conversion_path',
-          title: 'Conversão',
-          copy: 'Seções e CTAs com intenção clara.',
+          title: 'Contato',
+          copy: 'Uma ação principal, repetida ao longo da página.',
         },
       ],
     },
@@ -332,8 +332,8 @@ export const servicePages: Record<string, ServicePageContent> = {
         },
         {
           icon: 'bolt',
-          title: 'Carregamento rápido',
-          copy: 'Estrutura leve para reduzir abandono em campanhas mobile.',
+          title: 'Carregamento otimizado',
+          copy: 'Página leve, com imagens otimizadas para quem chega pelo celular.',
         },
         {
           icon: 'fact_check',
@@ -343,7 +343,7 @@ export const servicePages: Record<string, ServicePageContent> = {
         {
           icon: 'monitoring',
           title: 'Base para mensuração',
-          copy: 'CTAs e estrutura preparados para eventos e leitura de performance.',
+          copy: 'Botões e seções preparados para eventos de conversão. A configuração de ferramentas de análise é opcional.',
         },
       ],
     },
@@ -380,23 +380,23 @@ export const servicePages: Record<string, ServicePageContent> = {
     },
     included: {
       eyebrow: 'Incluso',
-      title: 'Elementos essenciais para uma landing page eficiente.',
-      accent: 'landing page eficiente',
+      title: 'O que entra na landing page.',
+      accent: 'landing page',
       copy: 'A base organiza a oferta, conteúdo fornecido, design, desenvolvimento, SEO técnico, performance e contato. ' + projectExtensionsCopy,
       items: [
         {
           icon: 'title',
-          title: 'Hero com proposta forte',
-          copy: 'Primeira dobra clara, com promessa, prova e CTA principal.',
+          title: 'Primeira tela',
+          copy: 'Oferta, prova e botão principal visíveis logo ao abrir a página.',
         },
         {
           icon: 'view_column',
           title: 'Seções de conversão',
-          copy: 'Benefícios, prova, processo, FAQ e fechamento com CTA.',
+          copy: 'Benefícios, prova, processo, perguntas frequentes e chamada final para contato.',
         },
         {
           icon: 'phone_iphone',
-          title: 'Mobile first',
+          title: 'Feita para o celular',
           copy: 'Leitura e toque pensados para quem vem do anúncio no celular.',
         },
         {
@@ -415,9 +415,9 @@ export const servicePages: Record<string, ServicePageContent> = {
       },
     ],
     cta: {
-      title: 'Sua campanha precisa de uma página mais forte?',
-      copy: 'Me envie a oferta, público e canal de tráfego. Eu ajudo a transformar isso em uma página objetiva para gerar oportunidades.',
-      buttonLabel: 'Quero uma landing page para minha campanha',
+      title: 'Sua campanha precisa de uma página própria?',
+      copy: 'Me envie a oferta, o público e o canal de tráfego. Com isso, defino a estrutura da página e o caminho até o contato.',
+      buttonLabel: 'Pedir orçamento da landing page',
     },
   },
   'blog-profissional': {
@@ -430,20 +430,20 @@ export const servicePages: Record<string, ServicePageContent> = {
     },
     relatedInsightSlugs: ['site-institucional-o-que-precisa-ter', 'checklist-lancamento-site-empresarial'],
     namespace: 'blog-profissional',
-    title: 'Blog Profissional para Empresas | Luan Alves',
+    title: 'Blog profissional para empresas | Luan Alves',
     description:
-      'Blog profissional com estrutura editorial, SEO técnico e experiência de leitura para transformar conteúdo em autoridade e oportunidades.',
+      'Blog profissional para empresas, com categorias, modelo de artigo, SEO técnico e links para serviços e contato.',
     canonicalPath: '/blog-profissional/',
-    serviceName: 'Blog Profissional',
+    serviceName: 'Blog profissional',
     whatsappHref: buildWhatsappHref(
       'Olá, Luan! Quero criar um blog profissional.',
     ),
     hero: {
       eyebrow: 'Serviço • Blog profissional',
       title:
-        'Blog profissional para transformar conteúdo em autoridade e oportunidades',
-      accent: 'autoridade e oportunidades',
-      copy: 'Crio estruturas editoriais organizadas e preparadas para SEO, com leitura profissional. A solução de atualização é definida conforme a rotina da equipe; CMS é uma extensão opcional.',
+        'Blog profissional para publicar o que sua empresa sabe',
+      accent: 'o que sua empresa sabe',
+      copy: 'Crio blogs com categorias, modelo de artigo e SEO técnico. A solução de atualização é definida conforme a rotina da equipe; CMS é uma extensão opcional.',
       ctaLabel: 'Quero criar um blog profissional',
       secondaryLabel: 'Ver projetos',
       secondaryHref: '#portfolio',
@@ -457,25 +457,25 @@ export const servicePages: Record<string, ServicePageContent> = {
         {
           icon: 'manage_search',
           title: 'SEO',
-          copy: 'Base técnica para ranqueamento orgânico.',
+          copy: 'Title, description e headings em cada artigo.',
         },
         {
           icon: 'menu_book',
           title: 'Leitura',
-          copy: 'Experiência limpa para reter visitantes.',
+          copy: 'Tipografia e espaçamento para textos longos.',
         },
       ],
     },
     benefits: {
       eyebrow: 'Benefícios',
-      title: 'Conteúdo com estrutura para ser encontrado, lido e lembrado.',
-      accent: 'encontrado',
-      copy: 'Um blog profissional transforma conhecimento em ativo digital, apoia vendas consultivas e aumenta a superfície de descoberta no Google.',
+      title: 'Artigos organizados por tema, fáceis de ler no celular.',
+      accent: 'por tema',
+      copy: 'Os artigos respondem dúvidas que seus clientes já têm e podem ser enviados durante uma negociação. Cada artigo é uma página a mais para o Google indexar.',
       items: [
         {
           icon: 'topic',
           title: 'Arquitetura editorial',
-          copy: 'Categorias, páginas e componentes pensados para organizar temas e clusters.',
+          copy: 'Categorias e páginas para agrupar artigos por tema.',
         },
         {
           icon: 'search',
@@ -489,8 +489,8 @@ export const servicePages: Record<string, ServicePageContent> = {
         },
         {
           icon: 'trending_up',
-          title: 'Autoridade acumulada',
-          copy: 'Cada artigo passa a apoiar descoberta, confiança e conversão futura.',
+          title: 'Acervo que cresce',
+          copy: 'Artigos antigos continuam publicados e podem ser enviados a novos clientes.',
         },
       ],
     },
@@ -504,7 +504,7 @@ export const servicePages: Record<string, ServicePageContent> = {
         {
           icon: 'psychology',
           title: 'Especialistas e consultores',
-          copy: 'Transforme conhecimento técnico em conteúdo claro e rastreável.',
+          copy: 'Explique temas técnicos em artigos que você pode citar e compartilhar.',
         },
         {
           icon: 'groups',
@@ -514,7 +514,7 @@ export const servicePages: Record<string, ServicePageContent> = {
         {
           icon: 'domain',
           title: 'Empresas com SEO em pauta',
-          copy: 'Crie base para publicar guias, comparativos e conteúdos evergreen.',
+          copy: 'Publique guias, comparativos e conteúdos que não dependem de data.',
         },
       ],
     },
@@ -522,7 +522,7 @@ export const servicePages: Record<string, ServicePageContent> = {
       eyebrow: 'Processo',
       title: 'Do mapa editorial ao blog pronto para publicação.',
       accent: 'pronto para publicação',
-      copy: 'A estrutura nasce pensando em quem lê, em quem publica e em como os mecanismos de busca interpretam o conteúdo.',
+      copy: 'Defino categorias, modelo de artigo e links internos antes do design.',
       items: sharedProcess,
     },
     included: {
@@ -543,7 +543,7 @@ export const servicePages: Record<string, ServicePageContent> = {
         },
         {
           icon: 'edit_square',
-          title: 'Gestão simples',
+          title: 'Forma de atualização',
           copy: 'Estrutura preparada para edição conforme a solução definida no escopo.',
         },
         {
@@ -562,9 +562,9 @@ export const servicePages: Record<string, ServicePageContent> = {
       },
     ],
     cta: {
-      title: 'Vamos transformar seu conteúdo em ativo digital?',
+      title: 'Vamos planejar o blog da sua empresa?',
       copy: 'Me conte quais temas sua empresa quer disputar e como o blog precisa funcionar na rotina de publicação.',
-      buttonLabel: 'Quero criar um blog profissional',
+      buttonLabel: 'Pedir orçamento do blog',
     },
   },
   'criacao-de-sites-belem': {
@@ -577,19 +577,19 @@ export const servicePages: Record<string, ServicePageContent> = {
     },
     relatedInsightSlugs: ['como-escolher-desenvolvedor-web-freelancer', 'quanto-tempo-leva-para-criar-um-site-profissional'],
     namespace: 'criacao-de-sites-belem',
-    title: 'Criação de Sites em Belém | Luan Alves',
+    title: 'Criação de sites em Belém | Luan Alves',
     description:
-      'Criação de sites em Belém para empresas que precisam de presença digital profissional, SEO local e conversão via WhatsApp.',
+      'Criação de sites em Belém para empresas que querem apresentar serviços e região de atendimento, com SEO local e contato pelo WhatsApp.',
     canonicalPath: '/criacao-de-sites-belem/',
-    serviceName: 'Criação de Sites em Belém',
+    serviceName: 'Criação de sites em Belém',
     whatsappHref: buildWhatsappHref(
       'Olá, Luan! Quero criar meu site em Belém.',
     ),
     hero: {
       eyebrow: 'Serviço • Belém/PA',
       title:
-        'Criação de sites em Belém para negócios que querem crescer com presença digital profissional',
-      accent: 'presença digital profissional',
+        'Criação de sites em Belém para empresas da cidade e da região metropolitana',
+      accent: 'região metropolitana',
       copy: 'Atendo diretamente de Belém, com processo remoto. Organizo conteúdo, design e desenvolvimento para apresentar os serviços de empresas da cidade e região metropolitana e facilitar o contato pelo WhatsApp.',
       ctaLabel: 'Quero criar meu site em Belém',
       secondaryLabel: 'Ver portfólio',
@@ -609,7 +609,7 @@ export const servicePages: Record<string, ServicePageContent> = {
         {
           icon: 'chat_bubble',
           title: 'WhatsApp',
-          copy: 'Contato rápido para orçamento e atendimento.',
+          copy: 'Botões para pedir orçamento ou atendimento.',
         },
       ],
     },
@@ -621,7 +621,7 @@ export const servicePages: Record<string, ServicePageContent> = {
       items: [
         {
           icon: 'storefront',
-          title: 'Presença local forte',
+          title: 'Contexto local',
           copy: 'Página com contexto de Belém e região metropolitana quando fizer sentido.',
         },
         {
@@ -667,15 +667,15 @@ export const servicePages: Record<string, ServicePageContent> = {
     },
     process: {
       eyebrow: 'Processo',
-      title: 'Um processo remoto e direto, com entendimento do mercado local.',
-      accent: 'mercado local',
-      copy: 'O projeto combina atendimento ágil, estratégia de conteúdo e desenvolvimento técnico para colocar seu site no ar com consistência.',
+      title: 'Atendimento remoto, direto comigo, a partir de Belém.',
+      accent: 'a partir de Belém',
+      copy: 'As conversas acontecem pelo WhatsApp, e as etapas seguem o que foi definido na proposta.',
       items: sharedProcess,
     },
     included: {
       eyebrow: 'Incluso',
-      title: 'Estrutura para presença local profissional.',
-      accent: 'presença local',
+      title: 'O que entra no site para empresas de Belém.',
+      accent: 'empresas de Belém',
       copy: 'A base combina apresentação institucional, conteúdo local fornecido, design, desenvolvimento, WhatsApp, SEO técnico e performance. ' + projectExtensionsCopy,
       items: [
         {
@@ -685,13 +685,13 @@ export const servicePages: Record<string, ServicePageContent> = {
         },
         {
           icon: 'map',
-          title: 'Sinais locais',
-          copy: 'Cidade, região de atendimento e elementos de confiança usados com naturalidade.',
+          title: 'Informações locais',
+          copy: 'Cidade, região de atendimento e endereço, quando houver.',
         },
         {
           icon: 'phone_in_talk',
           title: 'Contato por WhatsApp',
-          copy: 'CTAs com texto coerente para iniciar orçamento ou atendimento.',
+          copy: 'Botões que abrem o WhatsApp para pedir orçamento ou atendimento.',
         },
         {
           icon: 'search',
@@ -710,8 +710,8 @@ export const servicePages: Record<string, ServicePageContent> = {
     ],
     cta: {
       title: 'Seu negócio em Belém precisa de um site mais profissional?',
-      copy: 'Me conte sobre sua empresa, área de atendimento e objetivo principal. Eu retorno com os próximos passos para tirar o projeto do papel.',
-      buttonLabel: 'Quero criar meu site em Belém',
+      copy: 'Me conte sobre sua empresa, área de atendimento e objetivo principal. Eu retorno com os próximos passos e os materiais necessários para a proposta.',
+      buttonLabel: 'Pedir orçamento do site em Belém',
     },
   },
 };
@@ -744,7 +744,7 @@ export const getFaqPageSchema = (
 
 const serviceHubBreadcrumb = [
   { name: 'Início', path: '/' },
-  { name: 'Criação de Sites', path: '/criacao-de-sites/' },
+  { name: 'Criação de sites', path: '/criacao-de-sites/' },
 ];
 
 export const getServicePageSchema = (page: ServicePageContent) => [

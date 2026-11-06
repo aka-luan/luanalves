@@ -126,7 +126,7 @@ const checklistInsight: InsightPost = {
     },
     {
       type: 'paragraph',
-      text: 'Use a tabela abaixo na versão que será publicada. Marque cada linha como aprovado, pendente ou não se aplica; neste último caso, registre o motivo. Se o site usa apenas WhatsApp, por exemplo, não há formulário a testar. Depois da publicação, repita os testes no domínio final: um preview funcionando não confirma redirects, recebimento de mensagens ou medição em produção.',
+      text: 'Use a tabela abaixo na versão que será publicada. Marque cada linha como aprovado, pendente ou não se aplica; neste último caso, registre o motivo. Se o site usa apenas WhatsApp, por exemplo, não há formulário a testar. Depois da publicação, repita os testes no domínio final. Um preview funcionando não confirma redirects, recebimento de mensagens ou medição em produção.',
     },
     {
       type: 'heading',
@@ -215,7 +215,7 @@ const checklistInsight: InsightPost = {
     },
     {
       type: 'paragraph',
-      text: 'Teste no celular mesmo quando a revisão principal foi feita no computador. Abra a home, um serviço e a página de contato em orientação vertical; confira também uma tela estreita de 320px. Navegue entre as páginas e recarregue uma delas diretamente: os dois caminhos precisam funcionar.',
+      text: 'Teste no celular mesmo quando a revisão principal foi feita no computador. Abra a home, um serviço e a página de contato em orientação vertical; confira também uma tela estreita de 320px. Navegue entre as páginas e recarregue uma delas diretamente. Os dois caminhos precisam funcionar.',
     },
     {
       type: 'list',
@@ -226,7 +226,7 @@ const checklistInsight: InsightPost = {
         'Imagens não cortam informação importante.',
         'Formulários são simples de preencher no teclado do celular.',
         'WhatsApp, telefone e e-mail podem ser acionados com um toque.',
-        'Leitura segue clara em 4G, sem atraso exagerado no carregamento.',
+        'Com a rede limitada a 4G no navegador, título e CTA aparecem sem esperar as imagens.',
       ],
     },
     {
@@ -237,7 +237,7 @@ const checklistInsight: InsightPost = {
     },
     {
       type: 'paragraph',
-      text: 'Muita empresa revisa layout e esquece fluxo. Link quebrado em lançamento passa uma sensação imediata de descuido. O teste precisa incluir navegação principal, rodapé, botões de CTA, logo e rotas secundárias.',
+      text: 'Clique em cada item do menu e do rodapé, em cada botão de CTA, no logo e nas rotas secundárias. Um link quebrado leva o visitante a uma página de erro em vez do orçamento.',
     },
     {
       type: 'list',
@@ -259,7 +259,7 @@ const checklistInsight: InsightPost = {
     },
     {
       type: 'paragraph',
-      text: 'Esse é um dos pontos mais importantes do checklist. Se a empresa depende de orçamento, lead ou agendamento, o contato precisa funcionar sem ambiguidade. Não basta o formulário aparecer. Ele precisa enviar, confirmar e direcionar a conversa do jeito certo.',
+      text: 'Se a empresa depende de orçamento, lead ou agendamento, este é o teste que mais importa. Envie uma mensagem de teste por cada canal e confirme com quem atende que ela chegou.',
     },
     {
       type: 'heading',
@@ -287,7 +287,7 @@ const checklistInsight: InsightPost = {
     },
     {
       type: 'paragraph',
-      text: 'Publicar sem SEO básico significa abrir mão de entendimento técnico logo na primeira leitura do Google e de mecanismos com IA. O objetivo aqui não é fazer otimização profunda no dia do lançamento, mas garantir uma base limpa, coerente e rastreável.',
+      text: 'Sem SEO básico, o Google e os buscadores com IA leem as páginas pela primeira vez sem title, hierarquia de headings ou sitemap. No lançamento, basta que cada página tenha title, H1 e canonical corretos e esteja no sitemap. A otimização de conteúdo pode vir depois.',
     },
     {
       type: 'list',
@@ -305,7 +305,7 @@ const checklistInsight: InsightPost = {
     },
     {
       type: 'paragraph',
-      text: 'Frase simples para guardar: site empresarial deve entrar no ar com sinais claros de estrutura. Título, headings, URLs e indexação não são acabamento. São fundação.',
+      text: 'Title, headings, URLs e indexação devem estar prontos no lançamento. Corrigir depois exige esperar o Google rastrear as páginas de novo.',
     },
     {
       type: 'heading',
@@ -337,7 +337,7 @@ const checklistInsight: InsightPost = {
     },
     {
       type: 'paragraph',
-      text: 'Parte técnica invisível também afeta lançamento. Um site pode estar bonito e ainda assim abrir sem HTTPS, resolver DNS errado ou manter versão antiga em subdomínio de testes. Tudo isso precisa ser validado antes da divulgação.',
+      text: 'Domínio, DNS e SSL também podem falhar no lançamento. Um site pode estar bonito e ainda assim abrir sem HTTPS, resolver DNS errado ou manter versão antiga em subdomínio de testes. Confira cada um antes de divulgar o link.',
     },
     {
       type: 'list',
@@ -358,7 +358,7 @@ const checklistInsight: InsightPost = {
     },
     {
       type: 'paragraph',
-      text: 'Lançar sem medição transforma decisão em chute. Desde o primeiro dia, a empresa precisa saber se o site está recebendo visitas, quais páginas são mais vistas e quais cliques indicam intenção comercial.',
+      text: 'Sem medição, não dá para saber quais páginas geram cliques no WhatsApp. Desde o primeiro dia, a empresa precisa saber se o site está recebendo visitas, quais páginas são mais vistas e quais cliques indicam intenção comercial.',
     },
     {
       type: 'list',
@@ -380,7 +380,7 @@ const checklistInsight: InsightPost = {
     },
     {
       type: 'paragraph',
-      text: 'Segurança não é tema para depois do lançamento. O ideal é entrar no ar já com acesso controlado, backup recente e superfície desnecessária removida. Isso vale ainda mais para sites com CMS, plugins ou integrações de terceiros.',
+      text: 'Entre no ar com acessos revisados, backup recente e sem plugins, scripts ou usuários que o site não usa. Isso vale ainda mais para sites com CMS, plugins ou integrações de terceiros.',
     },
     {
       type: 'list',
@@ -389,7 +389,7 @@ const checklistInsight: InsightPost = {
         'Senhas fortes e acessos revisados.',
         'Usuários temporários foram removidos.',
         'Plugins, extensões ou scripts desnecessários foram eliminados.',
-        'Atualizações essenciais já foram aplicadas.',
+        'Atualizações de segurança pendentes já foram aplicadas.',
         'Medidas anti-spam foram ativadas em formulários.',
       ],
     },
@@ -401,7 +401,7 @@ const checklistInsight: InsightPost = {
     },
     {
       type: 'paragraph',
-      text: 'Aqui entra o olhar de quem visita o site pela primeira vez. Em poucos segundos, o usuário precisa entender o que a empresa faz, por que ela parece confiável e como pode iniciar contato. Se isso não estiver claro, ainda não é hora de publicar.',
+      text: 'Abra a home como quem visita o site pela primeira vez. Sem rolar a página, dá para saber o que a empresa faz e como iniciar contato? Se não, ainda não é hora de publicar.',
     },
     {
       type: 'list',
@@ -410,8 +410,7 @@ const checklistInsight: InsightPost = {
         'Os serviços são fáceis de localizar.',
         'Existe CTA claro em páginas importantes.',
         'A navegação está simples e previsível.',
-        'O site transmite confiança visual e textual.',
-        'Portfólio, depoimentos ou diferenciais reforçam credibilidade.',
+        'Há pelo menos um case, depoimento ou cliente citável perto do CTA.',
         'A página de contato está acessível sem fricção.',
       ],
     },
@@ -469,7 +468,7 @@ const checklistInsight: InsightPost = {
         {
           question: 'O que revisar antes de lançar um site?',
           answer:
-            'Antes do lançamento, revise conteúdo, mobile, links, formulários, SEO básico, velocidade, domínio, SSL, analytics e segurança. Esses pontos reduzem risco de erro técnico e melhoram a percepção de profissionalismo.',
+            'Antes do lançamento, revise conteúdo, mobile, links, formulários, SEO básico, velocidade, domínio, SSL, analytics e segurança. Esses testes evitam que o visitante encontre link quebrado, formulário sem envio ou página fora do Google.',
         },
         {
           question: 'Preciso configurar SEO antes de publicar o site?',
@@ -503,7 +502,7 @@ const checklistInsight: InsightPost = {
     },
     {
       type: 'paragraph',
-      text: 'Se sua empresa está perto de publicar, a melhor decisão é revisar estrutura, conversão e base técnica antes de divulgar o link. Corrigir isso no pré-lançamento custa menos do que recuperar confiança e lead perdido depois.',
+      text: 'Se sua empresa está perto de publicar, revise conteúdo, contato e base técnica antes de divulgar o link. Uma pendência corrigida antes da divulgação não chega a nenhum visitante.',
     },
     {
       type: 'links',
@@ -511,12 +510,12 @@ const checklistInsight: InsightPost = {
         {
           href: '/criacao-de-sites/',
           label: 'Criação de sites',
-          text: 'Veja como estruturo sites profissionais com base técnica, clareza comercial e revisão antes do lançamento.',
+          text: 'Veja o serviço de criação de sites e como escopo, etapas de aprovação e publicação são definidos na proposta.',
         },
         {
           href: '/site-institucional/',
           label: 'Site institucional',
-          text: 'Entenda o formato ideal para empresas que precisam apresentar serviços com mais autoridade e confiança.',
+          text: 'Veja quais páginas, serviços e canais de contato entram em um site institucional antes de chegar a este checklist.',
         },
         {
           href: '/blog-profissional/',
@@ -564,11 +563,11 @@ const siteInstitucionalInsight: InsightPublishedPost = {
   content: [
     {
       type: 'paragraph',
-      text: 'Um site institucional precisa, no mínimo, combinar proposta de valor clara, design profissional, serviços bem explicados, prova de confiança, boa experiência no celular, SEO básico e caminhos de contato fáceis. Quando esses elementos trabalham juntos, o site deixa de ser apenas uma vitrine e passa a apoiar percepção de marca, busca orgânica e geração de orçamento.',
+      text: 'Um site institucional precisa, no mínimo, combinar proposta de valor clara, design profissional, serviços bem explicados, prova de confiança, boa experiência no celular, SEO básico e caminhos de contato fáceis. Com esses elementos, o site explica a oferta, aparece em buscas pelo serviço e leva o visitante ao pedido de orçamento.',
     },
     {
       type: 'paragraph',
-      text: 'Na prática, o visitante decide muito rápido se a empresa parece confiável. Se a mensagem estiver vaga, o layout parecer improvisado ou o contato estiver escondido, a chance de abandono aumenta. Por isso, um site institucional profissional precisa reduzir dúvidas e orientar o próximo passo sem atrito.',
+      text: 'Se a mensagem estiver vaga, o layout parecer improvisado ou o contato estiver escondido, o visitante tem motivo para fechar a página e procurar outra empresa. Cada seção do site deve responder uma dúvida e apontar o próximo passo.',
     },
     {
       type: 'table',
@@ -582,7 +581,7 @@ const siteInstitucionalInsight: InsightPublishedPost = {
         ],
         [
           'Design profissional',
-          'Transmite credibilidade e reforça posicionamento.',
+          'Mostra que a empresa cuida da própria apresentação.',
         ],
         [
           'Navegação simples',
@@ -590,11 +589,11 @@ const siteInstitucionalInsight: InsightPublishedPost = {
         ],
         [
           'Página Sobre bem construída',
-          'Humaniza a marca e contextualiza a empresa.',
+          'Mostra quem atende, onde a empresa atua e há quanto tempo.',
         ],
         [
           'Serviços bem explicados',
-          'Deixa a oferta compreensível e comercialmente forte.',
+          'Diz o que está incluído e para quem cada serviço serve.',
         ],
         [
           'Diferenciais reais',
@@ -614,7 +613,7 @@ const siteInstitucionalInsight: InsightPublishedPost = {
         ],
         [
           'Versão mobile consistente',
-          'Garante boa experiência na principal origem de tráfego.',
+          'Mantém texto, menu e contato utilizáveis no celular.',
         ],
         [
           'SEO básico desde o início',
@@ -622,7 +621,7 @@ const siteInstitucionalInsight: InsightPublishedPost = {
         ],
         [
           'Performance e segurança',
-          'Melhora experiência, confiança e estabilidade técnica.',
+          'Evita página lenta, aviso de "não seguro" e formulário fora do ar.',
         ],
       ],
     },
@@ -638,7 +637,7 @@ const siteInstitucionalInsight: InsightPublishedPost = {
     },
     {
       type: 'blockquote',
-      text: 'Um site institucional profissional não serve só para dizer que a empresa existe. Ele precisa explicar valor, reduzir dúvidas e facilitar o contato.',
+      text: 'Um site institucional precisa responder o que a empresa faz, por que confiar nela e como pedir orçamento.',
     },
     {
       type: 'heading',
@@ -667,11 +666,7 @@ const siteInstitucionalInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Design institucional não é só estética. É percepção de cuidado, clareza e coerência. Tipografia, contraste, hierarquia, ritmo visual e imagens precisam ajudar a empresa a parecer tão profissional quanto ela realmente é.',
-    },
-    {
-      type: 'paragraph',
-      text: 'Em um site institucional, o design precisa fazer a empresa parecer tão profissional quanto ela é.',
+      text: 'No design institucional, tipografia, contraste, hierarquia e imagens decidem o que o visitante lê primeiro: o nome do serviço, a prova e o botão de contato. Um layout desalinhado ou com imagens genéricas faz a empresa parecer menor do que é.',
     },
     {
       type: 'heading',
@@ -702,7 +697,7 @@ const siteInstitucionalInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'A página Sobre não deve ser um texto institucional vazio. Ela precisa mostrar contexto, posicionamento, experiência e forma de atendimento com linguagem concreta. Isso humaniza a empresa e ajuda o visitante a confiar mais rápido.',
+      text: 'A página Sobre precisa mostrar contexto, posicionamento, experiência e forma de atendimento com linguagem concreta. O visitante deve sair dela sabendo quem vai atendê-lo e há quanto tempo a empresa atua.',
     },
     {
       type: 'list',
@@ -722,7 +717,7 @@ const siteInstitucionalInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Muita empresa cita serviços sem explicar para quem são, que problema resolvem e como funcionam. Em um site institucional, isso enfraquece tanto a conversão quanto a leitura de SEO. Serviço precisa ser apresentado com clareza comercial.',
+      text: 'Muita empresa cita serviços sem explicar para quem são, que problema resolvem e como funcionam. Sem essa explicação, o visitante não sabe se o serviço serve para ele, e a página não tem texto para aparecer nas buscas pelo serviço.',
     },
     {
       type: 'list',
@@ -746,7 +741,7 @@ const siteInstitucionalInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Diferencial útil não é “qualidade e compromisso”. Diferencial útil é algo que ajuda o cliente a comparar propostas e sentir segurança na escolha. Atendimento direto, processo claro, suporte, especialização e velocidade de execução contam mais do que slogans.',
+      text: 'Qualquer concorrente pode escrever "qualidade e compromisso". Um diferencial útil ajuda o cliente a comparar propostas, como atendimento direto, processo claro, suporte combinado, especialização ou velocidade de execução.',
     },
     {
       type: 'list',
@@ -766,7 +761,7 @@ const siteInstitucionalInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Portfólio, depoimentos, logos de clientes, números e cases ajudam a empresa a parecer verificável. Isso é importante porque confiança online não nasce só do texto institucional. Ela depende de evidência.',
+      text: 'Portfólio, depoimentos, logos de clientes, números e cases ajudam a empresa a parecer verificável. O visitante pode abrir um case ou procurar um cliente citado, o que não consegue fazer com um adjetivo.',
     },
     {
       type: 'paragraph',
@@ -780,7 +775,7 @@ const siteInstitucionalInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Um erro comum é deixar o botão de contato só no final da página. O site institucional precisa ter chamadas para ação em pontos estratégicos, acompanhando o avanço da confiança do visitante.',
+      text: 'Um erro comum é deixar o botão de contato só no final da página. O site institucional precisa ter chamadas para ação depois de cada bloco que responde uma objeção, como serviços, provas de confiança e rodapé.',
     },
     {
       type: 'list',
@@ -799,7 +794,7 @@ const siteInstitucionalInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Para boa parte das empresas brasileiras, WhatsApp é parte central da conversão. O contato precisa ser simples, clicável e rápido. Se o visitante quiser falar, ele não pode precisar procurar demais para isso.',
+      text: 'Quando o atendimento comercial acontece pelo WhatsApp, o botão precisa estar visível e abrir a conversa com um toque. Se o visitante quiser falar, ele não deve precisar procurar o contato.',
     },
     {
       type: 'list',
@@ -818,7 +813,7 @@ const siteInstitucionalInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Responsividade não é só adaptar blocos para caber na tela. O site precisa continuar legível, rápido e fácil de usar em 4G, com menu estável, botões tocáveis e hierarquia clara.',
+      text: 'No celular, o texto precisa ser legível sem zoom, os botões precisam ter tamanho para o toque e o menu não pode travar, mesmo em conexão 4G.',
     },
     {
       type: 'list',
@@ -863,7 +858,7 @@ const siteInstitucionalInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Parte da confiança do site institucional vem daquilo que o usuário nem sempre consegue nomear: carregamento rápido, estabilidade, HTTPS, formulários funcionando e manutenção básica em dia. Quando isso falha, a credibilidade cai junto.',
+      text: 'Parte da confiança do site institucional vem daquilo que o usuário nem sempre consegue nomear: carregamento rápido, estabilidade, HTTPS, formulários funcionando e manutenção básica em dia. Um aviso de "não seguro" ou um formulário quebrado dá ao visitante motivo para desistir do contato.',
     },
     {
       type: 'list',
@@ -883,7 +878,7 @@ const siteInstitucionalInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'A estrutura ideal varia conforme o momento da empresa, mas existe uma base recorrente que costuma funcionar bem para apresentação, autoridade e conversão.',
+      text: 'A estrutura ideal varia conforme o momento da empresa. Esta é uma base para começar e ajustar.',
     },
     {
       type: 'list',
@@ -904,7 +899,7 @@ const siteInstitucionalInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Nem todo elemento “bonito” ajuda o site a vender melhor. Em muitos casos, excesso visual e estrutura sem estratégia atrapalham mais do que ajudam.',
+      text: 'Nem todo elemento "bonito" ajuda o site a vender melhor. Em muitos casos, excesso visual e estrutura sem estratégia atrapalham mais do que ajudam.',
     },
     {
       type: 'list',
@@ -915,7 +910,7 @@ const siteInstitucionalInsight: InsightPublishedPost = {
         'Formulários longos demais.',
         'Banners rotativos sem função real.',
         'Banco de imagens que não comunicam confiança.',
-        'Blog abandonado apenas para “parecer completo”.',
+        'Blog abandonado apenas para "parecer completo".',
       ],
     },
     {
@@ -990,7 +985,7 @@ const siteInstitucionalInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Se sua empresa precisa parecer mais profissional no digital, o melhor caminho é estruturar um site institucional que una clareza, confiança e contato fácil. Isso vale mais do que encher a página de efeitos sem direção comercial.',
+      text: 'Se sua empresa vai criar ou refazer o site institucional, comece pela primeira dobra, pelas páginas de serviço e por um WhatsApp que funcione. Efeitos visuais podem vir depois.',
     },
     {
       type: 'links',
@@ -998,17 +993,17 @@ const siteInstitucionalInsight: InsightPublishedPost = {
         {
           href: '/site-institucional/',
           label: 'Site institucional',
-          text: 'Veja a estrutura que eu desenvolvo para empresas que precisam apresentar serviços com mais autoridade e facilitar o contato.',
+          text: 'Veja como funciona o serviço de site institucional, do escopo à publicação.',
         },
         {
           href: '/criacao-de-sites/',
           label: 'Criação de sites',
-          text: 'Entenda como diferentes formatos de site atendem objetivos comerciais e níveis de maturidade diferentes.',
+          text: 'Compare os formatos de site e veja quando um site institucional é a escolha certa.',
         },
         {
           href: '/criacao-de-sites-belem/',
           label: 'Criação de sites em Belém',
-          text: 'Conheça a abordagem voltada para presença local, busca orgânica e conversão via WhatsApp.',
+          text: 'Veja a página do serviço para empresas de Belém e região.',
         },
         {
           href: '/blog-profissional/',
@@ -1018,7 +1013,7 @@ const siteInstitucionalInsight: InsightPublishedPost = {
         {
           href: '/portfolio/tresor-incorporacoes/',
           label: 'Case: site da Trésor Incorporações',
-          text: 'Conheça um site institucional criado para transmitir sofisticação, clareza e confiança desde o primeiro acesso.',
+          text: 'Veja o site institucional de uma incorporadora de alto padrão, com a apresentação da marca e dos empreendimentos.',
         },
         {
           href: '/insights/quanto-custa-um-site-profissional/',
@@ -1038,9 +1033,9 @@ const siteInstitucionalInsight: InsightPublishedPost = {
 const quantoTempoInsight: InsightPublishedPost = {
   title: 'Quanto tempo leva para criar um site profissional?',
   excerpt:
-    'Veja os prazos médios por tipo de projeto, etapas do processo, fatores que atrasam e o que ajuda a lançar mais rápido.',
+    'Prazos por tipo de projeto nos sites que desenvolvo, etapas do processo, fatores que atrasam e o que ajuda a lançar mais rápido.',
   description:
-    'Descubra quanto tempo leva para criar um site profissional, com prazos por tipo de projeto, etapas, atrasos comuns e dicas para acelerar o lançamento.',
+    'Veja quanto tempo leva para criar um site profissional, com os prazos por tipo de projeto que vejo no meu trabalho, as etapas, os atrasos comuns e o que acelera o lançamento.',
   category: 'Mercado',
   categorySlug: 'freelance',
   date: '05 jun. 2026',
@@ -1066,21 +1061,17 @@ const quantoTempoInsight: InsightPublishedPost = {
   content: [
     {
       type: 'paragraph',
-      text: 'Em média, um site profissional leva de 2 a 8 semanas para ficar pronto, dependendo do tipo de projeto, número de páginas, nível de personalização, conteúdo disponível, funcionalidades e velocidade das aprovações. Uma landing page pode sair em poucos dias. Um site institucional mais completo costuma exigir algumas semanas.',
+      text: 'Nos projetos que conduzo, um site profissional leva de 2 a 8 semanas para ficar pronto, dependendo do tipo de projeto, número de páginas, nível de personalização, conteúdo disponível, funcionalidades e velocidade das aprovações. Uma landing page pode sair em poucos dias. Um site institucional mais completo costuma exigir algumas semanas.',
     },
     {
       type: 'paragraph',
-      text: 'O ponto principal é simples: publicar rápido até dá. Publicar bem exige processo. Quando o projeto precisa alinhar posicionamento, design, desenvolvimento, SEO técnico, revisão e lançamento, o prazo real deixa de ser só “tempo de codar” e passa a ser tempo de estruturar a entrega direito.',
-    },
-    {
-      type: 'blockquote',
-      text: 'Criar rápido é possível. Criar bem exige processo.',
+      text: 'Dá para publicar em poucos dias quando o conteúdo está pronto e o escopo é pequeno. O prazo cresce com cada etapa que precisa ser decidida durante o projeto, como posicionamento, design, SEO técnico e revisão. Escrever o código é só uma parte desse tempo.',
     },
     {
       type: 'table',
       caption:
-        'Prazos médios para criar diferentes tipos de site profissional.',
-      columns: ['Tipo de site', 'Prazo médio'],
+        'Faixas de prazo por tipo de site nos projetos que conduzo. Loja virtual e projeto sob medida são estimativas, porque dependem de integrações e regras de cada operação.',
+      columns: ['Tipo de site', 'Prazo comum'],
       rows: [
         ['Landing page simples', '3 a 10 dias úteis'],
         ['Site one page', '1 a 2 semanas'],
@@ -1100,13 +1091,13 @@ const quantoTempoInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'O prazo muda conforme o escopo. Projetos simples podem ser lançados em poucos dias, mas sites empresariais mais completos passam por briefing, estrutura, conteúdo, design, desenvolvimento, revisão, SEO básico e publicação. Quanto mais decisões o site precisa sustentar, maior tende a ser o tempo necessário para entregar algo realmente profissional.',
+      text: 'O prazo muda conforme o escopo. Projetos simples podem ser lançados em poucos dias, mas sites empresariais mais completos passam por briefing, estrutura, conteúdo, design, desenvolvimento, revisão, SEO básico e publicação. Quanto mais decisões o site precisa sustentar, maior o prazo.',
     },
     {
       type: 'heading',
       id: 'prazos-por-tipo-de-site',
       level: 2,
-      text: 'Prazos médios por tipo de site',
+      text: 'Prazos por tipo de site',
     },
     {
       type: 'heading',
@@ -1120,7 +1111,7 @@ const quantoTempoInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Na prática, o prazo mais comum fica entre 3 e 10 dias úteis quando escopo e aprovação andam bem.',
+      text: 'Nos projetos que conduzo, uma landing page leva de 3 a 10 dias úteis quando escopo e aprovação andam bem.',
     },
     {
       type: 'heading',
@@ -1134,7 +1125,7 @@ const quantoTempoInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Para a maioria das empresas, o prazo realista fica entre 2 e 8 semanas, dependendo da profundidade do conteúdo e do nível de personalização.',
+      text: 'Nos projetos que conduzo, um site institucional leva de 2 a 8 semanas, dependendo da profundidade do conteúdo e do nível de personalização.',
     },
     {
       type: 'heading',
@@ -1144,7 +1135,7 @@ const quantoTempoInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Blog profissional envolve mais do que template de artigo. É preciso pensar em estrutura de posts, categorias, página de artigo, SEO editorial, fluxo de publicação e, em alguns casos, CMS. Por isso, o prazo tende a ficar entre 3 e 6 semanas.',
+      text: 'Blog profissional envolve mais do que template de artigo. É preciso pensar em estrutura de posts, categorias, página de artigo, SEO editorial, fluxo de publicação e, em alguns casos, CMS. Por isso, nos meus projetos, um blog profissional leva de 3 a 6 semanas.',
     },
     {
       type: 'heading',
@@ -1154,7 +1145,7 @@ const quantoTempoInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Loja virtual normalmente leva mais tempo porque depende de catálogo, pagamento, frete, políticas, cadastro, integrações e testes de compra. Mesmo quando a interface parece simples, o fluxo operacional costuma aumentar o prazo para 6 a 12 semanas ou mais.',
+      text: 'Loja virtual normalmente leva mais tempo porque depende de catálogo, pagamento, frete, políticas, cadastro, integrações e testes de compra. Mesmo quando a interface parece simples, o fluxo operacional aumenta o prazo. Como estimativa, conte com 6 a 12 semanas ou mais.',
     },
     {
       type: 'heading',
@@ -1170,7 +1161,7 @@ const quantoTempoInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Antes de abrir layout ou escrever código, é preciso entender objetivo do site, público, serviços, diferenciais, referências, concorrência, páginas necessárias e tom da comunicação. Essa etapa costuma levar de 1 a 3 dias.',
+      text: 'Antes de abrir layout ou escrever código, é preciso entender objetivo do site, público, serviços, diferenciais, referências, concorrência, páginas necessárias e tom da comunicação. Nos projetos que conduzo, essa etapa leva de 1 a 3 dias.',
     },
     {
       type: 'heading',
@@ -1180,11 +1171,11 @@ const quantoTempoInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Aqui entra arquitetura da informação: mapa do site, hierarquia das páginas, seções da home, CTAs e jornada do usuário. Em projetos mais enxutos, isso pode andar rápido. Em projetos maiores, leva alguns dias para ficar redondo.',
+      text: 'Aqui entra arquitetura da informação: mapa do site, hierarquia das páginas, seções da home, CTAs e o caminho do visitante até o contato. Em projetos mais enxutos, isso pode andar rápido. Em projetos maiores, leva alguns dias para fechar.',
     },
     {
       type: 'paragraph',
-      text: 'Faixa comum: 1 a 5 dias.',
+      text: 'Nos projetos que conduzo, essa etapa leva de 1 a 5 dias.',
     },
     {
       type: 'heading',
@@ -1198,7 +1189,7 @@ const quantoTempoInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Faixa comum: 3 dias a 2 semanas.',
+      text: 'Nos projetos que conduzo, essa etapa leva de 3 dias a 2 semanas.',
     },
     {
       type: 'heading',
@@ -1208,7 +1199,7 @@ const quantoTempoInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Nesta etapa, o foco é hierarquia visual, experiência mobile, clareza da oferta, ritmo das seções e coerência com a marca. Dependendo do nível de personalização, o design pode levar de 1 a 3 semanas.',
+      text: 'Nesta etapa, o foco é hierarquia visual, experiência mobile, clareza da oferta, ritmo das seções e coerência com a marca. Nos projetos que conduzo, o design leva de 1 a 3 semanas, conforme o nível de personalização.',
     },
     {
       type: 'heading',
@@ -1222,7 +1213,7 @@ const quantoTempoInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Faixa comum: 1 a 4 semanas.',
+      text: 'Nos projetos que conduzo, o desenvolvimento leva de 1 a 4 semanas.',
     },
     {
       type: 'heading',
@@ -1236,7 +1227,7 @@ const quantoTempoInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Faixa comum: 2 a 7 dias.',
+      text: 'Nos projetos que conduzo, essa etapa leva de 2 a 7 dias.',
     },
     {
       type: 'heading',
@@ -1246,7 +1237,7 @@ const quantoTempoInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'O lançamento envolve domínio, hospedagem, SSL, redirects, sitemap, indexação e testes finais em produção. Quando infraestrutura e acessos já estão prontos, essa etapa pode levar de 1 a 3 dias.',
+      text: 'O lançamento envolve domínio, hospedagem, SSL, redirects, sitemap, indexação e testes finais em produção. Quando infraestrutura e acessos já estão prontos, essa etapa leva de 1 a 3 dias nos meus projetos.',
     },
     {
       type: 'heading',
@@ -1256,7 +1247,7 @@ const quantoTempoInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Na maioria dos projetos, o maior atraso não está no desenvolvimento em si, mas na falta de conteúdo, decisões pendentes e mudanças de escopo durante o processo.',
+      text: 'Nos projetos que acompanho, o maior atraso não está no desenvolvimento em si, mas na falta de conteúdo, decisões pendentes e mudanças de escopo durante o processo.',
     },
     {
       type: 'list',
@@ -1280,7 +1271,7 @@ const quantoTempoInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Se a empresa quer lançar mais rápido sem sacrificar qualidade, o melhor caminho é preparar o básico antes do início do projeto.',
+      text: 'Se a empresa quer lançar mais rápido, prepare estes itens antes do início do projeto.',
     },
     {
       type: 'list',
@@ -1314,7 +1305,7 @@ const quantoTempoInsight: InsightPublishedPost = {
         ['Criador de sites', 'Publicação simples', 'Menor controle técnico'],
         [
           'Site profissional personalizado',
-          'Mais estratégico e exclusivo',
+          'Estrutura e código feitos para a oferta da empresa',
           'Exige mais tempo',
         ],
         ['Agência', 'Time completo', 'Custo e prazo maiores'],
@@ -1328,7 +1319,7 @@ const quantoTempoInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Sim, em alguns casos. Uma landing page ou site simples pode ficar pronto em poucos dias quando escopo, conteúdo e aprovação já estão resolvidos. Mas sites empresariais mais completos geralmente precisam de mais tempo para garantir clareza, design, SEO, performance e boa experiência mobile.',
+      text: 'Sim, em alguns casos. Uma landing page ou site simples pode ficar pronto em poucos dias quando escopo, conteúdo e aprovação já estão resolvidos. Mas sites empresariais mais completos geralmente precisam de mais tempo para conteúdo, design, SEO, performance e testes no celular.',
     },
     {
       type: 'heading',
@@ -1342,7 +1333,7 @@ const quantoTempoInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Por isso, prazo de criação do site e prazo para ganhar tração orgânica são coisas diferentes. Um projeto bem feito acelera a base. O resultado em busca vem com construção contínua.',
+      text: 'Por isso, prazo de criação do site e prazo para ganhar tração orgânica são coisas diferentes. O site pronto permite a indexação. A posição nas buscas depende de publicar e atualizar conteúdo ao longo dos meses.',
     },
     {
       type: 'heading',
@@ -1356,7 +1347,7 @@ const quantoTempoInsight: InsightPublishedPost = {
         {
           question: 'Quanto tempo leva para criar um site profissional?',
           answer:
-            'Em média, de 2 a 8 semanas, dependendo do tipo de site, número de páginas, conteúdo, funcionalidades e velocidade das aprovações.',
+            'Nos projetos que conduzo, de 2 a 8 semanas, dependendo do tipo de site, número de páginas, conteúdo, funcionalidades e velocidade das aprovações.',
         },
         {
           question: 'É possível criar um site em uma semana?',
@@ -1388,7 +1379,7 @@ const quantoTempoInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Se sua empresa quer lançar com mais clareza e menos retrabalho, o melhor caminho é definir escopo, conteúdo e objetivo comercial antes de começar. Isso encurta prazo sem sacrificar qualidade.',
+      text: 'Se sua empresa quer lançar com menos retrabalho, defina escopo, conteúdo e objetivo comercial antes de começar. Com isso pronto, o projeto não para esperando texto ou aprovação.',
     },
     {
       type: 'links',
@@ -1396,22 +1387,22 @@ const quantoTempoInsight: InsightPublishedPost = {
         {
           href: '/criacao-de-sites/',
           label: 'Criação de sites',
-          text: 'Veja como estruturo sites profissionais com base técnica, clareza comercial e foco em conversão.',
+          text: 'Veja como prazo, etapas de aprovação e entregas são definidos na proposta do serviço de criação de sites.',
         },
         {
           href: '/site-institucional/',
           label: 'Site institucional',
-          text: 'Entenda o formato ideal para empresas que precisam apresentar serviços com mais autoridade e confiança.',
+          text: 'Veja quais páginas e seções entram em um site institucional, o formato que leva de 2 a 8 semanas nos meus projetos.',
         },
         {
           href: '/blog-profissional/',
           label: 'Blog profissional',
-          text: 'Descubra como um blog bem estruturado ajuda a construir presença orgânica com base técnica limpa.',
+          text: 'Veja a estrutura de categorias, páginas de artigo e SEO editorial que entra em um blog profissional.',
         },
         {
           href: '/portfolio/agencia-skyrocket/',
           label: 'Case: site da Agência Skyrocket',
-          text: 'Veja um projeto que combinou identidade forte, seções objetivas e experiência responsiva para apresentar serviços.',
+          text: 'Veja o site de uma agência de marketing digital que apresenta branding, conteúdo, mídia online e performance.',
         },
         {
           href: 'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Li%20o%20artigo%20sobre%20quanto%20tempo%20leva%20para%20criar%20um%20site%20profissional%20e%20quero%20entender%20qual%20prazo%20faz%20sentido%20para%20meu%20projeto.',
@@ -1425,7 +1416,7 @@ const quantoTempoInsight: InsightPublishedPost = {
 
 const escolherFreelancerInsight: InsightPublishedPost = {
   title:
-    'Como escolher um desenvolvedor web freelancer: 9 critérios essenciais',
+    'Como escolher um desenvolvedor web freelancer: 9 critérios para comparar propostas',
   excerpt:
     'Aprenda a comparar portfólio, processo, proposta, tecnologia e suporte antes de contratar quem vai criar o site da sua empresa.',
   description:
@@ -1455,11 +1446,11 @@ const escolherFreelancerInsight: InsightPublishedPost = {
   content: [
     {
       type: 'paragraph',
-      text: 'A melhor forma de escolher um desenvolvedor web freelancer não é começar pelo menor preço nem pela tecnologia mais famosa. É comparar quem entende o objetivo do negócio, mostra projetos reais, explica o processo e deixa claro o que será entregue, testado e transferido para você.',
+      text: 'Para escolher um desenvolvedor web freelancer, compare quem entende o objetivo do negócio, mostra projetos reais, explica o processo e deixa claro o que será entregue, testado e transferido para você. Preço e tecnologia entram na comparação depois disso.',
     },
     {
       type: 'paragraph',
-      text: 'Um site profissional precisa funcionar como parte da empresa: apresentar a marca, ser encontrado, carregar bem no celular e conduzir o visitante para uma ação. Por isso, a contratação deve avaliar resultado e responsabilidade, não apenas aparência ou quantidade de páginas.',
+      text: 'Um site profissional precisa funcionar como parte da empresa: apresentar a marca, ser encontrado, carregar bem no celular e conduzir o visitante para uma ação. Por isso, avalie o que o site precisa fazer e quem responde por cada parte, além da aparência e da quantidade de páginas.',
     },
     {
       type: 'table',
@@ -1470,7 +1461,7 @@ const escolherFreelancerInsight: InsightPublishedPost = {
         ['Portfólio', 'URLs reais e projetos próximos do seu', 'Permite avaliar o trabalho em uso'],
         ['Escopo', 'Páginas, funções, conteúdo e revisões', 'Deixa as propostas comparáveis'],
         ['Processo', 'Etapas, aprovações e responsabilidades', 'Reduz retrabalho e atrasos'],
-        ['Base técnica', 'Mobile, SEO, performance, acessibilidade e segurança', 'Protege experiência e crescimento'],
+        ['Base técnica', 'Mobile, SEO, performance, acessibilidade e segurança', 'Afeta carregamento, indexação e uso no celular'],
         ['Autonomia', 'Domínio, hospedagem, código e acessos em seu nome', 'Evita dependência do fornecedor'],
         ['Pós-lançamento', 'Garantia, manutenção e treinamento', 'Define quem cuida do site depois'],
       ],
@@ -1497,7 +1488,7 @@ const escolherFreelancerInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Quanto mais claro for o ponto de partida, menos a proposta dependerá de suposições. Um bom freelancer também fará perguntas antes de apresentar preço. Isso é sinal de diagnóstico, não burocracia.',
+      text: 'Quanto mais claro for o ponto de partida, menos a proposta dependerá de suposições. Um bom freelancer também fará perguntas antes de apresentar preço, porque precisa das respostas para dimensionar o projeto.',
     },
     {
       type: 'heading',
@@ -1532,7 +1523,7 @@ const escolherFreelancerInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Duas propostas podem dizer “site profissional” e entregar coisas completamente diferentes. Coloque lado a lado páginas, funcionalidades, conteúdo, design, integrações, revisões, testes, publicação e suporte. Se um item importante não aparece, considere que ele ainda não está combinado.',
+      text: 'Duas propostas podem dizer "site profissional" e entregar coisas completamente diferentes. Coloque lado a lado páginas, funcionalidades, conteúdo, design, integrações, revisões, testes, publicação e suporte. Se um item importante não aparece, considere que ele ainda não está combinado.',
     },
     {
       type: 'heading',
@@ -1579,7 +1570,7 @@ const escolherFreelancerInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Desconfie de promessa absoluta, como “primeiro lugar no Google”, “segurança total” ou “nota 100 garantida”. Um profissional sério explica o que controla, o que depende de conteúdo e servidor e como vai medir e corrigir problemas reais.',
+      text: 'Desconfie de promessa absoluta, como "primeiro lugar no Google", "segurança total" ou "nota 100 garantida". Um profissional sério explica o que controla, o que depende de conteúdo e servidor e como vai medir e corrigir problemas reais.',
     },
     {
       type: 'heading',
@@ -1617,7 +1608,7 @@ const escolherFreelancerInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Não trate essa comparação como uma disputa de qualidade. Compare quem realmente executará o trabalho, quanto de atenção o projeto receberá e quais entregas estão incluídas. Uma agência não é automaticamente melhor, assim como um freelancer não é automaticamente mais barato ou mais adequado.',
+      text: 'Não trate essa comparação como uma disputa de qualidade. Compare quem executará o trabalho, quanto de atenção o projeto receberá e quais entregas estão incluídas. Uma agência não é automaticamente melhor, assim como um freelancer não é automaticamente mais barato ou mais adequado.',
     },
     {
       type: 'heading',
@@ -1627,7 +1618,7 @@ const escolherFreelancerInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'O contrato transforma uma conversa em um acordo verificável. Ele deve registrar escopo, etapas, prazos, revisões, responsabilidades, propriedade dos arquivos, tratamento de mudanças, forma de pagamento e o que acontece depois da publicação.',
+      text: 'O contrato coloca por escrito o que foi combinado. Ele deve registrar escopo, etapas, prazos, revisões, responsabilidades, propriedade dos arquivos, tratamento de mudanças, forma de pagamento e o que acontece depois da publicação.',
     },
     {
       type: 'list',
@@ -1641,7 +1632,7 @@ const escolherFreelancerInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Suporte não precisa ser mensal para todo negócio. Algumas empresas precisam de manutenção contínua; outras preferem receber treinamento e solicitar ajustes quando necessário. O ponto importante é escolher conscientemente, em vez de descobrir a responsabilidade depois que o site estiver no ar.',
+      text: 'Suporte não precisa ser mensal para todo negócio. Algumas empresas precisam de manutenção contínua; outras preferem receber treinamento e solicitar ajustes quando necessário. Combine isso antes da contratação, em vez de descobrir a responsabilidade depois que o site estiver no ar.',
     },
     {
       type: 'heading',
@@ -1690,7 +1681,7 @@ const escolherFreelancerInsight: InsightPublishedPost = {
     },
     {
       type: 'blockquote',
-      text: 'Escolha quem consegue explicar o projeto com clareza antes de tentar impressionar com tecnologia.',
+      text: 'Se alguma resposta a essas perguntas vier em jargão, peça de novo em português simples.',
     },
     {
       type: 'heading',
@@ -1736,7 +1727,7 @@ const escolherFreelancerInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Se você já sabe o objetivo do projeto, reúna referências, liste as páginas necessárias e envie as mesmas perguntas para dois ou três profissionais. A proposta mais forte não é necessariamente a mais barata: é a que deixa claro como o site será planejado, construído, testado e entregue.',
+      text: 'Se você já sabe o objetivo do projeto, reúna referências, liste as páginas necessárias e envie as mesmas perguntas para dois ou três profissionais. Prefira a proposta que diz como o site será planejado, construído, testado e entregue, mesmo que ela não seja a mais barata.',
     },
     {
       type: 'links',
@@ -1744,22 +1735,22 @@ const escolherFreelancerInsight: InsightPublishedPost = {
         {
           href: '/criacao-de-sites/',
           label: 'Criação de sites',
-          text: 'Veja como estruturo sites profissionais com foco em SEO, performance e conversão.',
+          text: 'Veja como trabalho e compare com as perguntas da lista acima.',
         },
         {
           href: '/portfolio/urbem/',
           label: 'Case: site da Urbem',
-          text: 'Conheça um projeto institucional com conteúdo técnico, organização de informação e base para crescimento orgânico.',
+          text: 'Veja o site institucional de uma empresa de madeira engenheirada, com produtos, projetos, biblioteca e blog.',
         },
         {
           href: '/portfolio/agencia-skyrocket/',
           label: 'Case: site da Agência Skyrocket',
-          text: 'Veja um projeto que combina identidade visual, clareza de serviços e experiência responsiva.',
+          text: 'Abra o site da agência e avalie o projeto como usuário, do jeito descrito no critério 2.',
         },
         {
           href: '/insights/site-barato-vs-site-profissional/',
           label: 'Site barato vs site profissional',
-          text: 'Continue a comparação entendendo o que costuma separar preço baixo de uma entrega realmente profissional.',
+          text: 'Veja o que costuma ficar de fora de um orçamento baixo e como isso aparece depois da entrega.',
         },
         {
           href: 'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Li%20o%20artigo%20sobre%20como%20escolher%20um%20desenvolvedor%20web%20freelancer%20e%20quero%20conversar%20sobre%20meu%20projeto.',
@@ -1774,9 +1765,9 @@ const escolherFreelancerInsight: InsightPublishedPost = {
 const performanceConversaoInsight: InsightPublishedPost = {
   title: 'Por que a performance do site afeta a conversão?',
   excerpt:
-    'Entenda como velocidade, estabilidade e resposta aos cliques influenciam confiança, SEO e geração de contatos — especialmente no celular.',
+    'Entenda como velocidade, estabilidade e resposta aos cliques influenciam confiança, SEO e geração de contatos, especialmente no celular.',
   description:
-    'Descubra por que a performance do site afeta a conversão e o SEO. Veja como LCP, INP, CLS, peso da página, scripts, imagens, hospedagem e formulários influenciam a jornada até o contato.',
+    'Descubra por que a performance do site afeta a conversão e o SEO. Veja como LCP, INP, CLS, peso da página, scripts, imagens, hospedagem e formulários afetam o caminho até o contato.',
   category: 'SEO',
   categorySlug: 'seo',
   date: '30 jul. 2026',
@@ -1800,7 +1791,7 @@ const performanceConversaoInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Isso vale para e-commerce, mas também para um site institucional, uma landing page ou um blog profissional. Se o objetivo é receber uma mensagem no WhatsApp, um formulário ou um pedido de orçamento, performance é parte do caminho até essa ação — não um detalhe separado do marketing.',
+      text: 'Isso vale para e-commerce, mas também para um site institucional, uma landing page ou um blog profissional. Se o objetivo é receber uma mensagem no WhatsApp, um formulário ou um pedido de orçamento, performance é parte do caminho até essa ação, e não um detalhe separado do marketing.',
     },
     {
       type: 'table',
@@ -1811,7 +1802,7 @@ const performanceConversaoInsight: InsightPublishedPost = {
         ['Imagem ou texto demora a aparecer', 'A primeira impressão fica incompleta', 'Menos confiança e atenção'],
         ['Layout pula durante o carregamento', 'A navegação parece instável', 'Clique errado ou perda de foco'],
         ['Botão demora para responder', 'A ação parece quebrada', 'Menos formulários, compras ou mensagens'],
-        ['Site pesa no celular', 'A experiência consome tempo e dados', 'Maior rejeição em conexões móveis'],
+        ['Site pesa no celular', 'A experiência consome tempo e dados', 'Abandono em conexões móveis lentas'],
       ],
     },
     {
@@ -1847,7 +1838,7 @@ const performanceConversaoInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Antes de converter, a pessoa precisa chegar e conseguir ver a página. Conteúdo pesado, scripts demais ou uma renderização dependente de JavaScript podem atrasar o primeiro contato. Isso também reduz o aproveitamento de campanhas, links compartilhados e visitas vindas do Google: você paga ou trabalha para trazer alguém e perde a oportunidade antes de a mensagem aparecer.',
+      text: 'Antes de converter, a pessoa precisa chegar e conseguir ver a página. Conteúdo pesado, scripts demais ou uma renderização dependente de JavaScript podem atrasar o primeiro contato. Isso também reduz o aproveitamento de campanhas, links compartilhados e visitas vindas do Google. Você paga ou trabalha para trazer alguém e perde essa pessoa antes de a mensagem aparecer.',
     },
     {
       type: 'heading',
@@ -1857,7 +1848,7 @@ const performanceConversaoInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'O visitante usa sinais rápidos para decidir se vale continuar. Uma página que aparece de forma organizada, mantém a hierarquia visual e responde bem transmite cuidado. Quando o site trava, pula ou demora para mostrar o botão de contato, a percepção de qualidade da empresa também é afetada.',
+      text: 'O visitante usa sinais rápidos para decidir se vale continuar. Se o conteúdo aparece na ordem certa e os botões respondem ao toque, a pessoa continua lendo. Quando o site trava, pula ou demora para mostrar o botão de contato, o visitante tende a desconfiar da empresa.',
     },
     {
       type: 'heading',
@@ -1867,7 +1858,7 @@ const performanceConversaoInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Depois de chegar, a pessoa precisa navegar entre serviços, cases, perguntas e contato. Links lentos, transições pesadas e formulários que não respondem interrompem a jornada. É por isso que vale observar não só a entrada na página, mas também os caminhos que levam até a conversão.',
+      text: 'Depois de chegar, a pessoa precisa navegar entre serviços, cases, perguntas e contato. Links lentos, transições pesadas e formulários que não respondem interrompem o caminho até o contato. É por isso que vale observar não só a entrada na página, mas também os caminhos que levam até a conversão.',
     },
     {
       type: 'heading',
@@ -1877,7 +1868,7 @@ const performanceConversaoInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Um botão de WhatsApp, orçamento ou compra precisa estar visível, rotulado e pronto para responder quando a intenção aparece. Uma ação interrompida pode não ser repetida. Mesmo quem não converte na primeira visita tende a voltar menos quando a experiência inicial foi frustrante.',
+      text: 'Um botão de WhatsApp, orçamento ou compra precisa estar visível, rotulado e pronto para responder quando a intenção aparece. Uma ação interrompida pode não ser repetida.',
     },
     {
       type: 'heading',
@@ -1966,7 +1957,7 @@ const performanceConversaoInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Performance não significa deixar o site sem personalidade. O objetivo é fazer design, conteúdo, tecnologia e conversão trabalharem juntos. Um visual forte continua possível quando o projeto escolhe o que merece carregar primeiro e o que pode esperar.',
+      text: 'Performance não significa deixar o site sem personalidade. Um visual forte continua possível quando o projeto escolhe o que merece carregar primeiro e o que pode esperar.',
     },
     {
       type: 'heading',
@@ -1976,7 +1967,7 @@ const performanceConversaoInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Antes de otimizar, registre a situação atual. Anote o tempo e as métricas da página principal, a taxa de conclusão do formulário ou o número de cliques no WhatsApp. Depois da mudança, compare o mesmo fluxo e um período semelhante. Se a performance melhora, mas o CTA continua confuso, o próximo gargalo pode ser mensagem, oferta ou confiança — não mais velocidade.',
+      text: 'Antes de otimizar, registre a situação atual. Anote o tempo e as métricas da página principal, a taxa de conclusão do formulário ou o número de cliques no WhatsApp. Depois da mudança, compare o mesmo fluxo e um período semelhante. Se a performance melhora, mas o CTA continua confuso, o próximo gargalo pode ser mensagem, oferta ou confiança, e não mais velocidade.',
     },
     {
       type: 'list',
@@ -1987,10 +1978,6 @@ const performanceConversaoInsight: InsightPublishedPost = {
         'Abandono por página ou etapa do fluxo.',
         'Conversões por dispositivo e origem de tráfego.',
       ],
-    },
-    {
-      type: 'blockquote',
-      text: 'Performance é o tempo entre a intenção do visitante e a possibilidade real de agir.',
     },
     {
       type: 'heading',
@@ -2004,7 +1991,7 @@ const performanceConversaoInsight: InsightPublishedPost = {
         {
           question: 'Um site rápido sempre converte mais?',
           answer:
-            'Não. Performance remove atrito, mas oferta, copy, confiança, preço e clareza do CTA também influenciam a conversão. O site rápido cria uma condição melhor para esses elementos funcionarem.',
+            'Não. Performance remove atrito, mas oferta, copy, confiança, preço e clareza do CTA também influenciam a conversão. Um site rápido faz o visitante chegar a ver esses elementos.',
         },
         {
           question: 'Performance ajuda o site a aparecer no Google?',
@@ -2036,7 +2023,7 @@ const performanceConversaoInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Comece escolhendo uma página importante e uma conversão clara. Meça a experiência no celular, encontre o maior bloqueio e teste o caminho completo até o contato. Melhorar performance fica muito mais fácil quando cada ajuste está ligado a uma ação que o negócio precisa gerar.',
+      text: 'Comece escolhendo uma página importante e uma conversão clara. Meça a experiência no celular, encontre o maior bloqueio e teste o caminho completo até o contato. Ligue cada ajuste a uma métrica, como cliques no WhatsApp ou formulários enviados.',
     },
     {
       type: 'links',
@@ -2081,9 +2068,9 @@ export const insights: InsightPost[] = [
     title:
       'Quanto custa um site profissional em 2026? Veja preços por tipo de projeto',
     excerpt:
-      'Faixas realistas de preço para landing page, site institucional, blog, loja virtual e projetos sob medida.',
+      'Faixas de preço comuns em propostas do mercado para landing page, site institucional, blog, loja virtual e projetos sob medida.',
     description:
-      'Veja quanto custa criar um site profissional em 2026, com preços para landing page, site institucional, blog, loja virtual, manutenção, domínio e hospedagem.',
+      'Veja quanto custa criar um site profissional em 2026, com faixas de preço comuns em propostas do mercado para landing page, site institucional, blog, loja virtual, manutenção, domínio e hospedagem.',
     category: 'Mercado',
     categorySlug: 'freelance',
     date: '05 jun. 2026',
@@ -2104,17 +2091,17 @@ export const insights: InsightPost[] = [
     content: [
       {
         type: 'paragraph',
-        text: 'Um site profissional pode custar de menos de R$1.000 a mais de R$30.000, dependendo do tipo de projeto, nível de personalização, funcionalidades, tecnologia, SEO e manutenção.',
+        text: 'Nas propostas do mercado, um site profissional vai de menos de R$1.000 a mais de R$30.000, conforme o tipo de projeto, o nível de personalização, as funcionalidades, a tecnologia, o SEO e a manutenção.',
       },
       {
         type: 'paragraph',
-        text: 'A resposta curta é: em 2026, uma landing page simples costuma ficar entre R$800 e R$2.500, enquanto um site institucional profissional costuma variar de R$2.000 a R$8.000. Projetos com blog, CMS, loja virtual ou funcionalidades sob medida exigem mais investimento.',
+        text: 'Em 2026, uma landing page simples costuma aparecer em propostas entre R$800 e R$2.500, e um site institucional entre R$2.000 e R$8.000. Projetos com blog, CMS, loja virtual ou funcionalidades sob medida custam mais.',
       },
       {
         type: 'table',
         caption:
-          'Faixas médias de preço para criação de site profissional no Brasil em 2026.',
-        columns: ['Tipo de site', 'Faixa média de preço'],
+          'Faixas de preço comuns em propostas de criação de site no Brasil em 2026. O valor de cada projeto depende do escopo.',
+        columns: ['Tipo de site', 'Faixa de preço'],
         rows: [
           ['Landing page simples', 'R$800 a R$2.500'],
           ['Site one page', 'R$1.000 a R$3.000'],
@@ -2173,7 +2160,7 @@ export const insights: InsightPost[] = [
       },
       {
         type: 'paragraph',
-        text: 'Template adaptado é uma coisa. Layout exclusivo, pensado para posicionamento, confiança e conversão, é outra. Quanto maior o nível de personalização visual e estratégica, maior o investimento.',
+        text: 'Adaptar um template custa menos que criar um layout exclusivo para a marca. Quanto mais o visual e a estrutura das páginas forem desenhados para o negócio, maior o investimento.',
       },
       {
         type: 'heading',
@@ -2219,7 +2206,7 @@ export const insights: InsightPost[] = [
       },
       {
         type: 'paragraph',
-        text: 'Uma landing page profissional costuma custar entre R$800 e R$2.500 quando o objetivo é apresentar uma oferta, captar leads ou apoiar uma campanha de tráfego pago. Projetos com copy mais estratégica, seções personalizadas, testes e integrações podem passar disso.',
+        text: 'Em propostas do mercado, uma landing page profissional costuma ficar entre R$800 e R$2.500 quando o objetivo é apresentar uma oferta, captar leads ou apoiar uma campanha de tráfego pago. Projetos com copy mais estratégica, seções personalizadas, testes e integrações podem passar disso.',
       },
       {
         type: 'heading',
@@ -2229,7 +2216,7 @@ export const insights: InsightPost[] = [
       },
       {
         type: 'paragraph',
-        text: 'Um site institucional costuma variar de R$2.000 a R$8.000. Ele é indicado para empresas que precisam apresentar serviços, construir autoridade, mostrar portfólio, responder dúvidas e gerar contatos com mais confiança.',
+        text: 'Um site institucional costuma aparecer em propostas entre R$2.000 e R$8.000. Ele é indicado para empresas que precisam apresentar serviços, mostrar portfólio, responder dúvidas e receber pedidos de orçamento.',
       },
       {
         type: 'heading',
@@ -2239,7 +2226,7 @@ export const insights: InsightPost[] = [
       },
       {
         type: 'paragraph',
-        text: 'Um blog profissional pode ficar entre R$2.500 e R$10.000. O custo sobe porque blog não é só publicar texto: precisa de estrutura editorial, páginas de artigo, categorias, SEO, performance, gestão de conteúdo e bom fluxo de publicação.',
+        text: 'Um blog profissional costuma ficar entre R$2.500 e R$10.000 nas propostas do mercado. O custo sobe porque o blog precisa de estrutura editorial, páginas de artigo, categorias, SEO, performance, gestão de conteúdo e bom fluxo de publicação.',
       },
       {
         type: 'heading',
@@ -2249,7 +2236,7 @@ export const insights: InsightPost[] = [
       },
       {
         type: 'paragraph',
-        text: 'Uma loja virtual costuma começar perto de R$5.000 e pode passar de R$30.000. Catálogo, estoque, frete, pagamento, segurança, recuperação de carrinho, emissão fiscal e integrações tornam o projeto mais sensível.',
+        text: 'Propostas de loja virtual costumam começar perto de R$5.000 e podem passar de R$30.000. Catálogo, estoque, frete, pagamento, segurança, recuperação de carrinho, emissão fiscal e integrações aumentam o escopo e o tempo de teste.',
       },
       {
         type: 'heading',
@@ -2259,7 +2246,7 @@ export const insights: InsightPost[] = [
       },
       {
         type: 'paragraph',
-        text: 'Um site sob medida pode custar de R$10.000 a R$100.000 ou mais quando envolve funcionalidades específicas, sistemas internos, integrações complexas, múltiplos perfis de usuário ou uma experiência digital muito personalizada.',
+        text: 'Propostas de site sob medida vão de R$10.000 a R$100.000 ou mais quando o projeto envolve funcionalidades específicas, sistemas internos, integrações complexas, múltiplos perfis de usuário ou uma experiência digital muito personalizada.',
       },
       {
         type: 'heading',
@@ -2303,11 +2290,11 @@ export const insights: InsightPost[] = [
       },
       {
         type: 'paragraph',
-        text: 'Dois orçamentos podem parecer parecidos na descrição e serem completamente diferentes na entrega. Um pode usar template pronto, não incluir SEO técnico, ter pouca revisão e não oferecer suporte. Outro pode nascer com design exclusivo, estrutura de busca, performance, responsividade, orientação de conteúdo e ajustes pós-lançamento.',
+        text: 'Dois orçamentos podem parecer parecidos na descrição e serem completamente diferentes na entrega. Um pode usar template pronto, não incluir SEO técnico, ter pouca revisão e não oferecer suporte. Outro pode incluir design exclusivo, SEO técnico, performance, versão mobile revisada, orientação de conteúdo e ajustes depois da publicação.',
       },
       {
         type: 'blockquote',
-        text: 'Preço baixo não é problema por si só. O problema é quando o preço baixo esconde ausência de estratégia, suporte, performance e base técnica.',
+        text: 'Preço baixo vira problema quando a proposta não diz o que inclui em planejamento, SEO, performance e suporte.',
       },
       {
         type: 'heading',
@@ -2317,7 +2304,7 @@ export const insights: InsightPost[] = [
       },
       {
         type: 'paragraph',
-        text: 'Além da criação, existe o custo de manter o site funcionando. Em projetos simples, domínio e hospedagem podem ser suficientes. Em projetos profissionais, também entram manutenção técnica, melhorias de conteúdo, ajustes de SEO e evolução de páginas.',
+        text: 'Depois da criação, existe o custo de manter o site funcionando. Em projetos simples, domínio e hospedagem podem ser suficientes. Em projetos profissionais, também entram manutenção técnica, melhorias de conteúdo, ajustes de SEO e evolução de páginas.',
       },
       {
         type: 'list',
@@ -2339,7 +2326,7 @@ export const insights: InsightPost[] = [
       },
       {
         type: 'paragraph',
-        text: 'Vale a pena criar sozinho quando o orçamento é muito limitado, o projeto é simples e você aceita abrir mão de personalização, performance e estratégia. Mas, se o site precisa transmitir confiança, aparecer no Google e gerar contatos, contratar um profissional tende a ser uma escolha mais segura.',
+        text: 'Vale a pena criar sozinho quando o orçamento é muito limitado, o projeto é simples e você aceita abrir mão de personalização, performance e estratégia. Mas, se o site precisa aparecer no Google e gerar pedidos de orçamento, contratar um profissional tende a ser uma escolha mais segura.',
       },
       {
         type: 'heading',
@@ -2372,22 +2359,22 @@ export const insights: InsightPost[] = [
           {
             question: 'Quanto custa um site simples?',
             answer:
-              'Um site simples pode custar de R$800 a R$3.000, dependendo do número de seções, design, conteúdo, formulário, WhatsApp e nível de acabamento.',
+              'Em propostas do mercado, um site simples costuma ficar entre R$800 e R$3.000, dependendo do número de seções, design, conteúdo, formulário, WhatsApp e nível de acabamento.',
           },
           {
             question: 'Quanto custa um site profissional?',
             answer:
-              'Um site profissional costuma variar de R$2.000 a R$8.000 em projetos institucionais, podendo passar disso quando inclui CMS, blog, integrações ou funcionalidades sob medida.',
+              'Em propostas do mercado, um site profissional institucional costuma ficar entre R$2.000 e R$8.000, podendo passar disso quando inclui CMS, blog, integrações ou funcionalidades sob medida.',
           },
           {
             question: 'Quanto custa uma landing page?',
             answer:
-              'Uma landing page profissional costuma ficar entre R$800 e R$2.500, mas pode custar mais quando envolve copy estratégica, design exclusivo, integrações e testes.',
+              'Em propostas do mercado, uma landing page profissional costuma ficar entre R$800 e R$2.500, mas pode custar mais quando envolve copy estratégica, design exclusivo, integrações e testes.',
           },
           {
             question: 'Quanto custa um site institucional?',
             answer:
-              'Um site institucional normalmente fica entre R$2.000 e R$8.000, conforme quantidade de páginas, complexidade visual, SEO, conteúdo e suporte incluso.',
+              'Em propostas do mercado, um site institucional normalmente fica entre R$2.000 e R$8.000, conforme quantidade de páginas, complexidade visual, SEO, conteúdo e suporte incluso.',
           },
           {
             question: 'Quanto custa manter um site por mês?',
@@ -2412,7 +2399,7 @@ export const insights: InsightPost[] = [
           {
             question: 'Site barato vale a pena?',
             answer:
-              'Vale quando o objetivo é simples e o orçamento é limitado. Não vale quando o site precisa gerar confiança, ranquear no Google, carregar rápido e apoiar vendas de forma profissional.',
+              'Vale quando o objetivo é simples e o orçamento é limitado. Não vale quando o site precisa ranquear no Google, carregar rápido no celular e gerar pedidos de orçamento.',
           },
           {
             question: 'É melhor Wix, WordPress ou site sob medida?',
@@ -2437,12 +2424,12 @@ export const insights: InsightPost[] = [
           {
             href: '/criacao-de-sites/',
             label: 'Criação de sites',
-            text: 'Veja uma estrutura profissional para empresas que precisam vender, não só existir.',
+            text: 'Veja como estruturo sites para empresas que querem receber pedidos de orçamento.',
           },
           {
             href: '/site-institucional/',
             label: 'Site institucional',
-            text: 'Conheça a solução para apresentar serviços com mais autoridade e confiança.',
+            text: 'Páginas de serviço, cases e FAQ para quem compara fornecedores antes de pedir orçamento.',
           },
           {
             href: '/landing-page/',
@@ -2452,7 +2439,7 @@ export const insights: InsightPost[] = [
           {
             href: '/blog-profissional/',
             label: 'Blog profissional',
-            text: 'Veja como estruturar conteúdo indexável para fortalecer autoridade orgânica.',
+            text: 'Veja como estruturar um blog para atrair visitas do Google com artigos.',
           },
           {
             href: '/portfolio/conviva-engenharia/',
@@ -2493,11 +2480,11 @@ export const insights: InsightPost[] = [
     content: [
       {
         type: 'paragraph',
-        text: 'A principal diferença entre um site barato e um site profissional não está só no visual ou no preço. Está no planejamento, na personalização, na performance, no SEO, na clareza da comunicação, no suporte e na capacidade do site gerar confiança e contatos para a empresa.',
+        text: 'A diferença entre um site barato e um site profissional aparece no que vem incluso: briefing, páginas planejadas para o objetivo, SEO técnico, performance no celular e quem cuida do site depois da publicação.',
       },
       {
         type: 'paragraph',
-        text: 'Site barato não é automaticamente um erro. Em alguns cenários ele pode fazer sentido. O problema começa quando a economia inicial parece vantagem, mas custa caro depois em credibilidade, lentidão, dificuldade para evoluir e oportunidade perdida. Por isso, a melhor comparação não é só preço. É risco, estrutura e resultado.',
+        text: 'Site barato não é automaticamente um erro. Em alguns cenários ele pode fazer sentido. O problema começa quando a economia inicial vira custo depois, com um site lento, difícil de alterar ou que não gera contato.',
       },
       {
         type: 'table',
@@ -2513,7 +2500,7 @@ export const insights: InsightPost[] = [
           [
             'Design',
             'Template genérico ou adaptação rápida',
-            'Visual alinhado à marca e à jornada do visitante',
+            'Visual alinhado à marca e à ordem de leitura do visitante',
           ],
           [
             'Conteúdo',
@@ -2533,17 +2520,17 @@ export const insights: InsightPost[] = [
           [
             'Conversão',
             'Contato solto no fim da página',
-            'CTAs, fluxo e prova de confiança ao longo da jornada',
+            'CTAs e provas, como cases e depoimentos, ao longo da página',
           ],
           [
             'Suporte',
             'Entrega sem acompanhamento',
-            'Revisão, ajustes e suporte pós-lançamento',
+            'Etapas de revisão e suporte pós-publicação definidos na proposta',
           ],
           [
             'Resultado',
             'Presença mínima',
-            'Mais autoridade, clareza e chance de gerar contato',
+            'Mais chance de gerar contato',
           ],
         ],
       },
@@ -2555,11 +2542,11 @@ export const insights: InsightPost[] = [
       },
       {
         type: 'paragraph',
-        text: 'A diferença real está no que acontece antes, durante e depois da entrega. Site barato geralmente nasce para reduzir custo e acelerar publicação. Site profissional nasce para resolver um objetivo comercial com mais clareza, confiança e base técnica.',
+        text: 'A diferença está no processo. Site barato prioriza custo e prazo de publicação. Site profissional parte do objetivo comercial e inclui planejamento, SEO técnico e testes.',
       },
       {
         type: 'blockquote',
-        text: 'Não compare só preço. Compare risco, estrutura e resultado esperado.',
+        text: 'Compare o que cada proposta inclui, não só o valor final.',
       },
       {
         type: 'heading',
@@ -2590,7 +2577,7 @@ export const insights: InsightPost[] = [
       },
       {
         type: 'paragraph',
-        text: 'Um site profissional é construído para representar bem a empresa, facilitar entendimento da oferta, carregar rápido, funcionar em qualquer tela, aparecer melhor no Google e guiar o visitante até o contato. Ele não depende só de aparência. Depende de estrutura.',
+        text: 'Um site profissional é construído para representar bem a empresa, facilitar entendimento da oferta, carregar rápido, funcionar em qualquer tela, aparecer melhor no Google e guiar o visitante até o contato.',
       },
       {
         type: 'list',
@@ -2600,105 +2587,105 @@ export const insights: InsightPost[] = [
           'Design mais alinhado à marca e à leitura.',
           'SEO técnico inicial e performance melhor resolvida.',
           'CTAs e contato organizados para conversão.',
-          'Teste, revisão e suporte pós-lançamento.',
+          'Testes antes da publicação, com revisão e suporte definidos na proposta.',
         ],
       },
       {
         type: 'heading',
         id: 'estrategia-template-ou-objetivo',
         level: 2,
-        text: 'Estratégia: template ou objetivo?',
+        text: 'O projeto começa pelo template ou pelo objetivo?',
       },
       {
         type: 'paragraph',
-        text: 'Site barato costuma começar pela pergunta “qual modelo você quer?”. Site profissional começa por “o que seu site precisa fazer pelo negócio?”. Essa diferença muda tudo: páginas necessárias, ordem da informação, prioridade de CTAs e profundidade do conteúdo.',
+        text: 'Site barato costuma começar pela pergunta "qual modelo você quer?". Site profissional começa por "o que seu site precisa fazer pelo negócio?". Essa pergunta define as páginas necessárias, a ordem da informação, onde ficam os CTAs e a profundidade do conteúdo.',
       },
       {
         type: 'heading',
         id: 'design-bonito-nao-e-o-mesmo-que-design-estrategico',
         level: 2,
-        text: 'Design: bonito não é o mesmo que estratégico',
+        text: 'O que o design de um site profissional resolve',
       },
       {
         type: 'paragraph',
-        text: 'Muitos sites baratos parecem aceitáveis à primeira vista, mas ainda passam sensação de improviso. Em projeto profissional, design não é enfeite. É organização visual para o visitante entender, confiar e agir sem esforço.',
+        text: 'Muitos sites baratos parecem aceitáveis à primeira vista, mas ainda passam sensação de improviso. Em projeto profissional, o design define a ordem da leitura: o que o visitante vê primeiro, onde está o serviço e onde fica o botão de contato.',
       },
       {
         type: 'heading',
         id: 'conteudo-texto-generico-ou-mensagem-que-vende-confianca',
         level: 2,
-        text: 'Conteúdo: texto genérico ou mensagem que vende confiança',
+        text: 'Texto genérico ou mensagem que explica o negócio',
       },
       {
         type: 'paragraph',
-        text: 'Site barato muitas vezes fala pouco sobre problema, solução, diferencial e próximo passo. Site profissional deixa claro o que a empresa faz, para quem faz, por que merece confiança e como iniciar a conversa. Isso melhora a leitura humana e também ajuda SEO.',
+        text: 'Site barato muitas vezes fala pouco sobre problema, solução, diferencial e próximo passo. Site profissional deixa claro o que a empresa faz, para quem faz, que provas apresenta e como iniciar a conversa. Isso ajuda quem lê e também ajuda o SEO.',
       },
       {
         type: 'list',
         items: [
           'Proposta de valor clara logo no início.',
-          'Serviços bem explicados e sem vaga generalidade.',
-          'Diferenciais reais, prova de confiança e FAQ.',
-          'Chamadas para ação distribuídas com mais intenção.',
+          'Cada serviço explicado com o que inclui e para quem é.',
+          'Diferenciais reais, cases, depoimentos e FAQ.',
+          'Chamadas para ação depois de cada bloco importante.',
         ],
       },
       {
         type: 'heading',
         id: 'seo-site-barato-pode-existir-mas-nao-ser-encontrado',
         level: 2,
-        text: 'SEO: site barato pode existir, mas não ser encontrado',
+        text: 'Site barato pode existir e não ser encontrado no Google',
       },
       {
         type: 'paragraph',
-        text: 'SEO não é detalhe de acabamento. Título, meta description, headings, URLs, links internos, sitemap, alt text e base semântica organizada ajudam o Google a entender a página. Em site barato, isso costuma ficar incompleto ou ser tratado como opcional.',
+        text: 'Título, meta description, headings, URLs, links internos, sitemap, alt text e base semântica organizada ajudam o Google a entender a página. Em site barato, isso costuma ficar incompleto ou ser tratado como opcional.',
       },
       {
         type: 'paragraph',
-        text: 'Se sua empresa quer uma base mais sólida para busca, vale entender também quanto custa montar uma estrutura mais completa em um projeto profissional, especialmente quando SEO já entra como requisito desde o começo.',
+        text: 'Para ver quanto o SEO técnico pesa no orçamento, consulte o guia <a href="/insights/quanto-custa-um-site-profissional/">quanto custa um site profissional</a>.',
       },
       {
         type: 'heading',
         id: 'performance-segundos-de-lentidao-custam-oportunidades',
         level: 2,
-        text: 'Performance: segundos de lentidão custam oportunidades',
+        text: 'Por que site lento perde contato no celular',
       },
       {
         type: 'paragraph',
-        text: 'Template inchado, plugins demais, imagens pesadas e scripts sem controle podem transformar economia em atrito. Site profissional tende a nascer com mais atenção a carregamento rápido, experiência mobile e estabilidade, especialmente para quem recebe tráfego no celular.',
+        text: 'Template inchado, plugins demais, imagens pesadas e scripts sem controle deixam o site lento, principalmente no celular. Site profissional tende a nascer com mais atenção a carregamento rápido, experiência mobile e estabilidade, especialmente para quem recebe tráfego no celular.',
       },
       {
         type: 'heading',
         id: 'conversao-site-profissional-guia-visitante-ate-o-contato',
         level: 2,
-        text: 'Conversão: site profissional guia o visitante até o contato',
+        text: 'Como o site profissional leva o visitante até o contato',
       },
       {
         type: 'paragraph',
-        text: 'Um site barato pode ter só um formulário no rodapé. Um site profissional pensa em jornada: CTA na primeira dobra, botão depois dos serviços, prova social antes do contato, FAQ para reduzir dúvida e WhatsApp em pontos estratégicos.',
+        text: 'Um site barato pode ter só um formulário no rodapé. Um site profissional distribui o contato pela página: CTA na primeira dobra, botão depois dos serviços, prova social antes do contato, FAQ para tirar dúvidas e WhatsApp nos pontos em que a decisão acontece.',
       },
       {
         type: 'paragraph',
-        text: 'Esse raciocínio fica ainda mais importante em projetos focados em campanha, onde clareza, velocidade e foco de mensagem influenciam direto a taxa de conversão.',
+        text: 'Em campanha de tráfego pago, essa organização costuma ficar em uma <a href="/landing-page/">landing page</a> com uma única oferta.',
       },
       {
         type: 'heading',
         id: 'seguranca-e-manutencao-problema-costuma-aparecer-depois',
         level: 2,
-        text: 'Segurança e manutenção: o problema costuma aparecer depois',
+        text: 'Problemas de segurança e manutenção costumam aparecer depois',
       },
       {
         type: 'paragraph',
-        text: 'O risco de um site barato nem sempre aparece no primeiro dia. Ele costuma surgir depois, quando o formulário para de enviar, um plugin quebra, o SSL falha, a atualização fica sem responsável ou uma mudança simples vira dor de cabeça. Site profissional tenta reduzir esse passivo desde o início.',
+        text: 'O risco de um site barato nem sempre aparece no primeiro dia. Ele costuma surgir depois, quando o formulário para de enviar, um plugin quebra, o SSL falha, a atualização fica sem responsável ou trocar um texto exige chamar alguém. Num projeto profissional, publicação, atualizações e responsável pela manutenção ficam definidos antes da entrega.',
       },
       {
         type: 'heading',
         id: 'custo-beneficio-barato-nem-sempre-e-mais-economico',
         level: 2,
-        text: 'Custo-benefício: barato nem sempre é mais econômico',
+        text: 'Por que site barato nem sempre sai mais econômico',
       },
       {
         type: 'paragraph',
-        text: 'Um site barato pode custar menos na contratação, mas sair caro se não gerar contato, precisar ser refeito cedo, travar crescimento ou prejudicar a imagem da empresa. Por outro lado, um site profissional costuma exigir mais investimento porque embute mais planejamento, revisão e base técnica.',
+        text: 'Um site barato pode custar menos na contratação, mas sair caro se não gerar contato, precisar ser refeito cedo ou não aceitar novas páginas. Por outro lado, um site profissional costuma exigir mais investimento porque embute mais planejamento, revisão e base técnica.',
       },
       {
         type: 'heading',
@@ -2735,7 +2722,7 @@ export const insights: InsightPost[] = [
       },
       {
         type: 'paragraph',
-        text: 'Para empresas que precisam apresentar melhor seus serviços e parecer mais sérias no digital, um site institucional profissional costuma ser o formato mais equilibrado.',
+        text: 'Para empresas com vários serviços para apresentar, o formato mais comum é o <a href="/site-institucional/">site institucional</a>.',
       },
       {
         type: 'heading',
@@ -2752,7 +2739,7 @@ export const insights: InsightPost[] = [
           'Processo, revisão e suporte ficam vagos.',
           'Não explicam o que está incluso em páginas e funcionalidades.',
           'Domínio, hospedagem, publicação e manutenção ficam indefinidos.',
-          'Tudo é vendido como “site completo” sem detalhamento real.',
+          'Tudo é vendido como "site completo" sem detalhamento real.',
         ],
       },
       {
@@ -2785,7 +2772,7 @@ export const insights: InsightPost[] = [
           {
             question: 'Qual a diferença entre site barato e site profissional?',
             answer:
-              'A diferença está no planejamento, design, conteúdo, SEO, performance, suporte e capacidade do site gerar confiança e resultado. O preço é só uma parte da comparação.',
+              'A diferença está no que vem incluso: planejamento, design, conteúdo, SEO, performance e suporte. O preço é só uma parte da comparação.',
           },
           {
             question: 'Site barato vale a pena?',
@@ -2795,7 +2782,7 @@ export const insights: InsightPost[] = [
           {
             question: 'Por que um site profissional custa mais?',
             answer:
-              'Porque envolve mais diagnóstico, estrutura, copy, desenvolvimento, SEO inicial, responsividade, performance, testes e suporte. Não é só montagem visual.',
+              'Porque envolve mais diagnóstico, estrutura, copy, desenvolvimento, SEO inicial, responsividade, performance e testes, além do suporte definido na proposta.',
           },
           {
             question: 'Um site barato pode aparecer no Google?',
@@ -2805,7 +2792,7 @@ export const insights: InsightPost[] = [
           {
             question: 'Todo site profissional precisa ser feito do zero?',
             answer:
-              'Não. O ponto principal não é fazer tudo do zero, e sim entregar personalização, performance, clareza de comunicação e base técnica coerente com o objetivo do projeto.',
+              'Não. Um site profissional pode partir de uma base pronta, desde que seja personalizado, rápido e adequado ao objetivo do projeto.',
           },
           {
             question: 'Como saber se estou contratando um bom site?',
@@ -2822,7 +2809,7 @@ export const insights: InsightPost[] = [
       },
       {
         type: 'paragraph',
-        text: 'Se você está comparando propostas, o melhor caminho é entender qual estrutura faz sentido para o momento do seu negócio. Assim você evita pagar por excesso, mas também evita economizar no que compromete resultado, credibilidade e crescimento.',
+        text: 'Se você está comparando propostas, o melhor caminho é entender qual estrutura faz sentido para o momento do seu negócio. Assim você evita pagar por excesso e também evita cortar SEO, performance ou suporte que o projeto vai precisar.',
       },
       {
         type: 'links',
@@ -2835,7 +2822,7 @@ export const insights: InsightPost[] = [
           {
             href: '/site-institucional/',
             label: 'Site institucional',
-            text: 'Entenda o formato ideal para empresas que precisam apresentar serviços com mais autoridade e confiança.',
+            text: 'Páginas de serviço, cases e FAQ para quem compara fornecedores antes de pedir orçamento.',
           },
           {
             href: '/landing-page/',
@@ -2850,7 +2837,7 @@ export const insights: InsightPost[] = [
           {
             href: '/portfolio/clinica-cdv/',
             label: 'Case: site da Clínica CDV',
-            text: 'Veja como clareza, especialidades e agendamento podem transformar um site institucional em caminho de contato.',
+            text: 'Veja como o site organiza especialidades, exames e canais de agendamento.',
           },
           {
             href: 'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Li%20o%20artigo%20sobre%20site%20barato%20vs%20site%20profissional%20e%20quero%20entender%20qual%20estrutura%20faz%20mais%20sentido%20para%20meu%20projeto.',
@@ -2890,7 +2877,7 @@ export const insights: InsightPost[] = [
       },
       {
         type: 'paragraph',
-        text: 'Na prática, landing page e site institucional não competem entre si. Eles resolvem problemas diferentes. Em muitos cenários, a estratégia mais forte é combinar os dois: o site institucional como base de presença e autoridade, e landing pages como páginas focadas em campanha, oferta e conversão.',
+        text: 'Landing page e site institucional resolvem problemas diferentes. Muitas empresas usam os dois: o site institucional para apresentar a empresa e os serviços, e landing pages para campanhas e ofertas específicas.',
       },
       {
         type: 'table',
@@ -2911,15 +2898,11 @@ export const insights: InsightPost[] = [
         type: 'heading',
         id: 'resposta-rapida-qual-e-melhor',
         level: 2,
-        text: 'Resposta rápida: qual é melhor?',
+        text: 'Qual é melhor, em resumo?',
       },
       {
         type: 'paragraph',
-        text: 'Melhor formato depende do objetivo do projeto. Se sua empresa precisa ser encontrada, entendida e levada a sério, o site institucional normalmente vem primeiro. Se você quer divulgar uma campanha, testar uma oferta ou gerar leads com mais foco, a landing page tende a fazer mais sentido.',
-      },
-      {
-        type: 'blockquote',
-        text: 'Não escolha pelo nome do formato. Escolha pelo objetivo do negócio.',
+        text: 'O melhor formato depende do objetivo do projeto. Se sua empresa precisa aparecer no Google e explicar vários serviços, o site institucional normalmente vem primeiro. Se você quer divulgar uma campanha, testar uma oferta ou gerar leads com mais foco, a landing page tende a fazer mais sentido.',
       },
       {
         type: 'heading',
@@ -2929,7 +2912,7 @@ export const insights: InsightPost[] = [
       },
       {
         type: 'paragraph',
-        text: 'O site institucional é a presença oficial da empresa na internet. Ele apresenta a marca, explica serviços, organiza informações, transmite credibilidade e cria uma base melhor para SEO, conteúdo e relacionamento comercial no longo prazo.',
+        text: 'O site institucional é a presença oficial da empresa na internet. Ele apresenta a empresa, seus serviços e o contato, e pode crescer com blog, cases e novas páginas para SEO.',
       },
       {
         type: 'list',
@@ -2950,7 +2933,7 @@ export const insights: InsightPost[] = [
         type: 'list',
         items: [
           'Quando a empresa precisa apresentar vários serviços.',
-          'Quando a marca precisa transmitir mais profissionalismo.',
+          'Quando o cliente compara fornecedores antes de pedir orçamento.',
           'Quando o site precisa sustentar SEO e presença digital.',
           'Quando o público precisa entender melhor a empresa antes de entrar em contato.',
           'Quando o projeto é pensado para crescer no longo prazo.',
@@ -2958,7 +2941,7 @@ export const insights: InsightPost[] = [
       },
       {
         type: 'paragraph',
-        text: 'Se sua empresa precisa organizar melhor serviços, autoridade e contato, o site institucional costuma ser a base mais sólida.',
+        text: 'Se sua empresa precisa organizar serviços, cases e contato em um só lugar, o site institucional costuma ser a melhor base.',
       },
       {
         type: 'heading',
@@ -2999,27 +2982,27 @@ export const insights: InsightPost[] = [
         type: 'heading',
         id: 'objetivo-presenca-ou-conversao',
         level: 2,
-        text: 'Objetivo: presença ou conversão?',
+        text: 'O objetivo é presença ou conversão?',
       },
       {
         type: 'paragraph',
-        text: 'Essa é a primeira distinção importante. O site institucional ajuda a construir presença, confiança e contexto. A landing page ajuda a capturar uma ação específica com menos distração. Os dois podem coexistir sem conflito quando a estratégia está clara.',
+        text: 'O site institucional explica quem é a empresa. A landing page ajuda a capturar uma ação específica com menos distração. Os dois podem coexistir sem conflito quando a estratégia está clara.',
       },
       {
         type: 'heading',
         id: 'estrutura-varias-paginas-ou-narrativa-linear',
         level: 2,
-        text: 'Estrutura: várias páginas ou narrativa linear?',
+        text: 'Várias páginas ou uma narrativa linear?',
       },
       {
         type: 'paragraph',
-        text: 'No site institucional, o visitante navega por diferentes páginas e caminhos. Na landing page, a jornada tende a ser linear. Isso muda a forma como você organiza informação, CTAs, objeções e prova social.',
+        text: 'No site institucional, o visitante navega por diferentes páginas e caminhos. Na landing page, a leitura segue uma ordem única, de cima para baixo. Isso muda a forma como você organiza informação, CTAs, objeções e prova social.',
       },
       {
         type: 'heading',
         id: 'conteudo-explicacao-ampla-ou-oferta-especifica',
         level: 2,
-        text: 'Conteúdo: explicação ampla ou oferta específica?',
+        text: 'Explicação ampla ou oferta específica?',
       },
       {
         type: 'paragraph',
@@ -3029,37 +3012,37 @@ export const insights: InsightPost[] = [
         type: 'heading',
         id: 'seo-qual-ajuda-mais-no-longo-prazo',
         level: 2,
-        text: 'SEO: qual ajuda mais no longo prazo?',
+        text: 'Qual ajuda mais no SEO de longo prazo?',
       },
       {
         type: 'paragraph',
-        text: 'O site institucional costuma ter vantagem para SEO de longo prazo porque acomoda páginas de serviço, estrutura semântica mais ampla, conteúdo e blog. Landing pages também podem ser otimizadas, mas normalmente brilham mais como apoio a campanhas e ofertas específicas.',
+        text: 'O site institucional costuma ter vantagem para SEO de longo prazo porque acomoda páginas de serviço, estrutura semântica mais ampla, conteúdo e blog. Landing pages também podem ser otimizadas, mas normalmente funcionam melhor como apoio a campanhas e ofertas específicas.',
       },
       {
         type: 'heading',
         id: 'conversao-onde-o-foco-fica-mais-forte',
         level: 2,
-        text: 'Conversão: onde o foco fica mais forte?',
+        text: 'Qual formato concentra mais a conversão?',
       },
       {
         type: 'paragraph',
-        text: 'A landing page tende a concentrar melhor a atenção em uma única ação. O site institucional converte de forma mais distribuída, em diferentes páginas e momentos da jornada. Isso não torna um melhor que o outro por regra. Torna cada um mais adequado para um objetivo.',
+        text: 'A landing page tende a concentrar melhor a atenção em uma única ação. O site institucional converte de forma mais distribuída, em diferentes páginas e momentos da visita.',
       },
       {
         type: 'heading',
         id: 'prazo-e-investimento-como-isso-muda',
         level: 2,
-        text: 'Prazo e investimento: como isso muda?',
+        text: 'Como mudam prazo e investimento',
       },
       {
         type: 'paragraph',
-        text: 'Em geral, o site institucional exige mais páginas, mais organização de conteúdo e mais planejamento. A landing page tende a ser mais rápida e enxuta, mas ainda precisa de estratégia, copy e testes para funcionar bem. Aqui, o critério principal continua sendo objetivo, não só custo.',
+        text: 'Em geral, o site institucional exige mais páginas, mais organização de conteúdo e mais planejamento. A landing page tende a ser mais rápida e enxuta, mas ainda precisa de planejamento, copy e testes para funcionar bem.',
       },
       {
         type: 'heading',
         id: 'site-institucional-ou-landing-page-qual-vem-primeiro',
         level: 2,
-        text: 'Site institucional ou landing page: qual vem primeiro?',
+        text: 'Site institucional ou landing page, qual vem primeiro?',
       },
       {
         type: 'table',
@@ -3088,7 +3071,7 @@ export const insights: InsightPost[] = [
       },
       {
         type: 'paragraph',
-        text: 'Essa costuma ser a estratégia mais completa. O site institucional funciona como base de confiança. As landing pages funcionam como páginas específicas para campanhas, serviços, anúncios e ofertas. Juntos, eles permitem construir autoridade no longo prazo e converter melhor em ações pontuais.',
+        text: 'Essa costuma ser a estratégia mais completa. O site institucional reúne serviços, cases e contato, e pode crescer no Google com conteúdo. As landing pages atendem campanhas, anúncios e ofertas pontuais, cada uma com uma única ação.',
       },
       {
         type: 'heading',
@@ -3099,7 +3082,7 @@ export const insights: InsightPost[] = [
       {
         type: 'list',
         items: [
-          'Criar landing page quando a empresa ainda não transmite confiança.',
+          'Criar landing page quando a empresa ainda não tem nenhuma presença online para o visitante conferir.',
           'Criar site institucional grande sem estratégia clara.',
           'Usar landing page sem oferta bem definida.',
           'Investir em tráfego sem página de conversão adequada.',
@@ -3127,7 +3110,7 @@ export const insights: InsightPost[] = [
       },
       {
         type: 'paragraph',
-        text: 'Se a maioria das respostas aponta para autoridade, serviços, presença e SEO, o site institucional tende a fazer mais sentido. Se aponta para campanha, oferta e conversão imediata, a landing page tende a ser a melhor escolha. Se aponta para os dois cenários, a combinação normalmente é o caminho ideal.',
+        text: 'Se a maioria das respostas aponta para autoridade, serviços, presença e SEO, o site institucional tende a fazer mais sentido. Se aponta para campanha, oferta e conversão imediata, a landing page tende a ser a melhor escolha. Se aponta para os dois cenários, faz sentido ter os dois.',
       },
       {
         type: 'heading',
@@ -3141,17 +3124,17 @@ export const insights: InsightPost[] = [
           {
             question: 'Qual a diferença entre landing page e site institucional?',
             answer:
-              'A landing page é focada em uma ação específica. O site institucional apresenta a empresa de forma mais completa, com várias páginas e foco em presença, credibilidade e informação.',
+              'A landing page é focada em uma ação específica. O site institucional apresenta a empresa de forma mais completa, com várias páginas para serviços, cases e contato.',
           },
           {
             question: 'Landing page substitui site institucional?',
             answer:
-              'Em alguns cenários simples, pode funcionar temporariamente. Mas para empresas que precisam transmitir autoridade, explicar serviços e construir presença no Google, o site institucional é mais completo.',
+              'Em alguns cenários simples, pode funcionar temporariamente. Mas para empresas que precisam explicar vários serviços e aparecer no Google, o site institucional é mais completo.',
           },
           {
             question: 'Qual converte mais: landing page ou site institucional?',
             answer:
-              'A landing page tende a converter melhor em campanhas específicas porque concentra a atenção em uma única ação. O site institucional converte de forma mais ampla, em diferentes páginas e momentos da jornada.',
+              'A landing page tende a converter melhor em campanhas específicas porque concentra a atenção em uma única ação. O site institucional converte de forma mais ampla, em diferentes páginas e momentos da visita.',
           },
           {
             question: 'Qual é melhor para SEO?',
@@ -3166,12 +3149,12 @@ export const insights: InsightPost[] = [
           {
             question: 'Quando devo criar um site institucional?',
             answer:
-              'Quando sua empresa precisa apresentar a marca, explicar serviços, transmitir confiança, aparecer no Google e ter uma presença digital profissional.',
+              'Quando sua empresa precisa apresentar vários serviços, mostrar cases e aparecer no Google.',
           },
           {
             question: 'Posso ter site institucional e landing pages?',
             answer:
-              'Sim. Essa costuma ser a estratégia mais completa: site institucional para autoridade e landing pages para campanhas e conversões específicas.',
+              'Sim. O site institucional apresenta a empresa e os serviços, e cada landing page atende uma campanha ou oferta específica.',
           },
         ],
       },
@@ -3183,7 +3166,7 @@ export const insights: InsightPost[] = [
       },
       {
         type: 'paragraph',
-        text: 'Se você quer decidir com mais segurança entre site institucional, landing page ou uma estratégia combinada, o melhor caminho é alinhar formato com objetivo, momento do negócio e tipo de conversão que a empresa precisa gerar.',
+        text: 'Me diga o que a página precisa gerar (pedido de orçamento, agendamento ou lead de campanha) e eu indico se faz mais sentido um site institucional, uma landing page ou os dois.',
       },
       {
         type: 'links',
@@ -3196,7 +3179,7 @@ export const insights: InsightPost[] = [
           {
             href: '/site-institucional/',
             label: 'Site institucional',
-            text: 'Conheça a solução para empresas que precisam transmitir mais confiança e organizar melhor seus serviços.',
+            text: 'Páginas de serviço, cases e FAQ para quem compara fornecedores antes de pedir orçamento.',
           },
           {
             href: '/landing-page/',
@@ -3206,12 +3189,12 @@ export const insights: InsightPost[] = [
           {
             href: '/insights/site-institucional-o-que-precisa-ter/',
             label: 'O que um site institucional precisa ter',
-            text: 'Aprofunde a leitura com o artigo que mostra os elementos essenciais de um site institucional profissional.',
+            text: 'Veja quais páginas e seções um site institucional precisa ter.',
           },
           {
             href: '/portfolio/poliana-bentes/',
             label: 'Case: site da Poliana Bentes',
-            text: 'Conheça uma estrutura institucional e editorial criada para comunicar credibilidade e atuação estratégica.',
+            text: 'Veja um site de consultoria com base institucional, área editorial e gestão de conteúdo simples.',
           },
           {
             href: 'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Li%20o%20artigo%20sobre%20landing%20page%20ou%20site%20institucional%20e%20quero%20entender%20qual%20estrutura%20faz%20mais%20sentido%20para%20meu%20projeto.',

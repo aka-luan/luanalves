@@ -8,12 +8,6 @@ const siteUrl = 'https://luanalves.com.br';
 const whatsappHref =
   'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20solicitar%20um%20or%C3%A7amento%20para%20um%20site.';
 
-const metrics = [
-  { value: '12+', label: 'Projetos' },
-  { value: '5+', label: 'Anos' },
-  { value: '100%', label: 'Entregues' },
-];
-
 const featuredProject = portfolioProjects[0];
 
 const formatCategory = (value: string) => value.replace(/^Site\s+/i, '');
@@ -36,6 +30,12 @@ const portfolioCategoryCounts = portfolioProjects.reduce<Record<string, number>>
   },
   {},
 );
+
+const metrics = [
+  { value: String(portfolioProjects.length), label: 'Projetos' },
+  { value: '5+', label: 'Anos' },
+  { value: String(Object.keys(portfolioCategoryCounts).length), label: 'Tipos de projeto' },
+];
 
 const filters = [
   { label: 'Todos', value: 'all', current: true, disabled: false },
@@ -82,7 +82,7 @@ const portfolioSchema = [
   {
     '@type': 'CollectionPage',
     '@id': `${siteUrl}/portfolio/#collection`,
-    name: 'Portfólio de Sites Profissionais',
+    name: 'Portfólio de sites profissionais',
     description:
       'Projetos reais de sites institucionais, landing pages e blogs profissionais desenvolvidos por Luan Alves.',
     url: `${siteUrl}/portfolio/`,
@@ -114,8 +114,8 @@ const portfolioSchema = [
 
 <BaseLayout
   namespace='portfolio'
-  title='Portfólio de Sites Profissionais | Luan Alves'
-  description='Portfólio com projetos reais de sites institucionais e blogs profissionais desenvolvidos com SEO técnico, conversão e código limpo.'
+  title='Portfólio de sites profissionais | Luan Alves'
+  description='Portfólio com projetos reais de sites institucionais e blogs profissionais, com link para abrir cada site publicado.'
   canonicalPath='/portfolio/'
   schema={portfolioSchema}>
   <main class='portfolio-page' id='top'>
@@ -152,8 +152,8 @@ const portfolioSchema = [
                 </span>
               </h1>
               <p data-motion-hero-copy data-motion-hidden='y-md'>
-                Sites institucionais e blogs profissionais desenvolvidos com código
-                limpo, SEO técnico e foco em conversão.
+                Sites institucionais e blogs profissionais publicados, com link
+                para abrir cada um.
               </p>
             </div>
 
