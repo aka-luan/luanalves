@@ -103,7 +103,7 @@ const insightsSchema = [
 
           <dl class='insights-stats' aria-label='Números do Insights'>
             <div>
-              <dt>{String(posts.length).padStart(2, '0')}</dt>
+              <dt>{posts.length}</dt>
               <dd>Artigos</dd>
             </div>
             <div>
@@ -143,9 +143,11 @@ const insightsSchema = [
           </span>
 
           <span class='featured-article__body'>
-            <span class='insight-badge'>{featuredPost.category}</span>
-            <span>
+            <span class='featured-article__kicker'>
+              <span class='insight-badge'>{featuredPost.category}</span>
               <span class='featured-article__label'>Artigo em destaque</span>
+            </span>
+            <span>
               <h2 id='featured-title'>{featuredPost.title}</h2>
               <p>{featuredPost.excerpt}</p>
             </span>
@@ -539,8 +541,15 @@ const insightsSchema = [
     text-transform: uppercase;
   }
 
+  .featured-article__kicker {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
   .featured-article__label {
-    margin-bottom: 0.8rem;
+    margin-bottom: 0;
     border-color: rgba(153, 143, 129, 0.24);
     background: rgba(255, 255, 255, 0.025);
     color: var(--subtle);

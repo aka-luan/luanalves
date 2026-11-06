@@ -447,7 +447,7 @@ const renderInlineLinks = (text: string) => text;
 
   .insight-post-page {
     min-height: 100svh;
-    overflow-x: hidden;
+    overflow-x: clip;
     background: var(--background);
     color: var(--text);
   }
@@ -513,7 +513,7 @@ const renderInlineLinks = (text: string) => text;
   }
 
   .post-shell {
-    width: var(--container);
+    width: min(1120px, calc(100% - 6rem));
     margin: 0 auto;
   }
 
@@ -722,6 +722,8 @@ const renderInlineLinks = (text: string) => text;
     font-family: 'Newsreader', serif;
     font-size: clamp(1.45rem, 3vw, 2rem);
     line-height: 1.22;
+
+    font-weight: 400;
   }
 
   .post-code,
@@ -1157,6 +1159,27 @@ const renderInlineLinks = (text: string) => text;
     .post-links a:hover::after {
       transform: translate(1px, -1px);
       opacity: 1;
+    }
+  }
+
+  @media (min-width: 981px) {
+    .post-sidebar {
+      max-height: calc(100svh - 7rem);
+      grid-template-rows: minmax(0, 1fr) auto auto;
+    }
+
+    .post-sidebar__panel:first-child {
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+
+    .post-toc {
+      min-height: 0;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: var(--subtle) transparent;
+      padding-right: 0.5rem;
     }
   }
 

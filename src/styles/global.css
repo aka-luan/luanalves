@@ -688,6 +688,13 @@ a:focus-visible {
   text-transform: uppercase;
 }
 
+.shared-breadcrumbs__item {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  min-width: 0;
+}
+
 .shared-breadcrumbs a {
   position: relative;
   display: inline-flex;
@@ -908,6 +915,8 @@ a:focus-visible {
 }
 
 .service-card {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto auto;
   padding: 2.25rem;
   border: 1px solid rgba(241, 238, 231, 0.12);
   background: var(--surface-soft);
@@ -1230,7 +1239,7 @@ a:focus-visible {
 }
 
 .footer-shell {
-  width: min(100%, 84rem);
+  width: var(--container);
   padding: clamp(1.75rem, 3vw, 2.25rem) 0 0;
 }
 
@@ -1403,12 +1412,14 @@ a:focus-visible {
   align-items: center;
   justify-content: center;
   gap: 0.7rem;
-  width: min(100%, 11.2rem);
+  width: fit-content;
+  max-width: 100%;
+  white-space: nowrap;
   min-height: 3.55rem;
   padding: 0.9rem 1.2rem;
-  border: 1px solid rgba(58, 108, 64, 0.92);
-  background: linear-gradient(180deg, rgba(29, 72, 34, 0.96), rgba(22, 58, 27, 0.98));
-  color: #d6ead4;
+  border: 1px solid var(--primary);
+  background: var(--primary);
+  color: var(--primary-ink);
   font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.02em;
@@ -1417,10 +1428,7 @@ a:focus-visible {
     background-color var(--duration-hover) ease,
     border-color var(--duration-hover) ease,
     transform var(--duration-hover) ease;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    0 1rem 2rem rgba(7, 32, 12, 0.22),
-    0 1.8rem 3.2rem rgba(7, 32, 12, 0.14);
+  box-shadow: none;
 }
 
 .footer-whatsapp-button svg {
@@ -1431,8 +1439,8 @@ a:focus-visible {
 
 .footer-whatsapp-button:hover,
 .footer-whatsapp-button:focus-visible {
-  border-color: rgba(77, 145, 85, 0.95);
-  background: linear-gradient(180deg, rgba(33, 83, 39, 0.98), rgba(24, 68, 31, 1));
+  border-color: #ead5af;
+  background: #ead5af;
 }
 
 .footer-whatsapp-button:focus-visible svg {

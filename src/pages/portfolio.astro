@@ -203,7 +203,7 @@ const portfolioSchema = [
           class='portfolio-filters'
           aria-label='Filtrar projetos por tipo'>
           {
-            filters.map((filter) => (
+            filters.filter((filter) => !filter.disabled).map((filter) => (
               <button
                 type='button'
                 data-portfolio-filter={filter.value}
@@ -569,7 +569,7 @@ const portfolioSchema = [
     background: transparent;
     color: var(--muted);
     font-size: 0.82rem;
-    font-weight: 800;
+    font-weight: 600;
     letter-spacing: 0.01em;
     line-height: 1.2;
     text-transform: none;

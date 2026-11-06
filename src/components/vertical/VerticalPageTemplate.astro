@@ -108,15 +108,7 @@ const relatedVerticals = verticalPageLinks.filter(
         </div>
 
         <div class='vertical-hero__visual'>
-          <div class='vertical-hero__index' aria-hidden='true'>
-            <span>{page.slug === 'site-para-incorporadora' ? '01' : page.slug === 'site-para-construtora' ? '02' : '03'}</span>
-            <small>Especialidade</small>
-          </div>
           <figure class='vertical-hero__frame'>
-            <div class='vertical-browser-bar' aria-hidden='true'>
-              <span></span><span></span><span></span>
-              <small>projeto real</small>
-            </div>
             <img
               src={page.hero.image}
               alt={page.hero.imageAlt}
@@ -360,9 +352,9 @@ const relatedVerticals = verticalPageLinks.filter(
   }
 
   .vertical-page {
-    --vertical-gold: #dfbd79;
-    --vertical-cream: #f5f1e9;
-    --vertical-muted: rgba(229, 221, 210, 0.72);
+    --vertical-gold: var(--primary);
+    --vertical-cream: var(--text);
+    --vertical-muted: var(--muted);
     min-height: 100svh;
     background: var(--background);
     color: var(--vertical-cream);
@@ -385,27 +377,16 @@ const relatedVerticals = verticalPageLinks.filter(
 
   .vertical-hero {
     position: relative;
-    padding: clamp(8.5rem, 12vw, 10.5rem) clamp(1.25rem, 5vw, 5rem) 0;
+    padding: clamp(8.5rem, 12vw, 10.5rem) 0 0;
     overflow: hidden;
-  }
-
-  .vertical-hero::before {
-    content: '';
-    position: absolute;
-    top: 3.5rem;
-    right: -13rem;
-    width: 39rem;
-    height: 39rem;
-    border: 1px solid rgba(223, 189, 121, 0.11);
-    transform: rotate(22deg);
-    pointer-events: none;
   }
 
   .vertical-hero__grid {
     display: grid;
-    grid-template-columns: minmax(0, 0.92fr) minmax(27rem, 1.08fr);
-    gap: clamp(3rem, 7vw, 8rem);
-    width: min(100%, 88rem);
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    align-items: center;
+    gap: clamp(2rem, 5vw, 5rem);
+    width: var(--container);
     margin: 0 auto;
   }
 
@@ -416,6 +397,8 @@ const relatedVerticals = verticalPageLinks.filter(
 
   .vertical-hero__copy :global(.shared-breadcrumbs) {
     margin-bottom: clamp(2rem, 4vw, 3.25rem);
+    justify-content: flex-start;
+    text-align: left;
   }
 
   .vertical-hero__copy > .vertical-eyebrow {
@@ -516,29 +499,9 @@ const relatedVerticals = verticalPageLinks.filter(
 
   .vertical-hero__visual {
     position: relative;
-    padding: 3.6rem 0 2rem 2.7rem;
+    padding: 0;
   }
 
-  .vertical-hero__index {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    display: grid;
-    gap: 0.15rem;
-    padding-left: 1rem;
-    border-left: 2px solid var(--vertical-gold);
-  }
-
-  .vertical-hero__index span {
-    color: var(--vertical-gold);
-    font-family: 'Newsreader', serif;
-    font-size: 2.8rem;
-    font-style: italic;
-    line-height: 0.9;
-  }
-
-  .vertical-hero__index small,
   .vertical-hero__caption span {
     color: rgba(229, 221, 210, 0.56);
     font-size: 0.58rem;
@@ -554,33 +517,8 @@ const relatedVerticals = verticalPageLinks.filter(
     overflow: hidden;
     border: 1px solid rgba(223, 189, 121, 0.25);
     background: #171817;
-    box-shadow: 0 2.5rem 6rem rgba(0, 0, 0, 0.42);
-    transform: rotate(1.4deg);
-  }
-
-  .vertical-browser-bar {
-    display: flex;
-    align-items: center;
-    gap: 0.42rem;
-    height: 2.45rem;
-    padding: 0 0.9rem;
-    border-bottom: 1px solid rgba(229, 221, 210, 0.1);
-  }
-
-  .vertical-browser-bar > span {
-    width: 0.43rem;
-    height: 0.43rem;
-    border-radius: 50%;
-    background: rgba(223, 189, 121, 0.52);
-  }
-
-  .vertical-browser-bar small {
-    margin-left: auto;
-    color: rgba(229, 221, 210, 0.44);
-    font-size: 0.52rem;
-    font-weight: 800;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
+    box-shadow: none;
+    transform: none;
   }
 
   .vertical-hero__frame img {
@@ -614,7 +552,7 @@ const relatedVerticals = verticalPageLinks.filter(
   .vertical-proof {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    width: min(100%, 88rem);
+    width: var(--container);
     margin: clamp(4.5rem, 7vw, 7rem) auto 0;
     border-top: 1px solid rgba(229, 221, 210, 0.13);
     border-bottom: 1px solid rgba(229, 221, 210, 0.13);
@@ -638,6 +576,8 @@ const relatedVerticals = verticalPageLinks.filter(
     font-family: 'Newsreader', serif;
     font-size: 1rem;
     font-style: italic;
+
+    font-weight: 400;
   }
 
   .vertical-proof strong {
@@ -726,6 +666,8 @@ const relatedVerticals = verticalPageLinks.filter(
     color: rgba(229, 221, 210, 0.25);
     font-family: 'Newsreader', serif;
     font-style: italic;
+
+    font-weight: 400;
   }
 
   .vertical-tension__grid .material-symbols-outlined,
@@ -762,7 +704,7 @@ const relatedVerticals = verticalPageLinks.filter(
     grid-template-columns: minmax(18rem, 0.7fr) minmax(0, 1.3fr);
     gap: clamp(3rem, 8vw, 8rem);
     align-items: start;
-    width: min(100%, 88rem);
+    width: var(--container);
     border-top: 1px solid rgba(229, 221, 210, 0.12);
     border-bottom: 1px solid rgba(229, 221, 210, 0.12);
   }
@@ -808,6 +750,8 @@ const relatedVerticals = verticalPageLinks.filter(
     color: rgba(223, 189, 121, 0.55);
     font-family: 'Newsreader', serif;
     font-style: italic;
+
+    font-weight: 400;
   }
 
   .vertical-blueprint__icon {
@@ -820,7 +764,7 @@ const relatedVerticals = verticalPageLinks.filter(
   }
 
   .vertical-cases {
-    width: min(100%, 88rem);
+    width: var(--container);
   }
 
   .vertical-cases__grid {
@@ -929,6 +873,8 @@ const relatedVerticals = verticalPageLinks.filter(
     font-family: 'Newsreader', serif;
     font-size: 1.25rem;
     font-style: italic;
+
+    font-weight: 400;
   }
 
   .vertical-process h3 {
@@ -941,7 +887,7 @@ const relatedVerticals = verticalPageLinks.filter(
   }
 
   .vertical-differentials {
-    width: min(100%, 88rem);
+    width: var(--container);
     border-top: 1px solid rgba(229, 221, 210, 0.12);
   }
 
@@ -994,6 +940,8 @@ const relatedVerticals = verticalPageLinks.filter(
     color: rgba(223, 189, 121, 0.58);
     font-family: 'Newsreader', serif;
     font-style: italic;
+
+    font-weight: 400;
   }
 
   .vertical-related__links strong {
@@ -1056,19 +1004,15 @@ const relatedVerticals = verticalPageLinks.filter(
 
   @media (max-width: 760px) {
     .vertical-hero {
-      padding: 7.5rem 1.25rem 0;
-    }
-
-    .vertical-hero::before {
-      opacity: 0.55;
+      padding: 7.5rem 0 0;
     }
 
     .vertical-hero__visual {
-      padding: 3.25rem 0 1.5rem 1rem;
+      padding: 0;
     }
 
     .vertical-hero__frame {
-      transform: rotate(0.8deg);
+      transform: none;
     }
 
     .vertical-proof {

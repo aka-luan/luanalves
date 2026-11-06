@@ -256,6 +256,12 @@ const navMotionAttrs = motion
   @media (max-width: 767px) {
     .site-nav {
       position: fixed;
+      width: 100%;
+      margin: 0;
+      padding-inline: 1.25rem;
+      border-inline: 0;
+      border-top: 0;
+      background: var(--surface-lowest);
       display: flex;
       flex-direction: column;
       align-items: stretch;
@@ -395,6 +401,7 @@ const navMotionAttrs = motion
       line-height: 0.95;
       color: var(--muted);
       transition: color var(--duration-hover) ease;
+      font-weight: 400;
     }
 
     .mobile-menu-link:hover .mobile-menu-copy,
