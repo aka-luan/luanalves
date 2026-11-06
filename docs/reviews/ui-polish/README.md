@@ -2,6 +2,8 @@
 
 The screenshot set covers all 28 content routes at 1440 x 1000 and 390 x 844, plus desktop and mobile views of six lower sections and a 1024px service-hub view. Captured from the production build on 2026-11-06. The WebP copies retain the original dimensions; council reviewed the original PNGs.
 
+Final council approval after eight rounds: GPT Sol 9.0/10 and Claude Opus 9.1/10, both satisfied with no blockers on implementation commit `298c9e0370d11d9ac87afa78a6ffe9caef6b5c1e`. The final pass inspected refreshed hub captures and representative unchanged views alongside earlier whole-site reviews. Both noted a minor mobile portfolio-button tracking inconsistency as nonblocking. Gemini and GPT Astra were excluded at the user's request.
+
 Representative views:
 
 | Page or section | Desktop | Mobile |
@@ -44,6 +46,6 @@ The hub also has no empty element taller than 200px in the page flow at the four
 
 The active council now consists of GPT Sol and Claude Opus. The user removed GPT Astra after round 6 because of quota usage. Its earlier votes remain historical results in the PR description.
 
-Round 7 scored 9.0 from GPT Sol and 8.8 from Claude Opus. The remaining tablet laptop/card overlap is corrected by giving the Entrega image its own row below the copy and cards. Geometry checks find no image/card intersection at 920, 1024, 1100 or 1180px. Complete section captures at [920px](screenshots/hub-results-complete-920.webp), [1024px](screenshots/hub-results-complete-1024.webp), [1100px](screenshots/hub-results-complete-1100.webp) and [1180px](screenshots/hub-results-complete-1180.webp) show the new arrangement. The sticky navigation is hidden only in these isolated section captures so it cannot obscure the content; complete-page captures retain the normal navigation. Round 8 reviews are pending.
+Round 7 scored 9.0 from GPT Sol and 8.8 from Claude Opus. The remaining tablet laptop/card overlap is corrected by giving the Entrega image its own row below the copy and cards. Geometry checks find no image/card intersection at 920, 1024, 1100 or 1180px. Complete section captures at [920px](screenshots/hub-results-complete-920.webp), [1024px](screenshots/hub-results-complete-1024.webp), [1100px](screenshots/hub-results-complete-1100.webp) and [1180px](screenshots/hub-results-complete-1180.webp) show the new arrangement. The sticky navigation is hidden only in these isolated section captures so it cannot obscure the content; complete-page captures retain the normal navigation. Both round 8 reviews approve this correction.
 
 Council results are recorded in the pull request description. Round 1 scored 8.3, 7.5 and 8.1. A Sol-only second pass scored 9.0. Round 3 scored 8.8, 8.5 and 9.0. Round 4 scored 9.0 and 8.9; Astra's attempt hit a provider rate limit. This set includes full article-image proportions, a real project image for the performance article, smaller desktop segment headings, shared header states including all eight case studies, shorter segment breadcrumbs, aligned service feature titles and flat media framing. A Sol recheck was canceled before completion to include Claude's findings in the next full council pass. Gemini is excluded at the user's request.
