@@ -1,6 +1,6 @@
 # UI polish screenshot review
 
-The screenshot set covers all 28 content routes at 1440 x 1000 and 390 x 844, plus desktop and mobile views of six lower sections. Captured from the production build on 2026-11-06. The WebP copies retain the original dimensions; council reviewed the original PNGs.
+The screenshot set covers all 28 content routes at 1440 x 1000 and 390 x 844, plus desktop and mobile views of six lower sections and a 1024px service-hub view. Captured from the production build on 2026-11-06. The WebP copies retain the original dimensions; council reviewed the original PNGs.
 
 Representative views:
 
@@ -29,4 +29,4 @@ All remaining route captures are in [screenshots](screenshots/).
 
 Validation: production build and post-build asset patch pass; 140 tests pass. All content routes have no horizontal page overflow or broken images at the screenshot widths. Checks at 320, 768 and 1024 pixels found no off-screen headings or primary controls. Mobile menu, Escape focus restoration, viewport resize, Barba navigation and keyboard access to the final article contents link pass.
 
-Council results are recorded in the pull request description. Round 1 scored 8.3, 7.5 and 8.1. A Sol-only second pass scored 9.0. Round 3 scored 8.8, 8.5 and 9.0. This set includes full article-image proportions, a real project image for the performance article, smaller desktop segment headings, shared header states, shorter segment breadcrumbs, aligned service feature titles and flat media framing. A Sol recheck was canceled before completion to include Claude's findings in the next full council pass. Gemini is excluded at the user's request.
+Council results are recorded in the pull request description. Round 1 scored 8.3, 7.5 and 8.1. A Sol-only second pass scored 9.0. Round 3 scored 8.8, 8.5 and 9.0. Round 4 scored 9.0 and 8.9; Astra's attempt hit a provider rate limit. This set includes full article-image proportions, a real project image for the performance article, smaller desktop segment headings, shared header states including all eight case studies, shorter segment breadcrumbs, aligned service feature titles and flat media framing. A Sol recheck was canceled before completion to include Claude's findings in the next full council pass. Gemini is excluded at the user's request.
