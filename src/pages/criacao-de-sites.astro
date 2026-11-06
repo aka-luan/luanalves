@@ -3051,15 +3051,29 @@ const creationServiceSchema = [
 
     .results-section__inner {
       grid-template-columns: minmax(0, 0.76fr) minmax(0, 1.24fr);
+      grid-template-areas:
+        'copy cards'
+        'media media';
       gap: 1.45rem 2.5rem;
+    }
+
+    .results-copy {
+      align-self: start;
     }
 
     .results-copy h2 {
       font-size: clamp(3.06rem, 4.93vw, 4.25rem);
     }
 
+    .results-media {
+      justify-self: center;
+      width: min(100%, 40rem);
+      margin: 1rem 0 0;
+    }
+
     .results-media img {
-      width: min(42rem, 48vw);
+      width: 100%;
+      max-width: 100%;
     }
 
     .results-card {
@@ -3809,7 +3823,7 @@ const creationServiceSchema = [
       padding-block: 0;
       padding-inline: 0.78rem 0.68rem;
       font-size: 0.75rem;
-      letter-spacing: 0.16em;
+      letter-spacing: normal;
     }
 
     .solution-card__cta .material-symbols-outlined {
@@ -4075,6 +4089,7 @@ const creationServiceSchema = [
       column-gap: 0.9rem;
       min-height: 0;
       padding: 1.18rem 1.15rem;
+      text-align: left;
     }
 
     .differential-card__icon {
