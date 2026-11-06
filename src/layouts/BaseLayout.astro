@@ -18,14 +18,14 @@ interface Props {
 }
 
 const {
-  title = 'Luan Alves | Desenvolvimento Web Profissional',
+  title = 'Luan Alves | Desenvolvimento web profissional',
   description = 'Sites institucionais, blogs e landing pages para apresentar sua empresa e facilitar contatos. Design, desenvolvimento e SEO técnico com atendimento direto.',
   namespace = 'home',
   canonicalPath = '/',
   robots,
   ogType = 'website',
   socialImage = '/assets/og-cover.webp',
-  socialImageAlt = 'Luan Alves - Desenvolvimento Web Profissional',
+  socialImageAlt = 'Luan Alves, desenvolvimento web profissional',
   schema,
 } = Astro.props;
 
@@ -67,7 +67,7 @@ const baseSchema = [
     '@context': 'https://schema.org',
     '@type': 'Organization',
     '@id': `${siteUrl}/#business`,
-    name: 'Luan Alves — Desenvolvimento Web',
+    name: 'Luan Alves, desenvolvimento web',
     description:
       'Criação de sites institucionais, blogs e landing pages para apresentar empresas e facilitar contatos em todo o Brasil. Atendimento direto, com escopo, cronograma e suporte definidos na proposta.',
     url: siteUrl,
@@ -92,7 +92,7 @@ const baseSchema = [
           '@type': 'Offer',
           name: 'Site Institucional',
           description:
-            'Site profissional para empresas com foco em autoridade de marca, SEO e experiência do usuário.',
+            'Site profissional para apresentar serviços, equipe e contato da empresa.',
           url: `${siteUrl}/site-institucional/`,
           seller: { '@id': `${siteUrl}/#business` },
         },

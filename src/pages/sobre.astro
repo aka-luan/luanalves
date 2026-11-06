@@ -3,7 +3,7 @@ import HomeCta from '../components/HomeCta.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import SiteNav from '../components/SiteNav.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { featuredPortfolioProjects, navigation } from '../data/site';
+import { featuredPortfolioProjects, navigation, portfolioProjects, services } from '../data/site';
 
 const siteUrl = 'https://luanalves.com.br';
 const whatsappHref =
@@ -18,17 +18,17 @@ const methodSteps = [
   {
     icon: 'account_tree',
     title: 'Organizar a experiência',
-    copy: 'Transformo informação dispersa em uma estrutura clara, com hierarquia, conteúdo, navegação e caminhos de contato bem definidos.',
+    copy: 'Organizo o material que você tem em páginas, menus e botões de contato.',
   },
   {
     icon: 'design_services',
     title: 'Projetar e desenvolver',
-    copy: 'Crio uma interface coerente com a marca e implemento uma base responsiva, acessível, rápida e preparada para SEO.',
+    copy: 'Desenho a interface a partir da marca e desenvolvo um site que funciona no celular, segue regras de acessibilidade e já sai com títulos e metadados para o Google.',
   },
   {
     icon: 'rocket_launch',
     title: 'Revisar e publicar',
-    copy: 'Faço os ajustes finais, publico com cuidado e entrego orientação para que o site continue útil depois do lançamento.',
+    copy: 'Faço os ajustes finais, publico, testo o site no ar e explico como ele pode ser atualizado depois do lançamento.',
   },
 ];
 
@@ -36,7 +36,7 @@ const workPrinciples = [
   {
     icon: 'forum',
     title: 'Você fala com quem faz',
-    copy: 'A comunicação é direta do diagnóstico ao pós-lançamento, sem camadas de agência ou repasses confusos.',
+    copy: 'Você conversa comigo do primeiro contato até depois da publicação, sem gerente de conta no meio.',
   },
   {
     icon: 'speed',
@@ -46,7 +46,7 @@ const workPrinciples = [
   {
     icon: 'search',
     title: 'SEO começa na arquitetura',
-    copy: 'Hierarquia semântica, metadados, links internos e conteúdo claro formam uma base mais preparada para ser encontrada.',
+    copy: 'Hierarquia de títulos, metadados e links internos ajudam o Google a entender cada página.',
   },
   {
     icon: 'support_agent',
@@ -62,7 +62,7 @@ const stackGroups = [
   },
   {
     label: 'Experiência',
-    value: 'Design responsivo, acessibilidade, motion com propósito e mobile first',
+    value: 'Design responsivo, acessibilidade e animações que respeitam a preferência de movimento reduzido',
   },
   {
     label: 'Crescimento',
@@ -112,7 +112,7 @@ const aboutSchema = [
 <BaseLayout
   namespace='about'
   title='Sobre Luan Alves | Desenvolvedor Web Freelancer'
-  description='Conheça Luan Alves, desenvolvedor web freelancer em Belém. Experiência, processo e stack para criar sites rápidos, acessíveis e que convertem.'
+  description='Conheça Luan Alves, desenvolvedor web freelancer em Belém. Processo e stack para criar sites institucionais, blogs e landing pages com contato direto pelo WhatsApp.'
   canonicalPath='/sobre/'
   ogType='profile'
   socialImageAlt='Luan Alves, desenvolvedor web freelancer'
@@ -139,7 +139,7 @@ const aboutSchema = [
             Sobre o profissional
           </p>
           <h1 id='about-title' data-motion-hero-title data-motion-hidden='y-lg'>
-            Experiência para transformar presença digital em <em>confiança.</em>
+            Sites que explicam sua empresa e levam ao <em>contato.</em>
           </h1>
           <p class='about-hero__lead' data-motion-hero-copy data-motion-hidden='y-md'>
             Sou Luan Alves, desenvolvedor web freelancer em Belém. Crio sites
@@ -170,12 +170,12 @@ const aboutSchema = [
               <dd>Anos de experiência</dd>
             </div>
             <div data-motion-item='hero-feature' data-motion-hidden='y-sm'>
-              <dt>12+</dt>
+              <dt>{portfolioProjects.length}</dt>
               <dd>Projetos no portfólio</dd>
             </div>
             <div data-motion-item='hero-feature' data-motion-hidden='y-sm'>
-              <dt>100%</dt>
-              <dd>Atendimento direto</dd>
+              <dt>{services.length}</dt>
+              <dd>Formatos de site</dd>
             </div>
           </dl>
         </div>
@@ -208,27 +208,25 @@ const aboutSchema = [
 
         <div class='about-intro__copy'>
           <p>
-            Um site profissional precisa fazer mais do que existir. Ele precisa
-            traduzir a proposta de uma empresa, organizar a decisão de quem visita
-            e tornar o próximo passo simples.
+            Antes de desenhar, defino o que o visitante precisa entender sobre a
+            empresa e qual botão ele deve tocar no final.
           </p>
           <p>
             É por isso que cada projeto começa com contexto. Entendo o negócio, o
             público, os diferenciais e as dúvidas que precisam ser respondidas. A
-            partir daí, escolho a estrutura, o ritmo visual e a tecnologia que fazem
-            sentido para aquela presença digital.
+            partir daí, escolho a estrutura de páginas, o visual e a tecnologia do
+            site.
           </p>
           <p>
             Trabalho diretamente com empresas e profissionais de diferentes
-            segmentos, de Belém para todo o Brasil. O resultado é uma parceria mais
-            próxima, com menos ruído e mais responsabilidade sobre cada detalhe da
-            entrega.
+            segmentos, de Belém para todo o Brasil. Você fala sempre com a mesma
+            pessoa, que também escreve o código.
           </p>
         </div>
 
         <aside class='about-statement'>
           <span class='material-symbols-outlined' aria-hidden='true'>format_quote</span>
-          <p>Clareza para decidir. Técnica para sustentar. Design para ser lembrado.</p>
+          <p>Cada página responde uma dúvida do cliente e termina com um caminho de contato.</p>
           <span class='about-statement__label'>Critério de trabalho</span>
         </aside>
       </div>
@@ -242,7 +240,7 @@ const aboutSchema = [
         <div class='about-process__intro'>
           <div class='about-section__heading'>
             <span class='about-section__line' aria-hidden='true'></span>
-            <h2 id='about-process-title'>Um processo que deixa o caminho visível.</h2>
+            <h2 id='about-process-title'>Como o projeto anda, etapa por etapa.</h2>
           </div>
           <p>
             Você sabe o que está acontecendo em cada etapa, o que precisa decidir e
@@ -275,9 +273,8 @@ const aboutSchema = [
           <p class='about-eyebrow'>Base técnica</p>
           <h2 id='about-stack-title'>Uma stack enxuta para sites que carregam.</h2>
           <p>
-            A tecnologia fica a serviço do projeto. Uso ferramentas que permitem
-            entregar experiências rápidas, fáceis de manter e coerentes com o nível
-            de ambição de cada negócio.
+            Uso Astro para gerar páginas estáticas, que carregam rápido e não
+            dependem de plugins para funcionar.
           </p>
           <a class='about-text-link' href='/insights/'>
             Ler os insights técnicos
@@ -304,7 +301,7 @@ const aboutSchema = [
           <span class='about-section__line' aria-hidden='true'></span>
           <div>
             <p class='about-eyebrow'>Trabalhos publicados</p>
-            <h2 id='about-work-title'>Experiência que pode ser aberta, navegada e avaliada.</h2>
+            <h2 id='about-work-title'>Sites publicados que você pode abrir.</h2>
           </div>
           <a class='about-text-link' href='/portfolio/'>
             Ver portfólio completo
@@ -342,7 +339,7 @@ const aboutSchema = [
       <div class='container'>
         <div class='about-section__heading'>
           <span class='about-section__line' aria-hidden='true'></span>
-          <h2 id='about-principles-title'>O que você pode esperar da parceria.</h2>
+          <h2 id='about-principles-title'>Como eu trabalho.</h2>
         </div>
 
         <div class='about-principles__grid'>
@@ -364,7 +361,7 @@ const aboutSchema = [
     <section class='about-social' aria-labelledby='about-social-title'>
       <div class='container about-social__inner'>
         <div>
-          <h2 id='about-social-title'>Conheça também os bastidores.</h2>
+          <h2 id='about-social-title'>Onde mais me encontrar.</h2>
         </div>
         <div class='about-social__links'>
           <a href='https://linkedin.com/in/aka-luan' target='_blank' rel='noreferrer'>
@@ -382,8 +379,8 @@ const aboutSchema = [
 
     <HomeCta analyticsPosition='about_final'
       whatsappHref={whatsappHref}
-      title='Se o seu negócio precisa de mais clareza no digital, vamos conversar.'
-      copy='Conte o que você quer construir. Eu respondo com contexto, próximos passos e uma proposta alinhada ao momento do projeto.'
+      title='Vamos conversar sobre o site da sua empresa?'
+      copy='Conte o que você quer construir. Eu respondo com as perguntas que faltam e, depois, envio uma proposta com escopo e prazo.'
       buttonLabel='Falar sobre meu projeto'
       motion={false}
     />

@@ -67,13 +67,13 @@ export const verticalPageLinks = [
   {
     href: '/site-para-incorporadora/',
     label: 'Site para incorporadora',
-    copy: 'Empreendimentos, marca e captação de interessados em uma presença digital de alto padrão.',
+    copy: 'Uma página por empreendimento, marca da incorporadora e contato do comercial no mesmo site.',
     number: '01',
   },
   {
     href: '/site-para-construtora/',
     label: 'Site para construtora',
-    copy: 'Obras, capacidade de entrega e confiança comercial organizadas com clareza.',
+    copy: 'Obras entregues e em andamento, segmentos atendidos e pedido de orçamento.',
     number: '02',
   },
   {
@@ -89,12 +89,12 @@ const sharedFaq = [
   {
     question: 'O site será responsivo e rápido no celular?',
     answer:
-      'Sim. O projeto é pensado para desktop e mobile, com imagens otimizadas, navegação clara e atenção à velocidade desde a arquitetura da página.',
+      'Sim. Cada página é desenhada e testada no celular e no desktop, e o peso das imagens entra na conta desde a estrutura da página.',
   },
   {
     question: 'A entrega inclui SEO?',
     answer:
-      'Inclui a base técnica de SEO: metadados, hierarquia de títulos, URLs, canonical, dados estruturados adequados, performance e conteúdo semanticamente organizado.',
+      'Inclui a base técnica de SEO: metadados, hierarquia de títulos, URLs, canonical, dados estruturados adequados, performance e títulos que seguem a ordem do conteúdo.',
   },
 ];
 
@@ -102,9 +102,9 @@ export const verticalPages: Record<string, VerticalPageContent> = {
   'site-para-incorporadora': {
     slug: 'site-para-incorporadora',
     namespace: 'site-para-incorporadora',
-    title: 'Site para Incorporadora | Projetos e Conversão · Luan Alves',
+    title: 'Site para incorporadora | Empreendimentos e contato · Luan Alves',
     description:
-      'Site para incorporadora apresentar empreendimentos, fortalecer a marca e gerar contatos qualificados com design premium, SEO técnico e alta performance.',
+      'Site para incorporadora com uma página por empreendimento, localização, tipologias e contato pelo WhatsApp que identifica o lançamento. SEO técnico incluso.',
     canonicalPath: '/site-para-incorporadora/',
     serviceName: 'Criação de site para incorporadora',
     whatsappHref: buildWhatsappHref(
@@ -112,23 +112,23 @@ export const verticalPages: Record<string, VerticalPageContent> = {
     ),
     hero: {
       eyebrow: 'Sites para segmentos · Incorporadoras',
-      title: 'Site para incorporadora que valoriza cada empreendimento',
-      accent: 'antes da primeira visita.',
-      copy: 'Crio experiências digitais sob medida para incorporadoras apresentarem marca, lançamentos e diferenciais com a mesma qualidade percebida que desejam transmitir em cada projeto.',
+      title: 'Site para incorporadora com uma página',
+      accent: 'para cada empreendimento.',
+      copy: 'Crio sites para incorporadoras com conceito, localização, tipologias e estágio de cada lançamento, e um contato pelo WhatsApp que chega ao comercial com o nome do empreendimento.',
       image: '/assets/tresor-portfolio.webp',
       imageAlt:
         'Site da Trésor Incorporações exibido como referência de site para incorporadora.',
       primaryCta: 'Quero apresentar meus empreendimentos',
       proof: [
-        { value: 'Marca', label: 'Posicionamento consistente' },
-        { value: 'Projetos', label: 'Empreendimentos valorizados' },
-        { value: 'Contato', label: 'Jornada comercial clara' },
+        { value: 'Trésor · Tymber', label: 'Sites de incorporadora no portfólio' },
+        { value: '1 página', label: 'Por empreendimento' },
+        { value: 'WhatsApp', label: 'Mensagem identifica o lançamento' },
       ],
     },
     problems: {
       eyebrow: 'O ponto de decisão',
       title: 'O comprador avalia a incorporadora antes de visitar o decorado.',
-      copy: 'Um site genérico reduz empreendimentos de alto valor a uma sequência de imagens. A presença digital precisa organizar desejo, segurança e informação para sustentar uma decisão que leva tempo.',
+      copy: 'Um site genérico reduz empreendimentos de alto valor a uma sequência de imagens. O comprador volta ao site várias vezes antes de visitar o decorado, e em cada visita precisa achar planta, localização, estágio da obra e o contato do comercial.',
       items: [
         {
           icon: 'location_city',
@@ -149,8 +149,8 @@ export const verticalPages: Record<string, VerticalPageContent> = {
     },
     architecture: {
       eyebrow: 'Arquitetura recomendada',
-      title: 'Uma vitrine de empreendimentos com inteligência comercial.',
-      copy: 'A estrutura combina posicionamento institucional e páginas de projeto capazes de orientar compradores, investidores e parceiros sem transformar o site em um catálogo indiferenciado.',
+      title: 'Uma página por empreendimento e contato que identifica o lançamento.',
+      copy: 'O site junta as páginas institucionais da incorporadora e uma página para cada projeto, escrita para compradores, investidores e parceiros.',
       items: [
         {
           icon: 'apartment',
@@ -160,7 +160,7 @@ export const verticalPages: Record<string, VerticalPageContent> = {
         {
           icon: 'auto_awesome',
           title: 'Marca e estilo de vida',
-          copy: 'Narrativa visual que conecta arquitetura, território e proposta de valor da incorporadora.',
+          copy: 'Páginas institucionais com a história da incorporadora, o padrão dos projetos e os bairros onde ela atua.',
         },
         {
           icon: 'real_estate_agent',
@@ -176,30 +176,30 @@ export const verticalPages: Record<string, VerticalPageContent> = {
     },
     cases: {
       eyebrow: 'Experiência no segmento',
-      title: 'Projetos que tratam o imóvel como experiência, não como ficha técnica.',
-      copy: 'Trésor e Tymber mostram duas direções complementares: sofisticação imobiliária e inovação sustentável aplicada a novos modos de construir.',
+      title: 'Dois sites de incorporadora com empreendimentos, marca e contato na mesma navegação.',
+      copy: 'A Trésor é uma incorporadora de alto padrão. A Tymber lança empreendimentos construídos com madeira engenheirada.',
       primaryId: 'tresor-incorporacoes',
       secondaryId: 'tymber',
     },
     differentials: {
       eyebrow: 'Como eu trabalho',
-      title: 'Atendimento direto para uma entrega que respeita a marca.',
+      title: 'Você fala direto com quem faz o site.',
       copy: 'Você fala com quem estrutura, desenha e desenvolve. As integrações e a forma de atualização são definidas conforme a operação, sem encaixar o projeto em um pacote rígido.',
       items: [
         {
           icon: 'architecture',
           title: 'Narrativa antes da interface',
-          copy: 'Organizo prioridades e jornada antes do layout para que cada seção tenha função comercial.',
+          copy: 'Defino as páginas, a ordem das informações e o caminho até o contato antes de desenhar o layout.',
         },
         {
           icon: 'photo_library',
           title: 'Imagem com performance',
-          copy: 'Renders e fotografias recebem tratamento técnico para impacto visual sem comprometer o carregamento.',
+          copy: 'Renders e fotos entram em tamanho e peso adequados para a página carregar rápido.',
         },
         {
           icon: 'devices',
           title: 'Experiência responsiva',
-          copy: 'A percepção de qualidade continua no celular, onde boa parte das primeiras visitas acontece.',
+          copy: 'Cada página é desenhada e testada também no celular, não só adaptada depois.',
         },
         {
           icon: 'extension',
@@ -222,7 +222,7 @@ export const verticalPages: Record<string, VerticalPageContent> = {
       ...sharedFaq,
     ],
     cta: {
-      title: 'Seus empreendimentos merecem uma presença digital à altura.',
+      title: 'Me mostre o próximo lançamento e eu proponho a estrutura do site.',
       copy: 'Me conte quantos projetos precisam ser apresentados, como o comercial recebe os contatos e qual percepção a marca precisa construir.',
       buttonLabel: 'Conversar sobre o site da incorporadora',
     },
@@ -231,9 +231,9 @@ export const verticalPages: Record<string, VerticalPageContent> = {
   'site-para-construtora': {
     slug: 'site-para-construtora',
     namespace: 'site-para-construtora',
-    title: 'Site para Construtora | Obras e Autoridade · Luan Alves',
+    title: 'Site para construtora | Obras e portfólio · Luan Alves',
     description:
-      'Site para construtora apresentar obras, capacidade de entrega e diferenciais com autoridade, SEO técnico, performance e conversão pelo WhatsApp.',
+      'Site para construtora com portfólio de obras entregues e em andamento, segmentos atendidos e pedido de orçamento pelo WhatsApp. SEO técnico incluso.',
     canonicalPath: '/site-para-construtora/',
     serviceName: 'Criação de site para construtora',
     whatsappHref: buildWhatsappHref(
@@ -241,17 +241,17 @@ export const verticalPages: Record<string, VerticalPageContent> = {
     ),
     hero: {
       eyebrow: 'Sites para segmentos · Construtoras',
-      title: 'Site para construtora que transforma obras entregues',
-      accent: 'em confiança comercial.',
-      copy: 'Crio sites institucionais para construtoras apresentarem experiência, empreendimentos e áreas de atuação com clareza para clientes, parceiros e novos negócios.',
+      title: 'Site para construtora que mostra cada obra entregue',
+      accent: 'com tipologia, local e escopo.',
+      copy: 'Crio sites institucionais para construtoras mostrarem obras, segmentos atendidos e histórico de entrega a clientes, parceiros e contratantes.',
       image: '/assets/conviva-portfolio.webp',
       imageAlt:
-        'Site da Conviva Engenharia exibido como referência de presença digital para construtora.',
+        'Site da Conviva Engenharia exibido como referência de site para construtora.',
       primaryCta: 'Quero fortalecer minha construtora',
       proof: [
-        { value: 'Obras', label: 'Histórico organizado' },
-        { value: 'Solidez', label: 'Confiança desde o primeiro acesso' },
-        { value: 'B2B', label: 'Informação para decidir' },
+        { value: 'Conviva', label: 'Site de engenharia no portfólio' },
+        { value: 'Obras', label: 'Entregues e em andamento' },
+        { value: 'Orçamento', label: 'Contato por tipo de pedido' },
       ],
     },
     problems: {
@@ -278,8 +278,8 @@ export const verticalPages: Record<string, VerticalPageContent> = {
     },
     architecture: {
       eyebrow: 'Arquitetura recomendada',
-      title: 'Da apresentação institucional à prova de obra executada.',
-      copy: 'O site deve funcionar como credencial comercial: organiza o que a construtora faz, onde atua e por que sua equipe está preparada para assumir o próximo projeto.',
+      title: 'Da apresentação da empresa às obras executadas.',
+      copy: 'O site mostra o que a construtora faz, onde atua e quais obras já entregou.',
       items: [
         {
           icon: 'domain',
@@ -294,7 +294,7 @@ export const verticalPages: Record<string, VerticalPageContent> = {
         {
           icon: 'verified_user',
           title: 'Confiança e transparência',
-          copy: 'História, processo, diferenciais e documentos relevantes quando fizerem parte da jornada comercial.',
+          copy: 'História, processo e documentos que o cliente pede antes de fechar contrato.',
         },
         {
           icon: 'forum',
@@ -305,15 +305,15 @@ export const verticalPages: Record<string, VerticalPageContent> = {
     },
     cases: {
       eyebrow: 'Experiência aplicada',
-      title: 'Projetos digitais para tornar construção e inovação mais fáceis de entender.',
-      copy: 'A Conviva demonstra uma jornada imobiliária orientada a empreendimentos e transparência. A Urbem complementa com organização de conteúdo técnico para decisores B2B.',
+      title: 'Sites com obras, andamento e conteúdo técnico.',
+      copy: 'O site da Conviva Engenharia informa andamento da obra, entrega e assistência técnica. O da Urbem organiza conteúdo técnico para arquitetos e construtoras.',
       primaryId: 'conviva-engenharia',
       secondaryId: 'urbem',
     },
     differentials: {
       eyebrow: 'Como eu trabalho',
-      title: 'Estrutura sólida no conteúdo, no design e no código.',
-      copy: 'O projeto parte do material que a empresa consegue comprovar. Não invento números, certificações ou capacidades: transformo evidências reais em uma apresentação comercial mais forte.',
+      title: 'O site parte do que a construtora comprova.',
+      copy: 'Uso só números, certificações e obras que a empresa pode comprovar. Não invento capacidade.',
       items: [
         {
           icon: 'account_tree',
@@ -323,7 +323,7 @@ export const verticalPages: Record<string, VerticalPageContent> = {
         {
           icon: 'speed',
           title: 'Portfólio sem lentidão',
-          copy: 'Imagens de obra são preparadas para preservar impacto e manter uma navegação rápida.',
+          copy: 'Fotos de obra entram em tamanho e peso adequados para a galeria não travar a página.',
         },
         {
           icon: 'search',
@@ -360,7 +360,7 @@ export const verticalPages: Record<string, VerticalPageContent> = {
   'site-para-industria-de-madeira-engenheirada': {
     slug: 'site-para-industria-de-madeira-engenheirada',
     namespace: 'site-para-madeira-engenheirada',
-    title: 'Site para Indústria de Madeira Engenheirada | Luan Alves',
+    title: 'Site para indústria de madeira engenheirada | Luan Alves',
     description:
       'Site para indústria e empresas de madeira engenheirada apresentarem produtos, projetos e conteúdo técnico a arquitetos, construtoras e especificadores.',
     canonicalPath: '/site-para-industria-de-madeira-engenheirada/',
@@ -370,23 +370,23 @@ export const verticalPages: Record<string, VerticalPageContent> = {
     ),
     hero: {
       eyebrow: 'Sites para segmentos · Madeira engenheirada',
-      title: 'Site para indústria de madeira engenheirada com profundidade técnica',
-      accent: 'e visão de mercado.',
-      copy: 'Crio sites para empresas que projetam, fabricam ou montam soluções em CLT, MLC e mass timber, conectando tecnologia construtiva a uma narrativa clara para especificadores e decisores.',
+      title: 'Site para indústria de madeira engenheirada',
+      accent: 'com produtos, obras e material técnico.',
+      copy: 'Crio sites para empresas que projetam, fabricam ou montam sistemas em CLT, MLC e mass timber, com páginas de produto, obras e material técnico para arquitetos, engenheiros e construtoras.',
       image: '/assets/urbem-portfolio.webp',
       imageAlt:
         'Site da Urbem exibido como referência de site para indústria de madeira engenheirada.',
       primaryCta: 'Quero apresentar nossa tecnologia',
       proof: [
-        { value: 'CLT · MLC', label: 'Produtos bem explicados' },
-        { value: 'Projetos', label: 'Aplicações que comprovam' },
-        { value: 'B2B', label: 'Conteúdo para especificadores' },
+        { value: 'Urbem', label: 'Site de indústria de madeira engenheirada no portfólio' },
+        { value: 'CLT · Glulam · S4S', label: 'Produtos com página própria' },
+        { value: 'Biblioteca', label: 'Material técnico e blog' },
       ],
     },
     problems: {
-      eyebrow: 'Complexidade sem ruído',
-      title: 'Inovação técnica perde força quando o mercado não consegue compreendê-la.',
-      copy: 'Madeira engenheirada exige educação, prova e confiança. Um site superficial deixa arquitetos, construtoras e incorporadoras sem respostas para especificar, comparar ou iniciar um estudo de viabilidade.',
+      eyebrow: 'O ponto de especificação',
+      title: 'Arquiteto que não acha dados técnicos no site não especifica o sistema.',
+      copy: 'Quem especifica madeira engenheirada procura aplicações, desempenho e obras de referência. Um site superficial deixa arquitetos, construtoras e incorporadoras sem respostas para especificar, comparar ou iniciar um estudo de viabilidade.',
       items: [
         {
           icon: 'forest',
@@ -395,20 +395,20 @@ export const verticalPages: Record<string, VerticalPageContent> = {
         },
         {
           icon: 'schema',
-          title: 'Ecossistema fragmentado',
+          title: 'Cadeia fragmentada',
           copy: 'Indústria, engenharia, fabricação, logística e montagem aparecem como partes desconectadas.',
         },
         {
           icon: 'menu_book',
           title: 'Conhecimento difícil de acessar',
-          copy: 'Dados, aplicações, projetos e materiais técnicos não acompanham a jornada do especificador.',
+          copy: 'Dados, aplicações, projetos e materiais técnicos ficam espalhados e o especificador não acha o que procura.',
         },
       ],
     },
     architecture: {
       eyebrow: 'Arquitetura recomendada',
-      title: 'Conteúdo técnico organizado para acelerar confiança e especificação.',
-      copy: 'A presença digital precisa servir a públicos diferentes sem diluir a mensagem: quem descobre o sistema, quem avalia viabilidade e quem já procura produtos ou parceiros.',
+      title: 'Produtos, obras e documentação técnica separados por quem consulta.',
+      copy: 'O site atende quem está conhecendo o sistema, quem avalia viabilidade e quem já procura produtos ou parceiros.',
       items: [
         {
           icon: 'precision_manufacturing',
@@ -433,7 +433,7 @@ export const verticalPages: Record<string, VerticalPageContent> = {
       ],
     },
     cases: {
-      eyebrow: 'Experiência no ecossistema',
+      eyebrow: 'Experiência na cadeia',
       title: 'Da indústria ao empreendimento: duas provas reais em mass timber.',
       copy: 'A Urbem mostra a profundidade de uma operação industrial com produtos, projetos, biblioteca e blog. A Tymber traduz a madeira engenheirada em proposta imobiliária e marca.',
       primaryId: 'urbem',
@@ -441,13 +441,13 @@ export const verticalPages: Record<string, VerticalPageContent> = {
     },
     differentials: {
       eyebrow: 'Como eu trabalho',
-      title: 'Rigor técnico sem perder clareza comercial.',
-      copy: 'A página não tenta ensinar engenharia em um parágrafo. Ela cria camadas: visão geral para decisores, profundidade para especificadores e caminhos objetivos para quem quer conversar sobre um projeto.',
+      title: 'Informação técnica em níveis de detalhe.',
+      copy: 'Decisores encontram uma visão geral, especificadores encontram a documentação, e quem já tem um projeto encontra o contato.',
       items: [
         {
           icon: 'hub',
-          title: 'Públicos conectados',
-          copy: 'Arquitetos, engenheiros, construtoras e incorporadoras encontram entradas coerentes para suas dúvidas.',
+          title: 'Entrada por público',
+          copy: 'Arquitetos, engenheiros, construtoras e incorporadoras têm um caminho próprio no menu para suas dúvidas.',
         },
         {
           icon: 'article',
@@ -457,11 +457,11 @@ export const verticalPages: Record<string, VerticalPageContent> = {
         {
           icon: 'travel_explore',
           title: 'Descoberta orgânica',
-          copy: 'Conteúdo e estrutura técnica ampliam a superfície de busca para produtos, aplicações e dúvidas reais.',
+          copy: 'Uma página por produto e por aplicação aparece em mais buscas sobre esses temas.',
         },
         {
           icon: 'verified',
-          title: 'Evidência antes da promessa',
+          title: 'Só informação verificável',
           copy: 'Projetos, processos e informações verificáveis sustentam autoridade sem recorrer a números inventados.',
         },
       ],
@@ -480,8 +480,8 @@ export const verticalPages: Record<string, VerticalPageContent> = {
       ...sharedFaq,
     ],
     cta: {
-      title: 'Sua tecnologia precisa ser compreendida para ser especificada.',
-      copy: 'Me conte em qual etapa do ecossistema sua empresa atua, quais produtos ou serviços oferece e quais públicos precisam avançar pelo site.',
+      title: 'Um site que o especificador consegue consultar.',
+      copy: 'Me conte em qual etapa (projeto, fabricação, logística ou montagem) sua empresa atua, quais produtos ou serviços oferece e quais públicos precisam avançar pelo site.',
       buttonLabel: 'Conversar sobre o site de madeira engenheirada',
     },
   },
@@ -500,7 +500,7 @@ export const getVerticalPageSchema = (page: VerticalPageContent) => [
       {
         '@type': 'ListItem',
         position: 2,
-        name: 'Criação de Sites',
+        name: 'Criação de sites',
         item: `${siteUrl}/criacao-de-sites/`,
       },
       {

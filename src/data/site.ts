@@ -67,15 +67,15 @@ export const projects = [
     title: 'Trésor Incorporações',
     subtitle: 'Desenvolvimento & Motion',
     description:
-      'Uma vitrine digital de alto padrão pensada para transmitir exclusividade, arquitetura autoral e sofisticação comercial desde a primeira dobra.',
+      'Site institucional de uma incorporadora de alto padrão, com páginas da marca e dos empreendimentos e transições animadas.',
     serviceType: 'Site Institucional',
     summary:
-      'Site institucional premium para incorporadora de luxo, com narrativa visual, motion e foco em autoridade comercial.',
+      'Site institucional para incorporadora de luxo, com empreendimentos, animações e contato.',
     tags: ['SEO técnico', 'Motion', 'Performance'],
     themeColor: '#4a1f0b',
     externalUrl: 'https://tresorincorporacoes.com.br',
     image: '/assets/tresor-home.webp',
-    alt: 'Site institucional da Trésor Incorporações — incorporadora de luxo com empreendimentos em Niterói, RJ. Design sofisticado com foco em exclusividade e valorização de imóveis.',
+    alt: 'Página inicial do site da Trésor Incorporações em um tablet, com menu, foto de um terraço e o título "Exclusividade & Sofisticação".',
     url: 'https://tresorincorporacoes.com.br',
     niche: 'Incorporadora de Luxo',
     caseVideo: {
@@ -103,15 +103,15 @@ export const projects = [
     title: 'Skyrocket',
     subtitle: 'Desenvolvimento & Otimização',
     description:
-      'Uma presença digital mais afiada para uma agência orientada a performance, com ritmo visual forte e leitura clara para apresentar serviços, autoridade e cases.',
+      'Site de uma agência de marketing de performance, com serviços, cases e contato em seções curtas.',
     serviceType: 'Landing Page',
     summary:
-      'Experiência digital para agência de marketing, com leitura rápida de serviços, cases e proposta de valor.',
+      'Site para agência de marketing, com serviços, cases e proposta de valor.',
     tags: ['Conversão', 'Animação', 'SEO'],
     themeColor: '#123f7a',
     externalUrl: 'https://agenciaskyrocket.com.br',
     image: '/assets/skyrocket-home.webp',
-    alt: 'Site da Agência Skyrocket — agência de marketing digital com identidade visual galáctica, portfólio de cases e soluções para marcas que querem crescer no digital.',
+    alt: 'Página inicial do site da Agência Skyrocket em um celular, com o título "Inovação e criatividade para ir além", botão de WhatsApp e ilustração de um astronauta.',
     url: 'https://agenciaskyrocket.com.br',
     niche: 'Marketing Digital',
     caseVideo: {
@@ -139,15 +139,15 @@ export const projects = [
     title: 'Poliana Bentes',
     subtitle: 'Desenvolvimento & CMS',
     description:
-      'Um site com linguagem institucional refinada para posicionar consultoria, credibilidade e clareza de mensagem sem abrir mão de flexibilidade editorial.',
+      'Site institucional e blog de uma consultoria de relações institucionais em Belém, com serviços, publicações e agenda.',
     serviceType: 'Blog Profissional',
     summary:
-      'Site com base institucional e estrutura editorial para consultoria, combinando credibilidade, conteúdo e gestão simples.',
+      'Site institucional com blog para consultoria, atualizado pela própria equipe no CMS.',
     tags: ['CMS', 'Editorial', 'Mobile'],
     themeColor: '#173b28',
     externalUrl: 'https://polianabentes.com.br',
     image: '/assets/poliana-bentes-home.webp',
-    alt: 'Site da BNTS Consultoria — empresa de relações institucionais e governamentais sediada em Belém, PA. Layout clean e profissional voltado para o setor industrial.',
+    alt: 'Página inicial do site da BNTS Consultoria em um monitor, com foto de Poliana Bentes, menu e o título "Construindo o futuro do seu negócio".',
     url: 'https://polianabentes.com.br',
     niche: 'Consultoria Empresarial',
     caseVideo: {
@@ -207,14 +207,14 @@ const basePortfolioProjects = [
     title: 'Trésor',
     categories: ['Site Institucional'],
     lead:
-      'Uma presença digital sofisticada para uma incorporadora que transforma endereços em experiências exclusivas.',
+      'Site institucional para uma incorporadora de alto padrão.',
     description:
-      'Página de portfólio do site institucional da Trésor Incorporações, marca focada em empreendimentos de alto padrão, arquitetura autoral e valorização do estilo de vida.',
+      'Página de portfólio do site institucional da Trésor Incorporações, incorporadora de empreendimentos de alto padrão.',
     tags: [
       'Site institucional',
       'Incorporadora',
       'Alto padrão',
-      'Experiência premium',
+      'Alto padrão residencial',
     ],
     image: '/assets/tresor-portfolio.webp',
     alt: 'Página de portfólio do site institucional da Trésor Incorporações, marca focada em empreendimentos de alto padrão.',
@@ -225,9 +225,9 @@ const basePortfolioProjects = [
     title: 'Urbem',
     categories: ['Site Institucional', 'Blog Profissional'],
     lead:
-      'Site institucional para uma indústria que constrói o futuro com madeira engenheirada.',
+      'Site institucional e blog para uma indústria de CLT, Glulam e S4S.',
     description:
-      'Desenvolvemos uma presença digital robusta para apresentar a Urbem como referência em construção civil sustentável, tecnologia em mass timber e soluções em madeira engenheirada. O site organiza produtos, projetos, biblioteca, blog e canais comerciais em uma experiência clara, técnica e institucional.',
+      'Luan desenvolveu o site da Urbem a partir do design e da copy da agência parceira. O site organiza produtos (S4S, Glulam e CLT), projetos por aplicação, biblioteca, blog e contato comercial.',
     tags: [
       'Site institucional',
       'Indústria',
@@ -243,9 +243,9 @@ const basePortfolioProjects = [
     title: 'Tymber',
     categories: ['Site Institucional', 'Blog Profissional'],
     lead:
-      'Uma experiência digital para uma incorporadora que projeta o amanhã com madeira.',
+      'Site institucional para uma incorporadora que constrói com madeira engenheirada.',
     description:
-      'O site da Tymber traduz o conceito de inovação sustentável em uma navegação elegante, apresentando a marca, seu manifesto e os benefícios da madeira engenheirada para novos empreendimentos imobiliários. A comunicação valoriza tecnologia, responsabilidade ambiental e estética natural.',
+      'O site da Tymber apresenta a marca, o manifesto e as vantagens da madeira engenheirada para novos empreendimentos imobiliários.',
     tags: ['Site institucional', 'Incorporadora', 'Mass timber', 'Sustentabilidade'],
     image: '/assets/tymber-portfolio.webp',
     alt: 'Página de portfólio do site institucional da Tymber, incorporadora focada em madeira engenheirada e sustentabilidade.',
@@ -256,12 +256,12 @@ const basePortfolioProjects = [
     title: 'Conviva Engenharia',
     categories: ['Site Institucional', 'Blog Profissional'],
     lead:
-      'Site para uma marca imobiliária focada em experiências únicas e qualidade de vida.',
+      'Site para uma construtora com empreendimentos, andamento de obra e assistência técnica.',
     description:
-      'Criamos uma estrutura digital para apresentar a Conviva, seus empreendimentos e diferenciais com uma linguagem contemporânea e aspiracional. O projeto destaca moradias inteligentes, espaços integrados, localizações premium e uma jornada pensada para gerar confiança em quem busca morar ou investir.',
+      'Luan desenvolveu o site da Conviva Engenharia a partir do design e da copy da Agência Skyrocket. O site apresenta os empreendimentos, as etapas da compra, o andamento da obra, a entrega, a assistência técnica e os stands de atendimento.',
     tags: ['Site institucional', 'Imobiliário', 'Empreendimentos', 'Engenharia'],
     image: '/assets/conviva-portfolio.webp',
-    alt: 'Página de portfólio do site institucional da Conviva Engenharia, marca imobiliária com empreendimentos e moradias inteligentes.',
+    alt: 'Página de portfólio do site institucional da Conviva Engenharia.',
     externalUrl: 'https://convivaengenharia.com.br/',
   },
   {
@@ -269,9 +269,9 @@ const basePortfolioProjects = [
     title: 'Agência Skyrocket',
     categories: ['Site Institucional'],
     lead:
-      'Um site criativo para uma agência que transforma marcas em jornadas digitais.',
+      'Site institucional para uma agência de branding e marketing digital.',
     description:
-      'O site da Skyrocket apresenta uma identidade visual forte, jovem e espacial, comunicando soluções de branding, estratégia, presença digital, conteúdo, mídia online e performance. A experiência foi pensada para transmitir inovação, criatividade e capacidade de fazer marcas decolarem.',
+      'O site da Skyrocket usa a identidade visual espacial da agência para apresentar os serviços de branding, estratégia, presença digital, conteúdo, mídia online e performance.',
     tags: ['Site institucional', 'Agência', 'Branding', 'Marketing digital'],
     image: '/assets/skyrocket-portfolio.webp',
     alt: 'Página de portfólio do site institucional da Agência Skyrocket, agência de branding e marketing digital.',
@@ -282,9 +282,9 @@ const basePortfolioProjects = [
     title: 'Clínica CDV',
     categories: ['Site Institucional'],
     lead:
-      'Site institucional para uma clínica que une saúde, tecnologia e cuidado humanizado.',
+      'Site institucional para uma clínica fundada em 2001, com especialidades, exames e agendamento.',
     description:
-      'A presença digital da Clínica CDV organiza especialidades como vascular, estética, medicina estética, nutrição e exames em uma experiência leve e confiável. O conteúdo reforça a trajetória da clínica, fundada em 2001, e sua proposta de cuidar da saúde, autoestima e qualidade de vida dos pacientes.',
+      'O site da Clínica CDV organiza especialidades como vascular, estética, medicina estética e nutrição, além dos exames e do agendamento. Uma seção conta a história da clínica, fundada em 2001.',
     tags: ['Site institucional', 'Saúde', 'Clínica médica', 'Agendamento'],
     image: '/assets/cdv-portfolio.webp',
     alt: 'Página de portfólio do site institucional da Clínica CDV, clínica médica com especialidades, exames e agendamento.',
@@ -297,7 +297,7 @@ const basePortfolioProjects = [
     lead:
       'Site institucional para uma consultoria estratégica com atuação no território amazônico.',
     description:
-      'O projeto apresenta a BNTS / Poliana Bentes como uma consultoria especializada em processos, estratégia de negócios, assessoria empresarial e relações institucionais e governamentais. A comunicação valoriza transparência, solidez, diálogo e construção de pontes entre empresas, instituições e poder público no Pará.',
+      'O site apresenta a BNTS / Poliana Bentes, consultoria de processos, estratégia de negócios, assessoria empresarial e relações institucionais e governamentais. A consultoria fica em Belém e atende empresas e instituições no Pará.',
     tags: [
       'Site institucional',
       'Consultoria',
@@ -333,29 +333,29 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
     deliveredAt: '2025',
     siteLabel: 'tresorincorporacoes.com.br',
     challenge:
-      'A Trésor precisava de uma presença digital que transmitisse sofisticação, exclusividade e confiança desde o primeiro acesso, sem perder clareza na apresentação da marca e dos empreendimentos.',
+      'A Trésor precisava de um site com o mesmo padrão visual dos seus empreendimentos, sem esconder as informações da marca e de cada projeto.',
     solution:
-      'O site foi estruturado para valorizar a experiência visual da marca, apresentar seus diferenciais com elegância e conduzir o visitante por uma jornada institucional objetiva, premium e responsiva.',
+      'O site apresenta a marca, os empreendimentos e os canais de contato, com transições animadas e layout pensado também para o celular.',
     deliverables: [
       {
         title: 'Site institucional',
         description:
-          'Apresentação da marca, posicionamento, empreendimentos e canais de contato em uma estrutura clara e refinada.',
+          'Páginas da marca, dos empreendimentos e de contato.',
       },
       {
-        title: 'Narrativa premium',
+        title: 'Animações',
         description:
-          'Conteúdo focado em exclusividade, conforto, arquitetura autoral e valorização do estilo de vida.',
+          'Transições e animações nas seções, com o mesmo tom visual da marca.',
       },
       {
-        title: 'Experiência responsiva',
+        title: 'Layout responsivo',
         description:
-          'Layout adaptado para transmitir a mesma percepção de sofisticação em desktop e dispositivos móveis.',
+          'Layout desenhado para desktop e celular.',
       },
       {
         title: 'Apresentação comercial',
         description:
-          'Estrutura pensada para destacar empreendimentos, benefícios e pontos de conversão para potenciais compradores.',
+          'Empreendimentos com seus diferenciais e chamadas para o comprador entrar em contato.',
       },
     ],
     gallery: [
@@ -367,20 +367,20 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
     ],
     results: [
       {
-        value: 'Sofisticação',
-        label: 'Presença digital alinhada ao posicionamento de alto padrão da marca.',
+        value: 'Marca',
+        label: 'Página institucional "A Trésor" no menu principal.',
       },
       {
-        value: 'Clareza',
-        label: 'Empreendimentos, diferenciais e proposta de valor apresentados de forma objetiva.',
+        value: 'Empreendimentos',
+        label: 'Seção própria para os empreendimentos da incorporadora.',
       },
       {
         value: 'Mobile',
-        label: 'Experiência consistente para navegação e leitura em diferentes telas.',
+        label: 'Layout desenhado também para o celular.',
       },
       {
-        value: 'Conversão',
-        label: 'Caminhos diretos para contato, apresentação dos empreendimentos e relacionamento com interessados.',
+        value: 'Contato',
+        label: 'Página de contato e atalhos para Instagram, YouTube e WhatsApp.',
       },
     ],
   },
@@ -404,7 +404,7 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
     challenge:
       'A Urbem precisava apresentar uma operação técnica e sustentável para arquitetos, construtoras e decisores que avaliam especificações antes de iniciar uma conversa comercial.',
     solution:
-      'O projeto organizou produtos, projetos, biblioteca, blog e canais comerciais em uma experiência institucional clara, com base preparada para SEO técnico, leitura editorial e autoridade no segmento de madeira engenheirada.',
+      'O site organiza produtos, projetos, biblioteca, blog e canais comerciais, com base técnica de SEO e um blog para conteúdo sobre madeira engenheirada.',
     deliverables: [
       {
         title: 'Site institucional',
@@ -458,9 +458,9 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
     deliveredAt: '2025',
     siteLabel: 'tymber.com.br',
     challenge:
-      'A Tymber precisava traduzir inovação sustentável em uma presença digital elegante, sem deixar a proposta técnica confusa ou distante do mercado imobiliário.',
+      'A Tymber precisava explicar por que constrói com madeira engenheirada para quem compra imóveis, sem perder o rigor técnico.',
     solution:
-      'A página organiza manifesto, diferenciais e benefícios da madeira engenheirada em uma narrativa institucional objetiva, visualmente premium e fácil de percorrer.',
+      'O site organiza o manifesto, os diferenciais e as vantagens da madeira engenheirada em poucas seções.',
     deliverables: [
       {
         title: 'Site institucional',
@@ -468,14 +468,14 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
           'Apresentação da marca, manifesto e proposta de valor em uma estrutura enxuta.',
       },
       {
-        title: 'Narrativa de sustentabilidade',
+        title: 'Conteúdo sobre madeira engenheirada',
         description:
-          'Conteúdo focado em inovação, responsabilidade ambiental e tecnologia construtiva.',
+          'Seções sobre o sistema construtivo e seu impacto ambiental.',
       },
       {
-        title: 'Experiência responsiva',
+        title: 'Layout responsivo',
         description:
-          'Layout adaptado para leitura consistente em desktop e dispositivos móveis.',
+          'Layout desenhado para desktop e celular.',
       },
       {
         title: 'Base editorial',
@@ -492,16 +492,16 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
     ],
     results: [
       {
-        value: 'Clareza',
-        label: 'Proposta sustentável explicada com linguagem comercial direta.',
+        value: 'Manifesto',
+        label: 'Seção própria para o manifesto da marca.',
       },
       {
         value: 'Mobile',
-        label: 'Experiência planejada para leitura em diferentes telas.',
+        label: 'Layout desenhado também para o celular.',
       },
       {
-        value: 'Marca',
-        label: 'Presença digital alinhada ao posicionamento inovador.',
+        value: 'Madeira',
+        label: 'Vantagens da madeira engenheirada explicadas para quem compra.',
       },
     ],
   },
@@ -519,12 +519,12 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
     },
     primaryService: { href: '/site-institucional/', label: 'Site Institucional' },
     evidence: [
-      { href: 'https://convivaengenharia.com.br/', label: 'Empreendimentos e atendimento', description: 'A página inicial apresenta empreendimentos, etapas da jornada do comprador, stands e canais de atendimento.' },
+      { href: 'https://convivaengenharia.com.br/', label: 'Empreendimentos e atendimento', description: 'A página inicial apresenta empreendimentos, etapas da compra, stands e canais de atendimento.' },
     ],
     challenge:
-      'A Conviva precisava apresentar empreendimentos e diferenciais de moradia com uma experiência que gerasse confiança sem parecer genérica.',
+      'A Conviva precisava mostrar seus empreendimentos e acompanhar o comprador da compra à entrega da obra em um só site.',
     solution:
-      'O site estrutura a comunicação de marca, localizações, benefícios e jornada comercial em uma experiência contemporânea, aspiracional e orientada à conversão.',
+      'O site reúne marca, localizações, andamento da obra, entrega, assistência técnica e stands de atendimento, com contato em cada etapa.',
     deliverables: [
       {
         title: 'Site institucional',
@@ -551,7 +551,7 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
       {
         src: '/assets/conviva-portfolio.webp',
         alt: 'Página de portfólio do site institucional da Conviva Engenharia.',
-        caption: 'Experiência principal',
+        caption: 'Visão institucional',
       },
     ],
     results: [
@@ -560,7 +560,7 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
         label: 'Empreendimentos apresentados com localização e diferenciais de moradia.',
       },
       {
-        value: 'Jornada',
+        value: 'Obra',
         label: 'Informações sobre compra, andamento da obra, entrega e assistência técnica.',
       },
       {
@@ -578,14 +578,14 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
     deliveredAt: '2023',
     siteLabel: 'agenciaskyrocket.com.br',
     challenge:
-      'A agência precisava comunicar criatividade, serviços e capacidade de performance em uma experiência rápida, memorável e fácil de entender.',
+      'A agência precisava apresentar seus serviços e cases em um site que carregasse rápido e mantivesse a identidade visual espacial da marca.',
     solution:
-      'A solução combinou identidade visual forte, ritmo de leitura e seções objetivas para apresentar branding, estratégia, conteúdo, mídia online e performance.',
+      'O site usa a identidade espacial da agência em seções curtas sobre branding, estratégia, conteúdo, mídia online e performance.',
     deliverables: [
       {
         title: 'Site criativo',
         description:
-          'Experiência visual com linguagem espacial alinhada à marca Skyrocket.',
+          'Layout com a identidade visual espacial da marca Skyrocket.',
       },
       {
         title: 'Página de serviços',
@@ -595,7 +595,7 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
       {
         title: 'Otimização de leitura',
         description:
-          'Hierarquia de conteúdo para visitantes entenderem valor rapidamente.',
+          'Títulos curtos e seções em ordem de prioridade.',
       },
       {
         title: 'SEO de base',
@@ -618,15 +618,15 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
     results: [
       {
         value: 'Branding',
-        label: 'Identidade digital mais forte para apresentação da agência.',
+        label: 'Identidade visual espacial da agência aplicada ao site.',
       },
       {
         value: 'Serviços',
-        label: 'Oferta organizada para leitura rápida e comercial.',
+        label: 'Branding, estratégia e performance em seções separadas.',
       },
       {
         value: 'SEO',
-        label: 'Base institucional preparada para descoberta orgânica.',
+        label: 'Metadados e estrutura de títulos configurados.',
       },
     ],
     mobileImage: '/assets/skyrocket-home.webp',
@@ -640,9 +640,9 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
     deliveredAt: '2024',
     siteLabel: 'clinicacdv.com.br',
     challenge:
-      'A clínica precisava organizar especialidades, exames e canais de agendamento em um site confiável, acessível e adequado a um contexto de saúde.',
+      'A clínica precisava organizar especialidades, exames e canais de agendamento em um site acessível.',
     solution:
-      'A presença digital foi estruturada para destacar trajetória, cuidado humanizado, especialidades e agendamento, com leitura leve e foco em confiança.',
+      'O site apresenta a história da clínica, as especialidades, os exames e o agendamento em páginas de leitura curta.',
     deliverables: [
       {
         title: 'Site institucional',
@@ -657,10 +657,10 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
       {
         title: 'Conteúdo de serviços',
         description:
-          'Organização das especialidades com linguagem objetiva e segura.',
+          'Uma seção para cada especialidade, em linguagem direta.',
       },
       {
-        title: 'Experiência responsiva',
+        title: 'Layout responsivo',
         description:
           'Layout adaptado para pacientes pesquisando pelo celular.',
       },
@@ -675,7 +675,7 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
     results: [
       {
         value: 'Saúde',
-        label: 'Informação médica apresentada com clareza e sobriedade.',
+        label: 'Especialidades e exames organizados em seções próprias.',
       },
       {
         value: 'Agenda',
@@ -705,9 +705,9 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
       { href: 'https://polianabentes.com.br/nossos-servicos/', label: 'Serviços da consultoria', description: 'A página organiza relações institucionais e governamentais e inteligência estratégica e regulatória.' },
     ],
     challenge:
-      'A consultoria precisava transmitir credibilidade, atuação estratégica e conhecimento do território amazônico sem depender de uma comunicação carregada.',
+      'A consultoria precisava mostrar sua atuação no Pará e seus serviços em um site sóbrio.',
     solution:
-      'O projeto criou uma base institucional e editorial com linguagem refinada, destacando processos, assessoria empresarial e relações institucionais no Pará.',
+      'O site apresenta processos, assessoria empresarial e relações institucionais no Pará, com um blog para publicações da consultoria.',
     deliverables: [
       {
         title: 'Site institucional',
@@ -749,7 +749,7 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
       },
       {
         value: 'Editorial',
-        label: 'Base de blog para fortalecer autoridade institucional.',
+        label: 'Blog para publicações da consultoria.',
       },
       {
         value: 'Território',

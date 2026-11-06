@@ -16,40 +16,40 @@ const whatsappHref =
 
 const breadcrumbItems = [
   { label: 'Início', href: '/' },
-  { label: 'Criação de Sites' },
+  { label: 'Criação de sites' },
 ];
 
 const creationPageSchema = getBreadcrumbSchema([
   { name: 'Início', path: '/' },
-  { name: 'Criação de Sites', path: '/criacao-de-sites/' },
+  { name: 'Criação de sites', path: '/criacao-de-sites/' },
 ]);
 
 const featureItems = [
-  { icon: 'trending_up', label: 'SEO desde o início' },
-  { icon: 'phone_iphone', label: 'Mobile first' },
-  { icon: 'code', label: 'Código limpo' },
+  { icon: 'trending_up', label: 'SEO técnico incluso' },
+  { icon: 'phone_iphone', label: 'Feito para o celular' },
+  { icon: 'code', label: 'Código sob medida' },
 ];
 
 const solutionItems = [
   {
     icon: 'corporate_fare',
-    title: 'Site Institucional',
-    copy: 'Ideal para empresas que precisam apresentar serviços, diferenciais e autoridade.',
+    title: 'Site institucional',
+    copy: 'Para empresas que precisam apresentar serviços, diferenciais e projetos realizados.',
     image: '/assets/tresor-home.webp',
-    tags: ['SEO', 'Credibilidade', 'Mobile first'],
+    tags: ['SEO', 'Credibilidade', 'Celular'],
     href: '/site-institucional/',
   },
   {
     icon: 'ads_click',
-    title: 'Landing Page',
-    copy: 'Perfeita para campanhas, tráfego pago e captação de leads com foco total em conversão.',
+    title: 'Landing page',
+    copy: 'Para campanhas e tráfego pago, com uma oferta, um público e uma ação principal por página.',
     image: '/assets/skyrocket-home.webp',
     tags: ['Lead', 'Velocidade', 'Conversão'],
     href: '/landing-page/',
   },
   {
     icon: 'article',
-    title: 'Blog Profissional',
+    title: 'Blog profissional',
     copy: 'Estrutura editorial para organizar artigos e temas, com base técnica de SEO e atualização definida no escopo.',
     image: '/assets/poliana-bentes-home.webp',
     tags: ['Editorial', 'SEO técnico', 'Performance'],
@@ -73,9 +73,9 @@ const resultCards = [
     number: '01',
     icon: 'workspace_premium',
     benefitIcon: 'person',
-    title: 'Autoridade',
-    copy: 'Design profissional que transmite confiança desde o primeiro acesso.',
-    benefit: 'Mais confiança do seu cliente',
+    title: 'Credibilidade',
+    copy: 'Serviços, projetos e dados da empresa apresentados com clareza.',
+    benefit: 'Informações que o cliente procura',
   },
   {
     number: '02',
@@ -90,15 +90,15 @@ const resultCards = [
     icon: 'speed',
     benefitIcon: 'phone_iphone',
     title: 'Performance',
-    copy: 'Carregamento rápido em desktop e mobile.',
-    benefit: 'Experiência rápida no mobile',
+    copy: 'Imagens e código otimizados para desktop e celular.',
+    benefit: 'Carregamento otimizado no celular',
   },
   {
     number: '04',
     icon: 'chat_bubble',
     benefitIcon: 'monetization_on',
     title: 'Conversão',
-    copy: 'Páginas pensadas para gerar contatos, pedidos e orçamentos.',
+    copy: 'Botões de WhatsApp ao longo da página para pedir orçamento.',
     benefit: 'Caminhos claros para contato',
   },
 ];
@@ -129,7 +129,7 @@ const processSteps = [
 const includedItems = [
   {
     icon: 'adjust',
-    title: 'Estrutura estratégica',
+    title: 'Estrutura de páginas',
     copy: 'Definição de páginas, seções e hierarquia de conteúdo.',
   },
   {
@@ -140,12 +140,12 @@ const includedItems = [
   {
     icon: 'code',
     title: 'Desenvolvimento sob medida',
-    copy: 'Código limpo, rápido e bem organizado.',
+    copy: 'Código escrito para este projeto, sem template pronto.',
   },
   {
     icon: 'search',
     title: 'SEO inicial',
-    copy: 'Títulos, headings, metadados e base técnica otimizada.',
+    copy: 'Títulos, hierarquia de cabeçalhos e metadados.',
   },
   {
     icon: 'extension',
@@ -167,13 +167,13 @@ const differentialItems = [
   },
   {
     icon: 'code',
-    title: 'Código limpo',
-    copy: 'Projetos rápidos, organizados e fáceis de manter.',
+    title: 'Performance',
+    copy: 'Otimização de carregamento incluída na entrega base.',
   },
   {
     icon: 'trending_up',
-    title: 'Design para conversão',
-    copy: 'Visual pensado para gerar confiança e ação.',
+    title: 'Contato em destaque',
+    copy: 'Botões de WhatsApp posicionados ao longo das páginas.',
   },
   {
     icon: 'support_agent',
@@ -202,9 +202,9 @@ const creationServiceSchema = [
     '@context': 'https://schema.org',
     '@type': 'Service',
     '@id': 'https://luanalves.com.br/criacao-de-sites/#service',
-    name: 'Criação de Sites',
+    name: 'Criação de sites',
     description:
-      'Criação de sites institucionais, blogs e landing pages para empresas que precisam vender mais com presença digital profissional.',
+      'Criação de sites institucionais, blogs e landing pages para empresas, com SEO técnico, layout para celular e contato pelo WhatsApp.',
     url: 'https://luanalves.com.br/criacao-de-sites/',
     provider: {
       '@id': 'https://luanalves.com.br/#business',
@@ -225,8 +225,8 @@ const creationServiceSchema = [
 
 <BaseLayout
   namespace='criacao-de-sites'
-  title='Criação de Sites | Luan Alves'
-  description='Criação de sites institucionais, blogs e landing pages para empresas que precisam vender mais com presença digital profissional.'
+  title='Criação de sites | Luan Alves'
+  description='Criação de sites institucionais, blogs e landing pages para empresas, com SEO técnico, layout para celular e contato pelo WhatsApp.'
   canonicalPath='/criacao-de-sites/'
   schema={creationServiceSchema}>
   <main class='site-creation-page'>
@@ -261,8 +261,8 @@ const creationServiceSchema = [
             data-motion-hero-copy
             data-motion-hidden='y-md'>
             Crio sites institucionais, blogs e landing pages para empresas que
-            precisam de presença digital forte, carregamento rápido e estrutura
-            pensada para conversão.
+            querem apresentar serviços com clareza e receber pedidos de
+            orçamento pelo WhatsApp.
           </p>
 
           <div class='creation-actions' data-motion-hero-actions>
@@ -340,13 +340,13 @@ const creationServiceSchema = [
             id='solutions-title'
             data-motion-heading
             data-motion-hidden='y-md'>
-            <span>O formato certo para</span>
-            <em>cada objetivo.</em>
+            <span>Três formatos,</span>
+            <em>conforme o objetivo.</em>
           </h2>
 
           <p data-motion-copy data-motion-hidden='y-md'>
-            Cada projeto é desenhado de acordo com a meta do negócio, o estágio
-            da empresa e a forma como você precisa gerar oportunidades.
+            O formato depende do que o site precisa fazer: apresentar a empresa,
+            sustentar uma campanha ou publicar conteúdo.
           </p>
         </div>
 
@@ -411,8 +411,8 @@ const creationServiceSchema = [
           <span class='material-symbols-outlined' aria-hidden='true'>
             check_circle
           </span>
-          Todos os formatos são desenvolvidos com foco em performance, SEO técnico,
-          experiência do usuário e resultados reais.
+          Todos os formatos incluem SEO técnico, otimização de carregamento e
+          layout adaptado ao celular.
         </p>
       </div>
     </section>
@@ -426,8 +426,8 @@ const creationServiceSchema = [
             Sites para segmentos especializados
           </p>
           <h2 id='segments-title'>
-            O mesmo rigor técnico.
-            <em>Uma narrativa para cada mercado.</em>
+            Uma página para
+            <em>cada segmento.</em>
           </h2>
           <p>
             Incorporadoras, construtoras e empresas de madeira engenheirada
@@ -468,7 +468,7 @@ const creationServiceSchema = [
             class='creation-eyebrow results-eyebrow editorial-eyebrow'
             data-motion-heading
             data-motion-hidden='y-sm'>
-            Resultados
+            Entrega
           </p>
 
           <h2
@@ -476,18 +476,18 @@ const creationServiceSchema = [
             id='results-title'
             data-motion-heading
             data-motion-hidden='y-md'>
-            <span>Um bom site</span>
-            <span>precisa <em>trabalhar</em></span>
-            <em>por você.</em>
+            <span>O que o site</span>
+            <span>precisa <em>fazer</em></span>
+            <em>pela sua empresa.</em>
           </h2>
 
           <p
             class='results-lead editorial-lead'
             data-motion-copy
             data-motion-hidden='y-md'>
-            Mais do que presença digital, o seu site deve transmitir confiança,
-            aparecer no Google, carregar rápido e facilitar o contato com a sua
-            empresa.
+            O site precisa carregar bem no celular, estar preparado para
+            indexação no Google e levar o visitante ao WhatsApp em poucos
+            toques.
           </p>
         </div>
 
@@ -568,8 +568,8 @@ const creationServiceSchema = [
             class='process-lead editorial-lead'
             data-motion-copy
             data-motion-hidden='y-md'>
-            Um processo claro reduz retrabalho, acelera a entrega e garante que
-            cada etapa faça sentido para o seu negócio.
+            Defino a estrutura antes do design para evitar refazer páginas no
+            meio do projeto.
           </p>
         </div>
 
@@ -714,7 +714,7 @@ const creationServiceSchema = [
               data-motion-copy
               data-motion-hidden='y-md'>
               Você fala com quem planeja, desenha e desenvolve o site, sem
-              intermediários, com mais clareza e mais agilidade.
+              intermediários.
             </p>
           </div>
 
