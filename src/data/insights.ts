@@ -97,17 +97,16 @@ export interface InsightPublishedPost extends InsightBasePost {
 export type InsightPost = InsightBasePost | InsightPublishedPost;
 
 const checklistInsight: InsightPost = {
-  title:
-    'O que conferir antes de lançar um site empresarial',
+  title: 'Checklist: o que conferir antes de lançar seu site',
   excerpt:
     'Um checklist com testes, critérios de aprovação e registro de pendências para revisar conteúdo, mobile, contato e base técnica antes de publicar.',
   description:
-    'Confira o que testar antes de lançar um site empresarial: conteúdo, celular, contato, SEO, velocidade e domínio, com critérios para aprovar cada etapa.',
+    'Checklist com 10 coisas para conferir antes de lançar seu site empresarial: conteúdo, celular, WhatsApp, SEO, velocidade e domínio, com critério de aprovação.',
   category: 'SEO',
   categorySlug: 'seo',
   date: '05 jun. 2026',
   isoDate: '2026-06-05',
-  updatedIsoDate: '2026-10-04',
+  updatedIsoDate: '2026-11-06',
   readTime: '14 min',
   slug: 'checklist-lancamento-site-empresarial',
   tags: ['Checklist', 'Lançamento', 'SEO', 'Conversão'],
@@ -128,6 +127,12 @@ const checklistInsight: InsightPost = {
     {
       type: 'paragraph',
       text: 'Use a tabela abaixo na versão que será publicada. Marque cada linha como aprovado, pendente ou não se aplica; neste último caso, registre o motivo. Se o site usa apenas WhatsApp, por exemplo, não há formulário a testar. Depois da publicação, repita os testes no domínio final: um preview funcionando não confirma redirects, recebimento de mensagens ou medição em produção.',
+    },
+    {
+      type: 'heading',
+      id: 'o-que-conferir-antes-de-lancar',
+      level: 2,
+      text: '10 coisas para conferir antes de lançar o site',
     },
     {
       type: 'table',
@@ -921,7 +926,7 @@ const siteInstitucionalInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Antes de colocar o site no ar, faça uma revisão curta e objetiva. Isso evita lançar uma estrutura bonita, mas frágil do ponto de vista comercial e técnico.',
+      text: 'Antes de colocar o site no ar, faça uma revisão curta e objetiva. Isso evita lançar uma estrutura bonita, mas frágil do ponto de vista comercial e técnico. Para a revisão completa, com critério de aprovação para cada item, use o <a href="/insights/checklist-lancamento-site-empresarial/">checklist de lançamento</a>.',
     },
     {
       type: 'list',
@@ -1227,7 +1232,7 @@ const quantoTempoInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Site profissional precisa ser testado antes de entrar no ar. Aqui entram links, botões, formulários, revisão mobile, velocidade, analytics, Search Console, SSL e conteúdo final.',
+      text: 'Site profissional precisa ser testado antes de entrar no ar. Aqui entram links, botões, formulários, revisão mobile, velocidade, analytics, Search Console, SSL e conteúdo final. O <a href="/insights/checklist-lancamento-site-empresarial/">checklist de lançamento</a> detalha como testar cada item e quando aprovar.',
     },
     {
       type: 'paragraph',
