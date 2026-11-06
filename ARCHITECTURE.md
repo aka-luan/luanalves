@@ -71,7 +71,6 @@ The canonical origin is https://luanalves.com.br and page URLs end in a slash. A
 - `src/scripts/page-transitions.ts` boots Barba, syncs selected head tags, and initializes or cleans page scripts.
 - `src/scripts/landing-motion.ts` owns the scroll-driven header compaction (GSAP/ScrollTrigger). Sections render static; do not reintroduce scroll reveals or hero parallax.
 - `src/scripts/mobile-nav.ts` owns mobile navigation behavior.
-- `src/scripts/project-modal.ts` owns home portfolio modal, gallery, video, lightbox, and focus/keyboard behavior.
 - `src/scripts/portfolio-filters.ts` owns portfolio filtering UI.
 - `src/scripts/insight-post.ts` owns article progress, table-of-contents state, and share links.
 
@@ -81,7 +80,7 @@ The mobile navigation controller lives only in src/scripts/mobile-nav.ts and is 
 
 ## Rendering And Measurement
 
-All content renders visibly from HTML. CSS and scripts must not hide content waiting for motion. Motion is reserved for spatial or state changes (header compaction, mobile menu, project modal, short Barba fade); hovers change color or border only.
+All content renders visibly from HTML. CSS and scripts must not hide content waiting for motion. Motion is reserved for spatial or state changes (header compaction, mobile menu, short Barba fade); hovers change color or border only.
 
 BaseLayout loads the optional GA4 Google tag asynchronously only on the production host, using the verified stream ID with an optional PUBLIC_GOOGLE_ANALYTICS_ID override (an empty value disables collection). Barba afterEnter sends the initial and subsequent page views after head syncing; do not add a second initial pageview. Disable enhanced-measurement history pageviews in GA4 when using this manual strategy. The persistent tag is not reinserted during navigation. WhatsApp tracking uses one delegated listener, sends readable labels and stable data-analytics-position values to GA4 and Vercel, and excludes phone numbers, message text, and destination URLs. See [the tracking and lead-funnel plan](docs/analytics.md) for account setup and validation.
 
@@ -103,7 +102,7 @@ Astro inlines route CSS to avoid blocking the text hero on a stylesheet request.
 
 ## Tests
 
-Vitest is configured through `vitest.config.ts`. Tests cover the project modal, delegated WhatsApp events, GA4 page context, and that landing/article scripts never hide content and clean up.
+Vitest is configured through `vitest.config.ts`. Tests cover mobile navigation, delegated WhatsApp events, GA4 page context, and that landing/article scripts never hide content and clean up.
 
 Run `pnpm run build` after page, layout, content, or SEO changes. Run `pnpm run test` too when touching modal, keyboard, focus, timer, or DOM-state logic.
 

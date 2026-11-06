@@ -3,7 +3,6 @@ import gsap from 'gsap';
 import { cleanupLandingMotion, initLandingMotion } from './landing-motion';
 import { initInsightPost } from './insight-post';
 import { cleanupPortfolioFilters, initPortfolioFilters } from './portfolio-filters';
-import { initProjectModalFromDom } from './project-modal';
 import { cleanupMobileNav, initMobileNav } from './mobile-nav';
 import { trackGooglePageView } from './google-analytics';
 import { initWhatsappAnalytics } from './whatsapp-analytics';
@@ -16,7 +15,6 @@ declare global {
   }
 }
 
-let cleanupProjectModal: Cleanup = () => {};
 let cleanupInsightPost: Cleanup = () => {};
 let cleanupPortfolioPageFilters: Cleanup = () => {};
 let pendingHash = '';
@@ -43,10 +41,8 @@ function bootPageScripts() {
   const root = getContainerRoot();
 
   initLandingMotion();
-  cleanupProjectModal();
   cleanupInsightPost();
   cleanupPortfolioPageFilters();
-  cleanupProjectModal = initProjectModalFromDom();
   cleanupInsightPost = initInsightPost(root);
   cleanupPortfolioPageFilters = initPortfolioFilters(root);
 
@@ -55,10 +51,8 @@ function bootPageScripts() {
 
 function cleanupPageScripts() {
   cleanupLandingMotion();
-  cleanupProjectModal();
   cleanupInsightPost();
   cleanupPortfolioPageFilters();
-  cleanupProjectModal = () => {};
   cleanupInsightPost = () => {};
   cleanupPortfolioPageFilters = () => {};
   cleanupMobileNav();

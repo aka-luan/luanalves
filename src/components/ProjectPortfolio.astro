@@ -16,7 +16,6 @@ interface Props {
   id?: string;
   eyebrow?: string;
   title?: string;
-  mode?: 'modal' | 'link';
   surface?: boolean;
 }
 
@@ -25,7 +24,6 @@ const {
   id = 'portfolio',
   eyebrow = 'Curadoria',
   title = 'Projetos entregues para empresas reais',
-  mode = 'modal',
   surface = true,
 } = Astro.props;
 
@@ -48,32 +46,7 @@ const {
           const href = project.href ?? project.url;
           const isExternal = href?.startsWith('http') ?? false;
 
-          return mode === 'modal' ? (
-            <button
-              type='button'
-              class='project-card'
-              data-project-trigger
-              data-project-id={project.id}
-              aria-haspopup='dialog'
-              aria-label={`Abrir modal do projeto ${project.title}`}>
-              <div class='project-media' data-project-origin>
-                <img
-                  src={project.image}
-                  alt={project.alt}
-                  loading='lazy'
-                />
-              </div>
-              <div class='project-meta'>
-                <div>
-                  <h3>{project.title}</h3>
-                  <p>{project.subtitle}</p>
-                </div>
-                <span class='project-meta-action' aria-hidden='true'>
-                  <span class='material-symbols-outlined'>north_east</span>
-                </span>
-              </div>
-            </button>
-          ) : (
+          return (
             <a
               class='project-card'
               href={href}
