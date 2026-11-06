@@ -161,7 +161,7 @@ const renderInlineLinks = (text: string) => text;
         <span>{post.category}</span>
       </nav>
 
-      <header class='post-hero'>
+      <header class='post-hero' data-motion='hero'>
         <div class='post-hero__copy'>
           <p class='post-eyebrow'>{post.category}</p>
           <h1>{post.title}</h1>
@@ -450,12 +450,6 @@ const renderInlineLinks = (text: string) => text;
     overflow-x: clip;
     background: var(--background);
     color: var(--text);
-  }
-
-  .insight-post-page :global(.site-nav) {
-    --nav-bg: rgba(14, 14, 14, 0.88);
-    --nav-border: rgba(77, 70, 58, 0.34);
-    --nav-blur: 16px;
   }
 
   .reading-progress {

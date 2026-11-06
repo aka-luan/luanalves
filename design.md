@@ -8,6 +8,7 @@ Source of truth for visual, page, copy, and SEO work on this site.
 - Use warm charcoal surfaces, restrained gold accents, and the shared tokens in src/styles/global.css. Keep surfaces flat and project imagery clear; avoid stacked glows and decorative grids.
 - Newsreader display type uses weight 400 with comfortable line spacing. Body copy uses Manrope at weight 400 or above. Buttons and navigation use sentence case with normal letter spacing; reserve tracked uppercase for short section labels.
 - Keep the mobile header against the top edge so scrolled content cannot show above it. Use overflow-x: clip on article wrappers to preserve the sticky table of contents.
+- Page heroes share the `data-motion='hero'` hook so the header starts with the full brand and compacts on scroll. Keep header colors in the shared component instead of page overrides.
 - Use consistent desktop containers and at least 1.25rem mobile gutters. Keep mobile proof points compact so the primary action and introduction stay easy to scan.
 - Manrope for body/UI and Newsreader for editorial display headings. Keep fonts local under public/fonts/ and use the existing Material Symbols icon font.
 - Compose sections around their content, real project imagery, and clear WhatsApp conversion paths.

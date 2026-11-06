@@ -72,14 +72,14 @@ const relatedVerticals = verticalPageLinks.filter(
       brandAriaLabel='Luan Alves, página inicial'
     />
 
-    <section class='vertical-hero' aria-labelledby='vertical-title'>
+    <section class='vertical-hero' aria-labelledby='vertical-title' data-motion='hero'>
       <div class='vertical-hero__grid'>
         <div class='vertical-hero__copy'>
           <Breadcrumbs
             items={[
               { label: 'Início', href: '/' },
               { label: 'Criação de sites', href: '/criacao-de-sites/' },
-              { label: page.serviceName },
+              { label: page.slug === 'site-para-incorporadora' ? 'Incorporadora' : page.slug === 'site-para-construtora' ? 'Construtora' : 'Madeira engenheirada' },
             ]}
           />
 
@@ -360,12 +360,6 @@ const relatedVerticals = verticalPageLinks.filter(
     color: var(--vertical-cream);
   }
 
-  .vertical-page :global(.site-nav) {
-    --nav-bg: rgba(13, 14, 13, 0.88);
-    --nav-border: rgba(223, 189, 121, 0.2);
-    --nav-blur: 18px;
-  }
-
   .vertical-eyebrow {
     margin: 0;
     color: var(--vertical-gold);
@@ -396,6 +390,8 @@ const relatedVerticals = verticalPageLinks.filter(
   }
 
   .vertical-hero__copy :global(.shared-breadcrumbs) {
+    max-width: none;
+    row-gap: 0.4rem;
     margin-bottom: clamp(2rem, 4vw, 3.25rem);
     justify-content: flex-start;
     text-align: left;
@@ -420,9 +416,9 @@ const relatedVerticals = verticalPageLinks.filter(
   }
 
   .vertical-hero h1 {
-    max-width: 12ch;
-    font-size: clamp(3.45rem, 5.35vw, 4.45rem);
-    line-height: 0.9;
+    max-width: 100%;
+    font-size: clamp(2.9rem, 3.9vw, 3.5rem);
+    line-height: 1.05;
   }
 
   .vertical-hero h1 span,
@@ -537,7 +533,7 @@ const relatedVerticals = verticalPageLinks.filter(
     gap: 0.3rem;
     width: max-content;
     max-width: 80%;
-    margin: -1.7rem 1.5rem 0 auto;
+    margin: 0.8rem 0 0 auto;
     padding: 1rem 1.25rem;
     border: 1px solid rgba(223, 189, 121, 0.22);
     background: rgba(13, 14, 13, 0.94);

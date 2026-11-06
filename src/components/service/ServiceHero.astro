@@ -112,34 +112,7 @@ const breadcrumbItems = [
     overflow: hidden;
   }
 
-  .service-hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -3;
-    background:
-      linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0.025) 1px,
-        transparent 1px
-      ),
-      linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.018) 1px,
-        transparent 1px
-      );
-    background-size: 4rem 4rem;
-    mask-image: radial-gradient(circle at 62% 42%, black, transparent 68%);
-    opacity: 0.11;
-  }
 
-  .service-hero__glow {
-    position: absolute;
-    inset: 0;
-    z-index: -2;
-    background: none;
-    pointer-events: none;
-  }
 
 
   .service-hero__inner {
@@ -284,6 +257,7 @@ const breadcrumbItems = [
 
   .service-feature {
     display: grid;
+    align-content: start;
     gap: 0.7rem;
     min-width: 0;
     padding: 1.1rem;
@@ -347,19 +321,17 @@ const breadcrumbItems = [
     width: min(100%, 48rem);
     height: auto;
     margin-inline: auto;
-    filter: drop-shadow(0 34px 70px rgba(0, 0, 0, 0.28));
+    filter: none;
   }
 
   .service-hero[data-service='site-institucional'] .service-hero__media img {
     width: min(90%, 41rem);
-    filter: drop-shadow(0 2.2rem 4.8rem rgba(0, 0, 0, 0.34))
-      drop-shadow(0 0 2.4rem rgba(223, 189, 121, 0.08));
+    filter: none;
   }
 
   .service-hero[data-service='landing-page'] .service-hero__media img {
     width: min(96%, 45rem);
-    filter: drop-shadow(0 2.35rem 5rem rgba(0, 0, 0, 0.34))
-      drop-shadow(0 0 2.4rem rgba(223, 189, 121, 0.09));
+    filter: none;
   }
 
   @media (max-width: 900px) {
