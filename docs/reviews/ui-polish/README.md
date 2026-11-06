@@ -27,7 +27,7 @@ Representative views:
 
 All remaining route captures are in [screenshots](screenshots/).
 
-Tablet hub verification includes the complete page at [920px](screenshots/hub-full-920.webp) and [1024px](screenshots/hub-full-1024.webp), with individual captures below. Lazy-loaded images were loaded before capturing the complete page.
+Hub verification includes the complete page at [390px](screenshots/hub-full-390.webp), [920px](screenshots/hub-full-920.webp), [1024px](screenshots/hub-full-1024.webp) and [1440px](screenshots/hub-full-1440.webp), with individual tablet captures below. Every image was set to eager loading and decoded before the complete-page captures.
 
 | Section | 920px | 1024px |
 | --- | --- | --- |
@@ -39,5 +39,9 @@ Tablet hub verification includes the complete page at [920px](screenshots/hub-fu
 | Contact | [Screenshot](screenshots/hub-creation-contact-920.webp) | [Screenshot](screenshots/hub-creation-contact-1024.webp) |
 
 Validation: production build and post-build asset patch pass; 140 tests pass. All content routes have no horizontal page overflow or broken images at the screenshot widths. Checks at 320, 768 and 1024 pixels found no off-screen headings or primary controls. Additional hub checks at 920, 1024, 1100 and 1180 pixels found no section with internal horizontal overflow or visible content outside the viewport. Mobile menu, Escape focus restoration, viewport resize, Barba navigation and keyboard access to the final article contents link pass.
+
+The hub also has no empty element taller than 200px in the page flow at the four full-page capture widths. The distance from the Included section's bottom to the Differentials label measures 104–179px after removing a stale selector group and unused glow elements.
+
+The active council now consists of GPT Sol and Claude Opus. The user removed GPT Astra after round 6 because of quota usage. Its earlier votes remain historical results in the PR description.
 
 Council results are recorded in the pull request description. Round 1 scored 8.3, 7.5 and 8.1. A Sol-only second pass scored 9.0. Round 3 scored 8.8, 8.5 and 9.0. Round 4 scored 9.0 and 8.9; Astra's attempt hit a provider rate limit. This set includes full article-image proportions, a real project image for the performance article, smaller desktop segment headings, shared header states including all eight case studies, shorter segment breadcrumbs, aligned service feature titles and flat media framing. A Sol recheck was canceled before completion to include Claude's findings in the next full council pass. Gemini is excluded at the user's request.

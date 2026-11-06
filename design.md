@@ -36,6 +36,7 @@ Use meaningful pt-BR alt text and consistent social-preview assets.
 ## Interaction And Accessibility
 
 - Check Portuguese headings and CTA labels at mobile widths for clipping and awkward wrapping.
+- Screenshot reviews should include complete pages and internal section bounds, since clipped sections can hide overflow. Wait for image decoding before full-page captures and check for tall empty elements in the page flow.
 - Preserve readable contrast, keyboard operation, focus-visible states, button semantics, dialog labels, and accessible close controls.
 - Hover, focus, and active states must communicate the same action.
 - Motion should clarify hierarchy, transitions, or feedback. Respect prefers-reduced-motion and the existing motion-enabled setup.
