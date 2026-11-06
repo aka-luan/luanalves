@@ -27,6 +27,17 @@ Representative views:
 
 All remaining route captures are in [screenshots](screenshots/).
 
-Validation: production build and post-build asset patch pass; 140 tests pass. All content routes have no horizontal page overflow or broken images at the screenshot widths. Checks at 320, 768 and 1024 pixels found no off-screen headings or primary controls. Mobile menu, Escape focus restoration, viewport resize, Barba navigation and keyboard access to the final article contents link pass.
+Tablet hub verification includes the complete page at [920px](screenshots/hub-full-920.webp) and [1024px](screenshots/hub-full-1024.webp), with individual captures below. Lazy-loaded images were loaded before capturing the complete page.
+
+| Section | 920px | 1024px |
+| --- | --- | --- |
+| Results | [Screenshot](screenshots/hub-results-920.webp) | [Screenshot](screenshots/hub-results-1024.webp) |
+| Process | [Screenshot](screenshots/hub-process-920.webp) | [Screenshot](screenshots/hub-process-1024.webp) |
+| Included | [Screenshot](screenshots/hub-included-920.webp) | [Screenshot](screenshots/hub-included-1024.webp) |
+| Differentials | [Screenshot](screenshots/hub-differentials-920.webp) | [Screenshot](screenshots/hub-differentials-1024.webp) |
+| FAQ | [Screenshot](screenshots/hub-faq-920.webp) | [Screenshot](screenshots/hub-faq-1024.webp) |
+| Contact | [Screenshot](screenshots/hub-creation-contact-920.webp) | [Screenshot](screenshots/hub-creation-contact-1024.webp) |
+
+Validation: production build and post-build asset patch pass; 140 tests pass. All content routes have no horizontal page overflow or broken images at the screenshot widths. Checks at 320, 768 and 1024 pixels found no off-screen headings or primary controls. Additional hub checks at 920, 1024, 1100 and 1180 pixels found no section with internal horizontal overflow or visible content outside the viewport. Mobile menu, Escape focus restoration, viewport resize, Barba navigation and keyboard access to the final article contents link pass.
 
 Council results are recorded in the pull request description. Round 1 scored 8.3, 7.5 and 8.1. A Sol-only second pass scored 9.0. Round 3 scored 8.8, 8.5 and 9.0. Round 4 scored 9.0 and 8.9; Astra's attempt hit a provider rate limit. This set includes full article-image proportions, a real project image for the performance article, smaller desktop segment headings, shared header states including all eight case studies, shorter segment breadcrumbs, aligned service feature titles and flat media framing. A Sol recheck was canceled before completion to include Claude's findings in the next full council pass. Gemini is excluded at the user's request.

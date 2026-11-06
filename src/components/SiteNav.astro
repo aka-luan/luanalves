@@ -253,6 +253,25 @@ const navMotionAttrs = motion
     border-bottom: 0;
   }
 
+  @media (min-width: 768px) and (max-width: 960px) {
+    .site-nav {
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-links {
+      order: 0;
+      width: auto;
+      flex-wrap: nowrap;
+      gap: 1.25rem;
+    }
+
+    .nav-menu > .button {
+      display: none;
+    }
+  }
+
   @media (max-width: 767px) {
     .site-nav {
       position: fixed;
