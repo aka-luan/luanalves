@@ -602,7 +602,6 @@ const renderInlineLinks = (text: string) => text;
     position: relative;
     margin: 0;
     overflow: hidden;
-    aspect-ratio: 16 / 7;
     border: 1px solid rgba(229, 196, 135, 0.18);
     background: var(--surface);
     box-shadow:
@@ -612,13 +611,13 @@ const renderInlineLinks = (text: string) => text;
   }
 
   .post-hero__visual img {
+    display: block;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
     object-position: center;
     filter: saturate(0.86) contrast(1.05);
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-    transform: scale(1.01);
     transition: filter var(--duration-hover) ease;
   }
 
@@ -1215,15 +1214,6 @@ const renderInlineLinks = (text: string) => text;
 
     .post-hero h1 {
       font-size: clamp(2.75rem, 13vw, 3.85rem);
-    }
-
-    .post-hero__visual {
-      aspect-ratio: 4 / 3;
-    }
-
-    .post-hero__visual,
-    .post-hero__visual img {
-      min-height: 15rem;
     }
 
     .post-meta,

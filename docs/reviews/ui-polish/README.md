@@ -29,4 +29,4 @@ All remaining route captures are in [screenshots](screenshots/).
 
 Validation: production build and post-build asset patch pass; 140 tests pass. All content routes have no horizontal page overflow or broken images at the screenshot widths. Checks at 320, 768 and 1024 pixels found no off-screen headings or primary controls. Mobile menu, Escape focus restoration, viewport resize, Barba navigation and keyboard access to the final article contents link pass.
 
-Council results are recorded in the pull request description. Round 1 scored 8.3, 7.5 and 8.1. A Sol-only second pass scored 9.0. A fresh third round assesses this set with all three enabled reviewers. Gemini is excluded at the user's request.
+Council results are recorded in the pull request description. Round 1 scored 8.3, 7.5 and 8.1. A Sol-only second pass scored 9.0. Sol's third pass scored 8.8 after inspecting all routes and finding two article-image defects. This set includes the fixes: full article-image proportions and a real project image for the performance article. Gemini is excluded at the user's request.
