@@ -398,9 +398,7 @@ const caseSchema = [
 
   .case-page {
     min-height: 100svh;
-    background:
-      radial-gradient(circle at 50% 0%, rgba(229, 196, 135, 0.08), transparent 31rem),
-      linear-gradient(180deg, var(--surface-lowest) 0%, var(--background) 46%, var(--surface-lowest) 100%);
+    background: var(--background);
     color: var(--text);
   }
 
@@ -485,7 +483,7 @@ const caseSchema = [
     color: var(--text);
     font-family: 'Newsreader', serif;
     font-size: clamp(3.35rem, 8vw, 5.8rem);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.055em;
     line-height: 0.98;
     text-wrap: balance;
@@ -496,7 +494,7 @@ const caseSchema = [
     margin: 1.2rem 0 0;
     color: var(--muted);
     font-size: clamp(1rem, 1.4vw, 1.12rem);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.72;
     text-wrap: pretty;
   }
@@ -696,7 +694,7 @@ const caseSchema = [
     color: var(--text);
     font-family: 'Newsreader', serif;
     font-size: clamp(1.55rem, 3vw, 2.15rem);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.045em;
     line-height: 1.08;
   }
@@ -710,7 +708,7 @@ const caseSchema = [
     margin: 0.75rem 0 0;
     color: var(--muted);
     font-size: 0.9rem;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.78;
     text-wrap: pretty;
   }
@@ -855,7 +853,7 @@ const caseSchema = [
     color: var(--text);
     font-family: 'Newsreader', serif;
     font-size: clamp(1.42rem, 2.5vw, 1.9rem);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.04em;
     line-height: 1.08;
     text-wrap: balance;
@@ -865,7 +863,7 @@ const caseSchema = [
     margin: 0;
     color: var(--muted);
     font-size: 0.88rem;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.72;
     text-wrap: pretty;
   }
@@ -962,7 +960,7 @@ const caseSchema = [
     color: var(--primary);
     font-family: 'Newsreader', serif;
     font-size: clamp(1.58rem, 2.7vw, 2.1rem);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.045em;
     line-height: 1;
   }
@@ -1011,7 +1009,7 @@ const caseSchema = [
     color: var(--text);
     font-family: 'Newsreader', serif;
     font-size: clamp(1.85rem, 3.8vw, 2.55rem);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.045em;
     line-height: 1;
     text-wrap: balance;
@@ -1050,7 +1048,7 @@ const caseSchema = [
     .case-gallery,
     .case-results,
     .case-next {
-      width: calc(100vw - 1.5rem);
+      width: var(--container);
     }
 
     .case-overview {

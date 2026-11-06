@@ -5,3 +5,5 @@ dist
 .tmp-dev
 .superpowers/
 .seo-cache/
+.playwright-cli/
+.pnpm-store/

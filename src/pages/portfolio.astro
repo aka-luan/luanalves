@@ -306,9 +306,7 @@ const portfolioSchema = [
 
   .portfolio-page {
     min-height: 100svh;
-    background:
-      radial-gradient(circle at 50% 0%, rgba(229, 196, 135, 0.08), transparent 30rem),
-      linear-gradient(180deg, var(--surface-lowest) 0%, var(--background) 44%, var(--surface-lowest) 100%);
+    background: var(--background);
     color: var(--text);
   }
 
@@ -336,7 +334,7 @@ const portfolioSchema = [
   .portfolio-work__inner {
     position: relative;
     z-index: 1;
-    width: min(1120px, calc(100vw - 3rem));
+    width: var(--container);
     margin: 0 auto;
   }
 
@@ -348,7 +346,7 @@ const portfolioSchema = [
     color: var(--subtle);
     font-size: 0.68rem;
     font-weight: 700;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.13em;
     text-transform: uppercase;
   }
 
@@ -379,7 +377,7 @@ const portfolioSchema = [
     color: var(--text);
     font-family: 'Newsreader', serif;
     font-size: clamp(3.2rem, 7.2vw, 5.6rem);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.05em;
     line-height: 0.98;
     text-wrap: balance;
@@ -399,7 +397,7 @@ const portfolioSchema = [
     margin: 1.35rem 0 0;
     color: var(--muted);
     font-size: clamp(1rem, 1.45vw, 1.15rem);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.68;
     text-wrap: pretty;
   }
@@ -570,11 +568,11 @@ const portfolioSchema = [
     border-radius: var(--radius);
     background: transparent;
     color: var(--muted);
-    font-size: 0.78rem;
+    font-size: 0.82rem;
     font-weight: 800;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.01em;
     line-height: 1.2;
-    text-transform: uppercase;
+    text-transform: none;
     transition:
       border-color var(--duration-hover) ease,
       background-color var(--duration-hover) ease,
@@ -754,7 +752,7 @@ const portfolioSchema = [
     color: var(--text);
     font-family: 'Newsreader', serif;
     font-size: clamp(1.65rem, 2.2vw, 2.05rem);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.045em;
     line-height: 1.05;
     text-wrap: balance;
@@ -837,7 +835,7 @@ const portfolioSchema = [
     color: var(--text);
     font-family: 'Newsreader', serif;
     font-size: clamp(2rem, 4vw, 3.1rem);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.045em;
     line-height: 1.04;
   }
@@ -923,7 +921,7 @@ const portfolioSchema = [
 
     .portfolio-hero__inner,
     .portfolio-work__inner {
-      width: calc(100vw - 1.5rem);
+      width: var(--container);
     }
 
     .portfolio-breadcrumb {

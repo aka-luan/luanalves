@@ -181,18 +181,7 @@ const relatedInsights = getCuratedInsights(page.relatedInsightSlugs);
   .service-page {
     min-height: 100svh;
     overflow-x: hidden;
-    background:
-      radial-gradient(
-        circle at 73% 42%,
-        rgba(218, 176, 101, 0.18),
-        transparent 27rem
-      ),
-      radial-gradient(
-        circle at 43% 103%,
-        rgba(229, 196, 135, 0.09),
-        transparent 28rem
-      ),
-      linear-gradient(115deg, rgba(7, 8, 8, 0.99) 0%, #151514 52%, #0d0e0e 100%);
+    background: var(--background);
     color: #f4f1ee;
   }
 
@@ -222,7 +211,7 @@ const relatedInsights = getCuratedInsights(page.relatedInsightSlugs);
     display: grid;
     grid-template-columns: minmax(18rem, 0.7fr) minmax(0, 1.3fr);
     gap: clamp(2.5rem, 7vw, 7rem);
-    width: min(100%, 82rem);
+    width: min(100%, 78rem);
     margin: 0 auto;
     padding-top: clamp(3rem, 5vw, 5rem);
     border-top: 1px solid rgba(229, 218, 207, 0.13);
@@ -233,7 +222,7 @@ const relatedInsights = getCuratedInsights(page.relatedInsightSlugs);
     color: #f4f1ee;
     font-family: 'Newsreader', serif;
     font-size: clamp(2.8rem, 4.6vw, 4.4rem);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.05em;
     line-height: 0.97;
     text-wrap: balance;
@@ -269,7 +258,7 @@ const relatedInsights = getCuratedInsights(page.relatedInsightSlugs);
     color: #f4f1ee;
     font-family: 'Newsreader', serif;
     font-size: clamp(1.55rem, 2.5vw, 2.15rem);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.04em;
   }
 
@@ -286,7 +275,7 @@ const relatedInsights = getCuratedInsights(page.relatedInsightSlugs);
   .service-reading__inner {
     display: grid;
     gap: 2rem;
-    width: min(100%, 82rem);
+    width: min(100%, 78rem);
     margin: 0 auto;
   }
 
@@ -301,7 +290,7 @@ const relatedInsights = getCuratedInsights(page.relatedInsightSlugs);
     color: #dfbd79;
     font-size: 0.68rem;
     font-weight: 900;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.13em;
     text-transform: uppercase;
   }
 
@@ -310,7 +299,7 @@ const relatedInsights = getCuratedInsights(page.relatedInsightSlugs);
     color: #f4f1ee;
     font-family: 'Newsreader', serif;
     font-size: clamp(2.5rem, 4.6vw, 4rem);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.045em;
     line-height: 1;
     text-wrap: balance;
@@ -355,7 +344,7 @@ const relatedInsights = getCuratedInsights(page.relatedInsightSlugs);
     color: #f4f1ee;
     font-family: 'Newsreader', serif;
     font-size: clamp(1.45rem, 2.3vw, 1.85rem);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.04em;
     line-height: 1.08;
     text-wrap: balance;
@@ -379,7 +368,7 @@ const relatedInsights = getCuratedInsights(page.relatedInsightSlugs);
 
   @media (max-width: 520px) {
     .service-segments {
-      padding-inline: 0.9rem;
+      padding-inline: 1.25rem;
     }
 
     .service-segments__links a {

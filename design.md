@@ -5,7 +5,9 @@ Source of truth for visual, page, copy, and SEO work on this site.
 ## Direction And Layout
 
 - Dark premium editorial presentation with sharp architectural geometry; --radius: 0px is intentional.
-- Use existing gold accents, surface tokens, spacing, and section/container patterns in src/styles/global.css before adding new ones.
+- Use warm charcoal surfaces, restrained gold accents, and the shared tokens in src/styles/global.css. Keep surfaces flat and project imagery clear; avoid stacked glows and decorative grids.
+- Newsreader display type uses weight 400 with comfortable line spacing. Body copy uses Manrope at weight 400 or above. Buttons and navigation use sentence case with normal letter spacing; reserve tracked uppercase for short section labels.
+- Use consistent desktop containers and at least 1.25rem mobile gutters. Keep mobile proof points compact so the primary action and introduction stay easy to scan.
 - Manrope for body/UI and Newsreader for editorial display headings. Keep fonts local under public/fonts/ and use the existing Material Symbols icon font.
 - Compose sections around their content, real project imagery, and clear WhatsApp conversion paths.
 - Preserve this palette, geometry, type, and icon language unless the requested redesign changes them.

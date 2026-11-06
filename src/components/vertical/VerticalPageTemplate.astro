@@ -364,9 +364,7 @@ const relatedVerticals = verticalPageLinks.filter(
     --vertical-cream: #f5f1e9;
     --vertical-muted: rgba(229, 221, 210, 0.72);
     min-height: 100svh;
-    background:
-      radial-gradient(circle at 84% 8%, rgba(218, 176, 101, 0.11), transparent 29rem),
-      linear-gradient(180deg, #0d0e0d 0%, #151614 40%, #0d0e0d 100%);
+    background: var(--background);
     color: var(--vertical-cream);
   }
 
@@ -381,7 +379,7 @@ const relatedVerticals = verticalPageLinks.filter(
     color: var(--vertical-gold);
     font-size: 0.68rem;
     font-weight: 800;
-    letter-spacing: 0.24em;
+    letter-spacing: 0.13em;
     text-transform: uppercase;
   }
 
@@ -433,7 +431,7 @@ const relatedVerticals = verticalPageLinks.filter(
   .vertical-related h2 {
     margin: 0;
     font-family: 'Newsreader', serif;
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.058em;
     text-wrap: balance;
   }
@@ -459,7 +457,7 @@ const relatedVerticals = verticalPageLinks.filter(
     margin: 1.75rem 0 0;
     color: var(--vertical-muted);
     font-size: clamp(1.05rem, 1.45vw, 1.24rem);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.72;
   }
 
@@ -478,10 +476,10 @@ const relatedVerticals = verticalPageLinks.filter(
     gap: 1rem;
     min-height: 3.35rem;
     color: var(--vertical-cream);
-    font-size: 0.68rem;
+    font-size: 0.82rem;
     font-weight: 800;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    text-transform: none;
     transition:
       transform var(--duration-press) var(--ease-out),
       border-color var(--duration-hover) ease,
@@ -545,7 +543,7 @@ const relatedVerticals = verticalPageLinks.filter(
     color: rgba(229, 221, 210, 0.56);
     font-size: 0.58rem;
     font-weight: 800;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.13em;
     text-transform: uppercase;
   }
 
@@ -588,8 +586,9 @@ const relatedVerticals = verticalPageLinks.filter(
   .vertical-hero__frame img {
     display: block;
     width: 100%;
-    aspect-ratio: 1.42 / 1;
-    object-fit: cover;
+    height: auto;
+    aspect-ratio: auto;
+    object-fit: contain;
     object-position: top center;
   }
 
@@ -609,7 +608,7 @@ const relatedVerticals = verticalPageLinks.filter(
   .vertical-hero__caption strong {
     font-family: 'Newsreader', serif;
     font-size: 1.35rem;
-    font-weight: 600;
+    font-weight: 400;
   }
 
   .vertical-proof {
@@ -644,7 +643,7 @@ const relatedVerticals = verticalPageLinks.filter(
   .vertical-proof strong {
     font-family: 'Newsreader', serif;
     font-size: clamp(1.35rem, 2vw, 1.75rem);
-    font-weight: 600;
+    font-weight: 400;
   }
 
   .vertical-proof p {
@@ -662,7 +661,7 @@ const relatedVerticals = verticalPageLinks.filter(
   .vertical-process,
   .vertical-differentials,
   .vertical-related {
-    width: min(100%, 82rem);
+    width: min(100%, 78rem);
     margin: 0 auto;
     padding: clamp(6.5rem, 10vw, 10rem) clamp(1.25rem, 3vw, 2rem);
   }
@@ -697,7 +696,7 @@ const relatedVerticals = verticalPageLinks.filter(
   .vertical-process__heading > p:last-child {
     margin: 0;
     color: var(--vertical-muted);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.72;
   }
 
@@ -742,7 +741,7 @@ const relatedVerticals = verticalPageLinks.filter(
     margin: 2.8rem 0 0;
     font-family: 'Newsreader', serif;
     font-size: clamp(1.75rem, 2.7vw, 2.35rem);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.04em;
     line-height: 1;
   }
@@ -754,7 +753,7 @@ const relatedVerticals = verticalPageLinks.filter(
   .vertical-related__links p {
     margin: 1rem 0 0;
     color: var(--vertical-muted);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.68;
   }
 
@@ -884,7 +883,7 @@ const relatedVerticals = verticalPageLinks.filter(
     margin: 0.65rem 0 0;
     font-family: 'Newsreader', serif;
     font-size: clamp(2.25rem, 4vw, 3.8rem);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.05em;
     line-height: 0.95;
   }
@@ -896,7 +895,7 @@ const relatedVerticals = verticalPageLinks.filter(
   .vertical-case__copy p {
     margin: 1rem 0 0;
     color: var(--vertical-muted);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.65;
   }
 
@@ -1000,7 +999,7 @@ const relatedVerticals = verticalPageLinks.filter(
   .vertical-related__links strong {
     font-family: 'Newsreader', serif;
     font-size: clamp(1.7rem, 2.8vw, 2.35rem);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.04em;
   }
 
@@ -1057,7 +1056,7 @@ const relatedVerticals = verticalPageLinks.filter(
 
   @media (max-width: 760px) {
     .vertical-hero {
-      padding: 7.5rem 1rem 0;
+      padding: 7.5rem 1.25rem 0;
     }
 
     .vertical-hero::before {
@@ -1092,7 +1091,7 @@ const relatedVerticals = verticalPageLinks.filter(
     .vertical-process,
     .vertical-differentials,
     .vertical-related {
-      padding: 6rem 1rem;
+      padding: 6rem 1.25rem;
     }
 
     .vertical-section-heading,
@@ -1148,6 +1147,15 @@ const relatedVerticals = verticalPageLinks.filter(
   }
 
   @media (max-width: 480px) {
+    .vertical-hero h1 {
+      font-size: clamp(2.4rem, 10.8vw, 2.75rem);
+      max-width: 100%;
+      line-height: 1.05;
+    }
+    .vertical-hero__copy :global(.shared-breadcrumbs) {
+      margin-bottom: 1.35rem;
+    }
+
     .vertical-hero__actions {
       align-items: stretch;
     }
