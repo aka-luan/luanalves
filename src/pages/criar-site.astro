@@ -73,7 +73,7 @@ const steps = [
           <div class="bf-row"><Field name="contact.name" label="Seu nome" required /><Field name="contact.whatsapp" label="WhatsApp com DDD" type="tel" max={30} required /></div>
           <label class="bf-check"><input type="checkbox" name="contact.sameWhatsapp" checked /> Usar este WhatsApp no site</label>
           <div id="other-whatsapp" hidden><Field name="contact.siteWhatsapp" label="WhatsApp que deve aparecer no site (com DDD)" type="tel" max={30} required /></div>
-          <div class="bf-row"><Field name="contact.email" label="E-mail" type="email" max={254} /><Field name="contact.instagram" label="Instagram do negócio" max={200} help="O @perfil ou o link." /></div>
+          <div class="bf-row"><Field name="contact.email" label="E-mail" type="email" max={254} /><Field name="contact.instagram" label="Instagram do negócio" max={200} example="@seuperfil ou link" /></div>
           <details class="bf-more"><summary>Outros links e observações <span class="bf-optional">opcional</span></summary>
             {[0,1,2].map(i=><Field name={`contact.links.${i}`} label={`Outro link público ${i+1}`} max={500} />)}
             <Field name="contact.notes" label="Observações finais" type="textarea" max={1000} />

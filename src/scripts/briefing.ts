@@ -301,11 +301,12 @@ export function initBriefing(root: ParentNode = document): () => void {
       ],
       [
         ["Responsável", contact.name],
-        ["WhatsApp de contato", contact.whatsapp],
-        [
-          "WhatsApp no site",
-          contact.sameWhatsapp ? contact.whatsapp : contact.siteWhatsapp,
-        ],
+        ...((contact.sameWhatsapp
+          ? [["WhatsApp", `${contact.whatsapp}\nTambém aparece no site`]]
+          : [
+              ["WhatsApp de contato", contact.whatsapp],
+              ["WhatsApp no site", contact.siteWhatsapp],
+            ]) as [string, string][]),
         ["E-mail", contact.email],
         ["Instagram", contact.instagram],
         ["Outros links", contact.links.filter(Boolean).join("\n")],
