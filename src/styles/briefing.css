@@ -355,6 +355,9 @@
 .bf-check input[aria-invalid="true"] {
   border-color: var(--bf-error);
 }
+.bf-check-tight {
+  margin-top: 0.75rem;
+}
 .bf-consent {
   margin-top: 1.5rem;
   padding: 1rem;
@@ -384,6 +387,9 @@
 }
 .bf-more summary .bf-optional {
   margin-left: 0;
+}
+.bf-more:last-child {
+  border-bottom: 0;
 }
 .bf-more[open] {
   padding-bottom: 1.5rem;
@@ -580,7 +586,7 @@
 }
 .bf-review dt {
   color: var(--subtle);
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   margin-top: 0.45rem;
 }
 .bf-review dd {
@@ -637,7 +643,10 @@
 }
 #briefing-number {
   color: var(--text);
+  font-size: 1.35rem;
   font-weight: 600;
+  letter-spacing: 0.08em;
+  font-variant-numeric: tabular-nums;
   overflow-wrap: anywhere;
 }
 #briefing-success .bf-link-button {
@@ -789,7 +798,7 @@
     border-top: 1px solid var(--line);
   }
   .bf-main {
-    padding-top: 2.75rem;
+    padding-top: 3.75rem;
   }
   .bf-progress {
     padding-top: 2.5rem;
@@ -844,5 +853,5 @@ html:has(.briefing-shell) {
 }
 
 .briefing-shell[data-current-step="done"] :is(.briefing-intro > p:not(.eyebrow), .bf-scope) {
-  display: none;
+  visibility: hidden;
 }

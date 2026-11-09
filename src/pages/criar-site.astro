@@ -70,8 +70,7 @@ const steps = [
         </section>
         <section data-step="3" aria-labelledby="step-3" hidden>
           <h2 id="step-3" tabindex="-1">Contato e envio</h2><p class="bf-lead">Como falar com você e o que vai no site.</p>
-          <div class="bf-row"><Field name="contact.name" label="Seu nome" required /><Field name="contact.whatsapp" label="WhatsApp com DDD" type="tel" max={30} required /></div>
-          <label class="bf-check"><input type="checkbox" name="contact.sameWhatsapp" checked /> Usar este WhatsApp no site</label>
+          <div class="bf-row"><Field name="contact.name" label="Seu nome" required /><div><Field name="contact.whatsapp" label="WhatsApp com DDD" type="tel" max={30} required /><label class="bf-check bf-check-tight"><input type="checkbox" name="contact.sameWhatsapp" checked /> Usar este WhatsApp no site</label></div></div>
           <div id="other-whatsapp" hidden><Field name="contact.siteWhatsapp" label="WhatsApp que deve aparecer no site (com DDD)" type="tel" max={30} required /></div>
           <div class="bf-row"><Field name="contact.email" label="E-mail" type="email" max={254} /><Field name="contact.instagram" label="Instagram do negócio" max={200} example="@seuperfil ou link" /></div>
           <details class="bf-more"><summary>Outros links e observações <span class="bf-optional">opcional</span></summary>
@@ -79,14 +78,14 @@ const steps = [
             <Field name="contact.notes" label="Observações finais" type="textarea" max={1000} />
           </details>
           <div class="bf-review"><h3>Confira antes de enviar</h3><p class="bf-help">Mostramos só o que você preencheu.</p><div id="briefing-review"></div></div>
-          <label class="bf-check bf-consent"><input type="checkbox" name="confirmations.authorized" aria-describedby="authorization-error" /><span>Confirmo que posso autorizar o uso dos textos, imagens e informações enviados para a criação deste site. Elas serão usadas para preparar o site e falar com você sobre o pedido.</span></label><p id="authorization-error" class="bf-error" data-error="confirmations.authorized"></p>
+          <label class="bf-check bf-consent"><input type="checkbox" name="confirmations.authorized" aria-describedby="authorization-error" /><span>Tenho autorização para usar os textos, imagens e informações enviados na criação deste site. Eles serão usados para preparar o site e falar com você sobre o pedido.</span></label><p id="authorization-error" class="bf-error" data-error="confirmations.authorized"></p>
         </section>
         <progress id="submission-progress" aria-label="Enviando informações" hidden></progress>
         <p id="submission-message" role="alert" tabindex="-1"></p>
         <div class="bf-actions"><button type="button" class="bf-secondary" id="previous-step" hidden><span class="material-symbols-outlined" aria-hidden="true">arrow_back</span><span>Voltar</span></button><button type="submit" class="bf-primary" id="next-step">Continuar</button></div>
         <p class="bf-help bf-footnote">Suas respostas ficam guardadas enquanto esta página estiver aberta.</p>
       </form>
-      <section id="briefing-success" hidden tabindex="-1" aria-labelledby="success-title"><span class="material-symbols-outlined bf-success-icon" aria-hidden="true">check</span><p class="eyebrow">Informações enviadas</p><h2 id="success-title">Recebemos suas informações!</h2><p>Vamos conferir o material e entrar em contato se faltar algum detalhe.</p><p class="bf-number">Número do briefing <strong id="briefing-number"></strong></p><a class="bf-secondary bf-link-button" href="/" data-barba-prevent="all">Voltar ao site</a></section>
+      <section id="briefing-success" hidden tabindex="-1" aria-labelledby="success-title"><span class="material-symbols-outlined bf-success-icon" aria-hidden="true">check</span><p class="eyebrow">Informações enviadas</p><h2 id="success-title">Recebemos suas informações!</h2><p>Vamos revisar tudo e falar com você pelo WhatsApp informado.</p><p class="bf-number">Código do briefing <strong id="briefing-number"></strong></p><a class="bf-secondary bf-link-button" href="/" data-barba-prevent="all">Voltar ao site</a></section>
     </div>
   </main>
 </BaseLayout>

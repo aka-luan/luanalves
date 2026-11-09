@@ -492,7 +492,9 @@ export function initBriefing(root: ParentNode = document): () => void {
         stepMarkers.forEach((li) => {
           li.dataset.state = "done";
         });
-        find<HTMLElement>("#briefing-number").textContent = result.id;
+        const number = find<HTMLElement>("#briefing-number");
+        number.textContent = result.id.slice(0, 8).toUpperCase();
+        number.title = result.id;
         const success = find<HTMLElement>("#briefing-success");
         success.hidden = false;
         success.focus();
