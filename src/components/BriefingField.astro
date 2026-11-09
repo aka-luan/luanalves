@@ -1,13 +1,22 @@
 ---
-interface Props { name: string; label: string; required?: boolean; type?: string; max?: number; help?: string; options?: readonly string[]; }
-const {name,label,required=false,type='text',max=160,help,options} = Astro.props;
+interface Props { name: string; label: string; required?: boolean; type?: string; max?: number; help?: string; options?: readonly string[]; choices?: readonly string[]; placeholder?: string; example?: string; class?: string; }
+const {name,label,required=false,type='text',max=160,help,options,choices,placeholder='Selecione',example,class:className} = Astro.props;
 const id = name.replaceAll('.','-');
 ---
-<div class="bf-field">
-  <label for={id}>{label}{!required && <span> (opcional)</span>}</label>
-  {help && <p id={`${id}-help`} class="bf-help">{help}</p>}
-  {options ? <select id={id} name={name} required={required} aria-describedby={`${id}-help ${id}-error`}><option value="">Selecione</option>{options.map(o=><option value={o}>{o}</option>)}</select>
-    : type === 'textarea' ? <textarea id={id} name={name} rows="4" maxlength={max} required={required} aria-describedby={`${id}-help ${id}-error`}></textarea>
-    : <input id={id} name={name} type={type} maxlength={max} required={required} aria-describedby={`${id}-help ${id}-error`} inputmode={type === 'tel' ? 'tel' : undefined} />}
-  <p class="bf-error" id={`${id}-error`} data-error={name}></p>
-</div>
+{choices ? (
+  <fieldset class:list={['bf-field', className]} aria-describedby={`${help ? `${id}-help ` : ''}${id}-error`}>
+    <legend>{label}{!required && <span class="bf-optional">opcional</span>}</legend>
+    {help && <p id={`${id}-help`} class="bf-help">{help}</p>}
+    <div class="bf-choices">{choices.map(c=><label><input type="radio" name={name} value={c} required={required} /><span>{c}</span></label>)}</div>
+    <p class="bf-error" id={`${id}-error`} data-error={name}></p>
+  </fieldset>
+) : (
+  <div class:list={['bf-field', className]}>
+    <label for={id}>{label}{!required && <span class="bf-optional">opcional</span>}</label>
+    {help && <p id={`${id}-help`} class="bf-help">{help}</p>}
+    {options ? <select id={id} name={name} required={required} aria-describedby={`${id}-help ${id}-error`}><option value="">{placeholder}</option>{options.map(o=><option value={o}>{o}</option>)}</select>
+      : type === 'textarea' ? <textarea id={id} name={name} rows="4" maxlength={max} required={required} aria-describedby={`${id}-help ${id}-error`}></textarea>
+      : <input id={id} name={name} type={type} maxlength={max} required={required} aria-describedby={`${id}-help ${id}-error`} placeholder={example} inputmode={type === 'tel' ? 'tel' : undefined} autocomplete={type === 'tel' ? 'tel' : type === 'email' ? 'email' : undefined} />}
+    <p class="bf-error" id={`${id}-error`} data-error={name}></p>
+  </div>
+)}

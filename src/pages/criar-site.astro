@@ -3,74 +3,89 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Field from '../components/BriefingField.astro';
 import { segments, attendance, actions, styles, states } from '../lib/briefing';
 import '../styles/briefing.css';
+const steps = [
+  ['Seu negócio', 'Nome, segmento e local'],
+  ['Conteúdo', 'Serviços e objetivo do site'],
+  ['Aparência', 'Estilo e cores'],
+  ['Contato e envio', 'WhatsApp e revisão final'],
+];
 ---
 <BaseLayout title="Informações para seu site | Luan Alves" description="Conte sobre seu negócio para prepararmos o seu site." namespace="briefing" canonicalPath="/criar-site/" robots="noindex, nofollow">
-  <main class="briefing-shell">
-    <a class="brand" href="/" data-barba-prevent="all">Luan Alves<span aria-hidden="true"> ↗</span></a>
-    <header class="briefing-intro">
-      <p class="eyebrow">O próximo passo do seu site</p>
-      <h1>Vamos conhecer<br />seu negócio.</h1>
-      <p>Responda do seu jeito. Vamos usar estas informações para preparar o site que você contratou.</p>
-      <details><summary>O que está incluído no seu site?</summary><p>Uma página com até quatro seções, cores, conteúdo e identidade visual personalizados, adaptação ao celular, botão de WhatsApp e links para redes sociais. Inclui uma rodada de ajustes antes da publicação.</p><p>Loja virtual, pagamento online, login, painel administrativo e agendamento ficam fora deste formulário.</p></details>
-    </header>
-    <noscript><p>Ative o JavaScript para preencher e enviar este formulário em quatro etapas.</p></noscript>
-    <form id="briefing-form" novalidate hidden>
-      <div class="bf-progress"><p id="step-label" aria-live="polite">Etapa 1 de 4 · Seu negócio</p><progress id="briefing-progress" max="4" value="1" aria-labelledby="step-label"></progress></div>
-      <div class="bf-honeypot" aria-hidden="true"><label>Deixe vazio<input name="website" tabindex="-1" autocomplete="off" /></label></div>
-      <section data-step="0" aria-labelledby="step-0">
-        <h2 id="step-0" tabindex="-1">Seu negócio</h2><p class="bf-lead">Comece pelo básico: o que você faz e onde atende.</p>
-        <Field name="business.name" label="Nome do negócio" required />
-        <Field name="business.segment" label="Segmento" required options={segments} />
-        <Field name="business.description" label="Descrição do negócio" type="textarea" max={600} required help="Conte o que você faz e para quem. Pode escrever do seu jeito. Até 600 caracteres." />
-        <Field name="business.city" label="Cidade" max={100} required />
-        <Field name="business.state" label="Estado" options={states} required />
-        <Field name="business.region" label="Região atendida" max={250} help="Por exemplo: bairros, cidades próximas ou atendimento online." />
-        <Field name="business.attendance" label="Forma de atendimento" required options={attendance} />
-        <Field name="business.address" label="Endereço comercial" max={300} />
-        <div id="publish-address" hidden><label class="bf-check"><input type="checkbox" name="business.publishAddress" /> Publicar este endereço no site</label></div>
-        <Field name="business.hours" label="Horários de atendimento" max={300} />
-      </section>
-      <section data-step="1" aria-labelledby="step-1" hidden>
-        <h2 id="step-1" tabindex="-1">O que mostrar no site</h2><p class="bf-lead">Apresente o que você oferece. Não precisa ter textos prontos.</p>
-        <h3>Serviços ou produtos principais</h3><p class="bf-help">Inclua de um a oito itens. Informar preços é opcional; a publicação será combinada na revisão.</p>
-        <div id="briefing-items"></div><p class="bf-error" data-error="content.items" id="items-error"></p>
-        <button type="button" class="bf-secondary" id="add-item">Adicionar serviço ou produto</button>
-        <Field name="content.differences" label="Diferenciais do negócio" type="textarea" max={600} help="O que você gostaria que um cliente soubesse antes de contratar?" />
-        <Field name="content.action" label="O que você mais quer que a pessoa faça ao visitar seu site?" required options={actions} />
-        <fieldset><legend>Materiais disponíveis <span>(opcional)</span></legend>{['Logo','Fotos próprias','Textos prontos'].map(m=><label class="bf-check"><input name="materials" type="checkbox" value={m} />{m}</label>)}</fieldset>
-        <aside class="bf-note"><strong>As imagens podem ficar para depois.</strong><p>O envio de arquivos ainda não está disponível aqui. Você pode concluir normalmente e enviar o logo e as fotos pelo contato do projeto depois.</p></aside>
-        <p class="bf-help">Posso preparar uma sugestão de texto com base nas suas respostas, para você aprovar depois. Informações sobre experiência, resultados e certificações precisam ser reais e confirmadas por você.</p>
-        <Field name="content.notes" label="Observações sobre o conteúdo" type="textarea" max={600} />
-      </section>
-      <section data-step="2" aria-labelledby="step-2" hidden>
-        <h2 id="step-2" tabindex="-1">Aparência</h2><p class="bf-lead">Escolha o que combina com seu negócio. Tudo bem deixar a escolha comigo.</p>
-        <fieldset aria-describedby="style-error"><legend>Qual estilo você prefere?</legend><div class="bf-choices">{styles.map(s=><label><input type="radio" name="appearance.style" value={s} /><span>{s}</span></label>)}</div><p id="style-error" class="bf-error" data-error="appearance.style"></p></fieldset>
-        <Field name="appearance.colors" label="Cores da marca" max={200} help="Pode escrever nomes ou códigos, como azul e #E5C487." /><div id="color-swatches" aria-label="Prévia das cores"></div>
-        <Field name="appearance.avoidColors" label="Há alguma cor que devemos evitar?" max={200} />
-        <p class="bf-help">Referências ajudam a entender suas preferências. Os sites não serão copiados.</p>
-        <Field name="appearance.references.0" label="Site de referência 1" max={500} /><Field name="appearance.references.1" label="Site de referência 2" max={500} />
-        <Field name="appearance.referenceNotes" label="O que gostou nessas referências?" type="textarea" max={600} />
-        <Field name="appearance.avoid" label="Há algo que não gostaria de ver no seu site?" type="textarea" max={600} />
-      </section>
-      <section data-step="3" aria-labelledby="step-3" hidden>
-        <h2 id="step-3" tabindex="-1">Contato e revisão</h2><p class="bf-lead">Diga como falar com você e confira as respostas antes de enviar.</p>
-        <Field name="contact.name" label="Nome da pessoa responsável" required />
-        <Field name="contact.whatsapp" label="WhatsApp de contato com DDD" type="tel" max={30} required />
-        <label class="bf-check"><input type="checkbox" name="contact.sameWhatsapp" checked /> Usar este WhatsApp no site</label>
-        <div id="other-whatsapp" hidden><Field name="contact.siteWhatsapp" label="WhatsApp que deve aparecer no site (com DDD)" type="tel" max={30} required /></div>
-        <Field name="contact.email" label="E-mail" type="email" max={254} />
-        <Field name="contact.instagram" label="Instagram do negócio" max={200} help="Informe o @perfil ou o link." />
-        {[0,1,2].map(i=><Field name={`contact.links.${i}`} label={`Outro link público ${i+1}`} max={500} />)}
-        <Field name="contact.notes" label="Observações finais" type="textarea" max={1000} help="Até 1.000 caracteres." />
-        <div class="bf-review"><h3>Confira suas informações</h3><p class="bf-help">O resumo acompanha suas alterações.</p><div id="briefing-review"></div></div>
-        <label class="bf-check"><input type="checkbox" name="confirmations.authorized" aria-describedby="authorization-error" />Confirmo que posso autorizar o uso dos textos, imagens e informações enviados para a criação deste site.</label><p id="authorization-error" class="bf-error" data-error="confirmations.authorized"></p>
-        <p class="bf-help">As informações serão usadas para preparar seu site e entrar em contato sobre o pedido.</p>
-      </section>
-      <progress id="submission-progress" aria-label="Enviando informações" hidden></progress>
-      <p id="submission-message" role="alert" tabindex="-1"></p>
-      <div class="bf-actions"><button type="button" class="bf-secondary" id="previous-step" hidden>Voltar</button><button type="submit" class="bf-primary" id="next-step">Continuar</button></div>
-      <p class="bf-help">Suas respostas são mantidas ao voltar entre etapas. Evite fechar ou recarregar a página antes de enviar.</p>
-    </form>
-    <section id="briefing-success" hidden tabindex="-1" aria-labelledby="success-title"><p class="eyebrow">Informações enviadas</p><h2 id="success-title">Recebemos suas informações!</h2><p>Vamos conferir o material e entrar em contato se faltar algum detalhe.</p><p>Número do briefing: <strong id="briefing-number"></strong></p><a href="/" data-barba-prevent="all">Voltar ao site ↗</a></section>
+  <main class="briefing-shell" data-current-step="0">
+    <aside class="bf-rail">
+      <a class="brand" href="/" data-barba-prevent="all">Luan Alves<span aria-hidden="true"> ↗</span></a>
+      <header class="briefing-intro">
+        <p class="eyebrow">Briefing do seu site</p>
+        <h1>Vamos conhecer seu negócio.</h1>
+        <p>Quatro etapas curtas. Campos opcionais podem ficar em branco.</p>
+      </header>
+      <ol class="bf-steps" aria-hidden="true">
+        {steps.map(([title, detail], i) => <li data-state={i === 0 ? 'current' : 'upcoming'}><span class="bf-step-index"><span class="bf-step-number">{i + 1}</span><span class="material-symbols-outlined bf-step-done">check</span></span><span class="bf-step-text"><strong>{title}</strong><small>{detail}</small></span></li>)}
+      </ol>
+      <details class="bf-scope"><summary>O que está incluído no seu site?</summary><p>Uma página com até quatro seções, cores, conteúdo e identidade visual personalizados, adaptação ao celular, botão de WhatsApp e links para redes sociais. Inclui uma rodada de ajustes antes da publicação.</p><p>Loja virtual, pagamento online, login, painel administrativo e agendamento ficam fora deste formulário.</p></details>
+    </aside>
+    <div class="bf-main">
+      <noscript><p>Ative o JavaScript para preencher e enviar este formulário em quatro etapas.</p></noscript>
+      <form id="briefing-form" novalidate hidden>
+        <div class="bf-progress"><p id="step-label" aria-live="polite">Etapa 1 de 4</p><progress id="briefing-progress" max="4" value="1" aria-labelledby="step-label"></progress></div>
+        <div class="bf-honeypot" aria-hidden="true"><label>Deixe vazio<input name="website" tabindex="-1" autocomplete="off" /></label></div>
+        <section data-step="0" aria-labelledby="step-0">
+          <h2 id="step-0" tabindex="-1">Seu negócio</h2><p class="bf-lead">O que você faz e onde atende.</p>
+          <Field name="business.name" label="Nome do negócio" required />
+          <Field name="business.segment" label="Segmento" required options={segments} />
+          <Field name="business.description" label="O que você faz e para quem?" type="textarea" max={600} required help="Escreva do seu jeito, em poucas frases." />
+          <div class="bf-row bf-row-city"><Field name="business.city" label="Cidade" max={100} required /><Field name="business.state" label="Estado" options={states} placeholder="UF" required /></div>
+          <Field name="business.attendance" label="Como você atende?" required choices={attendance} />
+          <details class="bf-more"><summary>Endereço, região e horários <span class="bf-optional">opcional</span></summary>
+            <Field name="business.address" label="Endereço comercial" max={300} />
+            <div id="publish-address" hidden><label class="bf-check"><input type="checkbox" name="business.publishAddress" /> Publicar este endereço no site</label></div>
+            <Field name="business.region" label="Região atendida" max={250} help="Bairros, cidades próximas ou atendimento online." />
+            <Field name="business.hours" label="Horários de atendimento" max={300} />
+          </details>
+        </section>
+        <section data-step="1" aria-labelledby="step-1" hidden>
+          <h2 id="step-1" tabindex="-1">Conteúdo do site</h2><p class="bf-lead">Não precisa ter textos prontos.</p>
+          <fieldset class="bf-group" aria-describedby="items-help items-error"><legend>Serviços ou produtos principais</legend><p class="bf-help" id="items-help">De um a oito itens. O preço é opcional.</p>
+            <div id="briefing-items"></div><p class="bf-error" data-error="content.items" id="items-error"></p>
+            <button type="button" class="bf-add" id="add-item"><span class="material-symbols-outlined" aria-hidden="true">add</span>Adicionar outro item</button>
+          </fieldset>
+          <Field name="content.action" label="O que o visitante deve fazer no site?" required choices={actions} />
+          <Field name="content.differences" label="Diferenciais do negócio" type="textarea" max={600} help="O que um cliente deveria saber antes de contratar?" />
+          <fieldset class="bf-field"><legend>Materiais que você já tem <span class="bf-optional">opcional</span></legend><div class="bf-choices bf-choices-multi">{['Logo','Fotos próprias','Textos prontos'].map(m=><label><input name="materials" type="checkbox" value={m} /><span>{m}</span></label>)}</div><p class="bf-help">Logo e fotos podem ser enviados depois pelo contato do projeto.</p></fieldset>
+          <details class="bf-more"><summary>Observações sobre o conteúdo <span class="bf-optional">opcional</span></summary>
+            <p class="bf-help">Posso sugerir os textos com base nas suas respostas, para você aprovar. Experiência, resultados e certificações precisam ser reais.</p>
+            <Field name="content.notes" label="Observações" type="textarea" max={600} />
+          </details>
+        </section>
+        <section data-step="2" aria-labelledby="step-2" hidden>
+          <h2 id="step-2" tabindex="-1">Aparência</h2><p class="bf-lead">Tudo bem deixar a escolha comigo.</p>
+          <Field name="appearance.style" label="Qual estilo você prefere?" required choices={styles} class="bf-style" />
+          <div class="bf-row"><div><Field name="appearance.colors" label="Cores da marca" max={200} help="Nomes ou códigos, como azul e #E5C487." /><div id="color-swatches" aria-label="Prévia das cores"></div></div><Field name="appearance.avoidColors" label="Cores a evitar" max={200} help="Por exemplo: rosa ou vermelho." /></div>
+          <details class="bf-more"><summary>Referências e preferências <span class="bf-optional">opcional</span></summary>
+            <p class="bf-help">Sites que você gosta ajudam a entender seu gosto. Eles não serão copiados.</p>
+            <Field name="appearance.references.0" label="Site de referência 1" max={500} /><Field name="appearance.references.1" label="Site de referência 2" max={500} />
+            <Field name="appearance.referenceNotes" label="O que gostou nessas referências?" type="textarea" max={600} />
+            <Field name="appearance.avoid" label="O que não gostaria de ver no seu site?" type="textarea" max={600} />
+          </details>
+        </section>
+        <section data-step="3" aria-labelledby="step-3" hidden>
+          <h2 id="step-3" tabindex="-1">Contato e envio</h2><p class="bf-lead">Como falar com você e o que vai no site.</p>
+          <div class="bf-row"><Field name="contact.name" label="Seu nome" required /><div><Field name="contact.whatsapp" label="WhatsApp com DDD" type="tel" max={30} required /><label class="bf-check bf-check-tight"><input type="checkbox" name="contact.sameWhatsapp" checked /> Usar este WhatsApp no site</label></div></div>
+          <div id="other-whatsapp" hidden><Field name="contact.siteWhatsapp" label="WhatsApp que deve aparecer no site (com DDD)" type="tel" max={30} required /></div>
+          <div class="bf-row"><Field name="contact.email" label="E-mail" type="email" max={254} /><Field name="contact.instagram" label="Instagram do negócio" max={200} example="@seuperfil ou link" /></div>
+          <details class="bf-more"><summary>Outros links e observações <span class="bf-optional">opcional</span></summary>
+            {[0,1,2].map(i=><Field name={`contact.links.${i}`} label={`Outro link público ${i+1}`} max={500} />)}
+            <Field name="contact.notes" label="Observações finais" type="textarea" max={1000} />
+          </details>
+          <div class="bf-review"><h3>Confira antes de enviar</h3><p class="bf-help">Mostramos só o que você preencheu.</p><div id="briefing-review"></div></div>
+          <label class="bf-check bf-consent"><input type="checkbox" name="confirmations.authorized" aria-describedby="authorization-error" /><span>Tenho autorização para usar os textos, imagens e informações enviados na criação deste site. Eles serão usados para preparar o site e falar com você sobre o pedido.</span></label><p id="authorization-error" class="bf-error" data-error="confirmations.authorized"></p>
+        </section>
+        <progress id="submission-progress" aria-label="Enviando informações" hidden></progress>
+        <p id="submission-message" role="alert" tabindex="-1"></p>
+        <div class="bf-actions"><button type="button" class="bf-secondary" id="previous-step" hidden><span class="material-symbols-outlined" aria-hidden="true">arrow_back</span><span>Voltar</span></button><button type="submit" class="bf-primary" id="next-step">Continuar</button></div>
+        <p class="bf-help bf-footnote">Suas respostas ficam guardadas enquanto esta página estiver aberta.</p>
+      </form>
+      <section id="briefing-success" hidden tabindex="-1" aria-labelledby="success-title"><span class="material-symbols-outlined bf-success-icon" aria-hidden="true">check</span><p class="eyebrow">Informações enviadas</p><h2 id="success-title">Recebemos suas informações!</h2><p>Vamos revisar tudo e falar com você pelo WhatsApp informado.</p><p class="bf-number">Código do briefing <strong id="briefing-number"></strong></p><a class="bf-secondary bf-link-button" href="/" data-barba-prevent="all">Voltar ao site</a></section>
+    </div>
   </main>
 </BaseLayout>
