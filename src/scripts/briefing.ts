@@ -6,9 +6,9 @@ import {
 
 const titles = [
   "Seu negócio",
-  "O que mostrar no site",
+  "Conteúdo",
   "Aparência",
-  "Contato e revisão",
+  "Contato e envio",
 ];
 export function initBriefing(root: ParentNode = document): () => void {
   const candidate = root.querySelector<HTMLFormElement>("#briefing-form");
@@ -30,6 +30,10 @@ export function initBriefing(root: ParentNode = document): () => void {
   const message = find<HTMLElement>("#submission-message");
   const items = find<HTMLElement>("#briefing-items");
   const add = find<HTMLButtonElement>("#add-item");
+  const shell = form.closest<HTMLElement>(".briefing-shell");
+  const stepMarkers = Array.from(
+    root.querySelectorAll<HTMLElement>(".bf-steps li"),
+  );
   let step = 0,
     dirty = false,
     sending = false,
@@ -115,6 +119,10 @@ export function initBriefing(root: ParentNode = document): () => void {
       ).find((el) => el.dataset.error === path);
       if (el && !el.textContent) el.textContent = issue.message;
       const field = form!.elements.namedItem(path);
+      const details = (
+        field instanceof RadioNodeList ? field[0] : field
+      )?.parentElement?.closest("details");
+      if (details) details.open = true;
       if (field instanceof HTMLElement)
         field.setAttribute("aria-invalid", "true");
       else if (field instanceof RadioNodeList)
@@ -149,8 +157,13 @@ export function initBriefing(root: ParentNode = document): () => void {
     });
     previous.hidden = step === 0;
     next.textContent = step === 3 ? "Enviar informações" : "Continuar";
+    if (shell) shell.dataset.currentStep = String(step);
+    stepMarkers.forEach((li, i) => {
+      li.dataset.state =
+        i < step ? "done" : i === step ? "current" : "upcoming";
+    });
     find<HTMLElement>("#step-label").textContent =
-      `Etapa ${step + 1} de 4 · ${titles[step]}`;
+      `Etapa ${step + 1} de 4`;
     find<HTMLProgressElement>("#briefing-progress").value = step + 1;
     message.textContent = "";
     clearErrors();
@@ -165,40 +178,17 @@ export function initBriefing(root: ParentNode = document): () => void {
     values.forEach((item, i) => {
       const group = document.createElement("div");
       group.className = "bf-item";
+      const header = document.createElement("div");
+      header.className = "bf-item-header";
       const heading = document.createElement("h3");
       heading.textContent = `Item ${i + 1}`;
-      group.append(heading);
-      for (const [prop, label, max] of [
-        ["name", "Nome", 120],
-        ["description", "Descrição curta (opcional)", 300],
-        ["price", "Preço (opcional)", 100],
-      ] as const) {
-        const name = `content.items.${i}.${prop}`,
-          id = name.replaceAll(".", "-");
-        const wrap = document.createElement("div");
-        wrap.className = "bf-field";
-        const l = document.createElement("label");
-        l.htmlFor = id;
-        l.textContent = label;
-        const input = document.createElement("input");
-        input.id = id;
-        input.name = name;
-        input.maxLength = max;
-        input.value = item[prop];
-        input.required = prop === "name";
-        input.setAttribute("aria-describedby", `${id}-error`);
-        const err = document.createElement("p");
-        err.className = "bf-error";
-        err.id = `${id}-error`;
-        err.dataset.error = name;
-        wrap.append(l, input, err);
-        group.append(wrap);
-      }
+      header.append(heading);
       const remove = document.createElement("button");
       remove.type = "button";
-      remove.className = "bf-secondary";
-      remove.textContent = `Remover item ${i + 1}`;
-      remove.disabled = values.length === 1;
+      remove.className = "bf-text-button";
+      remove.textContent = "Remover";
+      remove.setAttribute("aria-label", `Remover item ${i + 1}`);
+      remove.hidden = values.length === 1;
       remove.addEventListener(
         "click",
         () => {
@@ -214,10 +204,43 @@ export function initBriefing(root: ParentNode = document): () => void {
         },
         { signal },
       );
-      group.append(remove);
+      header.append(remove);
+      group.append(header);
+      for (const [prop, label, max, optional] of [
+        ["name", "Nome", 120, false],
+        ["price", "Preço", 100, true],
+        ["description", "Descrição curta", 300, true],
+      ] as const) {
+        const name = `content.items.${i}.${prop}`,
+          id = name.replaceAll(".", "-");
+        const wrap = document.createElement("div");
+        wrap.className = `bf-field bf-item-${prop}`;
+        const l = document.createElement("label");
+        l.htmlFor = id;
+        l.textContent = label;
+        if (optional) {
+          const tag = document.createElement("span");
+          tag.className = "bf-optional";
+          tag.textContent = "opcional";
+          l.append(tag);
+        }
+        const input = document.createElement("input");
+        input.id = id;
+        input.name = name;
+        input.maxLength = max;
+        input.value = item[prop];
+        input.required = prop === "name";
+        input.setAttribute("aria-describedby", `${id}-error`);
+        const err = document.createElement("p");
+        err.className = "bf-error";
+        err.id = `${id}-error`;
+        err.dataset.error = name;
+        wrap.append(l, input, err);
+        group.append(wrap);
+      }
       items.append(group);
     });
-    add.disabled = values.length >= 8;
+    add.hidden = values.length >= 8;
     if (focus)
       (
         items.lastElementChild!.querySelector("input") as HTMLInputElement
@@ -231,16 +254,22 @@ export function initBriefing(root: ParentNode = document): () => void {
       content = data.content,
       appearance = data.appearance,
       contact = data.contact;
-    const groups: [string, string | boolean][][] = [
+    const groups: [string, string][][] = [
       [
         ["Nome", business.name],
         ["Segmento", business.segment],
         ["Descrição", business.description],
-        ["Cidade / estado", `${business.city} / ${business.state}`],
+        [
+          "Cidade",
+          [business.city, business.state].filter(Boolean).join(" / "),
+        ],
         ["Região atendida", business.region],
         ["Forma de atendimento", business.attendance],
         ["Endereço", business.address],
-        ["Publicar endereço", !!business.address && business.publishAddress],
+        [
+          "Publicar endereço",
+          business.address ? (business.publishAddress ? "Sim" : "Não") : "",
+        ],
         ["Horários", business.hours],
       ],
       [
@@ -261,7 +290,6 @@ export function initBriefing(root: ParentNode = document): () => void {
         ["Ação principal", content.action],
         ["Materiais", content.materials.join(", ")],
         ["Observações", content.notes],
-        ["Imagens", "Poderão ser enviadas depois."],
       ],
       [
         ["Estilo", appearance.style],
@@ -286,25 +314,33 @@ export function initBriefing(root: ParentNode = document): () => void {
     ];
     groups.forEach((entries, i) => {
       const article = document.createElement("article");
+      const header = document.createElement("div");
+      header.className = "bf-review-header";
       const h = document.createElement("h4");
       h.textContent = titles[i];
-      article.append(h);
+      const edit = document.createElement("button");
+      edit.type = "button";
+      edit.className = "bf-text-button";
+      edit.textContent = "Editar";
+      edit.setAttribute("aria-label", `Editar ${titles[i].toLowerCase()}`);
+      edit.addEventListener("click", () => show(i), { signal });
+      header.append(h, edit);
+      article.append(header);
       const dl = document.createElement("dl");
       entries.forEach(([label, v]) => {
+        if (!v) return;
         const dt = document.createElement("dt");
         dt.textContent = label;
         const dd = document.createElement("dd");
-        dd.textContent =
-          typeof v === "boolean" ? (v ? "Sim" : "Não") : v || "Não informado";
+        dd.textContent = v;
         dl.append(dt, dd);
       });
-      article.append(dl);
-      const edit = document.createElement("button");
-      edit.type = "button";
-      edit.className = "bf-secondary";
-      edit.textContent = `Editar ${titles[i].toLowerCase()}`;
-      edit.addEventListener("click", () => show(i), { signal });
-      article.append(edit);
+      if (!dl.childElementCount) {
+        const empty = document.createElement("p");
+        empty.className = "bf-help";
+        empty.textContent = "Nada preenchido nesta etapa.";
+        article.append(empty);
+      } else article.append(dl);
       review.append(article);
     });
   }
@@ -419,7 +455,7 @@ export function initBriefing(root: ParentNode = document): () => void {
       controls.forEach((el) => {
         el.disabled = true;
       });
-      next.textContent = "Enviando informações…";
+      next.textContent = "Enviando…";
       message.textContent = "";
       try {
         const response = await fetch("/api/briefings/", {
@@ -451,6 +487,10 @@ export function initBriefing(root: ParentNode = document): () => void {
         done = true;
         dirty = false;
         form.hidden = true;
+        if (shell) shell.dataset.currentStep = "done";
+        stepMarkers.forEach((li) => {
+          li.dataset.state = "done";
+        });
         find<HTMLElement>("#briefing-number").textContent = result.id;
         const success = find<HTMLElement>("#briefing-success");
         success.hidden = false;
