@@ -22,6 +22,10 @@ Complete when each result has an observation date and evidence recorded here, an
 
 Historical context only: the 2026-06-27 audit reported a live, verified GBP and 20/21 indexed pages; the 2026-07-30 roadmap recorded owner-confirmed GSC access and sitemap submission. Those reports remain in Git history and do not establish today's baseline. Inspect existing accounts before proposing account creation.
 
+## Content Publishing
+
+Follow [the content calendar](content-calendar.md) for Nov 2026 – Jan 2027. Complete when each listed post is published or replaced with a recorded reason, and the 2027-02-05 checkpoint has its GSC comparison.
+
 ## Privacy And Analytics Decision
 
 Next step: ask the owner to confirm analytics usage, data handling, and consent/legal expectations against the current site behavior.
