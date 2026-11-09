@@ -40,7 +40,6 @@ const gallery = project.gallery.length
         caption: 'Página principal',
       },
     ];
-const phoneImage = project.mobileImage ?? project.image;
 const externalUrl = project.externalUrl ?? project.url;
 const primaryServiceHref = project.primaryService?.href ?? (project.categories.includes('Landing Page')
   ? '/landing-page/'
@@ -185,14 +184,8 @@ const caseSchema = [
     <section
       class='case-showcase'
       aria-label={`Captura principal do projeto ${project.title}`}>
-      <div class='case-browser'>
-        <div class='case-browser__bar' aria-hidden='true'>
-          <span class='case-browser__dot case-browser__dot--red'></span>
-          <span class='case-browser__dot case-browser__dot--yellow'></span>
-          <span class='case-browser__dot case-browser__dot--green'></span>
-          <span class='case-browser__url'>{project.siteLabel}</span>
-        </div>
-        <div class='case-browser__screen'>
+      <div class='case-artwork'>
+        <div class='case-artwork__screen'>
           <img
             src={project.image}
             alt={project.alt}
@@ -205,9 +198,6 @@ const caseSchema = [
         </div>
       </div>
 
-      <div class='case-phone' aria-hidden='true'>
-        <img src={phoneImage} alt='' width='280' height='500' loading='eager' decoding='async' />
-      </div>
     </section>
 
     <section
@@ -398,16 +388,8 @@ const caseSchema = [
 
   .case-page {
     min-height: 100svh;
-    background:
-      radial-gradient(circle at 50% 0%, rgba(229, 196, 135, 0.08), transparent 31rem),
-      linear-gradient(180deg, var(--surface-lowest) 0%, var(--background) 46%, var(--surface-lowest) 100%);
+    background: var(--background);
     color: var(--text);
-  }
-
-  .case-page :global(.site-nav) {
-    --nav-bg: rgba(14, 14, 14, 0.88);
-    --nav-border: rgba(77, 70, 58, 0.34);
-    --nav-blur: 16px;
   }
 
   .case-wrap,
@@ -485,7 +467,7 @@ const caseSchema = [
     color: var(--text);
     font-family: 'Newsreader', serif;
     font-size: clamp(3.35rem, 8vw, 5.8rem);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.055em;
     line-height: 0.98;
     text-wrap: balance;
@@ -496,7 +478,7 @@ const caseSchema = [
     margin: 1.2rem 0 0;
     color: var(--muted);
     font-size: clamp(1rem, 1.4vw, 1.12rem);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.72;
     text-wrap: pretty;
   }
@@ -505,110 +487,35 @@ const caseSchema = [
     position: relative;
   }
 
-  .case-browser {
+  .case-artwork {
     overflow: hidden;
     border: 1px solid rgba(229, 218, 207, 0.14);
     border-bottom: 0;
     background: var(--surface);
-    box-shadow:
-      0 1.8rem 4.8rem rgba(0, 0, 0, 0.26),
-      inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    box-shadow: none;
   }
 
-  .case-browser__bar {
-    display: flex;
-    align-items: center;
-    gap: 0.38rem;
-    min-height: 2.35rem;
-    padding: 0 0.8rem;
-    border-bottom: 1px solid rgba(229, 218, 207, 0.11);
-    background: var(--surface-elevated);
-  }
-
-  .case-browser__dot {
-    width: 0.45rem;
-    height: 0.45rem;
-    border-radius: 999px;
-  }
-
-  .case-browser__dot--red {
-    background: #ff5f57;
-  }
-
-  .case-browser__dot--yellow {
-    background: #febc2e;
-  }
-
-  .case-browser__dot--green {
-    background: #28c840;
-  }
-
-  .case-browser__url {
-    display: flex;
-    align-items: center;
-    flex: 1;
-    min-width: 0;
-    height: 1.2rem;
-    margin-left: 0.55rem;
-    padding: 0 0.75rem;
-    overflow: hidden;
-    background: rgba(255, 255, 255, 0.045);
-    color: var(--subtle);
-    font-size: 0.62rem;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
-
-  .case-browser__screen {
+  .case-artwork__screen {
     position: relative;
-    aspect-ratio: 1.9 / 1;
+    aspect-ratio: auto;
     overflow: hidden;
     background: var(--surface-lowest);
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
   }
 
-  .case-browser__screen::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(180deg, rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.16)),
-      radial-gradient(circle at 50% 100%, rgba(229, 196, 135, 0.1), transparent 58%);
-    pointer-events: none;
-  }
 
-  .case-browser__screen img {
+  .case-artwork__screen img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-    filter: saturate(1.04) contrast(1.04) brightness(0.98);
-    transform: scale(1.01);
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+    filter: none;
     transition: filter var(--duration-hover) ease;
   }
 
-  .case-showcase:hover .case-browser__screen img,
-  .case-showcase:focus-within .case-browser__screen img {
+  .case-showcase:hover .case-artwork__screen img,
+  .case-showcase:focus-within .case-artwork__screen img {
     filter: saturate(1.07) contrast(1.06) brightness(1);
-  }
-
-  .case-phone {
-    position: absolute;
-    right: 2.4rem;
-    bottom: -1.2rem;
-    width: 5.2rem;
-    aspect-ratio: 9 / 16;
-    overflow: hidden;
-    border: 2px solid var(--surface-strong);
-    background: var(--surface-lowest);
-    box-shadow: -0.6rem 1.2rem 2.6rem rgba(0, 0, 0, 0.36);
-  }
-
-  .case-phone img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
   }
 
   .case-overview {
@@ -696,7 +603,7 @@ const caseSchema = [
     color: var(--text);
     font-family: 'Newsreader', serif;
     font-size: clamp(1.55rem, 3vw, 2.15rem);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.045em;
     line-height: 1.08;
   }
@@ -710,7 +617,7 @@ const caseSchema = [
     margin: 0.75rem 0 0;
     color: var(--muted);
     font-size: 0.9rem;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.78;
     text-wrap: pretty;
   }
@@ -855,7 +762,7 @@ const caseSchema = [
     color: var(--text);
     font-family: 'Newsreader', serif;
     font-size: clamp(1.42rem, 2.5vw, 1.9rem);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.04em;
     line-height: 1.08;
     text-wrap: balance;
@@ -865,7 +772,7 @@ const caseSchema = [
     margin: 0;
     color: var(--muted);
     font-size: 0.88rem;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.72;
     text-wrap: pretty;
   }
@@ -962,7 +869,7 @@ const caseSchema = [
     color: var(--primary);
     font-family: 'Newsreader', serif;
     font-size: clamp(1.58rem, 2.7vw, 2.1rem);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.045em;
     line-height: 1;
   }
@@ -1011,7 +918,7 @@ const caseSchema = [
     color: var(--text);
     font-family: 'Newsreader', serif;
     font-size: clamp(1.85rem, 3.8vw, 2.55rem);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.045em;
     line-height: 1;
     text-wrap: balance;
@@ -1050,7 +957,7 @@ const caseSchema = [
     .case-gallery,
     .case-results,
     .case-next {
-      width: calc(100vw - 1.5rem);
+      width: var(--container);
     }
 
     .case-overview {
@@ -1093,14 +1000,6 @@ const caseSchema = [
 
     .case-hero h1 {
       font-size: clamp(2.85rem, 16vw, 4rem);
-    }
-
-    .case-browser__screen {
-      aspect-ratio: 1.18 / 1;
-    }
-
-    .case-phone {
-      display: none;
     }
 
     .case-overview {

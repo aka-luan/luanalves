@@ -28,22 +28,17 @@ const heroImage = await getHeroImage('/assets/hero-img.webp', homeHeroSizes);
         <div class='hero-copy-block'>
           <p
             class='eyebrow hero-eyebrow'>
-            Desenvolvedor web
+            Design & desenvolvimento web
           </p>
           <h1 class='hero-title'>
             <span>
-              Sites para
-              <br />
-              sua empresa.
-              <br />
-              <span class='hero-title__muted'>Contato fácil.</span>
+              Um site à altura
+              <span class='hero-title__muted'>da sua empresa.</span>
             </span>
           </h1>
           <p class='hero-copy'>
-            Crio sites institucionais, blogs e landing pages para empresas em
-            todo o Brasil. Organizo conteúdo, design e desenvolvimento para
-            apresentar seus serviços e facilitar o contato. Você fala comigo
-            durante todo o projeto.
+            Sua empresa bem apresentada, seus serviços claros e o contato
+            a um toque. Sites feitos com cuidado, do primeiro rascunho à publicação.
           </p>
 
           <div class='hero-actions'>
@@ -52,19 +47,15 @@ const heroImage = await getHeroImage('/assets/hero-img.webp', homeHeroSizes);
               href={whatsappHref} data-analytics-position='home_hero'
               target='_blank'
               rel='noreferrer'>
-              Conversar sobre meu site
+              Vamos criar seu site
+              <span class='material-symbols-outlined' aria-hidden='true'>arrow_outward</span>
             </a>
             <a
               class='button button-ghost'
               href='/portfolio/'>
-              Ver projetos entregues
+              Explorar projetos
             </a>
           </div>
-
-          <p class='hero-next-step'>
-            Me envie o nome da empresa, o objetivo do site e a data desejada pelo
-            WhatsApp. Vamos alinhar estrutura, materiais e escopo antes da proposta.
-          </p>
 
           <div class='hero-proof' aria-label='Diferenciais principais'>
             <article
@@ -74,13 +65,13 @@ const heroImage = await getHeroImage('/assets/hero-img.webp', homeHeroSizes);
             </article>
             <article
               class='hero-proof-item'>
-              <strong>{services.length}</strong>
-              <span>Formatos de site</span>
+              <strong>Direto</strong>
+              <span>Com quem cria seu site</span>
             </article>
             <article
               class='hero-proof-item'>
               <strong>Belém, PA</strong>
-              <span>Atendimento remoto em todo o Brasil</span>
+              <span>Para empresas de todo o Brasil</span>
             </article>
           </div>
         </div>
@@ -95,10 +86,9 @@ const heroImage = await getHeroImage('/assets/hero-img.webp', homeHeroSizes);
               fetchpriority='high'
             />
             <figcaption class='hero-location-chip'>
-              <span class='hero-location-chip__tag'>BR</span>
               <span>
-                <strong>Belém, PA, Brasil</strong>
-                <small>Atendimento remoto nacional</small>
+                <strong>Luan Alves</strong>
+                <small>Desenvolvedor web · Belém, PA</small>
               </span>
             </figcaption>
           </div>
@@ -133,7 +123,7 @@ const heroImage = await getHeroImage('/assets/hero-img.webp', homeHeroSizes);
             >Soluções</span
           >
           <h2>
-            Criação de sites profissionais para empresas
+            Cada objetivo pede<br />um site diferente.
           </h2>
         </div>
 
@@ -184,7 +174,7 @@ const heroImage = await getHeroImage('/assets/hero-img.webp', homeHeroSizes);
             >Diferenciais</span
           >
           <h2>
-            Por que contratar um desenvolvedor web freelancer?
+            Do primeiro contato<br />à última linha de código.
           </h2>
           <p class='why-copy'>
             Você fala com quem planeja, desenha e desenvolve o seu site.
@@ -228,90 +218,51 @@ const heroImage = await getHeroImage('/assets/hero-img.webp', homeHeroSizes);
 </BaseLayout>
 
 <style>
-  .hero-next-step {
-    max-width: 32rem;
-    margin: 1rem 0 0;
-    color: var(--muted);
-    font-size: 0.875rem;
-    line-height: 1.6;
-  }
-
   .hero-media-frame {
     position: relative;
-    width: clamp(300px, 30vw, 360px);
-    aspect-ratio: 14 / 19;
+    width: 100%;
+    aspect-ratio: 4 / 5;
     min-height: 0;
-    border-radius: 16px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: transparent;
+    border: 1px solid rgba(241, 238, 231, 0.12);
+    background: var(--surface);
     box-shadow: none;
   }
-
   .hero-media-frame::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to bottom,
-      transparent 50%,
-      rgba(19, 19, 19, 0.6) 80%,
-      rgba(19, 19, 19, 1) 100%
-    );
-    pointer-events: none;
+    background: linear-gradient(180deg, transparent 65%, rgba(16, 20, 17, 0.8));
   }
-
   .hero-media img {
     position: static;
-    right: auto;
-    bottom: auto;
     width: 100%;
     height: 100%;
     max-width: none;
-    aspect-ratio: auto;
     object-fit: cover;
     object-position: center top;
     filter: none;
   }
-
   .hero-location-chip {
     position: absolute;
-    right: auto;
-    bottom: 16px;
-    left: 12px;
-    z-index: 10;
-    gap: 0.65rem;
+    inset: auto 1.5rem 1.5rem;
     min-height: 0;
-    padding: 8px 12px;
-    background: rgba(19, 19, 19, 0.75);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 10px;
+    padding: 0;
+    border: 0;
+    background: none;
     box-shadow: none;
-    backdrop-filter: blur(8px);
+    backdrop-filter: none;
   }
-
-  .hero-location-chip__tag {
-    width: 1.9rem;
-    height: 1.9rem;
-    font-size: 0.68rem;
-  }
-
   .hero-location-chip strong {
-    color: #ffffff;
-    font-size: 0.84rem;
-    line-height: 1.2;
+    font-family: 'Newsreader', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
   }
-
   .hero-location-chip small {
-    color: rgba(255, 255, 255, 0.76);
-    font-size: 0.7rem;
-    line-height: 1.25;
+    color: var(--text);
+    font-size: 0.75rem;
+    margin-top: 0.3rem;
   }
-
-  @media (max-width: 720px) {
-    .hero-media-frame {
-      width: min(100%, 340px);
-      margin-inline: auto;
-    }
+  @media (max-width: 960px) {
+    .hero-media { width: min(100%, 32rem); }
+    .hero-media-frame { aspect-ratio: 5 / 4; }
+    .hero-media img { object-position: center 30%; }
   }
 </style>

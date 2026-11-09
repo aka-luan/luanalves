@@ -103,7 +103,7 @@ const insightsSchema = [
 
           <dl class='insights-stats' aria-label='Números do Insights'>
             <div>
-              <dt>{String(posts.length).padStart(2, '0')}</dt>
+              <dt>{posts.length}</dt>
               <dd>Artigos</dd>
             </div>
             <div>
@@ -143,9 +143,11 @@ const insightsSchema = [
           </span>
 
           <span class='featured-article__body'>
-            <span class='insight-badge'>{featuredPost.category}</span>
-            <span>
+            <span class='featured-article__kicker'>
+              <span class='insight-badge'>{featuredPost.category}</span>
               <span class='featured-article__label'>Artigo em destaque</span>
+            </span>
+            <span>
               <h2 id='featured-title'>{featuredPost.title}</h2>
               <p>{featuredPost.excerpt}</p>
             </span>
@@ -264,23 +266,14 @@ const insightsSchema = [
   .insights-page {
     min-height: 100svh;
     overflow-x: hidden;
-    background:
-      radial-gradient(circle at 18% 10%, rgba(229, 196, 135, 0.1), transparent 24rem),
-      radial-gradient(circle at 88% 36%, rgba(153, 143, 129, 0.12), transparent 25rem),
-      linear-gradient(180deg, var(--surface-lowest) 0%, var(--background) 48%, var(--surface-lowest) 100%);
+    background: var(--background);
     color: var(--text);
-  }
-
-  .insights-page :global(.site-nav) {
-    --nav-bg: rgba(14, 14, 14, 0.88);
-    --nav-border: rgba(77, 70, 58, 0.34);
-    --nav-blur: 16px;
   }
 
   .insights-shell {
     position: relative;
     z-index: 1;
-    width: min(1120px, calc(100vw - 3rem));
+    width: var(--container);
     margin: 0 auto;
   }
 
@@ -312,7 +305,7 @@ const insightsSchema = [
 
   .insights-breadcrumb {
     margin-bottom: clamp(2.2rem, 4.5vw, 3.4rem);
-    letter-spacing: 0.2em;
+    letter-spacing: 0.13em;
     text-transform: uppercase;
   }
 
@@ -347,7 +340,7 @@ const insightsSchema = [
     color: var(--primary);
     font-size: 0.68rem;
     font-weight: 900;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.13em;
     text-transform: uppercase;
   }
 
@@ -358,7 +351,7 @@ const insightsSchema = [
     margin: 0;
     color: var(--text);
     font-family: 'Newsreader', serif;
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.05em;
     line-height: 1.02;
     text-wrap: balance;
@@ -381,7 +374,7 @@ const insightsSchema = [
     max-width: 42rem;
     margin: 1.25rem 0 0;
     font-size: clamp(1rem, 1.5vw, 1.18rem);
-    font-weight: 300;
+    font-weight: 400;
   }
 
   .insights-stats {
@@ -542,8 +535,15 @@ const insightsSchema = [
     text-transform: uppercase;
   }
 
+  .featured-article__kicker {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
   .featured-article__label {
-    margin-bottom: 0.8rem;
+    margin-bottom: 0;
     border-color: rgba(153, 143, 129, 0.24);
     background: rgba(255, 255, 255, 0.025);
     color: var(--subtle);
@@ -551,6 +551,7 @@ const insightsSchema = [
 
   .featured-article h2 {
     font-size: clamp(2rem, 4.2vw, 3.3rem);
+    line-height: 1.1;
   }
 
   .featured-article p {
@@ -623,10 +624,10 @@ const insightsSchema = [
     color: var(--muted);
     cursor: pointer;
     font: inherit;
-    font-size: 0.72rem;
+    font-size: 0.82rem;
     font-weight: 900;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    text-transform: none;
     transition:
       border-color var(--duration-hover) ease,
       background-color var(--duration-hover) ease,
@@ -777,7 +778,7 @@ const insightsSchema = [
     color: var(--text);
     font-family: 'Newsreader', serif;
     font-size: clamp(1.45rem, 2vw, 1.8rem);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.04em;
     line-height: 1.08;
     text-wrap: balance;
@@ -884,7 +885,7 @@ const insightsSchema = [
 
   @media (max-width: 620px) {
     .insights-shell {
-      width: calc(100vw - 1.5rem);
+      width: var(--container);
     }
 
     .insights-hero {
@@ -895,13 +896,20 @@ const insightsSchema = [
       font-size: clamp(3.4rem, 19vw, 4.6rem);
     }
 
-    .insights-stats,
     .insights-filters,
     .insights-grid {
       display: grid;
       grid-template-columns: 1fr;
     }
 
+    .insights-stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+    .insights-hero__layout { gap: 1.5rem; }
+    .featured-article { display: flex; flex-direction: column; }
+    .featured-article__body { order: -1; }
     .featured-article__visual {
       min-height: 14rem;
     }

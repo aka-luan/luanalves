@@ -1776,9 +1776,9 @@ const performanceConversaoInsight: InsightPublishedPost = {
   slug: 'por-que-performance-site-afeta-conversao',
   tags: ['Performance', 'Conversão', 'SEO', 'Core Web Vitals', 'Mobile'],
   published: true,
-  heroImage: '/assets/insights/quanto-tempo-post.webp',
+  heroImage: '/assets/site-institucional-hero.webp',
   heroImageAlt:
-    'Mesa de trabalho com notebook e elementos de planejamento, representando velocidade e performance de um site profissional.',
+    'Site da Urbem apresentado em notebook e celular, com a mesma identidade e conteúdo adaptados a cada tela.',
   author: {
     name: 'Luan Alves',
     role: 'Desenvolvedor web freelancer',

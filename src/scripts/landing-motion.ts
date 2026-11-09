@@ -10,6 +10,12 @@ declare global {
 gsap.registerPlugin(ScrollTrigger);
 
 const ROOT_SELECTOR = '[data-page="home"]';
+const TWEENED_NAV_VARS = new Set([
+  '--nav-width',
+  '--nav-margin-top',
+  '--nav-padding-block',
+  '--nav-padding-inline',
+]);
 
 function createHeaderController({
   nav,
@@ -116,8 +122,14 @@ function createHeaderController({
 
     // Animating backdrop blur repaints everything behind the nav on every frame.
     // Swap it while the nav background is near-opaque: after compacting, before expanding.
-    const { '--nav-blur': navBlur, ...animatedVars } = navVars;
-    gsap.set(nav, { '--nav-blur': shouldUseTop ? navBlur : '0px' });
+    const { '--nav-blur': navBlur, ...rest } = navVars;
+    // Only geometry needs tweening; .is-scrolled transitions background, border and shadow in CSS.
+    const animatedVars: gsap.TweenVars = {};
+    const instantVars: gsap.TweenVars = {};
+    for (const [key, value] of Object.entries(rest)) {
+      (TWEENED_NAV_VARS.has(key) ? animatedVars : instantVars)[key] = value;
+    }
+    gsap.set(nav, { ...instantVars, '--nav-blur': shouldUseTop ? navBlur : '0px' });
     gsap.to(nav, {
       ...animatedVars,
       duration: 0.25,

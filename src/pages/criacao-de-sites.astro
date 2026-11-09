@@ -240,10 +240,6 @@ const creationServiceSchema = [
       class='creation-hero'
       aria-labelledby='creation-hero-title'
       data-motion='hero'>
-      <div class='creation-hero__glow' aria-hidden='true'>
-      </div>
-      <div class='creation-hero__grain' aria-hidden='true'></div>
-
       <div class='creation-hero__inner'>
         <div class='creation-hero__copy editorial-copy'>
           <Breadcrumbs items={breadcrumbItems} />
@@ -296,9 +292,9 @@ const creationServiceSchema = [
         <div
           class='creation-hero__media'
           aria-hidden='true'>
-          <div class='creation-orbit'></div>
+
           <img
-            src='/assets/criacao-de-sites-hero-img.webp'
+            src='/assets/site-institucional-hero.webp'
             alt=''
             width='1448'
             height='1086'
@@ -313,7 +309,6 @@ const creationServiceSchema = [
       class='solutions-section'
       id='solucoes'
       aria-labelledby='solutions-title'>
-      <div class='solutions-section__glow' aria-hidden='true'></div>
 
       <div class='solutions-section__inner'>
         <div class='solutions-copy editorial-copy editorial-copy--center'>
@@ -440,7 +435,6 @@ const creationServiceSchema = [
       class='results-section'
       id='resultados'
       aria-labelledby='results-title'>
-      <div class='results-section__glow' aria-hidden='true'></div>
 
       <div class='results-section__inner'>
         <div class='results-copy editorial-copy'>
@@ -513,7 +507,6 @@ const creationServiceSchema = [
       class='process-section'
       id='processo'
       aria-labelledby='process-title'>
-      <div class='process-section__glow' aria-hidden='true'></div>
 
       <div class='process-section__inner'>
         <div class='process-copy editorial-copy'>
@@ -573,7 +566,6 @@ const creationServiceSchema = [
       class='included-section'
       id='incluso'
       aria-labelledby='included-title'>
-      <div class='included-section__glow' aria-hidden='true'></div>
 
       <div class='included-section__inner'>
         <div class='included-copy editorial-copy'>
@@ -636,7 +628,6 @@ const creationServiceSchema = [
       class='differentials-section'
       id='diferenciais'
       aria-labelledby='differentials-title'>
-      <div class='differentials-section__glow' aria-hidden='true'></div>
 
       <div class='differentials-section__inner'>
         <div class='differentials-content'>
@@ -713,20 +704,9 @@ const creationServiceSchema = [
   }
 
   .site-creation-page {
-    min-height: 100svh;
+    min-height: auto;
     overflow-x: hidden;
-    background:
-      radial-gradient(
-        circle at 73% 42%,
-        rgba(218, 176, 101, 0.2),
-        transparent 27rem
-      ),
-      radial-gradient(
-        circle at 43% 103%,
-        rgba(229, 196, 135, 0.1),
-        transparent 28rem
-      ),
-      linear-gradient(115deg, rgba(7, 8, 8, 0.99) 0%, #151514 52%, #0d0e0e 100%);
+    background: var(--background);
     color: #f4f1ee;
   }
 
@@ -781,10 +761,10 @@ const creationServiceSchema = [
   .creation-nav-cta,
   .creation-button,
   .creation-eyebrow {
-    font-size: 0.74rem;
+    font-size: 0.82rem;
     font-weight: 700;
-    letter-spacing: 0.26em;
-    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    text-transform: none;
   }
 
   .creation-nav-links a {
@@ -798,7 +778,7 @@ const creationServiceSchema = [
   .creation-nav-links a,
   .creation-nav-cta {
     font-size: 0.7rem;
-    letter-spacing: 0.24em;
+    letter-spacing: 0.13em;
   }
 
   .creation-nav-links a:hover,
@@ -828,77 +808,21 @@ const creationServiceSchema = [
 
   .creation-hero {
     position: relative;
-    min-height: 100svh;
+    min-height: auto;
     padding: clamp(7.2rem, 9.7vw, 9.1rem) clamp(1.5rem, 6.25vw, 5.85rem) 3.2rem;
     isolation: isolate;
   }
 
-  .creation-hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -3;
-    background:
-      linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0.025) 1px,
-        transparent 1px
-      ),
-      linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.018) 1px,
-        transparent 1px
-      );
-    background-size: 4rem 4rem;
-    mask-image: radial-gradient(circle at 62% 42%, black, transparent 68%);
-    opacity: 0.11;
-  }
 
-  .creation-hero__glow {
-    position: absolute;
-    inset: 0;
-    z-index: -2;
-    background:
-      linear-gradient(
-        90deg,
-        rgba(8, 8, 8, 0.9),
-        rgba(8, 8, 8, 0.22) 56%,
-        rgba(8, 8, 8, 0.54)
-      ),
-      radial-gradient(
-        circle at 64% 53%,
-        rgba(235, 194, 116, 0.2),
-        transparent 32rem
-      );
-    pointer-events: none;
-  }
 
-  .creation-hero__grain {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    opacity: 0.38;
-    pointer-events: none;
-    background-image:
-      linear-gradient(125deg, rgba(255, 255, 255, 0.035), transparent 22%),
-      radial-gradient(
-        circle at 20% 20%,
-        rgba(255, 255, 255, 0.025) 0 1px,
-        transparent 1px
-      );
-    background-size:
-      auto,
-      3px 3px;
-    mix-blend-mode: overlay;
-  }
 
   .creation-hero__inner {
     display: grid;
-    grid-template-columns: minmax(29.5rem, 0.74fr) minmax(38rem, 1.26fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     align-items: center;
-    gap: 10rem;
-    width: min(100%, 84.8rem);
-    min-height: calc(100svh - 12.3rem);
+    gap: clamp(2rem, 5vw, 5rem);
+    width: min(100%, 78rem);
+    min-height: 38rem;
     margin: 0 auto;
   }
 
@@ -918,11 +842,11 @@ const creationServiceSchema = [
   }
 
   .creation-hero h1 {
-    max-width: 9.9ch;
+    max-width: 14ch;
     margin: 0;
     font-family: 'Newsreader', serif;
-    font-size: clamp(4.35rem, 5vw, 5rem);
-    font-weight: 600;
+    font-size: clamp(3.4rem, 4.8vw, 4.8rem);
+    font-weight: 400;
     letter-spacing: -0.058em;
     line-height: 0.96;
     color: #f5f2ef;
@@ -933,7 +857,7 @@ const creationServiceSchema = [
     display: block;
     color: #dfbd79;
     font-style: italic;
-    font-weight: 600;
+    font-weight: 400;
   }
 
   .creation-lead {
@@ -941,7 +865,7 @@ const creationServiceSchema = [
     margin: 0.75rem 0 0;
     color: rgba(226, 218, 208, 0.82);
     font-size: clamp(1.02rem, 1.18vw, 1.09rem);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.68;
     text-wrap: pretty;
   }
@@ -961,7 +885,6 @@ const creationServiceSchema = [
     min-height: 3.45rem;
     padding: 1.05rem 1.7rem;
     border: 1px solid rgba(230, 222, 211, 0.2);
-    color: #f5f2ef;
     white-space: nowrap;
     transition:
       transform var(--duration-hover) ease,
@@ -977,14 +900,14 @@ const creationServiceSchema = [
   .creation-button--solid {
     min-width: 15.8rem;
     border-color: #d9b66d;
-    background: linear-gradient(180deg, #edcf8b, #cfa967);
-    color: #382600;
-    box-shadow: 0 20px 42px rgba(207, 169, 103, 0.16);
+    background: var(--primary);
+    color: var(--primary-ink);
+    box-shadow: none;
   }
 
   .creation-button--solid:hover,
   .creation-button--solid:focus-visible {
-    background: linear-gradient(180deg, #f0d899, #dab56f);
+    background: #ead5af;
   }
 
   .creation-button--outline:hover,
@@ -1039,7 +962,7 @@ const creationServiceSchema = [
     margin: 0;
     color: rgba(226, 218, 208, 0.86);
     font-size: 0.92rem;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.35;
   }
 
@@ -1048,29 +971,17 @@ const creationServiceSchema = [
     z-index: 1;
     align-self: center;
     min-width: 0;
-    margin-right: clamp(-7rem, -7vw, -4rem);
-    transform: translate(-7.6rem, -0.05rem);
+    margin-right: 0;
+    transform: none;
   }
 
-  .creation-orbit {
-    position: absolute;
-    top: 6.5%;
-    left: 13%;
-    z-index: -1;
-    width: 53%;
-    aspect-ratio: 1;
-    border: 1px solid rgba(211, 169, 98, 0.3);
-    border-radius: 999px;
-    filter: drop-shadow(0 0 24px rgba(211, 169, 98, 0.1));
-  }
 
   .creation-hero__media img {
-    width: min(77vw, 62.25rem);
-    max-width: none;
+    width: 100%;
+    max-width: 100%;
     height: auto;
     margin-left: auto;
-    filter: drop-shadow(0 3rem 5rem rgba(0, 0, 0, 0.36))
-      drop-shadow(0 0 2.6rem rgba(202, 159, 86, 0.12));
+    filter: none;
   }
 
   .solutions-section {
@@ -1081,67 +992,11 @@ const creationServiceSchema = [
     isolation: isolate;
   }
 
-  .solutions-section::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -4;
-    background:
-      radial-gradient(
-        circle at 50% 18%,
-        rgba(218, 176, 101, 0.16),
-        transparent 31rem
-      ),
-      radial-gradient(
-        ellipse at 50% 82%,
-        rgba(229, 196, 135, 0.09),
-        transparent 32rem
-      ),
-      linear-gradient(115deg, #0a0b0b 0%, #151514 54%, #090a0a 100%);
-  }
 
-  .solutions-section::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -3;
-    background:
-      linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0.014) 1px,
-        transparent 1px
-      ),
-      linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.011) 1px,
-        transparent 1px
-      );
-    background-size: 4rem 4rem;
-    mask-image: radial-gradient(circle at 50% 50%, black, transparent 72%);
-    opacity: 0.16;
-  }
 
-  .solutions-section__glow {
-    position: absolute;
-    inset: 0;
-    z-index: -2;
-    pointer-events: none;
-    background:
-      linear-gradient(
-        90deg,
-        rgba(7, 7, 7, 0.55),
-        rgba(7, 7, 7, 0.08) 50%,
-        rgba(7, 7, 7, 0.55)
-      ),
-      radial-gradient(
-        ellipse at 50% 24%,
-        rgba(229, 196, 135, 0.14),
-        transparent 34rem
-      );
-  }
 
   .solutions-section__inner {
-    width: min(100%, 84.8rem);
+    width: min(100%, 78rem);
     margin: 0 auto;
   }
 
@@ -1161,7 +1016,7 @@ const creationServiceSchema = [
     color: #f5f2ef;
     font-family: 'Newsreader', serif;
     font-size: clamp(3.45rem, 5.05vw, 5rem);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.058em;
     line-height: 0.95;
     text-wrap: balance;
@@ -1175,7 +1030,7 @@ const creationServiceSchema = [
   .solutions-copy h2 em {
     color: #dfbd79;
     font-style: italic;
-    font-weight: 600;
+    font-weight: 400;
   }
 
   .solutions-copy p {
@@ -1194,7 +1049,7 @@ const creationServiceSchema = [
     grid-template-rows: auto auto 1fr;
     overflow: hidden;
     border: 1px solid rgba(229, 218, 207, 0.11);
-    border-radius: 0.45rem;
+    border-radius: var(--radius);
     background:
       linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 32%),
       rgba(16, 16, 15, 0.76);
@@ -1269,7 +1124,7 @@ const creationServiceSchema = [
     display: grid;
     grid-template-columns: minmax(18rem, 0.72fr) minmax(0, 1.28fr);
     gap: clamp(3rem, 8vw, 8rem);
-    width: min(100%, 82rem);
+    width: min(100%, 78rem);
     margin: 0 auto;
   }
 
@@ -1278,7 +1133,7 @@ const creationServiceSchema = [
     color: #f5f2ef;
     font-family: 'Newsreader', serif;
     font-size: clamp(3rem, 4.8vw, 4.75rem);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.058em;
     line-height: 0.95;
     text-wrap: balance;
@@ -1294,7 +1149,7 @@ const creationServiceSchema = [
     max-width: 32rem;
     margin: 1.5rem 0 0;
     color: rgba(226, 218, 208, 0.75);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.7;
   }
 
@@ -1315,13 +1170,15 @@ const creationServiceSchema = [
     color: rgba(223, 189, 121, 0.58);
     font-family: 'Newsreader', serif;
     font-style: italic;
+
+    font-weight: 400;
   }
 
   .segments-section__list strong {
     color: #f5f2ef;
     font-family: 'Newsreader', serif;
     font-size: clamp(1.75rem, 2.7vw, 2.35rem);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.04em;
   }
 
@@ -1329,7 +1186,7 @@ const creationServiceSchema = [
     max-width: 36rem;
     margin: 0.55rem 0 0;
     color: rgba(226, 218, 208, 0.7);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.65;
   }
 
@@ -1356,7 +1213,7 @@ const creationServiceSchema = [
 
   @media (max-width: 520px) {
     .segments-section {
-      padding-inline: 0.9rem;
+      padding-inline: 1.25rem;
     }
 
     .segments-section__list a {
@@ -1450,7 +1307,7 @@ const creationServiceSchema = [
     color: #f5f2ef;
     font-family: 'Newsreader', serif;
     font-size: clamp(1.55rem, 1.75vw, 1.9rem);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.04em;
     line-height: 1.06;
     text-wrap: balance;
@@ -1461,7 +1318,7 @@ const creationServiceSchema = [
     margin: 1rem 0 0;
     color: rgba(226, 218, 208, 0.74);
     font-size: 0.98rem;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.62;
     text-wrap: pretty;
   }
@@ -1483,7 +1340,7 @@ const creationServiceSchema = [
     background: rgba(223, 189, 121, 0.06);
     font-size: 0.63rem;
     font-weight: 700;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.13em;
     text-transform: uppercase;
   }
 
@@ -1533,7 +1390,7 @@ const creationServiceSchema = [
     margin: clamp(2.8rem, 4.2vw, 3.6rem) auto 0;
     color: rgba(226, 218, 208, 0.82);
     font-size: 1rem;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.55;
   }
 
@@ -1554,70 +1411,8 @@ const creationServiceSchema = [
     isolation: isolate;
   }
 
-  .results-section::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -4;
-    background:
-      radial-gradient(
-        circle at 30% 57%,
-        rgba(223, 189, 121, 0.17),
-        transparent 22rem
-      ),
-      radial-gradient(
-        circle at 79% 46%,
-        rgba(223, 189, 121, 0.08),
-        transparent 28rem
-      ),
-      linear-gradient(115deg, #101111 0%, #181817 48%, #0d0e0e 100%);
-  }
 
-  .results-section::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -3;
-    background:
-      linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0.019) 1px,
-        transparent 1px
-      ),
-      linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.014) 1px,
-        transparent 1px
-      );
-    background-size: 4rem 4rem;
-    mask-image: linear-gradient(
-      90deg,
-      transparent,
-      black 22%,
-      black 82%,
-      transparent
-    );
-    opacity: 0.24;
-  }
 
-  .results-section__glow {
-    position: absolute;
-    inset: 0;
-    z-index: -2;
-    pointer-events: none;
-    background:
-      linear-gradient(
-        180deg,
-        rgba(9, 9, 9, 0.36),
-        transparent 16rem,
-        rgba(7, 7, 7, 0.35)
-      ),
-      radial-gradient(
-        ellipse at 25% 70%,
-        rgba(218, 176, 101, 0.18),
-        transparent 31rem
-      );
-  }
 
   .results-section__inner {
     position: relative;
@@ -1627,7 +1422,7 @@ const creationServiceSchema = [
       'copy cards'
       'media cards';
     gap: 1.65rem clamp(3rem, 5.7vw, 5.4rem);
-    width: min(100%, 84.8rem);
+    width: min(100%, 78rem);
     margin: 0 auto;
   }
 
@@ -1647,7 +1442,7 @@ const creationServiceSchema = [
     color: #f5f2ef;
     font-family: 'Newsreader', serif;
     font-size: clamp(3.49rem, 4.42vw, 4.46rem);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.058em;
     line-height: 0.94;
     text-wrap: balance;
@@ -1665,7 +1460,7 @@ const creationServiceSchema = [
   .results-copy h2 em {
     color: #dfbd79;
     font-style: italic;
-    font-weight: 600;
+    font-weight: 400;
   }
 
   .results-lead {
@@ -1673,7 +1468,7 @@ const creationServiceSchema = [
     margin: 1.45rem 0 0;
     color: rgba(226, 218, 208, 0.82);
     font-size: clamp(1.02rem, 1.18vw, 1.1rem);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.68;
     text-wrap: pretty;
   }
@@ -1744,7 +1539,7 @@ const creationServiceSchema = [
     color: #dfbd79;
     font-family: 'Newsreader', serif;
     font-size: 1.48rem;
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.045em;
     line-height: 1;
   }
@@ -1784,7 +1579,7 @@ const creationServiceSchema = [
     color: #f5f2ef;
     font-family: 'Newsreader', serif;
     font-size: clamp(1.58rem, 2.2vw, 1.9rem);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.055em;
     line-height: 1.04;
   }
@@ -1794,7 +1589,7 @@ const creationServiceSchema = [
     margin: 0.78rem 0 0;
     color: rgba(226, 218, 208, 0.76);
     font-size: clamp(0.9rem, 1.05vw, 0.98rem);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.48;
   }
 
@@ -1841,70 +1636,14 @@ const creationServiceSchema = [
 
   .process-section {
     position: relative;
-    min-height: 100svh;
+    min-height: auto;
     padding: clamp(7.1rem, 8.2vw, 8.2rem) clamp(1.5rem, 6.25vw, 5.85rem)
       clamp(3rem, 4.4vw, 4.2rem);
     isolation: isolate;
   }
 
-  .process-section::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -4;
-    background:
-      radial-gradient(
-        ellipse at 75% 46%,
-        rgba(222, 184, 112, 0.19),
-        transparent 28rem
-      ),
-      radial-gradient(
-        circle at 17% 47%,
-        rgba(229, 196, 135, 0.06),
-        transparent 24rem
-      ),
-      linear-gradient(115deg, #0d0e0e 0%, #171716 54%, #0b0c0c 100%);
-  }
 
-  .process-section::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -3;
-    background:
-      linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0.018) 1px,
-        transparent 1px
-      ),
-      linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.012) 1px,
-        transparent 1px
-      );
-    background-size: 4rem 4rem;
-    mask-image: radial-gradient(circle at 54% 50%, black, transparent 69%);
-    opacity: 0.19;
-  }
 
-  .process-section__glow {
-    position: absolute;
-    inset: 0;
-    z-index: -2;
-    pointer-events: none;
-    background:
-      linear-gradient(
-        90deg,
-        rgba(8, 8, 8, 0.7),
-        rgba(8, 8, 8, 0.18) 55%,
-        rgba(8, 8, 8, 0.42)
-      ),
-      radial-gradient(
-        ellipse at 64% 42%,
-        rgba(229, 196, 135, 0.15),
-        transparent 31rem
-      );
-  }
 
   .process-section__inner {
     position: relative;
@@ -1915,7 +1654,7 @@ const creationServiceSchema = [
       'timeline media';
     align-items: center;
     column-gap: clamp(2rem, 4.8vw, 4.55rem);
-    width: min(100%, 84.8rem);
+    width: min(100%, 78rem);
     min-height: calc(100svh - 11.6rem);
     margin: 0 auto;
   }
@@ -1936,7 +1675,7 @@ const creationServiceSchema = [
     color: #f5f2ef;
     font-family: 'Newsreader', serif;
     font-size: clamp(3.55rem, 4.75vw, 4.8rem);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.058em;
     line-height: 0.95;
     text-wrap: balance;
@@ -1950,7 +1689,7 @@ const creationServiceSchema = [
   .process-copy h2 em {
     color: #dfbd79;
     font-style: italic;
-    font-weight: 600;
+    font-weight: 400;
   }
 
   .process-lead {
@@ -1958,7 +1697,7 @@ const creationServiceSchema = [
     margin: 1.75rem 0 0;
     color: rgba(226, 218, 208, 0.8);
     font-size: clamp(1rem, 1.15vw, 1.06rem);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.65;
     text-wrap: pretty;
   }
@@ -2001,7 +1740,7 @@ const creationServiceSchema = [
     color: #dfbd79;
     font-family: 'Newsreader', serif;
     font-size: 1.92rem;
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.045em;
     line-height: 1.08;
   }
@@ -2039,7 +1778,7 @@ const creationServiceSchema = [
     color: #f5f2ef;
     font-family: 'Newsreader', serif;
     font-size: clamp(1.32rem, 1.75vw, 1.55rem);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.05em;
     line-height: 1.1;
   }
@@ -2049,7 +1788,7 @@ const creationServiceSchema = [
     margin: 0.62rem 0 0;
     color: rgba(226, 218, 208, 0.72);
     font-size: clamp(0.96rem, 1.15vw, 1.04rem);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.5;
   }
 
@@ -2072,71 +1811,15 @@ const creationServiceSchema = [
 
   .included-section {
     position: relative;
-    min-height: 100svh;
+    min-height: auto;
     padding: clamp(7.2rem, 8.6vw, 8.7rem) clamp(1.5rem, 6.25vw, 5.85rem)
       clamp(4.7rem, 5.6vw, 5.6rem);
     overflow: hidden;
     isolation: isolate;
   }
 
-  .included-section::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -4;
-    background:
-      radial-gradient(
-        circle at 76% 46%,
-        rgba(218, 176, 101, 0.2),
-        transparent 32rem
-      ),
-      radial-gradient(
-        ellipse at 23% 70%,
-        rgba(229, 196, 135, 0.09),
-        transparent 29rem
-      ),
-      linear-gradient(115deg, #0c0d0d 0%, #151514 53%, #0a0b0b 100%);
-  }
 
-  .included-section::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -3;
-    background:
-      linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0.016) 1px,
-        transparent 1px
-      ),
-      linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.012) 1px,
-        transparent 1px
-      );
-    background-size: 4rem 4rem;
-    mask-image: radial-gradient(circle at 49% 48%, black, transparent 70%);
-    opacity: 0.18;
-  }
 
-  .included-section__glow {
-    position: absolute;
-    inset: 0;
-    z-index: -2;
-    pointer-events: none;
-    background:
-      linear-gradient(
-        90deg,
-        rgba(7, 7, 7, 0.88),
-        rgba(7, 7, 7, 0.16) 56%,
-        rgba(7, 7, 7, 0.46)
-      ),
-      radial-gradient(
-        ellipse at 74% 59%,
-        rgba(229, 196, 135, 0.17),
-        transparent 33rem
-      );
-  }
 
   .included-section__inner {
     position: relative;
@@ -2147,7 +1830,7 @@ const creationServiceSchema = [
       'cards media';
     align-items: center;
     column-gap: clamp(2.4rem, 4.5vw, 4.6rem);
-    width: min(100%, 84.8rem);
+    width: min(100%, 78rem);
     min-height: calc(100svh - 12.1rem);
     margin: 0 auto;
   }
@@ -2168,7 +1851,7 @@ const creationServiceSchema = [
     color: #f5f2ef;
     font-family: 'Newsreader', serif;
     font-size: clamp(3.6rem, 4.85vw, 5rem);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.058em;
     line-height: 0.96;
     text-wrap: balance;
@@ -2182,7 +1865,7 @@ const creationServiceSchema = [
   .included-copy h2 em {
     color: #dfbd79;
     font-style: italic;
-    font-weight: 600;
+    font-weight: 400;
   }
 
   .included-lead {
@@ -2190,7 +1873,7 @@ const creationServiceSchema = [
     margin: 1.55rem 0 0;
     color: rgba(226, 218, 208, 0.82);
     font-size: clamp(1.02rem, 1.18vw, 1.1rem);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.68;
     text-wrap: pretty;
   }
@@ -2258,7 +1941,7 @@ const creationServiceSchema = [
     color: #f5f2ef;
     font-family: 'Newsreader', serif;
     font-size: clamp(1.42rem, 1.72vw, 1.64rem);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.055em;
     line-height: 1.08;
     overflow-wrap: anywhere;
@@ -2269,7 +1952,7 @@ const creationServiceSchema = [
     margin: 0.68rem 0 0;
     color: rgba(226, 218, 208, 0.74);
     font-size: clamp(0.88rem, 0.98vw, 0.94rem);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.48;
     text-wrap: pretty;
   }
@@ -2317,78 +2000,12 @@ const creationServiceSchema = [
   }
 
   .differentials-section {
-    min-height: 100svh;
+    min-height: auto;
     padding: clamp(7.2rem, 8.6vw, 8.7rem) clamp(1.5rem, 6.25vw, 5.85rem)
       clamp(5.2rem, 6vw, 6rem);
     overflow: hidden;
   }
 
-  .differentials-section::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -4;
-    background:
-      radial-gradient(
-        circle at 23% 44%,
-        rgba(218, 176, 101, 0.13),
-        transparent 31rem
-      ),
-      radial-gradient(
-        ellipse at 72% 48%,
-        rgba(229, 196, 135, 0.1),
-        transparent 34rem
-      ),
-      linear-gradient(115deg, #0a0b0b 0%, #151514 54%, #090a0a 100%);
-  }
-
-  .differentials-section::after,
-  .portfolio-section::after,
-  .faq-section::after,
-  .creation-contact::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -3;
-    background:
-      linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0.015) 1px,
-        transparent 1px
-      ),
-      linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.011) 1px,
-        transparent 1px
-      );
-    background-size: 4rem 4rem;
-    mask-image: radial-gradient(circle at 50% 50%, black, transparent 70%);
-    opacity: 0.17;
-  }
-
-  .differentials-section__glow,
-  .portfolio-section__glow,
-  .creation-contact__glow {
-    position: absolute;
-    inset: 0;
-    z-index: -2;
-    pointer-events: none;
-  }
-
-  .differentials-section__glow {
-    background:
-      linear-gradient(
-        90deg,
-        rgba(7, 7, 7, 0.78),
-        rgba(7, 7, 7, 0.08) 52%,
-        rgba(7, 7, 7, 0.46)
-      ),
-      radial-gradient(
-        ellipse at 73% 55%,
-        rgba(229, 196, 135, 0.16),
-        transparent 34rem
-      );
-  }
 
   .differentials-section__inner {
     display: grid;
@@ -2396,7 +2013,7 @@ const creationServiceSchema = [
     grid-template-areas: 'content media';
     align-items: center;
     gap: clamp(2rem, 4.2vw, 4.1rem) clamp(2rem, 4vw, 3.8rem);
-    width: min(100%, 84.8rem);
+    width: min(100%, 78rem);
     min-height: calc(100svh - 12.2rem);
     margin: 0 auto;
   }
@@ -2487,7 +2104,7 @@ const creationServiceSchema = [
     color: #f5f2ef;
     font-family: 'Newsreader', serif;
     font-size: clamp(3.18rem, 4.15vw, 4.42rem);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.058em;
     line-height: 0.96;
     text-wrap: balance;
@@ -2507,7 +2124,7 @@ const creationServiceSchema = [
   .creation-contact__copy h2 em {
     color: #dfbd79;
     font-style: italic;
-    font-weight: 600;
+    font-weight: 400;
   }
 
   .differentials-lead,
@@ -2516,7 +2133,7 @@ const creationServiceSchema = [
     margin: 1.25rem 0 0;
     color: rgba(226, 218, 208, 0.82);
     font-size: clamp(1.02rem, 1.18vw, 1.1rem);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.68;
     text-wrap: pretty;
   }
@@ -2568,7 +2185,7 @@ const creationServiceSchema = [
     color: #dfbd79;
     font-family: 'Newsreader', serif;
     font-size: clamp(1.28rem, 1.55vw, 1.46rem);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.055em;
     line-height: 1.08;
     text-wrap: balance;
@@ -2578,7 +2195,7 @@ const creationServiceSchema = [
     margin: 0.52rem 0 0;
     color: rgba(226, 218, 208, 0.72);
     font-size: clamp(0.86rem, 0.95vw, 0.92rem);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.44;
     text-wrap: pretty;
   }
@@ -2593,7 +2210,7 @@ const creationServiceSchema = [
     grid-template-columns: minmax(28rem, 0.85fr) minmax(38rem, 1.15fr);
     align-items: start;
     gap: clamp(2rem, 5vw, 5rem);
-    width: min(100%, 84.8rem);
+    width: min(100%, 78rem);
     margin: 0 auto;
   }
 
@@ -2653,7 +2270,7 @@ const creationServiceSchema = [
     color: #dfbd79;
     font-size: 0.82rem;
     font-weight: 800;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.13em;
     line-height: 1;
     text-transform: uppercase;
   }
@@ -2675,7 +2292,7 @@ const creationServiceSchema = [
     margin: 1.55rem 0 0;
     color: rgba(226, 218, 208, 0.8);
     font-size: clamp(1rem, 1.18vw, 1.12rem);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.65;
   }
 
@@ -2741,7 +2358,7 @@ const creationServiceSchema = [
   .faq-item__question {
     font-family: 'Newsreader', serif;
     font-size: clamp(1.42rem, 1.76vw, 1.68rem);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.045em;
     line-height: 1.08;
     text-wrap: pretty;
@@ -2776,7 +2393,7 @@ const creationServiceSchema = [
     margin: 0 4.8rem 2.25rem 5.4rem;
     color: rgba(226, 218, 208, 0.74);
     font-size: clamp(1rem, 1.18vw, 1.09rem);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.72;
     text-wrap: pretty;
   }
@@ -2833,7 +2450,7 @@ const creationServiceSchema = [
     color: #dfbd79;
     font-family: 'Newsreader', serif;
     font-size: clamp(1.8rem, 2.35vw, 2.18rem);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.052em;
     line-height: 1.1;
   }
@@ -2849,7 +2466,7 @@ const creationServiceSchema = [
     margin: 0;
     color: rgba(226, 218, 208, 0.82);
     font-size: 1rem;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.45;
   }
 
@@ -2962,44 +2579,12 @@ const creationServiceSchema = [
     overflow: hidden;
   }
 
-  .portfolio-section::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -4;
-    background:
-      radial-gradient(
-        circle at 50% 23%,
-        rgba(218, 176, 101, 0.16),
-        transparent 28rem
-      ),
-      radial-gradient(
-        ellipse at 18% 74%,
-        rgba(229, 196, 135, 0.08),
-        transparent 30rem
-      ),
-      linear-gradient(115deg, #101111 0%, #171716 48%, #0c0d0d 100%);
-  }
 
-  .portfolio-section__glow {
-    background:
-      linear-gradient(
-        180deg,
-        rgba(7, 7, 7, 0.52),
-        rgba(7, 7, 7, 0.08) 42%,
-        rgba(7, 7, 7, 0.46)
-      ),
-      radial-gradient(
-        ellipse at 50% 18%,
-        rgba(229, 196, 135, 0.11),
-        transparent 28rem
-      );
-  }
 
   .portfolio-section__inner {
     display: grid;
     justify-items: center;
-    width: min(100%, 84.8rem);
+    width: min(100%, 78rem);
     margin: 0 auto;
   }
 
@@ -3019,7 +2604,7 @@ const creationServiceSchema = [
     color: #f5f2ef;
     font-family: 'Newsreader', serif;
     font-size: clamp(3.55rem, 4.9vw, 5rem);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.058em;
     line-height: 0.96;
     text-wrap: balance;
@@ -3034,7 +2619,7 @@ const creationServiceSchema = [
   .portfolio-copy h2 em {
     color: #dfbd79;
     font-style: italic;
-    font-weight: 600;
+    font-weight: 400;
   }
 
   .portfolio-copy > p {
@@ -3042,7 +2627,7 @@ const creationServiceSchema = [
     margin: 1.55rem 0 0;
     color: rgba(226, 218, 208, 0.78);
     font-size: clamp(1rem, 1.12vw, 1.08rem);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.48;
     text-wrap: pretty;
   }
@@ -3061,7 +2646,7 @@ const creationServiceSchema = [
     min-width: 0;
     overflow: hidden;
     border: 1px solid rgba(229, 218, 207, 0.18);
-    border-radius: 0.45rem;
+    border-radius: var(--radius);
     background:
       linear-gradient(145deg, rgba(255, 255, 255, 0.03), transparent 42%),
       rgba(16, 17, 16, 0.68);
@@ -3137,7 +2722,7 @@ const creationServiceSchema = [
     color: #f5f2ef;
     font-family: 'Newsreader', serif;
     font-size: clamp(1.82rem, 2.25vw, 2.18rem);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.055em;
     line-height: 1;
     text-wrap: balance;
@@ -3149,7 +2734,7 @@ const creationServiceSchema = [
     color: #dfbd79;
     font-size: 0.7rem;
     font-weight: 800;
-    letter-spacing: 0.26em;
+    letter-spacing: 0.13em;
     line-height: 1.35;
     text-transform: uppercase;
   }
@@ -3198,7 +2783,7 @@ const creationServiceSchema = [
     color: #dfbd79;
     font-size: 0.74rem;
     font-weight: 800;
-    letter-spacing: 0.28em;
+    letter-spacing: 0.13em;
     text-transform: uppercase;
     transition:
       border-color var(--duration-hover) ease,
@@ -3213,47 +2798,20 @@ const creationServiceSchema = [
   }
 
   .creation-contact {
-    min-height: 100svh;
+    min-height: auto;
     padding: clamp(7.2rem, 8.8vw, 9rem) clamp(1.5rem, 6.25vw, 5.85rem)
       clamp(4.6rem, 5.6vw, 5.8rem);
     overflow: hidden;
   }
 
-  .creation-contact::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -4;
-    background:
-      radial-gradient(
-        circle at 75% 48%,
-        rgba(218, 176, 101, 0.2),
-        transparent 32rem
-      ),
-      linear-gradient(115deg, #0a0b0b 0%, #151514 54%, #090a0a 100%);
-  }
 
-  .creation-contact__glow {
-    background:
-      linear-gradient(
-        90deg,
-        rgba(7, 7, 7, 0.88),
-        rgba(7, 7, 7, 0.16) 56%,
-        rgba(7, 7, 7, 0.48)
-      ),
-      radial-gradient(
-        ellipse at 76% 56%,
-        rgba(229, 196, 135, 0.16),
-        transparent 34rem
-      );
-  }
 
   .creation-contact__inner {
     display: grid;
     grid-template-columns: minmax(32rem, 0.92fr) minmax(30rem, 1.08fr);
     align-items: center;
     gap: clamp(2rem, 4vw, 3.8rem);
-    width: min(100%, 84.8rem);
+    width: min(100%, 78rem);
     min-height: calc(100svh - 12.6rem);
     margin: 0 auto;
   }
@@ -3344,7 +2902,7 @@ const creationServiceSchema = [
     color: #f5f2ef;
     font-family: 'Newsreader', serif;
     font-size: clamp(1.35rem, 1.65vw, 1.7rem);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.045em;
     line-height: 1.05;
   }
@@ -3353,7 +2911,7 @@ const creationServiceSchema = [
     margin: 0.75rem 0 1.1rem;
     color: rgba(226, 218, 208, 0.74);
     font-size: 0.72rem;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.45;
   }
 
@@ -3384,7 +2942,7 @@ const creationServiceSchema = [
     background: linear-gradient(135deg, #f0cd86, #d8aa55);
     font-size: 0.68rem;
     font-weight: 800;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.13em;
     text-transform: uppercase;
   }
 
@@ -3454,79 +3012,13 @@ const creationServiceSchema = [
     margin: 0.55rem 0 0;
     color: rgba(226, 218, 208, 0.68);
     font-size: 0.88rem;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.42;
-  }
-
-  .solutions-section::before,
-  .results-section::before,
-  .process-section::before,
-  .included-section::before,
-  .differentials-section::before,
-  .portfolio-section::before,
-  .creation-contact::before {
-    background:
-      radial-gradient(
-        circle at 73% 42%,
-        rgba(218, 176, 101, 0.18),
-        transparent 31rem
-      ),
-      radial-gradient(
-        ellipse at 24% 74%,
-        rgba(229, 196, 135, 0.08),
-        transparent 31rem
-      ),
-      linear-gradient(115deg, #0a0b0b 0%, #151514 54%, #090a0a 100%);
-  }
-
-  .solutions-section::after,
-  .results-section::after,
-  .process-section::after,
-  .included-section::after,
-  .differentials-section::after,
-  .portfolio-section::after,
-  .faq-section::after,
-  .creation-contact::after {
-    background:
-      linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0.015) 1px,
-        transparent 1px
-      ),
-      linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.011) 1px,
-        transparent 1px
-      );
-    background-size: 4rem 4rem;
-    mask-image: radial-gradient(circle at 50% 50%, black, transparent 70%);
-    opacity: 0.17;
-  }
-
-  .solutions-section__glow,
-  .results-section__glow,
-  .process-section__glow,
-  .included-section__glow,
-  .differentials-section__glow,
-  .portfolio-section__glow,
-  .creation-contact__glow {
-    background:
-      linear-gradient(
-        90deg,
-        rgba(7, 7, 7, 0.78),
-        rgba(7, 7, 7, 0.12) 54%,
-        rgba(7, 7, 7, 0.48)
-      ),
-      radial-gradient(
-        ellipse at 72% 48%,
-        rgba(229, 196, 135, 0.14),
-        transparent 34rem
-      );
   }
 
   @media (max-width: 1180px) {
     .creation-hero__inner {
-      grid-template-columns: minmax(24rem, 0.9fr) minmax(30rem, 1.1fr);
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
     }
 
     .creation-hero h1 {
@@ -3558,16 +3050,30 @@ const creationServiceSchema = [
     }
 
     .results-section__inner {
-      grid-template-columns: minmax(21rem, 0.76fr) minmax(33rem, 1.24fr);
+      grid-template-columns: minmax(0, 0.76fr) minmax(0, 1.24fr);
+      grid-template-areas:
+        'copy cards'
+        'media media';
       gap: 1.45rem 2.5rem;
+    }
+
+    .results-copy {
+      align-self: start;
     }
 
     .results-copy h2 {
       font-size: clamp(3.06rem, 4.93vw, 4.25rem);
     }
 
+    .results-media {
+      justify-self: center;
+      width: min(100%, 40rem);
+      margin: 1rem 0 0;
+    }
+
     .results-media img {
-      width: min(42rem, 48vw);
+      width: 100%;
+      max-width: 100%;
     }
 
     .results-card {
@@ -3575,7 +3081,7 @@ const creationServiceSchema = [
     }
 
     .process-section__inner {
-      grid-template-columns: minmax(23rem, 0.78fr) minmax(33rem, 1.22fr);
+      grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
       column-gap: 2rem;
     }
 
@@ -3588,7 +3094,7 @@ const creationServiceSchema = [
     }
 
     .included-section__inner {
-      grid-template-columns: minmax(34rem, 1.06fr) minmax(27rem, 0.94fr);
+      grid-template-columns: minmax(0, 1.06fr) minmax(0, 0.94fr);
       column-gap: 2rem;
     }
 
@@ -3611,7 +3117,7 @@ const creationServiceSchema = [
     }
 
     .differentials-section__inner {
-      grid-template-columns: minmax(29rem, 1fr) minmax(28rem, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       column-gap: 2rem;
     }
 
@@ -3632,7 +3138,7 @@ const creationServiceSchema = [
 
     .differential-card {
       min-height: 10.8rem;
-      padding-inline: 1.15rem;
+      padding-inline: 1.25rem;
     }
 
     .portfolio-copy h2 {
@@ -3649,16 +3155,16 @@ const creationServiceSchema = [
     }
 
     .portfolio-card__meta small {
-      letter-spacing: 0.2em;
+      letter-spacing: 0.13em;
     }
 
     .faq-section__inner {
-      grid-template-columns: minmax(24rem, 0.82fr) minmax(33rem, 1.18fr);
+      grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
       gap: 2.4rem;
     }
 
     .creation-contact__inner {
-      grid-template-columns: minmax(29rem, 0.9fr) minmax(31rem, 1.1fr);
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
       gap: 1.7rem;
     }
 
@@ -3671,6 +3177,25 @@ const creationServiceSchema = [
       bottom: 23%;
       width: clamp(12.8rem, 18vw, 15rem);
       padding: 1.25rem 1.05rem 1rem;
+    }
+
+    .results-section__inner > *,
+    .process-section__inner > *,
+    .included-section__inner > *,
+    .differentials-section__inner > *,
+    .faq-section__inner > *,
+    .creation-contact__inner > * {
+      min-width: 0;
+    }
+
+    .process-media {
+      margin-right: 0;
+      transform: none;
+    }
+
+    .process-media img,
+    .included-media img {
+      max-width: 100%;
     }
   }
 
@@ -4140,7 +3665,7 @@ const creationServiceSchema = [
       gap: 0.75rem;
       display: flex;
       justify-content: space-between;
-      padding-inline: 0.9rem;
+      padding-inline: 1.25rem;
     }
 
     .creation-brand {
@@ -4160,7 +3685,7 @@ const creationServiceSchema = [
     }
 
     .creation-hero {
-      padding-inline: 0.9rem;
+      padding-inline: 1.25rem;
     }
 
     .creation-hero__inner,
@@ -4173,7 +3698,7 @@ const creationServiceSchema = [
     .creation-eyebrow {
       margin-bottom: 1.35rem;
       font-size: 0.64rem;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.13em;
     }
 
     .creation-hero h1 {
@@ -4200,8 +3725,8 @@ const creationServiceSchema = [
       width: 100%;
       min-height: 3.35rem;
       padding-inline: 1rem;
-      font-size: 0.68rem;
-      letter-spacing: 0.18em;
+      font-size: 0.82rem;
+      letter-spacing: 0.01em;
     }
 
     .creation-features {
@@ -4226,13 +3751,13 @@ const creationServiceSchema = [
     }
 
     .solutions-section {
-      padding-inline: 0.9rem;
+      padding-inline: 1.25rem;
     }
 
     .solutions-eyebrow {
       margin-bottom: 1.35rem;
       font-size: 0.64rem;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.13em;
     }
 
     .solutions-copy h2 {
@@ -4297,8 +3822,8 @@ const creationServiceSchema = [
       margin-top: 1rem;
       padding-block: 0;
       padding-inline: 0.78rem 0.68rem;
-      font-size: 0.6rem;
-      letter-spacing: 0.16em;
+      font-size: 0.75rem;
+      letter-spacing: normal;
     }
 
     .solution-card__cta .material-symbols-outlined {
@@ -4312,13 +3837,13 @@ const creationServiceSchema = [
     }
 
     .results-section {
-      padding-inline: 0.9rem;
+      padding-inline: 1.25rem;
     }
 
     .results-eyebrow {
       margin-bottom: 1.35rem;
       font-size: 0.64rem;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.13em;
     }
 
     .results-copy h2 {
@@ -4371,13 +3896,13 @@ const creationServiceSchema = [
     }
 
     .process-section {
-      padding-inline: 0.9rem;
+      padding-inline: 1.25rem;
     }
 
     .process-eyebrow {
       margin-bottom: 1.35rem;
       font-size: 0.64rem;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.13em;
     }
 
     .process-copy h2 {
@@ -4425,13 +3950,13 @@ const creationServiceSchema = [
     }
 
     .included-section {
-      padding-inline: 0.9rem;
+      padding-inline: 1.25rem;
     }
 
     .included-eyebrow {
       margin-bottom: 1.35rem;
       font-size: 0.64rem;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.13em;
     }
 
     .included-copy h2 {
@@ -4483,7 +4008,7 @@ const creationServiceSchema = [
     .portfolio-section,
     .faq-section,
     .creation-contact {
-      padding-inline: 0.9rem;
+      padding-inline: 1.25rem;
     }
 
     .differentials-eyebrow,
@@ -4492,7 +4017,7 @@ const creationServiceSchema = [
     .contact-eyebrow {
       margin-bottom: 1.35rem;
       font-size: 0.64rem;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.13em;
     }
 
     .differentials-copy h2,
@@ -4539,7 +4064,7 @@ const creationServiceSchema = [
       margin-top: 2.35rem;
       padding-inline: 1rem;
       font-size: 0.66rem;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.13em;
     }
 
     .differentials-lead,
@@ -4564,6 +4089,7 @@ const creationServiceSchema = [
       column-gap: 0.9rem;
       min-height: 0;
       padding: 1.18rem 1.15rem;
+      text-align: left;
     }
 
     .differential-card__icon {
@@ -4675,12 +4201,12 @@ const creationServiceSchema = [
 
     .contact-form-card p,
     .contact-form-card small {
-      font-size: 0.58rem;
+      font-size: 0.75rem;
     }
 
     .contact-form-card > span {
       min-height: 1.85rem;
-      font-size: 0.58rem;
+      font-size: 0.75rem;
     }
 
     .contact-form-card__message {

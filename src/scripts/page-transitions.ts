@@ -1,5 +1,4 @@
 import barba from '@barba/core';
-import gsap from 'gsap';
 import { cleanupLandingMotion, initLandingMotion } from './landing-motion';
 import { initInsightPost } from './insight-post';
 import { cleanupPortfolioFilters, initPortfolioFilters } from './portfolio-filters';
@@ -24,15 +23,20 @@ let pendingHash = '';
 const reduceMotion = () =>
   window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-function toPromise(targets: gsap.TweenTarget, vars: gsap.TweenVars) {
-  const durationMs =
-    typeof vars.duration === 'number' ? Math.ceil(vars.duration * 1000) : 0;
+// WAAPI opacity runs on the compositor, so the fade keeps its frames while
+// the main thread parses and lays out the incoming page.
+function fade(element: HTMLElement, to: 0 | 1, duration: number) {
+  const animation = element.animate(
+    [{ opacity: to === 1 ? 0 : 1 }, { opacity: to }],
+    { duration, easing: 'cubic-bezier(0.23, 1, 0.32, 1)', fill: 'forwards' },
+  );
 
-  gsap.to(targets, vars);
-
-  return new Promise<void>((resolve) => {
-    window.setTimeout(resolve, durationMs + 80);
-  });
+  return animation.finished
+    .catch(() => undefined)
+    .then(() => {
+      element.style.opacity = to === 1 ? '' : '0';
+      animation.cancel();
+    });
 }
 
 function getContainerRoot() {
@@ -214,31 +218,22 @@ function initBarba() {
           cleanupPageScripts();
 
           if (reduceMotion()) {
-            gsap.set(current.container, { autoAlpha: 0 });
+            current.container.style.opacity = '0';
             return;
           }
 
-          return toPromise(current.container, {
-            autoAlpha: 0,
-            duration: 0.15,
-            ease: 'power2.out',
-          });
+          return fade(current.container, 0, 150);
         },
         beforeEnter({ next }) {
-          gsap.set(next.container, { autoAlpha: 0 });
+          next.container.style.opacity = '0';
         },
         enter({ next }) {
           if (reduceMotion()) {
-            gsap.set(next.container, { autoAlpha: 1 });
+            next.container.style.opacity = '';
             return;
           }
 
-          return toPromise(next.container, {
-            autoAlpha: 1,
-            duration: 0.2,
-            ease: 'power3.out',
-            clearProps: 'opacity,visibility',
-          });
+          return fade(next.container, 1, 200);
         },
       },
     ],
