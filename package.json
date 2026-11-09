@@ -8,17 +8,21 @@
     "start": "astro dev",
     "build": "astro build && node scripts/patch-build-assets.mjs",
     "test": "vitest run",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "dev:briefing": "node --env-file=.env.local scripts/dev-briefing.mjs"
   },
   "dependencies": {
     "@barba/core": "^2.10.3",
+    "@neondatabase/serverless": "^1.2.0",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
     "astro": "^5.0.0",
-    "gsap": "^3.13.0"
+    "gsap": "^3.13.0",
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@astrojs/sitemap": "^3.7.2",
+    "@types/node": "^26.6.6",
     "jsdom": "^29.0.2",
     "sharp": "0.34.5",
     "vitest": "^4.1.4"

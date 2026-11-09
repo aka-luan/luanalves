@@ -5,3 +5,7 @@ dist
 .tmp-dev
 .superpowers/
 .seo-cache/
+.vercel
+.env*
+
+!.env.example

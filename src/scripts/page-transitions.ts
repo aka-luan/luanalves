@@ -15,6 +15,8 @@ declare global {
   }
 }
 
+let cleanupBriefing: Cleanup = () => {};
+let briefingBoot = 0;
 let cleanupInsightPost: Cleanup = () => {};
 let cleanupPortfolioPageFilters: Cleanup = () => {};
 let pendingHash = '';
@@ -40,6 +42,16 @@ function getContainerRoot() {
 function bootPageScripts() {
   const root = getContainerRoot();
 
+  const currentBriefingBoot = ++briefingBoot;
+  cleanupBriefing();
+  const briefingForm = root.querySelector('#briefing-form');
+  if (briefingForm) {
+    void import('./briefing').then(({ initBriefing }) => {
+      if (currentBriefingBoot === briefingBoot && briefingForm.isConnected) {
+        cleanupBriefing = initBriefing(root);
+      }
+    });
+  }
   initLandingMotion();
   cleanupInsightPost();
   cleanupPortfolioPageFilters();
@@ -50,6 +62,9 @@ function bootPageScripts() {
 }
 
 function cleanupPageScripts() {
+  briefingBoot++;
+  cleanupBriefing();
+  cleanupBriefing = () => {};
   cleanupLandingMotion();
   cleanupInsightPost();
   cleanupPortfolioPageFilters();
@@ -122,7 +137,11 @@ function shouldPrevent({ el, href }: { el: HTMLAnchorElement; href: string }) {
   const isSamePageHash =
     url.pathname === current.pathname && url.search === current.search && Boolean(url.hash);
 
-  return Boolean(target) || download || isExternal || isSamePageHash;
+  return (
+    Boolean(document.querySelector('#briefing-form')) ||
+    url.pathname.replace(/\/$/, '') === '/criar-site' ||
+    Boolean(target) || download || isExternal || isSamePageHash
+  );
 }
 
 function scrollToTarget(hash = window.location.hash) {

@@ -11,6 +11,7 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
+      filter: (page) => !new URL(page).pathname.startsWith('/criar-site'),
       serialize(item) {
         return {
           ...item,

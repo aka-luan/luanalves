@@ -1,0 +1,286 @@
+.briefing-shell {
+  width: min(100% - 2rem, 44rem);
+  margin: auto;
+  padding: 2rem 0 5rem;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+.briefing-shell .brand {
+  color: var(--primary);
+  font-weight: 700;
+}
+.briefing-intro {
+  padding: 3.5rem 0 2rem;
+}
+.briefing-intro h1 {
+  font-family: Newsreader, serif;
+  font-weight: 500;
+  font-size: clamp(2.8rem, 9vw, 4.5rem);
+  line-height: 1.04;
+  margin: 1rem 0 1.5rem;
+}
+.briefing-intro > p:not(.eyebrow),
+.bf-lead {
+  color: var(--muted);
+  max-width: 38rem;
+}
+.briefing-shell details {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.briefing-shell summary {
+  cursor: pointer;
+  color: var(--primary);
+  padding: 0.5rem 0;
+}
+.briefing-shell h2 {
+  font-family: Newsreader, serif;
+  font-size: 2.2rem;
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 0 0 0.6rem;
+}
+.briefing-shell h3 {
+  font-size: 1.1rem;
+  margin-top: 1.8rem;
+}
+.briefing-shell [hidden] {
+  display: none !important;
+}
+.bf-progress {
+  border-top: 1px solid var(--line);
+  padding: 1.4rem 0 2rem;
+}
+.bf-progress p {
+  font-size: 0.85rem;
+  color: var(--primary);
+}
+.bf-progress progress {
+  width: 100%;
+  height: 5px;
+  accent-color: var(--primary);
+  border: 0;
+  background: var(--surface-strong);
+}
+.bf-progress progress::-webkit-progress-bar {
+  background: var(--surface-strong);
+}
+.bf-progress progress::-webkit-progress-value {
+  background: var(--primary);
+}
+.bf-field {
+  margin: 1.6rem 0;
+}
+.bf-field label,
+.briefing-shell legend {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.bf-field label span,
+.briefing-shell legend span {
+  font-weight: 400;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.briefing-shell input:not([type="checkbox"]):not([type="radio"]),
+.briefing-shell textarea,
+.briefing-shell select {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 3rem;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  background: var(--surface);
+  color: var(--text);
+  padding: 0.8rem;
+  font: inherit;
+  font-size: 16px;
+  color-scheme: dark;
+}
+.briefing-shell textarea {
+  resize: vertical;
+}
+.briefing-shell :is(input, textarea, select, button, summary):focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+.bf-help {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin: 0.5rem 0;
+}
+.bf-error {
+  color: #ffb4ab;
+  font-size: 0.87rem;
+  margin: 0.4rem 0;
+}
+.bf-error:empty {
+  display: none;
+}
+.briefing-shell [aria-invalid="true"] {
+  border-color: #ffb4ab !important;
+}
+.briefing-shell fieldset {
+  border: 0;
+  padding: 0;
+  margin: 1.7rem 0;
+  min-width: 0;
+}
+.bf-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin: 1rem 0;
+  cursor: pointer;
+  padding: 0.4rem 0;
+}
+.bf-check input {
+  flex: 0 0 auto;
+  margin-top: 0.35rem;
+  width: 1.15rem;
+  height: 1.15rem;
+  accent-color: var(--primary);
+}
+.bf-note,
+.bf-review {
+  padding: 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  margin: 1.8rem 0;
+}
+.bf-note p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 0;
+}
+.bf-item {
+  border-left: 2px solid var(--line);
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+}
+.bf-choices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+}
+.bf-choices label {
+  position: relative;
+  cursor: pointer;
+  min-width: 0;
+}
+.bf-choices input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+.bf-choices span {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--line);
+  padding: 0.9rem;
+  min-height: 3.5rem;
+  font-size: 0.9rem;
+  height: 100%;
+}
+.bf-choices input:checked + span {
+  background: var(--primary);
+  color: var(--primary-ink);
+  border-color: var(--primary);
+}
+.bf-choices input:focus-visible + span {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+.bf-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+.briefing-shell button {
+  font: inherit;
+  min-height: 48px;
+  padding: 0.7rem 1.1rem;
+  cursor: pointer;
+  border: 1px solid var(--line);
+}
+.bf-primary {
+  background: var(--primary);
+  color: var(--primary-ink);
+  font-weight: 700 !important;
+  flex: 1;
+}
+.bf-secondary {
+  background: var(--surface);
+  color: var(--text);
+}
+.briefing-shell button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+.briefing-shell button:hover {
+  border-color: var(--primary);
+}
+.bf-review article {
+  border-top: 1px solid var(--line);
+  padding: 1rem 0;
+}
+.bf-review h4 {
+  margin: 0 0 0.8rem;
+}
+.bf-review dl {
+  margin: 0;
+}
+.bf-review dt {
+  color: var(--muted);
+  font-size: 0.8rem;
+  margin-top: 0.6rem;
+}
+.bf-review dd {
+  margin: 0;
+  white-space: pre-wrap;
+}
+.bf-review button {
+  margin-top: 1rem;
+}
+.bf-honeypot {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+#submission-message {
+  color: #ffb4ab;
+}
+#color-swatches {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+#color-swatches span {
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--muted);
+}
+#briefing-success {
+  padding: 3rem 0;
+}
+#briefing-number {
+  overflow-wrap: anywhere;
+}
+@media (max-width: 380px) {
+  .bf-choices {
+    grid-template-columns: 1fr;
+  }
+  .bf-review {
+    padding: 1rem;
+  }
+  .briefing-shell {
+    width: calc(100% - 1.5rem);
+  }
+}
