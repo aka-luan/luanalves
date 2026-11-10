@@ -765,7 +765,7 @@ const siteInstitucionalInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Se a empresa já tem projetos publicados, o ideal é levar o visitante para exemplos reais em vez de prometer resultado sem mostrar contexto.',
+      text: 'Se a empresa já tem projetos publicados, o ideal é levar o visitante para exemplos reais em vez de prometer resultado sem mostrar contexto. Em uma incorporadora, cada empreendimento faz esse papel; veja <a href="/insights/site-para-incorporadora-o-que-precisa-ter/">o que um site para incorporadora precisa ter</a>.',
     },
     {
       type: 'heading',
@@ -1762,6 +1762,284 @@ const escolherFreelancerInsight: InsightPublishedPost = {
   ],
 };
 
+const siteIncorporadoraInsight: InsightPublishedPost = {
+  title: 'Site para incorporadora: o que precisa ter para vender lançamentos',
+  excerpt:
+    'O que o comprador procura antes de visitar o decorado e como organizar plantas, localização, andamento de obra e contato do comercial em cada empreendimento.',
+  description:
+    'Veja o que um site para incorporadora precisa ter: página por empreendimento, plantas, localização, ficha técnica, andamento de obra e WhatsApp que identifica o lançamento.',
+  category: 'Estrutura',
+  categorySlug: 'desenvolvimento',
+  date: '10 nov. 2026',
+  isoDate: '2026-11-10',
+  readTime: '10 min',
+  slug: 'site-para-incorporadora-o-que-precisa-ter',
+  tags: ['Incorporadora', 'Mercado imobiliário', 'Site institucional', 'WhatsApp'],
+  published: true,
+  heroImage: '/assets/insights/site-para-incorporadora-post.webp',
+  heroImageAlt:
+    'Site da Trésor Incorporações aberto em um notebook e em um celular, com a foto de um terraço e o título "Exclusividade & Sofisticação".',
+  author: {
+    name: 'Luan Alves',
+    role: 'Desenvolvedor web freelancer',
+    bio: 'Desenvolvo sites, blogs e landing pages com foco em performance, SEO técnico e conversão via WhatsApp.',
+  },
+  content: [
+    {
+      type: 'paragraph',
+      text: 'Um site para incorporadora precisa ter uma página para cada empreendimento, com conceito, localização, plantas, metragens, ficha técnica, andamento da obra e um contato que chegue ao comercial com o nome do lançamento. As páginas institucionais apresentam a incorporadora, o padrão dos projetos e os bairros onde ela atua.',
+    },
+    {
+      type: 'paragraph',
+      text: 'O comprador de um imóvel na planta volta ao site várias vezes antes de visitar o decorado. Ele compara plantas, confere o endereço, mostra o projeto para a família e procura sinais de que a obra vai ser entregue. Se cada visita exige procurar informação em PDFs, posts antigos ou conversas de WhatsApp, o site está atrapalhando a venda.',
+    },
+    {
+      type: 'table',
+      caption:
+        'O que o site de uma incorporadora precisa mostrar em cada empreendimento.',
+      columns: ['Elemento', 'O que o comprador quer saber'],
+      rows: [
+        ['Conceito e status', 'Que projeto é esse e se ainda há unidades disponíveis.'],
+        ['Localização', 'Endereço, bairro e o que existe por perto.'],
+        ['Plantas e tipologias', 'Metragem, número de quartos, suítes e vagas de cada unidade.'],
+        ['Perspectivas', 'Como ficam as áreas comuns e o interior do apartamento.'],
+        ['Ficha técnica', 'Autor do projeto, responsável técnico, número de unidades e áreas.'],
+        ['Andamento da obra', 'Em que etapa a construção está.'],
+        ['Book ou material completo', 'Um arquivo para guardar e mostrar a outras pessoas.'],
+        ['Contato identificado', 'Como falar com o comercial sem explicar de qual empreendimento está falando.'],
+      ],
+    },
+    {
+      type: 'heading',
+      id: 'o-que-o-comprador-procura',
+      level: 2,
+      text: 'O que o comprador procura antes de visitar o decorado',
+    },
+    {
+      type: 'paragraph',
+      text: 'A visita ao decorado ou ao stand é o momento em que o corretor tem mais chance de fechar. Antes dela, o comprador usa o site para decidir se a visita vale o deslocamento. As dúvidas costumam ser práticas: o apartamento cabe na rotina da família, o bairro faz sentido, a incorporadora já entregou outros projetos e a obra está andando.',
+    },
+    {
+      type: 'paragraph',
+      text: 'Por isso, um site de incorporadora não pode se resumir a uma galeria de renders com um botão "fale conosco". As imagens criam desejo, mas são as informações concretas que levam o comprador até o comercial.',
+    },
+    {
+      type: 'heading',
+      id: 'uma-pagina-por-empreendimento',
+      level: 2,
+      text: 'Uma página para cada empreendimento',
+    },
+    {
+      type: 'paragraph',
+      text: 'Cada lançamento precisa de um endereço próprio no site, como /empreendimento/nome-do-projeto/. Essa página pode ser compartilhada pelo corretor, usada em anúncios, indexada pelo Google com o nome do empreendimento e atualizada durante toda a obra. Um carrossel na home não faz nada disso.',
+    },
+    {
+      type: 'heading',
+      id: 'conceito-localizacao',
+      level: 3,
+      text: 'Conceito, status e localização',
+    },
+    {
+      type: 'paragraph',
+      text: 'A primeira dobra da página diz o nome do empreendimento, o status (lançamento, em obras, disponível, entregue) e o bairro. Logo abaixo, o conceito em poucas frases e os números que o comprador compara: faixa de metragem, quartos, suítes e vagas. O endereço completo e um mapa ajudam quem quer saber quanto tempo leva até o trabalho ou a escola.',
+    },
+    {
+      type: 'heading',
+      id: 'plantas-perspectivas',
+      level: 3,
+      text: 'Plantas e perspectivas',
+    },
+    {
+      type: 'paragraph',
+      text: 'Separe as perspectivas (áreas comuns, sala, varanda) das plantas de cada tipologia. Plantas precisam abrir em tamanho legível no celular, com nome da tipologia e metragem. É a seção que o comprador mais revisita, e é a que mais sofre quando as imagens entram sem compressão: renders pesados deixam a página lenta justamente em quem está decidindo.',
+    },
+    {
+      type: 'heading',
+      id: 'ficha-tecnica-andamento',
+      level: 3,
+      text: 'Ficha técnica e andamento da obra',
+    },
+    {
+      type: 'paragraph',
+      text: 'A ficha técnica mostra endereço, autor do projeto, responsável técnico, número de unidades, área do terreno e área construída. São dados que o comprador raramente lê com atenção, mas que mostram que existe um projeto aprovado e pessoas responsáveis por ele.',
+    },
+    {
+      type: 'paragraph',
+      text: 'O andamento da obra responde à principal dúvida de quem compra na planta: a obra vai ser entregue? Um bloco com etapas (infraestrutura, estrutura, instalações, acabamento, fachada) e o percentual de cada uma resolve isso, desde que alguém da incorporadora atualize os números. Um andamento parado há meses passa a impressão contrária. Se ninguém vai atualizar, é melhor mostrar só o status e a data da última atualização.',
+    },
+    {
+      type: 'heading',
+      id: 'tabela-e-book',
+      level: 3,
+      text: 'Tabela de preços e book do empreendimento',
+    },
+    {
+      type: 'paragraph',
+      text: 'Publicar ou não a tabela é uma decisão comercial da incorporadora. Muitas preferem passar valores e condições na conversa com o corretor. Nesse caso, o site deve dizer como pedir a tabela e o que acontece depois do pedido, em vez de esconder o assunto. O book do empreendimento para download funciona bem como material para o comprador guardar e encaminhar.',
+    },
+    {
+      type: 'heading',
+      id: 'contato-com-o-comercial',
+      level: 2,
+      text: 'O contato que chega ao comercial com o nome do lançamento',
+    },
+    {
+      type: 'paragraph',
+      text: 'Na maioria das incorporadoras, a conversa de venda acontece no WhatsApp. O botão de cada página de empreendimento deve abrir a conversa com uma mensagem pronta, como "Olá! Vi o site e quero saber mais sobre o Residencial X". O corretor já sabe de qual projeto se trata, e a incorporadora consegue contar quantos contatos cada lançamento gerou.',
+    },
+    {
+      type: 'list',
+      items: [
+        'Um botão de WhatsApp visível em cada página de empreendimento, inclusive no celular.',
+        'Mensagem pré-preenchida com o nome do empreendimento.',
+        'Número do comercial responsável por aquele lançamento, quando a equipe é dividida por projeto.',
+        'Um cadastro opcional para quem quer receber novos lançamentos por e-mail.',
+        'Evento de clique no WhatsApp registrado no analytics, separado por empreendimento.',
+      ],
+    },
+    {
+      type: 'heading',
+      id: 'paginas-institucionais',
+      level: 2,
+      text: 'As páginas institucionais da incorporadora',
+    },
+    {
+      type: 'paragraph',
+      text: 'O comprador também avalia quem está construindo. A página institucional conta a história da incorporadora, o padrão dos projetos, os bairros onde atua e o grupo ou as empresas parceiras, quando existem. Empreendimentos entregues, com fotos reais e data de entrega, são a prova mais forte que a incorporadora pode mostrar.',
+    },
+    {
+      type: 'paragraph',
+      text: 'A estrutura mínima costuma ser: início, sobre a incorporadora, lista de empreendimentos com filtro por status, uma página por empreendimento e contato com endereço, telefone e horário de atendimento.',
+    },
+    {
+      type: 'heading',
+      id: 'exemplo-tresor',
+      level: 2,
+      text: 'Exemplo: o site da Trésor Incorporações',
+    },
+    {
+      type: 'paragraph',
+      text: 'A <a href="/portfolio/tresor-incorporacoes/">Trésor Incorporações</a> é uma incorporadora de alto padrão de Niterói, e o site dela foi um projeto em que fiz o desenvolvimento e as animações. O menu tem só quatro itens: início, a Trésor, empreendimentos e contato, com atalhos para Instagram, YouTube e WhatsApp.',
+    },
+    {
+      type: 'paragraph',
+      text: 'Em uma consulta ao site em 10/11/2026, a página do empreendimento Trésor Dior reunia status, faixa de metragem, quartos, suítes e vagas, andamento da obra por etapa, perspectivas e plantas separadas por tipologia, ficha técnica com responsáveis e áreas, book para download e contato pelo WhatsApp. A lista de empreendimentos tem filtro por status, e o rodapé traz endereço, telefone, horário de atendimento e um cadastro para receber lançamentos.',
+    },
+    {
+      type: 'paragraph',
+      text: 'A <a href="/portfolio/tymber/">Tymber</a> mostra outro lado do mesmo problema. Ela lança empreendimentos construídos com madeira engenheirada, então o site precisa explicar o sistema construtivo para quem compra antes de apresentar os projetos. Quando o diferencial da incorporadora é técnico, a explicação ganha uma seção própria.',
+    },
+    {
+      type: 'heading',
+      id: 'site-ou-landing-page',
+      level: 2,
+      text: 'Site, landing page ou os dois?',
+    },
+    {
+      type: 'paragraph',
+      text: 'O site da incorporadora é permanente: guarda todos os empreendimentos, a história da marca e o histórico de entregas. Uma <a href="/landing-page/">landing page</a> serve a uma campanha de lançamento específica, com uma única oferta e um único botão. Muitas incorporadoras usam os dois: a landing page recebe o tráfego pago do lançamento, e a página do empreendimento no site continua disponível durante e depois da obra.',
+    },
+    {
+      type: 'heading',
+      id: 'seo-para-incorporadora',
+      level: 2,
+      text: 'SEO para site de incorporadora',
+    },
+    {
+      type: 'paragraph',
+      text: 'Muita gente pesquisa pelo nome do empreendimento depois de ver um anúncio, uma placa ou um post. Se a página do empreendimento tem o nome e o bairro no title e no título principal, ela tem chance de aparecer nessa busca, em vez de um portal imobiliário ou de um anúncio de revenda.',
+    },
+    {
+      type: 'list',
+      items: [
+        'Title e H1 com o nome do empreendimento e o bairro.',
+        'Texto de verdade na página, não só imagens com texto dentro.',
+        'Imagens comprimidas, com dimensões definidas e texto alternativo descritivo.',
+        'Uma URL estável por empreendimento, mantida depois da entrega.',
+        'Links da página institucional e da lista de empreendimentos para cada projeto.',
+      ],
+    },
+    {
+      type: 'heading',
+      id: 'erros-comuns',
+      level: 2,
+      text: 'Erros comuns em sites de incorporadora',
+    },
+    {
+      type: 'list',
+      items: [
+        'Todos os empreendimentos em uma única página, sem endereço próprio para cada um.',
+        'Plantas ilegíveis no celular ou disponíveis só dentro de um PDF.',
+        'Andamento de obra desatualizado.',
+        'Um WhatsApp genérico que obriga o comprador a explicar de qual lançamento está falando.',
+        'Renders sem compressão que deixam a página lenta no 4G.',
+        'Empreendimentos entregues removidos do site, levando junto a prova de entrega.',
+      ],
+    },
+    {
+      type: 'heading',
+      id: 'perguntas-frequentes',
+      level: 2,
+      text: 'Perguntas frequentes',
+    },
+    {
+      type: 'faq',
+      items: [
+        {
+          question: 'Cada empreendimento precisa de uma página própria?',
+          answer:
+            'Sim. Uma página por empreendimento pode ser compartilhada pelo corretor, usada em anúncios, encontrada pelo nome no Google e atualizada durante a obra.',
+        },
+        {
+          question: 'A incorporadora precisa publicar a tabela de preços no site?',
+          answer:
+            'Não. É uma decisão comercial. Se a tabela não for publicada, o site deve explicar como pedi-la e levar o comprador ao contato com o comercial.',
+        },
+        {
+          question: 'Como saber qual empreendimento gerou cada contato?',
+          answer:
+            'Use um botão de WhatsApp por empreendimento, com mensagem pré-preenchida com o nome do projeto, e registre o clique no analytics com essa informação.',
+        },
+        {
+          question: 'Site de incorporadora precisa de blog?',
+          answer:
+            'Não é obrigatório. Ajuda quando a incorporadora quer aparecer em buscas sobre bairros, tipos de imóvel ou sistema construtivo, e tem alguém para publicar com frequência.',
+        },
+      ],
+    },
+    {
+      type: 'heading',
+      id: 'proximo-passo',
+      level: 2,
+      text: 'Próximo passo',
+    },
+    {
+      type: 'paragraph',
+      text: 'Comece listando os empreendimentos e, para cada um, quais informações já existem: plantas, perspectivas, ficha técnica, book e status da obra. Essa lista define as páginas do site e mostra o que falta pedir ao time de projeto ou de marketing.',
+    },
+    {
+      type: 'links',
+      items: [
+        {
+          href: '/site-para-incorporadora/',
+          label: 'Site para incorporadora',
+          text: 'Veja como funciona o serviço de site para incorporadora, com uma página por empreendimento e contato identificado.',
+        },
+        {
+          href: '/portfolio/tresor-incorporacoes/',
+          label: 'Case: site da Trésor Incorporações',
+          text: 'Veja o site de uma incorporadora de alto padrão, com marca, empreendimentos e contato na mesma navegação.',
+        },
+        {
+          href: '/insights/landing-page-ou-site-institucional/',
+          label: 'Landing page ou site institucional',
+          text: 'Entenda quando usar uma landing page de lançamento e quando o site institucional resolve.',
+        },
+      ],
+    },
+  ],
+};
+
 const performanceConversaoInsight: InsightPublishedPost = {
   title: 'Por que a performance do site afeta a conversão?',
   excerpt:
@@ -2059,6 +2337,7 @@ const performanceConversaoInsight: InsightPublishedPost = {
 };
 
 export const insights: InsightPost[] = [
+  siteIncorporadoraInsight,
   performanceConversaoInsight,
   escolherFreelancerInsight,
   checklistInsight,
@@ -3071,7 +3350,7 @@ export const insights: InsightPost[] = [
       },
       {
         type: 'paragraph',
-        text: 'Essa costuma ser a estratégia mais completa. O site institucional reúne serviços, cases e contato, e pode crescer no Google com conteúdo. As landing pages atendem campanhas, anúncios e ofertas pontuais, cada uma com uma única ação.',
+        text: 'Essa costuma ser a estratégia mais completa. O site institucional reúne serviços, cases e contato, e pode crescer no Google com conteúdo. As landing pages atendem campanhas, anúncios e ofertas pontuais, cada uma com uma única ação. Incorporadoras costumam seguir esse modelo: uma página permanente por empreendimento no site e uma landing page para cada campanha de lançamento, como explico no guia de <a href="/insights/site-para-incorporadora-o-que-precisa-ter/">site para incorporadora</a>.',
       },
       {
         type: 'heading',
@@ -3226,6 +3505,10 @@ interface InsightContact {
 }
 
 const insightContacts: Record<string, InsightContact> = {
+  'site-para-incorporadora-o-que-precisa-ter': {
+    label: 'Planejar o site da incorporadora',
+    intent: 'quero organizar as páginas dos empreendimentos e o contato do comercial no site da minha incorporadora',
+  },
   'checklist-lancamento-site-empresarial': {
     label: 'Conversar sobre o lançamento',
     intent: 'quero revisar o lançamento do meu site e alinhar os pontos que precisam ser conferidos antes de publicar',

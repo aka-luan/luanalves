@@ -326,7 +326,7 @@ const basePortfolioProjects = [
 const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
   'tresor-incorporacoes': {
     slug: 'tresor-incorporacoes',
-    relatedInsightSlugs: ['site-institucional-o-que-precisa-ter', 'quanto-tempo-leva-para-criar-um-site-profissional'],
+    relatedInsightSlugs: ['site-para-incorporadora-o-que-precisa-ter', 'site-institucional-o-que-precisa-ter'],
     year: '2025',
     client: 'Trésor Incorporações',
     segment: 'Incorporadora · Alto padrão',
