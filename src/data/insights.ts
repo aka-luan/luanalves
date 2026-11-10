@@ -1913,9 +1913,9 @@ const siteIncorporadoraInsight: InsightPublishedPost = {
     },
     {
       type: 'heading',
-      id: 'exemplo-tresor',
+      id: 'exemplos-do-portfolio',
       level: 2,
-      text: 'Exemplo: o site da Trésor Incorporações',
+      text: 'Exemplos do portfólio: Trésor, Conviva e Tymber',
     },
     {
       type: 'paragraph',
@@ -1924,6 +1924,10 @@ const siteIncorporadoraInsight: InsightPublishedPost = {
     {
       type: 'paragraph',
       text: 'Em uma consulta ao site em 10/11/2026, a página do empreendimento Trésor Dior reunia status, faixa de metragem, quartos, suítes e vagas, andamento da obra por etapa, perspectivas e plantas separadas por tipologia, ficha técnica com responsáveis e áreas, book para download e contato pelo WhatsApp. A lista de empreendimentos tem filtro por status, e o rodapé traz endereço, telefone, horário de atendimento e um cadastro para receber lançamentos.',
+    },
+    {
+      type: 'paragraph',
+      text: 'A <a href="/portfolio/conviva-engenharia/">Conviva Engenharia</a>, do mesmo grupo da Trésor, constrói e vende os próprios empreendimentos em Niterói. Desenvolvi o site a partir do design e da copy da Agência Skyrocket. Em 10/11/2026, o menu listava nove empreendimentos, e a página inicial destacava seis deles, a maioria com tipologias e distância até a praia. O site também tem páginas de stands, blog e portal do cliente, e acompanha o comprador depois da compra, com andamento da obra, entrega e assistência técnica.',
     },
     {
       type: 'paragraph',
