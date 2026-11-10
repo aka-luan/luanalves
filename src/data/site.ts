@@ -689,7 +689,7 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
   },
   'poliana-bentes': {
     slug: 'poliana-bentes',
-    relatedInsightSlugs: ['site-institucional-o-que-precisa-ter', 'quanto-tempo-leva-para-criar-um-site-profissional'],
+    relatedInsightSlugs: ['como-escolher-quem-cria-site-em-belem', 'site-institucional-o-que-precisa-ter'],
     year: '2023',
     client: 'Poliana Bentes',
     segment: 'Consultoria · Relações institucionais',
