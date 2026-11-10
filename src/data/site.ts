@@ -507,7 +507,7 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
   },
   'conviva-engenharia': {
     slug: 'conviva-engenharia',
-    relatedInsightSlugs: ['site-institucional-o-que-precisa-ter', 'quanto-custa-um-site-profissional'],
+    relatedInsightSlugs: ['site-de-construtora-como-mostrar-obras', 'site-institucional-o-que-precisa-ter'],
     year: '2025',
     client: 'Conviva Engenharia',
     segment: 'Engenharia · Imobiliário',

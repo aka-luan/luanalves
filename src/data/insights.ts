@@ -761,7 +761,7 @@ const siteInstitucionalInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Portfólio, depoimentos, logos de clientes, números e cases ajudam a empresa a parecer verificável. O visitante pode abrir um case ou procurar um cliente citado, o que não consegue fazer com um adjetivo.',
+      text: 'Portfólio, depoimentos, logos de clientes, números e cases ajudam a empresa a parecer verificável. O visitante pode abrir um case ou procurar um cliente citado, o que não consegue fazer com um adjetivo. Em uma construtora, essa prova é o portfólio de obras; veja <a href="/insights/site-de-construtora-como-mostrar-obras/">como mostrar obras no site de construtora</a>.',
     },
     {
       type: 'paragraph',
@@ -1762,6 +1762,248 @@ const escolherFreelancerInsight: InsightPublishedPost = {
   ],
 };
 
+const siteConstrutoraInsight: InsightPublishedPost = {
+  title: 'Site de construtora: como mostrar obras e passar confiança',
+  excerpt:
+    'Como organizar o portfólio de obras, as certificações, as etapas do contrato à assistência técnica e os contatos de cada público no site de uma construtora.',
+  description:
+    'Veja o que um site de construtora precisa ter: portfólio de obras com escopo e status, certificações comprováveis, etapas da obra e contatos separados para orçamento, parceria e cliente.',
+  category: 'Estrutura',
+  categorySlug: 'desenvolvimento',
+  date: '10 nov. 2026',
+  isoDate: '2026-11-10',
+  readTime: '10 min',
+  slug: 'site-de-construtora-como-mostrar-obras',
+  tags: ['Construtora', 'Portfólio de obras', 'Site institucional', 'B2B'],
+  published: true,
+  heroImage: '/assets/insights/site-de-construtora-post.webp',
+  heroImageAlt:
+    'Site da Conviva Engenharia aberto em um notebook e em um celular, com o título "Construindo o presente e transformando o futuro".',
+  author: {
+    name: 'Luan Alves',
+    role: 'Desenvolvedor web freelancer',
+    bio: 'Desenvolvo sites, blogs e landing pages com foco em performance, SEO técnico e conversão via WhatsApp.',
+  },
+  content: [
+    {
+      type: 'paragraph',
+      text: 'Um site de construtora precisa mostrar as obras que a empresa executou, com tipologia, local, escopo e status de cada uma, e apresentar as certificações e os responsáveis técnicos que ela pode comprovar. Também precisa separar os contatos de cada público: quem quer orçamento, quem propõe parceria, quem já é cliente e quem quer trabalhar ou fornecer para a empresa.',
+    },
+    {
+      type: 'paragraph',
+      text: 'Quem contrata uma obra está tomando uma decisão cara e difícil de desfazer. A indicação abre a conversa, mas o site é onde o contratante confere se a construtora já fez algo parecido, se tem estrutura para o tamanho do projeto e se vai responder quando surgir um problema.',
+    },
+    {
+      type: 'table',
+      caption: 'O que o site de uma construtora precisa mostrar e o que cada item comprova.',
+      columns: ['Elemento', 'O que comprova'],
+      rows: [
+        ['Portfólio de obras', 'Que a construtora já executou projetos parecidos com o do visitante.'],
+        ['Escopo de cada obra', 'O que a empresa fez de fato: projeto, execução, gerenciamento ou só uma etapa.'],
+        ['Status e ano de entrega', 'Que as obras são concluídas e quando.'],
+        ['Segmentos atendidos', 'Se a empresa trabalha com residencial, comercial, industrial ou infraestrutura.'],
+        ['Certificações e registros', 'Que existe um sistema de qualidade e responsáveis técnicos habilitados.'],
+        ['Etapas da obra', 'Como o cliente acompanha o projeto do contrato à assistência técnica.'],
+        ['Contatos por público', 'Que cada pedido chega à pessoa certa dentro da empresa.'],
+      ],
+    },
+    {
+      type: 'heading',
+      id: 'quem-visita',
+      level: 2,
+      text: 'Quem visita o site de uma construtora',
+    },
+    {
+      type: 'paragraph',
+      text: 'O site de uma construtora atende públicos que querem coisas diferentes. Uma empresa que vai contratar a obra de um galpão quer ver obras industriais e pedir orçamento. Uma incorporadora quer saber se a construtora tem capacidade para executar um empreendimento. Quem comprou um apartamento quer acompanhar a obra ou pedir assistência técnica. Fornecedores e candidatos a vagas também chegam pelo site.',
+    },
+    {
+      type: 'paragraph',
+      text: 'Se o site trata todos como o mesmo visitante, com um único "fale conosco", cada um precisa explicar quem é na primeira mensagem, e o comercial perde tempo separando pedidos de orçamento de currículos.',
+    },
+    {
+      type: 'heading',
+      id: 'portfolio-de-obras',
+      level: 2,
+      text: 'Um portfólio de obras que mostra o que a empresa fez',
+    },
+    {
+      type: 'paragraph',
+      text: 'Uma galeria de fotos sem legenda não diz muito. Cada obra precisa de uma página ou de um bloco próprio com as informações que o contratante usa para comparar:',
+    },
+    {
+      type: 'list',
+      items: [
+        'Tipo de obra e segmento, como residencial multifamiliar, galpão logístico ou reforma comercial.',
+        'Cidade e bairro.',
+        'Área construída e número de pavimentos ou unidades, quando fizer sentido.',
+        'Escopo da construtora: execução completa, gerenciamento, estrutura, acabamento.',
+        'Status (em andamento ou entregue) e ano de entrega.',
+        'Fotos reais da execução e da obra pronta, não só renders.',
+        'Cliente ou incorporadora parceira, quando houver autorização para citar.',
+      ],
+    },
+    {
+      type: 'paragraph',
+      text: 'Filtros por segmento e por status ajudam quando o portfólio passa de uma dúzia de obras. As fotos precisam entrar comprimidas e em tamanho adequado: uma galeria de obra com imagens pesadas trava justamente no celular de quem está avaliando a empresa no canteiro ou no carro.',
+    },
+    {
+      type: 'heading',
+      id: 'certificacoes',
+      level: 2,
+      text: 'Certificações, registros e responsáveis técnicos',
+    },
+    {
+      type: 'paragraph',
+      text: 'Certificações como o PBQP-H (Programa Brasileiro da Qualidade e Produtividade do Habitat) e a ISO 9001 são pedidas por alguns contratantes e programas habitacionais. Se a construtora tem uma delas, o site deve dizer qual é, o nível ou o escopo certificado e a validade. Um selo sem essas informações parece decoração.',
+    },
+    {
+      type: 'paragraph',
+      text: 'O mesmo vale para o registro da empresa no CREA e para os responsáveis técnicos das obras. Mostre só o que a empresa pode comprovar. Um contratante cuidadoso vai conferir, e uma certificação vencida ou inventada destrói a confiança que o resto do site construiu.',
+    },
+    {
+      type: 'heading',
+      id: 'etapas-da-obra',
+      level: 2,
+      text: 'Do contrato à assistência técnica',
+    },
+    {
+      type: 'paragraph',
+      text: 'Explicar as etapas reduz a ansiedade de quem vai contratar ou comprar. Para uma obra contratada, o site pode mostrar como funciona o orçamento, o que entra no contrato, como o cliente recebe os relatórios de andamento e o que acontece na entrega. Para quem vende unidades, as etapas vão da compra à entrega das chaves.',
+    },
+    {
+      type: 'paragraph',
+      text: 'A assistência técnica merece um caminho próprio. O cliente que precisa de um reparo quer saber onde pedir, quais informações enviar e qual é o prazo. Quando esse caminho está claro, ele não precisa ligar para o comercial, e a construtora mostra para os próximos clientes que continua presente depois da entrega.',
+    },
+    {
+      type: 'heading',
+      id: 'contatos-por-publico',
+      level: 2,
+      text: 'Um contato para cada público',
+    },
+    {
+      type: 'list',
+      items: [
+        'Orçamento de obra: formulário ou WhatsApp com tipo de obra, cidade, área aproximada e prazo desejado.',
+        'Parcerias: um canal para incorporadoras, proprietários de terreno e investidores.',
+        'Cliente: acompanhamento de obra e assistência técnica.',
+        'Fornecedores: cadastro de materiais e serviços.',
+        'Trabalhe conosco: envio de currículo, longe do botão de orçamento.',
+      ],
+    },
+    {
+      type: 'paragraph',
+      text: 'Cada botão de WhatsApp pode abrir a conversa com uma mensagem pronta que identifica o tipo de pedido, como "Quero um orçamento para uma obra comercial". O comercial já sabe do que se trata, e a empresa consegue medir quantos pedidos de cada tipo o site gerou.',
+    },
+    {
+      type: 'heading',
+      id: 'exemplo-conviva',
+      level: 2,
+      text: 'Exemplo: o site da Conviva Engenharia',
+    },
+    {
+      type: 'paragraph',
+      text: 'A <a href="/portfolio/conviva-engenharia/">Conviva Engenharia</a> constrói e vende os próprios empreendimentos em Niterói. Desenvolvi o site, o blog e o CMS a partir do design e da copy da Agência Skyrocket.',
+    },
+    {
+      type: 'paragraph',
+      text: 'Em uma consulta ao site em 10/11/2026, a página inicial tinha uma seção "Fases da obra" que explicava cada etapa para o comprador: interesse de compra, contrato, andamento das obras, conclusão da obra, vistoria e entrega das chaves, e assistência técnica. Na mesma página estavam uma seção de resultados com lançamentos, unidades lançadas e área construída, os stands de atendimento com endereço e um link para cada empreendimento. O blog publica conteúdo sobre financiamento, tendências e valorização de imóveis.',
+    },
+    {
+      type: 'paragraph',
+      text: 'A seção de fases é o que mais diferencia o site. Em vez de parar na venda, ela mostra o que acontece até a entrega e depois dela, que é exatamente a dúvida de quem compra um imóvel na planta.',
+    },
+    {
+      type: 'heading',
+      id: 'construtora-e-incorporadora',
+      level: 2,
+      text: 'Quando a construtora também incorpora',
+    },
+    {
+      type: 'paragraph',
+      text: 'Muitas construtoras também lançam os próprios empreendimentos. Nesse caso, o site tem duas funções: provar a capacidade de execução para contratantes e parceiros, e vender unidades para compradores. As obras entregues servem às duas, mas cada empreendimento à venda precisa de uma página própria, com plantas, localização e contato do comercial. O guia de <a href="/insights/site-para-incorporadora-o-que-precisa-ter/">site para incorporadora</a> detalha essa parte.',
+    },
+    {
+      type: 'heading',
+      id: 'erros-comuns',
+      level: 2,
+      text: 'Erros comuns em sites de construtora',
+    },
+    {
+      type: 'list',
+      items: [
+        'Galeria de fotos sem tipo de obra, local, escopo ou ano.',
+        'Só renders, sem nenhuma foto de obra real.',
+        'Selos de certificação sem nível, escopo ou validade.',
+        'Um único formulário para orçamento, currículo e assistência técnica.',
+        'Obras antigas removidas do site, levando junto o histórico de entregas.',
+        'Fotos pesadas que deixam o portfólio lento no celular.',
+      ],
+    },
+    {
+      type: 'heading',
+      id: 'perguntas-frequentes',
+      level: 2,
+      text: 'Perguntas frequentes',
+    },
+    {
+      type: 'faq',
+      items: [
+        {
+          question: 'Cada obra precisa de uma página própria?',
+          answer:
+            'Não é obrigatório. Um bloco por obra com tipo, local, escopo, status e fotos já resolve. Páginas próprias ajudam quando a obra tem muito conteúdo ou quando a empresa quer ser encontrada pelo nome do projeto.',
+        },
+        {
+          question: 'Posso mostrar obras que fiz como subcontratada?',
+          answer:
+            'Sim, desde que o site diga qual parte da obra a empresa executou e que haja autorização para citar o projeto e o cliente.',
+        },
+        {
+          question: 'O site precisa mostrar certificações?',
+          answer:
+            'Só se a empresa tiver certificações válidas. Nesse caso, mostre qual é, o escopo ou nível e a validade.',
+        },
+        {
+          question: 'Site de construtora precisa de blog?',
+          answer:
+            'Não é obrigatório. Ajuda quando a empresa quer aparecer em buscas sobre tipos de obra, financiamento ou bairros onde atua, e tem alguém para publicar com frequência.',
+        },
+      ],
+    },
+    {
+      type: 'heading',
+      id: 'proximo-passo',
+      level: 2,
+      text: 'Próximo passo',
+    },
+    {
+      type: 'paragraph',
+      text: 'Liste as obras que podem entrar no site e, para cada uma, o que você já tem: fotos reais, ano de entrega, área, escopo e autorização do cliente. Essa lista define o portfólio e mostra o que falta reunir antes de começar o projeto.',
+    },
+    {
+      type: 'links',
+      items: [
+        {
+          href: '/site-para-construtora/',
+          label: 'Site para construtora',
+          text: 'Veja como funciona o serviço de site para construtora, com portfólio de obras e contato por tipo de pedido.',
+        },
+        {
+          href: '/portfolio/conviva-engenharia/',
+          label: 'Case: site da Conviva Engenharia',
+          text: 'Veja o site de uma construtora que acompanha o comprador da compra à assistência técnica.',
+        },
+        {
+          href: '/insights/site-para-incorporadora-o-que-precisa-ter/',
+          label: 'Site para incorporadora',
+          text: 'Veja o que muda quando a construtora também lança e vende os próprios empreendimentos.',
+        },
+      ],
+    },
+  ],
+};
+
 const escolherSiteBelemInsight: InsightPublishedPost = {
   title: 'Como escolher quem cria o site da sua empresa em Belém',
   excerpt:
@@ -2125,7 +2367,7 @@ const siteIncorporadoraInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'O comprador também avalia quem está construindo. A página institucional conta a história da incorporadora, o padrão dos projetos, os bairros onde atua e o grupo ou as empresas parceiras, quando existem. Empreendimentos entregues, com fotos reais e data de entrega, são a prova mais forte que a incorporadora pode mostrar.',
+      text: 'O comprador também avalia quem está construindo. A página institucional conta a história da incorporadora, o padrão dos projetos, os bairros onde atua e o grupo ou as empresas parceiras, quando existem. Empreendimentos entregues, com fotos reais e data de entrega, são a prova mais forte que a incorporadora pode mostrar. Quando a mesma empresa também constrói, o <a href="/insights/site-de-construtora-como-mostrar-obras/">guia de site de construtora</a> mostra como apresentar as obras executadas.',
     },
     {
       type: 'paragraph',
@@ -2561,6 +2803,7 @@ const performanceConversaoInsight: InsightPublishedPost = {
 };
 
 export const insights: InsightPost[] = [
+  siteConstrutoraInsight,
   escolherSiteBelemInsight,
   siteIncorporadoraInsight,
   performanceConversaoInsight,
@@ -3730,6 +3973,10 @@ interface InsightContact {
 }
 
 const insightContacts: Record<string, InsightContact> = {
+  'site-de-construtora-como-mostrar-obras': {
+    label: 'Planejar o site da construtora',
+    intent: 'quero organizar o portfólio de obras e os contatos de orçamento no site da minha construtora',
+  },
   'como-escolher-quem-cria-site-em-belem': {
     label: 'Conversar sobre o site em Belém',
     intent: 'quero entender como funciona a criação do site da minha empresa em Belém e o que preciso preparar',
