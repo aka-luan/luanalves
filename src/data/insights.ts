@@ -848,7 +848,7 @@ const siteInstitucionalInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Para negócios com atuação regional, também faz sentido observar como uma página local pode reforçar presença em buscas geográficas, como no caso de criação de sites em Belém.',
+      text: 'Para negócios com atuação regional, o site precisa dizer onde a empresa fica e quais cidades atende, com os mesmos dados do Perfil da Empresa no Google. O guia sobre <a href="/insights/como-escolher-quem-cria-site-em-belem/">como escolher quem cria o site da sua empresa em Belém</a> mostra como conferir isso antes de contratar.',
     },
     {
       type: 'heading',
@@ -1513,7 +1513,7 @@ const escolherFreelancerInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Portfólio relevante não precisa ser do mesmo segmento. O mais importante é enxergar situações próximas: site institucional, geração de leads, catálogo, blog, agendamento ou integração. Pergunte qual foi exatamente a participação do freelancer em cada projeto.',
+      text: 'Portfólio relevante não precisa ser do mesmo segmento. O mais importante é enxergar situações próximas: site institucional, geração de leads, catálogo, blog, agendamento ou integração. Pergunte qual foi exatamente a participação do freelancer em cada projeto. Se a contratação é local, veja também <a href="/insights/como-escolher-quem-cria-site-em-belem/">o que conferir ao escolher quem cria o site em Belém</a>.',
     },
     {
       type: 'heading',
@@ -1756,6 +1756,226 @@ const escolherFreelancerInsight: InsightPublishedPost = {
           href: 'https://wa.me/5591982890565?text=Ol%C3%A1%2C%20Luan!%20Li%20o%20artigo%20sobre%20como%20escolher%20um%20desenvolvedor%20web%20freelancer%20e%20quero%20conversar%20sobre%20meu%20projeto.',
           label: 'Falar no WhatsApp',
           text: 'Se quiser comparar o escopo do seu projeto, me envie uma mensagem e eu te ajudo a organizar os próximos passos.',
+        },
+      ],
+    },
+  ],
+};
+
+const escolherSiteBelemInsight: InsightPublishedPost = {
+  title: 'Como escolher quem cria o site da sua empresa em Belém',
+  excerpt:
+    'O que conferir antes de contratar a criação de sites em Belém: projetos de empresas da região, forma de atendimento, Perfil da Empresa no Google e perguntas para a proposta.',
+  description:
+    'Guia para contratar a criação de sites em Belém: como avaliar projetos locais, atendimento remoto ou presencial, Perfil da Empresa no Google e o que perguntar antes de fechar.',
+  category: 'Mercado',
+  categorySlug: 'freelance',
+  date: '04 dez. 2026',
+  isoDate: '2026-12-04',
+  readTime: '9 min',
+  slug: 'como-escolher-quem-cria-site-em-belem',
+  tags: ['Belém', 'SEO local', 'Contratação', 'Perfil da Empresa no Google'],
+  published: true,
+  heroImage: '/assets/insights/escolher-site-belem-post.webp',
+  heroImageAlt:
+    'Site da consultoria BNTS / Poliana Bentes aberto em um notebook e em um celular, com o título "Construindo o futuro do seu negócio".',
+  author: {
+    name: 'Luan Alves',
+    role: 'Desenvolvedor web freelancer',
+    bio: 'Desenvolvo sites, blogs e landing pages com foco em performance, SEO técnico e conversão via WhatsApp.',
+  },
+  content: [
+    {
+      type: 'paragraph',
+      text: 'Para escolher quem cria o site da sua empresa em Belém, abra sites que a pessoa ou a agência já publicou para empresas da região, pergunte como o atendimento funciona, confirme quem vai cuidar do Perfil da Empresa no Google e peça uma proposta que diga o que entra no projeto. Estar na mesma cidade ajuda, mas não substitui nenhum desses pontos.',
+    },
+    {
+      type: 'paragraph',
+      text: 'Este guia trata do que muda quando a contratação é local. Para os critérios gerais de qualquer contratação, como escopo, contrato e autonomia sobre o domínio, veja <a href="/insights/como-escolher-desenvolvedor-web-freelancer/">como escolher um desenvolvedor web freelancer</a>.',
+    },
+    {
+      type: 'table',
+      caption: 'O que conferir antes de contratar a criação de um site em Belém.',
+      columns: ['O que conferir', 'Como conferir'],
+      rows: [
+        ['Projetos de empresas da região', 'Abra os sites publicados no celular e procure cidade, endereço e telefone de contato.'],
+        ['Participação no projeto', 'Pergunte se a pessoa fez design, texto, desenvolvimento ou tudo.'],
+        ['Forma de atendimento', 'Pergunte como são as reuniões, por qual canal e com quem você vai falar.'],
+        ['Perfil da Empresa no Google', 'Confirme se o perfil fica na conta da sua empresa e se o site e o perfil vão mostrar os mesmos dados.'],
+        ['Informação local no site', 'Pergunte onde a cidade e a região de atendimento vão aparecer no site.'],
+        ['Proposta por escrito', 'Peça páginas, prazos, revisões, suporte e o que fica fora do escopo.'],
+      ],
+    },
+    {
+      type: 'heading',
+      id: 'projetos-da-regiao',
+      level: 2,
+      text: 'Comece pelos sites que já estão no ar',
+    },
+    {
+      type: 'paragraph',
+      text: 'Um print no portfólio mostra o layout, mas não mostra se o site funciona. Peça os endereços dos sites e abra cada um no celular. Veja se o menu funciona, se o botão de WhatsApp abre a conversa, se a página carrega rápido no 4G e se dá para descobrir onde a empresa fica e quem ela atende.',
+    },
+    {
+      type: 'paragraph',
+      text: 'Projetos de empresas de Belém e do Pará mostram que o profissional já precisou apresentar um negócio para o público daqui: cidade e bairros, telefone com DDD 91, endereço, região atendida. Não precisa ser do seu segmento. Uma clínica, uma consultoria e uma construtora têm problemas parecidos na hora de passar confiança.',
+    },
+    {
+      type: 'heading',
+      id: 'remoto-ou-presencial',
+      level: 2,
+      text: 'Atendimento remoto ou presencial',
+    },
+    {
+      type: 'paragraph',
+      text: 'A maior parte de um projeto de site acontece a distância: briefing, envio de textos e fotos, aprovação de layout e revisões. Videochamadas e WhatsApp resolvem essas etapas, e o histórico das conversas fica registrado. Uma reunião presencial ajuda em momentos específicos, como conhecer o espaço da empresa ou alinhar o projeto com vários sócios.',
+    },
+    {
+      type: 'paragraph',
+      text: 'O que importa é saber com quem você vai falar e em quanto tempo as mensagens são respondidas. Pergunte se quem atende é a mesma pessoa que desenvolve o site e o que acontece quando surge uma dúvida no meio do projeto. No meu caso, atendo de Belém com processo remoto, e as conversas acontecem pelo WhatsApp.',
+    },
+    {
+      type: 'heading',
+      id: 'perfil-da-empresa-no-google',
+      level: 2,
+      text: 'O site e o Perfil da Empresa no Google',
+    },
+    {
+      type: 'paragraph',
+      text: 'Quem procura um serviço em Belém costuma ver primeiro o mapa com perfis de empresas e só depois os sites. O Perfil da Empresa no Google e o site trabalham juntos: o perfil aparece no mapa, e o site explica os serviços para quem clica.',
+    },
+    {
+      type: 'list',
+      items: [
+        'O perfil deve ficar na conta Google da sua empresa, não na conta de quem fez o site.',
+        'Nome, endereço e telefone precisam ser iguais no site e no perfil.',
+        'Se a empresa atende no local do cliente e não recebe clientes no próprio endereço, o perfil deve ocultar o endereço e mostrar a área de atendimento.',
+        'O perfil deve ter o link do site, e o site pode mostrar o mapa ou o endereço quando houver atendimento presencial.',
+        'Avaliações vêm de clientes reais. Ninguém consegue prometer uma posição no mapa.',
+      ],
+    },
+    {
+      type: 'heading',
+      id: 'informacao-local-no-site',
+      level: 2,
+      text: 'Como o site deve falar de Belém',
+    },
+    {
+      type: 'paragraph',
+      text: 'Repetir "Belém" em todos os parágrafos não ajuda ninguém. O site precisa dizer onde a empresa fica, quais cidades ou bairros ela atende de verdade e como o cliente chega até ela. Se a empresa atende Belém, Ananindeua e Marituba, essa informação aparece uma vez, de forma clara, na página de serviços ou de contato.',
+    },
+    {
+      type: 'paragraph',
+      text: 'Desconfie de propostas que incluem dezenas de páginas iguais, uma para cada bairro, com o mesmo texto e só o nome trocado. Elas não ajudam o visitante, e o Google tende a tratá-las como conteúdo repetido.',
+    },
+    {
+      type: 'heading',
+      id: 'perguntas-antes-de-contratar',
+      level: 2,
+      text: 'Perguntas para fazer antes de contratar',
+    },
+    {
+      type: 'list',
+      ordered: true,
+      items: [
+        'Quais sites de empresas de Belém ou do Pará você publicou, e o que fez em cada um?',
+        'Quem vai atender o projeto e por qual canal?',
+        'Dá para fazer uma reunião presencial se precisarmos?',
+        'Você configura ou revisa o Perfil da Empresa no Google? Em qual conta ele fica?',
+        'Onde a cidade e a região de atendimento vão aparecer no site?',
+        'O domínio, a hospedagem e o analytics ficam no nome da minha empresa?',
+        'O que acontece depois da publicação, se eu precisar de um ajuste?',
+      ],
+    },
+    {
+      type: 'heading',
+      id: 'exemplo-poliana-bentes',
+      level: 2,
+      text: 'Exemplo: o site da consultoria Poliana Bentes',
+    },
+    {
+      type: 'paragraph',
+      text: 'A <a href="/portfolio/poliana-bentes/">BNTS / Poliana Bentes</a> é uma consultoria sediada em Belém que trabalha com relações institucionais e governamentais para empresas e indústrias no Pará. Desenvolvi o site, o blog e o CMS a partir do design e da copy da Parawara Design.',
+    },
+    {
+      type: 'paragraph',
+      text: 'Em uma consulta ao site em 10/11/2026, a apresentação dizia logo no início que a consultoria fica em Belém e atua em todo o território paraense. A página inicial também citava as associações das quais a BNTS faz parte, ABRIG e IBRAM, mostrava os clientes atendidos e trazia o botão "Agende uma consultoria". O menu tinha páginas de serviços, publicações, agenda, blog e contato. A cidade aparece uma vez, como contexto da empresa, e o restante da página fala do serviço.',
+    },
+    {
+      type: 'heading',
+      id: 'sinais-de-alerta',
+      level: 2,
+      text: 'Sinais de alerta',
+    },
+    {
+      type: 'list',
+      items: [
+        'Promessa de "primeiro lugar no Google em Belém".',
+        'Portfólio só com prints, sem endereço dos sites publicados.',
+        'Perfil da Empresa no Google criado na conta do fornecedor.',
+        'Oferta de avaliações compradas ou trocadas.',
+        'Páginas por bairro com o mesmo texto e só o nome trocado.',
+        'Proposta sem lista de páginas, prazo ou número de revisões.',
+      ],
+    },
+    {
+      type: 'heading',
+      id: 'perguntas-frequentes',
+      level: 2,
+      text: 'Perguntas frequentes',
+    },
+    {
+      type: 'faq',
+      items: [
+        {
+          question: 'Preciso contratar alguém de Belém para fazer meu site?',
+          answer:
+            'Não. O projeto pode ser feito a distância. Quem conhece a região tende a entender melhor o público local, mas o que decide são os projetos publicados, o atendimento e a proposta.',
+        },
+        {
+          question: 'Ter um site ajuda a aparecer no mapa do Google?',
+          answer:
+            'O mapa mostra perfis do Perfil da Empresa no Google. Um site com os mesmos dados do perfil ajuda o Google a confirmar as informações da empresa, mas ninguém consegue garantir posição no mapa.',
+        },
+        {
+          question: 'Minha empresa não tem endereço aberto ao público. Posso ter um Perfil da Empresa no Google?',
+          answer:
+            'Sim. Se a empresa atende no local do cliente e não recebe clientes no próprio endereço, o Google pede que o endereço fique oculto no perfil, que passa a mostrar só a área de atendimento.',
+        },
+        {
+          question: 'Quanto custa criar um site em Belém?',
+          answer:
+            'Depende de páginas, conteúdo, funcionalidades e suporte, como em qualquer cidade. O guia de quanto custa um site profissional mostra faixas de preço por tipo de projeto.',
+        },
+      ],
+    },
+    {
+      type: 'heading',
+      id: 'proximo-passo',
+      level: 2,
+      text: 'Próximo passo',
+    },
+    {
+      type: 'paragraph',
+      text: 'Escolha dois ou três profissionais, envie as mesmas perguntas da lista acima e compare as respostas lado a lado. Abra os sites que cada um indicar antes da primeira reunião.',
+    },
+    {
+      type: 'links',
+      items: [
+        {
+          href: '/criacao-de-sites-belem/',
+          label: 'Criação de sites em Belém',
+          text: 'Veja como funciona o meu serviço para empresas de Belém e região metropolitana.',
+        },
+        {
+          href: '/portfolio/poliana-bentes/',
+          label: 'Case: site da Poliana Bentes',
+          text: 'Veja o site de uma consultoria de Belém com atuação em todo o Pará.',
+        },
+        {
+          href: '/insights/quanto-custa-um-site-profissional/',
+          label: 'Quanto custa um site profissional',
+          text: 'Compare faixas de preço por tipo de projeto antes de pedir propostas.',
         },
       ],
     },
@@ -2341,6 +2561,7 @@ const performanceConversaoInsight: InsightPublishedPost = {
 };
 
 export const insights: InsightPost[] = [
+  escolherSiteBelemInsight,
   siteIncorporadoraInsight,
   performanceConversaoInsight,
   escolherFreelancerInsight,
@@ -3509,6 +3730,10 @@ interface InsightContact {
 }
 
 const insightContacts: Record<string, InsightContact> = {
+  'como-escolher-quem-cria-site-em-belem': {
+    label: 'Conversar sobre o site em Belém',
+    intent: 'quero entender como funciona a criação do site da minha empresa em Belém e o que preciso preparar',
+  },
   'site-para-incorporadora-o-que-precisa-ter': {
     label: 'Planejar o site da incorporadora',
     intent: 'quero organizar as páginas dos empreendimentos e o contato do comercial no site da minha incorporadora',

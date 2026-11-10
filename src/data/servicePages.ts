@@ -575,7 +575,7 @@ export const servicePages: Record<string, ServicePageContent> = {
       copy: 'A consultoria Poliana Bentes atua em relações institucionais no Pará. Sua base institucional e editorial organiza serviços, posicionamento e conteúdo para apresentar esse contexto.',
       limitation: 'A referência local está na atuação da consultoria e na entrega apresentada. Não há métricas de posição local ou volume de leads atribuídas ao projeto.',
     },
-    relatedInsightSlugs: ['como-escolher-desenvolvedor-web-freelancer', 'quanto-tempo-leva-para-criar-um-site-profissional'],
+    relatedInsightSlugs: ['como-escolher-quem-cria-site-em-belem', 'como-escolher-desenvolvedor-web-freelancer'],
     namespace: 'criacao-de-sites-belem',
     title: 'Criação de sites em Belém | Luan Alves',
     description:
