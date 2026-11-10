@@ -572,7 +572,7 @@ export const servicePages: Record<string, ServicePageContent> = {
     proof: {
       projectSlug: 'poliana-bentes',
       title: 'Um projeto para comunicar atuação no Pará.',
-      copy: 'A consultoria Poliana Bentes atua em relações institucionais no Pará. Sua base institucional e editorial organiza serviços, posicionamento e conteúdo para apresentar esse contexto.',
+      copy: 'A BNTS / Poliana Bentes é uma consultoria sediada em Belém que atua em todo o Pará com relações institucionais e governamentais. Desenvolvi o site, o blog e o CMS a partir do design e da copy da Parawara Design.',
       limitation: 'A referência local está na atuação da consultoria e na entrega apresentada. Não há métricas de posição local ou volume de leads atribuídas ao projeto.',
     },
     relatedInsightSlugs: ['como-escolher-desenvolvedor-web-freelancer', 'quanto-tempo-leva-para-criar-um-site-profissional'],
@@ -705,7 +705,7 @@ export const servicePages: Record<string, ServicePageContent> = {
       {
         question: 'Você atende presencialmente em Belém?',
         answer:
-          'O atendimento principal é remoto, com comunicação direta pelo WhatsApp. Quando fizer sentido, o projeto pode considerar necessidades locais, mapa e região de atendimento.',
+          'O atendimento é remoto, com conversas diretas pelo WhatsApp. Se o projeto pedir uma reunião presencial em Belém, dá para combinar.',
       },
     ],
     cta: {
