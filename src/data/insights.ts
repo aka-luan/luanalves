@@ -1762,6 +1762,472 @@ const escolherFreelancerInsight: InsightPublishedPost = {
   ],
 };
 
+const cltMlcInsight: InsightPublishedPost = {
+  title: 'CLT e MLC: o que são, onde se usam e como explicar no site',
+  excerpt:
+    'A diferença entre CLT e MLC, onde cada um entra na obra, o que o comprador deve avaliar e como o site de um fabricante deve apresentar esses produtos.',
+  description:
+    'CLT e MLC explicados: como cada madeira engenheirada é feita, onde se usa, o que avaliar antes de comprar e como o site de um fabricante deve apresentá-las.',
+  category: 'Estrutura',
+  categorySlug: 'desenvolvimento',
+  date: '11 nov. 2026',
+  isoDate: '2026-11-11',
+  readTime: '9 min',
+  slug: 'clt-e-mlc-madeira-engenheirada',
+  tags: ['Madeira engenheirada', 'CLT', 'MLC', 'Site institucional'],
+  published: true,
+  heroImage: '/assets/insights/clt-e-mlc-post.webp',
+  heroImageAlt:
+    'Site da Tymber aberto em um notebook e em um celular, com o título "A madeira que projeta o amanhã" sobre a foto da estrutura de madeira de uma arena de hóquei.',
+  author: {
+    name: 'Luan Alves',
+    role: 'Desenvolvedor web freelancer',
+    bio: 'Desenvolvo sites, blogs e landing pages com foco em performance, SEO técnico e conversão via WhatsApp.',
+  },
+  content: [
+    {
+      type: 'paragraph',
+      text: 'CLT e MLC são dois produtos de madeira engenheirada feitos de lâminas de madeira coladas. No CLT, camadas de tábuas são coladas com as fibras cruzadas, e o resultado é um painel usado em paredes, lajes e coberturas. Na MLC, também chamada de glulam, as lâminas são coladas com as fibras no mesmo sentido, e o resultado é uma peça linear usada como viga, pilar, treliça ou arco.',
+    },
+    {
+      type: 'paragraph',
+      text: 'Quem busca esses termos costuma ser arquiteto, engenheiro, comprador de uma incorporadora ou profissional de obras que está avaliando o material pela primeira vez. Este texto responde primeiro à dúvida técnica. Depois mostra como o site de um fabricante deve apresentar esses produtos para que essas pessoas encontrem o que precisam. Ele não substitui o projeto estrutural. Dimensões, resistências e proteção contra incêndio dependem do fabricante, da madeira usada e do cálculo de cada obra.',
+    },
+    {
+      type: 'heading',
+      id: 'o-que-e-clt',
+      level: 2,
+      text: 'O que é CLT',
+    },
+    {
+      type: 'paragraph',
+      text: 'CLT vem do inglês cross-laminated timber. Em português o nome aparece como madeira lamelada cruzada ou laminada cruzada, e a sigla é a mesma. O painel é formado por camadas de tábuas sobrepostas, cada camada com as fibras a 90 graus da anterior, coladas entre si. O número de camadas costuma ser ímpar.',
+    },
+    {
+      type: 'paragraph',
+      text: 'O cruzamento das fibras faz o painel trabalhar como uma superfície, com resistência nos dois sentidos, e a madeira se movimenta menos no plano do painel do que uma tábua isolada. Os painéis costumam ser cortados em fábrica conforme o projeto, inclusive as aberturas de portas e janelas, e chegam à obra prontos para montagem. Por isso o CLT é usado em paredes, lajes e coberturas estruturais.',
+    },
+    {
+      type: 'heading',
+      id: 'o-que-e-mlc',
+      level: 2,
+      text: 'O que é MLC (glulam)',
+    },
+    {
+      type: 'paragraph',
+      text: 'MLC significa madeira laminada colada, ou lamelada colada, e o termo em inglês é glued laminated timber, abreviado como glulam. As lâminas são coladas com as fibras paralelas ao comprimento da peça. A colagem permite fabricar peças maiores do que as obtidas de uma tora serrada e, quando o projeto pede, peças curvas.',
+    },
+    {
+      type: 'paragraph',
+      text: 'Como a peça é linear, ela trabalha como elemento de esqueleto, em vigas, pilares, treliças e arcos. É o produto que aparece nas coberturas de grande vão e nas estruturas de madeira aparente, onde a própria peça faz parte da arquitetura.',
+    },
+    {
+      type: 'heading',
+      id: 'diferenca-entre-clt-e-mlc',
+      level: 2,
+      text: 'Qual é a diferença entre CLT e MLC',
+    },
+    {
+      type: 'table',
+      caption: 'CLT e MLC lado a lado: o que muda no produto e no uso.',
+      columns: ['Aspecto', 'CLT', 'MLC (glulam)'],
+      rows: [
+        ['Direção das fibras', 'Camadas cruzadas, a 90 graus entre si.', 'Lâminas paralelas ao comprimento da peça.'],
+        ['Formato', 'Painel, uma superfície.', 'Peça linear, reta ou curva.'],
+        ['Papel na estrutura', 'Paredes, lajes e coberturas.', 'Vigas, pilares, treliças e arcos.'],
+        ['Aparência', 'Pode ficar aparente em paredes e tetos.', 'Costuma ficar aparente como elemento do projeto.'],
+        ['Fabricação', 'Painéis cortados sob medida, com aberturas.', 'Peças com seção e comprimento definidos em projeto.'],
+      ],
+    },
+    {
+      type: 'paragraph',
+      text: 'Os dois produtos aparecem juntos com frequência. Um edifício pode ter pilares e vigas em MLC e lajes e paredes em CLT. Outros projetos usam só painéis ou só peças lineares. A combinação é decisão do projeto estrutural e depende do vão, da carga e do sistema construtivo escolhido.',
+    },
+    {
+      type: 'heading',
+      id: 'o-que-avaliar-antes-de-comprar',
+      level: 2,
+      text: 'O que o comprador e o arquiteto precisam avaliar',
+    },
+    {
+      type: 'paragraph',
+      text: 'Fotos de obra não bastam para comparar dois fabricantes. As perguntas abaixo ajudam a separar uma ficha técnica de um texto comercial.',
+    },
+    {
+      type: 'list',
+      items: [
+        'Origem da madeira: espécie, floresta de origem e certificação florestal que o fabricante consiga comprovar.',
+        'Classificação das lâminas e controle de qualidade em fábrica, com a descrição de como cada etapa é verificada.',
+        'Adesivo usado e como a qualidade da colagem é conferida.',
+        'Umidade da madeira na fabricação e proteção das peças durante o transporte e a montagem, porque chuva na obra exige cuidado.',
+        'Comportamento ao fogo, verificado no projeto. Peça o método e o laudo, em vez de aceitar uma frase genérica.',
+        'Ligações, montagem e logística: quem monta, quais fixações são usadas e como as dimensões das peças se encaixam no transporte.',
+        'Normas e ensaios que sustentam as propriedades declaradas, informados por escrito.',
+        'Obras de referência, com aplicação, local e responsável técnico.',
+      ],
+    },
+    {
+      type: 'paragraph',
+      text: 'Este texto não traz vãos, densidades nem resistências. Esses valores variam com o fabricante, a madeira e o projeto, e só valem quando vêm de ficha técnica ou ensaio do produto que será comprado.',
+    },
+    {
+      type: 'heading',
+      id: 'como-o-site-do-fabricante-deve-explicar',
+      level: 2,
+      text: 'Como o site de um fabricante deve explicar CLT e MLC',
+    },
+    {
+      type: 'paragraph',
+      text: 'Quem faz essas perguntas chega ao site do fabricante com a mesma dúvida que este texto respondeu. Um <a href="/site-para-industria-de-madeira-engenheirada/">site para indústria de madeira engenheirada</a> precisa resolver essa dúvida sem exigir uma ligação. Uma empresa que projeta, fabrica ou monta sistemas em madeira engenheirada também não se resume a uma madeireira, e a organização do site deve deixar essa diferença clara.',
+    },
+    {
+      type: 'list',
+      items: [
+        'Uma página por produto, com endereço próprio, como /madeira-engenheirada/clt/ e /madeira-engenheirada/mlc/. Cada página responde à busca pelo nome do produto.',
+        'Uma definição em linguagem simples nas primeiras linhas, com o nome completo, a sigla e o termo em inglês, porque o público usa as três formas.',
+        'Um esquema das camadas ou das lâminas, que mostre a direção das fibras. Uma foto de obra pronta não explica como o produto é feito.',
+        'Aplicações por tipo de elemento (parede, laje, cobertura, viga, pilar), ligadas a projetos reais.',
+        'Ficha técnica para baixar, com as normas e os ensaios que sustentam cada número publicado, e a data do documento.',
+        'Perguntas frequentes escritas para quem especifica, com resposta curta e honesta sobre o que depende de projeto.',
+        'Contato para projetos separado do contato comercial geral, para que o especificador chegue à pessoa técnica.',
+      ],
+    },
+    {
+      type: 'paragraph',
+      text: 'Todo número de desempenho publicado no site precisa de fonte, norma ou ensaio, com ano. Sem isso, o arquiteto que confere a página perde a confiança no restante.',
+    },
+    {
+      type: 'heading',
+      id: 'exemplos-do-portfolio',
+      level: 2,
+      text: 'Exemplos do portfólio: Urbem e Tymber',
+    },
+    {
+      type: 'paragraph',
+      text: 'A <a href="/portfolio/urbem/">Urbem</a> é uma indústria de CLT, Glulam e S4S. Desenvolvi o site, o blog e a customização do CMS a partir do design e da copy da agência parceira. Em uma consulta ao site em 11/11/2026, a página inicial apresentava os três produtos. O Glulam (MLC) aparecia descrito como lâminas coladas no sentido do comprimento, usado em colunas, vigas e treliças, e o CLT como lâminas coladas em camadas cruzadas, usado em lajes, paredes e coberturas estruturais. O S4S era descrito como o principal produto na fabricação dos elementos estruturais do mass timber. Cada produto levava à seção de madeira engenheirada, e o menu separava projetos, biblioteca, blog e contato.',
+    },
+    {
+      type: 'paragraph',
+      text: 'A <a href="/portfolio/tymber/">Tymber</a> fala com outro público. É uma incorporadora, e o site precisa explicar a madeira engenheirada a quem compra imóveis, não a quem especifica. Em 11/11/2026, o menu tinha uma página de mass timber, e a página inicial trazia uma seção que define madeira engenheirada e outra que organiza as vantagens em seis blocos, de sustentabilidade a estética. A mesma matéria-prima pede duas abordagens. O fabricante detalha produto e aplicação para o especificador. A incorporadora traduz o sistema construtivo em benefícios para o comprador.',
+    },
+    {
+      type: 'heading',
+      id: 'perguntas-frequentes',
+      level: 2,
+      text: 'Perguntas frequentes',
+    },
+    {
+      type: 'faq',
+      items: [
+        {
+          question: 'CLT e MLC são a mesma coisa?',
+          answer:
+            'Não. Os dois são feitos de lâminas de madeira coladas, mas no CLT as camadas são cruzadas e formam painéis, e na MLC as lâminas seguem o mesmo sentido e formam vigas, pilares e arcos.',
+        },
+        {
+          question: 'CLT é o mesmo que madeira lamelada cruzada?',
+          answer:
+            'Sim. CLT é a sigla de cross-laminated timber. Em português, o nome aparece como madeira lamelada cruzada ou laminada cruzada, e a sigla permanece CLT.',
+        },
+        {
+          question: 'Uma obra usa CLT ou MLC?',
+          answer:
+            'Pode usar os dois. A escolha vem do projeto estrutural, que define onde entram painéis e onde entram peças lineares conforme vão, carga e sistema construtivo.',
+        },
+        {
+          question: 'O que o site de um fabricante de madeira engenheirada precisa mostrar além de fotos?',
+          answer:
+            'Uma página por produto, definição em linguagem simples, esquema de fabricação, aplicações, ficha técnica com normas e ensaios, projetos de referência e um contato para quem especifica.',
+        },
+        {
+          question: 'O site de madeira engenheirada precisa de blog?',
+          answer:
+            'Ajuda quando a empresa quer responder dúvidas como as deste texto e ser encontrada por buscas técnicas, e tem alguém para escrever com revisão de um responsável técnico.',
+        },
+      ],
+    },
+    {
+      type: 'heading',
+      id: 'proximo-passo',
+      level: 2,
+      text: 'Próximo passo',
+    },
+    {
+      type: 'paragraph',
+      text: 'Liste cada produto da empresa e, para cada um, o que já existe: ficha técnica, ensaios, projetos de referência e fotos de obra. Essa lista mostra quais páginas do site podem ser publicadas agora e o que falta pedir à engenharia.',
+    },
+    {
+      type: 'links',
+      items: [
+        {
+          href: '/site-para-industria-de-madeira-engenheirada/',
+          label: 'Site para indústria de madeira engenheirada',
+          text: 'Veja como organizo produtos, projetos e conteúdo técnico para arquitetos, construtoras e especificadores.',
+        },
+        {
+          href: '/portfolio/urbem/',
+          label: 'Case: site da Urbem',
+          text: 'Veja o site de uma indústria de CLT, Glulam e S4S, com produtos, projetos, biblioteca e blog.',
+        },
+        {
+          href: '/portfolio/tymber/',
+          label: 'Case: site da Tymber',
+          text: 'Veja como uma incorporadora de madeira engenheirada apresenta o sistema construtivo a quem compra.',
+        },
+      ],
+    },
+  ],
+};
+
+const wordpressSobMedidaInsight: InsightPublishedPost = {
+  title: 'Criação de site: WordPress ou sob medida? Como escolher',
+  excerpt:
+    'Uma comparação direta entre WordPress e site sob medida em edição de conteúdo, manutenção, plugins, segurança, velocidade e estrutura de custos.',
+  description:
+    'WordPress ou site sob medida? Compare edição de conteúdo, manutenção, plugins, segurança, velocidade e custos para decidir como o site da sua empresa será criado.',
+  category: 'Estrutura',
+  categorySlug: 'desenvolvimento',
+  date: '11 nov. 2026',
+  isoDate: '2026-11-11',
+  readTime: '9 min',
+  slug: 'criacao-de-site-wordpress-ou-sob-medida',
+  tags: ['WordPress', 'Site sob medida', 'CMS', 'Manutenção'],
+  published: true,
+  heroImage: '/assets/insights/wordpress-ou-sob-medida-post.webp',
+  heroImageAlt:
+    'Site da Urbem aberto em um notebook e em um celular, com o título "Construa o futuro com a madeira engenheirada" sobre a foto de uma estrutura de madeira à noite.',
+  author: {
+    name: 'Luan Alves',
+    role: 'Desenvolvedor web freelancer',
+    bio: 'Desenvolvo sites, blogs e landing pages com foco em performance, SEO técnico e conversão via WhatsApp.',
+  },
+  content: [
+    {
+      type: 'paragraph',
+      text: 'WordPress costuma ser a melhor escolha quando a equipe da empresa vai editar o site com frequência, publicar muito conteúdo ou usar plugins que já resolvem uma necessidade conhecida, como uma loja virtual. Um site sob medida costuma compensar quando as páginas mudam pouco, quando o design foge de um tema pronto e quando velocidade, SEO técnico e baixa manutenção pesam mais do que a edição pelo painel.',
+    },
+    {
+      type: 'paragraph',
+      text: 'Eu desenvolvo sites sob medida, então leia esta comparação sabendo disso. Ela descreve o que cada caminho exige de manutenção, de dinheiro e de quem cuida do site, para você decidir com a sua rotina em mente. Nenhuma das duas opções é melhor em todos os casos.',
+    },
+    {
+      type: 'heading',
+      id: 'o-que-significa-cada-opcao',
+      level: 2,
+      text: 'O que significa WordPress e o que significa sob medida',
+    },
+    {
+      type: 'paragraph',
+      text: 'WordPress é um sistema de gerenciamento de conteúdo (CMS) de código aberto. Ele roda em um servidor com PHP e banco de dados, e o site é montado com um tema e com plugins. A equipe entra em um painel administrativo para criar páginas, publicar artigos e trocar textos sem mexer em código.',
+    },
+    {
+      type: 'paragraph',
+      text: 'Um site sob medida tem estrutura, design e código feitos para a empresa. No meu trabalho, as páginas são geradas antes da publicação e servidas como arquivos prontos, sem banco de dados nem painel exposto no site público. A forma de atualização é definida na proposta: pode ser uma alteração feita por mim ou um CMS ligado ao site, quando a rotina de publicação justifica.',
+    },
+    {
+      type: 'table',
+      caption: 'WordPress e site sob medida em cada critério de decisão.',
+      columns: ['Critério', 'WordPress', 'Site sob medida'],
+      rows: [
+        ['Edição de conteúdo', 'Painel pronto para a equipe editar páginas e artigos.', 'Alteração pelo desenvolvedor ou por um CMS contratado como extensão.'],
+        ['Design', 'Parte de um tema; personalizar muito exige desenvolvimento.', 'Desenhado para a empresa, sem as limitações de um tema.'],
+        ['Funcionalidades', 'Plugins cobrem muitas necessidades prontas.', 'Cada funcionalidade é desenvolvida ou integrada ao projeto.'],
+        ['Velocidade', 'Depende do tema, dos plugins, da hospedagem e do cache.', 'Páginas prontas, com controle direto sobre scripts e imagens.'],
+        ['Atualizações e segurança', 'Núcleo, tema e plugins precisam de atualização periódica.', 'Menos peças expostas, mas dependências também são revisadas.'],
+        ['Custos recorrentes', 'Hospedagem com PHP e banco, licenças de plugins e manutenção.', 'Hospedagem e domínio; mudanças de conteúdo e de funcionalidade entram no trabalho do desenvolvedor.'],
+        ['Troca de profissional', 'Muitos profissionais conhecem a plataforma.', 'Exige repositório, documentação e acessos entregues ao cliente.'],
+      ],
+    },
+    {
+      type: 'heading',
+      id: 'quando-wordpress-se-encaixa',
+      level: 2,
+      text: 'Quando o WordPress se encaixa',
+    },
+    {
+      type: 'list',
+      items: [
+        'A equipe publica conteúdo toda semana e quer fazer isso sozinha, sem depender de ninguém.',
+        'O site precisa de uma funcionalidade que existe como plugin maduro, como uma loja virtual ou uma área de membros.',
+        'O orçamento inicial é pequeno e um tema pronto atende ao que a empresa precisa mostrar.',
+        'Vários colaboradores precisam de contas com permissões diferentes para escrever, revisar e publicar.',
+        'A empresa já tem uma equipe ou um fornecedor que mantém sites em WordPress e conhece a plataforma.',
+      ],
+    },
+    {
+      type: 'paragraph',
+      text: 'Nesses casos, o painel pronto e o ecossistema de plugins economizam tempo de desenvolvimento. Um WordPress bem configurado, com tema leve, poucos plugins, cache e boa hospedagem, também pode ser rápido e indexar bem no Google. O resultado depende da configuração, mais do que da plataforma.',
+    },
+    {
+      type: 'heading',
+      id: 'quando-o-site-sob-medida-compensa',
+      level: 2,
+      text: 'Quando o site sob medida compensa',
+    },
+    {
+      type: 'list',
+      items: [
+        'O conteúdo muda pouco: serviços, sobre, projetos e contato são atualizados algumas vezes por ano.',
+        'O design e a estrutura de páginas precisam seguir uma identidade que um tema não acompanha sem muita adaptação.',
+        'Velocidade no celular e SEO técnico são prioridade, e a empresa quer controle sobre cada script e cada imagem.',
+        'A empresa não quer assumir a rotina de atualizar núcleo, tema e plugins.',
+        'O site tem uma estrutura própria, como páginas de produto, de projeto ou de empreendimento, com campos definidos.',
+      ],
+    },
+    {
+      type: 'paragraph',
+      text: 'O ponto fraco é a edição. Se cada correção de texto depende do desenvolvedor, a empresa precisa aceitar esse fluxo ou contratar um CMS como extensão. O <a href="/site-institucional/">site institucional</a> que desenvolvo costuma nascer nesse formato, e o painel de edição é uma decisão de escopo e não vem incluído automaticamente.',
+    },
+    {
+      type: 'heading',
+      id: 'manutencao-e-seguranca',
+      level: 2,
+      text: 'Manutenção, plugins e segurança',
+    },
+    {
+      type: 'paragraph',
+      text: 'WordPress é muito usado, e por isso é alvo frequente de tentativas de invasão. As vulnerabilidades divulgadas costumam estar em plugins e temas, mais do que no núcleo. Por isso a rotina inclui atualizar o núcleo, o tema e cada plugin, manter cópias de segurança e remover o que o site não usa. Um site que fica um ano sem atualização continua exposto a falhas já divulgadas.',
+    },
+    {
+      type: 'paragraph',
+      text: 'Em um site sob medida com páginas geradas antes da publicação, o site público não tem painel de login nem banco de dados para atacar. Isso reduz a superfície de risco, mas não elimina a manutenção. Dependências do projeto, formulários, integrações e o CMS, quando existe, continuam exigindo revisão. A pergunta útil é quem faz essa revisão e com que frequência, e a resposta precisa estar na proposta.',
+    },
+    {
+      type: 'heading',
+      id: 'velocidade-e-seo',
+      level: 2,
+      text: 'Velocidade e SEO',
+    },
+    {
+      type: 'paragraph',
+      text: 'O Google não escolhe resultados pela plataforma do site. Contam o conteúdo, a estrutura das páginas, os links internos e a experiência de carregamento. Um WordPress com um tema pesado e muitos plugins costuma entregar páginas lentas, principalmente no celular, e isso afeta a experiência e a conversão. Um site sob medida parte com menos peso e dá controle direto sobre o que carrega, mas só será rápido se imagens e scripts forem tratados com cuidado. Para ver por que isso afeta o contato, leia o texto sobre <a href="/insights/por-que-performance-site-afeta-conversao/">performance e conversão</a>.',
+    },
+    {
+      type: 'heading',
+      id: 'o-meio-termo-cms-no-site-sob-medida',
+      level: 2,
+      text: 'O meio-termo: CMS configurado para o site sob medida',
+    },
+    {
+      type: 'paragraph',
+      text: 'Existe uma opção intermediária. Na <a href="/portfolio/urbem/">Urbem</a>, uma indústria de madeira engenheirada, desenvolvi o site, o blog e a customização de um CMS para administrar páginas e conteúdo editorial, a partir do design e da copy da agência parceira. O site tem estrutura própria para produtos, projetos, biblioteca e blog. Em uma consulta em 11/11/2026, o blog tinha três posts de 2026 na página inicial.',
+    },
+    {
+      type: 'paragraph',
+      text: 'Esse caso mostra a combinação de design e estrutura próprios com um painel para o conteúdo recorrente. A <a href="/portfolio/conviva-engenharia/">Conviva Engenharia</a> segue a mesma lógica, com blog e CMS. Os cases mostram a estrutura publicada e o escopo que entreguei, não resultados medidos de tráfego ou de vendas.',
+    },
+    {
+      type: 'heading',
+      id: 'como-os-custos-se-organizam',
+      level: 2,
+      text: 'Como os custos se organizam',
+    },
+    {
+      type: 'paragraph',
+      text: 'Os dois caminhos têm custos de naturezas diferentes. Os valores variam com o escopo, por isso aqui só aparece a estrutura. Para faixas de preço por tipo de projeto, veja o texto sobre <a href="/insights/quanto-custa-um-site-profissional/">quanto custa um site profissional</a>.',
+    },
+    {
+      type: 'list',
+      items: [
+        'WordPress: tema, plugins pagos com renovação periódica, hospedagem que suporte PHP e banco de dados, manutenção e, quando o tema não basta, desenvolvimento para personalizar.',
+        'Site sob medida: desenvolvimento maior no início, porque design e código são feitos para o projeto, mais domínio e hospedagem. Alterações de conteúdo e de funcionalidade entram no trabalho do desenvolvedor ou em um CMS contratado.',
+        'Nos dois: domínio, hospedagem e ferramentas externas ficam separados do desenvolvimento, com renovações e assinaturas.',
+      ],
+    },
+    {
+      type: 'paragraph',
+      text: 'O custo inicial menor do WordPress pode ser compensado por manutenção e licenças ao longo dos anos. O custo inicial maior de um site sob medida pode ser compensado por menos peças para manter. Compare o total de dois a três anos, não só a primeira proposta.',
+    },
+    {
+      type: 'heading',
+      id: 'perguntas-antes-de-decidir',
+      level: 2,
+      text: 'Perguntas para responder antes de decidir',
+    },
+    {
+      type: 'list',
+      items: [
+        'Quem vai editar o site, e com que frequência?',
+        'Há funcionalidades que dependem de um plugin ou de uma integração específica?',
+        'Quem atualiza, faz cópias de segurança e responde se algo quebrar?',
+        'Onde o site fica hospedado e quem tem acesso ao domínio, à hospedagem e ao código?',
+        'O que acontece se o profissional que criou o site deixar de atender a empresa?',
+        'Quanto o site pesa no celular e como isso será medido depois da publicação?',
+      ],
+    },
+    {
+      type: 'paragraph',
+      text: 'Se a empresa quer estudar o assunto de forma mais ampla, o texto sobre <a href="/insights/como-escolher-desenvolvedor-web-freelancer/">como escolher um desenvolvedor web freelancer</a> traz perguntas para conferir antes de fechar a contratação.',
+    },
+    {
+      type: 'heading',
+      id: 'perguntas-frequentes',
+      level: 2,
+      text: 'Perguntas frequentes',
+    },
+    {
+      type: 'faq',
+      items: [
+        {
+          question: 'WordPress é pior para SEO do que um site sob medida?',
+          answer:
+            'Não por si só. O Google avalia conteúdo, estrutura e carregamento, não a plataforma. Um WordPress com tema leve e boa configuração pode ter SEO sólido, e um site sob medida mal feito pode ter SEO fraco.',
+        },
+        {
+          question: 'WordPress é mais barato?',
+          answer:
+            'Pode ser no início, quando um tema pronto atende ao projeto. Licenças de plugins, hospedagem e manutenção se somam ao longo do tempo, então compare o custo total de alguns anos e não só o da primeira proposta.',
+        },
+        {
+          question: 'Um site sob medida pode ter painel de edição?',
+          answer:
+            'Pode. Um CMS pode ser ligado ao site para a equipe publicar páginas e artigos. Ele é uma extensão avaliada no escopo, conforme a frequência de publicação, e não faz parte automaticamente de todo projeto.',
+        },
+        {
+          question: 'Dá para migrar de WordPress para um site sob medida?',
+          answer:
+            'Dá. O conteúdo é levado para o novo site e as URLs antigas precisam ser mapeadas com redirecionamentos, para não perder as páginas que o Google já conhece.',
+        },
+        {
+          question: 'Qual das duas opções exige menos manutenção?',
+          answer:
+            'Em geral, o site sob medida com páginas prontas, porque tem menos componentes expostos. Mesmo assim, ele precisa de revisão periódica de dependências, formulários e integrações, e a proposta deve dizer quem faz isso.',
+        },
+      ],
+    },
+    {
+      type: 'heading',
+      id: 'proximo-passo',
+      level: 2,
+      text: 'Próximo passo',
+    },
+    {
+      type: 'paragraph',
+      text: 'Anote quem vai editar o site, quantas vezes por mês o conteúdo muda e quais funcionalidades são indispensáveis. Com essas três respostas, a escolha entre WordPress e site sob medida fica muito mais clara, e a conversa com qualquer profissional começa de um ponto concreto.',
+    },
+    {
+      type: 'links',
+      items: [
+        {
+          href: '/site-institucional/',
+          label: 'Site institucional',
+          text: 'Veja como estruturo um site institucional sob medida, com SEO técnico e contato pelo WhatsApp.',
+        },
+        {
+          href: '/criacao-de-sites/',
+          label: 'Criação de sites',
+          text: 'Conheça os formatos de site que desenvolvo e como escopo e etapas são definidos na proposta.',
+        },
+        {
+          href: '/portfolio/urbem/',
+          label: 'Case: site da Urbem',
+          text: 'Veja um site institucional com blog e CMS customizado para conteúdo técnico.',
+        },
+      ],
+    },
+  ],
+};
+
 const siteConstrutoraInsight: InsightPublishedPost = {
   title: 'Site de construtora: como mostrar obras e passar confiança',
   excerpt:
@@ -1819,7 +2285,7 @@ const siteConstrutoraInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'Se o site trata todos como o mesmo visitante, com um único "fale conosco", cada um precisa explicar quem é na primeira mensagem, e o comercial perde tempo separando pedidos de orçamento de currículos.',
+      text: 'Se o site trata todos como o mesmo visitante, com um único "fale conosco", cada um precisa explicar quem é na primeira mensagem, e o comercial perde tempo separando pedidos de orçamento de currículos. Uma construtora que monta estruturas em madeira engenheirada tem ainda outro público, o especificador, que precisa entender <a href="/insights/clt-e-mlc-madeira-engenheirada/">o que são CLT e MLC</a> antes de pedir orçamento.',
     },
     {
       type: 'heading',
@@ -2393,7 +2859,7 @@ const siteIncorporadoraInsight: InsightPublishedPost = {
     },
     {
       type: 'paragraph',
-      text: 'A <a href="/portfolio/tymber/">Tymber</a> mostra outro lado do mesmo problema. Ela lança empreendimentos construídos com madeira engenheirada, então o site precisa explicar o sistema construtivo para quem compra antes de apresentar os projetos. Quando o diferencial da incorporadora é técnico, a explicação ganha uma seção própria.',
+      text: 'A <a href="/portfolio/tymber/">Tymber</a> mostra outro lado do mesmo problema. Ela lança empreendimentos construídos com madeira engenheirada, então o site precisa explicar o sistema construtivo para quem compra antes de apresentar os projetos. Quando o diferencial da incorporadora é técnico, a explicação ganha uma seção própria. O texto sobre <a href="/insights/clt-e-mlc-madeira-engenheirada/">CLT e MLC</a> mostra o que esse comprador costuma perguntar sobre madeira engenheirada.',
     },
     {
       type: 'heading',
@@ -2803,6 +3269,8 @@ const performanceConversaoInsight: InsightPublishedPost = {
 };
 
 export const insights: InsightPost[] = [
+  cltMlcInsight,
+  wordpressSobMedidaInsight,
   siteConstrutoraInsight,
   escolherSiteBelemInsight,
   siteIncorporadoraInsight,
@@ -3003,7 +3471,7 @@ export const insights: InsightPost[] = [
       },
       {
         type: 'paragraph',
-        text: 'A melhor opção depende do objetivo, orçamento e nível de exigência técnica. Criadores de site ajudam a começar rápido, WordPress funciona bem para muitos blogs, freelancer tende a equilibrar personalização e custo, e agência faz sentido quando o projeto precisa de um time maior.',
+        text: 'A melhor opção depende do objetivo, orçamento e nível de exigência técnica. Criadores de site ajudam a começar rápido, WordPress funciona bem para muitos blogs, freelancer tende a equilibrar personalização e custo, e agência faz sentido quando o projeto precisa de um time maior. Para comparar WordPress e site sob medida em edição, manutenção e custos, veja <a href="/insights/criacao-de-site-wordpress-ou-sob-medida/">WordPress ou sob medida</a>.',
       },
       {
         type: 'table',
@@ -3398,7 +3866,7 @@ export const insights: InsightPost[] = [
       },
       {
         type: 'paragraph',
-        text: 'Template inchado, plugins demais, imagens pesadas e scripts sem controle deixam o site lento, principalmente no celular. Site profissional tende a nascer com mais atenção a carregamento rápido, experiência mobile e estabilidade, especialmente para quem recebe tráfego no celular.',
+        text: 'Template inchado, plugins demais, imagens pesadas e scripts sem controle deixam o site lento, principalmente no celular. Site profissional tende a nascer com mais atenção a carregamento rápido, experiência mobile e estabilidade, especialmente para quem recebe tráfego no celular. Se a dúvida é entre um tema pronto e um projeto próprio, o texto sobre <a href="/insights/criacao-de-site-wordpress-ou-sob-medida/">WordPress ou site sob medida</a> compara os dois caminhos.',
       },
       {
         type: 'heading',
@@ -3973,6 +4441,14 @@ interface InsightContact {
 }
 
 const insightContacts: Record<string, InsightContact> = {
+  'clt-e-mlc-madeira-engenheirada': {
+    label: 'Planejar o site de madeira engenheirada',
+    intent: 'quero organizar as páginas de produtos e o contato para especificadores no site da minha empresa de madeira engenheirada',
+  },
+  'criacao-de-site-wordpress-ou-sob-medida': {
+    label: 'Escolher como criar o site',
+    intent: 'quero decidir como o site da minha empresa será criado, considerando edição de conteúdo, manutenção e custos',
+  },
   'site-de-construtora-como-mostrar-obras': {
     label: 'Planejar o site da construtora',
     intent: 'quero organizar o portfólio de obras e os contatos de orçamento no site da minha construtora',
