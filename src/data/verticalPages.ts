@@ -588,7 +588,7 @@ export const verticalPages: Record<string, VerticalPageContent> = {
     differentials: {
       eyebrow: 'Como eu trabalho',
       title: 'Você fala direto com quem faz o site.',
-      copy: 'Você fala com quem estrutura, desenha e desenvolve. A forma de manter os imóveis atualizados é definida junto com você, de acordo com o tamanho da carteira e a rotina da equipe.',
+      copy: 'A forma de manter os imóveis atualizados é definida com você, de acordo com o tamanho da carteira e a rotina da equipe.',
       items: [
         {
           icon: 'account_tree',
@@ -751,7 +751,7 @@ export const verticalPages: Record<string, VerticalPageContent> = {
       {
         question: 'O site segue as regras de publicidade médica?',
         answer:
-          'Escrevo e organizo o conteúdo com sobriedade, sem promessa de resultado, sem antes e depois e sem sensacionalismo. As normas de publicidade do conselho profissional continuam sendo responsabilidade do médico ou da clínica, que deve conferir os textos antes da publicação. Não presto orientação jurídica.',
+          'Organizo o conteúdo com sobriedade, sem promessa de resultado, sem antes e depois e sem sensacionalismo. As normas de publicidade do conselho profissional continuam sendo responsabilidade do médico ou da clínica, que deve conferir os textos antes da publicação. Não presto orientação jurídica.',
       },
       {
         question: 'Posso incluir fotos de pacientes ou depoimentos?',
