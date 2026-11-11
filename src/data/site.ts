@@ -386,7 +386,7 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
   },
   urbem: {
     slug: 'urbem',
-    relatedInsightSlugs: ['site-institucional-o-que-precisa-ter', 'checklist-lancamento-site-empresarial'],
+    relatedInsightSlugs: ['clt-e-mlc-madeira-engenheirada', 'criacao-de-site-wordpress-ou-sob-medida'],
     year: '2024',
     client: 'Urbem',
     segment: 'Indústria · Madeira engenheirada',
@@ -451,7 +451,7 @@ const portfolioCaseDetails: Record<string, PortfolioCaseDetail> = {
   },
   tymber: {
     slug: 'tymber',
-    relatedInsightSlugs: ['site-institucional-o-que-precisa-ter', 'landing-page-ou-site-institucional'],
+    relatedInsightSlugs: ['clt-e-mlc-madeira-engenheirada', 'site-institucional-o-que-precisa-ter'],
     year: '2025',
     client: 'Tymber',
     segment: 'Incorporadora · Mass timber',

@@ -15,6 +15,7 @@ export interface VerticalPageItem {
 export interface VerticalPageContent {
   slug: string;
   namespace: string;
+  breadcrumbLabel: string;
   title: string;
   description: string;
   canonicalPath: string;
@@ -82,6 +83,18 @@ export const verticalPageLinks = [
     copy: 'Produtos técnicos, projetos e conteúdo para especificadores e decisores B2B.',
     number: '03',
   },
+  {
+    href: '/site-para-imobiliaria/',
+    label: 'Site para imobiliária',
+    copy: 'Imóveis por bairro e tipo, captação de proprietários e contato com o corretor pelo WhatsApp.',
+    number: '04',
+  },
+  {
+    href: '/site-para-medicos/',
+    label: 'Site para médicos e clínicas',
+    copy: 'Especialidades, exames e agendamento, com comunicação sóbria e dentro das normas do conselho.',
+    number: '05',
+  },
 ];
 
 const sharedFaq = [
@@ -102,6 +115,7 @@ export const verticalPages: Record<string, VerticalPageContent> = {
   'site-para-incorporadora': {
     slug: 'site-para-incorporadora',
     namespace: 'site-para-incorporadora',
+    breadcrumbLabel: 'Incorporadora',
     title: 'Site para incorporadora | Empreendimentos e contato · Luan Alves',
     description:
       'Site para incorporadora com uma página por empreendimento, localização, tipologias e contato pelo WhatsApp que identifica o lançamento. SEO técnico incluso.',
@@ -231,6 +245,7 @@ export const verticalPages: Record<string, VerticalPageContent> = {
   'site-para-construtora': {
     slug: 'site-para-construtora',
     namespace: 'site-para-construtora',
+    breadcrumbLabel: 'Construtora',
     title: 'Site para construtora | Obras e portfólio · Luan Alves',
     description:
       'Site para construtora com portfólio de obras entregues e em andamento, segmentos atendidos e pedido de orçamento pelo WhatsApp. SEO técnico incluso.',
@@ -360,6 +375,7 @@ export const verticalPages: Record<string, VerticalPageContent> = {
   'site-para-industria-de-madeira-engenheirada': {
     slug: 'site-para-industria-de-madeira-engenheirada',
     namespace: 'site-para-madeira-engenheirada',
+    breadcrumbLabel: 'Madeira engenheirada',
     title: 'Site para indústria de madeira engenheirada | Luan Alves',
     description:
       'Site para indústria e empresas de madeira engenheirada apresentarem produtos, projetos e conteúdo técnico a arquitetos, construtoras e especificadores.',
@@ -483,6 +499,281 @@ export const verticalPages: Record<string, VerticalPageContent> = {
       title: 'Um site que o especificador consegue consultar.',
       copy: 'Me conte em qual etapa (projeto, fabricação, logística ou montagem) sua empresa atua, quais produtos ou serviços oferece e quais públicos precisam avançar pelo site.',
       buttonLabel: 'Conversar sobre o site de madeira engenheirada',
+    },
+  },
+
+  'site-para-imobiliaria': {
+    slug: 'site-para-imobiliaria',
+    namespace: 'site-para-imobiliaria',
+    breadcrumbLabel: 'Imobiliária',
+    title: 'Site para imobiliária | Imóveis e captação · Luan Alves',
+    description:
+      'Site para imobiliária com imóveis organizados por bairro e tipo, captação de proprietários e contato com o corretor pelo WhatsApp. SEO técnico incluso.',
+    canonicalPath: '/site-para-imobiliaria/',
+    serviceName: 'Criação de site para imobiliária',
+    whatsappHref: buildWhatsappHref(
+      'Olá, Luan! Quero conversar sobre um site para minha imobiliária. Trabalhamos com ',
+    ),
+    hero: {
+      eyebrow: 'Sites para segmentos · Imobiliárias',
+      title: 'Site para imobiliária que organiza os imóveis',
+      accent: 'e leva o cliente ao corretor.',
+      copy: 'Crio sites para imobiliárias que vendem e alugam imóveis de terceiros. O site tem páginas por bairro e tipo de imóvel, uma página para o proprietário que quer anunciar e contato com o corretor pelo WhatsApp.',
+      image: '/assets/conviva-portfolio.webp',
+      imageAlt:
+        'Site da Conviva Engenharia exibido como referência de experiência em sites do mercado imobiliário.',
+      primaryCta: 'Quero um site para minha imobiliária',
+      proof: [
+        { value: 'Trésor · Conviva', label: 'Experiência em sites do mercado imobiliário' },
+        { value: 'Bairro e tipo', label: 'Organização dos imóveis' },
+        { value: 'WhatsApp', label: 'Contato direto com o corretor' },
+      ],
+    },
+    problems: {
+      eyebrow: 'O ponto de decisão',
+      title: 'Quem procura imóvel compara imobiliárias antes de ligar para uma.',
+      copy: 'O cliente abre vários sites na mesma tarde. Fica com a imobiliária em que acha o bairro que procura, vê quem atende e entende como falar com o corretor. O proprietário faz outra pergunta. Essa imobiliária parece séria o bastante para cuidar do meu imóvel?',
+      items: [
+        {
+          icon: 'location_on',
+          title: 'Imóveis difíceis de comparar',
+          copy: 'Sem páginas por bairro e por tipo, o cliente rola uma lista longa e desiste antes de achar o que procura.',
+        },
+        {
+          icon: 'badge',
+          title: 'Imobiliária sem rosto',
+          copy: 'Sem corretores, registro no CRECI e história da empresa, o site parece um anúncio qualquer e o proprietário não confia.',
+        },
+        {
+          icon: 'chat',
+          title: 'Contato sem contexto',
+          copy: 'Uma mensagem que não diz qual imóvel interessa obriga o corretor a recomeçar a conversa do zero.',
+        },
+      ],
+    },
+    architecture: {
+      eyebrow: 'Arquitetura recomendada',
+      title: 'Páginas para quem busca imóvel e para quem quer anunciar o seu.',
+      copy: 'O site atende dois públicos com caminhos separados. O comprador ou locatário chega por bairro e tipo de imóvel. O proprietário encontra a imobiliária e o convite para anunciar.',
+      items: [
+        {
+          icon: 'map',
+          title: 'Imóveis por bairro e tipo',
+          copy: 'Páginas de bairro e de tipo, como apartamento, casa e terreno, que também respondem a buscas locais no Google.',
+        },
+        {
+          icon: 'key',
+          title: 'Captação de proprietários',
+          copy: 'Uma página para quem quer vender ou alugar, explicando como a imobiliária trabalha e como começar pelo WhatsApp.',
+        },
+        {
+          icon: 'support_agent',
+          title: 'Corretores e atendimento',
+          copy: 'Equipe, áreas de atuação e um botão de WhatsApp que informa o imóvel ou o bairro de interesse.',
+        },
+        {
+          icon: 'verified_user',
+          title: 'Confiança e registro',
+          copy: 'Número do CRECI, história da imobiliária e dados da empresa visíveis nas páginas principais.',
+        },
+      ],
+    },
+    cases: {
+      eyebrow: 'Experiência no mercado imobiliário',
+      title: 'Dois sites do setor, nenhum deles de imobiliária.',
+      copy: 'A Conviva Engenharia é uma construtora e a Trésor Incorporações é uma incorporadora. As duas vendem imóveis próprios, enquanto a imobiliária intermedia imóveis de terceiros. Esses sites mostram experiência em apresentar imóveis, etapas da compra e contato comercial. Se você lança os próprios empreendimentos, veja a página de site para incorporadora.',
+      primaryId: 'conviva-engenharia',
+      secondaryId: 'tresor-incorporacoes',
+    },
+    differentials: {
+      eyebrow: 'Como eu trabalho',
+      title: 'Você fala direto com quem faz o site.',
+      copy: 'A forma de manter os imóveis atualizados é definida com você, de acordo com o tamanho da carteira e a rotina da equipe.',
+      items: [
+        {
+          icon: 'account_tree',
+          title: 'Estrutura antes do layout',
+          copy: 'Defino como os imóveis são agrupados, quais páginas existem e por onde o cliente chega ao corretor antes de desenhar.',
+        },
+        {
+          icon: 'photo_library',
+          title: 'Fotos que carregam rápido',
+          copy: 'Fotos de imóveis entram em tamanho e peso adequados, para a página abrir bem no celular do cliente.',
+        },
+        {
+          icon: 'travel_explore',
+          title: 'SEO local desde o início',
+          copy: 'Títulos, URLs e páginas por bairro seguem a forma como as pessoas procuram imóveis na cidade.',
+        },
+        {
+          icon: 'extension',
+          title: 'Integrações sob escopo',
+          copy: 'Painel de cadastro de imóveis, portais e integração por XML são extensões opcionais, avaliadas e orçadas à parte.',
+        },
+      ],
+    },
+    faq: [
+      {
+        question: 'O site já vem com painel para cadastrar imóveis?',
+        answer:
+          'Não automaticamente. O painel de cadastro, a integração com portais por XML e a sincronização com sistemas de gestão são extensões de escopo. Elas são avaliadas conforme o tamanho da carteira e a rotina da imobiliária, e a proposta registra a solução escolhida.',
+      },
+      {
+        question: 'Qual é a diferença entre o site de uma imobiliária e o de uma incorporadora?',
+        answer:
+          'A imobiliária intermedia imóveis de terceiros. Ela precisa organizar muitos imóveis, captar proprietários e dar visibilidade aos corretores. A incorporadora lança os próprios empreendimentos e precisa de uma página para cada lançamento. A página de site para incorporadora trata desse segundo caso.',
+      },
+      {
+        question: 'Você já fez sites para imobiliárias?',
+        answer:
+          'Os sites do portfólio neste mercado são de uma incorporadora (Trésor) e de uma construtora (Conviva Engenharia). Nenhum deles é de uma imobiliária. A experiência está em apresentar imóveis, etapas da compra e contato comercial, e é isso que aplico à estrutura de uma imobiliária.',
+      },
+      ...sharedFaq,
+    ],
+    cta: {
+      title: 'Me conte como sua imobiliária atende e eu proponho a estrutura do site.',
+      copy: 'Me diga quantos imóveis a carteira tem, quais bairros você atende e como os corretores recebem os contatos. Eu retorno com os próximos passos.',
+      buttonLabel: 'Conversar sobre o site da imobiliária',
+    },
+  },
+
+  'site-para-medicos': {
+    slug: 'site-para-medicos',
+    namespace: 'site-para-medicos',
+    breadcrumbLabel: 'Médicos e clínicas',
+    title: 'Site para médico e clínica | Agendamento · Luan Alves',
+    description:
+      'Site para médico e clínica com especialidades, exames, informações do consultório e agendamento pelo WhatsApp, em linguagem sóbria. SEO técnico incluso.',
+    canonicalPath: '/site-para-medicos/',
+    serviceName: 'Criação de site para médico e clínica',
+    whatsappHref: buildWhatsappHref(
+      'Olá, Luan! Quero conversar sobre um site para meu consultório ou clínica. Atuo na área de ',
+    ),
+    hero: {
+      eyebrow: 'Sites para segmentos · Médicos e clínicas',
+      title: 'Site para médico e clínica que explica o atendimento',
+      accent: 'e facilita o agendamento.',
+      copy: 'Crio sites para médicos e clínicas apresentarem especialidades, exames, endereço e formas de agendar. A linguagem é sóbria, o texto é curto e a leitura funciona bem para quem pesquisa no celular.',
+      image: '/assets/cdv-portfolio.webp',
+      imageAlt:
+        'Site da Clínica CDV exibido como referência de site para clínica médica.',
+      primaryCta: 'Quero um site para meu consultório',
+      proof: [
+        { value: 'Clínica CDV', label: 'Site de clínica médica no portfólio' },
+        { value: 'Especialidades', label: 'Cada uma em sua própria seção' },
+        { value: 'WhatsApp', label: 'Agendamento fácil de encontrar' },
+      ],
+    },
+    problems: {
+      eyebrow: 'O ponto de decisão',
+      title: 'O paciente pesquisa o médico antes de marcar a consulta.',
+      copy: 'Depois de uma indicação, o paciente costuma procurar o nome do médico ou da clínica no Google. Ele quer saber o que o médico atende, onde fica o consultório e como marcar. Um site confuso ou desatualizado passa a impressão de um atendimento desorganizado.',
+      items: [
+        {
+          icon: 'medical_services',
+          title: 'Especialidades pouco claras',
+          copy: 'O paciente não entende o que o consultório atende nem se aquele é o profissional que ele procura.',
+        },
+        {
+          icon: 'event_available',
+          title: 'Agendamento escondido',
+          copy: 'Telefone, endereço e horário ficam em lugares diferentes, e o paciente desiste de procurar.',
+        },
+        {
+          icon: 'phone_iphone',
+          title: 'Site ruim no celular',
+          copy: 'Muitas buscas por médico acontecem no celular, e uma página lenta ou apertada afasta o paciente.',
+        },
+      ],
+    },
+    architecture: {
+      eyebrow: 'Arquitetura recomendada',
+      title: 'Informação objetiva sobre o atendimento, do perfil ao agendamento.',
+      copy: 'O site apresenta quem atende, o que atende e como marcar, sem excesso de texto.',
+      items: [
+        {
+          icon: 'person',
+          title: 'Perfil do médico ou da clínica',
+          copy: 'Formação, registro profissional (CRM e RQE, quando houver) e história do consultório ou da clínica.',
+        },
+        {
+          icon: 'stethoscope',
+          title: 'Especialidades e exames',
+          copy: 'Uma página ou seção por especialidade e por exame, em linguagem que o paciente entende.',
+        },
+        {
+          icon: 'location_on',
+          title: 'Local e horário',
+          copy: 'Endereço, mapa e horário de atendimento no mesmo lugar em que o paciente procura o contato.',
+        },
+        {
+          icon: 'chat',
+          title: 'Agendamento pelo WhatsApp',
+          copy: 'Botão de contato visível em todas as páginas, com mensagem que já informa a especialidade de interesse.',
+        },
+      ],
+    },
+    cases: {
+      eyebrow: 'Experiência aplicada',
+      title: 'Uma clínica médica e um site de profissional liberal.',
+      copy: 'A Clínica CDV é uma clínica com especialidades, exames e agendamento. A Poliana Bentes é uma consultoria, não uma clínica. Entra aqui como exemplo de site de profissional que se apresenta pelo nome, com serviços e blog.',
+      primaryId: 'clinica-cdv',
+      secondaryId: 'poliana-bentes',
+    },
+    differentials: {
+      eyebrow: 'Como eu trabalho',
+      title: 'Comunicação sóbria, dentro das regras da profissão.',
+      copy: 'A publicidade médica tem regras próprias. Os textos do site precisam seguir as normas de publicidade do conselho profissional, e a conferência final é responsabilidade do médico ou da clínica. Isto não é orientação jurídica.',
+      items: [
+        {
+          icon: 'balance',
+          title: 'Sem promessa de resultado',
+          copy: 'O site informa o que o consultório faz. Não promete cura, não usa antes e depois e não recorre a apelos sensacionalistas.',
+        },
+        {
+          icon: 'devices',
+          title: 'Pensado para o celular',
+          copy: 'Cada página é desenhada e testada no celular, onde o paciente costuma pesquisar e marcar a consulta.',
+        },
+        {
+          icon: 'travel_explore',
+          title: 'SEO técnico desde o início',
+          copy: 'Metadados, títulos e URLs entram na base do projeto, para o consultório aparecer quando o paciente pesquisa.',
+        },
+        {
+          icon: 'lock',
+          title: 'Cuidado com dados do paciente',
+          copy: 'O site não pede dados clínicos. Formulários, prontuário e agenda online são extensões avaliadas à parte.',
+        },
+      ],
+    },
+    faq: [
+      {
+        question: 'O site segue as regras de publicidade médica?',
+        answer:
+          'Organizo o conteúdo com sobriedade, sem promessa de resultado, sem antes e depois e sem sensacionalismo. As normas de publicidade do conselho profissional continuam sendo responsabilidade do médico ou da clínica, que deve conferir os textos antes da publicação. Não presto orientação jurídica.',
+      },
+      {
+        question: 'Posso incluir fotos de pacientes ou depoimentos?',
+        answer:
+          'Recomendo não incluir. As normas de publicidade médica restringem esse tipo de conteúdo, e o conselho profissional define o que pode ser publicado. Confirme com o conselho antes de enviar qualquer material desse tipo.',
+      },
+      {
+        question: 'O site serve para clínicas ou só para médicos individuais?',
+        answer:
+          'Serve para os dois. O consultório individual precisa de perfil, especialidade e agendamento. A clínica com vários profissionais precisa de uma seção para cada especialidade e para cada exame.',
+      },
+      {
+        question: 'É possível ter agenda online ou prontuário no site?',
+        answer:
+          'Agenda online, formulários que coletam dados e integração com sistemas de gestão são extensões de escopo. Dados de saúde exigem cuidado, e a proposta define o que entra, quem contrata a ferramenta e como as informações são tratadas.',
+      },
+      ...sharedFaq,
+    ],
+    cta: {
+      title: 'Me conte como funciona o seu atendimento e eu proponho a estrutura do site.',
+      copy: 'Me diga a especialidade, se o atendimento é em consultório ou clínica e como o paciente agenda hoje. Eu retorno com os próximos passos.',
+      buttonLabel: 'Conversar sobre o site do consultório',
     },
   },
 };
