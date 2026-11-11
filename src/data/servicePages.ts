@@ -144,7 +144,7 @@ export const servicePages: Record<string, ServicePageContent> = {
       copy: 'O projeto da Agência Skyrocket mostra como organizar a apresentação de uma empresa de serviços com identidade própria e caminhos de contato.',
       limitation: 'A prova é a estrutura entregue e sua apresentação. Não há métricas de vendas atribuídas a este case.',
     },
-    relatedInsightSlugs: ['site-institucional-o-que-precisa-ter', 'quanto-custa-um-site-profissional'],
+    relatedInsightSlugs: ['site-institucional-o-que-precisa-ter', 'criacao-de-site-wordpress-ou-sob-medida'],
     namespace: 'site-institucional',
     title: 'Site institucional profissional | Luan Alves',
     description:
