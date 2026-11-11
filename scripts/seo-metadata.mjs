@@ -3,6 +3,7 @@ import { portfolioProjects } from '../src/data/site.ts';
 
 const siteRefreshDate = new Date('2026-06-05T00:00:00-03:00');
 const verticalPagesDate = new Date('2026-08-23T00:00:00-03:00');
+const manausPageDate = new Date('2026-11-11T00:00:00-03:00');
 const forwhenCaseDate = new Date('2026-11-01T00:00:00-03:00');
 
 const staticRouteDates = new Map([
@@ -13,6 +14,7 @@ const staticRouteDates = new Map([
   ['/landing-page/', siteRefreshDate],
   ['/blog-profissional/', siteRefreshDate],
   ['/criacao-de-sites-belem/', siteRefreshDate],
+  ['/criacao-de-sites-manaus/', manausPageDate],
   ['/site-para-incorporadora/', verticalPagesDate],
   ['/site-para-construtora/', verticalPagesDate],
   ['/site-para-industria-de-madeira-engenheirada/', verticalPagesDate],

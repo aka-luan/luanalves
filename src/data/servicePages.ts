@@ -18,8 +18,19 @@ export interface ServiceCard {
   copy: string;
 }
 
+export interface ServiceAreaServed {
+  '@type': 'City' | 'AdministrativeArea' | 'Country';
+  name: string;
+}
+
 export interface ServicePageContent {
   slug: string;
+  areaServed?: ServiceAreaServed | ServiceAreaServed[];
+  relatedPages?: {
+    title: string;
+    copy: string;
+    links: { href: string; label: string }[];
+  };
   relatedInsightSlugs: string[];
   proof: {
     projectSlug: string;
@@ -36,6 +47,7 @@ export interface ServicePageContent {
   whatsappHref: string;
   hero: {
     eyebrow: string;
+    hideEyebrow?: boolean;
     title: string;
     accent: string;
     copy: string;
@@ -145,6 +157,7 @@ export const servicePages: Record<string, ServicePageContent> = {
     ),
     hero: {
       eyebrow: 'Serviço • Site institucional',
+      hideEyebrow: true,
       title:
         'Site institucional à altura da sua empresa',
       accent: 'à altura da sua empresa',
@@ -293,6 +306,7 @@ export const servicePages: Record<string, ServicePageContent> = {
     ),
     hero: {
       eyebrow: 'Serviço • Landing page',
+      hideEyebrow: true,
       title:
         'Landing page para levar quem clica no anúncio até o WhatsApp',
       accent: 'até o WhatsApp',
@@ -440,6 +454,7 @@ export const servicePages: Record<string, ServicePageContent> = {
     ),
     hero: {
       eyebrow: 'Serviço • Blog profissional',
+      hideEyebrow: true,
       title:
         'Blog profissional para publicar o que sua empresa sabe',
       accent: 'o que sua empresa sabe',
@@ -569,6 +584,21 @@ export const servicePages: Record<string, ServicePageContent> = {
   },
   'criacao-de-sites-belem': {
     slug: 'criacao-de-sites-belem',
+    areaServed: [
+      { '@type': 'City', name: 'Belém' },
+      {
+        '@type': 'AdministrativeArea',
+        name: 'Região Metropolitana de Belém',
+      },
+    ],
+    relatedPages: {
+      title: 'Sua empresa fica em outra cidade?',
+      copy: 'O processo é o mesmo para quem está fora de Belém: conversa pelo WhatsApp, reuniões por vídeo e etapas definidas na proposta.',
+      links: [
+        { href: '/criacao-de-sites-manaus/', label: 'Criação de sites em Manaus' },
+        { href: '/criacao-de-sites/', label: 'Todos os formatos de site' },
+      ],
+    },
     proof: {
       projectSlug: 'poliana-bentes',
       title: 'Um projeto para comunicar atuação no Pará.',
@@ -587,6 +617,7 @@ export const servicePages: Record<string, ServicePageContent> = {
     ),
     hero: {
       eyebrow: 'Serviço • Belém/PA',
+      hideEyebrow: true,
       title:
         'Criação de sites em Belém para empresas da cidade e da região metropolitana',
       accent: 'região metropolitana',
@@ -714,6 +745,172 @@ export const servicePages: Record<string, ServicePageContent> = {
       buttonLabel: 'Pedir orçamento do site em Belém',
     },
   },
+  'criacao-de-sites-manaus': {
+    slug: 'criacao-de-sites-manaus',
+    areaServed: { '@type': 'City', name: 'Manaus' },
+    relatedPages: {
+      title: 'Outras páginas sobre o atendimento.',
+      copy: 'Atendo de Belém, e o processo é o mesmo para empresas de outras cidades. A página de Belém mostra como funciona o atendimento na minha cidade.',
+      links: [
+        { href: '/criacao-de-sites-belem/', label: 'Criação de sites em Belém' },
+        { href: '/criacao-de-sites/', label: 'Todos os formatos de site' },
+      ],
+    },
+    proof: {
+      projectSlug: 'urbem',
+      title: 'Um site técnico para quem avalia fornecedores antes de falar.',
+      copy: 'A Urbem atua com madeira engenheirada e precisava apresentar produtos e projetos a arquitetos, construtoras e decisores. Desenvolvi o site, o blog e o CMS customizado a partir do design e da copy de uma agência parceira.',
+      limitation: 'É uma referência de site técnico, não um cliente de Manaus. Não tenho case em Manaus e não há métricas de leads ou posição atribuídas ao projeto.',
+    },
+    relatedInsightSlugs: ['site-institucional-o-que-precisa-ter', 'como-escolher-desenvolvedor-web-freelancer'],
+    namespace: 'criacao-de-sites-manaus',
+    title: 'Criação de sites em Manaus | Luan Alves',
+    description:
+      'Criação de sites em Manaus feita de Belém, com reuniões por vídeo e WhatsApp, para indústrias, turismo e empresas de serviço.',
+    canonicalPath: '/criacao-de-sites-manaus/',
+    serviceName: 'Criação de sites em Manaus',
+    whatsappHref: buildWhatsappHref(
+      'Olá, Luan! Quero criar o site da minha empresa em Manaus.',
+    ),
+    hero: {
+      eyebrow: 'Serviço • Manaus/AM',
+      hideEyebrow: true,
+      title:
+        'Criação de sites em Manaus, com atendimento remoto a partir de Belém',
+      accent: 'atendimento remoto a partir de Belém',
+      copy: 'Moro e trabalho em Belém e atendo empresas de Manaus por vídeo e WhatsApp. Não tenho escritório em Manaus. O site é feito para quem decide a compra sem visitar a empresa, como o cliente corporativo de outra cidade ou o turista que planeja a viagem.',
+      ctaLabel: 'Quero criar meu site em Manaus',
+      secondaryLabel: 'Ver projeto de referência',
+      secondaryHref: '#portfolio',
+      image: '/assets/site-institucional-hero.webp',
+      features: [
+        {
+          icon: 'videocam',
+          title: 'Reunião por vídeo',
+          copy: 'Alinhamentos por chamada, sem deslocamento.',
+        },
+        {
+          icon: 'schedule',
+          title: 'Uma hora de diferença',
+          copy: 'Manaus fica uma hora atrás de Belém. Marcamos no seu horário.',
+        },
+        {
+          icon: 'chat_bubble',
+          title: 'WhatsApp',
+          copy: 'Conversa direta comigo, do briefing à publicação.',
+        },
+      ],
+    },
+    benefits: {
+      eyebrow: 'Benefícios',
+      title: 'O que o site resolve para uma empresa de Manaus.',
+      accent: 'empresa de Manaus',
+      copy: 'Quem compra de uma empresa de Manaus muitas vezes está em outra cidade e consulta o site antes do primeiro contato.',
+      items: [
+        {
+          icon: 'factory',
+          title: 'Zona Franca e Polo Industrial',
+          copy: 'Indústrias e fornecedores ligados à Zona Franca de Manaus apresentam operação, linhas de produto e contato comercial a compradores que conferem o site antes da primeira conversa.',
+        },
+        {
+          icon: 'forest',
+          title: 'Turismo e ecoturismo',
+          copy: 'Hospedagens, operadoras e guias na Amazônia atendem quem pesquisa de longe. A página reúne roteiros, o que está incluso e um caminho direto para o WhatsApp.',
+        },
+        {
+          icon: 'domain',
+          title: 'Serviços regionais',
+          copy: 'Escritórios, clínicas, construtoras e prestadoras que atendem Manaus e outras cidades do Amazonas mostram serviços e região de atendimento em um só lugar.',
+        },
+        {
+          icon: 'forum',
+          title: 'Conversão pelo WhatsApp',
+          copy: 'Chamadas diretas para orçamento, visita técnica ou primeiro contato comercial.',
+        },
+      ],
+    },
+    audience: {
+      eyebrow: 'Para quem é',
+      title: 'Para empresas de Manaus que precisam ser entendidas por quem está fora.',
+      accent: 'quem está fora',
+      copy: 'Serve para empresas de Manaus que vendem para outras empresas ou recebem clientes de fora da cidade.',
+      items: [
+        {
+          icon: 'precision_manufacturing',
+          title: 'Indústria e fornecedores do Polo',
+          copy: 'Apresentação técnica da operação para compradores e parceiros.',
+        },
+        {
+          icon: 'travel_explore',
+          title: 'Turismo e ecoturismo',
+          copy: 'Roteiros, hospedagem e serviços para quem planeja a viagem antes de chegar. Versão em outro idioma é avaliada no escopo.',
+        },
+        {
+          icon: 'handshake',
+          title: 'Serviços e empresas regionais',
+          copy: 'Páginas para apoiar indicação, prospecção e reuniões comerciais.',
+        },
+      ],
+    },
+    process: {
+      eyebrow: 'Processo',
+      title: 'Atendimento remoto, direto comigo.',
+      accent: 'direto comigo',
+      copy: 'O briefing e os alinhamentos acontecem por vídeo e WhatsApp. As etapas seguem o que foi definido na proposta.',
+      items: sharedProcess,
+    },
+    included: {
+      eyebrow: 'Incluso',
+      title: 'O que entra no site para empresas de Manaus.',
+      accent: 'empresas de Manaus',
+      copy: 'A base combina apresentação institucional, conteúdo fornecido pela empresa, design, desenvolvimento, WhatsApp, SEO técnico e performance. ' + projectExtensionsCopy,
+      items: [
+        {
+          icon: 'corporate_fare',
+          title: 'Página institucional',
+          copy: 'Empresa, produtos ou serviços, diferenciais e contato comercial apresentados com clareza.',
+        },
+        {
+          icon: 'map',
+          title: 'Informações para quem avalia de fora',
+          copy: 'Cidade, região de atendimento e endereço, quando houver, para quem decide de outra cidade.',
+        },
+        {
+          icon: 'phone_in_talk',
+          title: 'Contato por WhatsApp',
+          copy: 'Botões que abrem o WhatsApp para pedir orçamento ou atendimento.',
+        },
+        {
+          icon: 'search',
+          title: 'SEO técnico inicial',
+          copy: 'Canonical, metadados, headings e performance desde a publicação.',
+        },
+      ],
+    },
+    faq: [
+      ...sharedFaq,
+      {
+        question: 'Você tem escritório ou atende presencialmente em Manaus?',
+        answer:
+          'Não. Moro e trabalho em Belém e não tenho escritório em Manaus. O atendimento é remoto, por vídeo e WhatsApp. Se o projeto pedir uma reunião presencial, avaliamos isso antes da proposta.',
+      },
+      {
+        question: 'A diferença de horário atrapalha o projeto?',
+        answer:
+          'Manaus fica uma hora atrás de Belém. Marcamos as reuniões em horário comercial para os dois lados, e o resto da conversa segue pelo WhatsApp.',
+      },
+      {
+        question: 'Você já fez sites para empresas de Manaus?',
+        answer:
+          'Não tenho case de empresa de Manaus no portfólio. O projeto de referência desta página é a Urbem, um site técnico de madeira engenheirada. Com empresas de outras cidades, o processo é o mesmo: vídeo, WhatsApp e etapas definidas na proposta.',
+      },
+    ],
+    cta: {
+      title: 'Sua empresa em Manaus precisa de um site mais profissional?',
+      copy: 'Me conte sobre a empresa, quem decide a compra e o objetivo principal. Respondo pelo WhatsApp com os próximos passos e os materiais necessários para a proposta.',
+      buttonLabel: 'Pedir orçamento do site em Manaus',
+    },
+  },
 };
 
 export const getBreadcrumbSchema = (items: BreadcrumbSchemaItem[]) => ({
@@ -762,16 +959,7 @@ export const getServicePageSchema = (page: ServicePageContent) => [
     provider: {
       '@id': `${siteUrl}/#business`,
     },
-    areaServed:
-      page.slug === 'criacao-de-sites-belem'
-        ? [
-            { '@type': 'City', name: 'Belém' },
-            {
-              '@type': 'AdministrativeArea',
-              name: 'Região Metropolitana de Belém',
-            },
-          ]
-        : { '@type': 'Country', name: 'Brasil' },
+    areaServed: page.areaServed ?? { '@type': 'Country', name: 'Brasil' },
     offers: {
       '@type': 'Offer',
       availability: 'https://schema.org/InStock',

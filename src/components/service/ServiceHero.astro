@@ -12,13 +12,7 @@ const { hero } = page;
 const heroImage = await getHeroImage(hero.image, '(max-width: 900px) calc(100vw - 37px), 50vw');
 const titleParts = hero.title.split(hero.accent);
 const titleDensity = hero.title.length > 64 ? 'long' : 'default';
-const hiddenHeroEyebrowSlugs = new Set([
-  'site-institucional',
-  'landing-page',
-  'blog-profissional',
-  'criacao-de-sites-belem',
-]);
-const showEyebrow = !hiddenHeroEyebrowSlugs.has(page.slug);
+const showEyebrow = !hero.hideEyebrow;
 const breadcrumbItems = [
   { label: 'Início', href: '/' },
   { label: 'Criação de sites', href: '/criacao-de-sites/' },

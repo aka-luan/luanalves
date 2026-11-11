@@ -92,6 +92,22 @@ const relatedInsights = getCuratedInsights(page.relatedInsightSlugs);
       </div>
     </section>
     {
+      page.relatedPages && (
+        <section class='service-summary section' id='paginas-relacionadas' aria-labelledby='service-related-pages-title'>
+          <div class='container'>
+            <p class='editorial-eyebrow'>Páginas relacionadas</p>
+            <h2 id='service-related-pages-title'>{page.relatedPages.title}</h2>
+            <p>{page.relatedPages.copy}</p>
+            <ul>
+              {page.relatedPages.links.map((link) => (
+                <li><a href={link.href}>{link.label}</a></li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )
+    }
+    {
       page.relatedSegments?.length && (
         <section class='service-segments' aria-labelledby='service-segments-title'>
           <div class='service-segments__inner'>
