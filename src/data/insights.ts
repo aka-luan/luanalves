@@ -2715,7 +2715,7 @@ const siteIncorporadoraInsight: InsightPublishedPost = {
   content: [
     {
       type: 'paragraph',
-      text: 'Um site para incorporadora precisa ter uma página para cada empreendimento, com conceito, localização, plantas, metragens, ficha técnica, andamento da obra e um contato que chegue ao comercial com o nome do lançamento. As páginas institucionais apresentam a incorporadora, o padrão dos projetos e os bairros onde ela atua.',
+      text: 'Um site para incorporadora precisa ter uma página para cada empreendimento, com conceito, localização, plantas, metragens, ficha técnica, andamento da obra e um contato que chegue ao comercial com o nome do lançamento. As páginas institucionais apresentam a incorporadora, o padrão dos projetos e os bairros onde ela atua. Uma imobiliária, que vende e aluga imóveis de terceiros, precisa de outra estrutura, descrita na página de <a href="/site-para-imobiliaria/">site para imobiliária</a>.',
     },
     {
       type: 'paragraph',

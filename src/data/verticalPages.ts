@@ -56,6 +56,7 @@ export interface VerticalPageContent {
     copy: string;
     items: VerticalPageItem[];
   };
+  relatedInsightSlugs: string[];
   faq: { question: string; answer: string }[];
   cta: {
     title: string;
@@ -120,6 +121,7 @@ export const verticalPages: Record<string, VerticalPageContent> = {
     description:
       'Site para incorporadora com uma página por empreendimento, localização, tipologias e contato pelo WhatsApp que identifica o lançamento. SEO técnico incluso.',
     canonicalPath: '/site-para-incorporadora/',
+    relatedInsightSlugs: ['site-para-incorporadora-o-que-precisa-ter', 'landing-page-ou-site-institucional'],
     serviceName: 'Criação de site para incorporadora',
     whatsappHref: buildWhatsappHref(
       'Olá, Luan! Quero conversar sobre um site para minha incorporadora. Temos ',
@@ -250,6 +252,7 @@ export const verticalPages: Record<string, VerticalPageContent> = {
     description:
       'Site para construtora com portfólio de obras entregues e em andamento, segmentos atendidos e pedido de orçamento pelo WhatsApp. SEO técnico incluso.',
     canonicalPath: '/site-para-construtora/',
+    relatedInsightSlugs: ['site-de-construtora-como-mostrar-obras', 'site-institucional-o-que-precisa-ter'],
     serviceName: 'Criação de site para construtora',
     whatsappHref: buildWhatsappHref(
       'Olá, Luan! Quero conversar sobre um site para minha construtora. Atuamos com ',
@@ -380,6 +383,7 @@ export const verticalPages: Record<string, VerticalPageContent> = {
     description:
       'Site para indústria e empresas de madeira engenheirada apresentarem produtos, projetos e conteúdo técnico a arquitetos, construtoras e especificadores.',
     canonicalPath: '/site-para-industria-de-madeira-engenheirada/',
+    relatedInsightSlugs: ['clt-e-mlc-madeira-engenheirada', 'site-institucional-o-que-precisa-ter'],
     serviceName: 'Criação de site para empresa de madeira engenheirada',
     whatsappHref: buildWhatsappHref(
       'Olá, Luan! Quero conversar sobre um site para nossa empresa de madeira engenheirada. Trabalhamos com ',
@@ -510,6 +514,7 @@ export const verticalPages: Record<string, VerticalPageContent> = {
     description:
       'Site para imobiliária com imóveis organizados por bairro e tipo, captação de proprietários e contato com o corretor pelo WhatsApp. SEO técnico incluso.',
     canonicalPath: '/site-para-imobiliaria/',
+    relatedInsightSlugs: ['site-para-incorporadora-o-que-precisa-ter', 'quanto-custa-um-site-profissional'],
     serviceName: 'Criação de site para imobiliária',
     whatsappHref: buildWhatsappHref(
       'Olá, Luan! Quero conversar sobre um site para minha imobiliária. Trabalhamos com ',
@@ -645,6 +650,7 @@ export const verticalPages: Record<string, VerticalPageContent> = {
     description:
       'Site para médico e clínica com especialidades, exames, informações do consultório e agendamento pelo WhatsApp, em linguagem sóbria. SEO técnico incluso.',
     canonicalPath: '/site-para-medicos/',
+    relatedInsightSlugs: ['site-institucional-o-que-precisa-ter', 'quanto-custa-um-site-profissional'],
     serviceName: 'Criação de site para médico e clínica',
     whatsappHref: buildWhatsappHref(
       'Olá, Luan! Quero conversar sobre um site para meu consultório ou clínica. Atuo na área de ',

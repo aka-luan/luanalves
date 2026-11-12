@@ -4,7 +4,7 @@ import HomeCta from '../HomeCta.astro';
 import SiteFooter from '../SiteFooter.astro';
 import SiteNav from '../SiteNav.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getInsightPath, getCuratedInsights } from '../../data/insights';
+import RelatedInsights from '../RelatedInsights.astro';
 import {
   getServicePageSchema,
   type ServicePageContent,
@@ -19,7 +19,6 @@ interface Props {
 }
 
 const { page } = Astro.props;
-const relatedInsights = getCuratedInsights(page.relatedInsightSlugs);
 ---
 
 <BaseLayout
@@ -142,35 +141,11 @@ const relatedInsights = getCuratedInsights(page.relatedInsightSlugs);
       )
     }
 
-    <section class='service-reading' aria-labelledby='service-reading-title'>
-      <div class='service-reading__inner'>
-        <div class='service-reading__copy'>
-          <p class='editorial-eyebrow'>Leituras relacionadas</p>
-          <h2 id='service-reading-title'>
-            Artigos para comparar antes de decidir.
-          </h2>
-          <p>
-            Se você ainda está comparando formatos, escopo ou o momento de
-            publicar, estes artigos tratam de cada ponto.
-          </p>
-        </div>
-
-        <div class='service-reading__grid'>
-          {
-            relatedInsights.map((post) => (
-              <a class='service-reading__card' href={getInsightPath(post)}>
-                <span class='service-reading__badge'>{post.category}</span>
-                <strong>{post.title}</strong>
-                <p>{post.excerpt}</p>
-                <span class='service-reading__meta'>
-                  {post.date} · {post.readTime}
-                </span>
-              </a>
-            ))
-          }
-        </div>
-      </div>
-    </section>
+    <RelatedInsights
+      slugs={page.relatedInsightSlugs}
+      title='Artigos para comparar antes de decidir.'
+      copy='Se você ainda está comparando formatos, escopo ou o momento de publicar, estes artigos tratam de cada ponto.'
+    />
 
     <FaqSection items={page.faq} />
 
@@ -200,10 +175,6 @@ const relatedInsights = getCuratedInsights(page.relatedInsightSlugs);
     overflow-x: hidden;
     background: var(--background);
     color: #f4f1ee;
-  }
-
-  .service-reading {
-    padding: clamp(4.2rem, 5vw, 5.4rem) 1.15rem 0;
   }
 
   .service-summary { scroll-margin-top: 6rem; }
@@ -293,96 +264,8 @@ const relatedInsights = getCuratedInsights(page.relatedInsightSlugs);
     color: #dfbd79;
   }
 
-  .service-reading__inner {
-    display: grid;
-    gap: 2rem;
-    width: min(100%, 78rem);
-    margin: 0 auto;
-  }
-
-  .service-reading__copy {
-    display: grid;
-    gap: 0.9rem;
-    max-width: 40rem;
-  }
-
-  .service-reading__eyebrow {
-    margin: 0;
-    color: #dfbd79;
-    font-size: 0.68rem;
-    font-weight: 900;
-    letter-spacing: 0.13em;
-    text-transform: uppercase;
-  }
-
-  .service-reading__copy h2 {
-    margin: 0;
-    color: #f4f1ee;
-    font-family: 'Newsreader', serif;
-    font-size: clamp(2.5rem, 4.6vw, 4rem);
-    font-weight: 400;
-    letter-spacing: -0.045em;
-    line-height: 1;
-    text-wrap: balance;
-  }
-
-  .service-reading__grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
-  }
-
-  .service-reading__card {
-    display: grid;
-    gap: 0.8rem;
-    min-width: 0;
-    padding: 1.3rem;
-    border: 1px solid rgba(229, 218, 207, 0.14);
-    background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.018), transparent 40%),
-      rgba(16, 17, 16, 0.7);
-    box-shadow:
-      inset 0 0 0 1px rgba(255, 255, 255, 0.012),
-      0 22px 52px rgba(0, 0, 0, 0.16);
-    transition: border-color var(--duration-hover) ease;
-  }
-
-  .service-reading__card:hover,
-  .service-reading__card:focus-visible {
-    border-color: rgba(229, 196, 135, 0.42);
-  }
-
-  .service-reading__badge,
-  .service-reading__meta {
-    color: #dfbd79;
-    font-size: 0.62rem;
-    font-weight: 900;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-  }
-
-  .service-reading__card strong {
-    color: #f4f1ee;
-    font-family: 'Newsreader', serif;
-    font-size: clamp(1.45rem, 2.3vw, 1.85rem);
-    font-weight: 400;
-    letter-spacing: -0.04em;
-    line-height: 1.08;
-    text-wrap: balance;
-  }
-
-  .service-reading__card p {
-    margin: 0;
-    color: rgba(226, 218, 208, 0.78);
-    line-height: 1.65;
-  }
-
   @media (max-width: 900px) {
     .service-segments__inner {
-      grid-template-columns: 1fr;
-    }
-
-    .service-reading__grid {
       grid-template-columns: 1fr;
     }
   }
