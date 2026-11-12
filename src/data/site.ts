@@ -9,6 +9,7 @@ export const navigation = [
       { href: '/landing-page/', label: 'Landing Page' },
       { href: '/blog-profissional/', label: 'Blog Profissional' },
       { href: '/criacao-de-sites-belem/', label: 'Criação de Sites em Belém' },
+      { href: '/criacao-de-sites-manaus/', label: 'Criação de Sites em Manaus' },
     ],
   },
   { href: '/portfolio/', label: 'Portfólio' },
