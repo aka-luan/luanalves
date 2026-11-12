@@ -2,6 +2,7 @@
 import Breadcrumbs from '../Breadcrumbs.astro';
 import FaqSection from '../FaqSection.astro';
 import HomeCta from '../HomeCta.astro';
+import RelatedInsights from '../RelatedInsights.astro';
 import SiteFooter from '../SiteFooter.astro';
 import SiteNav from '../SiteNav.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -322,6 +323,12 @@ const relatedVerticals = verticalPageLinks.filter(
         }
       </div>
     </section>
+
+    <RelatedInsights
+      slugs={page.relatedInsightSlugs}
+      title='Artigos para planejar o site antes do orçamento.'
+      copy='Estes artigos tratam das dúvidas que costumam aparecer antes de definir o escopo.'
+    />
 
     <FaqSection
       items={page.faq}
